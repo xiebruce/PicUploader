@@ -1,4 +1,5 @@
 # PicUploader project files
 .idea
+.DS_Store
 /log
 QiniuToken
