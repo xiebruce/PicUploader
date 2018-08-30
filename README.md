@@ -22,8 +22,8 @@ PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上�
 
 ## 二、下载使用
 ### 1.下载PicUploader
-- git clone git://
-- 直接下载 [PicUploader](http://www.github.com)
+- git clone git@github.com:xiebruce/PicUploader.git
+- 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 
 ### 2.填写配置
 在config.php文件中，修改AK/SK/bucket/domain四项为你的七牛云的配置。
