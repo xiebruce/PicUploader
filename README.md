@@ -58,7 +58,7 @@ return $config;
 ### 1.打开Automator
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
 ### 2.点击左下角的`New Document`
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ead60bb5f700caee17115126e016045c.png)
+![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ead60bb5f700caee17115126e016045c.png?imageMogr2/thumbnail/800x/strip/quality/80)
 ### 3.选择Services
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/4d86ad1338d5cd9b9a12eae0bff6bd41.png)
 
