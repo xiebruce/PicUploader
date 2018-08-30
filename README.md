@@ -105,7 +105,10 @@ return $config;
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/c91e4a969326b02ef9e919487cd50346.png)
 - 目前要看图片是否上传完成，只能看工具栏上的小齿轮，小齿轮消失了说明上传完成，然后就可以去markdown编辑器粘贴了。
 
-## 五、参考资料
+## 五、更新日志
+### 2018-08-30 1.0版本
+由于个人写markdown需要，目前现有的一些笔记软件都因为各种原因传图并不是很方便，于是写了这个小工具，想到可能有跟我一样需求的童鞋，就顺手发出来供有需要的童鞋使用，如有处理不好的地方在所难免，希望大家能批评指正！
+## 六、参考资料
 [七牛云phpsdk文档](https://developer.qiniu.com/kodo/sdk/1241/php)  
 [百度知道：没有个人网站怎么注册七牛云存储](https://zhidao.baidu.com/question/714797122999158885.html)  
 [google](http://www.google.com/ncr)  
