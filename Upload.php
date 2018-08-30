@@ -37,6 +37,7 @@ class Upload {
      * Upload constructor.
      *
      * @param $config
+     * @param $argv
      */
     public function __construct($config, $argv)
     {
@@ -162,15 +163,15 @@ class Upload {
         $bucket = $this->bucket;
         //token过期时间
         $expires = 7190;
-        if(!is_file(__DIR__.'/QiniuToken') || (time() - filemtime(__DIR__.'/QiniuToken')) > $expires){
+        //如果文件存在，且未过期，且文件里有内容，则使用文件缓存的token
+        if(is_file(__DIR__.'/QiniuToken') && ((time() - filemtime(__DIR__.'/QiniuToken')) < $expires) && file_get_contents(__DIR__.'/QiniuToken')!=''){
+            $token = file_get_contents(__DIR__.'/QiniuToken');
+        }else{
             // 生成上传Token
             $token = $auth->uploadToken($bucket, null, $expires);
             //缓存到文件中
             file_put_contents(__DIR__.'/QiniuToken',$token);
-        }else{
-            $token = file_get_contents(__DIR__.'/QiniuToken');
         }
-
         return $token;
     }
 

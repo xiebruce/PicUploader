@@ -14,7 +14,12 @@
     require 'vendor/autoload.php';
     require 'EasyImage.php';
     require 'Upload.php';
-    $config = require 'config.php';
+    if(is_file(__DIR__.'/config-local.php')){
+        $config = require 'config-local.php';
+    }else{
+        $config = require 'config.php';
+    }
+
     use PicUploader\Upload;
 
     array_shift($argv);
