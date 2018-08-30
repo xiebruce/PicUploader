@@ -106,6 +106,9 @@ return $config;
 
 ## 五、参考资料
 [七牛云phpsdk文档](https://developer.qiniu.com/kodo/sdk/1241/php)
+
 [百度知道：没有个人网站怎么注册七牛云存储](https://zhidao.baidu.com/question/714797122999158885.html)
+
 [google](http://www.google.com/ncr)
+
 [百度](http://www.baidu.com)
