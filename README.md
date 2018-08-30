@@ -2,7 +2,7 @@
 PicUploader
 ===============
 
-![PicUploader demonstration](http://pe5scgdex.bkt.clouddn.com/2018/08/29/d6f347572fcf87c5a64a9e048df83bba.gif)
+![PicUploader demonstration](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20Demonstration.gif)
 PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上传你的图片到七牛云并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，你只需要右击图片，点击`你的自定义菜单`，稍等片刻，即可直接到markdown编辑器中粘贴你的图片地址，同时你也可以设置一个快捷键。
 
 ## 一、 准备开始
