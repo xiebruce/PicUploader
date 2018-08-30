@@ -81,7 +81,7 @@ return $config;
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png?imageMogr2/thumbnail/50x/strip/quality/80)
 ### 2. 为你创建的服务创建快捷键
 `系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png)
+![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png?imageMogr2/thumbnail/800x/strip/quality/80)
 ### 3.查看上传日志
 - 还记得你刚刚把**PicUploader**的代码放哪了吗？现在去打开它的目录看看，是不是有个log目录？是的，这里保存了你上传的文件外链地址，你在七牛云是能找到对应的图片的，如果你觉得哪张图片不想要，可以在七牛云中把它删除了。
 - 这个日志文件也是markdown格式，所以你可以用mweb之类的markdown编辑器查看它，但是有个问题就是当日志内容增加时，MWeb无法刷新，建议用[typora](https://typora.io/)打开日志，这个会自动刷新，而且免费。
