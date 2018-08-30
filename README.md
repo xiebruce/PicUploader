@@ -74,7 +74,7 @@ return $config;
 
 ### 5.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ba398bb8ac9a1c5c5cb6623609346573.png)
+![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ba398bb8ac9a1c5c5cb6623609346573.png?imageMogr2/thumbnail/800x/strip/quality/80)
 ## 三、开始使用
 ### 1.右击任意一张图片
 如果一切正常，你对着图片右击，并点击右键菜单中的`Get Public Link`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当图片上传完成后，小齿轮就会消失，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`试试吧
