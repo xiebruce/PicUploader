@@ -26,7 +26,7 @@ PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上�
 - 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 
 ### 2.填写配置
-在config.php文件中，修改AK/SK/bucket/domain四项为你的七牛云的配置。
+在config.php文件中，修改AK/SK/bucket/domain四项为你的七牛云的配置。建议把config.php复制一份，命名为config-local.php，然后在config-local.php中修改你的配置即可，避免以后更新的时候把你的配置给覆盖了。
 
 ``` php
 <?php
