@@ -16,7 +16,7 @@ PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上�
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/9d384dba74d300c690fdca06f5855cbe.png)
 - 点击『内容管理』，现在你可以在这里手动上传图片试试了，注意这里有个『外链默认域名』，待会下面配置会用到它。
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/2f9a1fbd9cfa7ffbfb59c4d0848e797a.png)
-- 点击右上角『个人面板』——『个人中心』——『密钥管理』，这里的AK/SK下面配置会用到它。
+- 点击右上角`个人面板`——`个人中心`——`密钥管理`，这里的AK/SK下面配置会用到它。
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/b623604467ea4da4489e8018b674fb94.png)
 
 ## 二、下载使用
