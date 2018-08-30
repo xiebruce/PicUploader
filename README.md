@@ -80,7 +80,7 @@ return $config;
 如果一切正常，你对着图片右击，并点击右键菜单中的`Get Public Link`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当图片上传完成后，小齿轮就会消失，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`试试吧
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png?imageMogr2/thumbnail/50x/strip/quality/80)
 ### 2. 为你创建的服务创建快捷键
-`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。
+`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。  
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png?imageMogr2/thumbnail/800x/strip/quality/80)
 ### 3.查看上传日志
 - 还记得你刚刚把**PicUploader**的代码放哪了吗？现在去打开它的目录看看，是不是有个log目录？是的，这里保存了你上传的文件外链地址，你在七牛云是能找到对应的图片的，如果你觉得哪张图片不想要，可以在七牛云中把它删除了。
