@@ -167,75 +167,69 @@ class Upload {
             exit;
         }
 
-        try{
-            $link = '';
-            $client = new Client([
-                'base_uri' => $this->smmsBaseUrl,
-                'timeout'  => 10.0,
-            ]);
-            foreach($this->argv as $filePath){
-                $this->mimeType = $this->getMimeType($filePath);
-                $originFilename = $this->getOriginFileName($filePath);
-                //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-                if(!in_array($this->mimeType, $this->allowMimeTypes)){
-                    $error = 'Only MIME in "'.join(', ', $this->allowMimeTypes).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$this->mimeType."\n";
-                    $this->writeLog($error, 'error_log');
-                    continue;
-                }
-
-                //如果配置了优化宽度，则优化
-                $tmpImgPath = '';
-                if($this->imgWidth){
-                    $tmpImgPath = $this->optimizeImage($filePath);
-                }
-                $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-                $originFileName = $this->getOriginFileName($filePath);
-
-                $fileSize = filesize($uploadFilePath);
-                if($fileSize > 5000000){
-                    if($this->imgWidth){
-                        $error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
-                    }else{
-                        $error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
-                    }
-
-                    $this->writeLog($error, 'error_log');
-                    continue;
-                }
-                //upload?ssl=1
-                //上传到https://sm.ms
-                $response = $client->request('POST', 'upload?ssl=1', [
-                    'multipart' => [
-                        [
-                            'name'     => 'smfile',
-                            'contents' => fopen($uploadFilePath, 'r')
-                        ],
-                    ]
-                ]);
-
-                $string = $response->getBody()->getContents();
-                if($response->getReasonPhrase() != 'OK'){
-                    //上传数错，记录错误日志
-                    $this->writeLog($string, 'error_log');
-                    continue;
-                }
-
-                $returnArr = json_decode($string, true);
-                if($returnArr['code'] == 'success'){
-                    $data = $returnArr['data'];
-                    $deleteLink = 'Delete Link: '.$data['delete'];
-                    $link .= $this->formatLink($data['url'], $originFileName);
-                    $link .= $deleteLink . "\n\n";
-                }
-                //删除临时图片
-                // $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
+        $link = '';
+        $client = new Client([
+            'base_uri' => $this->smmsBaseUrl,
+            'timeout'  => 10.0,
+        ]);
+        foreach($this->argv as $filePath){
+            $this->mimeType = $this->getMimeType($filePath);
+            $originFilename = $this->getOriginFileName($filePath);
+            //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
+            if(!in_array($this->mimeType, $this->allowMimeTypes)){
+                $error = 'Only MIME in "'.join(', ', $this->allowMimeTypes).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$this->mimeType."\n";
+                $this->writeLog($error, 'error_log');
+                continue;
             }
-            return $link;
-        }catch (\ErrorException $exception){
-            echo 234234;exit;
-            var_dump($exception);exit;
-            $this->writeLog($error, 'error_log');
+
+            //如果配置了优化宽度，则优化
+            $tmpImgPath = '';
+            if($this->imgWidth){
+                $tmpImgPath = $this->optimizeImage($filePath);
+            }
+            $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+            $originFileName = $this->getOriginFileName($filePath);
+
+            $fileSize = filesize($uploadFilePath);
+            if($fileSize > 5000000){
+                if($this->imgWidth){
+                    $error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
+                }else{
+                    $error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
+                }
+
+                $this->writeLog($error, 'error_log');
+                continue;
+            }
+            //upload?ssl=1
+            //上传到https://sm.ms
+            $response = $client->request('POST', 'upload?ssl=1', [
+                'multipart' => [
+                    [
+                        'name'     => 'smfile',
+                        'contents' => fopen($uploadFilePath, 'r')
+                    ],
+                ]
+            ]);
+
+            $string = $response->getBody()->getContents();
+            if($response->getReasonPhrase() != 'OK'){
+                //上传数错，记录错误日志
+                $this->writeLog($string, 'error_log');
+                continue;
+            }
+
+            $returnArr = json_decode($string, true);
+            if($returnArr['code'] == 'success'){
+                $data = $returnArr['data'];
+                $deleteLink = 'Delete Link: '.$data['delete'];
+                $link .= $this->formatLink($data['url'], $originFileName);
+                $link .= $deleteLink . "\n\n";
+            }
+            //删除临时图片
+            // $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
         }
+        return $link;
     }
 
     /**
