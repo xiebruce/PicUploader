@@ -8,6 +8,7 @@
 
 namespace PicUploader;
 
+use GuzzleHttp\Client;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 
@@ -32,6 +33,13 @@ class Upload {
     public $argv;
     //允许上传的图片
     public $allowMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    //图片mime类型
+    public $mimeType;
+    //链接类型（normal / markdown / markdownWithLink）
+    public $linkType;
+    //存储类型（Qiniu / sm.sm）
+    public $storageType;
+    public $smmsBaseUrl;
 
     /**
      * Upload constructor.
@@ -49,74 +57,76 @@ class Upload {
         $this->tmpDir = __DIR__.'/.tmp';
         $this->imgWidth = isset($config['imgWidth']) ? $config['imgWidth'] : 0;
         $this->optimize = isset($config['Qiniu']['optimize']) ? $config['Qiniu']['optimize'] : '';
+        $this->linkType = isset($config['linkType']) ? $config['linkType'] : 'normal';
+        $this->storageType = isset($config['storageType']) ? $config['storageType'] : 'sm.ms';
+        $this->smmsBaseUrl = $config['sm.ms']['baseUrl'];
 
+        //去除第一个元素（因为第一个元素是index.php，因为$argv是linux/mac的参数，
+        //用php执行index.php的时候，index.php也算是一个参数）
+        array_shift($argv);
         $this->argv = $argv;
     }
 
     /**
-     * 上传图片到七牛云并返回链接
-     * @param int $mardownLink
-     *
+     * 获取公共链接
      * @return string
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ImagickException
      */
-    public function getPublickLink($mardownLink = 1){
+    public function getPublickLink(){
+        switch($this->storageType){
+            case 'Qiniu':
+                $link = $this->uploadToQiniu();
+                break;
+            case 'sm.ms':
+            default:
+                $link = $this->uploadToSmms();
+        }
+
+        //记录上传日志
+        $datetime = date('Y-m-d H:i:s');
+        $content = "Picture uploaded to {$this->storageType} at {$datetime} => \n{$link}\n---\n";
+        $this->writeLog($content);
+        return $link;
+    }
+
+    /**
+     * 上传文件到七牛云
+     * @return string
+     * @throws \ImagickException
+     */
+    public function uploadToQiniu(){
+        $fileCount = count($this->argv);
+        if($fileCount > 5){
+            $error = "Sorry, it's too slow if you upload more than 5 photos at a time, {$fileCount} were selected!\n";
+            $this->writeLog($error, 'error_log');
+            echo $error;
+            exit;
+        }
         //$argv 是php作为客户程序使用时默认就有的参数，这个变量会把外部传入的参数接收进来，$argv是一个数组
         //比如 php /Users/xxx/www/index.php aa bb，则$argv的值为数组：['/Users/xxx/www/index.php','aa','bb']
         //去除参数中的第一个元素（因为第一个元素是本文件）
-        $markDownLink = '';
+        $link = '';
         foreach($this->argv as $filePath){
-            $mimeType = $this->getMimeType($filePath);
+            $this->mimeType = $this->getMimeType($filePath);
+            $originFilename = $this->getOriginFileName($filePath);
             //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-            if(!in_array($mimeType, $this->allowMimeTypes)){
+            if(!in_array($this->mimeType, $this->allowMimeTypes)){
+                $error = 'Only MIME in "'.join(', ', $this->allowMimeTypes).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$this->mimeType."\n";
+                $this->writeLog($error, 'error_log');
                 continue;
             }
 
-            //获取图片扩展名
-            $pathinfo = pathinfo($filePath);
-            $ext = $pathinfo['extension'];
-            //生成图片名
-            $randStr = $this->getRandString();
-            $fileName = $randStr.'.'.$ext;
-            //组装key名（因为我们用的是七牛云的OSS:Object Storage Service，即对象存储服务，存储是用key=>value的方式存的）
-            $key = date('Y/m/d/') . $fileName;
+            //获取随机文件名
+            $newFileName = $this->genRandFileName($filePath);
 
-            //如果配置文件指定优化比率，则按指定的比率优化
+            //组装key名（因为我们用的是七牛云的OSS:Object Storage Service，即对象存储服务，存储是用key=>value的方式存的）
+            $key = date('Y/m/d/') . $newFileName;
+
+            //如果配置了优化宽度，则优化
             $tmpImgPath = '';
             if($this->imgWidth){
-                //优化gif需要安装一些额外的库，暂时不优化
-                if($mimeType != 'image/gif'){
-                    $optimize = false;
-                    //如果安装了Imagic，则使用Imagick判断分辨率是否大于150来来决定是否要优化
-                    //如果没有分辨率，判断图片宽度是否大于配置的要优化的宽度
-                    //如果宽度也没有，看文件是否大于500k
-                    if(class_exists('Imagick', false)){
-                        $imagick = new \Imagick($filePath);
-                        $imgResolution = $imagick->getImageResolution();
-                        $imgWidth = $imagick->getImageWidth();
-                        if((isset($imgResolution['x']) && $imgResolution['x']>=150)
-                            || (isset($imgResolution['y']) && $imgResolution['y']>=150)
-                            || ($imgWidth > $this->imgWidth)
-                            || (filesize($filePath) > 500000))
-                        {
-                            $optimize = true;
-                        }
-                    }else if(function_exists('getimagesize')){
-                        $fileSize = getimagesize($filePath);
-                        //如果宽度大于要优化的宽度，则优化
-                        if(isset($fileSize[0]) && $fileSize[0] > $this->imgWidth){
-                            $optimize = true;
-                        }
-                        //如果文件大小大于500k，则优化
-                    }else if(filesize($filePath) > 500000){
-                        $optimize = true;
-                    }
-
-                    if($optimize){
-                        $tmpImgPath = $this->tmpDir.'/'.$fileName;
-                        (new EasyImage())->load($filePath)->fit_to_width($this->imgWidth)->save($tmpImgPath);
-                    }
-                }
+                $tmpImgPath = $this->optimizeImage($filePath);
             }
             $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 
@@ -128,28 +138,174 @@ class Upload {
             list($ret, $err) = $uploadMgr->putFile($token, $key, $uploadFilePath);
             if ($err !== null) {
                 //上传数错，记录错误日志
-                $this->logfile(var_export($err, true), 'error_log');
+                $this->writeLog(var_export($err, true)."\n", 'error_log');
             } else {
-                //组装成markdown格式（后面的参数为七牛优化参数）
+                //拼接域名和优化参数成为一个可访问的外链
                 $publicLink = $this->domain . '/' . $ret['key'];
                 $this->optimize && $publicLink .= $this->optimize;
+                //按配置文件指定的格式，格式化链接
+                $link .= $this->formatLink($publicLink, $originFilename);
+            }
+            //删除临时图片
+            $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
+        }
+        return $link;
+    }
 
-                //如果需要输出markdown图片链接格式
-                if($mardownLink){
-                    $markDownLink .= '![]('.$publicLink.')'."\n";
-                }else{
-                    $markDownLink .= $publicLink."\n";
+    /**
+     * 上传图片到: http://sm.ms
+     * @return string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \ImagickException
+     */
+    public function uploadToSmms(){
+        $fileCount = count($this->argv);
+        if($fileCount > 5){
+            $error = "Sorry, due to https://sm.ms restriction, you can only upload 5 photos at a time, {$fileCount} were selected!\n";
+            $this->writeLog($error, 'error_log');
+            echo $error;
+            exit;
+        }
+
+        try{
+            $link = '';
+            $client = new Client([
+                'base_uri' => $this->smmsBaseUrl,
+                'timeout'  => 10.0,
+            ]);
+            foreach($this->argv as $filePath){
+                $this->mimeType = $this->getMimeType($filePath);
+                $originFilename = $this->getOriginFileName($filePath);
+                //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
+                if(!in_array($this->mimeType, $this->allowMimeTypes)){
+                    $error = 'Only MIME in "'.join(', ', $this->allowMimeTypes).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$this->mimeType."\n";
+                    $this->writeLog($error, 'error_log');
+                    continue;
                 }
 
+                //如果配置了优化宽度，则优化
+                $tmpImgPath = '';
+                if($this->imgWidth){
+                    $tmpImgPath = $this->optimizeImage($filePath);
+                }
+                $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+                $originFileName = $this->getOriginFileName($filePath);
+
+                $fileSize = filesize($uploadFilePath);
+                if($fileSize > 5000000){
+                    if($this->imgWidth){
+                        $error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
+                    }else{
+                        $error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
+                    }
+
+                    $this->writeLog($error, 'error_log');
+                    continue;
+                }
+                //upload?ssl=1
+                //上传到https://sm.ms
+                $response = $client->request('POST', 'upload?ssl=1', [
+                    'multipart' => [
+                        [
+                            'name'     => 'smfile',
+                            'contents' => fopen($uploadFilePath, 'r')
+                        ],
+                    ]
+                ]);
+
+                $string = $response->getBody()->getContents();
+                if($response->getReasonPhrase() != 'OK'){
+                    //上传数错，记录错误日志
+                    $this->writeLog($string, 'error_log');
+                    continue;
+                }
+
+                $returnArr = json_decode($string, true);
+                if($returnArr['code'] == 'success'){
+                    $data = $returnArr['data'];
+                    $deleteLink = 'Delete Link: '.$data['delete'];
+                    $link .= $this->formatLink($data['url'], $originFileName);
+                    $link .= $deleteLink . "\n\n";
+                }
                 //删除临时图片
-                isset($tmpImgPath) && is_file($tmpImgPath) && @unlink($tmpImgPath);
+                // $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
+            }
+            return $link;
+        }catch (\ErrorException $exception){
+            echo 234234;exit;
+            var_dump($exception);exit;
+            $this->writeLog($error, 'error_log');
+        }
+    }
+
+    /**
+     * 格式化链接
+     * @param        $url
+     * @param string $filename
+     *
+     * @return string
+     */
+    public function formatLink($url, $filename=''){
+        //如果需要输出markdown图片链接格式
+        switch ($this->linkType){
+            case 'markdown':
+                $link = '!['.$filename.']('.$url.')'."\n";
+                break;
+            case 'markdownWithLink':
+                //带链接的图片
+                $img = '!['.$filename.']('.$url.')';
+                $link = '['.$img.']('.$url.')'."\n";
+                break;
+            case 'normal':
+            default:
+                $link = $url."\n";
+        }
+        return $link;
+    }
+
+    /**
+     * 优化图片
+     * @param $filePath
+     *
+     * @return string
+     * @throws \ImagickException
+     */
+    public function optimizeImage($filePath){
+        $tmpImgPath = '';
+        //优化gif需要安装一些额外的库，暂时不优化
+        if($this->mimeType != 'image/gif'){
+            $optimize = false;
+            //如果安装了Imagic，则使用Imagick判断分辨率是否大于150来来决定是否要优化
+            //如果没有分辨率，判断图片宽度是否大于配置的要优化的宽度
+            //如果宽度也没有，看文件是否大于500k
+            if(class_exists('Imagick', false)){
+                $imagick = new \Imagick($filePath);
+                $imgResolution = $imagick->getImageResolution();
+                $imgWidth = $imagick->getImageWidth();
+                if((isset($imgResolution['x']) && $imgResolution['x']>=150)
+                    || (isset($imgResolution['y']) && $imgResolution['y']>=150)
+                    || ($imgWidth > $this->imgWidth)
+                    || (filesize($filePath) > 500000))
+                {
+                    $optimize = true;
+                }
+            }else if(function_exists('getimagesize')){
+                $fileSize = getimagesize($filePath);
+                //如果宽度大于要优化的宽度，则优化
+                if(isset($fileSize[0]) && $fileSize[0] > $this->imgWidth){
+                    $optimize = true;
+                }
+                //如果文件大小大于500k，则优化
+            }else if(filesize($filePath) > 500000){
+                $optimize = true;
+            }
+
+            if($optimize){
+                $tmpImgPath = $this->tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+                (new EasyImage())->load($filePath)->fit_to_width($this->imgWidth)->save($tmpImgPath);
             }
         }
-        //记录上传日志
-        $datetime = date('Y-m-d H:i:s');
-        $content = "picture uploaded at {$datetime} => \n{$markDownLink}\n---\n";
-        $this->logfile($content);
-        return $markDownLink;
+        return $tmpImgPath;
     }
 
     /**
@@ -173,6 +329,42 @@ class Upload {
             file_put_contents(__DIR__.'/QiniuToken',$token);
         }
         return $token;
+    }
+
+    /**
+     * 根据文件路径获取原文件名
+     * @param $filePath
+     *
+     * @return mixed
+     */
+    public function getOriginFileName($filePath){
+        $arr = explode('/', $filePath);
+        return array_pop($arr);
+    }
+
+    /**
+     * 获取文件扩展名
+     * @param $filePath
+     *
+     * @return mixed
+     */
+    public function getFileExt($filePath){
+        //获取图片扩展名
+        $pathinfo = pathinfo($filePath);
+        return $pathinfo['extension'];
+    }
+
+    /**
+     * 生成随机文件名
+     * @param $filePath
+     *
+     * @return string
+     */
+    public function genRandFileName($filePath){
+        $ext = $this->getFileExt($filePath);
+        //生成图片名
+        $randStr = $this->getRandString();
+        return $randStr.'.'.$ext;
     }
 
     /**
@@ -222,13 +414,13 @@ class Upload {
      * @param        $content
      * @param string $type
      */
-    public function logfile($content, $type = 'uploaded'){
+    public function writeLog($content, $type = 'uploaded'){
         $logPath = __DIR__.'/log/'.$type.'/'.date('Y/m');
         if(!is_dir($logPath)){
             mkdir($logPath, 0777, true);
         }
-        $logFile = $logPath.'/'.date('Y-m-d').'-log.md';
         if($type == 'uploaded'){
+            $logFile = $logPath.'/'.date('Y-m-d').'-log.md';
             /*
              * 采用把最新上传的图片添加到日志文件的开头的方式，方便查看最新上传的图片
              */
@@ -246,6 +438,7 @@ class Upload {
                 @unlink($tmpLog);
             }
         }else{
+            $logFile = $logPath.'/'.date('Y-m-d').'-log.txt';
             file_put_contents($logFile, $content, FILE_APPEND);
         }
     }

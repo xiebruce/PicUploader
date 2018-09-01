@@ -11,6 +11,8 @@
      * 比如 php test.php aa bb，那么在test.php里打印$argv变量就是一个数组，包含3个元素test.php, aa, bb，而$argc就是$argv的元素个数，相当于count($argc)
      */
 
+    date_default_timezone_set('Asia/Shanghai');
+
     require 'vendor/autoload.php';
     require 'EasyImage.php';
     require 'Upload.php';
@@ -22,7 +24,5 @@
 
     use PicUploader\Upload;
 
-    array_shift($argv);
-    $markdownLink = isset($config['markdownLink']) ? $config['markdownLink'] : 1;
-    echo (new Upload($config,$argv))->getPublickLink($markdownLink);
+    echo (new Upload($config,$argv))->getPublickLink();
 

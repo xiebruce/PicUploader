@@ -2,5 +2,6 @@
 .idea
 .DS_Store
 /log
+.tmp/
 QiniuToken
 config-local.php

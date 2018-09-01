@@ -1,5 +1,6 @@
 {
     "require": {
-        "qiniu/php-sdk": "^7.2"
+        "qiniu/php-sdk": "^7.2",
+        "guzzlehttp/guzzle": "^6.3"
     }
 }

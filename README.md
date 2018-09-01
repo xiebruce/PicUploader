@@ -19,6 +19,22 @@ PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上�
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/2f9a1fbd9cfa7ffbfb59c4d0848e797a.png)
 - 点击右上角`个人面板`——`个人中心`——`密钥管理`，这里的AK/SK下面配置会用到它。
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/b623604467ea4da4489e8018b674fb94.png)
+### 3.也可以不注册七牛云，直接使用sm.ms（1.1版本添加）
+- 直接使用是上传到[sm.ms](http://sm.ms)，我这里刚开始是可以，后来上传一直超时（如果小齿轮一直转个不停，基本上就是超时了），感觉是被封ip了，后来用手机开流量可以上传，大家用的时候能否上传我也不确定。
+- 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容，请查看日志，很有可能是这张图片压缩后超过了5M，或者是超过5M的gif图（gif图不压缩）
+- 如果粘贴出来的内容以下内容，那就是无法上传到sm.ms了，只能换七牛啦。
+```
+Fatal error: Uncaught GuzzleHttp\Exception\ConnectException: cURL error 28: Operation timed out after 10003 milliseconds with 0 out of 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 185
+
+GuzzleHttp\Exception\ConnectException: cURL error 28: Operation timed out after 10003 milliseconds with 0 out of 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 185
+
+Call Stack:
+    0.0015     390496   1. {main}() /Users/bruce/www/personal/PicUploader/index.php:0
+    0.0128    1021472   2. PicUploader\Upload->getPublickLink() /Users/bruce/www/personal/PicUploader/index.php:27
+    0.0128    1021472   3. PicUploader\Upload->uploadToSmms() /Users/bruce/www/personal/PicUploader/Upload.php:83
+    0.6283    1675632   4. GuzzleHttp\Client->request() /Users/bruce/www/personal/PicUploader/Upload.php:211
+   10.6451    2047552   5. GuzzleHttp\Promise\RejectedPromise->wait() /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Client.php:131
+```
 
 ## 二、下载使用
 ### 1.下载PicUploader
@@ -26,31 +42,47 @@ PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上�
 - 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 
 ### 2.填写配置
-在config.php文件中，修改AK/SK/bucket/domain四项为你的七牛云的配置。建议把config.php复制一份，命名为config-local.php，然后在config-local.php中修改你的配置即可，避免以后更新的时候把你的配置给覆盖了。
+- 在config.php文件中，修改AK/SK/bucket/domain四项为你的七牛云的配置。建议把config.php复制一份，命名为config-local.php，然后在config-local.php中修改你的配置即可，避免以后更新的时候把你的配置给覆盖了。
+- 如果使用sm.ms，那就不需要修改配置了，直接使用！
 
 ``` php
 <?php
+/**
+ * Created by PhpStorm.
+ * User: bruce
+ * Date: 2018-08-30
+ * Time: 14:58
+ */
 
 $config = [
     //七牛云
     'Qiniu' => [
         //七牛云AppKey
-        'AK' => 'ASGZj*******************************0AoF',
+        'AK' => 'ASGZjb***************************tto0AoF',
         //七牛云AppSecret
-        'SK' => 'UoCCj*******************************kEy',
+        'SK' => 'UoCCK2******************************lkEy',
         //七牛云对象存储空间名
-        'bucket' => 'm*****n',
+        'bucket' => 'markdown',
         //七牛云外链域名
-        'domain' => 'http://pe5****ex.bkt.clouddn.com',
+        'domain' => 'http://pe5********.clouddn.com',
         //七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
-        // 'optimize' => '',
+        // 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
+    ],
+
+    'sm.ms' => [
+        'baseUrl' => 'https://sm.ms/api/',
+
     ],
 
     //图片优化宽度（建议填1000），值为0或注释掉表示不优化
     'imgWidth' => 1000,
-    //是否获取markdown格式的链接，即『![](http://xxxxxxx.jpg)』这种格式
-    //如果为0，则是普通链接，如果不配置该项则默认为1（即markdown格式）
-    'markdownLink' => 1,
+
+    //链接类型，三个值，normal, markdown, markdownWithLink，不填或者填的值不在这三个值里，按normal算
+    //其中markdownWithLink表示点击后会跳转到图片源地址
+    'linkType' => 'markdownWithLink',
+    //目前只支持七牛云(Qiniu)，后续会支持sm.ms
+    // 'storageType' => 'Qiniu',
+    'storageType' => 'sm.ms',
 ];
 
 return $config;
@@ -106,10 +138,16 @@ return $config;
 - 目前要看图片是否上传完成，只能看工具栏上的小齿轮，小齿轮消失了说明上传完成，然后就可以去markdown编辑器粘贴了。
 
 ## 五、更新日志
+### 2018-09-01 1.1版本
+    - 添加支持https://sm.ms，默认上传到sm.ms
+    - 添加mardownWithLink链接类型（点击图片后能跳转到图片链接）
+    - fix bug log时间设置成东八区
 ### 2018-08-30 1.0版本
 由于个人写markdown需要，目前现有的一些笔记软件都因为各种原因传图并不是很方便，于是写了这个小工具，想到可能有跟我一样需求的童鞋，就顺手发出来供有需要的童鞋使用，如有处理不好的地方在所难免，希望大家能批评指正！
 ## 六、参考资料
 [七牛云phpsdk文档](https://developer.qiniu.com/kodo/sdk/1241/php)  
-[百度知道：没有个人网站怎么注册七牛云存储](https://zhidao.baidu.com/question/714797122999158885.html)  
+[百度知道：没有个人网站怎么注册七牛云存储](https://zhidao.baidu.com/question/714797122999158885.html)
+[sm.ms Api](https://sm.ms/doc/)
+[GuzzleHttp官方文档](http://docs.guzzlephp.org/en/stable/quickstart.html#post-form-requests)
 [google](http://www.google.com/ncr)  
 [百度](http://www.baidu.com)  
