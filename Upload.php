@@ -227,7 +227,7 @@ class Upload {
                 $link .= $deleteLink . "\n\n";
             }
             //删除临时图片
-            // $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
+            $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
         }
         return $link;
     }
