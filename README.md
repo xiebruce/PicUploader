@@ -139,7 +139,7 @@ return $config;
 
 ## 五、更新日志
 ### 2018-09-01 1.1版本
-- 添加支持https://sm.ms，默认上传到sm.ms
+- 添加支持[https://sm.ms](https://sm.ms)，默认上传到sm.ms
 - 添加mardownWithLink链接类型（点击图片后能跳转到图片链接）
 - fix bug log时间设置成东八区
 ### 2018-08-30 1.0版本
