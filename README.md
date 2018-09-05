@@ -109,10 +109,10 @@ return $config;
 注意每一个需要选择的地方都不要选错（咦，这个图右侧的步骤用什么软件写的？安利Mac下非常好用的一个截图工具『xnip』），其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取外链』或者『markdown外链』之类的。
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ede18f0537e41baf801e99e2a488b9a3.png)
 ``` php
-/usr/local/bin/php /Users/xxxx/www/PicUploader/index.php "$@" | pbcopy
+/usr/bin/php /Users/xxxxx/www/PicUploader-master/index.php "$@" | pbcopy
 ```
 注意：
-- 前面的/usr/local/bin/php，是我自己用brew安装的，如果你用的是系统自带的，那么它可能是在/usr/bin/php，你可以用『which php』来查看它的路径。
+- 注意/usr/bin/php路径，最后在终端用『which php』来查看它的路径，确认一下是否正确。
 - 把index.php的路径换成你自己的路径
 
 ### 5.试试右击任意图片
