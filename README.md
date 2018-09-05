@@ -2,25 +2,20 @@
 PicUploader
 ===============
 ![PicUploader](http://pe5scgdex.bkt.clouddn.com/2018/08/30/d1b13ae0f6fbed04a68ad4b38d01f5d5.png)
-PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上传你的图片到七牛云并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
+PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上传你的图片到七牛云/腾讯云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
 
 ![PicUploader demonstration](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20Demonstration.gif)
 
-## 一、 准备开始
+## 一、 注册存储服务器账号
+目前支持七牛云、腾讯云、sm.ms三种
 ### 1. 注册七牛云
-- 七牛云地址：https://www.qiniu.com
-- 注册时，选择『个人账户』，注意姓名一定要真实姓名，因为后面要实名认证，『输入个人网站』一栏可以输入你自己的博客地址（不一定要自己搭的，比如博客园的也行），或者干脆随便输一个也行。
-- 注册后上传手持正反面身份证照片上传进行实名认证，你上传的照片没问题的话，最多三天，最少可能一两小时即可认证通过。
-
-### 2.新建存储空间
-- 实名认证通过后，选择『新建存储空间』
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/9d384dba74d300c690fdca06f5855cbe.png)
-- 点击『内容管理』，现在你可以在这里手动上传图片试试了，注意这里有个『外链默认域名』，待会下面配置会用到它。
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/2f9a1fbd9cfa7ffbfb59c4d0848e797a.png)
-- 点击右上角`个人面板`——`个人中心`——`密钥管理`，这里的AK/SK下面配置会用到它。
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/b623604467ea4da4489e8018b674fb94.png)
-### 3.也可以不注册七牛云，直接使用sm.ms（1.1版本添加）
-- 直接使用是上传到[sm.ms](http://sm.ms)，我这里刚开始是可以，后来上传一直超时（如果小齿轮一直转个不停，基本上就是超时了），感觉是被封ip了，后来用手机开流量可以上传，大家用的时候能否上传我也不确定。
+- [点击前往七牛云](https://www.qiniu.com)
+- [查看注册七牛云对象存储教程](http://www.xiebruce.xyz/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
+### 2.注册腾讯云
+- [点击前往腾讯云](https://cloud.tencent.com)
+腾讯云暂时未写注册教程，其实也用不着什么教程，聪明的你自己看着随便点都能点出来啦。
+### 3.无需注册直接使用sm.ms
+- 直接使用是上传到[sm.ms](http://sm.ms)，我这里刚开始是可以，后来上传一直超时（如果小齿轮一直转个不停，基本上就是超时了），感觉是被封ip了，后来用手机开流量可以上传，大家用的时候能否上传我也不确定。（注：后来过几天又自动好了）
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容，请查看日志，很有可能是这张图片压缩后超过了5M，或者是超过5M的gif图（gif图不压缩）
 - 如果粘贴出来的内容以下内容，那就是无法上传到sm.ms了，只能换七牛啦。
 ```
@@ -42,7 +37,7 @@ Call Stack:
 - 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 
 ### 2.填写配置
-- 在config.php文件中，修改AK/SK/bucket/domain四项为你的七牛云的配置。建议把config.php复制一份，命名为config-local.php，然后在config-local.php中修改你的配置即可，避免以后更新的时候把你的配置给覆盖了。
+- 把PicUploader/config/config.php文件复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(七牛云配置或腾讯云配置)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
 
 ``` php
@@ -55,23 +50,32 @@ Call Stack:
  */
 
 $config = [
-    //七牛云
-    'Qiniu' => [
+    //Qiniu Cloud
+    'qiniu' => [
         //七牛云AppKey
-        'AK' => 'ASGZjb***************************tto0AoF',
+        'AK' => 'ASGZj*****************************to0AoF',
         //七牛云AppSecret
-        'SK' => 'UoCCK2******************************lkEy',
+        'SK' => 'UoCCK*****************************tylkEy',
         //七牛云对象存储空间名
-        'bucket' => 'markdown',
+        'bucket' => 'm*****n',
         //七牛云外链域名
-        'domain' => 'http://pe5********.clouddn.com',
+        'domain' => 'http://pe5*******.bkt.clouddn.com',
         //七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
         // 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
     ],
 
+    //Tencent Cloud
+    'tecent' => [
+        'appId' => '12*******60',
+        'secretId' => 'AKID****************************M1ut33',
+        'secretKey' => 'zlKh****************************tjLn2',
+        'bucket' => 'ma*******860',
+        'region' => 'ap-******',
+    ],
+
+    //sm.ms
     'sm.ms' => [
         'baseUrl' => 'https://sm.ms/api/',
-
     ],
 
     //图片优化宽度（建议填1000），值为0或注释掉表示不优化
@@ -79,10 +83,16 @@ $config = [
 
     //链接类型，三个值，normal, markdown, markdownWithLink，不填或者填的值不在这三个值里，按normal算
     //其中markdownWithLink表示点击后会跳转到图片源地址
-    'linkType' => 'markdownWithLink',
-    //目前只支持七牛云(Qiniu)，后续会支持sm.ms
-    // 'storageType' => 'Qiniu',
-    'storageType' => 'sm.ms',
+    'linkType' => 'markdown',
+
+    //存储服务器，值为：Qiniu/Tecent/sm.ms 其中之一
+    // 'storageType' => 'sm.ms',
+
+    //set this option to find your upload logs more easily
+    // 'logPath' => '/Users/username/Desktop',
+
+    //the allowed MIME type
+    'allowMimeTypes' => ['image/jpeg', 'image/png', 'image/gif'],
 ];
 
 return $config;
@@ -127,10 +137,11 @@ return $config;
 - 由于gif图片实际上是由很多张图片组合在一起的，它的压缩比较麻烦，需要Mac装一些额外的库，所以暂时选择不压缩gif（也就是说即使你设置了imgWidth为800或者1000，也不会压缩gif图片）
 - 返回的图片地址中『』这部分是七牛云的压缩参数(如果你配置了的话)，也就是说这部分参数你可以去掉直接查看你上传的图，其中thumbnail/800x表示设置宽度为800，strip表示去除一些exif信息以减小图片大小，quality/80表示设置图片质量为原来的80%，其实还可以在最后加个/format/webp这样图片加载会快很多，因为webp能在最大程度还原图片清晰度的同时把图片体积降到最小。
 
-### 2.建议安装七牛谷歌浏览器扩展
+### 2.安装管理工具
 因为图片上传到七牛云后，在七牛的后台实在无法直观的浏览和管理图片，如果你希望方便管理你的图片，可以下载两款谷歌浏览器插件：
 - [qiniu upload files](https://chrome.google.com/webstore/detail/qiniu-upload-files/emmfkgdgapbjphdolealbojmcmnphdcc) 用来管理七牛云上的图片
 - [七牛云图床](https://chrome.google.com/webstore/detail/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/fmpbbmjlniogoldpglopponaibclkjdg) 一款可以让你直接上传图片到七牛云的工具，但是它没有分文件夹。
+- 腾讯云官方有MacOS客户端：[点击前往下载](https://cloud.tencent.com/document/product/436/11366)
 
 ### 3.上传完成通知问题
 - 其实Automator是可以在脚本执行完后弹出系统通知的，我也添加了，但是却不弹，不知道是什么原因，哪位童鞋知道可以告诉我。
@@ -138,16 +149,21 @@ return $config;
 - 目前要看图片是否上传完成，只能看工具栏上的小齿轮，小齿轮消失了说明上传完成，然后就可以去markdown编辑器粘贴了。
 
 ## 五、更新日志
-### 2018-09-01 1.1版本
+### 2018-09-06 v2.0版本
+- 完全重构代码
+- 添加支持腾讯云
+- 添加上传日志路径配置（可配置到桌面方便随时查看）
+### 2018-09-01 v1.1版本
 - 添加支持[https://sm.ms](https://sm.ms)，默认上传到sm.ms
 - 添加mardownWithLink链接类型（点击图片后能跳转到图片链接）
 - fix bug log时间设置成东八区
-### 2018-08-30 1.0版本
+### 2018-08-30 v1.0版本
 由于个人写markdown需要，目前现有的一些笔记软件都因为各种原因传图并不是很方便，于是写了这个小工具，想到可能有跟我一样需求的童鞋，就顺手发出来供有需要的童鞋使用，如有处理不好的地方在所难免，希望大家能批评指正！
 ## 六、参考资料
 [七牛云phpsdk文档](https://developer.qiniu.com/kodo/sdk/1241/php)  
 [百度知道：没有个人网站怎么注册七牛云存储](https://zhidao.baidu.com/question/714797122999158885.html)  
 [sm.ms Api](https://sm.ms/doc/)  
-[GuzzleHttp官方文档](http://docs.guzzlephp.org/en/stable/quickstart.html#post-form-requests)  
+[GuzzleHttp官方文档](http://docs.guzzlephp.org/en/stable/quickstart.html#post-form-requests)
+[腾讯云phpsdk文档](https://cloud.tencent.com/document/product/436/12266)
 [google](http://www.google.com/ncr)  
 [百度](http://www.baidu.com)  

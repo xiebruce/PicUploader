@@ -14,15 +14,24 @@
     date_default_timezone_set('Asia/Shanghai');
 
     require 'vendor/autoload.php';
-    require 'EasyImage.php';
-    require 'Upload.php';
-    if(is_file(__DIR__.'/config-local.php')){
-        $config = require 'config-local.php';
+    require 'common/EasyImage.php';
+    require __DIR__ . '/vendor/qcloud/cos-sdk-v5/cos-autoloader.php';
+
+    //autoload class
+    spl_autoload_register(function ($class_name) {
+        require_once __DIR__ . '/' . str_replace('\\', '/', $class_name) . '.php';
+    });
+
+    $localConfigFile = __DIR__ . '/config/config-local.php';
+    if(is_file($localConfigFile)){
+        $config = require __DIR__ . '/config/config-local.php';
     }else{
-        $config = require 'config.php';
+        $config = require __DIR__ . '/config/config.php';
     }
 
-    use PicUploader\Upload;
-
-    echo (new Upload($config,$argv))->getPublickLink();
+    use uploader\Upload;
+    //去除第一个元素（因为第一个元素是index.php，因为$argv是linux/mac的参数，
+    //用php执行index.php的时候，index.php也算是一个参数）
+    array_shift($argv);
+    echo (new Upload($argv, $config))->getPublickLink();
 

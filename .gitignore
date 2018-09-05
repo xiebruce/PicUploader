@@ -1,7 +1,7 @@
 # PicUploader project files
 .idea
 .DS_Store
-/log
 .tmp/
-QiniuToken
-config-local.php
+uploader/logs
+uploader/token/
+config/config-local.php

@@ -1,6 +1,7 @@
 {
     "require": {
         "qiniu/php-sdk": "^7.2",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "qcloud/cos-sdk-v5": ">=1.0"
     }
 }

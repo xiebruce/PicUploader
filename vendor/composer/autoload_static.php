@@ -14,6 +14,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
     );
 
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Component\\EventDispatcher\\' => 34,
+        ),
         'Q' => 
         array (
             'Qiniu\\' => 6,
@@ -31,6 +35,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
         'Qiniu\\' => 
         array (
             0 => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu',
@@ -53,11 +61,33 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'Q' => 
+        array (
+            'Qcloud\\Cos\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/qcloud/cos-sdk-v5/src',
+            ),
+        ),
+        'G' => 
+        array (
+            'Guzzle\\Tests' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/tests',
+            ),
+            'Guzzle' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
+            ),
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
