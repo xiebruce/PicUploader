@@ -77,13 +77,13 @@ $config = [
     ],
 
     //Netease Cloud
-        'netease' => [
-            'accessKey' => '4bd57d4944e54efead896b2606cd3c7b',
-            'accessSecret' => '465e1ae2e0f84455b8bc22e16ccc82db',
-            'bucket' => 'markdown-bucket',
-            //endPoint不是域名，域名是 bucket.'.'.endPoint
-            'endPoint' => 'nos-eastchina1.126.net',
-        ],
+    'netease' => [
+        'accessKey' => '4bd57d4944e54efead896b2606cd3c7b',
+        'accessSecret' => '465e1ae2e0f84455b8bc22e16ccc82db',
+        'bucket' => 'markdown-bucket',
+        //endPoint不是域名，域名是 bucket.'.'.endPoint
+        'endPoint' => 'nos-eastchina1.126.net',
+    ],
 
     //sm.ms
     'sm.ms' => [
