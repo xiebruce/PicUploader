@@ -1,0 +1,16 @@
+<phpunit>
+  <filter>
+    <whitelist>
+      <directory suffix=".php">./src</directory>
+    </whitelist>
+  </filter>
+  <logging>
+    <log type="coverage-clover" target="coverage.xml" />
+  </logging>
+  <testsuites>
+    <testsuite name="FunctionTest">
+      <directory>./tests</directory>
+      <!-- <exclude>./tests/NOS/Tests/BucketCnameTest.php</exclude> -->
+    </testsuite>
+  </testsuites>
+</phpunit>

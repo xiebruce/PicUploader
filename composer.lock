@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c97e3777463ef51376e5b49a61657bf6",
+    "content-hash": "88ae582f8692eefa79ef730c3507ab7b",
     "packages": [
         {
             "name": "guzzle/guzzle",
@@ -282,6 +282,47 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "netease/nos-php-sdk",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NetEase-Object-Storage/nos-php-sdk.git",
+                "reference": "6ae1ffe40764723281b18b9c1300962d494fa777"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NetEase-Object-Storage/nos-php-sdk/zipball/6ae1ffe40764723281b18b9c1300962d494fa777",
+                "reference": "6ae1ffe40764723281b18b9c1300962d494fa777",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NOS\\": "src/NOS"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "netease",
+                    "homepage": "https://c.163.com/product/nos"
+                }
+            ],
+            "description": "netease NOS SDK for PHP",
+            "homepage": "https://c.163.com/product/nos",
+            "time": "2016-09-29T10:50:33+00:00"
         },
         {
             "name": "psr/http-message",

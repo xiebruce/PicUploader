@@ -26,6 +26,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'N' => 
+        array (
+            'NOS\\' => 4,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -46,6 +50,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'NOS\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/netease/nos-php-sdk/src/NOS',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (

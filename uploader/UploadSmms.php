@@ -60,7 +60,6 @@ class UploadSmms extends Common {
                 $tmpImgPath = $this->optimizeImage($filePath, $imgWidth);
             }
             $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-            $originFileName = $this->getOriginFileName($filePath);
 
             $fileSize = filesize($uploadFilePath);
             if($fileSize > 5000000){
@@ -95,7 +94,7 @@ class UploadSmms extends Common {
             if($returnArr['code'] == 'success'){
                 $data = $returnArr['data'];
                 $deleteLink = 'Delete Link: '.$data['delete'];
-                $link .= $this->formatLink($data['url'], $originFileName);
+                $link .= $this->formatLink($data['url'], $originFilename);
                 $link .= $deleteLink . "\n\n";
             }
             // Delete the tmp file

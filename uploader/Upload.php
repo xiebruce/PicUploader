@@ -43,6 +43,9 @@ class Upload extends Common {
             case 'tecent':
                 $link = (new UploadTencent(static::$config, $this->argv))->upload();
                 break;
+            case 'netease':
+                $link = (new UploadNetease(static::$config, $this->argv))->upload();
+                break;
             case 'sm.ms':
             default:
                 $link = (new UploadSmms(static::$config, $this->argv))->upload();

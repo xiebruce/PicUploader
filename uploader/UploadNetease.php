@@ -3,18 +3,20 @@
  * Created by PhpStorm.
  * User: bruce
  * Date: 2018-09-06
- * Time: 00:46
+ * Time: 15:00
  */
 
 namespace uploader;
 
-use Qcloud\Cos\Client;
+use NOS\NosClient;
 
-class UploadTencent extends Common {
-    public $region;
-    public $secretId;
+class UploadNetease extends Upload{
+
+    public $accessKey;
     public $secretKey;
     public $bucket;
+    //即domain，域名
+    public $endPoint;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -28,22 +30,23 @@ class UploadTencent extends Common {
      */
     public function __construct($config, $argv)
     {
-        $this->region = $config['tecent']['region'];
-        $this->secretId = $config['tecent']['secretId'];
-        $this->secretKey = $config['tecent']['secretKey'];
-        $this->bucket = $config['tecent']['bucket'];
+        $this->accessKey = $config['netease']['accessKey'];
+        $this->secretKey = $config['netease']['accessSecret'];
+        $this->bucket = $config['netease']['bucket'];
+        //endPoint不是域名，外链域名是 bucket.'.'.endPoint
+        $this->endPoint = $config['netease']['endPoint'];
 
         $this->argv = $argv;
         static::$config = $config;
     }
 
     /**
-     * Upload Images to Tecent Cloud
+     * Upload images to Netease Cloud
      * @return string
      * @throws \ImagickException
+     * @throws \NOS\Core\NosException
      */
     public function upload(){
-
         $link = '';
         foreach($this->argv as $filePath){
             $mimeType = $this->getMimeType($filePath);
@@ -62,13 +65,7 @@ class UploadTencent extends Common {
             }
             $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 
-            $cosClient = new Client([
-                'region' => $this->region,
-                'credentials' => [
-                    'secretId' => $this->secretId,
-                    'secretKey' => $this->secretKey,
-                ],
-            ]);
+            $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
 
             //获取随机文件名
             $newFileName = $this->genRandFileName($uploadFilePath);
@@ -76,21 +73,21 @@ class UploadTencent extends Common {
             //组装key名（因为我们用的是腾讯云的对象存储服务，存储是用key=>value的方式存的）
             $key = date('Y/m/d/') . $newFileName;
 
-            $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
-            if (!is_object($retObj) || !$retObj->get('Location')) {
-                //上传数错，记录错误日志
-                $this->writeLog(var_export($retObj, true)."\n", 'error_log');
-            } else {
-                //拼接域名和优化参数成为一个可访问的外链
-                $publicLink = $retObj->get('Location');
+            try {
+                $options[NosClient::NOS_HEADERS]['Cache-Control'] = 'max-age=31536000';
+                $options[NosClient::NOS_HEADERS]['Content-Disposition'] = 'attachment; filename="'.$newFileName.'"';
+                $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
+                $publicLink = 'http://'.$this->bucket.'.'.$this->endPoint.'/'.$key;
                 //按配置文件指定的格式，格式化链接
                 $link .= $this->formatLink($publicLink, $originFilename);
+                //删除临时图片
+                $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
+            } catch (NosException $e) {
+                //上传数错，记录错误日志
+                $this->writeLog($e->getMessage()."\n", 'error_log');
+                continue;
             }
-
-            //删除临时图片
-            $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
         }
         return $link;
     }
-
 }
