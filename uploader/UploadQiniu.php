@@ -110,6 +110,10 @@ class Uploadqiniu extends Common {
         //token过期时间
         $expires = 7190;
         //如果文件存在，且未过期，且文件里有内容，则使用文件缓存的token
+        $tokenDir = __DIR__ . '/token';
+        if(!is_dir($tokenDir)){
+            @mkdir($tokenDir, 0777, true);
+        }
         $tokenFile = __DIR__ . '/token/qiniuToken';
         if(is_file($tokenFile) && ((time() - filemtime($tokenFile)) < $expires) && file_get_contents($tokenFile)!=''){
             $token = file_get_contents($tokenFile);

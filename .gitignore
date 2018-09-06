@@ -1,7 +1,7 @@
 # PicUploader project files
 .idea
 .DS_Store
-.tmp/
+/.tmp/
 uploader/logs
 uploader/token/
 config/config-local.php

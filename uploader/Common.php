@@ -93,7 +93,11 @@ class Common {
             }
 
             if($optimize){
-                $tmpImgPath = __DIR__.'/../.tmp/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+                $tmpDir = __DIR__.'/../.tmp';
+                if(!is_dir($tmpDir)){
+                    @mkdir($tmpDir, 0777 ,true);
+                }
+                $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
                 $img = new EasyImage($filePath);
                 $imgWidth && $img->fit_to_width($imgWidth);
                 $img->save($tmpImgPath, $quality);
@@ -183,7 +187,7 @@ class Common {
             $logPath = __DIR__ . '/logs/' .date('Y/m');
         }
         if(!is_dir($logPath)){
-            mkdir($logPath, 0777, true);
+            @mkdir($logPath, 0777, true);
         }
         if($type == 'uploaded'){
             $logFile = $logPath.'/'.date('Y-m-d').'-log.md';
@@ -193,7 +197,11 @@ class Common {
             if(!is_file($logFile)){
                 file_put_contents($logFile, $content, FILE_APPEND);
             }else{
-                $tmpLog = __DIR__.'/../.tmp/.tmplog';
+                $tmpLogDir = __DIR__.'/../.tmp';
+                if(!is_dir($tmpLogDir)){
+                    @mkdir($tmpLogDir, 0777, true);
+                }
+                $tmpLog = $tmpLogDir . '/.tmplog';
                 //把原来的内容先复制到临时文件里
                 copy($logFile, $tmpLog);
                 //新内容直接覆盖写入
@@ -204,7 +212,7 @@ class Common {
                 @unlink($tmpLog);
             }
         }else{
-            $logFile = $logPath.'/'.date('Y-m-d').'-log.txt';
+            $logFile = $logPath.'/'.date('Y-m-d').'-error-log.txt';
             file_put_contents($logFile, $content, FILE_APPEND);
         }
     }
