@@ -76,6 +76,15 @@ $config = [
         'region' => 'ap-******',
     ],
 
+    //Netease Cloud
+        'netease' => [
+            'accessKey' => '4bd57d4944e54efead896b2606cd3c7b',
+            'accessSecret' => '465e1ae2e0f84455b8bc22e16ccc82db',
+            'bucket' => 'markdown-bucket',
+            //endPoint不是域名，域名是 bucket.'.'.endPoint
+            'endPoint' => 'nos-eastchina1.126.net',
+        ],
+
     //sm.ms
     'sm.ms' => [
         'baseUrl' => 'https://sm.ms/api/',
@@ -88,8 +97,8 @@ $config = [
     //其中markdownWithLink表示点击后会跳转到图片源地址
     'linkType' => 'markdown',
 
-    //存储服务器，值为：Qiniu/Tecent/sm.ms 其中之一
-    // 'storageType' => 'sm.ms',
+    //存储服务器，值为：Qiniu/Tecent/Netease/sm.ms 其中之一
+    'storageType' => 'sm.ms',
 
     //set this option to find your upload logs more easily
     // 'logPath' => '/Users/username/Desktop',
