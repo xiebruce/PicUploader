@@ -15,7 +15,6 @@
 
     require 'vendor/autoload.php';
     require 'common/EasyImage.php';
-    require __DIR__ . '/vendor/qcloud/cos-sdk-v5/cos-autoloader.php';
 
     //autoload class
     spl_autoload_register(function ($class_name) {
@@ -27,6 +26,13 @@
         $config = require __DIR__ . '/config/config-local.php';
     }else{
         $config = require __DIR__ . '/config/config.php';
+    }
+
+    if(strtolower($config['storageType']) == 'netease'){
+        require __DIR__ . '/vendor/qcloud/cos-sdk-v5/cos-autoloader.php';
+    }
+    if(strtolower($config['storageType']) == 'baidu'){
+        require __DIR__ . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
     }
 
     use uploader\Upload;

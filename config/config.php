@@ -10,37 +10,64 @@ $config = [
     //Qiniu Cloud
     'qiniu' => [
         //七牛云AppKey
-        'AK' => 'ASGZj*****************************to0AoF',
+        'AK' => 'ASGZ******************************o0AoF',
         //七牛云AppSecret
-        'SK' => 'UoCCK*****************************tylkEy',
+        'SK' => 'UoC******************************JylkEy',
         //七牛云对象存储空间名
         'bucket' => 'm*****n',
         //七牛云外链域名
-        'domain' => 'http://pe5*******.bkt.clouddn.com',
+        'domain' => 'http://pe5s*********clouddn.com',
         //七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
         // 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
     ],
 
     //Tencent Cloud
     'tecent' => [
-        'appId' => '12*******60',
-        'secretId' => 'AKID****************************M1ut33',
-        'secretKey' => 'zlKh****************************tjLn2',
-        'bucket' => 'ma*******860',
-        'region' => 'ap-******',
+        'appId' => '12*****60',
+        'secretId' => 'AKID******************************2PZZM1ut33',
+        'secretKey' => 'zlKh******************************tjLn2',
+        'bucket' => 'ma******860',
+        'region' => 'ap*******u',
     ],
 
     //Netease Cloud
     'netease' => [
-        'accessKey' => '4bd57d4944e54efead896b2606cd3c7b',
-        'accessSecret' => '465e1ae2e0f84455b8bc22e16ccc82db',
-        'bucket' => 'markdown-bucket',
+        'accessKey' => '4bd5***************cd3c7b',
+        'accessSecret' => '465e**************82db',
+        'bucket' => 'mar********ket',
         //endPoint不是域名，域名是 bucket.'.'.endPoint
-        'endPoint' => 'nos-eastchina1.126.net',
+        'endPoint' => 'nos-ea*********6.net',
+    ],
+
+    'baidu' => [
+        'bosConfig' => [
+            'credentials' => [
+                'accessKeyId' => '4fdda****************de91b5',
+                'secretAccessKey' => 'ddd6c5***************1ffd03a3',
+            ],
+            'endpoint' => 'http://********.com',
+        ],
+        'bucket' => 'markdown',
+        'domain' => 'http://mar*********ebos.com',
+    ],
+    //JCloud
+    'jd' => [
+        'key' => '050CA84*****************568B',
+        'secret' => 'E1CD******************8A6F',
+        'endpoint' => 'https://s3.cn********loudcs.com',
+        'region' => 'c*****-1',
+        'bucket' => 'm******n',
+    ],
+    //Aliyun Cloud
+    'aliyun' => [
+        'accessKey' => 'cDz******kaL',
+        'accessSecret' => 'dNGT*************4h2',
+        'bucket' => 'b******own',
+        'endpoint' => 'oss-cn***********cs.com',
     ],
 
     //https://sm.ms
-    'sm.ms' => [
+    'smms' => [
         'baseUrl' => 'https://sm.ms/api/',
     ],
 
@@ -51,11 +78,11 @@ $config = [
     //其中markdownWithLink表示点击后会跳转到图片源地址
     'linkType' => 'markdown',
 
-    //存储服务器，值为：Qiniu/Tecent/Netease/sm.ms 其中之一
-    'storageType' => 'sm.ms',
+    //存储服务器，值为：Qiniu/Tecent/Netease/Baidu/jd/aliyun/smms 其中之一
+    'storageType' => 'smms',
 
     //set this option to find your upload logs more easily
-    // 'logPath' => '/Users/username/Desktop',
+    // 'logPath' => '/Users/bruce/Desktop',
 
     //the allowed MIME type
     'allowMimeTypes' => ['image/jpeg', 'image/png', 'image/gif'],
