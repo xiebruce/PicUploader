@@ -152,7 +152,7 @@ return $config;
 
 ### 2.按下图操作
 注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取Markdown外链』。
-![添加一个服务.gif](http://pe5scgdex.bkt.clouddn.com/2018/09/07/41be66c48d73c220806a9f1fa0ae6f87.gif)
+![添加一个服务.gif](https://github.com/xiebruce/PicUploader/blob/master/Create%20a%20service.gif)
 
 ``` php
 export LC_CTYPE="zh_CN.UTF-8"
