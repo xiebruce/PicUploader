@@ -49,109 +49,38 @@ Call Stack:
 - 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 
 ### 2.填写配置
-- 把PicUploader/config/config.php文件复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云其中一个)即可。
+- 把PicUploader/config/config.php文件`command+D`复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
-
+- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](http://www.xiebruce.xyz/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
 ``` php
-<?php
-/**
- * Created by PhpStorm.
- * User: bruce
- * Date: 2018-08-30
- * Time: 14:58
- */
-
-$config = [
-    //Qiniu Cloud
-    'qiniu' => [
-        //七牛云AppKey
-        'AK' => 'ASGZ******************************o0AoF',
-        //七牛云AppSecret
-        'SK' => 'UoC******************************JylkEy',
-        //七牛云对象存储空间名
-        'bucket' => 'm*****n',
-        //七牛云外链域名
-        'domain' => 'http://pe5s*********clouddn.com',
-        //七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
-        // 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
-    ],
-
-    //Tencent Cloud
-    'tecent' => [
-        'appId' => '12*****60',
-        'secretId' => 'AKID******************************2PZZM1ut33',
-        'secretKey' => 'zlKh******************************tjLn2',
-        'bucket' => 'ma******860',
-        'region' => 'ap*******u',
-    ],
-
-    //Netease Cloud
-    'netease' => [
-        'accessKey' => '4bd5***************cd3c7b',
-        'accessSecret' => '465e**************82db',
-        'bucket' => 'mar********ket',
-        //endPoint不是域名，域名是 bucket.'.'.endPoint
-        'endPoint' => 'nos-ea*********6.net',
-    ],
-
-    'baidu' => [
-        'bosConfig' => [
-            'credentials' => [
-                'accessKeyId' => '4fdda****************de91b5',
-                'secretAccessKey' => 'ddd6c5***************1ffd03a3',
-            ],
-            'endpoint' => 'http://********.com',
-        ],
-        'bucket' => 'markdown',
-        'domain' => 'http://mar*********ebos.com',
-    ],
-    //JCloud
-    'jd' => [
-        'key' => '050CA84*****************568B',
-        'secret' => 'E1CD******************8A6F',
-        'endpoint' => 'https://s3.cn********loudcs.com',
-        'region' => 'c*****-1',
-        'bucket' => 'm******n',
-    ],
-    //Aliyun Cloud
-    'aliyun' => [
-        'accessKey' => 'cDz******kaL',
-        'accessSecret' => 'dNGT*************4h2',
-        'bucket' => 'b******own',
-        'endpoint' => 'oss-cn***********cs.com',
-    ],
-
-    //https://sm.ms
-    'smms' => [
-        'baseUrl' => 'https://sm.ms/api/',
-    ],
-
-    //图片优化宽度（建议填1000），值为0或注释掉表示不优化
-    'imgWidth' => 1000,
-
-    //链接类型，三个值，normal, markdown, markdownWithLink，不填或者填的值不在这三个值里，按normal算
-    //其中markdownWithLink表示点击后会跳转到图片源地址
-    'linkType' => 'markdown',
-
-    //存储服务器，值为：Qiniu/Tecent/Netease/Baidu/jd/aliyun/smms 其中之一
-    'storageType' => 'smms',
-
-    //set this option to find your upload logs more easily
-    // 'logPath' => '/Users/bruce/Desktop',
-
-    //the allowed MIME type
-    'allowMimeTypes' => ['image/jpeg', 'image/png', 'image/gif'],
-];
-
-return $config;
+//Qiniu Cloud
+'qiniu' => [
+    //七牛云AppKey
+    'AK' => 'ASGZ******************************o0AoF',
+    //七牛云AppSecret
+    'SK' => 'UoC******************************JylkEy',
+    //七牛云对象存储空间名
+    'bucket' => 'm*****n',
+    //七牛云外链域名
+    'domain' => 'http://pe5s*********clouddn.com',
+    //七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
+    // 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
+],
 ```
+- 继续填写配置，在config-local.php中搜索『logPath』，把它箭头右边的『/Users/xxxx/Desktop』中的『xxxx』改成你自己的用户目录名，用户目录怎么找？请求看下图：
+``` php
+'logPath' => '/Users/xxxx/Desktop',
+```
+如下图，在访达中随便打开一个目录，比如我打开的是『下载』目录，看下边路径中有个小房子🏠旁边的名字即为你的用户目录名
+![Xnip2018-09-08_00-23-46.png](http://pe5scgdex.bkt.clouddn.com/2018/09/08/fe0e6100ce10729f01012fd57d556ae5.png)
+
 ## 三、使用『自动操作/Automator』新建一个workflow服务
 ### 1.打开『自动操作/Automator』
 或者像下面gif图演示的那样用『聚焦搜索』来打开
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
 
 ### 2.按下图操作
-注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取Markdown外链』。
+注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如『获取Markdown外链』。
 ![添加一个服务.gif](https://github.com/xiebruce/PicUploader/blob/master/Create%20a%20service.gif)
 
 ``` php
@@ -168,22 +97,23 @@ export LC_CTYPE="zh_CN.UTF-8"
 
 ## 三、开始使用
 ### 1.右击任意一张图片
-如果一切正常，你对着图片右击，并点击右键菜单中的`获取Markdown链接`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当图片上传完成后，小齿轮就会消失，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`试试吧
+如果一切正常，你对着图片右击，并点击右键菜单中的`获取Markdown链接`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当小齿轮停止转动(不需要等它消失)，即说明上传已经完成，同时右上角会弹出通知，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`粘贴试试吧
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png?imageMogr2/thumbnail/50x/strip/quality/80)
 ### 2. 为你创建的服务创建快捷键
 `系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。  
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png?imageMogr2/thumbnail/800x/strip/quality/80)
 ### 3.查看上传日志
-- 还记得你刚刚把**PicUploader**的代码放哪了吗？现在去打开它的目录看看，是不是有个log目录？是的，这里保存了你上传的文件外链地址，你在七牛云是能找到对应的图片的，如果你觉得哪张图片不想要，可以在七牛云中把它删除了。
-- 这个日志文件也是markdown格式，所以你可以用mweb之类的markdown编辑器查看它，但是有个问题就是当日志内容增加时，MWeb无法刷新，建议用[typora](https://typora.io/)打开日志，这个会自动刷新，而且免费。
-- 日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在七牛云中文件多的话比较难找到。
+- 因为在配置文件中的 'logPath' => '/Users/xxxx/Desktop' 配置了上传日志保存到桌面，所以不出意外，你的桌面装会有一个如下图所示的文件夹，这里保存了你上传的图片的Markdown外链地址，你在七牛云（或者其他服务器）是能找到对应的图片的，如果你觉得哪张图片不想要，可以在对应服务器中把它删除了。
+![Xnip2018-09-08_00-34-41.png](http://pe5scgdex.bkt.clouddn.com/2018/09/08/d4d35766f028a4a26b9c6be9b139e2bf.png)
+- 这个日志文件也是markdown格式，所以你可以用mweb之类的markdown编辑器查看它，但是有个问题当你用Mweb打开它之后，如果再上传一张图片，这个文件里肯定会增加一条你上传的记录，但是在Mweb中却不会刷新，必须关掉重新打开才能看的到，这个特别麻烦，建议用[typora](https://typora.io/)这个软件来打开日志，这个会自动刷新，而且免费。
+- 日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在服务器中文件多的话比较难找到。
 
 ## 四、注意事项
 ### 1.关于config里的imgWidth选项
-- 由于七牛云免费空间有限(免费10G,好像也不小了哈哈)，而且大文件加载特别慢，所以有些大图片需要压缩后上传，由于试过按质量压缩对图片影响较大，所以选择按宽度压缩（高度会保持等比例适应）。
+- 由于各个云服务器免费空间有限(七牛云免费10G,好像也不小了哈哈)，而且大文件加载特别慢，所以有些大图片需要压缩后上传，由于试过按质量压缩对图片影响较大，所以选择按宽度压缩（高度会保持等比例适应）。
 - 如果要设置压缩图片，建议imgWidth设置为800或1000，别担心分辨率低的图压缩后看不清，即使设置了该选项，分辨率比较低的图片也是不会被压缩的。
 - 由于gif图片实际上是由很多张图片组合在一起的，它的压缩比较麻烦，需要Mac装一些额外的库，所以暂时选择不压缩gif（也就是说即使你设置了imgWidth为800或者1000，也不会压缩gif图片）
-- 返回的图片地址中『』这部分是七牛云的压缩参数(如果你配置了的话)，也就是说这部分参数你可以去掉直接查看你上传的图，其中thumbnail/800x表示设置宽度为800，strip表示去除一些exif信息以减小图片大小，quality/80表示设置图片质量为原来的80%，其实还可以在最后加个/format/webp这样图片加载会快很多，因为webp能在最大程度还原图片清晰度的同时把图片体积降到最小。
+- 返回的图片地址中『?imageMogr2/thumbnail/800x/strip/quality/80』这部分是七牛云的压缩参数(如果你配置了的话)，也就是说这部分参数你可以去掉直接查看你上传的图，其中thumbnail/800x表示设置宽度为800，strip表示去除一些exif信息以减小图片大小，quality/80表示设置图片质量为原来的80%，其实还可以在最后加个/format/webp这样图片加载会快很多，因为webp能在最大程度还原图片清晰度的同时把图片体积降到最小。
 
 ### 2.安装管理工具
 因为图片上传到七牛云后，在七牛的后台实在无法直观的浏览和管理图片，如果你希望方便管理你的图片，可以下载两款谷歌浏览器插件：
@@ -193,11 +123,13 @@ export LC_CTYPE="zh_CN.UTF-8"
 - 百度BOS官方MasOS客户端：[点击前往下载](https://cloud.baidu.com/doc/BOS/BOSCLI.html#.E4.B8.8B.E8.BD.BD)
 
 ### 3.上传完成通知问题
-- 其实Automator是可以在脚本执行完后弹出系统通知的，我也添加了，但是却不弹，不知道是什么原因，哪位童鞋知道可以告诉我。
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/c91e4a969326b02ef9e919487cd50346.png)
-- 目前要看图片是否上传完成，只能看工具栏上的小齿轮，小齿轮消失了说明上传完成，然后就可以去markdown编辑器粘贴了。
+- 一般情况下，上传完成后右上角就会弹出通知，如果你没有弹出，有可能是因为系统没更新的问题，像我的系统版本一直是10.13.1，我的就不弹，但是我让别人试就会弹。
+- 如果你的系统也没更新，那有可能也不会弹通知，那就只能看工具栏上的小齿轮，小齿轮停止转动说明上传完成（不需要等小齿轮消失，停止转动即已完成），然后就可以去markdown编辑器粘贴了。
 
 ## 五、更新日志
+### 2018-09-08 v2.2.1
+- 解决图片文件名为中文时粘贴乱码或者无法粘贴的问题
+- 修改了README.md中说的不清楚的地方，部分英文菜单改用中文
 ### 2018-09-06 v2.2版本
 - 添加支持百度云
 - 添加支持京东云

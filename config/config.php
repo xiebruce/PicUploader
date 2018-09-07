@@ -82,7 +82,7 @@ $config = [
     'storageType' => 'smms',
 
     //set this option to find your upload logs more easily
-    // 'logPath' => '/Users/bruce/Desktop',
+    'logPath' => '/Users/xxxx/Desktop',
 
     //the allowed MIME type
     'allowMimeTypes' => ['image/jpeg', 'image/png', 'image/gif'],
