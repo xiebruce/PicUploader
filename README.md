@@ -2,7 +2,7 @@
 PicUploader
 ===============
 ![PicUploader](http://pe5scgdex.bkt.clouddn.com/2018/08/30/d1b13ae0f6fbed04a68ad4b38d01f5d5.png)
-PicUploader 是一个用php编写的借助Mac的Automator来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
+PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
 
 ![PicUploader demonstration](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20Demonstration.gif)
 
@@ -145,15 +145,12 @@ $config = [
 
 return $config;
 ```
-## 三、使用Automator新建一个workflow
-### 1.打开Automator
+## 三、使用『自动操作/Automator』新建一个workflow服务
+### 1.打开『自动操作/Automator』
+或者像下面gif图演示的那样用『聚焦搜索』来打开
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
-### 2.点击左下角的`New Document`
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ead60bb5f700caee17115126e016045c.png?imageMogr2/thumbnail/800x/strip/quality/80)
-### 3.选择Services
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/4d86ad1338d5cd9b9a12eae0bff6bd41.png)
 
-### 4.按下图操作
+### 2.按下图操作
 注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取Markdown外链』。
 ![添加一个服务.gif](http://pe5scgdex.bkt.clouddn.com/2018/09/07/41be66c48d73c220806a9f1fa0ae6f87.gif)
 
@@ -165,7 +162,7 @@ export LC_CTYPE="zh_CN.UTF-8"
 - 注意/usr/bin/php路径，最好在终端用『which php』来查看它的路径，确认一下是否正确。
 - 把/Users/xxxxx/www/PicUploader-master/index.php 的路径换成你自己的index.php路径
 
-### 5.试试右击任意图片
+### 3.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ba398bb8ac9a1c5c5cb6623609346573.png?imageMogr2/thumbnail/500x/strip/quality/80)
 ## 三、开始使用
