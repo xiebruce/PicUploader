@@ -157,6 +157,7 @@ return $config;
 注意每一个需要选择的地方都不要选错（咦，这个图右侧的步骤用什么软件写的？安利Mac下非常好用的一个截图工具『xnip』），其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取外链』或者『markdown外链』之类的。
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ede18f0537e41baf801e99e2a488b9a3.png)
 ``` php
+export LC_CTYPE="zh_CN.UTF-8"
 /usr/bin/php /Users/xxxxx/www/PicUploader-master/index.php "$@" | pbcopy
 ```
 注意：
