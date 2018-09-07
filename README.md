@@ -47,6 +47,7 @@ Call Stack:
 ### 1.下载PicUploader
 - git clone git@github.com:xiebruce/PicUploader.git
 - 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
+注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 2.填写配置
 - 把PicUploader/config/config.php文件`command+D`复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云其中一个)即可。
