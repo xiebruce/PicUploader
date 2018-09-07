@@ -46,7 +46,7 @@ Call Stack:
 ## 二、下载使用
 ### 1.下载PicUploader
 - git clone git@github.com:xiebruce/PicUploader.git
-- 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
+- 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)  
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 2.填写配置
