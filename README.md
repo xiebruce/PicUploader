@@ -154,15 +154,16 @@ return $config;
 ![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/4d86ad1338d5cd9b9a12eae0bff6bd41.png)
 
 ### 4.按下图操作
-注意每一个需要选择的地方都不要选错（咦，这个图右侧的步骤用什么软件写的？安利Mac下非常好用的一个截图工具『xnip』），其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取外链』或者『markdown外链』之类的。
-![](http://pe5scgdex.bkt.clouddn.com/2018/08/29/ede18f0537e41baf801e99e2a488b9a3.png)
+注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如英文我用英文系统，所以我取的是『Get Public Link』，中文你可以取『获取Markdown外链』。
+![添加一个服务.gif](http://pe5scgdex.bkt.clouddn.com/2018/09/07/41be66c48d73c220806a9f1fa0ae6f87.gif)
+
 ``` php
 export LC_CTYPE="zh_CN.UTF-8"
 /usr/bin/php /Users/xxxxx/www/PicUploader-master/index.php "$@" | pbcopy
 ```
 注意：
-- 注意/usr/bin/php路径，最后在终端用『which php』来查看它的路径，确认一下是否正确。
-- 把index.php的路径换成你自己的路径
+- 注意/usr/bin/php路径，最好在终端用『which php』来查看它的路径，确认一下是否正确。
+- 把/Users/xxxxx/www/PicUploader-master/index.php 的路径换成你自己的index.php路径
 
 ### 5.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
