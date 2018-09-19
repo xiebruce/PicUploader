@@ -2,7 +2,7 @@
 PicUploader
 ===============
 ![PicUploader](http://pe5scgdex.bkt.clouddn.com/2018/08/30/d1b13ae0f6fbed04a68ad4b38d01f5d5.png)
-PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
+PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
 
 ![PicUploader demonstration](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20demonstration.gif)
 
@@ -26,7 +26,10 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ### 6.注册阿里云
 - [点击前往阿里云](https://www.163yun.com)
 阿里云暂时未写注册教程，其实也用不着什么教程，聪明的你自己看着随便点都能点出来啦。
-### 7.无需注册直接使用sm.ms
+### 7.注册又拍云
+- [点击前往又拍云](https://www.upyun.com)
+又拍云暂时未写注册教程，其实也用不着什么教程，聪明的你自己看着随便点都能点出来啦。
+### 8.无需注册直接使用sm.ms
 - 直接使用是上传到[sm.ms](http://sm.ms)，我这里刚开始是可以，后来上传一直超时（如果小齿轮一直转个不停，基本上就是超时了），感觉是被封ip了，后来用手机开流量可以上传，大家用的时候能否上传我也不确定。（注：后来过几天又自动好了）
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容，请查看日志，很有可能是这张图片压缩后超过了5M，或者是超过5M的gif图（gif图不压缩）
 - 如果粘贴出来的内容以下内容，那就是无法上传到sm.ms了，只能换七牛啦。
@@ -50,7 +53,7 @@ Call Stack:
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 2.填写配置
-- 把PicUploader/config/config.php文件`command+D`复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云其中一个)即可。
+- 把PicUploader/config/config.php文件`command+D`复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
 - 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](http://www.xiebruce.xyz/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
 ``` php
@@ -68,6 +71,12 @@ Call Stack:
     // 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
 ],
 ```
+
+- 搜索`storageType`，并在`=>`后设置您当前要使用哪个云，如我要使用七牛云：
+``` php
+'storageType' => 'Qiniu',
+```
+
 - 继续填写配置，在config-local.php中搜索『logPath』，把它箭头右边的『/Users/xxxx/Desktop』中的『xxxx』改成你自己的用户目录名，用户目录怎么找？请求看下图：
 ``` php
 'logPath' => '/Users/xxxx/Desktop',
@@ -128,6 +137,8 @@ export LC_CTYPE="zh_CN.UTF-8"
 - 如果你的系统也没更新，那有可能也不会弹通知，那就只能看工具栏上的小齿轮，小齿轮停止转动说明上传完成（不需要等小齿轮消失，停止转动即已完成），然后就可以去markdown编辑器粘贴了。
 
 ## 五、更新日志
+### 2018-09-19 v2.2.2
+- 添加又拍云支持
 ### 2018-09-08 v2.2.1
 - 解决图片文件名为中文时粘贴乱码或者无法粘贴的问题
 - 修改了README.md中说的不清楚的地方，部分英文菜单改用中文
@@ -158,6 +169,7 @@ export LC_CTYPE="zh_CN.UTF-8"
 [网易云phpsdk文档](https://www.163yun.com/help/documents/15677641583214592)  
 [阿里云phpsdk文档](https://help.aliyun.com/document_detail/32101.html?spm=a2c4g.11186623.4.2.70d8c839FzL6jV)  
 [京东云phpsdk文档](https://www.jdcloud.com/help/detail/1910/isCatalog/1)  
-[百度云phpsdk](https://cloud.baidu.com/doc/BOS/PHP-SDK.html#.E5.AE.89.E8.A3.85SDK.E5.B7.A5.E5.85.B7.E5.8C.85)  
+[百度云phpsdk文档](https://cloud.baidu.com/doc/BOS/PHP-SDK.html#.E5.AE.89.E8.A3.85SDK.E5.B7.A5.E5.85.B7.E5.8C.85)
+[又拍云phpsdk文档](https://github.com/upyun/php-sdk)
 [google](http://www.google.com/ncr)  
 [百度](http://www.baidu.com)  

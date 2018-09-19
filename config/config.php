@@ -38,7 +38,7 @@ $config = [
         //endPoint不是域名，域名是 bucket.'.'.endPoint
         'endPoint' => 'nos-ea*********6.net',
     ],
-
+	//baidu Cloud
     'baidu' => [
         'bosConfig' => [
             'credentials' => [
@@ -65,6 +65,14 @@ $config = [
         'bucket' => 'b******own',
         'endpoint' => 'oss-cn***********cs.com',
     ],
+	
+	//Youpai Cloud
+	'youpai' => [
+		'serviceName' => 'b*************n',
+		'operator' => 'aa*********bb*',
+		'password' => 'cc**********dd*',
+		'domain' => 'http://***********.test.upcdn.net',
+	],
 
     //https://sm.ms
     'smms' => [

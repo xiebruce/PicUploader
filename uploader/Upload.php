@@ -20,14 +20,16 @@ class Upload extends Common {
         static::$config = $config;
         static::$config['storageType'] = isset(static::$config['storageType']) ? strtolower(static::$config['storageType']) : 'qiniu';
     }
-
-    /**
-     * Get public link
-     * @return string
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \ImagickException
-     */
-    public function getPublickLink(){
+	
+	/**
+	 * Get public link
+	 * @return string
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 * @throws \ImagickException
+	 * @throws \NOS\Core\NosException
+	 * @throws \OSS\Core\OssException
+	 */
+	public function getPublickLink(){
         $fileCount = count($this->argv);
         if($fileCount > 5){
             $error = "Sorry, it's too slow if you upload more than 5 photos at a time, {$fileCount} were selected!\n";
@@ -55,6 +57,9 @@ class Upload extends Common {
             case 'aliyun':
                 $link = (new UploadAliyun(static::$config, $this->argv))->upload();
                 break;
+	        case 'youpai':
+		        $link = (new UploadYoupai(static::$config, $this->argv))->upload();
+		        break;
             case 'smms':
             default:
                 $link = (new UploadSmms(static::$config, $this->argv))->upload();

@@ -5,6 +5,7 @@
         "qcloud/cos-sdk-v5": ">=1.0",
         "netease/nos-php-sdk": "^1.0",
         "aws/aws-sdk-php": "^3.63",
-        "aliyuncs/oss-sdk-php": "^2.3"
+        "aliyuncs/oss-sdk-php": "^2.3",
+        "upyun/sdk": "^3.3"
     }
 }

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Upyun\\' => array($vendorDir . '/upyun/sdk/src/Upyun'),
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
     'Qiniu\\' => array($vendorDir . '/qiniu/php-sdk/src/Qiniu'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

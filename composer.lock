@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7c15903085894f8ee2bb6384371605d",
+    "content-hash": "66304c0d9988e56f669925e21aa16591",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -706,6 +706,66 @@
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
             "time": "2018-04-06T07:35:03+00:00"
+        },
+        {
+            "name": "upyun/sdk",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/upyun/php-sdk.git",
+                "reference": "1a2dd5ae31047956c733aef0f764f3a527d30628"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/upyun/php-sdk/zipball/1a2dd5ae31047956c733aef0f764f3a527d30628",
+                "reference": "1a2dd5ae31047956c733aef0f764f3a527d30628",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "consolidation/robo": "^1.0",
+                "phpdocumentor/phpdocumentor": "^2.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Upyun\\": "src/Upyun/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "totoleo",
+                    "email": "totoleo@163.com"
+                },
+                {
+                    "name": "lfeng",
+                    "email": "bonevv@gmail.com"
+                },
+                {
+                    "name": "lvtongda",
+                    "email": "riyao.lyu@gmail.com"
+                },
+                {
+                    "name": "sabakugaara",
+                    "email": "senellise@gmail.com"
+                }
+            ],
+            "description": "UPYUN sdk for php",
+            "homepage": "https://github.com/upyun/php-sdk/",
+            "keywords": [
+                "sdk",
+                "upyun"
+            ],
+            "time": "2017-11-12T09:17:42+00:00"
         }
     ],
     "packages-dev": [],

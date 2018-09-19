@@ -16,6 +16,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
     );
 
     public static $prefixLengthsPsr4 = array (
+        'U' => 
+        array (
+            'Upyun\\' => 6,
+        ),
         'S' => 
         array (
             'Symfony\\Component\\EventDispatcher\\' => 34,
@@ -53,6 +57,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
     );
 
     public static $prefixDirsPsr4 = array (
+        'Upyun\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/upyun/sdk/src/Upyun',
+        ),
         'Symfony\\Component\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
