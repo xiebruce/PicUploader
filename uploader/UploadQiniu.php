@@ -11,7 +11,7 @@ namespace uploader;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 
-class Uploadqiniu extends Common {
+class UploadQiniu extends Common {
     //七牛AccessKey
     public $accessKey;
     //七牛AccessSecret
@@ -33,10 +33,14 @@ class Uploadqiniu extends Common {
      */
     public function __construct($config, $argv)
     {
-        $this->accessKey = $config['qiniu']['AK'];
-        $this->secretKey = $config['qiniu']['SK'];
-        $this->bucket = $config['qiniu']['bucket'];
-        $this->domain = $config['qiniu']['domain'];
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+        $this->accessKey = $ServerConfig['AK'];
+        $this->secretKey = $ServerConfig['SK'];
+        $this->bucket = $ServerConfig['bucket'];
+        $this->domain = $ServerConfig['domain'];
 
         $this->argv = $argv;
         static::$config = $config;

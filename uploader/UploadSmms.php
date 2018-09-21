@@ -26,7 +26,11 @@ class UploadSmms extends Common {
      */
     public function __construct($config, $argv)
     {
-        $this->smmsBaseUrl = $config['sm.ms']['baseUrl'];
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+        $this->smmsBaseUrl = $ServerConfig['baseUrl'];
         $this->argv = $argv;
         static::$config = $config;
     }

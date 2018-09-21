@@ -13,6 +13,11 @@ use BaiduBce\Services\Bos\BosClient;
 
 class UploadBaidu extends Upload{
 
+	
+	public $bosConfig;
+	public $bucket;
+	public $domain;
+	
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -26,6 +31,14 @@ class UploadBaidu extends Upload{
      */
     public function __construct($config, $argv)
     {
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+	    $this->bosConfig = $ServerConfig['bosConfig'];
+	    $this->bucket = $ServerConfig['bucket'];
+	    $this->domain = $ServerConfig['domain'];
+	    
         $this->argv = $argv;
         static::$config = $config;
     }
@@ -54,7 +67,7 @@ class UploadBaidu extends Upload{
             }
             $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 
-            $bosClient = new BosClient(static::$config['baidu']['bosConfig']);
+            $bosClient = new BosClient($this->bosConfig);
 
             //获取随机文件名
             $newFileName = $this->genRandFileName($uploadFilePath);
@@ -63,8 +76,8 @@ class UploadBaidu extends Upload{
             $key = date('Y/m/d/') . $newFileName;
 
             try {
-                $bosClient->putObjectFromFile(static::$config['baidu']['bucket'], $key, $uploadFilePath);
-                $publicLink = static::$config['baidu']['domain'].'/'.$key;;
+                $bosClient->putObjectFromFile($this->bucket, $key, $uploadFilePath);
+                $publicLink = $this->domain.'/'.$key;;
                 //按配置文件指定的格式，格式化链接
                 $link .= $this->formatLink($publicLink, $originFilename);
                 //删除临时图片

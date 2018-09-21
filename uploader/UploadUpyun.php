@@ -12,7 +12,7 @@ namespace uploader;
 use Upyun\Config;
 use Upyun\Upyun;
 
-class UploadYoupai extends Upload{
+class UploadUpyun extends Upload{
     public $serviceName;
     //操作员名称
     public $operator;
@@ -32,10 +32,14 @@ class UploadYoupai extends Upload{
      */
     public function __construct($config, $argv)
     {
-        $this->serviceName = $config['youpai']['serviceName'];
-        $this->operator = $config['youpai']['operator'];
-        $this->password = $config['youpai']['password'];
-        $this->domain = $config['youpai']['domain'];
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+        $this->serviceName = $ServerConfig['serviceName'];
+        $this->operator = $ServerConfig['operator'];
+        $this->password = $ServerConfig['password'];
+        $this->domain = $ServerConfig['domain'];
 
         $this->argv = $argv;
         static::$config = $config;

@@ -16,11 +16,6 @@
     require 'vendor/autoload.php';
     require 'common/EasyImage.php';
 
-    //autoload class
-    spl_autoload_register(function ($class_name) {
-        require_once __DIR__ . '/' . str_replace('\\', '/', $class_name) . '.php';
-    });
-
     $localConfigFile = __DIR__ . '/config/config-local.php';
     if(is_file($localConfigFile)){
         $config = require __DIR__ . '/config/config-local.php';
@@ -34,10 +29,14 @@
     if(strtolower($config['storageType']) == 'baidu'){
         require __DIR__ . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
     }
-
-    use uploader\Upload;
+	
+	//autoload class
+	spl_autoload_register(function ($class_name) {
+		require_once __DIR__ . '/' . str_replace('\\', '/', $class_name) . '.php';
+	});
+    
     //去除第一个元素（因为第一个元素是index.php，因为$argv是linux/mac的参数，
     //用php执行index.php的时候，index.php也算是一个参数）
     array_shift($argv);
-    echo (new Upload($argv, $config))->getPublickLink();
+    echo (new uploader\Upload($argv, $config))->getPublickLink();
 

@@ -31,11 +31,15 @@ class UploadJd extends Upload{
      */
     public function __construct($config, $argv)
     {
-        $this->accessKey = $config['jd']['key'];
-        $this->secretKey = $config['jd']['secret'];
-        $this->endpoint = $config['jd']['endpoint'];
-        $this->bucket = $config['jd']['bucket'];
-        $this->region = $config['jd']['region'];
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+        $this->accessKey = $ServerConfig['key'];
+        $this->secretKey = $ServerConfig['secret'];
+        $this->endpoint = $ServerConfig['endpoint'];
+        $this->bucket = $ServerConfig['bucket'];
+        $this->region = $ServerConfig['region'];
 
         $this->argv = $argv;
         static::$config = $config;

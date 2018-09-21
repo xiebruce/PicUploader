@@ -30,11 +30,15 @@ class UploadNetease extends Upload{
      */
     public function __construct($config, $argv)
     {
-        $this->accessKey = $config['netease']['accessKey'];
-        $this->secretKey = $config['netease']['accessSecret'];
-        $this->bucket = $config['netease']['bucket'];
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+        $this->accessKey = $ServerConfig['accessKey'];
+        $this->secretKey = $ServerConfig['accessSecret'];
+        $this->bucket = $ServerConfig['bucket'];
         //endPoint不是域名，外链域名是 bucket.'.'.endPoint
-        $this->endPoint = $config['netease']['endPoint'];
+        $this->endPoint = $ServerConfig['endPoint'];
 
         $this->argv = $argv;
         static::$config = $config;

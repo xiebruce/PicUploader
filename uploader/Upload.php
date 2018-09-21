@@ -18,52 +18,31 @@ class Upload extends Common {
     {
         $this->argv = $argv;
         static::$config = $config;
-        static::$config['storageType'] = isset(static::$config['storageType']) ? strtolower(static::$config['storageType']) : 'qiniu';
+        static::$config['storageType'] = isset(static::$config['storageType']) ? static::$config['storageType'] : 'Qiniu';
     }
 	
 	/**
 	 * Get public link
-	 * @return string
-	 * @throws \GuzzleHttp\Exception\GuzzleException
-	 * @throws \ImagickException
-	 * @throws \NOS\Core\NosException
-	 * @throws \OSS\Core\OssException
+	 * @return mixed
 	 */
 	public function getPublickLink(){
         $fileCount = count($this->argv);
         if($fileCount > 5){
             $error = "Sorry, it's too slow if you upload more than 5 photos at a time, {$fileCount} were selected!\n";
             $this->writeLog($error, 'error_log');
-            echo $error;
-            exit;
+            exit($error);
         }
-
-        switch(strtolower(static::$config['storageType'])){
-            case 'qiniu':
-                $link = (new UploadQiniu(static::$config, $this->argv))->upload();
-                break;
-            case 'tecent':
-                $link = (new UploadTencent(static::$config, $this->argv))->upload();
-                break;
-            case 'netease':
-                $link = (new UploadNetease(static::$config, $this->argv))->upload();
-                break;
-            case 'baidu':
-                $link = (new UploadBaidu(static::$config, $this->argv))->upload();
-                break;
-            case 'jd':
-                $link = (new UploadJd(static::$config, $this->argv))->upload();
-                break;
-            case 'aliyun':
-                $link = (new UploadAliyun(static::$config, $this->argv))->upload();
-                break;
-	        case 'youpai':
-		        $link = (new UploadYoupai(static::$config, $this->argv))->upload();
-		        break;
-            case 'smms':
-            default:
-                $link = (new UploadSmms(static::$config, $this->argv))->upload();
+		$storageTypes = array_keys(static::$config['storageTypes']);
+		$storageType = strtolower(static::$config['storageType']);
+        if(!in_array($storageType, $storageTypes)){
+        	$errMsg = "Cannot find storage type `".static::$config['storageType']."` in config file, please check the config file and try again.\n";
+        	$this->writeLog($errMsg, 'StorageTypeError');
+        	exit($errMsg);
         }
+        //new 变量类名不会带上命名空间，所以自己把命名空间加上
+		$className = __NAMESPACE__.'\\Upload'.ucfirst($storageType);
+        //new 变量类名，并调用对应类的upload()方法上传文件
+		$link = (new $className(static::$config, $this->argv))->upload();
 
         //记录上传日志
         $datetime = date('Y-m-d H:i:s');

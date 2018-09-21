@@ -28,10 +28,14 @@ class UploadTencent extends Common {
      */
     public function __construct($config, $argv)
     {
-        $this->region = $config['tecent']['region'];
-        $this->secretId = $config['tecent']['secretId'];
-        $this->secretKey = $config['tecent']['secretKey'];
-        $this->bucket = $config['tecent']['bucket'];
+	    $tmpArr = explode('\\',__CLASS__);
+	    $className = array_pop($tmpArr);
+	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    
+        $this->region = $ServerConfig['region'];
+        $this->secretId = $ServerConfig['secretId'];
+        $this->secretKey = $ServerConfig['secretKey'];
+        $this->bucket = $ServerConfig['bucket'];
 
         $this->argv = $argv;
         static::$config = $config;
