@@ -11,7 +11,7 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/sm.ms七种，以下服务选择一种就可以！
 ### 1. 注册七牛云
 - [点击前往七牛云](https://www.qiniu.com)
-- [查看注册七牛云对象存储教程](http://www.xiebruce.xyz/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
+- [查看注册七牛云对象存储教程](http://www.xiebruce.top/uncategorized/117.html)
 ### 2.注册腾讯云
 - [点击前往腾讯云](https://cloud.tencent.com)
 
