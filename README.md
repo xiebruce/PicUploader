@@ -1,7 +1,7 @@
     
 PicUploader
 ===============
-![PicUploader-logo.png](http://pe5scgdex.bkt.clouddn.com/2018/09/19/781e669d020efbde43dc952eb802293b.png)
+![PicUploader-logo.png](http://img.qhjack.cn/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
 PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
 
