@@ -1,7 +1,7 @@
     
 PicUploader
 ===============
-![PicUploader-logo.png](http://image.qhjack.cn/2018/09/19/781e669d020efbde43dc952eb802293b.png)
+![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
 PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
 
@@ -83,12 +83,12 @@ Call Stack:
 'logPath' => '/Users/xxxx/Desktop',
 ```
 如下图，在访达中随便打开一个目录，比如我打开的是『下载』目录，看下边路径中有个小房子🏠旁边的名字即为你的用户目录名
-![Xnip2018-09-08_00-23-46.png](http://image.qhjack.cn/2018/09/08/fe0e6100ce10729f01012fd57d556ae5.png)
+![Xnip2018-09-08_00-23-46.png](https://img.xiebruce.top/2018/09/08/fe0e6100ce10729f01012fd57d556ae5.png)
 
 ## 三、使用『自动操作/Automator』新建一个workflow服务
 ### 1.打开『自动操作/Automator』
 或者像下面gif图演示的那样用『聚焦搜索』来打开
-![](http://image.qhjack.cn/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
+![](https://img.xiebruce.top/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
 
 ### 2.按下图操作
 注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如『获取Markdown外链』。
@@ -104,18 +104,18 @@ export LC_CTYPE="zh_CN.UTF-8"
 
 ### 3.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
-![Xnip2018-09-07_23-58-26.png](http://image.qhjack.cn/2018/09/08/66b431b893bc5b2abc456b6bf4f0b6ee.png)
+![Xnip2018-09-07_23-58-26.png](https://img.xiebruce.top/2018/09/08/66b431b893bc5b2abc456b6bf4f0b6ee.png)
 
 ## 三、开始使用
 ### 1.右击任意一张图片
 如果一切正常，你对着图片右击，并点击右键菜单中的`获取Markdown链接`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当小齿轮停止转动(不需要等它消失)，即说明上传已经完成，同时右上角会弹出通知，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`粘贴试试吧
-![](http://image.qhjack.cn/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png?imageMogr2/thumbnail/50x/strip/quality/80)
+![](https://img.xiebruce.top/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png?imageMogr2/thumbnail/50x/strip/quality/80)
 ### 2. 为你创建的服务创建快捷键
 `系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。  
-![](http://image.qhjack.cn/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png?imageMogr2/thumbnail/800x/strip/quality/80)
+![](https://img.xiebruce.top/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png?imageMogr2/thumbnail/800x/strip/quality/80)
 ### 3.查看上传日志
 - 因为在配置文件中的 'logPath' => '/Users/xxxx/Desktop' 配置了上传日志保存到桌面，所以不出意外，你的桌面装会有一个如下图所示的文件夹，这里保存了你上传的图片的Markdown外链地址，你在七牛云（或者其他服务器）是能找到对应的图片的，如果你觉得哪张图片不想要，可以在对应服务器中把它删除了。
-![Xnip2018-09-08_00-34-41.png](http://image.qhjack.cn/2018/09/08/d4d35766f028a4a26b9c6be9b139e2bf.png)
+![Xnip2018-09-08_00-34-41.png](https://img.xiebruce.top/2018/09/08/d4d35766f028a4a26b9c6be9b139e2bf.png)
 - 这个日志文件也是markdown格式，所以你可以用mweb之类的markdown编辑器查看它，但是有个问题当你用Mweb打开它之后，如果再上传一张图片，这个文件里肯定会增加一条你上传的记录，但是在Mweb中却不会刷新，必须关掉重新打开才能看的到，这个特别麻烦，建议用[typora](https://typora.io/)这个软件来打开日志，这个会自动刷新，而且免费。
 - 日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在服务器中文件多的话比较难找到。
 
