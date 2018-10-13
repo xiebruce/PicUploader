@@ -3,12 +3,12 @@ PicUploader
 ===============
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
-PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片——点击`你的自定义菜单`——到markdown编辑器中粘贴！
+PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片→点击`你的自定义菜单`→到markdown编辑器中粘贴！
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20demonstration.gif)
 
 ## 一、 注册存储服务器账号
-目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/sm.ms七种，以下服务选择一种就可以！
+目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms八种，以下服务选择一种就可以，如果是自己搭建的博客，强烈推荐又拍云！
 ### 1. 注册七牛云
 - [点击前往七牛云](https://www.qiniu.com)
 - [查看注册七牛云对象存储教程](http://www.xiebruce.top/uncategorized/117.html)
@@ -27,13 +27,15 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ### 6.注册阿里云
 - [点击前往阿里云](https://www.163yun.com)
 
-### 7.注册又拍云
+### 7.注册又拍云(强烈推荐)
 - [点击前往又拍云](https://www.upyun.com)
-如果您有自己的网站/博客，请申请[又拍云联盟](https://www.upyun.com/league)，这样每月都有免费的15G流量+10G存储空间，markdown存个图卓卓有余了！
+如果您有自己的网站/博客，强烈推荐使用又拍云，因为又拍云的免费额度最大，每个月有10G空间+15G流量（只需要在网站底部放一个带链接的又拍云logo即可），但需要先申请[又拍云联盟](https://www.upyun.com/league)，申请后又拍云会给你发放。
+![Xnip2018-10-13_17-07-44.png](https://img.xiebruce.top/2018/10/13/e1f3e1471528f7114d296cde30439e39.png)
+
 ### 8.无需注册直接使用sm.ms
 - 直接使用是上传到[sm.ms](http://sm.ms)，我这里刚开始是可以，后来上传一直超时（如果小齿轮一直转个不停，基本上就是超时了），经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，但目前我还无法用PHP去使用你Mac上的科学上网工具，所以如果你是在国内，还是建议别用sm.ms了
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容，请查看日志，很有可能是这张图片压缩后超过了5M，或者是超过5M的gif图（gif图不压缩）
-- 如果粘贴出来的内容以下内容，那就是无法上传到sm.ms了，只能换七牛啦。
+- 如果粘贴出来的内容以下内容，那就是无法上传到sm.ms了，只能换其他云啦。
 ```
 Fatal error: Uncaught GuzzleHttp\Exception\ConnectException: cURL error 28: Operation timed out after 10003 milliseconds with 0 out of 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 185
 
@@ -49,14 +51,14 @@ Call Stack:
 
 ## 二、下载使用
 ### 1.下载PicUploader
-- git clone git@github.com:xiebruce/PicUploader.git
-- 直接下载 [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)  
+- 使用git下载：git clone git@github.com:xiebruce/PicUploader.git
+- 或者直接下载： [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 2.填写配置
-- 把PicUploader/config/config.php文件`command+D`复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云其中一个)即可。
+- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
-- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](http://www.xiebruce.top/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
+- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](https://www.xiebruce.top/uncategorized/117.html)
 ``` php
 //Qiniu Cloud
 'qiniu' => [
@@ -99,8 +101,8 @@ export LC_CTYPE="zh_CN.UTF-8"
 /usr/bin/php /Users/xxxxx/www/PicUploader-master/index.php "$@" | pbcopy
 ```
 注意：
-- 注意/usr/bin/php路径，最好在终端用『which php』来查看它的路径，确认一下是否正确。
-- 把/Users/xxxxx/www/PicUploader-master/index.php 的路径换成你自己的index.php路径
+- 注意`/usr/bin/php`这个路径，最好在终端用`which php`命令来查看它的路径，确认一下是否正确，如果执行`which php`命令后输出的不是`/usr/bin/php`，则以`which php`命令输出的为准。
+- 把/Users/xxxxx/www/PicUploader-master/index.php 的路径换成你自己的index.php路径，怎么看你的index.php路径呢？打开终端，把index.php文件拖到终端上，终端就会显示出它的路径。
 
 ### 3.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
@@ -124,7 +126,7 @@ export LC_CTYPE="zh_CN.UTF-8"
 - 由于各个云服务器免费空间有限(七牛云免费10G,好像也不小了哈哈)，而且大文件加载特别慢，所以有些大图片需要压缩后上传，由于试过按质量压缩对图片影响较大，所以选择按宽度压缩（高度会保持等比例适应）。
 - 如果要设置压缩图片，建议imgWidth设置为800或1000，别担心分辨率低的图压缩后看不清，即使设置了该选项，分辨率比较低的图片也是不会被压缩的。
 - 由于gif图片实际上是由很多张图片组合在一起的，它的压缩比较麻烦，需要Mac装一些额外的库，所以暂时选择不压缩gif（也就是说即使你设置了imgWidth为800或者1000，也不会压缩gif图片）
-- 返回的图片地址中『?imageMogr2/thumbnail/800x/strip/quality/80』这部分是七牛云的压缩参数(如果你配置了的话)，也就是说这部分参数你可以去掉直接查看你上传的图，其中thumbnail/800x表示设置宽度为800，strip表示去除一些exif信息以减小图片大小，quality/80表示设置图片质量为原来的80%，其实还可以在最后加个/format/webp这样图片加载会快很多，因为webp能在最大程度还原图片清晰度的同时把图片体积降到最小。
+- 如果你用的是七牛云，则返回的图片地址中『?imageMogr2/thumbnail/800x/strip/quality/80』这部分是七牛云的压缩参数(如果你配置了的话)，也就是说这部分参数你可以去掉直接查看你上传的图，其中thumbnail/800x表示设置宽度为800，strip表示去除一些exif信息以减小图片大小，quality/80表示设置图片质量为原来的80%，其实还可以在最后加个/format/webp这样图片加载会快很多，因为webp能在最大程度还原图片清晰度的同时把图片体积降到最小。
 
 ### 2.安装管理工具
 因为图片上传到七牛云后，在七牛的后台实在无法直观的浏览和管理图片，如果你希望方便管理你的图片，可以下载两款谷歌浏览器插件：
@@ -132,10 +134,15 @@ export LC_CTYPE="zh_CN.UTF-8"
 - [七牛云图床](https://chrome.google.com/webstore/detail/%E4%B8%83%E7%89%9B%E4%BA%91%E5%9B%BE%E5%BA%8A/fmpbbmjlniogoldpglopponaibclkjdg) 一款可以让你直接上传图片到七牛云的工具，但是它没有分文件夹。
 - 腾讯COS官方MacOS客户端：[点击前往下载](https://cloud.tencent.com/document/product/436/11366)
 - 百度BOS官方MasOS客户端：[点击前往下载](https://cloud.baidu.com/doc/BOS/BOSCLI.html#.E4.B8.8B.E8.BD.BD)
+- 如果是又拍云，因为又拍云没有网页管理工具，只能自己用ftp工具查看。
 
-### 3.上传完成通知问题
-- 一般情况下，上传完成后右上角就会弹出通知，如果你没有弹出，有可能是因为系统没更新的问题，像我的系统版本一直是10.13.1，我的就不弹，但是我让别人试就会弹。
+### 3.上传完成无法弹出通知问题
+- 一般情况下，上传完成后右上角就会弹出通知，如果你没有弹出，有可能是因为系统没更新的问题，像我的系统版本一直是10.13.1，我的就不弹，但是我让别人试就会弹（后来我更新10.14(Mojave)系统后，就能正常弹出提示了）。
 - 如果你的系统也没更新，那有可能也不会弹通知，那就只能看工具栏上的小齿轮，小齿轮停止转动说明上传完成（不需要等小齿轮消失，停止转动即已完成），然后就可以去markdown编辑器粘贴了。
+
+### 4、说个不幸的消息
+- 七牛云默认域名是测试域名，只能使用30天，30天后该域名会被回收，所以你需要绑定自己的域名，但绑定自己的域名需要域名已经备案，而域名备案是跟网站一块的，就是说如果你只买了域名没有自己的网站的话，是无法备案的，这时你可以看看有没有朋友有已备案的域名，叫他给你解析一个二级域名也行，因为一个人一般只用一两个二级域名，所以会有很多二级域名可用的。
+- 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会比较慢，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 五、更新日志
 ### 2018-09-21 v2.3版本
