@@ -56,7 +56,7 @@ Call Stack:
 ### 2.填写配置
 - 把PicUploader/config/config.php文件`command+D`复制一份，命名为config-local.php，然后在config-local.php中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
-- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](http://www.xiebruce.xyz/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
+- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](http://www.xiebruce.top/2018/09/06/%E6%B3%A8%E5%86%8C%E4%B8%83%E7%89%9B%E4%BA%91%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%95%99%E7%A8%8B/)
 ``` php
 //Qiniu Cloud
 'qiniu' => [
