@@ -33,21 +33,18 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ![Xnip2018-10-13_17-07-44.png](https://img.xiebruce.top/2018/10/13/e1f3e1471528f7114d296cde30439e39.png)
 
 ### 8.无需注册直接使用sm.ms
-- 直接使用是上传到[sm.ms](http://sm.ms)，我这里刚开始是可以，后来上传一直超时（如果小齿轮一直转个不停，基本上就是超时了），经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，但目前我还无法用PHP去使用你Mac上的科学上网工具，所以如果你是在国内，还是建议别用sm.ms了
-- 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容，请查看日志，很有可能是这张图片压缩后超过了5M，或者是超过5M的gif图（gif图不压缩）
-- 如果粘贴出来的内容以下内容，那就是无法上传到sm.ms了，只能换其他云啦。
+- 直接使用是上传到[sm.ms](http://sm.ms)，经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，否则不稳定，如果小齿轮一直转个不停，基本上就是上传失败超时了。
+- 设置代理，直接在配置文件填写代理的ip+端口即可，如（127.0.0.1:1087）:
+``` php
+'smms' => [
+	'baseUrl' => 'https://sm.ms/api/',
+	//代理地址，如果使用shadowsocks做代理，ip填127.0.0.1即可，端口从『偏好设置→HTTP→监听端口』找
+	//留空或注释掉表示不使用代理
+	// 'proxy' => '127.0.0.1:1087',
+],
 ```
-Fatal error: Uncaught GuzzleHttp\Exception\ConnectException: cURL error 28: Operation timed out after 10003 milliseconds with 0 out of 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 185
+- 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容或者报错，请查看日志，很有可能是这张图片压缩后超过了5M，或者图片是超过5M的gif图（gif图不压缩）
 
-GuzzleHttp\Exception\ConnectException: cURL error 28: Operation timed out after 10003 milliseconds with 0 out of 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Handler/CurlFactory.php on line 185
-
-Call Stack:
-    0.0015     390496   1. {main}() /Users/bruce/www/personal/PicUploader/index.php:0
-    0.0128    1021472   2. PicUploader\Upload->getPublickLink() /Users/bruce/www/personal/PicUploader/index.php:27
-    0.0128    1021472   3. PicUploader\Upload->uploadToSmms() /Users/bruce/www/personal/PicUploader/Upload.php:83
-    0.6283    1675632   4. GuzzleHttp\Client->request() /Users/bruce/www/personal/PicUploader/Upload.php:211
-   10.6451    2047552   5. GuzzleHttp\Promise\RejectedPromise->wait() /Users/bruce/www/personal/PicUploader/vendor/guzzlehttp/guzzle/src/Client.php:131
-```
 
 ## 二、下载使用
 ### 1.下载PicUploader
@@ -145,6 +142,9 @@ export LC_CTYPE="zh_CN.UTF-8"
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 五、更新日志
+### 2018-10-20 v2.4版本
+- 上传图片到sm.ms添加支持使用HTTP代理(如shadowsocks)
+- fix bug
 ### 2018-10-20 v2.4版本
 - 添加水印支持（支持文字水印、图片水印）
 - 去掉了上传到sm.ms同时返回了删除链接的问题，但日志里还是会有删除链接
