@@ -107,8 +107,10 @@ class Common {
     }
 	
 	/**
-	 * 添加水印
+	 * Add watermark
 	 * @param $filePath
+	 *
+	 * @return string
 	 */
 	public function watermark($filePath){
 	    $img = new EasyImage();
@@ -121,18 +123,18 @@ class Common {
 	        $img->overlay($watermark, $watermarkConfig['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
 	    }else if($type=='text'){
 		    $textConfig =  $watermarkConfig['text'];
-		    // var_dump($watermarkConfig['position']);exit;
 		    $fontPath = APP_PATH . '/static/watermark/'.$textConfig['font'];
 		    $img->text($textConfig['word'], $fontPath, $textConfig['fontSize'], $textConfig['color'], $watermarkConfig['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
 	    }
 		
-		$tmpImgPath = $filePath;
 	    if(strpos($filePath, '.tmp') === false){
 		    $tmpDir = APP_PATH.'/.tmp';
 		    if(!is_dir($tmpDir)){
 			    @mkdir($tmpDir, 0777 ,true);
 		    }
 		    $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+	    }else{
+		    $tmpImgPath = $filePath;
 	    }
 		
 		$img->save($tmpImgPath);
