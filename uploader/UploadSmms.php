@@ -15,8 +15,8 @@ class UploadSmms extends Common {
     public static $config;
     //arguments from php client, the image absolute path
     public $argv;
-    //baseUrl
-    public $smmsBaseUrl;
+    //云服务器配置
+    public $serverConfig;
 
     /**
      * Upload constructor.
@@ -28,25 +28,28 @@ class UploadSmms extends Common {
     {
 	    $tmpArr = explode('\\',__CLASS__);
 	    $className = array_pop($tmpArr);
-	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
-	    
-        $this->smmsBaseUrl = $ServerConfig['baseUrl'];
+        $this->serverConfig = $config['storageTypes'][strtolower(substr($className,6))];;
         $this->argv = $argv;
         static::$config = $config;
     }
-
-    /**
-     * Upload image to http://sm.ms
-     * @return string
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \ImagickException
-     */
-    public function upload(){
+	
+	/**
+	 * Upload image to http://sm.ms
+	 * @return array
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 * @throws \ImagickException
+	 */
+	public function upload(){
         $link = [];
-        $client = new Client([
-            'base_uri' => $this->smmsBaseUrl,
-            'timeout'  => 10.0,
-        ]);
+        $GuzzleConfig = [
+	        'base_uri' => $this->serverConfig['baseUrl'],
+	        'timeout'  => 10.0,
+        ];
+        if(isset($this->serverConfig['proxy']) && $this->serverConfig['proxy']){
+	        $GuzzleConfig['proxy'] = $this->serverConfig['proxy'];
+        }
+        //实例化GuzzleHttp
+        $client = new Client($GuzzleConfig);
         foreach($this->argv as $filePath){
             $mimeType = $this->getMimeType($filePath);
             $originFilename = $this->getOriginFileName($filePath);
@@ -71,6 +74,7 @@ class UploadSmms extends Common {
 
             $fileSize = filesize($uploadFilePath);
             if($fileSize > 5000000){
+	            $imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
                 if($imgWidth){
                     $error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
                 }else{
