@@ -71,13 +71,18 @@ class UploadQiniu extends Common {
 
             //组装key名（因为我们用的是七牛云的OSS:Object Storage Service，即对象存储服务，存储是用key=>value的方式存的）
             $key = date('Y/m/d/') . $newFileName;
-
-            //如果配置了优化宽度，则优化
-            $tmpImgPath = '';
-            if(isset(static::$config['imgWidth']) && static::$config['imgWidth']){
-                $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth']);
-            }
-            $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+	
+	        //如果配置了优化宽度，则优化
+	        $uploadFilePath = $filePath;
+	        $tmpImgPath = '';
+	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
+		        $tmpImgPath = $uploadFilePath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+	        }
+	
+	        //添加水印
+	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
+		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
+	        }
 
             //获取七牛token
             $token = $this->getToken();

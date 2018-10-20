@@ -42,7 +42,7 @@ class UploadSmms extends Common {
      * @throws \ImagickException
      */
     public function upload(){
-        $link = '';
+        $link = [];
         $client = new Client([
             'base_uri' => $this->smmsBaseUrl,
             'timeout'  => 10.0,
@@ -56,14 +56,18 @@ class UploadSmms extends Common {
                 $this->writeLog($error, 'error_log');
                 continue;
             }
-
-            //如果配置了优化宽度，则优化
-            $tmpImgPath = '';
-            $imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
-            if($imgWidth){
-                $tmpImgPath = $this->optimizeImage($filePath, $imgWidth);
-            }
-            $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+	
+	        //如果配置了优化宽度，则优化
+	        $uploadFilePath = $filePath;
+	        $tmpImgPath = '';
+	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
+		        $tmpImgPath = $uploadFilePath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+	        }
+	
+	        //添加水印
+	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
+		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
+	        }
 
             $fileSize = filesize($uploadFilePath);
             if($fileSize > 5000000){
@@ -98,8 +102,11 @@ class UploadSmms extends Common {
             if($returnArr['code'] == 'success'){
                 $data = $returnArr['data'];
                 $deleteLink = 'Delete Link: '.$data['delete'];
-                $link .= $this->formatLink($data['url'], $originFilename);
-                $link .= $deleteLink . "\n\n";
+                // $link .= $this->formatLink($data['url'], $originFilename);
+	            $link = [
+	            	'link' => $this->formatLink($data['url'], $originFilename),
+		            'delLink' => $deleteLink
+	            ];
             }
             // Delete the tmp file
             $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);

@@ -16,6 +16,8 @@
     require 'vendor/autoload.php';
     require 'common/EasyImage.php';
 
+    define('APP_PATH', __DIR__);
+    
     $localConfigFile = __DIR__ . '/config/config-local.php';
     if(is_file($localConfigFile)){
         $config = require __DIR__ . '/config/config-local.php';

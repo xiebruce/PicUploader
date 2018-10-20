@@ -93,7 +93,7 @@ class Common {
             }
 
             if($optimize){
-                $tmpDir = __DIR__.'/../.tmp';
+                $tmpDir = APP_PATH.'/.tmp';
                 if(!is_dir($tmpDir)){
                     @mkdir($tmpDir, 0777 ,true);
                 }
@@ -104,6 +104,39 @@ class Common {
             }
         }
         return $tmpImgPath;
+    }
+	
+	/**
+	 * 添加水印
+	 * @param $filePath
+	 */
+	public function watermark($filePath){
+	    $img = new EasyImage();
+	    $img->load($filePath);
+	    $watermarkConfig = static::$config['watermark'];
+	    $type = $watermarkConfig['type'];
+	    if($type=='image'){
+		    $imageConfig = $watermarkConfig['image'];
+	    	$watermark = APP_PATH.'/static/watermark/'.$imageConfig['watermark'];
+	        $img->overlay($watermark, $watermarkConfig['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
+	    }else if($type=='text'){
+		    $textConfig =  $watermarkConfig['text'];
+		    // var_dump($watermarkConfig['position']);exit;
+		    $fontPath = APP_PATH . '/static/watermark/'.$textConfig['font'];
+		    $img->text($textConfig['word'], $fontPath, $textConfig['fontSize'], $textConfig['color'], $watermarkConfig['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
+	    }
+		
+		$tmpImgPath = $filePath;
+	    if(strpos($filePath, '.tmp') === false){
+		    $tmpDir = APP_PATH.'/.tmp';
+		    if(!is_dir($tmpDir)){
+			    @mkdir($tmpDir, 0777 ,true);
+		    }
+		    $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+	    }
+		
+		$img->save($tmpImgPath);
+		return $tmpImgPath;
     }
 
     /**

@@ -58,13 +58,18 @@ class UploadTencent extends Common {
                 $this->writeLog($error, 'error_log');
                 continue;
             }
-
-            //如果配置了优化宽度，则优化
-            $tmpImgPath = '';
-            if(isset(static::$config['imgWidth']) && static::$config['imgWidth']){
-                $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth']);
-            }
-            $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+	
+	        //如果配置了优化宽度，则优化
+	        $uploadFilePath = $filePath;
+	        $tmpImgPath = '';
+	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
+		        $tmpImgPath = $uploadFilePath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+	        }
+	
+	        //添加水印
+	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
+		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
+	        }
 
             $cosClient = new Client([
                 'region' => $this->region,

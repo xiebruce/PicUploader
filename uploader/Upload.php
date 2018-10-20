@@ -43,11 +43,16 @@ class Upload extends Common {
 		$className = __NAMESPACE__.'\\Upload'.ucfirst($storageType);
         //new 变量类名，并调用对应类的upload()方法上传文件
 		$link = (new $className(static::$config, $this->argv))->upload();
+		$log = $link;
+		if(strtolower($storageType) == 'smms'){
+			$log = join("\n", $link);
+			$link = $link['link'];
+		}
 
         //记录上传日志
         $datetime = date('Y-m-d H:i:s');
         $storageType = static::$config['storageType'];
-        $content = "Picture uploaded to {$storageType} at {$datetime} => \n{$link}\n---\n";
+        $content = "Picture uploaded to {$storageType} at {$datetime} => \n{$log}\n\n---\n";
         $this->writeLog($content);
         return $link;
     }

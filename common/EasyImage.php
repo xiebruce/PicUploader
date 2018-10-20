@@ -676,10 +676,11 @@ class EasyImage {
 		imagefilter ( $this->image, IMG_FILTER_COLORIZE, 100, 50, 0 );
 		return $this;
 	}
+	
 	/**
 	 * Overlay
 	 *
-	 * Overlay an image on top of another, works with 24-bit PNG
+	 * Overlay an image on top of another(e.g. watermark), works with 24-bit PNG
 	 * alpha-transparency
 	 *
 	 * @param string $overlay_file        	
@@ -694,18 +695,18 @@ class EasyImage {
 	 *        	
 	 * @return EasyImage
 	 */
-	function overlay($overlay_file, $position = 'center', $opacity = 1, $x_offset = 0, $y_offset = 0) {
+	function overlay($overlay_file, $position = 'center', $opacity = 0, $x_offset = 0, $y_offset = 0) {
 		// Load overlay image
 		$overlay = new EasyImage ( $overlay_file );
-		// Convert opacity
-		$opacity = $opacity * 100;
+		// Opacity is between 0 and 100
+		$opacity = $this->keep_within($opacity, 0, 100);
 		// Determine position
 		switch (strtolower ( $position )) {
-			case 'top left' :
+			case 'top-left' :
 				$x = 0 + $x_offset;
 				$y = 0 + $y_offset;
 				break;
-			case 'top right' :
+			case 'top-right' :
 				$x = $this->width - $overlay->width + $x_offset;
 				$y = 0 + $y_offset;
 				break;
@@ -713,11 +714,11 @@ class EasyImage {
 				$x = ($this->width / 2) - ($overlay->width / 2) + $x_offset;
 				$y = 0 + $y_offset;
 				break;
-			case 'bottom left' :
+			case 'bottom-left' :
 				$x = 0 + $x_offset;
 				$y = $this->height - $overlay->height + $y_offset;
 				break;
-			case 'bottom right' :
+			case 'bottom-right' :
 				$x = $this->width - $overlay->width + $x_offset;
 				$y = $this->height - $overlay->height + $y_offset;
 				break;
@@ -742,6 +743,7 @@ class EasyImage {
 		$this->imagecopymerge_alpha ( $this->image, $overlay->image, $x, $y, 0, 0, $overlay->width, $overlay->height, $opacity );
 		return $this;
 	}
+	
 	/**
 	 * Add text to an image
 	 *
@@ -752,12 +754,11 @@ class EasyImage {
 	 * @param string $position        	
 	 * @param int $x_offset        	
 	 * @param int $y_offset        	
+	 * @param int $angle(0,360)
 	 * @return EasyImage
 	 * @throws Exception
 	 */
-	function text($text, $font_file, $font_size = 12, $color = '#000000', $position = 'bottom right', $x_offset = 0, $y_offset = 0) {
-		// todo - this method could be improved to support the text angle
-		$angle = 0;
+	function text($text, $font_file, $font_size = 12, $color = '#000000', $position = 'bottom right', $x_offset = 0, $y_offset = 0, $angle = 0) {
 		$rgba = $this->normalize_color ( $color );
 		$color = imagecolorallocatealpha ( $this->image, $rgba ['r'], $rgba ['g'], $rgba ['b'], $rgba ['a'] );
 		// Determine textbox size
@@ -765,15 +766,18 @@ class EasyImage {
 		if (! $box) {
 			throw new Exception ( 'Unable to load font: ' . $font_file );
 		}
-		$box_width = abs ( $box [6] - $box [2] );
-		$box_height = abs ( $box [7] - $box [1] );
+		//注意imagettfbbox()的返回值是四个坐标，它的原点不是左上角，
+		//而是文字基线的起始点：https://www.codeblogbt.com/archives/437784
+		//这也是为什么会有负数坐标出现
+		$box_width = abs ( $box [4] - $box [6] );
+		$box_height = abs ( $box [1] - $box [7] );
 		// Determine position
 		switch (strtolower ( $position )) {
-			case 'top left' :
+			case 'top-left' :
 				$x = 0 + $x_offset;
 				$y = 0 + $y_offset + $box_height;
 				break;
-			case 'top right' :
+			case 'top-right' :
 				$x = $this->width - $box_width + $x_offset;
 				$y = 0 + $y_offset + $box_height;
 				break;
@@ -781,11 +785,11 @@ class EasyImage {
 				$x = ($this->width / 2) - ($box_width / 2) + $x_offset;
 				$y = 0 + $y_offset + $box_height;
 				break;
-			case 'bottom left' :
+			case 'bottom-left' :
 				$x = 0 + $x_offset;
 				$y = $this->height - $box_height + $y_offset + $box_height;
 				break;
-			case 'bottom right' :
+			case 'bottom-right' :
 				$x = $this->width - $box_width + $x_offset;
 				$y = $this->height - $box_height + $y_offset + $box_height;
 				break;
@@ -914,75 +918,35 @@ class EasyImage {
 		// Returns formatted string for img src
 		return 'data:' . $mimetype . ';base64,' . base64_encode ( $image_data );
 	}
+	
+	
 	/**
-	 * Same as PHP's imagecopymerge() function, except preserves
-	 * alpha-transparency in 24-bit PNGs
-	 *
-	 * @param
-	 *        	$dst_im
-	 * @param
-	 *        	$src_im
-	 * @param
-	 *        	$dst_x
-	 * @param
-	 *        	$dst_y
-	 * @param
-	 *        	$src_x
-	 * @param
-	 *        	$src_y
-	 * @param
-	 *        	$src_w
-	 * @param
-	 *        	$src_h
-	 * @param
-	 *        	$pct
-	 *        	
-	 * @link http://www.php.net/manual/en/function.imagecopymerge.php#88456
+	 * PNG ALPHA CHANNEL SUPPORT for imagecopymerge();
+	 * by Sina Salek
+	 * @param $dst_im
+	 * @param $src_im
+	 * @param $dst_x
+	 * @param $dst_y
+	 * @param $src_x
+	 * @param $src_y
+	 * @param $src_w
+	 * @param $src_h
+	 * @param $pct
 	 */
-	protected function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct) {
-		$pct /= 100;
-		// Get image width and height
-		$w = imagesx ( $src_im );
-		$h = imagesy ( $src_im );
-		// Turn alpha blending off
-		imagealphablending ( $src_im, false );
-		// Find the most opaque pixel in the image (the one with the smallest
-		// alpha value)
-		$minalpha = 127;
-		for($x = 0; $x < $w; $x ++) {
-			for($y = 0; $y < $h; $y ++) {
-				$alpha = (imagecolorat ( $src_im, $x, $y ) >> 24) & 0xFF;
-				if ($alpha < $minalpha) {
-					$minalpha = $alpha;
-				}
-			}
-		}
-		// Loop through image pixels and modify alpha for each
-		for($x = 0; $x < $w; $x ++) {
-			for($y = 0; $y < $h; $y ++) {
-				// Get current alpha value (represents the TANSPARENCY!)
-				$colorxy = imagecolorat ( $src_im, $x, $y );
-				$alpha = ($colorxy >> 24) & 0xFF;
-				// Calculate new alpha
-				if ($minalpha !== 127) {
-					$alpha = 127 + 127 * $pct * ($alpha - 127) / (127 - $minalpha);
-				} else {
-					$alpha += 127 * $pct;
-				}
-				// Get the color index with new alpha
-				$alphacolorxy = imagecolorallocatealpha ( $src_im, ($colorxy >> 16) & 0xFF, ($colorxy >> 8) & 0xFF, $colorxy & 0xFF, $alpha );
-				// Set pixel with the new color + opacity
-				if (! imagesetpixel ( $src_im, $x, $y, $alphacolorxy )) {
-					return;
-				}
-			}
-		}
-		imagesavealpha ( $dst_im, true );
-		imagealphablending ( $dst_im, true );
-		imagesavealpha ( $src_im, true );
-		imagealphablending ( $src_im, true );
-		imagecopy ( $dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h );
+	function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct){
+		// creating a cut resource
+		$cut = imagecreatetruecolor($src_w, $src_h);
+		
+		// copying relevant section from background to the cut resource
+		imagecopy($cut, $dst_im, 0, 0, $dst_x, $dst_y, $src_w, $src_h);
+		
+		// copying relevant section from watermark to the cut resource
+		imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h);
+		
+		// insert cut resource to destination image
+		imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct);
 	}
+	
 	/**
 	 * Ensures $value is always within $min and $max range.
 	 *
@@ -1097,7 +1061,7 @@ class EasyImage {
         }
         switch ($positon) {
             //1顶部居左
-            case 1: $x=$y=0; break;
+            case 1: $x = $y = 0; break;
             //2顶部居右
             case 2: $x = $srcinfo[0]-$waterinfo[0]; $y = 0; break;
             //3居中
@@ -1106,13 +1070,13 @@ class EasyImage {
             case 4: $x = 0; $y = $srcinfo[1]-$waterinfo[1]; break;
             //5底部居右
             case 5: $x = $srcinfo[0]-$waterinfo[0]; $y = $srcinfo[1]-$waterinfo[1]; break;
-            default: $x=$y=0;
+            default: $x = $y = 0;
         }
-        // creating a cut resource
-        $cut = imagecreatetruecolor($waterinfo[0], $waterinfo[1]);
-        imagecopy($cut, $this->image, 0, 0, $x, $y, $waterinfo[0], $waterinfo[1]);
-        imagecopy($cut, $waterImgObj, 0, 0, 0, 0, $waterinfo[0], $waterinfo[1]);
-        imagecopymerge($this->image, $cut, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
+	    // creating a cut resource
+	    $cut = imagecreatetruecolor($waterinfo[0], $waterinfo[1]);
+	    imagecopy($cut, $this->image, 0, 0, $x, $y, $waterinfo[0], $waterinfo[1]);
+	    imagecopy($cut, $waterImgObj, 0, 0, 0, 0, $waterinfo[0], $waterinfo[1]);
+	    imagecopymerge($this->image, $cut, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
     }
 
     function image_create_from_ext($imgfile)
