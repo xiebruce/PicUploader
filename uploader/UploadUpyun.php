@@ -46,7 +46,7 @@ class UploadUpyun extends Upload{
     }
 
     /**
-     * Upload images to Netease Cloud
+     *
      * @return string
      * @throws \ImagickException
      * @throws \OSS\Core\OssException
@@ -67,12 +67,14 @@ class UploadUpyun extends Upload{
 	        $uploadFilePath = $filePath;
 	        $tmpImgPath = '';
 	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $tmpImgPath = $uploadFilePath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 	        }
-	
+
 	        //添加水印
 	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
+		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 	        }
 
             //获取随机文件名
