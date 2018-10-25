@@ -73,8 +73,7 @@ class UploadUpyun extends Upload{
 
 	        //添加水印
 	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth']);
-		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+		        $tmpImgPath = $uploadFilePath = $this->watermark($filePath);
 	        }
 
             //获取随机文件名

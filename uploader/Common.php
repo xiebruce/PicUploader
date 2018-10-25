@@ -127,6 +127,7 @@ class Common {
 		    $img->text($textConfig['word'], $fontPath, $textConfig['fontSize'], $textConfig['color'], $watermarkConfig['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
 	    }
 		
+	    //if no tmp file then create one
 	    if(strpos($filePath, '.tmp') === false){
 		    $tmpDir = APP_PATH.'/.tmp';
 		    if(!is_dir($tmpDir)){
@@ -134,6 +135,7 @@ class Common {
 		    }
 		    $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
 	    }else{
+	    	//$filePath is a tmp file
 		    $tmpImgPath = $filePath;
 	    }
 		
