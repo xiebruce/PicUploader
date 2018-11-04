@@ -69,7 +69,7 @@ class UploadBaidu extends Upload{
 	        }
 	
 	        //添加水印
-	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
+	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
 		        $tmpImgPath = $uploadFilePath = $this->watermark($filePath);
 	        }
 
