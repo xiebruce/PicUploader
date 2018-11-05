@@ -49,7 +49,7 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 
 ## 二、下载使用
 ### 1.下载PicUploader
-- 使用git下载：git clone git@github.com:xiebruce/PicUploader.git
+- 使用git下载：git clone https://github.com/xiebruce/PicUploader.git
 - 或者直接下载： [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
