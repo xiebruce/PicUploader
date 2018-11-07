@@ -101,6 +101,14 @@ export LC_CTYPE="zh_CN.UTF-8"
 注意：
 - 注意`/usr/bin/php`这个路径，最好在终端用`which php`命令来查看它的路径，确认一下是否正确，如果执行`which php`命令后输出的不是`/usr/bin/php`，则以`which php`命令输出的为准。
 - 把/Users/xxxxx/www/PicUploader-master/index.php 的路径换成你自己的index.php路径，怎么看你的index.php路径呢？打开终端，把index.php文件拖到终端上，终端就会显示出它的路径。
+- 特别注意：貌似是从macOS Mojave 10.14开始，Mac自带php缺少freetype扩展，导致gd库处理图片的时候报错，如果你是做php开发的，那这个问题你肯定解决了，如果不是，那你需要解决这个问题,先用这下边这个命令看看有没有内容输出，如果什么都没有输出，那就确定是缺少freetype
+``` shell
+php -i | grep configure | grep freetype
+```
+- 确定缺少freetype之后，尝试了网上的方法，无法解决，请使用以下命令重装php，重装后，上面的`/usr/bin/php`请直接改成`/usr/local/bin/php`，不需要看`which php`的结果了：
+``` shell
+brew install php
+```
 
 ### 3.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
