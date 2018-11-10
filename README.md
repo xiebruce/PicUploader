@@ -8,7 +8,7 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20demonstration.gif)
 
 ## 一、 注册存储服务器账号
-目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms八种，以下服务选择一种就可以，如果是自己搭建的博客，强烈推荐又拍云！
+目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur共九种，以下服务选择一种就可以，如果是自己搭建的博客，强烈推荐又拍云！
 ### 1. 注册七牛云
 - [点击前往七牛云](https://www.qiniu.com)
 - [查看注册七牛云对象存储教程](https://www.xiebruce.top/web-development/117.html)
@@ -50,7 +50,7 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 - 然后创建Application，这一步能拿到clientID和clientSecret：
 [https://api.imgur.com/oauth2/addclient](https://api.imgur.com/oauth2/addclient)
 ![Xnip2018-11-11_03-56-35.png](https://i.loli.net/2018/11/11/5be737f29d355.png)
-- 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片,原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
+- 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片，原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
 - 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
 
 ## 二、下载使用
@@ -60,7 +60,7 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 2.填写配置
-- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云其中一个)即可。
+- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
 - 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](https://www.xiebruce.top/uncategorized/117.html)
 ``` php
@@ -202,6 +202,7 @@ brew install php
 [阿里云phpsdk文档](https://help.aliyun.com/document_detail/32101.html?spm=a2c4g.11186623.4.2.70d8c839FzL6jV)  
 [京东云phpsdk文档](https://www.jdcloud.com/help/detail/1910/isCatalog/1)  
 [百度云phpsdk文档](https://cloud.baidu.com/doc/BOS/PHP-SDK.html#.E5.AE.89.E8.A3.85SDK.E5.B7.A5.E5.85.B7.E5.8C.85)  
-[又拍云phpsdk文档](https://github.com/upyun/php-sdk)  
-[google](http://www.google.com/ncr)  
+[又拍云phpsdk文档](https://github.com/upyun/php-sdk)
+[Imgur API](https://apidocs.imgur.com/#2078c7e0-c2b8-4bc8-a646-6e544b087d0f)
+[google](http://www.google.com/ncr)
 [百度](http://www.baidu.com)  
