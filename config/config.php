@@ -78,9 +78,18 @@
 			
 			//https://sm.ms
 			'smms' => [
-				'baseUrl' => 'https://sm.ms/api/',
+				'baseUrl' => 'https://sm.ms/api',
 				//代理地址，如果使用shadowsocks做代理，ip填127.0.0.1即可，端口从『偏好设置→HTTP→监听端口』找
 				//留空或注释掉表示不使用代理
+				// 'proxy' => 'http://127.0.0.1:1087',
+			],
+			
+			//imgur
+			'imgur' => [
+				'baseUrl' => 'https://api.imgur.com/3/',
+				'clientId' => 'ab************cdf',
+				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
 				// 'proxy' => 'http://127.0.0.1:1087',
 			],
 		],

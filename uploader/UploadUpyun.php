@@ -79,7 +79,7 @@ class UploadUpyun extends Upload{
             //获取随机文件名
             $newFileName = $this->genRandFileName($uploadFilePath);
 
-            //组装key名（因为我们用的是腾讯云的对象存储服务，存储是用key=>value的方式存的）
+            //组装key名
             $key = date('Y/m/d/') . $newFileName;
 
             try {

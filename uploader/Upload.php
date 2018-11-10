@@ -44,7 +44,7 @@ class Upload extends Common {
         //new 变量类名，并调用对应类的upload()方法上传文件
 		$link = (new $className(static::$config, $this->argv))->upload();
 		$log = $link;
-		if(strtolower($storageType) == 'smms'){
+		if(in_array(strtolower($storageType), ['smms', 'imgur'])){
 			$log = join("\n", $link);
 			$link = $link['link'];
 		}

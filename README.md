@@ -45,7 +45,13 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ],
 ```
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容或者报错，请查看日志，很有可能是这张图片压缩后超过了5M，或者图片是超过5M的gif图（gif图不压缩）
-
+### 9.注册Imgur
+- 先注册Imgur：[https://imgur.com/register](https://imgur.com/register)
+- 然后创建Application，这一步能拿到clientID和clientSecret：
+[https://api.imgur.com/oauth2/addclient](https://api.imgur.com/oauth2/addclient)
+![Xnip2018-11-11_03-56-35.png](https://i.loli.net/2018/11/11/5be737f29d355.png)
+- 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片,原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
+- 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
 
 ## 二、下载使用
 ### 1.下载PicUploader
@@ -151,6 +157,8 @@ brew install php
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 五、更新日志
+### 2018-11-11 v2.5版本
+- 添加支持Imgur
 ### 2018-10-20 v2.4.1版本
 - 上传图片到sm.ms添加支持使用HTTP代理(如shadowsocks)
 - fix bug
