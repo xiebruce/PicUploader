@@ -236,6 +236,8 @@ class EasyImage {
 			case 'jpg' :
 			case 'jpeg' :
                 if($quality){
+                	//jpg图片质量必须是0-100，数字越大，图片质量越好，图片文件也越大
+	                $quality = $this->keep_within($quality, 0, 100);
                     $result = imagejpeg ( $this->image, $filename, round($quality));
                 }else{
                     $result = imagejpeg ( $this->image, $filename);
@@ -243,6 +245,8 @@ class EasyImage {
 				break;
 			case 'png' :
 			    if($quality){
+			    	//png压缩必须是0-9，数字越大压缩的越厉害(压缩速度也越慢)，图片质量也越低
+				    $quality = $this->keep_within($quality, 0, 9);
                     $result = imagepng ( $this->image, $filename,  round($quality));
                 }else{
                     $result = imagepng ( $this->image, $filename);

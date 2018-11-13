@@ -64,13 +64,14 @@ class UploadBaidu extends Upload{
 	        $uploadFilePath = $filePath;
 	        $tmpImgPath = '';
 	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth']);
+		        $quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
+		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
 		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 	        }
 	
 	        //添加水印
 	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($filePath);
+		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
 	        }
 
             $bosClient = new BosClient($this->bosConfig);

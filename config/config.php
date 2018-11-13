@@ -97,6 +97,11 @@
 		//图片优化宽度（建议填1000），值为0或注释掉表示不优化
 		'imgWidth' => 1000,
 		
+		//jpe图片专用，表示图片质量，0-100，数值越大，图片质量越好
+		'quality' => 80,
+		//png图片专用，压缩级别，0-9，数值越大，压缩的越厉害（图片质量也会越低，压缩速度也越慢）
+		'compreLevel' => 9,
+		
 		//链接类型，三个值，normal, markdown, markdownWithLink，不填或者填的值不在这三个值里，按normal算
 		//其中markdownWithLink表示点击后会跳转到图片源地址
 		'linkType' => 'markdown',
