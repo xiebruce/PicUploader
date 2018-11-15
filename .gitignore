@@ -2,6 +2,6 @@
 .idea
 .DS_Store
 /.tmp/
-uploader/logs
-uploader/token/
-config/config-local.php
+/logs/
+/uploader/token/
+/config/config-local.php

@@ -106,13 +106,19 @@
 		//其中markdownWithLink表示点击后会跳转到图片源地址
 		'linkType' => 'markdown',
 		
-		//存储服务器，值为：Qiniu/Tecent/Netease/Baidu/Aliyun/Jd/Upyun/smms 其中之一
+		//存储服务器，值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/smms 其中之一
 		'storageType' => 'Qiniu',
 		
-		//set this option to find your upload logs more easily
-		'logPath' => '/Users/xxxx/Desktop',
+		//日志真实记录在系统日志目录下：在本项目目录下的logs目录中
+		//但你可通过该项配置建立一个软链接(即快捷方式)到你想要的地方
+		//你可以填写两种值：
+		//1、填写：desktop，则你的桌面会出现一个PicUploader_Upload_Logs文件夹，打开该文件夹即可看到日志
+		//2、填写实际路径，比如你填写：/User/你的用户名/Downloads，则会在/User/你的用户名/Downloads下出现一个PicUploader_Upload_Logs文件夹
+		//3、如果不填，或者填写的既不是desktop也不是一个存在的路径，则不创建符号链接，但日志还是会存往：本项目目录下的logs目录中
+		//4、建议保持默认不要动，即放在桌面，这样方便查找日志
+		'logPath' => 'desktop',
 		
-		//the allowed MIME type
+		//允许的图片类型
 		'allowMimeTypes' => ['image/jpeg', 'image/png', 'image/gif'],
 		
 		//watermark/水印

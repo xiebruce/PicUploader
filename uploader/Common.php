@@ -217,39 +217,44 @@ class Common {
      * @param string $type
      */
     public function writeLog($content, $type = 'uploaded'){
-        $logPath = isset(static::$config['logPath']) ? static::$config['logPath'] : '';
-        if($logPath){
-            $logPath = $logPath . '/PicUploader_Upload_Logs/' .date('Y/m');
-        }else{
-            $logPath = __DIR__ . '/logs/' .date('Y/m');
+        $logPath = isset(static::$config['logPath']) ? static::$config['logPath'] : 'default';
+	    //日志文件实际存储路径（在本项目目录下的logs目录中）
+	    $realLogPath = APP_PATH . '/logs';
+        
+        //配置指定了日志位置，则创建一个符号链接到指定的位置
+        if(is_dir($logPath)){
+	        $symbolic = rtrim($logPath, '/') . '/PicUploader_Upload_Logs';
+	        !is_link($symbolic) && @symlink($realLogPath, $symbolic);
+        }else if($logPath == 'desktop'){
+        	//配置把log指定到桌面，则创建一个符号链接到桌面
+	        $symbolic = '/Users/' . shell_exec('whoami') . '/Desktop/PicUploader_Upload_Logs';
+	        !is_link($symbolic) && @symlink($realLogPath, $symbolic);
         }
-        if(!is_dir($logPath)){
-            @mkdir($logPath, 0777, true);
-        }
+	
+	    $realLogPath .= '/' . date('Y/m');
+	    !is_dir($realLogPath) && @mkdir($realLogPath, 0777, true);
+	    
         if($type == 'uploaded'){
-            $logFile = $logPath.'/'.date('Y-m-d').'-log.md';
+            $logFile = $realLogPath.'/'.date('Y-m-d').'-log.md';
             /*
              * 采用把最新上传的图片添加到日志文件的开头的方式，方便查看最新上传的图片
              */
             if(!is_file($logFile)){
                 file_put_contents($logFile, $content, FILE_APPEND);
             }else{
-                $tmpLogDir = __DIR__.'/../.tmp';
-                if(!is_dir($tmpLogDir)){
-                    @mkdir($tmpLogDir, 0777, true);
-                }
-                $tmpLog = $tmpLogDir . '/.tmplog';
-                //把原来的内容先复制到临时文件里
-                copy($logFile, $tmpLog);
+                $tmpLogDir = APP_PATH.'/.tmp';
+	            !is_dir($tmpLogDir) && @mkdir($tmpLogDir, 0777, true);
+	            //读取原来的日志
+	            $oldLog = file_get_contents($logFile);
                 //新内容直接覆盖写入
                 file_put_contents($logFile, $content);
-                //再把原来的内容重新追加写入到日志文件中
-                file_put_contents($logFile, file_get_contents($tmpLog), FILE_APPEND);
+                //再把原来的内容重新追加写入到新日志文件中（这样就实现了最新的日志在最前面，即prepend效果）
+                file_put_contents($logFile, $oldLog, FILE_APPEND);
                 //删除临时文件
                 @unlink($tmpLog);
             }
         }else{
-            $logFile = $logPath.'/'.date('Y-m-d').'-error-log.txt';
+            $logFile = $realLogPath.'/'.date('Y-m-d').'-error-log.txt';
             file_put_contents($logFile, $content, FILE_APPEND);
         }
     }
