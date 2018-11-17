@@ -102,11 +102,13 @@
 		//png图片专用，压缩级别，0-9，数值越大，压缩的越厉害（图片质量也会越低，压缩速度也越慢）
 		'compreLevel' => 9,
 		
-		//链接类型，三个值，normal, markdown, markdownWithLink，不填或者填的值不在这三个值里，按normal算
+		//链接类型，四个值，normal, markdown, markdownWithLink, custom，不填或者填的值不在这四个值里，按normal算
 		//其中markdownWithLink表示点击后会跳转到图片源地址
-		'linkType' => 'markdown',
+		'linkType' => 'custom',
+		//自定义返回链接格式，其中{{url}}在返回的时候会被替换为图片url，{{name}}会被替换为上传的图片名称（这样做主要为了小图居中）
+		'customFormat' => '<p align="center"><img src="{{url}}" title="{{name}}" alt="{{name}}" width="80%"></p>',
 		
-		//存储服务器，值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/smms 其中之一
+		//存储服务器，值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/smms/Imgur 其中之一
 		'storageType' => 'Qiniu',
 		
 		//日志真实记录在系统日志目录下：在本项目目录下的logs目录中

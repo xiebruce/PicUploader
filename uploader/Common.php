@@ -197,18 +197,23 @@ class Common {
     public function formatLink($url, $filename=''){
         switch (static::$config['linkType']){
             case 'markdown':
-                $link = '!['.$filename.']('.$url.')'."\n";
+                $link = '!['.$filename.']('.$url.')';
                 break;
             case 'markdownWithLink':
                 //image with link
                 $img = '!['.$filename.']('.$url.')';
-                $link = '['.$img.']('.$url.')'."\n";
+                $link = '['.$img.']('.$url.')';
                 break;
+	        case 'custom':
+	        	$customFormat = static::$config['customFormat'];
+		        $link = str_replace('{{url}}', $url, $customFormat);
+		        $link = str_replace('{{name}}', $filename, $link);
+	        	break;
             case 'normal':
             default:
-                $link = $url."\n";
+                $link = $url;
         }
-        return $link;
+        return $link."\n";
     }
 
     /**
