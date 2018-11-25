@@ -40,67 +40,44 @@ class UploadTencent extends Common {
         $this->argv = $argv;
         static::$config = $config;
     }
-
-    /**
-     * Upload Images to Tecent Cloud
-     * @return string
-     * @throws \ImagickException
-     */
-    public function upload(){
-
+	
+	/**
+	 * Upload Images to Tecent Cloud
+	 * @param $key
+	 * @param $uploadFilePath
+	 * @param $originFilename
+	 *
+	 * @return string
+	 */
+	public function upload($key, $uploadFilePath, $originFilename){
         $link = '';
-        foreach($this->argv as $filePath){
-            $mimeType = $this->getMimeType($filePath);
-            $originFilename = $this->getOriginFileName($filePath);
-            //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-            if(!in_array($mimeType, static::$config['allowMimeTypes'])){
-                $error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
-                $this->writeLog($error, 'error_log');
-                continue;
-            }
-	
-	        //如果配置了优化宽度，则优化
-	        $uploadFilePath = $filePath;
-	        $tmpImgPath = '';
-	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
-		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-	        }
-	
-	        //添加水印
-	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
-	        }
-
-            $cosClient = new Client([
-                'region' => $this->region,
-                'credentials' => [
-                    'secretId' => $this->secretId,
-                    'secretKey' => $this->secretKey,
-                ],
-            ]);
-
-            //获取随机文件名
-            $newFileName = $this->genRandFileName($uploadFilePath);
-
-            //组装key名（因为我们用的是腾讯云的对象存储服务，存储是用key=>value的方式存的）
-            $key = date('Y/m/d/') . $newFileName;
-
-            $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
-            if (!is_object($retObj) || !$retObj->get('Location')) {
-                //上传数错，记录错误日志
-                $this->writeLog(var_export($retObj, true)."\n", 'error_log');
-            } else {
-                //拼接域名和优化参数成为一个可访问的外链
-                $publicLink = $retObj->get('Location');
-                //按配置文件指定的格式，格式化链接
-                $link .= $this->formatLink($publicLink, $originFilename);
-            }
-
-            //删除临时图片
-            $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
-        }
+	    $cosClient = new Client([
+		    'region' => $this->region,
+		    'credentials' => [
+			    'secretId' => $this->secretId,
+			    'secretKey' => $this->secretKey,
+		    ],
+	    ]);
+	    $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
+	    if (!is_object($retObj) || !$retObj->get('Location')) {
+		    //上传数错，记录错误日志
+		    $this->writeLog(var_export($retObj, true)."\n", 'error_log');
+	    } else {
+		    //拼接域名和优化参数成为一个可访问的外链
+		    $location = urldecode($retObj->get('Location'));
+		    $matches = [];
+		    preg_match('/\d{4}\/\d{2}\/\d{2}\/.+/',$location,$matches);
+		    $key = $matches[0] ?? '';
+		    $domain = 'http://'.$this->bucket.'.cos.'.$this->region.'.myqcloud.com';
+		    // http://markdown-1254010860.cos.ap-guangzhou.myqcloud.com
+		    if($key){
+		    	$publicLink = $domain .'/'.$key;
+		    }else{
+		        $publicLink = $location;
+		    }
+		    //按配置文件指定的格式，格式化链接
+		    $link .= $this->formatLink($publicLink, $originFilename);
+	    }
         return $link;
     }
 

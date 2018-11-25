@@ -1,0 +1,7 @@
+template:
+  format: Go
+
+output:
+  file_naming:
+    style: camel_case
+    extension: .php

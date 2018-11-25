@@ -35,11 +35,14 @@ class UploadSmms extends Common {
 	
 	/**
 	 * Upload image to http://sm.ms
+	 * @param $key  由于sm.ms无法自己指定key(主要是没有账号系统怕跟别人重复，所以都是它重命名)，所以key在这里不使用。
+	 * @param $uploadFilePath
+	 * @param $originFilename
+	 *
 	 * @return array
 	 * @throws \GuzzleHttp\Exception\GuzzleException
-	 * @throws \ImagickException
 	 */
-	public function upload(){
+	public function upload($key, $uploadFilePath, $originFilename){
         $link = [];
         $GuzzleConfig = [
 	        'base_uri' => $this->serverConfig['baseUrl'],
@@ -50,73 +53,50 @@ class UploadSmms extends Common {
         }
         //实例化GuzzleHttp
         $client = new Client($GuzzleConfig);
-        foreach($this->argv as $filePath){
-            $mimeType = $this->getMimeType($filePath);
-            $originFilename = $this->getOriginFileName($filePath);
-            //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-            if(!in_array($mimeType, static::$config['allowMimeTypes'])){
-                $error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
-                $this->writeLog($error, 'error_log');
-                continue;
-            }
-	
-	        //如果配置了优化宽度，则优化
-	        $uploadFilePath = $filePath;
-	        $tmpImgPath = '';
-	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
-		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-	        }
-	
-	        //添加水印
-	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
-	        }
-
-            $fileSize = filesize($uploadFilePath);
-            if($fileSize > 5000000){
-	            $imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
-                if($imgWidth){
-                    $error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
-                }else{
-                    $error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
-                }
-
-                $this->writeLog($error, 'error_log');
-                continue;
-            }
-            //upload?ssl=1
-            //post file to https://sm.ms
-            $response = $client->request('POST', 'upload?ssl=1', [
-                'multipart' => [
-                    [
-                        'name'     => 'smfile',
-                        'contents' => fopen($uploadFilePath, 'r')
-                    ],
-                ]
-            ]);
-
-            $string = $response->getBody()->getContents();
-            if($response->getReasonPhrase() != 'OK'){
-                //上传数错，记录错误日志
-                $this->writeLog($string, 'error_log');
-                continue;
-            }
-
-            $returnArr = json_decode($string, true);
-            if($returnArr['code'] == 'success'){
-                $data = $returnArr['data'];
-                $deleteLink = 'Delete Link: '.$data['delete'];
-                // $link .= $this->formatLink($data['url'], $originFilename);
-	            $link = [
-	            	'link' => $this->formatLink($data['url'], $originFilename),
-		            'delLink' => $deleteLink
-	            ];
-            }
-            // Delete the tmp file
-            $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
-        }
-        return $link;
+		
+		$fileSize = filesize($uploadFilePath);
+		if($fileSize > 5000000){
+			$imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
+			if($imgWidth){
+				$error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
+			}else{
+				$error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
+			}
+			
+			$this->writeLog($error, 'error_log');
+		}else{
+			try{
+				//upload?ssl=1
+				//post file to https://sm.ms
+				$response = $client->request('POST', 'upload?ssl=1', [
+					'multipart' => [
+						[
+							'name'     => 'smfile',
+							'contents' => fopen($uploadFilePath, 'r')
+						],
+					]
+				]);
+				
+				$string = $response->getBody()->getContents();
+				if($response->getReasonPhrase() != 'OK'){
+					throw new \Exception($string);
+				}else{
+					$returnArr = json_decode($string, true);
+					if($returnArr['code'] == 'success'){
+						$data = $returnArr['data'];
+						$deleteLink = 'Delete Link: '.$data['delete'];
+						// $link .= $this->formatLink($data['url'], $originFilename);
+						$link = [
+							'link' => $this->formatLink($data['url'], $originFilename),
+							'delLink' => $deleteLink
+						];
+						return $link;
+					}
+				}
+			}catch (\Exception $e){
+				//上传数错，记录错误日志
+				$this->writeLog($e->getMessage()."\n", 'error_log');
+			}
+		}
     }
 }

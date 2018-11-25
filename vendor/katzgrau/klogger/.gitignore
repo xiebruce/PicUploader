@@ -1,0 +1,5 @@
+/tests/logs/*.txt
+/tests/logs/*.log
+basic-test.php
+/vendor/
+composer.lock

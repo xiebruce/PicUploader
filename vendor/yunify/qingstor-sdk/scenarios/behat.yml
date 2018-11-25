@@ -1,0 +1,24 @@
+default:
+  autoload:
+    '': .
+  suites:
+    service:
+      paths:
+        - features/service.feature
+      contexts:
+        - ServiceContext
+    bucket:
+      paths:
+        - features/bucket.feature
+        - features/bucket_acl.feature
+        - features/bucket_cors.feature
+        - features/bucket_external_mirror.feature
+        - features/bucket_policy.feature
+      contexts:
+        - BucketContext
+    object:
+      paths:
+        - features/object.feature
+        - features/object_multipart.feature
+      contexts:
+        - ObjectContext

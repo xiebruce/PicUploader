@@ -24,13 +24,10 @@
     }else{
         $config = require __DIR__ . '/config/config.php';
     }
-
-    if(strtolower($config['storageType']) == 'netease'){
-        require __DIR__ . '/vendor/qcloud/cos-sdk-v5/cos-autoloader.php';
-    }
-    if(strtolower($config['storageType']) == 'baidu'){
-        require __DIR__ . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
-    }
+	
+	require __DIR__ . '/vendor/qcloud/cos-sdk-v5/cos-autoloader.php';
+	require __DIR__ . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
+	require __DIR__ . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 	
 	//autoload class
 	spl_autoload_register(function ($class_name) {

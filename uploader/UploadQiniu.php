@@ -45,68 +45,39 @@ class UploadQiniu extends Common {
         $this->argv = $argv;
         static::$config = $config;
     }
-
-    /**
-     * 上传文件到七牛云
-     * @return string
-     * @throws \ImagickException
-     */
-    public function upload(){
-        //$argv 是php作为客户程序使用时默认就有的参数，这个变量会把外部传入的参数接收进来，$argv是一个数组
-        //比如 php /Users/xxx/www/index.php aa bb，则$argv的值为数组：['/Users/xxx/www/index.php','aa','bb']
-        //去除参数中的第一个元素（因为第一个元素是本文件）
-        $link = '';
-        foreach($this->argv as $filePath){
-            $mimeType = $this->getMimeType($filePath);
-            $originFilename = $this->getOriginFileName($filePath);
-            //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-            if(!in_array($mimeType, static::$config['allowMimeTypes'])){
-                $error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
-                $this->writeLog($error, 'error_log');
-                continue;
-            }
-
-            //获取随机文件名
-            $newFileName = $this->genRandFileName($filePath);
-
-            //组装key名（因为我们用的是七牛云的OSS:Object Storage Service，即对象存储服务，存储是用key=>value的方式存的）
-            $key = date('Y/m/d/') . $newFileName;
 	
-	        //如果配置了优化宽度，则优化
-	        $uploadFilePath = $filePath;
-	        $tmpImgPath = '';
-	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
-		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-	        }
-	
-	        //添加水印
-	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
-	        }
-
-            //获取七牛token
-            $token = $this->getToken();
-            // 构建 UploadManager 对象
-            $uploadMgr = new UploadManager();
-            // 调用 UploadManager 的 putFile 方法进行文件的上传。
-            list($ret, $err) = $uploadMgr->putFile($token, $key, $uploadFilePath);
-            if ($err !== null) {
-                //上传数错，记录错误日志
-                $this->writeLog(var_export($err, true)."\n", 'error_log');
-            } else {
-                //拼接域名和优化参数成为一个可访问的外链
-                $publicLink = $this->domain . '/' . $ret['key'];
-                $optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
-                $optimize && $publicLink .= $optimize;
-                //按配置文件指定的格式，格式化链接
-                $link .= $this->formatLink($publicLink, $originFilename);
-            }
-            //删除临时图片
-            $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
-        }
-        return $link;
+	/**
+	 * 上传文件到七牛云
+	 * @param $key
+	 * @param $uploadFilePath
+	 * @param $originFilename
+	 *
+	 * @return string
+	 * @throws \Exception
+	 */
+	public function upload($key, $uploadFilePath, $originFilename){
+		try {
+			//获取七牛token
+			$token = $this->getToken();
+			// 构建 UploadManager 对象
+			$uploadMgr = new UploadManager();
+			// 调用 UploadManager 的 putFile 方法进行文件的上传。
+			list($ret, $err) = $uploadMgr->putFile($token, $key, $uploadFilePath);
+			if ($err !== null) {
+				throw new \Exception(var_export($err, true)."\n");
+			} else {
+				//拼接域名和优化参数成为一个可访问的外链
+				$publicLink = $this->domain . '/' . $ret['key'];
+				$optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
+				$optimize && $publicLink .= $optimize;
+				//按配置文件指定的格式，格式化链接
+				$link = $this->formatLink($publicLink, $originFilename);
+				return $link;
+			}
+		}catch (\Exception $e){
+			//上传数错，记录错误日志
+			$this->writeLog($e->getMessage()."\n", 'error_log');
+		}
     }
 
     /**

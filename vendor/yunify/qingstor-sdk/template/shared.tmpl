@@ -1,0 +1,354 @@
+{{define "SubServiceInitParams"}}
+    {{- $customizedType := .}}
+    {{- $firstPropertyID := $customizedType | firstPropertyIDInCustomizedType}}
+    {{- range $_, $property := $customizedType.Properties}}
+        {{- if ne $property.ID $firstPropertyID }},{{- end -}}
+        {{- if ne $property.ID "zone" -}}
+        ${{$property.ID | snakeCase}}
+        {{- else -}}
+        $zone = ''
+        {{- end -}}
+    {{- end}}
+{{end}}
+
+{{- define "RenderInputValidation"}}
+    {{- $belongs := index . 0}}
+    {{- $operation := index . 1}}
+    {{- $request := $operation.Request}}
+    {{- $customizedTypes := index . 2}}
+    {{$opID := replace $operation.ID "Bucket" "" -1}}
+    {{- if ne $belongs "QingStor"}}
+    public function {{$opID | camelCase | lowerFirst}}Validate($operation)
+    {{- end}}
+    {{- if eq $belongs "QingStor"}}
+    public function {{$operation.ID | camelCase | lowerFirst}}Validate($operation)
+    {{- end}}
+    {
+    {{- $i := passThrough "operation['Params']" $operation $request.Query $customizedTypes}}
+    {{- template "RenderCustomizedTypeValidation" $i}}
+    {{- $i := passThrough "operation['Headers']" $operation $request.Headers $customizedTypes}}
+    {{- template "RenderCustomizedTypeValidation" $i}}
+    {{- $i := passThrough "operation['Elements']" $operation $request.Elements $customizedTypes}}
+    {{- template "RenderCustomizedTypeValidation" $i}}
+    }
+{{- end}}
+
+{{- define "RenderCustomizedTypeValidation"}}
+    {{- $prefix := index . 0}}
+    {{- $operation := index . 1}}
+    {{- $customizedType := index . 2}}
+    {{- $customizedTypes := index . 3}}
+
+    {{- range $_, $property := $customizedType.Properties}}
+      {{if or (ne $operation.ID "DeleteMultipleObjects") (ne $property.ID "Content-MD5")}}
+          {{- if eq $property.Type "object"}}
+          if(!isset(${{$prefix}}['{{$property.ID}}'])
+              ||(${{$prefix}}['{{$property.ID}}'] ===''
+                  || ${{$prefix}}['{{$property.ID}}'] === array()
+                  || ${{$prefix}}['{{$property.ID}}'] === null
+                 )
+          ){
+          {{- $nextPrefix := printf "%s[\"%s\"]" $prefix $property.ID}}
+          {{- $nextCustomizedType := index $customizedTypes $property.ExtraType}}
+          {{- $x := passThrough $nextPrefix $operation $nextCustomizedType $customizedTypes}}
+          {{- template "RenderCustomizedTypeValidation" $x}}
+          }
+          {{- if $property.IsRequired }}
+          if(!isset(${{$prefix}}['{{$property.ID}}'])) {
+              throw new Exception\ParameterRequiredException('{{$property.ID}}', '{{$customizedType.ID}}');
+          }
+      {{- end}}
+      {{- else if eq $property.Type "array"}}
+          {{- if $property.IsRequired}}
+          if (!isset(${{$prefix}}['{{$property.ID}}'])
+              || (${{$prefix}}['{{$property.ID}}'] ===''
+                  || ${{$prefix}}['{{$property.ID}}'] === array()
+                  || ${{$prefix}}['{{$property.ID}}'] === null
+                  )
+          ) {
+              throw new Exception\ParameterRequiredException('{{$property.ID}}', '{{$customizedType.ID}}');
+          }
+      {{- end}}
+      {{- $isNotString := ne $property.ExtraType "string"}}
+      {{- $isNotInteger := ne $property.ExtraType "integer"}}
+      {{- $isNotTimestamp := ne $property.ExtraType "timestamp"}}
+      {{- if and $isNotString $isNotInteger $isNotTimestamp}}
+          foreach(${{$prefix}}['{{$property.ID}}'] as $key) {
+              {{- $nextCustomizedType := index $customizedTypes $property.ExtraType}}
+              {{- $key := passThrough "key" $operation $nextCustomizedType $customizedTypes}}
+              {{- template "RenderCustomizedTypeValidation" $key}}
+          }
+      {{- end}}
+      {{- else}}
+      {{- $isContentLength := eq $property.ID "Content-Length"}}
+      {{- if not $isContentLength}}
+      {{- if $property.IsRequired}}
+      if(!isset(${{$prefix}}['{{$property.ID}}'])
+          ||(${{$prefix}}['{{$property.ID}}'] ===''
+          || ${{$prefix}}['{{$property.ID}}'] === array()
+          || ${{$prefix}}['{{$property.ID}}'] === null
+      )){
+          throw new Exception\ParameterRequiredException('{{$property.ID}}', '{{$customizedType.ID}}');
+      }
+      {{- end}}
+      {{- if gt ($property.Enum | len) 0}}
+      if(!isset(${{$prefix}}['{{$property.ID}}'])
+          || (${{$prefix}}['{{$property.ID}}'] ===''
+              || ${{$prefix}}['{{$property.ID}}'] === array()
+              || ${{$prefix}}['{{$property.ID}}'] === null
+              )
+          ){
+          ${{$property.ID | snakeCase}}_valid_values = array({{$property.Enum | commaConnectedWithQuote}});
+          if(in_array(${{$prefix}}['{{$property.ID}}'], ${{$property.ID | snakeCase}}_valid_values)){
+              throw new Exception\ParameterValueNotAllowedException(
+                  '{{$property.ID}}',
+                  ${{$prefix}}['{{$property.ID}}'],
+                  ${{$property.ID | snakeCase}}_valid_values
+              );
+          }
+      }
+      {{- end}}
+      {{- end}}
+      {{- end}}
+      {{- end}}
+    {{- end}}
+{{- end}}
+
+{{define "BuildRequest"}}
+    {{- $belongs := index . 0}}
+    {{- $operation := index . 1}}
+    {{$opID := replace $operation.ID "Bucket" "" -1}}
+
+    {{- $hasParams := gt (len $operation.Request.Query.Properties) 0}}
+    {{- $hasHeaders := gt (len $operation.Request.Headers.Properties) 0}}
+    {{- $hasElements := gt (len $operation.Request.Elements.Properties) 0}}
+    {{- $hasStringBody := eq $operation.Request.Body.Type "string"}}
+    {{- $hasBinaryBody := eq $operation.Request.Body.Type "binary"}}
+    {{- $hasInput := or $hasParams $hasHeaders $hasElements $hasStringBody $hasBinaryBody}}
+    {{- $path := $operation.Request.Path}}
+    {{- $path := replace $path "{" "<" -1}}
+    {{- $path := replace $path "}" ">" -1}}
+    {{- $path := dashConnected $path}}
+    /**
+     {{- if ne $belongs "QingStor"}}
+     * {{$opID | camelCase | lowerFirst}}Request: Build {{$opID}}'s request
+     {{- end}}
+     {{- if eq $belongs "QingStor"}}
+     * {{$operation.ID | camelCase | lowerFirst}}Request: Build {{$opID}}'s request
+     {{- end}}
+     {{- if $operation.DocumentationURL}}
+     * @link {{$operation.DocumentationURL}} Documentation URL
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Headers.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Query.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Elements.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     *
+     * @return Request
+     */
+    {{- if ne $belongs "QingStor" }}
+    public function {{$opID | camelCase | lowerFirst}}Request(
+    {{- end }}
+    {{- if eq $belongs "QingStor" }}
+    public function {{$operation.ID | camelCase | lowerFirst}}Request(
+    {{- end}}
+        {{- if eq $belongs "Object" -}}$object_key{{- end -}}
+        {{- if and (eq $belongs "Object") $hasInput -}},{{- end -}}
+        {{- if $hasInput -}}$options=array(){{- end -}})
+    {
+        $operation = array(
+            'API' => '{{$operation.ID}}',
+            'Method' => '{{$operation.Request.Method}}',
+            'Uri' => '{{$path}}',
+            'Headers' => array(
+                {{- if ne $belongs "QingStor" }}
+                'Host' => $this->properties['zone'] . '.' . $this->config->host,
+                {{- end}}
+                {{- if eq $belongs "QingStor" }}
+                'Host' => $this->config->host,
+                {{- end}}
+                {{- range $id, $property := $operation.Request.Headers.Properties}}
+                '{{$property.Name}}' => isset($options['{{$property.ID}}'])?$options['{{$property.ID}}']:null,
+                {{- end}}
+            ),
+            'Params' => array(
+                {{- range $id, $property := $operation.Request.Query.Properties}}
+                '{{$property.Name}}'=> isset($options['{{$property.Name}}'])?$options['{{$property.Name}}']:null,
+                {{- end}}
+            ),
+            'Elements' => array(
+                {{- range $id, $property := $operation.Request.Elements.Properties}}
+                '{{$property.Name}}' => isset($options['{{$property.ID | snakeCase}}'])?$options['{{$property.ID | snakeCase}}']:null,
+                {{- end}}
+            ),
+            {{- if ne $belongs "QingStor" }}
+            'Properties' => $this->properties,
+            {{- end}}
+            {{- if eq $belongs "QingStor" }}
+            'Properties' => array(),
+            {{- end}}
+            'Body' => {{if eq $operation.Request.Body.Type "binary"}}isset($options['body'])?$options['body']:''{{else}}null{{end}}
+        );
+        {{- if eq $belongs "Object"}}
+        $operation['Properties']['object-key'] = $object_key;
+        {{- end}}
+        {{- if ne $belongs "QingStor"}}
+        $this->{{$opID | camelCase | lowerFirst}}Validate($operation);
+        {{- end}}
+        {{- if eq $belongs "QingStor"}}
+        $this->{{$operation.ID | camelCase | lowerFirst}}Validate($operation);
+        {{- end}}
+        $req = new Request($this->config, $operation);
+        return $req;
+    }
+{{- end}}
+
+{{define "BuildNormalOperation"}}
+    {{- $belongs := index . 0}}
+    {{- $operation := index . 1}}
+    {{$opID := replace $operation.ID "Bucket" "" -1}}
+
+    {{- $hasParams := gt (len $operation.Request.Query.Properties) 0}}
+    {{- $hasHeaders := gt (len $operation.Request.Headers.Properties) 0}}
+    {{- $hasElements := gt (len $operation.Request.Elements.Properties) 0}}
+    {{- $hasStringBody := eq $operation.Request.Body.Type "string"}}
+    {{- $hasBinaryBody := eq $operation.Request.Body.Type "binary"}}
+    {{- $hasInput := or $hasParams $hasHeaders $hasElements $hasStringBody $hasBinaryBody}}
+
+    /**
+     {{- if ne $belongs "QingStor" }}
+     * {{$opID | camelCase | lowerFirst}}: {{$operation.Description}}
+     {{- end}}
+     {{- if eq $belongs "QingStor" }}
+     * {{$operation.ID | camelCase | lowerFirst}}: {{$operation.Description}}
+     {{- end}}
+     {{- if $operation.DocumentationURL}}
+     * @link {{$operation.DocumentationURL}} Documentation URL
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Headers.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Query.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Elements.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- if eq $belongs "Object"}}
+     * @params string $object_key
+     {{- end }}
+     * @return Unpacker
+     * @throws \Exception
+     */
+    {{- if ne $belongs "QingStor" }}
+    public function {{$opID | camelCase | lowerFirst}}(
+    {{- end}}
+    {{- if eq $belongs "QingStor" }}
+    public function {{$operation.ID | camelCase | lowerFirst}}(
+    {{- end}}
+        {{- if eq $belongs "Object" -}}$object_key{{- end -}}
+        {{- if and (eq $belongs "Object") $hasInput -}},{{- end -}}
+        {{- if $hasInput -}}$options=array(){{- end -}})
+    {
+        {{- if ne $belongs "QingStor" }}
+        $req = $this->{{$opID | camelCase | lowerFirst}}Request(
+        {{- end}}
+        {{- if eq $belongs "QingStor" }}
+        $req = $this->{{$operation.ID | camelCase | lowerFirst}}Request(
+        {{- end}}
+        {{- if eq $belongs "Object" -}}$object_key{{- end -}}
+        {{- if and (eq $belongs "Object") $hasInput -}},{{- end -}}
+        {{- if $hasInput}}$options{{- end -}});
+        $retries = $this->config->connection_retries;
+        $response = null;
+        while(1){
+            try {
+                $GLOBALS['logger']->info('Sending QingStor request: {{$opID | camelCase | lowerFirst}}');
+                $response = new Unpacker($this->config->client->send(
+                    $req->sign()
+                ));
+                break;
+            } catch (\Exception $e) {
+                $GLOBALS['logger']->error($e->getMessage());
+                if ($retries > 0) {
+                    $retries -= 1;
+                } else {
+                    throw new \Exception('Network Error');
+                }
+            }
+        }
+        return $response;
+    }
+{{- end}}
+
+{{define "BuildQueryOperation"}}
+    {{- $belongs := index . 0}}
+    {{- $operation := index . 1}}
+    {{$opID := replace $operation.ID "Bucket" "" -1}}
+
+    {{- $hasParams := gt (len $operation.Request.Query.Properties) 0}}
+    {{- $hasHeaders := gt (len $operation.Request.Headers.Properties) 0}}
+    {{- $hasElements := gt (len $operation.Request.Elements.Properties) 0}}
+    {{- $hasStringBody := eq $operation.Request.Body.Type "string"}}
+    {{- $hasBinaryBody := eq $operation.Request.Body.Type "binary"}}
+    {{- $hasInput := or $hasParams $hasHeaders $hasElements $hasStringBody $hasBinaryBody}}
+
+    /**
+     {{- if ne $belongs "QingStor" }}
+     * {{$opID | camelCase | lowerFirst}}Query: {{$opID | camelCase | lowerFirst}}'s Query Sign Way
+     {{- end}}
+     {{- if eq $belongs "QingStor" }}
+     * {{$operation.ID | camelCase | lowerFirst}}Query: {{$operation.ID | camelCase | lowerFirst}}'s Query Sign Way
+     {{- end}}
+     {{- if $operation.DocumentationURL}}
+     * @link {{$operation.DocumentationURL}} Documentation URL
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Headers.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Query.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     {{- range $id, $property := $operation.Request.Elements.Properties}}
+     * @param {{$property.Type}} '{{$property.ID}}' {{$property.Description}}
+     {{- end}}
+     *
+     * @return Request
+     */
+    {{- if ne $belongs "QingStor" }}
+    public function {{$opID | camelCase | lowerFirst}}Query(
+    {{- end}}
+    {{- if eq $belongs "QingStor" }}
+    public function {{$operation.ID | camelCase | lowerFirst}}Query(
+    {{- end}}
+    {{- if eq $belongs "Object" -}}$object_key,{{- end -}}
+    $expires
+    {{- if $hasInput -}},$options=array(){{- end -}})
+        {
+            {{- if ne $belongs "QingStor" }}
+            $req = $this->{{$opID | camelCase | lowerFirst}}Request(
+            {{- end}}
+            {{- if eq $belongs "QingStor" }}
+            $req = $this->{{$operation.ID | camelCase | lowerFirst}}Request(
+            {{- end}}
+            {{- if eq $belongs "Object" -}}$object_key{{- end -}}
+            {{- if and (eq $belongs "Object") $hasInput -}},{{- end -}}
+            {{- if $hasInput}}$options{{- end -}});
+            return $req->query_sign($expires);
+        }
+    {{- end}}
+
+{{define "RenderOperation"}}
+{{- $belongs := index . 0}}
+{{- $operation := index . 1}}
+{{- $customizedTypes := index . 2}}
+{{- template "BuildRequest" passThrough $belongs $operation}}
+{{- template "BuildNormalOperation" passThrough $belongs $operation}}
+{{- template "BuildQueryOperation" passThrough $belongs $operation}}
+{{- template "RenderInputValidation" passThrough $belongs $operation $customizedTypes}}
+{{end}}

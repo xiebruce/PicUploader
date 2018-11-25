@@ -1,0 +1,30 @@
+{
+    "name": "katzgrau/klogger",
+    "version": "1.2.1",
+    "description": "A Simple Logging Class",
+    "keywords": ["logging"],
+    "require": {
+        "php": ">=5.3",
+        "psr/log": "^1.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kenny Katzgrau",
+            "email": "katzgrau@gmail.com"
+        },
+        {
+            "name": "Dan Horrigan",
+            "email": "dan@dhorrigan.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Katzgrau\\KLogger\\": "src/"
+        },
+        "classmap": ["src/"]
+    }
+}

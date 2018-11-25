@@ -92,6 +92,28 @@
 				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
 				// 'proxy' => 'http://127.0.0.1:1087',
 			],
+			
+			//Ucloud
+			'ucloud' => [
+				'publicKey' => 'Rgv************************************************************3M=',
+				'privateKey' => 'Jt4************************************************************8qGH',
+				//markdown-blog.cn-gd.ufileos.com
+				'proxySuffix' => '.cn-**.ufileos.com',
+				'bucket' => 'mar******log',
+				//endPoint，cdn加速域名是bucket名+endPoint组成，Ucloud中没有endPoint的说法，
+				//但其实这就是endPoint，这个值请自己复制cdn加速域名除去bucket名部分到这里（不包含英文句点）
+				'endPoint' => 'ufile.ucloud.com.cn',
+			],
+			
+			//QingCloud
+			'qingcloud' => [
+				'accessKeyId' => 'TIJ************ADM',
+				'secretAccessKey' => 'hvF************************************Awe0x',
+				'bucket' => 'bl******down',
+				'zone' => '***',
+				//注意，这个domain固定就是这个，不需要改
+				'domain' => 'qingstor.com',
+			],
 		],
 		
 		//图片优化宽度（建议填1000），值为0或注释掉表示不优化
@@ -108,8 +130,15 @@
 		//自定义返回链接格式，其中{{url}}在返回的时候会被替换为图片url，{{name}}会被替换为上传的图片名称（这样做主要为了小图居中）
 		'customFormat' => '<p align="center"><img src="{{url}}" title="{{name}}" alt="{{name}}" width="80%"></p>',
 		
-		//存储服务器，值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/smms/Imgur 其中之一
+		//存储服务器，值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur
 		'storageType' => 'Qiniu',
+		//存储服务器可写多个，表示同时传到多个地方，有两种写法，一是用逗号隔开，二是直接用数组，如
+		// 'storageType' => 'Upyun, Qiniu',
+		//或使用数组写法，两种方式用一种即可，
+		/*'storageType' => [
+			'Upyun',
+			'Qiniu',
+		],*/
 		
 		//日志真实记录在系统日志目录下：在本项目目录下的logs目录中
 		//但你可通过该项配置建立一个软链接(即快捷方式)到你想要的地方

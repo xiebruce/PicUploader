@@ -1,0 +1,51 @@
+{
+  "name": "yunify/qingstor-sdk",
+  "homepage": "https://www.qingstor.com",
+  "description": "The official QingStor SDK for the PHP programming language.",
+  "keywords": [
+    "qingcloud",
+    "yunify",
+    "qingstor",
+    "object storage",
+    "sdk"
+  ],
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Yunify SDK Group",
+      "email": "sdk_group@yunify.com",
+      "homepage": "https://www.qingstor.com"
+    }
+  ],
+  "support": {
+    "forum": "https://community.qingcloud.com/",
+    "issues": "https://github.com/yunify/qingstor-sdk-php/issues"
+  },
+  "require": {
+    "guzzlehttp/guzzle": "~5|~6.3",
+    "guzzlehttp/psr7": "~1.3",
+    "katzgrau/klogger": "^1.2.1",
+    "mustangostang/spyc": "~0.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0|~5.0",
+    "behat/behat": "^3.5",
+    "friendsofphp/php-cs-fixer": "^2.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "QingStor\\SDK\\": "src/",
+      "QingStor\\SDK\\Service\\": "src/QingStor/"
+    },
+    "files": [
+      "src/Handler/GuzzleV5/GuzzleHandler.php",
+      "src/Handler/GuzzleV6/GuzzleHandler.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "QingStor\\SDK\\Test\\": "tests/"
+    }
+  }
+}

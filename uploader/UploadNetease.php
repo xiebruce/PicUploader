@@ -43,62 +43,34 @@ class UploadNetease extends Upload{
         $this->argv = $argv;
         static::$config = $config;
     }
-
-    /**
-     * Upload images to Netease Cloud
-     * @return string
-     * @throws \ImagickException
-     * @throws \NOS\Core\NosException
-     */
-    public function upload(){
+	
+	/**
+	 * Upload images to Netease Cloud
+	 * @param $key
+	 * @param $uploadFilePath
+	 * @param $originFilename
+	 *
+	 * @return string
+	 * @throws \NOS\Core\NosException
+	 */
+	public function upload($key, $uploadFilePath, $originFilename){
         $link = '';
-        foreach($this->argv as $filePath){
-            $mimeType = $this->getMimeType($filePath);
-            $originFilename = $this->getOriginFileName($filePath);
-            //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-            if(!in_array($mimeType, static::$config['allowMimeTypes'])){
-                $error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
-                $this->writeLog($error, 'error_log');
-                continue;
-            }
-	
-	        //如果配置了优化宽度，则优化
-	        $uploadFilePath = $filePath;
-	        $tmpImgPath = '';
-	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
-		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-	        }
-	
-	        //添加水印
-	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
-	        }
-
-            $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
-
-            //获取随机文件名
-            $newFileName = $this->genRandFileName($uploadFilePath);
-
-            //组装key名
-            $key = date('Y/m/d/') . $newFileName;
-
-            try {
-                $options[NosClient::NOS_HEADERS]['Cache-Control'] = 'max-age=31536000';
-                $options[NosClient::NOS_HEADERS]['Content-Disposition'] = 'attachment; filename="'.$newFileName.'"';
-                $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
-                $publicLink = 'http://'.$this->bucket.'.'.$this->endPoint.'/'.$key;
-                //按配置文件指定的格式，格式化链接
-                $link .= $this->formatLink($publicLink, $originFilename);
-                //删除临时图片
-                $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
-            } catch (NosException $e) {
-                //上传数错，记录错误日志
-                $this->writeLog($e->getMessage()."\n", 'error_log');
-                continue;
-            }
-        }
+	    try {
+		    $tmpArr = explode('/', $key);
+		    $newFileName = array_pop($tmpArr);
+		    $options[NosClient::NOS_HEADERS]['Cache-Control'] = 'max-age=31536000';
+		    $options[NosClient::NOS_HEADERS]['Content-Disposition'] = 'attachment; filename="'.$newFileName.'"';
+		
+		    $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
+		    $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
+		    //domain => http://markdown-bucket.nos-eastchina1.126.net
+		    $publicLink = 'http://'.$this->bucket.'.'.$this->endPoint.'/'.$key;
+		    //按配置文件指定的格式，格式化链接
+		    $link .= $this->formatLink($publicLink, $originFilename);
+	    } catch (NosException $e) {
+		    //上传数错，记录错误日志
+		    $this->writeLog($e->getMessage()."\n", 'error_log');
+	    }
         return $link;
     }
 }

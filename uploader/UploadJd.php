@@ -44,71 +44,40 @@ class UploadJd extends Upload{
         $this->argv = $argv;
         static::$config = $config;
     }
-
-    /**
-     * Upload images to Jcloud
-     * @return string
-     * @throws \ImagickException
-     */
-    public function upload(){
+	
+	/**
+	 * Upload images to Jcloud
+	 * @param $key
+	 * @param $uploadFilePath
+	 * @param $originFilename
+	 *
+	 * @return string
+	 * @throws \Exception
+	 */
+	public function upload($key, $uploadFilePath, $originFilename){
         $link = '';
-        foreach($this->argv as $filePath){
-            $mimeType = $this->getMimeType($filePath);
-            $originFilename = $this->getOriginFileName($filePath);
-            //如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-            if(!in_array($mimeType, static::$config['allowMimeTypes'])){
-                $error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
-                $this->writeLog($error, 'error_log');
-                continue;
-            }
-	
-	        //如果配置了优化宽度，则优化
-	        $uploadFilePath = $filePath;
-	        $tmpImgPath = '';
-	        if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-		        $quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
-		        $tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
-		        $uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-	        }
-	
-	        //添加水印
-	        if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-		        $tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
-	        }
-
-            //获取随机文件名
-            $newFileName = $this->genRandFileName($uploadFilePath);
-
-            //组装key名
-            $key = date('Y/m/d/') . $newFileName;
-
-            $s3Client = new S3Client([
-                'version' => 'latest',
-                'region' => $this->region,
-                'endpoint' => $this->endpoint,
-                'credentials' => [
-                    'key' => $this->accessKey,
-                    'secret' => $this->secretKey,
-                ],
-            ]);
-            try {
-                $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public');
-                if(is_object($retObj)){
-                    $publicLink = $retObj->get('ObjectURL');
-                    //按配置文件指定的格式，格式化链接
-                    $link .= $this->formatLink($publicLink, $originFilename);
-                    //删除临时图片
-                    $tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
-                }else{
-                    $this->writeLog(var_export($retObj, true)."\n", 'error_log');
-                    continue;
-                }
-            } catch (NosException $e) {
-                //上传数错，记录错误日志
-                $this->writeLog($e->getMessage()."\n", 'error_log');
-                continue;
-            }
-        }
+	    $s3Client = new S3Client([
+		    'version' => 'latest',
+		    'region' => $this->region,
+		    'endpoint' => $this->endpoint,
+		    'credentials' => [
+			    'key' => $this->accessKey,
+			    'secret' => $this->secretKey,
+		    ],
+	    ]);
+	    try {
+		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public');
+		    if(is_object($retObj)){
+			    $publicLink = $retObj->get('ObjectURL');
+			    //按配置文件指定的格式，格式化链接
+			    $link .= $this->formatLink($publicLink, $originFilename);
+		    }else{
+			    throw new \Exception(var_export($retObj, true)."\n");
+		    }
+	    } catch (\Exception $e) {
+		    //上传数错，记录错误日志
+		    $this->writeLog($e->getMessage()."\n", 'error_log');
+	    }
         return $link;
     }
 }

@@ -1,0 +1,6 @@
+[submodule "scenarios/features"]
+	path = scenarios/features
+	url = https://github.com/yunify/qingstor-sdk-test-scenarios
+[submodule "specs/qingstor"]
+	path = specs/qingstor
+	url = https://github.com/yunify/qingstor-api-specs.git
