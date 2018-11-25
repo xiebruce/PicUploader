@@ -80,9 +80,14 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ```
 
 - 搜索`storageType`，并在`=>`后设置您当前要使用哪个云，如我要使用七牛云：
-``` php
+```php
 'storageType' => 'Qiniu',
 ```
+- 支持同时上传到多个云，只需逗号隔开即可，比如我现在就同时上传到6个云：
+```php
+'storageType' => 'Qiniu,Tencent,Netease,Upyun,Qingcloud,Ucloud',
+```
+也许你会觉得奇怪，同时上传到那么多云干嘛？看了这篇文章你就知道了：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
 
 - 水印配置直接参考配置文件的注释
 
