@@ -18,6 +18,7 @@ class UploadAliyun extends Upload{
     public $bucket;
     //即domain，域名
     public $endpoint;
+    public $domain;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -39,6 +40,7 @@ class UploadAliyun extends Upload{
         $this->secretKey = $ServerConfig['accessSecret'];
         $this->bucket = $ServerConfig['bucket'];
         $this->endpoint = $ServerConfig['endpoint'];
+	    $this->domain = $ServerConfig['domain'] ?? '';
 
         $this->argv = $argv;
         static::$config = $config;
@@ -57,16 +59,22 @@ class UploadAliyun extends Upload{
 		    $oss = new OssClient($this->accessKey, $this->secretKey, $this->endpoint);
 		    $retArr = $oss->uploadFile($this->bucket, $key, $uploadFilePath);
 		    if(isset($retArr['info']['url'])){
+		    	// http://bruce-markdown.oss-cn-shenzhen.aliyuncs.com
+			    $defaultDomain = 'http://'.$this->bucket.'.'.$this->endpoint;
 			    $publicLink = $retArr['info']['url'];
+			    if($this->domain){
+				    $publicLink = str_replace($defaultDomain, $this->domain, $publicLink);
+			    }
 			    //按配置文件指定的格式，格式化链接
 			    $link = $this->formatLink($publicLink, $originFilename);
-			    return $link;
 		    }else{
 			    throw new \Exception(var_export($retArr, true)."\n");
 		    }
 	    } catch (\Exception $e) {
 		    //上传数错，记录错误日志
-		    $this->writeLog($e->getMessage()."\n", 'error_log');
+		    $link = $e->getMessage()."\n";
+		    $this->writeLog($link, 'error_log');
 	    }
+	    return $link;
     }
 }

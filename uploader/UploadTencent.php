@@ -15,6 +15,7 @@ class UploadTencent extends Common {
     public $secretId;
     public $secretKey;
     public $bucket;
+    public $domain;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -36,6 +37,7 @@ class UploadTencent extends Common {
         $this->secretId = $ServerConfig['secretId'];
         $this->secretKey = $ServerConfig['secretKey'];
         $this->bucket = $ServerConfig['bucket'];
+        $this->domain = $ServerConfig['domain'] ?? '';
 
         $this->argv = $argv;
         static::$config = $config;
@@ -50,35 +52,41 @@ class UploadTencent extends Common {
 	 * @return string
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
-        $link = '';
-	    $cosClient = new Client([
-		    'region' => $this->region,
-		    'credentials' => [
-			    'secretId' => $this->secretId,
-			    'secretKey' => $this->secretKey,
-		    ],
-	    ]);
-	    $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
-	    if (!is_object($retObj) || !$retObj->get('Location')) {
-		    //上传数错，记录错误日志
-		    $this->writeLog(var_export($retObj, true)."\n", 'error_log');
-	    } else {
-		    //拼接域名和优化参数成为一个可访问的外链
-		    $location = urldecode($retObj->get('Location'));
-		    $matches = [];
-		    preg_match('/\d{4}\/\d{2}\/\d{2}\/.+/',$location,$matches);
-		    $key = $matches[0] ?? '';
-		    $domain = 'http://'.$this->bucket.'.cos.'.$this->region.'.myqcloud.com';
-		    // http://markdown-1254010860.cos.ap-guangzhou.myqcloud.com
-		    if($key){
-		    	$publicLink = $domain .'/'.$key;
-		    }else{
-		        $publicLink = $location;
-		    }
-		    //按配置文件指定的格式，格式化链接
-		    $link .= $this->formatLink($publicLink, $originFilename);
-	    }
-        return $link;
-    }
-
+        try{
+	        $cosClient = new Client([
+		        'region' => $this->region,
+		        'credentials' => [
+			        'secretId' => $this->secretId,
+			        'secretKey' => $this->secretKey,
+		        ],
+	        ]);
+	        $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
+	        if (!is_object($retObj) || !$retObj->get('Location')) {
+		        //上传数错，抛出异常
+		        throw new \Exception(var_export($retObj, true)."\n");
+	        } else {
+		        //拼接域名和优化参数成为一个可访问的外链
+		        $location = urldecode($retObj->get('Location'));
+		        $matches = [];
+		        preg_match('/\d{4}\/\d{2}\/\d{2}\/.+/',$location,$matches);
+		        $key = $matches[0] ?? '';
+		        if(!$this->domain){
+			        $this->domain = 'http://'.$this->bucket.'.cos.'.$this->region.'.myqcloud.com';
+		        }
+		        // http://markdown-1254010860.cos.ap-guangzhou.myqcloud.com
+		        if($key){
+			        $publicLink = $this->domain .'/'.$key;
+		        }else{
+			        $publicLink = $location;
+		        }
+		        //按配置文件指定的格式，格式化链接
+		        $link = $this->formatLink($publicLink, $originFilename);
+	        }
+        }catch (\Exception $e){
+	        //上传数错，记录错误日志
+	        $link = $e->getMessage()."\n";
+	        $this->writeLog($link, 'error_log');
+        }
+		return $link;
+	}
 }

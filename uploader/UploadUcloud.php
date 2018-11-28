@@ -18,6 +18,7 @@ class UploadUcloud extends Upload{
     public $proxySuffix;
 	public $bucket;
 	public $endPoint;
+	public $domain;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -40,6 +41,7 @@ class UploadUcloud extends Upload{
         $this->proxySuffix = $ServerConfig['proxySuffix'];
         $this->bucket = $ServerConfig['bucket'];
         $this->endPoint = $ServerConfig['endPoint'];
+	    $this->domain = $ServerConfig['domain'] ?? '';
 
         $this->argv = $argv;
         static::$config = $config;
@@ -80,7 +82,11 @@ class UploadUcloud extends Upload{
 			$this->writeLog(var_export($err, true)."\n", 'error_log');
 			exit;
 		}
-		$publicLink = 'http://'.$this->bucket.'.'.$this->endPoint.'/'.$data['Key'];
+		
+		if(!$this->domain){
+			$this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
+		}
+		$publicLink = $this->domain.'/'.$data['Key'];
 		
 		//按配置文件指定的格式，格式化链接
 		$link = $this->formatLink($publicLink, $originFilename);

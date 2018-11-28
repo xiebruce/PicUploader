@@ -39,7 +39,7 @@ class UploadUpyun extends Upload{
         $this->serviceName = $ServerConfig['serviceName'];
         $this->operator = $ServerConfig['operator'];
         $this->password = $ServerConfig['password'];
-        $this->domain = $ServerConfig['domain'];
+        $this->domain = $ServerConfig['domain'] ?? '';
 
         $this->argv = $argv;
         static::$config = $config;
@@ -63,14 +63,18 @@ class UploadUpyun extends Upload{
 		    if(!isset($retArr['x-upyun-content-length'])){
 			    throw new \Exception(var_export($retArr, true)."\n");
 		    }else{
+		    	if(!$this->domain){
+				    $this->domain = 'http://'.$this->serviceName.'.test.upcdn.net';
+			    }
 			    $publicLink = $this->domain.'/'.$key;
 			    //按配置文件指定的格式，格式化链接
 			    $link = $this->formatLink($publicLink, $originFilename);
-			    return $link;
 		    }
 	    } catch (NosException $e) {
 		    //上传数错，记录错误日志
-		    $this->writeLog($e->getMessage()."\n", 'error_log');
+		    $link = $e->getMessage()."\n";
+		    $this->writeLog($link, 'error_log');
 	    }
+		return $link;
     }
 }

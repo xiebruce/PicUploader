@@ -16,7 +16,7 @@
 				'SK' => 'Uo*********************************lkEy',
 				//七牛云对象存储空间名
 				'bucket' => 'markdown',
-				//七牛云外链域名
+				//七牛云外链域名（域名要自己绑定，否则默认域名会过期）
 				'domain' => 'http://pe5scgdex.bkt.clouddn.com',
 				//七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
 				// 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
@@ -29,6 +29,8 @@
 				'secretKey' => 'zlK*********************************tjLn2',
 				'bucket' => 'markdown-*******',
 				'region' => 'ap-guangzhou',
+				//如果不填domain，则自动拼接腾讯给的域名
+				'domain' => '',
 			],
 			
 			//Netease Cloud
@@ -38,6 +40,8 @@
 				'bucket' => 'markdown-bucket',
 				//endPoint不是域名，域名是 bucket.'.'.endPoint
 				'endPoint' => 'nos-eastchina1.126.net',
+				//如果不填domain，则自动拼装网易云给的域名
+				'domain' => '',
 			],
 			
 			//baidu Cloud
@@ -50,7 +54,8 @@
 					'endpoint' => 'http://gz.bcebos.com',
 				],
 				'bucket' => 'markdown',
-				'domain' => 'http://markdown.gz.bcebos.com',
+				//如果不写，则自动拼装百度给的域名
+				'domain' => '',
 			],
 			//JCloud
 			'jd' => [
@@ -59,6 +64,8 @@
 				'endpoint' => 'https://s3.cn-south-1.jcloudcs.com',
 				'region' => 'cn-south-1',
 				'bucket' => 'markdown',
+				//如果不写，则自动拼装京东给的域名
+				'domain' => '',
 			],
 			//Aliyun Cloud
 			'aliyun' => [
@@ -66,6 +73,8 @@
 				'accessSecret' => 'dN***************V4h2',
 				'bucket' => 'bruce-markdown',
 				'endpoint' => 'oss-cn-shenzhen.aliyuncs.com',
+				//如果不写，则自动拼装阿里云给的域名
+				'domain' => '',
 			],
 			
 			//Upyun Cloud
@@ -73,7 +82,8 @@
 				'serviceName' => 'bl******wn',
 				'operator' => '*******',
 				'password' => '**************',
-				'domain' => 'http://blog-markdown.test.upcdn.net',
+				//如果不写，则自动拼装又拍云给的域名
+				'domain' => '',
 			],
 			
 			//https://sm.ms
@@ -103,6 +113,8 @@
 				//endPoint，cdn加速域名是bucket名+endPoint组成，Ucloud中没有endPoint的说法，
 				//但其实这就是endPoint，这个值请自己复制cdn加速域名除去bucket名部分到这里（不包含英文句点）
 				'endPoint' => 'ufile.ucloud.com.cn',
+				//如果不写，则自动拼装又拍云给的域名
+				'domain' => '',
 			],
 			
 			//QingCloud
@@ -111,8 +123,8 @@
 				'secretAccessKey' => 'hvF************************************Awe0x',
 				'bucket' => 'bl******down',
 				'zone' => '***',
-				//注意，这个domain固定就是这个，不需要改
-				'domain' => 'qingstor.com',
+				//如果不写，则自动拼装又拍云给的域名
+				'domain' => '',
 			],
 		],
 		

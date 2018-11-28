@@ -35,7 +35,7 @@ class UploadBaidu extends Upload{
 	    
 	    $this->bosConfig = $ServerConfig['bosConfig'];
 	    $this->bucket = $ServerConfig['bucket'];
-	    $this->domain = $ServerConfig['domain'];
+	    $this->domain = $ServerConfig['domain'] ?? '';
 	    
         $this->argv = $argv;
         static::$config = $config;
@@ -54,13 +54,19 @@ class UploadBaidu extends Upload{
 	    $bosClient = new BosClient($this->bosConfig);
 	    try {
 		    $bosClient->putObjectFromFile($this->bucket, $key, $uploadFilePath);
-		    $publicLink = $this->domain.'/'.$key;;
+		    if(!$this->domain){
+		    	$endpoint = $this->bosConfig['endpoint'];
+		    	$pos = strpos($endpoint, '://') + 3;
+		    	$this->domain = substr($endpoint, 0, $pos) . $this->bucket . '.' . substr($endpoint, $pos);
+		    }
+		    $publicLink = $this->domain.'/'.$key;
 		    //按配置文件指定的格式，格式化链接
 		    $link = $this->formatLink($publicLink, $originFilename);
-		    return $link;
 	    } catch (BceClientException $e) {
 		    //上传数错，记录错误日志
-		    $this->writeLog($e->getMessage()."\n", 'error_log');
+		    $link = $e->getMessage()."\n";
+		    $this->writeLog($link, 'error_log');
 	    }
+		return $link;
     }
 }

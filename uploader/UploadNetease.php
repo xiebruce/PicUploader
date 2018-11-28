@@ -17,6 +17,7 @@ class UploadNetease extends Upload{
     public $bucket;
     //即domain，域名
     public $endPoint;
+    public $domain;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -39,6 +40,7 @@ class UploadNetease extends Upload{
         $this->bucket = $ServerConfig['bucket'];
         //endPoint不是域名，外链域名是 bucket.'.'.endPoint
         $this->endPoint = $ServerConfig['endPoint'];
+	    $this->domain = $ServerConfig['domain'] ?? '';
 
         $this->argv = $argv;
         static::$config = $config;
@@ -54,7 +56,6 @@ class UploadNetease extends Upload{
 	 * @throws \NOS\Core\NosException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
-        $link = '';
 	    try {
 		    $tmpArr = explode('/', $key);
 		    $newFileName = array_pop($tmpArr);
@@ -63,13 +64,17 @@ class UploadNetease extends Upload{
 		
 		    $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
 		    $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
-		    //domain => http://markdown-bucket.nos-eastchina1.126.net
-		    $publicLink = 'http://'.$this->bucket.'.'.$this->endPoint.'/'.$key;
+		    if(!$this->domain){
+			    //domain => http://markdown-bucket.nos-eastchina1.126.net
+			    $this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
+		    }
+		    $publicLink = $this->domain.'/'.$key;
 		    //按配置文件指定的格式，格式化链接
-		    $link .= $this->formatLink($publicLink, $originFilename);
+		    $link = $this->formatLink($publicLink, $originFilename);
 	    } catch (NosException $e) {
 		    //上传数错，记录错误日志
-		    $this->writeLog($e->getMessage()."\n", 'error_log');
+		    $link = $e->getMessage()."\n";
+		    $this->writeLog($link, 'error_log');
 	    }
         return $link;
     }

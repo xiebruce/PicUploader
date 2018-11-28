@@ -71,6 +71,7 @@ class UploadImgur extends Upload{
 			}
 			
 			$this->writeLog($error, 'error_log');
+			return $error;
 		}else{
 			try {
 				//上传
@@ -114,16 +115,20 @@ class UploadImgur extends Upload{
 							'link' => $this->formatLink($data['link'], $originFilename),
 							'delLink' => $deleteLink
 						];
-						return $link;
+						
 					}else{
 						throw new \Exception(var_export($returnArr, true));
 					}
 				}
 			} catch (\Exception $e) {
-				//上传数错，记录错误日志
-				$this->writeLog($e->getMessage()."\n", 'error_log');
+				//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+				$link = [
+					'link' => $e->getMessage()."\n",
+					'delLink' => '',
+				];
+				$this->writeLog($link, 'error_log');
 			}
+			return $link;
 		}
-    
     }
 }
