@@ -3,36 +3,36 @@ PicUploader
 ===============
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
-PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片→点击`你的自定义菜单`→到markdown编辑器中粘贴！支持图片压缩，添加文字/图片水印！
+PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片→点击`你的自定义菜单`→到markdown编辑器中粘贴！支持图片压缩，添加文字/图片水印！
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20demonstration.gif)
 
 ## 一、 注册存储服务器账号
-目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur共九种，以下服务选择一种就可以，如果是自己搭建的博客，强烈推荐又拍云！
-### 1. 注册七牛云
+目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种，以下服务选择一种就可以，如果是自己搭建的博客，强烈推荐又拍云！
+### 注册七牛云
 - [点击前往七牛云](https://www.qiniu.com)
 - [查看注册七牛云对象存储教程](https://www.xiebruce.top/web-development/117.html)
-### 2.注册腾讯云
+### 注册腾讯云
 - [点击前往腾讯云](https://cloud.tencent.com)
 
-### 3.注册网易云
+### 注册网易云
 - [点击前往网易云](https://www.163yun.com)
 
-### 4.注册百度云
+### 注册百度云
 - [点击前往百度云](https://www.163yun.com)
 
-### 5.注册京东云
+### 注册京东云
 - [点击前往京东云](https://www.163yun.com)
 
-### 6.注册阿里云
+### 注册阿里云
 - [点击前往阿里云](https://www.163yun.com)
 
-### 7.注册又拍云(强烈推荐)
+### 注册又拍云(强烈推荐)
 - [查看又拍云注册使用教程](https://www.xiebruce.top/web-development/570.html)
 如果您有自己的网站/博客，强烈推荐使用又拍云，因为又拍云的免费额度最大，每个月有10G空间+15G流量（只需要在网站底部放一个带链接的又拍云logo即可），但需要先申请[又拍云联盟](https://www.upyun.com/league)，申请后通过后又拍云会给你发放67元代金券(这就相当于申请成功了直接使用就可以了)。
 ![Xnip2018-10-13_17-07-44.png](https://img.xiebruce.top/2018/10/13/e1f3e1471528f7114d296cde30439e39.png)
 
-### 8.无需注册直接使用sm.ms
+### 无需注册直接使用sm.ms
 - 直接使用是上传到[sm.ms](http://sm.ms)，经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，否则不稳定，如果小齿轮一直转个不停，基本上就是上传失败超时了。
 - 设置代理：可以上传的情况下不建议设置代理，如果上传超时、报错，则设置代理试试，直接在配置文件填写代理的ip+端口即可，如（127.0.0.1:1087），不过设置代理后上传速度会稍慢（具体快慢取决于你的代理速度）:
 ``` php
@@ -45,7 +45,7 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 ],
 ```
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容或者报错，请查看日志，很有可能是这张图片压缩后超过了5M，或者图片是超过5M的gif图（gif图不压缩）
-### 9.注册Imgur
+### 注册Imgur
 - 先注册Imgur：[https://imgur.com/register](https://imgur.com/register)
 - 然后创建Application，这一步能拿到clientID和clientSecret：
 [https://api.imgur.com/oauth2/addclient](https://api.imgur.com/oauth2/addclient)
@@ -53,14 +53,23 @@ PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来�
 - 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片，原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
 - 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
 
+### 注册Ucloud
+[点击前往注册Ucloud](https://www.ucloud.cn)
+
+### 注册QingCloud
+[点击前往注册QingCloud](https://console.qingcloud.com/signup)
+
 ## 二、下载使用
 ### 1.下载PicUploader
-- 使用git下载：git clone https://github.com/xiebruce/PicUploader.git
+- 使用git下载：
+```bash
+git clone https://github.com/xiebruce/PicUploader.git
+```
 - 或者直接下载： [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 2.填写配置
-- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur其中一个)即可。
+- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur/Ucloud/QingCloud其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
 - 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](https://www.xiebruce.top/uncategorized/117.html)
 ``` php
