@@ -1,5 +1,5 @@
 <?php
-
+/*配置直接在类里面配置了，该文件用不到*/
 global $SDK_VER;
 global $UCLOUD_PROXY_SUFFIX;
 global $UCLOUD_PUBLIC_KEY;
