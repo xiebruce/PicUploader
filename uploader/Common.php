@@ -150,7 +150,11 @@ class Common {
      * @return mixed
      */
     public function getOriginFileName($filePath){
-        $arr = explode('/', $filePath);
+    	if(strpos($filePath, '\\')){
+		    $arr = explode('\\', $filePath);
+	    }else{
+		    $arr = explode('/', $filePath);
+	    }
         return array_pop($arr);
     }
 
