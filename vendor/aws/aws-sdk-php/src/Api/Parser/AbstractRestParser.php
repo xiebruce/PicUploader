@@ -73,7 +73,13 @@ abstract class AbstractRestParser extends AbstractParser
     ) {
         $member = $output->getMember($payload);
 
-        if ($member instanceof StructureShape) {
+        if (!empty($member['eventstream'])) {
+            $result[$payload] = new EventParsingIterator(
+                $response->getBody(),
+                $member,
+                $this
+            );
+        } else if ($member instanceof StructureShape) {
             // Structure members parse top-level data into a specific key.
             $result[$payload] = [];
             $this->payload($response, $member, $result[$payload]);
@@ -110,6 +116,10 @@ abstract class AbstractRestParser extends AbstractParser
                 break;
             case 'timestamp':
                 try {
+                    if (!empty($shape['timestampFormat'])
+                        && $shape['timestampFormat'] === 'unixTimestamp') {
+                        $value = DateTimeResult::fromEpoch($value);
+                    }
                     $value = new DateTimeResult($value);
                     break;
                 } catch (\Exception $e) {
@@ -119,7 +129,7 @@ abstract class AbstractRestParser extends AbstractParser
                 }
             case 'string':
                 if ($shape['jsonvalue']) {
-                    $value = $this->parseJson(base64_decode($value));
+                    $value = $this->parseJson(base64_decode($value), $response);
                 }
                 break;
         }

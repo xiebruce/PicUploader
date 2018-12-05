@@ -25,7 +25,6 @@
         $config = require __DIR__ . '/config/config.php';
     }
 	
-	require __DIR__ . '/vendor/qcloud/cos-sdk-v5/cos-autoloader.php';
 	require __DIR__ . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
 	require __DIR__ . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 	

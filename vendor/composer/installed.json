@@ -44,17 +44,17 @@
     },
     {
         "name": "aws/aws-sdk-php",
-        "version": "3.63.1",
-        "version_normalized": "3.63.1.0",
+        "version": "3.80.3",
+        "version_normalized": "3.80.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "d67dc8846739f4a1f93f25ce5d5cbfb3a555530d"
+            "reference": "f1f724c48a49350250950d80d16b348e5e748e3c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d67dc8846739f4a1f93f25ce5d5cbfb3a555530d",
-            "reference": "d67dc8846739f4a1f93f25ce5d5cbfb3a555530d",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f1f724c48a49350250950d80d16b348e5e748e3c",
+            "reference": "f1f724c48a49350250950d80d16b348e5e748e3c",
             "shasum": ""
         },
         "require": {
@@ -62,7 +62,7 @@
             "ext-pcre": "*",
             "ext-simplexml": "*",
             "ext-spl": "*",
-            "guzzlehttp/guzzle": "^5.3.1|^6.2.1",
+            "guzzlehttp/guzzle": "^5.3.3|^6.2.1",
             "guzzlehttp/promises": "~1.0",
             "guzzlehttp/psr7": "^1.4.1",
             "mtdowling/jmespath.php": "~2.2",
@@ -75,6 +75,8 @@
             "doctrine/cache": "~1.4",
             "ext-dom": "*",
             "ext-openssl": "*",
+            "ext-pcntl": "*",
+            "ext-sockets": "*",
             "nette/neon": "^2.3",
             "phpunit/phpunit": "^4.8.35|^5.4.3",
             "psr/cache": "^1.0"
@@ -83,9 +85,10 @@
             "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
             "doctrine/cache": "To use the DoctrineCacheAdapter",
             "ext-curl": "To send requests using cURL",
-            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages"
+            "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+            "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2018-07-13T21:46:58+00:00",
+        "time": "2018-12-04T20:31:51+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -344,34 +347,35 @@
     },
     {
         "name": "guzzlehttp/psr7",
-        "version": "1.4.2",
-        "version_normalized": "1.4.2.0",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/psr7.git",
-            "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            "reference": "9f83dded91781a01c63574e387eaa769be769115"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-            "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+            "reference": "9f83dded91781a01c63574e387eaa769be769115",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.0",
-            "psr/http-message": "~1.0"
+            "psr/http-message": "~1.0",
+            "ralouphie/getallheaders": "^2.0.5"
         },
         "provide": {
             "psr/http-message-implementation": "1.0"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0"
+            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
         },
-        "time": "2017-03-20T17:10:46+00:00",
+        "time": "2018-12-04T20:46:45+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.4-dev"
+                "dev-master": "1.5-dev"
             }
         },
         "installation-source": "dist",
@@ -402,6 +406,7 @@
         "keywords": [
             "http",
             "message",
+            "psr-7",
             "request",
             "response",
             "stream",
@@ -716,24 +721,24 @@
     },
     {
         "name": "qcloud/cos-sdk-v5",
-        "version": "v1.2.3",
-        "version_normalized": "1.2.3.0",
+        "version": "v1.3.0",
+        "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/tencentyun/cos-php-sdk-v5.git",
-            "reference": "50d99c6ebfa32d3715fc5736340ac904b7398c93"
+            "reference": "989c087a5aaf9b5df020b1d2633644e7c9f694e0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/50d99c6ebfa32d3715fc5736340ac904b7398c93",
-            "reference": "50d99c6ebfa32d3715fc5736340ac904b7398c93",
+            "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/989c087a5aaf9b5df020b1d2633644e7c9f694e0",
+            "reference": "989c087a5aaf9b5df020b1d2633644e7c9f694e0",
             "shasum": ""
         },
         "require": {
             "guzzle/guzzle": "~3.7",
             "php": ">=5.3.0"
         },
-        "time": "2018-05-28T08:35:28+00:00",
+        "time": "2018-11-27T13:31:54+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -764,17 +769,17 @@
     },
     {
         "name": "qiniu/php-sdk",
-        "version": "v7.2.6",
-        "version_normalized": "7.2.6.0",
+        "version": "v7.2.7",
+        "version_normalized": "7.2.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/qiniu/php-sdk.git",
-            "reference": "305ce1c1c0c71f794661fe45a96facf61ef96c5d"
+            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/305ce1c1c0c71f794661fe45a96facf61ef96c5d",
-            "reference": "305ce1c1c0c71f794661fe45a96facf61ef96c5d",
+            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/88d11a5857ebc6871204e9be6ceec54bf5f381e6",
+            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6",
             "shasum": ""
         },
         "require": {
@@ -784,7 +789,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~2.3"
         },
-        "time": "2018-05-18T04:37:29+00:00",
+        "time": "2018-11-06T13:34:32+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -816,18 +821,60 @@
         ]
     },
     {
-        "name": "symfony/event-dispatcher",
-        "version": "v2.8.42",
-        "version_normalized": "2.8.42.0",
+        "name": "ralouphie/getallheaders",
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/event-dispatcher.git",
-            "reference": "9b69aad7d4c086dc94ebade2d5eb9145da5dac8c"
+            "url": "https://github.com/ralouphie/getallheaders.git",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9b69aad7d4c086dc94ebade2d5eb9145da5dac8c",
-            "reference": "9b69aad7d4c086dc94ebade2d5eb9145da5dac8c",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~3.7.0",
+            "satooshi/php-coveralls": ">=1.0"
+        },
+        "time": "2016-02-11T07:05:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/getallheaders.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ralph Khattar",
+                "email": "ralph.khattar@gmail.com"
+            }
+        ],
+        "description": "A polyfill for getallheaders."
+    },
+    {
+        "name": "symfony/event-dispatcher",
+        "version": "v2.8.48",
+        "version_normalized": "2.8.48.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/event-dispatcher.git",
+            "reference": "a77e974a5fecb4398833b0709210e3d5e334ffb0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a77e974a5fecb4398833b0709210e3d5e334ffb0",
+            "reference": "a77e974a5fecb4398833b0709210e3d5e334ffb0",
             "shasum": ""
         },
         "require": {
@@ -844,7 +891,7 @@
             "symfony/dependency-injection": "",
             "symfony/http-kernel": ""
         },
-        "time": "2018-04-06T07:35:03+00:00",
+        "time": "2018-11-21T14:20:20+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
