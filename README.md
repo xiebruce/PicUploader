@@ -130,7 +130,7 @@ brew install php
 ![Xnip2018-09-07_23-58-26.png](https://img.xiebruce.top/2018/09/08/66b431b893bc5b2abc456b6bf4f0b6ee.png)
 
 ### 4.Windows系统配置
-- 安装php环境，如果你没有安装过，建议安装![phpstudy](http://phpstudy.php.cn/)，注意按提示安装对应的VC++运行环境
+- 安装php环境，如果你没有安装过，建议安装[phpstudy](http://phpstudy.php.cn)，注意按提示安装对应的VC++运行环境
 - 解压『add-right-click-menu.zip』，右击执行解压出来的`.bat`文件，点击`以管理员身份运行`，输入php.exe的路径和PicUploader的index.php的路径，然后即可出现右键菜单。
 <p align="center"><img src="https://img.xiebruce.top/2018/12/06/0f70d6ad3be4c1708f6b4d39415ad2a6.jpg" title="Xnip2018-12-06_13-49-49.jpg" alt="Xnip2018-12-06_13-49-49.jpg"></p>
 <p align="center"><img src="https://img.xiebruce.top/2018/12/06/d021219e77443e46228d6e6246670b89.jpg" title="Xnip2018-12-06_14-31-38.jpg" alt="Xnip2018-12-06_14-31-38.jpg"></p>
