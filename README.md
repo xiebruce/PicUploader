@@ -3,7 +3,7 @@ PicUploader
 ===============
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
-PicUploader 是一个用php编写的借助Mac的『自动操作/Automator』来帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud并自动把地址拼接成markdown格式放到剪贴板的小工具(故只有MacOS用户能使用)，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片→点击`你的自定义菜单`→到markdown编辑器中粘贴！支持图片压缩，添加文字/图片水印！
+PicUploader 是一个用php编写的帮助你快速上传你的图片到七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud并自动把地址拼接成markdown格式放到剪贴板的小工具，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片→点击`你的自定义菜单`→到markdown编辑器中粘贴！支持图片压缩，添加文字/图片水印！
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20demonstration.gif)
 
@@ -105,7 +105,7 @@ git clone https://github.com/xiebruce/PicUploader.git
 或者像下面gif图演示的那样用『聚焦搜索』来打开
 ![](https://img.xiebruce.top/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
 
-### 2.按下图操作
+### 2.macOS请按下图操作
 注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如『获取Markdown外链』。
 ![添加一个服务.gif](https://github.com/xiebruce/PicUploader/blob/master/Create%20a%20service.gif)
 
@@ -128,6 +128,23 @@ brew install php
 ### 3.试试右击任意图片
 看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
 ![Xnip2018-09-07_23-58-26.png](https://img.xiebruce.top/2018/09/08/66b431b893bc5b2abc456b6bf4f0b6ee.png)
+
+### 4.Windows系统配置
+- 安装php环境，如果你没有安装过，建议安装![phpstudy](http://phpstudy.php.cn/)，注意按提示安装对应的VC++运行环境
+- 解压『add-right-click-menu.zip』，右击执行解压出来的`.bat`文件，点击`以管理员身份运行`，输入php.exe的路径和PicUploader的index.php的路径，然后即可出现右键菜单。
+<p align="center"><img src="https://img.xiebruce.top/2018/12/06/0f70d6ad3be4c1708f6b4d39415ad2a6.jpg" title="Xnip2018-12-06_13-49-49.jpg" alt="Xnip2018-12-06_13-49-49.jpg"></p>
+<p align="center"><img src="https://img.xiebruce.top/2018/12/06/d021219e77443e46228d6e6246670b89.jpg" title="Xnip2018-12-06_14-31-38.jpg" alt="Xnip2018-12-06_14-31-38.jpg"></p>
+<p align="center"><img src="https://img.xiebruce.top/2018/12/06/7900185c1aaf78c5c5a689a4389a93cf.jpg" title="Xnip2018-12-06_14-32-49.jpg" alt="Xnip2018-12-06_14-32-49.jpg"></p>
+
+添加后就有右键菜单了
+<p align="center"><img src="https://img.xiebruce.top/2018/12/06/1667c3905cc3e9bf1cf35620a4b0d5b1.jpg" title="Xnip2018-12-06_13-52-37.jpg" alt="Xnip2018-12-06_13-52-37.jpg"></p>
+
+添加右键菜单的原理是往注册表添加一个项
+<p align="center"><img src="https://img.xiebruce.top/2018/12/06/cd7fe301737a9901a19cce78f2010519.jpg" title="Xnip2018-12-06_14-25-24.jpg" alt="Xnip2018-12-06_14-25-24.jpg"></p>
+
+- 右击图片→点击自定义菜单，如果正常，一般会出现一个黑框并稍微停留才消失(因为上传需要一定时间)，然后你就可以去粘贴了，但如果黑框闪一下就没了，那多半是有错误，请检查php.exe是否可以直接在cmd运行，如果不行，请直接到注册表中查看路径是否正确，如果路径没问题，那就是php.exe跟系统不兼容，换个版本试试，也有可能缺少vc++库之类的。
+- 如果PicUploader或php.exe换了路径，你可以重新执行`.bat`工具，重新添加一次即可。
+- Windows系统原因，无法同时上传多张，所以在Windows系统一次只能上传一张。
 
 ## 三、开始使用
 ### 1.右击任意一张图片
@@ -168,6 +185,8 @@ brew install php
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 五、更新日志
+### 2018-12-06 v2.6.1版本
+- 添加支持Windows系统（理论上Linux系统一样可用，只要你能通过右键菜单或快捷键调用上传命令）
 ### 2018-11-24 v2.6版本
 - 添加青云QingCloud及Ucloud的支持
 - 修改结构，去除冗余代码
