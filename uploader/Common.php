@@ -155,7 +155,11 @@ class Common {
 	    }else{
 		    $arr = explode('/', $filePath);
 	    }
-        return array_pop($arr);
+	    $filename = array_pop($arr);
+    	if(strpos($filename, '.')===0){
+    		$filename = substr($filename, 1);
+	    }
+	    return $filename;
     }
 
     /**

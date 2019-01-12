@@ -146,6 +146,48 @@ brew install php
 - 如果PicUploader或php.exe换了路径，你可以重新执行`.bat`工具，重新添加一次即可。
 - Windows系统原因，无法同时上传多张，所以在Windows系统一次只能上传一张。
 
+### 5. mweb配置
+mweb提交图片是一张图片发起一个post请求，多张图片则会循环发起多个请求，所以需要配置一个http服务器来接收该post请求并处理上传。
+环境要求：nginx + php-fpm 或 apache + php
+环境并不是搭建在远程服务器，而是直搭建在你本地电脑即可，至于怎样搭建nginx+php运行环境或apache+php运行环境，请自行百度。
+
+以下是nginx配置文件（注意修改root路径为你的PicUploader目录实际路径）
+```nginx
+server {
+    listen 80;
+    server_name api.picuploader.com;
+
+    access_log /usr/local/var/log/nginx/api.picuploader.com.error.log combined;
+    error_log /usr/local/var/log/nginx/api.picuploader.com.error.log error;
+
+    root /path/to/PicUploader;
+
+    location / {
+        index index.php;
+        try_files $uri $uri/ index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi.conf;
+    }
+}
+```
+
+点击mweb的偏好设置→发布(publishing)→点击右边最下面一个`自定义(custom)`：
+<p align="center"><img src="https://img.xiebruce.top/2019/01/12/e793f89b6057b6cb3938fec071d59b8b.jpg" title="Xnip2019-01-12_21-29-30.jpg" alt="Xnip2019-01-12_21-29-30.jpg"></p>
+
+按下图填写：
+<p align="center"><img src="https://img.xiebruce.top/2019/01/12/364177f976b82e0508291cfbbcc9188a.jpg" title="Xnip2019-01-12_21-32-44.jpg" alt="Xnip2019-01-12_21-32-44.jpg"></p>
+
+写好文章后，点击顶部菜单栏中的的发布(publish)或编辑器右上角的分享按钮→上传本地图片到...(Upload Local Images to...)：
+<p align="center"><img src="https://img.xiebruce.top/2019/01/12/d50d050be893e19b338afe3dd0df063a.jpg" title="Xnip2019-01-12_21-38-34.jpg" alt="Xnip2019-01-12_21-38-34.jpg"></p>
+
+如下图，点击Upload Images：
+<p align="center"><img src="https://img.xiebruce.top/2019/01/12/38e6ded515aaddada287dc2a65f096d3.jpg" title="Xnip2019-01-12_21-48-23.jpg" alt="Xnip2019-01-12_21-48-23.jpg"></p>
+上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布。
+
 ## 三、开始使用
 ### 1.右击任意一张图片
 如果一切正常，你对着图片右击，并点击右键菜单中的`获取Markdown链接`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当小齿轮停止转动(不需要等它消失)，即说明上传已经完成，同时右上角会弹出通知，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`粘贴试试吧
@@ -160,6 +202,7 @@ brew install php
 这个日志文件也是markdown格式，所以你可以用mweb之类的markdown编辑器查看它，但是有个问题当你用Mweb打开它之后，如果再上传一张图片，这个文件里肯定会增加一条你上传的记录，但是在Mweb中却不会刷新，必须关掉重新打开才能看的到，这个特别麻烦，建议用[typora](https://typora.io/)这个软件来打开日志，这个会自动刷新，而且免费。
 
 日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在服务器中文件多的话比较难找到。
+
 
 ## 四、注意事项
 ### 1.关于config里的imgWidth选项
@@ -185,6 +228,9 @@ brew install php
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 五、更新日志
+### 2018-12-06 v2.6.2版本
+- 添加mweb支持
+- 添加网页版上传支持
 ### 2018-12-06 v2.6.1版本
 - 添加支持Windows系统（理论上Linux系统一样可用，只要你能通过右键菜单或快捷键调用上传命令）
 ### 2018-11-24 v2.6版本

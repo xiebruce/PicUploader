@@ -45,12 +45,11 @@ class UploadBaidu extends Upload{
 	 * Upload images to Netease Cloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 	    $bosClient = new BosClient($this->bosConfig);
 	    try {
 		    $bosClient->putObjectFromFile($this->bucket, $key, $uploadFilePath);
@@ -59,9 +58,7 @@ class UploadBaidu extends Upload{
 		    	$pos = strpos($endpoint, '://') + 3;
 		    	$this->domain = substr($endpoint, 0, $pos) . $this->bucket . '.' . substr($endpoint, $pos);
 		    }
-		    $publicLink = $this->domain.'/'.$key;
-		    //按配置文件指定的格式，格式化链接
-		    $link = $this->formatLink($publicLink, $originFilename);
+		    $link = $this->domain.'/'.$key;
 	    } catch (BceClientException $e) {
 		    //上传数错，记录错误日志
 		    $link = $e->getMessage()."\n";

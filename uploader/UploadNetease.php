@@ -50,12 +50,11 @@ class UploadNetease extends Upload{
 	 * Upload images to Netease Cloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 * @throws \NOS\Core\NosException
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 	    try {
 		    $tmpArr = explode('/', $key);
 		    $newFileName = array_pop($tmpArr);
@@ -68,9 +67,7 @@ class UploadNetease extends Upload{
 			    //domain => http://markdown-bucket.nos-eastchina1.126.net
 			    $this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
 		    }
-		    $publicLink = $this->domain.'/'.$key;
-		    //按配置文件指定的格式，格式化链接
-		    $link = $this->formatLink($publicLink, $originFilename);
+		    $link = $this->domain.'/'.$key;
 	    } catch (NosException $e) {
 		    //上传数错，记录错误日志
 		    $link = $e->getMessage()."\n";

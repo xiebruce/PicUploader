@@ -112,10 +112,9 @@ class UploadImgur extends Upload{
 						$data = $returnArr['data'];
 						$deleteLink = 'Delete Hash: '.$data['deletehash'];
 						$link = [
-							'link' => $this->formatLink($data['link'], $originFilename),
+							'link' => $data['link'],
 							'delLink' => $deleteLink
 						];
-						
 					}else{
 						throw new \Exception(var_export($returnArr, true));
 					}

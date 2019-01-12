@@ -50,12 +50,11 @@ class UploadQiniu extends Common {
 	 * 上传文件到七牛云
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 		try {
 			//获取七牛token
 			$token = $this->getToken();
@@ -67,11 +66,9 @@ class UploadQiniu extends Common {
 				throw new \Exception(var_export($err, true)."\n");
 			} else {
 				//拼接域名和优化参数成为一个可访问的外链
-				$publicLink = $this->domain . '/' . $ret['key'];
+				$link = $this->domain . '/' . $ret['key'];
 				$optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
-				$optimize && $publicLink .= $optimize;
-				//按配置文件指定的格式，格式化链接
-				$link = $this->formatLink($publicLink, $originFilename);
+				$optimize && $link .= $optimize;
 			}
 		}catch (\Exception $e){
 			//上传数错，记录错误日志

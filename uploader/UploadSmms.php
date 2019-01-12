@@ -37,12 +37,11 @@ class UploadSmms extends Common {
 	 * Upload image to http://sm.ms
 	 * @param $key  由于sm.ms无法自己指定key(主要是没有账号系统怕跟别人重复，所以都是它重命名)，所以key在这里不使用。
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return array
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
         $link = [];
         $GuzzleConfig = [
 	        'base_uri' => $this->serverConfig['baseUrl'],
@@ -87,8 +86,8 @@ class UploadSmms extends Common {
 						$deleteLink = 'Delete Link: '.$data['delete'];
 						// $link .= $this->formatLink($data['url'], $originFilename);
 						$link = [
-							'link' => $this->formatLink($data['url'], $originFilename),
-							'delLink' => $deleteLink
+							'link' => $data['url'],
+							'delLink' => $deleteLink,
 						];
 						return $link;
 					}

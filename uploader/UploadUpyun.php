@@ -49,12 +49,11 @@ class UploadUpyun extends Upload{
 	 * 上传到又拍云
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 	    try {
 		    $serviceConfig = new Config($this->serviceName, $this->operator, $this->password);
 		    $client = new Upyun($serviceConfig);
@@ -66,9 +65,7 @@ class UploadUpyun extends Upload{
 		    	if(!$this->domain){
 				    $this->domain = 'http://'.$this->serviceName.'.test.upcdn.net';
 			    }
-			    $publicLink = $this->domain.'/'.$key;
-			    //按配置文件指定的格式，格式化链接
-			    $link = $this->formatLink($publicLink, $originFilename);
+			    $link = $this->domain.'/'.$key;
 		    }
 	    } catch (NosException $e) {
 		    //上传数错，记录错误日志

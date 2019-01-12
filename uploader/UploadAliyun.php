@@ -50,23 +50,20 @@ class UploadAliyun extends Upload{
 	 * Upload images to Netease Cloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 	    try {
 		    $oss = new OssClient($this->accessKey, $this->secretKey, $this->endpoint);
 		    $retArr = $oss->uploadFile($this->bucket, $key, $uploadFilePath);
 		    if(isset($retArr['info']['url'])){
 		    	// http://bruce-markdown.oss-cn-shenzhen.aliyuncs.com
 			    $defaultDomain = 'http://'.$this->bucket.'.'.$this->endpoint;
-			    $publicLink = $retArr['info']['url'];
+			    $link = $retArr['info']['url'];
 			    if($this->domain){
-				    $publicLink = str_replace($defaultDomain, $this->domain, $publicLink);
+				    $link = str_replace($defaultDomain, $this->domain, $link);
 			    }
-			    //按配置文件指定的格式，格式化链接
-			    $link = $this->formatLink($publicLink, $originFilename);
 		    }else{
 			    throw new \Exception(var_export($retArr, true)."\n");
 		    }

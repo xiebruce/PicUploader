@@ -51,12 +51,11 @@ class UploadJd extends Upload{
 	 * Upload images to Jcloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 	    $s3Client = new S3Client([
 		    'version' => 'latest',
 		    'region' => $this->region,
@@ -71,14 +70,12 @@ class UploadJd extends Upload{
 		    if(is_object($retObj)){
 		    	//返回链接格式：
 			    //https://markdown.s3.cn-south-1.jcloudcs.com/2018/11/28/bc4443f413b4eb32b3964d9c8e1fe755.jpeg
-			    $publicLink = $retObj->get('ObjectURL');
+			    $link = $retObj->get('ObjectURL');
 			    if($this->domain){
 				    $pos = strpos($this->endpoint, '://') + 3;
 				    $defaultDomain = substr($this->endpoint, 0, $pos) . $this->bucket . '.' . substr($this->endpoint, $pos);
-				    $publicLink = str_replace($defaultDomain, $this->domain,$publicLink);
+				    $link = str_replace($defaultDomain, $this->domain,$link);
 			    }
-			    //按配置文件指定的格式，格式化链接
-			    $link = $this->formatLink($publicLink, $originFilename);
 		    }else{
 			    throw new \Exception(var_export($retObj, true)."\n");
 		    }

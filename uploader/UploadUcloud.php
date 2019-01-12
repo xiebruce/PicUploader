@@ -86,10 +86,8 @@ class UploadUcloud extends Upload{
 		if(!$this->domain){
 			$this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
 		}
-		$publicLink = $this->domain.'/'.$data['Key'];
+		$link = $this->domain.'/'.$data['Key'];
 		
-		//按配置文件指定的格式，格式化链接
-		$link = $this->formatLink($publicLink, $originFilename);
 		return $link;
     }
 }

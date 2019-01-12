@@ -23,10 +23,12 @@ class Upload extends Common {
 	
 	/**
 	 * Get public link
+	 * @param $params
+	 *
 	 * @return string
 	 * @throws \ImagickException
 	 */
-	public function getPublickLink(){
+	public function getPublickLink($params){
         $fileCount = count($this->argv);
         if($fileCount > 5){
             $error = "Sorry, it's too slow if you upload more than 5 photos at a time, {$fileCount} were selected!\n";
@@ -53,7 +55,7 @@ class Upload extends Common {
 			
 			//如果配置了优化宽度，则优化
 			$uploadFilePath = $filePath;
-			$tmpImgPath = '';
+			$tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
 			if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
 				$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
@@ -80,7 +82,17 @@ class Upload extends Common {
 					//new 变量类名不会带上命名空间，所以自己把命名空间加上
 					$className = __NAMESPACE__.'\\Upload'.ucfirst($uploadServer);
 					//new 变量类名，并调用对应类的upload()方法上传文件
-					$link = (new $className(static::$config, $this->argv))->upload($key,$uploadFilePath,$originFilename);
+					$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath, $originFilename);
+					
+					if(!$params['is_mweb']){
+						//按配置文件指定的格式，格式化链接
+						if(in_array($uploadServer, ['smms', 'imgur'])){
+							$link['link'] = $this->formatLink($link['link'], $originFilename);
+						}else{
+							$link = $this->formatLink($link, $originFilename);
+						}
+					}
+					
 					$log = $link;
 					if(in_array($uploadServer, ['smms', 'imgur'])){
 						$log = join("\n", $link);

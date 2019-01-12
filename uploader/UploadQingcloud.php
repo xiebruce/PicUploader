@@ -52,12 +52,11 @@ class UploadQingcloud extends Upload{
 	 * Upload images to QingCloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 		try {
 			$config = new Config($this->accessKeyId, $this->secretAccessKey);
 			$service = new QingStor($config);
@@ -72,9 +71,7 @@ class UploadQingcloud extends Upload{
 					//http://blog-markdown.gd2.qingstor.com
 					$this->domain = 'http://'.$this->bucket.'.'.$this->zone.'.qingstor.com/';
 				}
-				$publicLink = $this->domain.'/'.$key;
-				//按配置文件指定的格式，格式化链接
-				$link = $this->formatLink($publicLink, $originFilename);
+				$link = $this->domain.'/'.$key;
 			}else{
 				throw new \Exception('error_code => '.$res->code."\nerror_message => ".$res->message, $res->statusCode);
 			}

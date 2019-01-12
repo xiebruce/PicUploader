@@ -47,11 +47,10 @@ class UploadTencent extends Common {
 	 * Upload Images to Tecent Cloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
         try{
 	        $cosClient = new Client([
 		        'region' => $this->region,
@@ -75,12 +74,10 @@ class UploadTencent extends Common {
 		        }
 		        // http://markdown-1254010860.cos.ap-guangzhou.myqcloud.com
 		        if($key){
-			        $publicLink = $this->domain .'/'.$key;
+			        $link = $this->domain .'/'.$key;
 		        }else{
-			        $publicLink = $location;
+			        $link = $location;
 		        }
-		        //按配置文件指定的格式，格式化链接
-		        $link = $this->formatLink($publicLink, $originFilename);
 	        }
         }catch (\Exception $e){
 	        //上传数错，记录错误日志
