@@ -8,7 +8,7 @@ PicUploader 是一个用php编写的帮助你快速上传你的图片到七牛�
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/PicUploader%20demonstration.gif)
 
 ## 一、 注册存储服务器账号
-目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种，以下服务选择一种就可以，如果是自己搭建的博客，强烈推荐又拍云！
+目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
 ### 注册七牛云
 - [点击前往七牛云](https://www.qiniu.com)
 - [查看注册七牛云对象存储教程](https://www.xiebruce.top/web-development/117.html)
