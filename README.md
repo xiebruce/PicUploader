@@ -28,9 +28,8 @@ PicUploader 是一个用php编写的帮助你快速上传你的图片到七牛�
 - [点击前往阿里云](https://www.163yun.com)
 
 ### 注册又拍云
-- [查看又拍云注册使用教程](https://www.xiebruce.top/web-development/570.html)
-如果您有自己的网站/博客，强烈推荐使用又拍云，因为又拍云的免费额度最大，每个月有10G空间+15G流量（只需要在网站底部放一个带链接的又拍云logo即可），但需要先申请[又拍云联盟](https://www.upyun.com/league)，申请后通过后又拍云会给你发放67元代金券(这就相当于申请成功了直接使用就可以了)。
-![Xnip2018-10-13_17-07-44.png](https://img.xiebruce.top/2018/10/13/e1f3e1471528f7114d296cde30439e39.png)
+[点击查看又拍云注册使用教程](https://www.xiebruce.top/web-development/570.html)
+注意，请不要开启全球cdn，开国内的就可以，国外cdn超贵。
 
 ### 无需注册直接使用sm.ms
 - 直接使用是上传到[sm.ms](http://sm.ms)，经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，否则不稳定，如果小齿轮一直转个不停，基本上就是上传失败超时了。
