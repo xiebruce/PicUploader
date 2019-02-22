@@ -174,6 +174,11 @@ server {
 }
 ```
 
+此外记得要把nginx配置的域名添加到hosts文件中：
+```
+127.0.0.1 api.picuploader.com
+```
+
 点击mweb的偏好设置→发布(publishing)→点击右边最下面一个`自定义(custom)`：
 <p align="center"><img src="https://img.xiebruce.top/2019/01/12/e793f89b6057b6cb3938fec071d59b8b.jpg" title="Xnip2019-01-12_21-29-30.jpg" alt="Xnip2019-01-12_21-29-30.jpg"></p>
 
