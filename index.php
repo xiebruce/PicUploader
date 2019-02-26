@@ -69,6 +69,7 @@
     	'is_mweb' => $isMweb,
     ]);
     
+    //如果是MWeb，则返回Mweb支持的json格式
     if($isMweb){
 	    $data = [
 		    'code' => 'success',
@@ -77,9 +78,9 @@
 			    'url' => $link,
 		    ],
 	    ];
-	    file_put_contents('/Users/bruce/www/personal/test.log', json_encode($data));
 	    header('Content-Type: application/json; charset=UTF-8');
 	    echo json_encode($data);
     }else{
+    	//如果是client模式，则直接返回链接
 	    echo $link;
     }
