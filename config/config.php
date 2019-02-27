@@ -138,11 +138,11 @@
 		
 		//链接类型，四个值，normal, markdown, markdownWithLink, custom，不填或者填的值不在这四个值里，按normal算
 		//其中markdownWithLink表示点击后会跳转到图片源地址
-		'linkType' => 'custom',
+		'linkType' => 'markdown',
 		//自定义返回链接格式，其中{{url}}在返回的时候会被替换为图片url，{{name}}会被替换为上传的图片名称（这样做主要为了小图居中）
 		'customFormat' => '<p align="center"><img src="{{url}}" title="{{name}}" alt="{{name}}" width="80%"></p>',
 		
-		//存储服务器，值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur
+		//存储服务器，可选值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur/Ucloud/Qingcloud
 		'storageType' => 'Qiniu',
 		//存储服务器可写多个，表示同时传到多个地方，有两种写法，一是用逗号隔开，二是直接用数组，如
 		// 'storageType' => 'Upyun, Qiniu',
