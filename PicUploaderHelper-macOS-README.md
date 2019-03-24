@@ -9,7 +9,7 @@ pip install Pillow
 本插件需要使用python3，如果你电脑中安装了python2.7和python3两个版本，要注意pip是对应的哪个版本，用`pip -V`即可查看，一般根据安装方式的不同有可能是“pip”和“pip3”(此时pip就是pip2.7)，也有可能是“pip”和“pip2”(此时pip就是pip3)。
 
 ### 安装PicUploaderHelper
-下载：[PicUploaderHelper-macOS.zip](https://www.xiebruce.top)
+下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-macOS.zip)
 解压后，请把解压出来的文件夹放到位置比较固定的地方，因为随意挪动将会导致无法开机运行(如果要挪动，需要删除原来的开机“登录项”并重新添加)
 
 解压出来的`PicUploaderHelper-macOS`文件夹中有三个文件：
