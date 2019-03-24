@@ -208,7 +208,7 @@ server {
 日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在服务器中文件多的话比较难找到。
 
 ### 4.使用快捷键上传助手(v2.6.3新增)
-该助手在`accessorys`文件夹中，或者也可以在这里下载；[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-macOS.zip)，该助手目前只支持Mac系统。
+该助手在PicUploader的`accessorys`文件夹中，或者也可以在这里下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-macOS.zip)，该助手目前只支持Mac系统。
 上传助手使用文档请查看：[PicUploaderHelper-macOS-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
 
 ## 四、注意事项
