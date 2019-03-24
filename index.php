@@ -61,7 +61,11 @@
     }else{
 	    //去除第一个元素（因为第一个元素是index.php，因为$argv是linux/mac的参数，
 	    //用php执行index.php的时候，index.php也算是一个参数）
-	    array_shift($argv);
+	    if(isset($argv) && $argv){
+		    array_shift($argv);
+	    }else{
+	    	exit('未检测到图片');
+	    }
     }
 	
 	//getPublickLink
@@ -79,7 +83,9 @@
 		    ],
 	    ];
 	    header('Content-Type: application/json; charset=UTF-8');
-	    echo json_encode($data);
+	    $json = json_encode($data);
+	    // file_put_contents('/Users/bruce/Downloads/picuploader.txt', $json, FILE_APPEND);
+	    echo $json;
     }else{
     	//如果是client模式，则直接返回链接
 	    echo $link;

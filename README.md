@@ -130,7 +130,7 @@ brew install php
 
 ### 4.Windows系统配置
 - 安装php环境，如果你没有安装过，建议安装[phpstudy](http://phpstudy.php.cn)，注意按提示安装对应的VC++运行环境
-- 解压『add-right-click-menu.zip』，右击执行解压出来的`.bat`文件，点击`以管理员身份运行`，输入php.exe的路径和PicUploader的index.php的路径，然后即可出现右键菜单。
+- 解压`accessorys`目录中的『add-right-click-menu.zip』，右击执行解压出来的`.bat`文件，点击`以管理员身份运行`，输入php.exe的路径和PicUploader的index.php的路径，然后即可出现右键菜单。
 <p align="center"><img src="https://img.xiebruce.top/2018/12/06/0f70d6ad3be4c1708f6b4d39415ad2a6.jpg" title="Xnip2018-12-06_13-49-49.jpg" alt="Xnip2018-12-06_13-49-49.jpg"></p>
 <p align="center"><img src="https://img.xiebruce.top/2018/12/06/d021219e77443e46228d6e6246670b89.jpg" title="Xnip2018-12-06_14-31-38.jpg" alt="Xnip2018-12-06_14-31-38.jpg"></p>
 <p align="center"><img src="https://img.xiebruce.top/2018/12/06/7900185c1aaf78c5c5a689a4389a93cf.jpg" title="Xnip2018-12-06_14-32-49.jpg" alt="Xnip2018-12-06_14-32-49.jpg"></p>
@@ -190,7 +190,7 @@ server {
 
 如下图，点击Upload Images：
 <p align="center"><img src="https://img.xiebruce.top/2019/01/12/38e6ded515aaddada287dc2a65f096d3.jpg" title="Xnip2019-01-12_21-48-23.jpg" alt="Xnip2019-01-12_21-48-23.jpg"></p>
-上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布。
+上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布，而且MWeb非常好的一点是，如果你上传过所有图片后，又添加了一张新图片，那么只有新图片会被上传，上传过的不会重复被上传。
 
 ## 三、开始使用
 ### 1.右击任意一张图片
@@ -207,6 +207,8 @@ server {
 
 日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在服务器中文件多的话比较难找到。
 
+### 4.使用快捷键上传剪贴板中的图片(v2.6.3新增)
+请查看：[PicUploaderHelper-macOS-README.md](https://www.xiebruce.top)
 
 ## 四、注意事项
 ### 1.关于config里的imgWidth选项
@@ -232,6 +234,8 @@ server {
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 五、更新日志
+### 2019-03-25 v2.6.3版本
+- 支持全局快捷键上传剪贴板中的图片
 ### 2019-01-12 v2.6.2版本
 - 添加mweb支持
 - 添加网页版上传支持
