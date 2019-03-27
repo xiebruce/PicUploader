@@ -16,21 +16,21 @@
     require 'vendor/autoload.php';
     require 'common/EasyImage.php';
 
-    define('APP_PATH', __DIR__);
+    define('APP_PATH', strtr(__DIR__, '\\', '/'));
     
-    $localConfigFile = __DIR__ . '/config/config-local.php';
+    $localConfigFile = APP_PATH . '/config/config-local.php';
     if(is_file($localConfigFile)){
-        $config = require __DIR__ . '/config/config-local.php';
+        $config = require APP_PATH . '/config/config-local.php';
     }else{
-        $config = require __DIR__ . '/config/config.php';
+        $config = require APP_PATH . '/config/config.php';
     }
 	
-	require __DIR__ . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
-	require __DIR__ . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
+	require APP_PATH . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
+	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 	
 	//autoload class
 	spl_autoload_register(function ($class_name) {
-		require_once __DIR__ . '/' . str_replace('\\', '/', $class_name) . '.php';
+		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
 	});
 	
 	$isMweb = false;
@@ -45,14 +45,14 @@
 	    if(is_array($files['tmp_name'])){
 		    $argv = [];
 		    foreach($files['tmp_name'] as $key=>$tmp_name){
-			    $dest = __DIR__.'/.tmp/.'.$files['name'][$key];
+			    $dest = APP_PATH.'/.tmp/.'.$files['name'][$key];
 			    if(move_uploaded_file($tmp_name, $dest)){
 				    $argv[] = $dest;
 			    }
 		    }
 	    }else{
 	    	//receive single file upload
-		    $dest = __DIR__.'/.tmp/.'.$files['name'];
+		    $dest = APP_PATH.'/.tmp/.'.$files['name'];
 		    $tmp_name = $files['tmp_name'];
 		    if(move_uploaded_file($tmp_name, $dest)){
 			    $argv[] = $dest;
@@ -67,7 +67,7 @@
 	    	exit('未检测到图片');
 	    }
     }
-	
+
 	//getPublickLink
     $link = (new uploader\Upload($argv, $config))->getPublickLink([
     	'is_mweb' => $isMweb,

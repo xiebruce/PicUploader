@@ -1,4 +1,9 @@
 ## PicUploaderHelper-macOS-README.md
+本文档为macOS版文档，Windows请看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-Windows-README.md)
+
+### 先看效果
+![macOS-upload](https://img.xiebruce.top/2019/03/27/a1fe3fd4f306698dd43b7408eebdce74.gif)
+
 ### 安装python依赖
 如果你电脑没安装过python，请先看[Mac同时安装python2.7和python3](https://www.xiebruce.top/905.html)。
 由于该助手使用python编写，需要用到`pynput`(用于监听快捷键)和`Pillow`(用于获取图片)两个模块，所以需要先安装这两个模块：
@@ -14,7 +19,6 @@ pip install Pillow
 
 解压出来的`PicUploaderHelper-macOS`文件夹中有三个文件：
 ```
-├── PicUploaderHelper-macOS-README.md   #说明文档
 ├── PicUploaderHelper.py                #助手主程序
 ├── config.json                         #助手配置文件
 └── generatesh.sh                       #自启动脚本生成器
@@ -83,7 +87,7 @@ command => cmd
 
 ### 运行PicUploaderHelper
 运行前，要把运行终端比如`iTerm2`(或者你自己习惯用的其它终端工具)加入到`系统偏好设置`→`  安装与隐私`→`辅助功能`里面，注意，你设置了“PicUploaderHelper-start.sh”文件使用哪个终端打开，就把哪个终端加入到系统的`辅助功能`里。
-**运行：**把`PicUploaderHelper-start.sh`拖动到`iTerm2`中，回车运行即可，当然你也可以进入它所在的文件夹中然后用`./PicUploaderHelper-start.sh`来运行。
+**运行：** 先在iTerm2用`sudo -s`切换到root，把`PicUploaderHelper-start.sh`拖动到`iTerm2`中，回车运行即可，当然你也可以进入它所在的文件夹中然后用`sudo ./PicUploaderHelper-start.sh`来运行。
 
 **关闭：** 先查找进程id号
 ```bash
@@ -99,7 +103,7 @@ kill -9 进程id号
 
 **上传图片：** 然后你就可以截图→按快捷键上传了，注意截图的时候要“复制到剪贴板”而不是保存文件，如果你保存成文件，那你还得用右击图片的方式上传。
 
-**加入开机启动：** 本来macOS的服务类型的程序开机启动最好用`launchctl`的或者直接把它转成app程序的，但由于系统限制原因，目前用`launchctl`虽然能正常启动，但是无法响应快捷键，而转成app程序运行的时候会报错，原因好像是Mojave系统的bug，等后面更新了系统我会尝试转成mac的app，所以现在暂时只能退而求其次，使用开机登录项来做开机启动(当然如果你不嫌麻烦，可以不做这个开启启动，只要开机后自己`./PicUploaderHelper-start.sh`运行即可)：
+**加入开机启动：** 本来macOS的服务类型的程序开机启动最好用`launchctl`的或者直接把它转成app程序的，但由于系统限制原因，目前用`launchctl`虽然能正常启动，但是无法响应快捷键，而转成app程序运行的时候会报错，原因好像是Mojave系统的bug，等后面更新了系统我会尝试转成mac的app，所以现在暂时只能退而求其次，使用开机登录项来做开机启动(当然如果你不嫌麻烦，可以不做这个开启启动，只要开机后自己`sudo ./PicUploaderHelper-start.sh`运行即可)：
 ![Xnip2019-03-23_06-43-38](https://img.xiebruce.top/2019/03/23/58475317f4308b3e1241916853f964f1.jpg)
 
 注意，当你关机了，下次你开机的时候，如果你设置的是用iTerm2打开启动脚本，它会弹出以下提示，那个选项是不要提示的意思，把它勾上就行：
@@ -121,3 +125,5 @@ ps aux | grep PicUploaderHelper
 2、如果未启动，查看“PicUploaderHelper-macOS”文件夹下的“PicUploaderHelper.log”看有没有报错，如果有报错无法解决，可以提issue。
 
 3、如果已启动，查看是否把iTerm2加入到了`系统偏好设置`→`  安装与隐私`→`辅助功能`？如果没有，请添加。而且要注意，添加到`辅助功能`里的终端，要跟`PicUploaderHelper-start.sh`设置的开打方式那个终端一致，所以，如果你用的不是iTerm2，而是系统自带的终端，又或者是其他的终端工具，就要注意这两个地方对应一下。
+
+4、如果你是以`./PicUploaderHelper-start.sh`的方式运行，是否是root权限状态下运行的？如果不是，请先使用`sudo -s`切换到root权限再运行，或者也可以`sudo ./PicUploaderHelper-start.sh`这样运行
