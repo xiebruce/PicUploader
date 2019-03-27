@@ -1,5 +1,5 @@
 # PicUploaderHelper-Windows-README.md
-本文档为Windows版文档，macOS请看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
+本文档为Windows版文档，macOS请看：[PicUploaderHelper-macOS-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
 
 ### 先看效果
 win10：

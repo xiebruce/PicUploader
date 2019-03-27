@@ -216,7 +216,7 @@ server {
 在PicUploader的`accessorys`文件夹中找到`PicUploaderHelper-macOS.zip`，或者也可以在这里下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-macOS.zip)
 上传助手使用文档请查看：[PicUploaderHelper-macOS-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
 ### Windows版上传助手
-在PicUploader的`accessorys`文件夹中找到`PicUploaderHelper-Windows.zip`，或者也可以在这里下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-Windows.zip)
+在PicUploader的`accessorys`文件夹中找到`PicUploaderHelper-Windows.zip`，或者也可以在这里下载：[PicUploaderHelper-Windows.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-Windows.zip)
 上传助手使用文档请查看：[PicUploaderHelper-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-Windows-README.md)
 
 ## 四、注意事项
