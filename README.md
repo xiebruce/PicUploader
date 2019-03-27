@@ -17,7 +17,7 @@ PicUploader
 - 支持快捷键上传剪贴板中的图片（需要配合PicUploaderHelper使用）
 - 目前支持11个图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud
 
-![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/accessorys/Create%20a%20service.gif)
+![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploader%20demonstration.gif)
 
 ## 注册存储服务器账号
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
