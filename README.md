@@ -1,17 +1,31 @@
+# PicUploader-README.md
     
 PicUploader
 ===============
+### 简介
+
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
-PicUploader 是一个用php编写的帮助你快速上传你的图片到云图床，并自动把地址拼接成markdown格式放到剪贴板的小工具，配置完成后，要获取一个可用于markdown的图片外链只需要：右击图片→点击`你的自定义菜单`→到markdown编辑器中粘贴！支持图片压缩，添加文字/图片水印，目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种云，支持连接MWeb，Mac支持快捷键上传！
+**PicUploader** 是一个用php编写的图床工具，它能帮助你快速上传你的图片到云图床，并自动返回Markdown格式链接到剪贴板。配置完成后，要获取一个可用于markdown的图片外链只需要：
+**方式一：** 右击图片→点击`你的自定义上传菜单`→通知上传成功→到Markdown编辑器中粘贴！
+**方式二：** 截图并点击复制到剪贴板→按快捷键→通知上传成功→到Markdown编辑器中粘贴！
+
+### 主要功能
+- 支持Mac和Windows
+- 支持图片压缩后上传(支持jpg/png，gif不支持压缩)
+- 支持添加水印后上传(支持文字水印、图片水印、自定义水印颜色和透明度)
+- 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）
+- 可作为MWeb的API使用（需要自行配置nginx+php服务器）
+- 支持快捷键上传剪贴板中的图片（需要配合PicUploaderHelper使用）
+- 目前支持11个图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/accessorys/Create%20a%20service.gif)
 
-## 一、 注册存储服务器账号
+## 注册存储服务器账号
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
 ### 注册七牛云
 - [点击前往七牛云](https://www.qiniu.com)
-- [查看注册七牛云对象存储教程](https://www.xiebruce.top/web-development/117.html)
+- [查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
 ### 注册腾讯云
 - [点击前往腾讯云](https://cloud.tencent.com)
 
@@ -28,13 +42,13 @@ PicUploader 是一个用php编写的帮助你快速上传你的图片到云图�
 - [点击前往阿里云](https://www.163yun.com)
 
 ### 注册又拍云
-[点击查看又拍云注册使用教程](https://www.xiebruce.top/web-development/570.html)
+[点击查看又拍云注册使用教程](https://www.xiebruce.top/570.html)
 注意，请不要开启全球cdn，开国内的就可以，国外cdn超贵。
 
 ### 无需注册直接使用sm.ms
 - 直接使用是上传到[sm.ms](http://sm.ms)，经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，否则不稳定，如果小齿轮一直转个不停，基本上就是上传失败超时了。
 - 设置代理：可以上传的情况下不建议设置代理，如果上传超时、报错，则设置代理试试，直接在配置文件填写代理的ip+端口即可，如（127.0.0.1:1087），不过设置代理后上传速度会稍慢（具体快慢取决于你的代理速度）:
-``` php
+```php
 //https://sm.ms
 'smms' => [
     'baseUrl' => 'https://sm.ms/api/',
@@ -45,9 +59,8 @@ PicUploader 是一个用php编写的帮助你快速上传你的图片到云图�
 ```
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容或者报错，请查看日志，很有可能是这张图片压缩后超过了5M，或者图片是超过5M的gif图（gif图不压缩）
 ### 注册Imgur
-- 先注册Imgur：[https://imgur.com/register](https://imgur.com/register)
-- 然后创建Application，这一步能拿到clientID和clientSecret：
-[https://api.imgur.com/oauth2/addclient](https://api.imgur.com/oauth2/addclient)
+- 先注册Imgur：[https://imgur.com/register](https://imgur.com/register)并登录。
+- 然后点击[addclient](https://api.imgur.com/oauth2/addclient)创建Application，这一步能拿到clientID和clientSecret：
 ![Xnip2018-11-11_03-56-35.png](https://i.loli.net/2018/11/11/5be737f29d355.png)
 - 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片，原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
 - 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
@@ -58,8 +71,8 @@ PicUploader 是一个用php编写的帮助你快速上传你的图片到云图�
 ### 注册QingCloud
 [点击前往注册QingCloud](https://console.qingcloud.com/signup)
 
-## 二、下载使用
-### 1.下载PicUploader
+## 下载使用
+### 下载PicUploader
 - 使用git下载：
 ```bash
 git clone https://github.com/xiebruce/PicUploader.git
@@ -67,10 +80,10 @@ git clone https://github.com/xiebruce/PicUploader.git
 - 或者直接下载： [PicUploader](https://github.com/xiebruce/PicUploader/archive/master.zip)
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
-### 2.填写配置
+### 填写配置
 - 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur/Ucloud/QingCloud其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
-- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[注册七牛云对象存储教程](https://www.xiebruce.top/uncategorized/117.html)
+- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
 ``` php
 //Qiniu Cloud
 'qiniu' => [
@@ -87,11 +100,11 @@ git clone https://github.com/xiebruce/PicUploader.git
 ],
 ```
 
-- 搜索`storageType`，并在`=>`后设置您当前要使用哪个云，如我要使用七牛云：
+- 搜索`storageType`(注意是storageType，而不是storageTypes)，并在`=>`后设置您当前要使用哪个云，如我要使用七牛云：
 ```php
 'storageType' => 'Qiniu',
 ```
-- 支持同时上传到多个云，只需逗号隔开即可，比如我现在就同时上传到6个云：
+- 支持同时上传到多个云，只需逗号隔开即可，比如我现在就同时上传到6个云(多个云会使用最后一个云的域名作为返回域名)：
 ```php
 'storageType' => 'Qiniu,Tencent,Netease,Upyun,Qingcloud,Ucloud',
 ```
@@ -99,12 +112,12 @@ git clone https://github.com/xiebruce/PicUploader.git
 
 - 水印配置直接参考配置文件的注释
 
-## 三、使用『自动操作/Automator』新建一个workflow服务
-### 1.打开『自动操作/Automator』
+## 在macOS上使用
+### 打开『自动操作/Automator』
 或者像下面gif图演示的那样用『聚焦搜索』来打开
 ![](https://img.xiebruce.top/2018/08/30/a808c59b097d5877e650dc7ced31977d.png)
 
-### 2.macOS请按下图操作
+### 按下图操作
 注意每一个需要选择的地方都不要选错，其中最后一步保存的文件名，将出现在右键菜单上，你可以自己取一个自己喜欢的名字，比如『获取Markdown外链』。
 ![添加一个服务.gif](https://github.com/xiebruce/PicUploader/blob/master/accessorys/Create%20a%20service.gif)
 
@@ -123,18 +136,40 @@ php -i | grep configure | grep freetype
 ``` shell
 brew install php
 ```
+- php需要安装`gd`、`curl`、`exif`、`fileinfo`这四个扩展，前两个必须要有，后两个最好有，查看php有哪些扩展的命令：
+```bash
+/usr/local/bin/php -m
+```
+安装扩展请查看：[Mac Homebrew1.5以后安装php扩展的方法](https://www.xiebruce.top/607.html)。
 
-### 3.试试右击任意图片
-看，最后一个按钮是不是就是你刚刚保存的Services名称？什么？你电脑上没看见？那是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行。  
+### 试试右击任意图片
+看，最后一个按钮是不是就是你刚刚保存的Services名称？如果你电脑上没看见，是因为你电脑上超过5个这种类似的菜单，它就自动收到二级菜单下了，其实很多菜单根本用不到，你可以到`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`里面找到对应的按钮，把它们的勾去掉就行：
 ![Xnip2018-09-07_23-58-26.png](https://img.xiebruce.top/2018/09/08/66b431b893bc5b2abc456b6bf4f0b6ee.png)
 
-### 4.Windows系统配置
+如果一切正常，你对着图片右击，并点击右键菜单中的`获取Markdown链接`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明图片正在上传，当小齿轮停止转动(不需要等它消失)，即说明上传已经完成，同时右上角会弹出通知，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`粘贴试试吧。
+![](https://img.xiebruce.top/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png)
+### 为你的服务创建快捷键
+`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，添加快捷键后，假设你双手都在键盘上，用空格预览一张图后，决定把它上传，那么只要使用方向键选中它，然后直接按快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。
+![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/03/27/bb36752960436e674dd3174fb830976a.jpeg)
+### 查看上传日志
+因为在配置文件中的`logPath`可以配置日志显示在桌面，'logPath' => 'desktop' ，所以不出意外，你的桌面装会有一个如下图所示的文件夹，这里保存了你上传的图片的Markdown外链地址，你在七牛云（或者其他服务器）是能找到对应的图片的，如果你觉得哪张图片不想要，可以在对应服务器中把它删除了。
+![](https://img.xiebruce.top/2018/11/19/cc344641965d5d79aa6c2aba8f408552.jpg)
+
+这个日志文件也是markdown格式，所以你可以用markdown编辑器查看它。日志是倒序添加的，即最新上传的图片在最前面。
+
+为防止一时忘了粘贴又不小心复制了其他的内容，可以使用
+[Alfred](https://www.xiebruce.top/64.html#Alfred)的历史记录功能找到，当然也可以用`Paste`剪贴板记录软件找到。
+
+Win10由于权限原因，无法给logs文件夹创建快捷方式到桌面，你必须自己发送到桌面快捷方式。
+![-w755](media/15536711667859/15536885352176.jpg)
+
+## 在Windows上使用
 请查看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)
 
-### 5. mweb配置
+## MWeb配置
 mweb提交图片是一张图片发起一个post请求，多张图片则会循环发起多个请求，所以需要配置一个http服务器来接收该post请求并处理上传。
 环境要求：nginx + php-fpm 或 apache + php
-环境并不是搭建在远程服务器，而是直搭建在你本地电脑即可，至于怎样搭建nginx+php运行环境或apache+php运行环境，请自行百度。
+环境并不是搭建在远程服务器，而是直搭建在你本地电脑即可(当然你把PicUploader当成纯服务使用，搭在远程服务器上也行)，至于怎样搭建nginx+php运行环境或apache+php运行环境，请自行网上搜索。
 
 以下是nginx配置文件（注意修改root路径为你的PicUploader目录实际路径）
 ```nginx
@@ -178,24 +213,13 @@ server {
 <p align="center"><img src="https://img.xiebruce.top/2019/01/12/38e6ded515aaddada287dc2a65f096d3.jpg" title="Xnip2019-01-12_21-48-23.jpg" alt="Xnip2019-01-12_21-48-23.jpg"></p>
 上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布，而且MWeb非常好的一点是，如果你上传过所有图片后，又添加了一张新图片，那么只有新图片会被上传，上传过的不会重复被上传。
 
-## 三、开始使用
-### 1.右击任意一张图片
-如果一切正常，你对着图片右击，并点击右键菜单中的`获取Markdown链接`后，你将会在Mac顶部工具栏那里看到一个小齿轮在转动，说明Services正在执行，图片正在上传，当小齿轮停止转动(不需要等它消失)，即说明上传已经完成，同时右上角会弹出通知，此时剪贴板已经有你上传的图片地址了，直接到markdown编辑器`command+v`粘贴试试吧
-![](https://img.xiebruce.top/2018/08/29/79fe0db0bfbecca78bde951f90554fb4.png?imageMogr2/thumbnail/50x/strip/quality/80)
-### 2. 为你创建的服务创建快捷键
-`系统偏好设置`→`键盘`→`快捷键`→`服务(Services)`→找到你的自定义菜单添加快捷键即可，当然喜欢用鼠标搞定的童鞋也可以不创建。  
-![](https://img.xiebruce.top/2018/08/30/549a81ea2ab503d2585406497f8d61d3.png?imageMogr2/thumbnail/800x/strip/quality/80)
-### 3.查看上传日志
-因为在配置文件中的`logPath`可以配置日志显示在桌面， 'logPath' => 'desktop' ，所以不出意外，你的桌面装会有一个如下图所示的文件夹，这里保存了你上传的图片的Markdown外链地址，你在七牛云（或者其他服务器）是能找到对应的图片的，如果你觉得哪张图片不想要，可以在对应服务器中把它删除了。
-<p align="center"><img src="https://img.xiebruce.top/2018/11/19/cc344641965d5d79aa6c2aba8f408552.jpg" title="Xnip2018-11-19_12-59-59.jpg" alt="Xnip2018-11-19_12-59-59.jpg"></p>
-
-这个日志文件也是markdown格式，所以你可以用mweb之类的markdown编辑器查看它，但是有个问题当你用Mweb打开它之后，如果再上传一张图片，这个文件里肯定会增加一条你上传的记录，但是在Mweb中却不会刷新，必须关掉重新打开才能看的到，这个特别麻烦，建议用[typora](https://typora.io/)这个软件来打开日志，这个会自动刷新，而且免费。
-
-日志是倒序添加的，即最新上传的图片在最前面，方便一时忘了粘贴，可以找到地址，因为在服务器中文件多的话比较难找到。
-
-### 4.使用快捷键上传助手(v2.6.3新增)
-该助手在PicUploader的`accessorys`文件夹中，或者也可以在这里下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-macOS.zip)，该助手目前只支持Mac系统。
+## 使用快捷键上传助手(v2.6.3新增)
+### Mac版上传助手
+在PicUploader的`accessorys`文件夹中找到`PicUploaderHelper-macOS.zip`，或者也可以在这里下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-macOS.zip)
 上传助手使用文档请查看：[PicUploaderHelper-macOS-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
+### Windows版上传助手
+在PicUploader的`accessorys`文件夹中找到`PicUploaderHelper-Windows.zip`，或者也可以在这里下载：[PicUploaderHelper-macOS.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-Windows.zip)
+上传助手使用文档请查看：[PicUploaderHelper-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-Windows-README.md)
 
 ## 四、注意事项
 ### 1.关于config里的imgWidth选项
@@ -211,6 +235,7 @@ server {
 - 腾讯COS官方MacOS客户端：[点击前往下载](https://cloud.tencent.com/document/product/436/11366)
 - 百度BOS官方MasOS客户端：[点击前往下载](https://cloud.baidu.com/doc/BOS/BOSCLI.html#.E4.B8.8B.E8.BD.BD)
 - 如果是又拍云，因为又拍云没有网页管理工具，只能自己用ftp工具查看。
+- 其他云...自己找吧。
 
 ### 3.上传完成无法弹出通知问题
 - 一般情况下，上传完成后右上角就会弹出通知，如果你没有弹出，有可能是因为系统没更新的问题，像我的系统版本一直是10.13.1，我的就不弹，但是我让别人试就会弹（后来我更新10.14(Mojave)系统后，就能正常弹出提示了）。

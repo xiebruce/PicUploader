@@ -230,7 +230,8 @@ class Common {
      * @param string $type
      */
     public function writeLog($content, $type = 'uploaded'){
-        $logPath = isset(static::$config['logPath']) ? static::$config['logPath'] : 'default';
+    	var_dump(static::$config);exit;
+        $logPath = isset(static::$config['logPath']) ? str_replace('\\', '/', static::$config['logPath']) : 'default';
 	    //日志文件实际存储路径（在本项目目录下的logs目录中）
 	    $realLogPath = APP_PATH . '/logs';
         
@@ -239,11 +240,22 @@ class Common {
 	        $symbolic = rtrim($logPath, '/') . '/PicUploader_Upload_Logs';
 	        !is_link($symbolic) && @symlink($realLogPath, $symbolic);
         }else if($logPath == 'desktop'){
+	        $SysUsername = get_current_user();
         	//配置把log指定到桌面，则创建一个符号链接到桌面
-	        $symbolic = '/Users/' . shell_exec('whoami') . '/Desktop/PicUploader_Upload_Logs';
+	        //Win
+	        if(PHP_OS == 'WINNT'){
+		        $desktopPath = 'C:/Users/' . $SysUsername . '/Desktop';
+	        }else if(PHP_OS == 'Darwin'){
+	            //Mac
+		        $desktopPath = '/Users/' . $SysUsername . '/Desktop';
+	        }else{
+	        	//其他Linux，未测试
+		        $desktopPath = '/home/' . $SysUsername . '/Desktop';
+	        }
+	        $symbolic = $desktopPath . '/PicUploader_Upload_Logs';
 	        !is_link($symbolic) && @symlink($realLogPath, $symbolic);
         }
-	
+        
 	    $realLogPath .= '/' . date('Y/m');
 	    !is_dir($realLogPath) && @mkdir($realLogPath, 0777, true);
 	    
