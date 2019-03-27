@@ -1,5 +1,3 @@
-# PicUploader-README.md
-    
 PicUploader
 ===============
 ### 简介
