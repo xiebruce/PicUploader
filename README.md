@@ -161,7 +161,7 @@ brew install php
 [Alfred](https://www.xiebruce.top/64.html#Alfred)的历史记录功能找到，当然也可以用`Paste`剪贴板记录软件找到。
 
 Win10由于权限原因，无法给logs文件夹创建快捷方式到桌面，你必须自己发送到桌面快捷方式。
-![-w755](media/15536711667859/15536885352176.jpg)
+![-w755](https://img.xiebruce.top/2019/03/27/6e039e2527df56a5957b667be038a1e8.jpg)
 
 ## 在Windows上使用
 请查看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)

@@ -230,7 +230,6 @@ class Common {
      * @param string $type
      */
     public function writeLog($content, $type = 'uploaded'){
-    	var_dump(static::$config);exit;
         $logPath = isset(static::$config['logPath']) ? str_replace('\\', '/', static::$config['logPath']) : 'default';
 	    //日志文件实际存储路径（在本项目目录下的logs目录中）
 	    $realLogPath = APP_PATH . '/logs';
@@ -275,8 +274,6 @@ class Common {
                 file_put_contents($logFile, $content);
                 //再把原来的内容重新追加写入到新日志文件中（这样就实现了最新的日志在最前面，即prepend效果）
                 file_put_contents($logFile, $oldLog, FILE_APPEND);
-                //删除临时文件
-                @unlink($tmpLog);
             }
         }else{
             $logFile = $realLogPath.'/'.date('Y-m-d').'-error-log.txt';

@@ -1,4 +1,6 @@
 # 在Windows中设置使用PicUploader
+**本文只讲解如何配置环境及添加右键菜单，其它设置请查看：[README.md](https://github.com/xiebruce/PicUploader/blob/master/README.md)**
+
 ### 安装php
 由于phpstudy安装简单，遇到问题也有很多解决方法，所以推荐安装phpstudy，如果你已经有php环境，这一步可以略过（不过要保证开始这四个扩展`php_curl`、`php_exif`、`php_fileinfo`、`php_gd2`）。
 
