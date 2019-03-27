@@ -6,9 +6,9 @@ PicUploader
 
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
-**PicUploader** 是一个用php编写的图床工具，它能帮助你快速上传你的图片到云图床，并自动返回Markdown格式链接到剪贴板。配置完成后，要获取一个可用于markdown的图片外链只需要：
-**方式一：** 右击图片→点击`你的自定义上传菜单`→通知上传成功→到Markdown编辑器中粘贴！
-**方式二：** 截图并点击复制到剪贴板→按快捷键→通知上传成功→到Markdown编辑器中粘贴！
+**PicUploader** 是一个用php编写的图床工具，它能帮助你快速上传你的图片到云图床，并自动返回Markdown格式链接到剪贴板。配置完成后，要获取一个可用于markdown的图片外链只需要：  
+**方式一：** 右击图片→点击`你的自定义上传菜单`→通知上传成功→到Markdown编辑器中粘贴！  
+**方式二：** 截图并点击复制到剪贴板→按快捷键→通知上传成功→到Markdown编辑器中粘贴！  
 
 ### 主要功能
 - 支持Mac和Windows
