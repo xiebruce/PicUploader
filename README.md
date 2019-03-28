@@ -21,29 +21,29 @@ PicUploader
 
 ## 注册存储服务器账号
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud共11种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
-### 注册七牛云
+### 七牛云
 - [点击前往七牛云](https://www.qiniu.com)
 - [查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
-### 注册腾讯云
+### 腾讯云
 - [点击前往腾讯云](https://cloud.tencent.com)
 
-### 注册网易云
+### 网易云
 - [点击前往网易云](https://www.163yun.com)
 
-### 注册百度云
+### 百度云
 - [点击前往百度云](https://www.163yun.com)
 
-### 注册京东云
+### 京东云
 - [点击前往京东云](https://www.163yun.com)
 
-### 注册阿里云
+### 阿里云
 - [点击前往阿里云](https://www.163yun.com)
 
-### 注册又拍云
+### 又拍云
 [点击查看又拍云注册使用教程](https://www.xiebruce.top/570.html)
 注意，请不要开启全球cdn，开国内的就可以，国外cdn超贵。
 
-### 无需注册直接使用sm.ms
+### sm.ms
 - 直接使用是上传到[sm.ms](http://sm.ms)，经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，否则不稳定，如果小齿轮一直转个不停，基本上就是上传失败超时了。
 - 设置代理：可以上传的情况下不建议设置代理，如果上传超时、报错，则设置代理试试，直接在配置文件填写代理的ip+端口即可，如（127.0.0.1:1087），不过设置代理后上传速度会稍慢（具体快慢取决于你的代理速度）:
 ```php
@@ -56,18 +56,29 @@ PicUploader
 ],
 ```
 - 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容或者报错，请查看日志，很有可能是这张图片压缩后超过了5M，或者图片是超过5M的gif图（gif图不压缩）
-### 注册Imgur
+### Imgur
 - 先注册Imgur：[https://imgur.com/register](https://imgur.com/register)并登录。
 - 然后点击[addclient](https://api.imgur.com/oauth2/addclient)创建Application，这一步能拿到clientID和clientSecret：
 ![Xnip2018-11-11_03-56-35.png](https://i.loli.net/2018/11/11/5be737f29d355.png)
 - 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片，原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
 - 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
 
-### 注册Ucloud
+### Ucloud
 [点击前往注册Ucloud](https://www.ucloud.cn)
 
-### 注册QingCloud
+### QingCloud
 [点击前往注册QingCloud](https://console.qingcloud.com/signup)
+
+### Github
+Github做图床，首先要创建一个仓库：点击Github右上角的`+`号→`New repository`→输入仓库名即可创建仓库。
+
+如下图，就是一个github仓库，它的仓库名称为`xiebruce/PicUploader`(对应配置中的`repo`参数)，当前分支名称是`master`(对应配置中的branch参数)：
+![Xnip2019-03-29_04-58-20.jpg](https://img.xiebruce.top/2019/03/29/3904db6a63e8ea6058ca3022ccdab1c0.jpg)
+
+配置中的“message”：
+![Xnip2019-03-29_05-20-15.jpg](https://img.xiebruce.top/2019/03/29/d99d7e4c06b0fec0e1513b623d5b20ea.jpg)
+
+**配置中的“access_token”：**点击右上角自己的头像→`Settings`→选择左侧菜单的最后一项`Developer Settings`→选择`Personal access tokens`→点击`Generate new token`→它会跳转让你输入github的登录密码→生成token成功。
 
 ## 下载使用
 ### 下载PicUploader
@@ -244,6 +255,8 @@ server {
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 
 ## 更新日志
+### 2019-03-27 v2.6.5版本
+- 添加支持Github图床
 ### 2019-03-27 v2.6.4版本
 - 修改windows的右键安装工具为中文，修改编码为ANSI-GB2312(之前utf-8会导致中文菜单乱码)，添加自定义菜单文字的功能。
 - 修改默认字体文件名为拼音，因为在win10中测试如果字体为中文名会导致找不到字体文件
@@ -314,5 +327,7 @@ server {
 [百度云phpsdk文档](https://cloud.baidu.com/doc/BOS/PHP-SDK.html#.E5.AE.89.E8.A3.85SDK.E5.B7.A5.E5.85.B7.E5.8C.85)  
 [又拍云phpsdk文档](https://github.com/upyun/php-sdk)  
 [Imgur API](https://apidocs.imgur.com/#2078c7e0-c2b8-4bc8-a646-6e544b087d0f)  
+[使用github的api上传文件到项目](https://stong-chen.github.io/2018/11/06/%E4%BD%BF%E7%94%A8github%E7%9A%84api%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0%E9%A1%B9%E7%9B%AE22/#%E5%88%9B%E5%BB%BAtoken)  
+[REST API v3 - Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)  
 [google](http://www.google.com/ncr)  
 [百度](http://www.baidu.com)  

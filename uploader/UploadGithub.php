@@ -6,20 +6,28 @@
  * Time: 21:01
  */
 
-
 namespace uploader;
-
 
 use GuzzleHttp\Client;
 
-class UploadImgur extends Upload{
-    //Imgur的clientId，相当于在上面创建的一个应用的识别码
-    public $clientId;
-    //api url
-    public $baseUrl;
-    //代理url
-    public $proxy;
-
+class UploadGithub extends Upload{
+    //github仓库(带用户名)，如：xiebruce/PicUploader
+    public $repo;
+    //分支，默认：master
+    public $branch;
+	//文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
+    public $directory;
+    //github commit时的-m参数指定的内容，默认：Upload from PicUploader [https://www.xiebruce.top/17.html]
+    public $message;
+    //access_token，需要有这个才有权限操作
+    public $access_token;
+	//域名
+	public $domain;
+	//api基础地址
+	public $baseUrl;
+	//是否使用代理
+	public $proxy;
+	
     public static $config;
     //arguments from php client, the image absolute path
     public $argv;
@@ -36,7 +44,13 @@ class UploadImgur extends Upload{
 	    $className = array_pop($tmpArr);
 	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
 	    
-	    $this->clientId = $ServerConfig['clientId'];
+	    $this->repo = $ServerConfig['repo'] ?? '';
+	    $this->branch = $ServerConfig['branch'] ?? 'master';
+	    $this->directory = isset($ServerConfig['directory']) ? rtrim($ServerConfig['directory'], '/') : '';
+	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader [https://www.xiebruce.top/17.html]';
+	    $this->access_token = $ServerConfig['access_token'] ?? '';
+	    $this->domain = $ServerConfig['domain'] ?? '';
+	
 	    $this->baseUrl = $ServerConfig['baseUrl'];
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 
@@ -74,55 +88,40 @@ class UploadImgur extends Upload{
 				if($this->proxy){
 					$GuzzleConfig['proxy'] = $this->proxy;
 				}
-				//实例化GuzzleHttp
+				//new GuzzleHttp instance
 				$client = new Client($GuzzleConfig);
-				
-				//上传
-				$response = $client->request('POST', 'image', [
-					'headers'=>[
-						'Authorization' => 'Client-ID '.$this->clientId,
+
+				//request
+				$uri = $this->repo . '/contents/'. $this->directory . '/' . $key;
+				$response = $client->request('PUT', $uri, [
+					'headers' => [
+						'Authorization' => 'token '.$this->access_token,
 					],
-					'multipart' => [
-						[
-							'name' => 'image',
-							'contents' => fopen($uploadFilePath, 'r'),
-						],
-						[
-							'name' => 'type',
-							'contents' => 'file',
-						],
-						[
-							'name' => 'name',
-							'contents' => $key,
-						],
-						[
-							'name' => 'title',
-							'contents' => $originFilename,
-						],
-						[
-							'name' => 'description',
-							'contents' => $originFilename,
-						],
-					]
+					'json' => [
+						'message' => '',
+						'content' => base64_encode(file_get_contents($uploadFilePath)),
+						'branch' => $this->branch,
+					],
 				]);
 				
 				$string = $response->getBody()->getContents();
-				if($response->getReasonPhrase() != 'OK'){
+				
+				if($response->getReasonPhrase() != 'Created'){
 					throw new \Exception($string);
 				}else{
 					$returnArr = json_decode($string, true);
-					if($returnArr['success'] === true){
-						$data = $returnArr['data'];
-						$deleteLink = 'Delete Hash: '.$data['deletehash'];
-						$link = [
-							'link' => $data['link'],
-							'delLink' => $deleteLink
-						];
+					if(isset($returnArr['content']['download_url'])){
+						if(!$this->domain){
+							$link = $returnArr['content']['download_url'];
+						}else{
+							$link = $this->domain . '/' .$returnArr['content']['path'];
+						}
 					}else{
 						throw new \Exception(var_export($returnArr, true));
 					}
 				}
-			} catch (\Exception $e) {
+			} catch (Exception $e) {
+				echo $e->getMessage();exit;
 				//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 				$link = [
 					'link' => $e->getMessage()."\n",

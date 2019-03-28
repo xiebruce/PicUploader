@@ -11,12 +11,15 @@ namespace uploader;
 use GuzzleHttp\Client;
 
 class UploadSmms extends Common {
+	//api url
+	public $baseUrl;
+	//代理url
+	public $proxy;
+	
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
     public $argv;
-    //云服务器配置
-    public $serverConfig;
 
     /**
      * Upload constructor.
@@ -28,7 +31,11 @@ class UploadSmms extends Common {
     {
 	    $tmpArr = explode('\\',__CLASS__);
 	    $className = array_pop($tmpArr);
-        $this->serverConfig = $config['storageTypes'][strtolower(substr($className,6))];;
+        $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	
+	    $this->baseUrl = $ServerConfig['baseUrl'];
+	    $this->proxy = $ServerConfig['proxy'] ?? '';
+        
         $this->argv = $argv;
         static::$config = $config;
     }
@@ -42,14 +49,13 @@ class UploadSmms extends Common {
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
 	public function upload($key, $uploadFilePath){
-        $link = [];
-        $GuzzleConfig = [
-	        'base_uri' => $this->serverConfig['baseUrl'],
-	        'timeout'  => 10.0,
-        ];
-        if(isset($this->serverConfig['proxy']) && $this->serverConfig['proxy']){
-	        $GuzzleConfig['proxy'] = $this->serverConfig['proxy'];
-        }
+		$GuzzleConfig = [
+			'base_uri' => $this->baseUrl,
+			'timeout'  => 10.0,
+		];
+		if($this->proxy){
+			$GuzzleConfig['proxy'] = $this->proxy;
+		}
         //实例化GuzzleHttp
         $client = new Client($GuzzleConfig);
 		

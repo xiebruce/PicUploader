@@ -128,6 +128,27 @@
 				//如果不写，则自动拼装QingCloud给的域名
 				'domain' => '',
 			],
+			
+			//Github
+			'github' => [
+				//基础api，不要修改
+				'baseUrl' => 'https://api.github.com/repos/',
+				//github仓库(github左上角的名字，带用户名)
+				'repo' => 'xiebruce/PicUploader',
+				//分支，默认为master
+				'branch' => 'master',
+				//文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
+				'directory' => 'images',
+				//提交的评论信息，可以不填
+				'message' => 'Upload from PicUploader',
+				//access_token，授权token
+				'access_token' => 'c506a9de*********************d375de5e',
+				//不填则使用github默认的域名，填了则使用填的域名
+				'domain' => '',
+				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
+				// 'proxy' => 'http://127.0.0.1:1087',
+			],
 		],
 		
 		//图片优化宽度（建议填1000），值为0或注释掉表示不优化
