@@ -15,12 +15,12 @@ PicUploader
 - 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）
 - 可作为MWeb的API使用（需要自行配置nginx+php服务器）
 - 支持快捷键上传剪贴板中的图片（需要配合PicUploaderHelper使用）
-- 目前支持11个图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github
+- 目前支持13种图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploader%20demonstration.gif)
 
 ## 注册存储服务器账号
-目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github共12种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
+目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博共13种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
 ### 七牛云
 - [点击前往七牛云](https://www.qiniu.com)
 - [查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
@@ -80,6 +80,14 @@ Github做图床，首先要创建一个仓库：点击Github右上角的`+`号�
 
 **配置中的“access_token”：**点击右上角自己的头像→`Settings`→选择左侧菜单的最后一项`Developer Settings`→选择`Personal access tokens`→点击`Generate new token`→它会跳转让你输入github的登录密码→生成token成功。
 
+删除github中的文件：
+![Xnip2019-03-30_17-25-11.jpg](https://img.xiebruce.top/2019/03/30/aac433aeb9c5e8fce1b06357809b1214.jpg)
+
+### 微博
+- 微博图床是上传图片到新浪微博，但上传图片并不会自动发一条微博，图片是匿名的，你也无法在自己的微博相册中找到，所以不用担心上传图片会自动发微博。
+- 微博图床并不是官方提供接口，而是网友通过模拟登录微博并使用mini微博的上传图片接口间接实现的，稳定性请自行网上了解。
+- 只需要有微博账号，在配置文件中填写微博的登录账号和密码，即可使用！
+
 ## 下载使用
 ### 下载PicUploader
 - 使用git下载：
@@ -90,7 +98,7 @@ git clone https://github.com/xiebruce/PicUploader.git
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 填写配置
-- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur/Ucloud/QingCloud/Github其中一个)即可。
+- 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur/Ucloud/QingCloud/Github/微博其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
 - 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
 ``` php
@@ -253,10 +261,12 @@ server {
 ### 说个不幸的消息
 - 七牛云默认域名是测试域名，只能使用30天，30天后该域名会被回收，所以你需要绑定自己的域名，但绑定自己的域名需要域名已经备案，而域名备案是跟网站一块的，就是说如果你只买了域名没有自己的网站的话，是无法备案的，这时你可以看看有没有朋友有已备案的域名，叫他给你解析一个二级域名也行，因为一个人一般只用一两个二级域名，所以会有很多二级域名可用的。
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
+- 其他域名都不会回收，所以如果没有自己的网站，用七牛做云存储其实可以首先排除了！
 
 ## 更新日志
-### 2019-03-29 v2.6.5版本
+### 2019-03-30 v2.6.5版本
 - 添加支持Github图床
+- 添加支持Weibo图床
 ### 2019-03-27 v2.6.4版本
 - 修改windows的右键安装工具为中文，修改编码为ANSI-GB2312(之前utf-8会导致中文菜单乱码)，添加自定义菜单文字的功能。
 - 修改默认字体文件名为拼音，因为在win10中测试如果字体为中文名会导致找不到字体文件
@@ -329,5 +339,6 @@ server {
 [Imgur API](https://apidocs.imgur.com/#2078c7e0-c2b8-4bc8-a646-6e544b087d0f)  
 [使用github的api上传文件到项目](https://stong-chen.github.io/2018/11/06/%E4%BD%BF%E7%94%A8github%E7%9A%84api%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0%E9%A1%B9%E7%9B%AE22/#%E5%88%9B%E5%BB%BAtoken)  
 [REST API v3 - Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)  
+[新浪图床API接口及源码](http://blog.kkksos.com/2018/09/21/12.html)  
 [google](http://www.google.com/ncr)  
 [百度](http://www.baidu.com)  

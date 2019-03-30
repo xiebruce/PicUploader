@@ -1,0 +1,18 @@
+{
+  "name": "php_code/test_php",
+  "description": "test example for PHP",
+  "require": {
+    "grpc/grpc": "^v1.15.0",
+    "google/protobuf": "^v3.3.0",
+    "google/auth": "^v1.4.0",
+    "google/cloud": "^v0.86.0",
+    "google/cloud-error-reporting": "^v0.12.1"
+  },
+  "autoload": {
+  	"psr-4": {
+  		"Google\\Cloud\\Spanner\\V1\\": "Google/Cloud/Spanner/V1/",
+  		"Google\\Cloud\\Firestore\\V1beta1\\": "Google/Cloud/Firestore/V1beta1",
+  		"Google\\Cloud\\ErrorReporting\\V1beta1\\": "vendor/google/cloud/ErrorReporting/src/V1beta1"
+  	}
+  }
+}

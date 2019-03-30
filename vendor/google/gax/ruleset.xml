@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<ruleset name="Google-Cloud-PHP-PSR2">
+  <rule ref="PSR2">
+    <!--
+      Exclude this sniff because we override methods with underscores
+      in the \Grpc\BaseStub class
+    -->
+    <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+  </rule>
+  <exclude-pattern>src/ApiCore/Jison</exclude-pattern>
+  <exclude-pattern>src/ApiCore/LongRunning</exclude-pattern>
+  <exclude-pattern>src/ApiCore/Testing</exclude-pattern>
+  <file>src/ApiCore</file>
+</ruleset>

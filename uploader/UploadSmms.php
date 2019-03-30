@@ -49,16 +49,6 @@ class UploadSmms extends Common {
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
 	public function upload($key, $uploadFilePath){
-		$GuzzleConfig = [
-			'base_uri' => $this->baseUrl,
-			'timeout'  => 10.0,
-		];
-		if($this->proxy){
-			$GuzzleConfig['proxy'] = $this->proxy;
-		}
-        //实例化GuzzleHttp
-        $client = new Client($GuzzleConfig);
-		
 		$fileSize = filesize($uploadFilePath);
 		if($fileSize > 5000000){
 			$imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
@@ -71,6 +61,15 @@ class UploadSmms extends Common {
 			$this->writeLog($error, 'error_log');
 		}else{
 			try{
+				$GuzzleConfig = [
+					'base_uri' => $this->baseUrl,
+					'timeout'  => 10.0,
+				];
+				if($this->proxy){
+					$GuzzleConfig['proxy'] = $this->proxy;
+				}
+				//实例化GuzzleHttp
+				$client = new Client($GuzzleConfig);
 				//upload?ssl=1
 				//post file to https://sm.ms
 				$response = $client->request('POST', 'upload?ssl=1', [

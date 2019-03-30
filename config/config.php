@@ -149,6 +149,18 @@
 				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
 				// 'proxy' => 'http://127.0.0.1:1087',
 			],
+			
+			//Weibo(上传图片到微博并不会自动发一条微博，请放心使用)
+			'weibo' => [
+				//登录url，请不要修改
+				'loginUrl' => 'https://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.15)&_='.time(),
+				//上传url，请不要修改
+				'uploadUrl' => 'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog&cb=http://weibo.com/aj/static/upimgback.html?_wv=5&callback=STK_ijax_'.time(),
+				//微博登录用户名(或邮箱)
+				'username' => 'zhangsan@sina.com',
+				//微博登录密码
+				'password' => '*****************',
+			],
 		],
 		
 		//图片优化宽度（建议填1000），值为0或注释掉表示不优化

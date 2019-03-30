@@ -1,0 +1,7 @@
+.DS_STORE
+.idea/
+*.iml
+composer.lock
+out/
+vendor/
+
