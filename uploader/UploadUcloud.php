@@ -19,6 +19,8 @@ class UploadUcloud extends Upload{
 	public $bucket;
 	public $endPoint;
 	public $domain;
+	public $directory;
+	
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -42,6 +44,13 @@ class UploadUcloud extends Upload{
         $this->bucket = $ServerConfig['bucket'];
         $this->endPoint = $ServerConfig['endPoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    if(!isset($ServerConfig['directory'])){
+		    //如果没有设置，使用默认的按年/月/日方式使用目录
+		    $this->directory = date('Y/m/d');
+	    }else{
+		    //设置了，则按设置的目录走
+		    $this->directory = trim($ServerConfig['directory'], '/');
+	    }
 
         $this->argv = $argv;
         static::$config = $config;
@@ -62,6 +71,9 @@ class UploadUcloud extends Upload{
 		$UCLOUD_PRIVATE_KEY = $this->privateKey;
 		$UCLOUD_PROXY_SUFFIX = $this->proxySuffix;
 		
+		if($this->directory){
+			$key = $this->directory. '/' . $key;
+		}
 		//初始化分片上传,获取本地上传的uploadId和分片大小
 		list($data, $err) = UCloud_MInit($this->bucket, $key);
 		if ($err) {
@@ -76,7 +88,7 @@ class UploadUcloud extends Upload{
 			exit;
 		}
 		
-		//完成上传
+		//上传p完成
 		list($data, $err) = UCloud_MFinish($this->bucket, $key, $data['UploadId'], $etagList);
 		if ($err) {
 			$this->writeLog(var_export($err, true)."\n", 'error_log');

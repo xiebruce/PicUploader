@@ -16,7 +16,7 @@ class UploadImgur extends Upload{
     //Imgur的clientId，相当于在上面创建的一个应用的识别码
     public $clientId;
     //api url
-    public $baseUrl;
+    public $baseUri;
     //代理url
     public $proxy;
 
@@ -37,7 +37,7 @@ class UploadImgur extends Upload{
 	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
 	    
 	    $this->clientId = $ServerConfig['clientId'];
-	    $this->baseUrl = $ServerConfig['baseUrl'];
+	    $this->baseUri = $ServerConfig['baseUri'];
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 
         $this->argv = $argv;
@@ -68,7 +68,7 @@ class UploadImgur extends Upload{
 		}else{
 			try {
 				$GuzzleConfig = [
-					'base_uri' => $this->baseUrl,
+					'base_uri' => $this->baseUri,
 					'timeout'  => 10.0,
 				];
 				if($this->proxy){
@@ -76,6 +76,7 @@ class UploadImgur extends Upload{
 				}
 				//实例化GuzzleHttp
 				$client = new Client($GuzzleConfig);
+				$client->
 				
 				//上传
 				$response = $client->request('POST', 'image', [

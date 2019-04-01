@@ -24,7 +24,7 @@ class UploadGithub extends Upload{
 	//域名
 	public $domain;
 	//api基础地址
-	public $baseUrl;
+	public $baseUri;
 	//是否使用代理
 	public $proxy;
 	
@@ -46,12 +46,18 @@ class UploadGithub extends Upload{
 	    
 	    $this->repo = $ServerConfig['repo'] ?? '';
 	    $this->branch = $ServerConfig['branch'] ?? 'master';
-	    $this->directory = isset($ServerConfig['directory']) ? rtrim($ServerConfig['directory'], '/') : '';
 	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader [https://www.xiebruce.top/17.html]';
 	    $this->access_token = $ServerConfig['access_token'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    if(!isset($ServerConfig['directory'])){
+		    //如果没有设置，使用默认的按年/月/日方式使用目录
+		    $this->directory = date('Y/m/d');
+	    }else{
+		    //设置了，则按设置的目录走
+		    $this->directory = trim($ServerConfig['directory'], '/');
+	    }
 	
-	    $this->baseUrl = $ServerConfig['baseUrl'];
+	    $this->baseUri = $ServerConfig['baseUri'];
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 
         $this->argv = $argv;
@@ -82,7 +88,7 @@ class UploadGithub extends Upload{
 		}else{
 			try {
 				$GuzzleConfig = [
-					'base_uri' => $this->baseUrl,
+					'base_uri' => $this->baseUri,
 					'timeout'  => 10.0,
 				];
 				if($this->proxy){
@@ -92,7 +98,10 @@ class UploadGithub extends Upload{
 				$client = new Client($GuzzleConfig);
 
 				//request
-				$uri = $this->repo . '/contents/'. $this->directory . '/' . $key;
+				if($this->directory){
+					$key = $this->directory . '/' . $key;
+				}
+				$uri = $this->repo . '/contents/'. $key;
 				$response = $client->request('PUT', $uri, [
 					'headers' => [
 						'Authorization' => 'token '.$this->access_token,

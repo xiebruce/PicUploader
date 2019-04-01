@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 
 class UploadSmms extends Common {
 	//api url
-	public $baseUrl;
+	public $baseUri;
 	//代理url
 	public $proxy;
 	
@@ -33,7 +33,7 @@ class UploadSmms extends Common {
 	    $className = array_pop($tmpArr);
         $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
 	
-	    $this->baseUrl = $ServerConfig['baseUrl'];
+	    $this->baseUri = $ServerConfig['baseUri'];
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
         
         $this->argv = $argv;
@@ -62,7 +62,7 @@ class UploadSmms extends Common {
 		}else{
 			try{
 				$GuzzleConfig = [
-					'base_uri' => $this->baseUrl,
+					'base_uri' => $this->baseUri,
 					'timeout'  => 10.0,
 				];
 				if($this->proxy){

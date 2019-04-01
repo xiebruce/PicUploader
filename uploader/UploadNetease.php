@@ -18,6 +18,7 @@ class UploadNetease extends Upload{
     //即domain，域名
     public $endPoint;
     public $domain;
+    public $directory;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -41,7 +42,14 @@ class UploadNetease extends Upload{
         //endPoint不是域名，外链域名是 bucket.'.'.endPoint
         $this->endPoint = $ServerConfig['endPoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
-
+	    if(!isset($ServerConfig['directory'])){
+		    //如果没有设置，使用默认的按年/月/日方式使用目录
+		    $this->directory = date('Y/m/d');
+	    }else{
+		    //设置了，则按设置的目录走
+		    $this->directory = trim($ServerConfig['directory'], '/');
+	    }
+	    
         $this->argv = $argv;
         static::$config = $config;
     }
@@ -61,6 +69,9 @@ class UploadNetease extends Upload{
 		    $options[NosClient::NOS_HEADERS]['Cache-Control'] = 'max-age=31536000';
 		    $options[NosClient::NOS_HEADERS]['Content-Disposition'] = 'attachment; filename="'.$newFileName.'"';
 		
+		    if($this->directory){
+			    $key = $this->directory. '/' . $key;
+		    }
 		    $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
 		    $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
 		    if(!$this->domain){

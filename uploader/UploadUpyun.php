@@ -20,6 +20,8 @@ class UploadUpyun extends Upload{
     public $password;
     //域名
     public $domain;
+    public $directory;
+    
     public static $config;
     //arguments from php client, the image absolute path
     public $argv;
@@ -40,6 +42,13 @@ class UploadUpyun extends Upload{
         $this->operator = $ServerConfig['operator'];
         $this->password = $ServerConfig['password'];
         $this->domain = $ServerConfig['domain'] ?? '';
+	    if(!isset($ServerConfig['directory'])){
+		    //如果没有设置，使用默认的按年/月/日方式使用目录
+		    $this->directory = date('Y/m/d');
+	    }else{
+		    //设置了，则按设置的目录走
+		    $this->directory = trim($ServerConfig['directory'], '/');
+	    }
 
         $this->argv = $argv;
         static::$config = $config;
@@ -55,6 +64,9 @@ class UploadUpyun extends Upload{
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
+		    if($this->directory){
+			    $key = $this->directory. '/' . $key;
+		    }
 		    $serviceConfig = new Config($this->serviceName, $this->operator, $this->password);
 		    $client = new Upyun($serviceConfig);
 		    $retArr = $client->write($key, fopen($uploadFilePath, 'r'));

@@ -26,6 +26,36 @@
 然后去你安装phpstudy的那个目录中找php在哪，假如你安装在D盘，那么请进入`D:\phpStudy\PHPTutorial\php`(其他盘类似)，如下图找到最高版本，然后点击进入，`php.exe`就在里面，它就是接下来要用到的：
 ![Xnip2019-03-26_14-59-28](https://img.xiebruce.top/2019/03/26/1abf1e4b0797cb413356daa01dae1739.jpg)
 
+在使用微博/Imgur/Github/smms做图床时，可能会有以下报错：
+```
+Fatal error: Uncaught GuzzleHttp\Exception\RequestException: cURL error 60: SSL certificate problem: unable to get local issuer certificate (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) in D:\PicUploader\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:186
+Stack trace:
+#0 D:\PicUploader\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(149): GuzzleHttp\Handler\CurlFactory::createRejection(Object(GuzzleHttp\Handler\EasyHandle), Array)
+#1 D:\PicUploader\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php(102): GuzzleHttp\Handler\CurlFactory::finishError(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#2 D:\PicUploader\vendor\guzzlehttp\guzzle\src\Handler\CurlHandler.php(43): GuzzleHttp\Handler\CurlFactory::finish(Object(GuzzleHttp\Handler\CurlHandler), Object(GuzzleHttp\Handler\EasyHandle), Object(GuzzleHttp\Handler\CurlFactory))
+#3 D:\PicUploader\vendor\guzzlehttp\guzzle\src\Handler\Proxy.php(28): GuzzleHttp\Handler\CurlHandler->__invo in D:\PicUploader\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php on line 186
+```
+
+解决上述报错的办法，点击[CA certificates extracted from Mozilla](https://curl.haxx.se/docs/caextract.html)，下载`cacert.pem`：
+![Xnip2019-04-01_13-17-08.jpg](https://img.xiebruce.top/2019/04/01/0bb92b73a93f9e2a2a476d6734f5fa7d.jpg)
+
+把刚才下载的`cacert.pem`文件放到`php.exe`所在的目录下，并在该目录下找到`php.ini`，打开它，找到以下位置：
+```ini
+[curl]
+; A default value for the CURLOPT_CAINFO option. This is required to be an
+; absolute path.
+;curl.cainfo =
+```
+
+把`cacert.pem`的绝对路径(右击→属性→安全→复制路径)设置到`curl.cainfo = `选项中并把它前面的`;`号删除，设置完如下：
+```ini
+[curl]
+; A default value for the CURLOPT_CAINFO option. This is required to be an
+; absolute path.
+curl.cainfo = "D:\phpStudy\PHPTutorial\php\php-7.2.1-nts\cacert.pem"
+```
+设置完之后就不会有这个问题了。
+
 ### 添加右键菜单
 解压`add-right-click-menu.zip`，右击`add-right-click-menu.bat`→点击`以管理员身份运行`：
 ![Xnip2019-03-26_15-39-57](https://img.xiebruce.top/2019/03/26/b84ced7066294b7e18ecc6077af4b4cc.jpg)

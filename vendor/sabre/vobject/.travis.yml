@@ -1,0 +1,39 @@
+language: php
+sudo: required
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - 7.3
+
+env:
+  global:
+    - RUN_PHPSTAN="FALSE"
+
+matrix:
+  include:
+    - name: 'PHPStan'
+      php: 7.2
+      env: RUN_PHPSTAN="TRUE"
+  fast_finish: true
+  allow_failures:
+    - php: 5.5
+
+install:
+  - if [ $RUN_PHPSTAN == "TRUE"  ]; then wget https://github.com/phpstan/phpstan/releases/download/0.10.3/phpstan.phar; fi
+
+before_script:
+  - composer install
+
+script:
+  - if [ $RUN_PHPSTAN == "FALSE"  ]; then ./bin/phpunit --configuration tests/phpunit.xml --coverage-clover=coverage.xml; fi
+  - if [ $RUN_PHPSTAN == "TRUE"  ]; then php phpstan.phar analyse -c phpstan.neon lib; fi
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+cache:
+  directories:
+    - $HOME/.composer/cache

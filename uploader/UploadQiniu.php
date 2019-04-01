@@ -20,6 +20,8 @@ class UploadQiniu extends Common {
     public $bucket;
     //七牛对外开放域名
     public $domain;
+    public $directory;
+    
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -41,6 +43,13 @@ class UploadQiniu extends Common {
         $this->secretKey = $ServerConfig['SK'];
         $this->bucket = $ServerConfig['bucket'];
         $this->domain = $ServerConfig['domain'];
+	    if(!isset($ServerConfig['directory'])){
+		    //如果没有设置，使用默认的按年/月/日方式使用目录
+		    $this->directory = date('Y/m/d');
+	    }else{
+		    //设置了，则按设置的目录走
+		    $this->directory = trim($ServerConfig['directory'], '/');
+	    }
 
         $this->argv = $argv;
         static::$config = $config;
@@ -60,6 +69,10 @@ class UploadQiniu extends Common {
 			$token = $this->getToken();
 			// 构建 UploadManager 对象
 			$uploadMgr = new UploadManager();
+			
+			if($this->directory){
+				$key = $this->directory. '/' . $key;
+			}
 			// 调用 UploadManager 的 putFile 方法进行文件的上传。
 			list($ret, $err) = $uploadMgr->putFile($token, $key, $uploadFilePath);
 			if ($err !== null) {

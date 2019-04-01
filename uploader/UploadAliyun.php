@@ -19,6 +19,7 @@ class UploadAliyun extends Upload{
     //即domain，域名
     public $endpoint;
     public $domain;
+    public $directory;
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
     //arguments from php client, the image absolute path
@@ -40,6 +41,16 @@ class UploadAliyun extends Upload{
         $this->secretKey = $ServerConfig['accessSecret'];
         $this->bucket = $ServerConfig['bucket'];
         $this->endpoint = $ServerConfig['endpoint'];
+	
+	    if(!isset($ServerConfig['directory'])){
+		    //如果没有设置，使用默认的按年/月/日方式使用目录
+		    $this->directory = date('Y/m/d');
+	    }else{
+		    //设置了，则按设置的目录走
+		    $this->directory = trim($ServerConfig['directory'], '/');
+	    }
+        
+	    $this->directory = isset($ServerConfig['directory']) ? rtrim($ServerConfig['directory'], '/') : '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
 
         $this->argv = $argv;
@@ -55,6 +66,9 @@ class UploadAliyun extends Upload{
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
+	    	if($this->directory){
+			    $key = $this->directory. '/' . $key;
+		    }
 		    $oss = new OssClient($this->accessKey, $this->secretKey, $this->endpoint);
 		    $retArr = $oss->uploadFile($this->bucket, $key, $uploadFilePath);
 		    if(isset($retArr['info']['url'])){
