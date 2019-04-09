@@ -5,8 +5,8 @@ PicUploader
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
 
 **PicUploader** 是一个用php编写的图床工具，它能帮助你快速上传你的图片到云图床，并自动返回Markdown格式链接到剪贴板。配置完成后，要获取一个可用于markdown的图片外链只需要：  
-**方式一：** 右击图片→点击`你的自定义上传菜单`→通知上传成功→到Markdown编辑器中粘贴！  
-**方式二：** 截图并点击复制到剪贴板→按快捷键→通知上传成功→到Markdown编辑器中粘贴！  
+**方式一：** 右击图片→点击`你的自定义上传菜单`→系统弹出上传成功通知→到Markdown编辑器中粘贴！  
+**方式二：** 截图并点击复制到剪贴板→按快捷键→系统弹出上传成功通知→到Markdown编辑器中粘贴！  
 
 ### 主要功能
 - 支持Mac和Windows
@@ -64,10 +64,21 @@ PicUploader
 - 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
 
 ### Ucloud
-[点击前往注册Ucloud](https://www.ucloud.cn)
+[点击前往注册Ucloud](https://www.ucloud.cn)  
+
+**publicKey和privateKey参数的获取：**
+进入[控制台](https://console.ucloud.cn)，点击`右上角头像`→`API 密钥`→点击`显示`。  
+
+**bucket和proxySuffix参数的获取：**  
+创建存储空间时，如下图，“存储空间域名”里，你自己填的部分就是“bucket”参数值，后面部分就是“proxySuffix”参数值(注意是`.`开头的)  
+![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/09/5d656126aadaaae53ee69eeb27044239.jpeg)
+
+创建存储空间之后，在列表里看也是一样的，自己填的那部分是“bucket”参数值，剩下的部分就是“proxySuffix”参数值：  
+![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/09/ea623f106408f29840dac9b2bc4b2e93.jpeg)
 
 ### QingCloud
-[点击前往注册QingCloud](https://console.qingcloud.com/signup)
+[点击前往注册QingCloud](https://console.qingcloud.com/signup)  
+
 
 ### Github
 Github做图床，首先要创建一个仓库：点击Github右上角的`+`号→`New repository`→输入仓库名即可创建仓库。
@@ -274,6 +285,8 @@ server {
 - 又拍云也提供默认测试域名，不过我问过又拍客服，又拍云的测试域名是不会回收的，也就是你可以一直使用，不需要有自己已备案的域名，但缺点是，又拍云的默认域名提供的cdn服务器比较少，也就是说，你用又拍云默认的域名可能加载图片会相对比较慢（相对绑定自己的域名来说），但具体有多慢，我没有试过，所以也是建议你绑定自己的域名，当然了，又拍云绑定自己的域名，同样要求域名已备案，国内所有云都有这个要求！
 - 其他域名都不会回收，所以如果没有自己的网站，用七牛做云存储其实可以首先排除了！
 
+
+
 ## 更新日志
 ### 2019-03-30 v2.6.5版本
 - 添加支持Github图床
@@ -350,6 +363,8 @@ server {
 [Imgur API](https://apidocs.imgur.com/#2078c7e0-c2b8-4bc8-a646-6e544b087d0f)  
 [使用github的api上传文件到项目](https://stong-chen.github.io/2018/11/06/%E4%BD%BF%E7%94%A8github%E7%9A%84api%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%88%B0%E9%A1%B9%E7%9B%AE22/#%E5%88%9B%E5%BB%BAtoken)  
 [REST API v3 - Create a file](https://developer.github.com/v3/repos/contents/#create-a-file)  
+[cURL error 60: SSL certificate: unable to get local issuer certificate
+](https://stackoverflow.com/questions/29822686/curl-error-60-ssl-certificate-unable-to-get-local-issuer-certificate/34883260#34883260)
 [新浪图床API接口及源码](http://blog.kkksos.com/2018/09/21/12.html)  
 [google](http://www.google.com/ncr)  
 [百度](http://www.baidu.com)  

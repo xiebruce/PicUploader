@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Title</title>
+		<title>PicUploader-Dashboard</title>
 		
 		<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/static/css/style.css" rel="stylesheet">
@@ -23,15 +23,6 @@
 				<input type="file" name="file[]"><br>
 				<input type="submit" name="submit" value="submit">
 			</form>
-			<script>
-				var a=5;
-				var b=6;
-				if(a++ >= b){
-					a++;
-				}
-				a++;
-				console.log(a);
-			</script>
 		</div>
 	</body>
 </html>

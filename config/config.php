@@ -109,7 +109,10 @@
 			'ucloud' => [
 				'publicKey' => 'Rgv************************************************************3M=',
 				'privateKey' => 'Jt4************************************************************8qGH',
-				//markdown-blog.cn-gd.ufileos.com
+				//在“对象存储Ufile”→“单地域空间管理”下可以看到你的存储空间列表，其中第一列是“存储空间域名”
+				//这个“存储空间域名”都是由“.cn-**.ufileos.com”结尾的，“**”是代表地域，北京的是“bj”，广东的是“gd”、上海的是“sh2”
+				//你点“创建存储空间”，弹出来的框里，你选择不同域名，下边的“存储空间域名”后缀就会自动改变，你就能看到对应的区域域名后缀
+				//比如我的域名叫：markdown-blog.cn-gd.ufileos.com，那么“markdown-blog”是自己填的，“.cn-gd.ufileos.com”是自动的，因为我选的是广东，所以“cn-”后面是“gd”，如果我选的是北京，那么“cn-”后面就是“bj”
 				'proxySuffix' => '.cn-**.ufileos.com',
 				'bucket' => 'mar******log',
 				//endPoint，cdn加速域名是bucket名+endPoint组成，Ucloud中没有endPoint的说法，

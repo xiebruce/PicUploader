@@ -76,27 +76,30 @@ class UploadUcloud extends Upload{
 		}
 		//初始化分片上传,获取本地上传的uploadId和分片大小
 		list($data, $err) = UCloud_MInit($this->bucket, $key);
+		$this->writeLog('UCloud_MInit: '.var_export($data, true)."\n", 'error_log');
 		if ($err) {
-			$this->writeLog(var_export($err, true)."\n", 'error_log');
+			$this->writeLog('UCloud_MInit: '.var_export($err, true)."\n", 'error_log');
 			exit;
 		}
 		
 		//数据上传
 		list($etagList, $err) = UCloud_MUpload($this->bucket, $key, $uploadFilePath, $data['UploadId'], $data['BlkSize']);
+		$this->writeLog('UCloud_MUpload: '.var_export($etagList, true)."\n", 'error_log');
 		if ($err) {
-			$this->writeLog(var_export($err, true)."\n", 'error_log');
+			$this->writeLog('UCloud_MUpload: '.var_export($err, true)."\n", 'error_log');
 			exit;
 		}
 		
 		//上传p完成
 		list($data, $err) = UCloud_MFinish($this->bucket, $key, $data['UploadId'], $etagList);
+		$this->writeLog('UCloud_MFinish: '.var_export($data, true)."\n", 'error_log');
 		if ($err) {
-			$this->writeLog(var_export($err, true)."\n", 'error_log');
+			$this->writeLog('UCloud_MFinish: '.var_export($err, true)."\n", 'error_log');
 			exit;
 		}
 		
 		if(!$this->domain){
-			$this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
+			$this->domain = 'http://'.$this->bucket.'.'.ltrim($this->endPoint, '.');
 		}
 		$link = $this->domain.'/'.$data['Key'];
 		
