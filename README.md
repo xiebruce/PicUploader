@@ -21,84 +21,8 @@ PicUploader
 
 ## 注册存储服务器账号
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博共13种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
-### 七牛云
-- [点击前往七牛云](https://www.qiniu.com)
-- [查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
-### 腾讯云
-- [点击前往腾讯云](https://cloud.tencent.com)
 
-### 网易云
-- [点击前往网易云](https://www.163yun.com)
-
-### 百度云
-- [点击前往百度云](https://www.163yun.com)
-
-### 京东云
-- [点击前往京东云](https://www.163yun.com)
-
-### 阿里云
-- [点击前往阿里云](https://www.163yun.com)
-
-### 又拍云
-[点击查看又拍云注册使用教程](https://www.xiebruce.top/570.html)
-注意，请不要开启全球cdn，开国内的就可以，国外cdn超贵。
-
-### sm.ms
-- 直接使用是上传到[sm.ms](http://sm.ms)，经过测试，在国内(不含港澳台)使用sm.ms时好时坏，除非开科学上网，否则不稳定，如果小齿轮一直转个不停，基本上就是上传失败超时了。
-- 设置代理：可以上传的情况下不建议设置代理，如果上传超时、报错，则设置代理试试，直接在配置文件填写代理的ip+端口即可，如（127.0.0.1:1087），不过设置代理后上传速度会稍慢（具体快慢取决于你的代理速度）:
-```php
-//https://sm.ms
-'smms' => [
-    'baseUrl' => 'https://sm.ms/api/',
-    //代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
-    //端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
-    'proxy' => 'http://127.0.0.1:1087',
-],
-```
-- 注意sm.ms单张图片不能超过5M，但由于我有做压缩，一般不会超过5M，如果上传后粘贴没有内容或者报错，请查看日志，很有可能是这张图片压缩后超过了5M，或者图片是超过5M的gif图（gif图不压缩）
-### Imgur
-- 先注册Imgur：[https://imgur.com/register](https://imgur.com/register)并登录。
-- 然后点击[addclient](https://api.imgur.com/oauth2/addclient)创建Application，这一步能拿到clientID和clientSecret：
-![Xnip2018-11-11_03-56-35.png](https://i.loli.net/2018/11/11/5be737f29d355.png)
-- 虽然注册了Imgur，但用我这个工具上传后，你还是无法从你的Imgur账号上找到你上传的图片，原因是我不是网页应用，所以无法做授权(Imgur不提供其他授权方式，所以上面拿到的clientSecret并没有什么用处)，所以，用Imgur做图床还是相当于匿名图床。
-- 另外，因为Imgur是国外的，如果上传报错，请使用科学上网工具，并在配置文件中打开代理的注释，填写你的代理端口。
-
-### Ucloud
-[点击前往注册Ucloud](https://www.ucloud.cn)  
-
-**publicKey和privateKey参数的获取：**
-进入[控制台](https://console.ucloud.cn)，点击`右上角头像`→`API 密钥`→点击`显示`。  
-
-**bucket和proxySuffix参数的获取：**  
-创建存储空间时，如下图，“存储空间域名”里，你自己填的部分就是“bucket”参数值，后面部分就是“proxySuffix”参数值(注意是`.`开头的)  
-![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/09/5d656126aadaaae53ee69eeb27044239.jpeg)
-
-创建存储空间之后，在列表里看也是一样的，自己填的那部分是“bucket”参数值，剩下的部分就是“proxySuffix”参数值：  
-![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/09/ea623f106408f29840dac9b2bc4b2e93.jpeg)
-
-### QingCloud
-[点击前往注册QingCloud](https://console.qingcloud.com/signup)  
-
-
-### Github
-Github做图床，首先要创建一个仓库：点击Github右上角的`+`号→`New repository`→输入仓库名即可创建仓库。
-
-如下图，就是一个github仓库，它的仓库名称为`xiebruce/PicUploader`(对应配置中的`repo`参数)，当前分支名称是`master`(对应配置中的branch参数)：
-![Xnip2019-03-29_04-58-20.jpg](https://img.xiebruce.top/2019/03/29/3904db6a63e8ea6058ca3022ccdab1c0.jpg)
-
-配置中的“message”：
-![Xnip2019-03-29_05-20-15.jpg](https://img.xiebruce.top/2019/03/29/d99d7e4c06b0fec0e1513b623d5b20ea.jpg)
-
-**配置中的“access_token”：**点击右上角自己的头像→`Settings`→选择左侧菜单的最后一项`Developer Settings`→选择`Personal access tokens`→点击`Generate new token`→它会跳转让你输入github的登录密码→生成token成功。
-
-删除github中的文件：
-![Xnip2019-03-30_17-25-11.jpg](https://img.xiebruce.top/2019/03/30/aac433aeb9c5e8fce1b06357809b1214.jpg)
-
-### 微博
-- 微博图床是上传图片到新浪微博，但上传图片并不会自动发一条微博，图片是匿名的，你也无法在自己的微博相册中找到，所以不用担心上传图片会自动发微博。
-- 微博图床并不是官方提供接口，而是网友通过模拟登录微博并使用mini微博的上传图片接口间接实现的，稳定性请自行网上了解。
-- 只需要有微博账号，在配置文件中填写微博的登录账号和密码，即可使用！
-- 微博上传偶尔会出现一次速度略慢的情况，这是因为在登录获取cookie(每天会获取一次)。
+具体请查看：[Register-Cloud-Storage.md](https://github.com/xiebruce/PicUploader/blob/master/Register-Cloud-Storage.md)
 
 ## 下载使用
 ### 下载PicUploader
