@@ -65,15 +65,14 @@ class UploadGithub extends Upload{
     }
 	
 	/**
-	 * Upload images to Imgur
+	 * Upload images to Github
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return array
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 		$fileSize = filesize($uploadFilePath);
 		if($fileSize > 10000000){
 			$imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
@@ -107,7 +106,7 @@ class UploadGithub extends Upload{
 						'Authorization' => 'token '.$this->access_token,
 					],
 					'json' => [
-						'message' => '',
+						'message' => $this->message,
 						'content' => base64_encode(file_get_contents($uploadFilePath)),
 						'branch' => $this->branch,
 					],

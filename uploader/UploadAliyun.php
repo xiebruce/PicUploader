@@ -41,6 +41,7 @@ class UploadAliyun extends Upload{
         $this->secretKey = $ServerConfig['accessSecret'];
         $this->bucket = $ServerConfig['bucket'];
         $this->endpoint = $ServerConfig['endpoint'];
+	    $this->domain = $ServerConfig['domain'] ?? '';
 	
 	    if(!isset($ServerConfig['directory'])){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
@@ -49,16 +50,13 @@ class UploadAliyun extends Upload{
 		    //设置了，则按设置的目录走
 		    $this->directory = trim($ServerConfig['directory'], '/');
 	    }
-        
-	    $this->directory = isset($ServerConfig['directory']) ? rtrim($ServerConfig['directory'], '/') : '';
-	    $this->domain = $ServerConfig['domain'] ?? '';
-
+	    
         $this->argv = $argv;
         static::$config = $config;
     }
 	
 	/**
-	 * Upload images to Netease Cloud
+	 * Upload images to Aliyun OSS(Object Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

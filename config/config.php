@@ -57,7 +57,7 @@
 				//如果不写，则自动拼装百度给的域名
 				'domain' => '',
 			],
-			//JCloud
+			//JDCloud
 			'jd' => [
 				'key' => '050***********************B',
 				'secret' => 'E1C******************8A6F',
@@ -142,11 +142,11 @@
 				'branch' => 'master',
 				//文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
 				'directory' => 'images',
-				//提交的评论信息，可以不填
+				//提交的评论信息，保持默认即可，当然你想修改成你想要的也可以
 				'message' => 'Upload from PicUploader',
 				//access_token，授权token
 				'access_token' => 'c506a9de*********************d375de5e',
-				//不填则使用github默认的域名，填了则使用填的域名
+				//不填则使用github默认的域名，填了则使用填的域名(但填的域名要自行做nginx反向代理到真实域名地址)
 				'domain' => '',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
 				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
@@ -166,8 +166,21 @@
 			],
 		],
 		
-		//图片优化宽度（建议填1000），值为0或注释掉表示不优化
-		'imgWidth' => 1000,
+		// 即将舍弃，图片优化宽度（建议填1000），值为0或注释掉表示不优化，由于比较大的图片压缩为固定宽度容易导致图片很模糊，因此这种压缩为固定宽度的方式不科学，改为使用百分比，如果使用了“resizeOption”选项，该参数不再使用。
+		'imgWidth' => 1500,
+		
+		// 调整图片大小，以下widthGreaterThan、heightGreaterThan、sizeBiggerThan三个条件，只要有一个满足，图片即会按percentage指定的百分比压缩（只对jpg和png有效，gif暂时无法压缩）
+		'resizeOptions' => [
+			// 0.65表示把原图等比缩小为原来的65%，percentage取值为0-1之间，可使用两位小数，当percentage为0和1时，不进行压缩。
+			'percentage' => '0.65',
+			
+			// 当宽度超过1000px时压缩
+			'widthGreaterThan' => '1000',
+			// 当高度超过1000px时压缩
+			'heightGreaterThan' => '1000',
+			// 当图片文件大于该值是压缩，单位为KB，注意单位只能是KB，假如你想要超过2M时才压缩，则填2048即可，因为2048即为2M(注意在Mac上2000就是2M，即文件大小在Mac上是1000进位的，不是1024进位的)
+			'sizeBiggerThan' => '1024',
+		],
 		
 		//jpe图片专用，表示图片质量，0-100，数值越大，图片质量越好
 		'quality' => 80,
@@ -182,7 +195,8 @@
 		
 		//存储服务器，可选值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur/Ucloud/Qingcloud/Github/Weibo
 		'storageType' => 'Weibo',
-		//存储服务器可写多个，表示同时传到多个地方，有两种写法，一是用逗号隔开，二是直接用数组，如
+		//存储服务器可写多个，表示同时传到云，注意多个服务器的情况下返回的域名将会使用你指定的多个云中的最后一个云的域名，所以这个域名必须填写，并且需要做nginx反向代理，请参考：https://www.xiebruce.top/644.html
+		//有两种写法，一是用逗号隔开，二是直接用数组，如
 		// 'storageType' => 'Upyun, Qiniu',
 		//或使用数组写法，两种方式用一种即可，
 		/*'storageType' => [
@@ -193,7 +207,7 @@
 		//日志真实记录在系统日志目录下：在本项目目录下的logs目录中
 		//但你可通过该项配置建立一个软链接(即快捷方式)到你想要的地方
 		//你可以填写两种值：
-		//1、填写：desktop，则你的桌面会出现一个PicUploader_Upload_Logs文件夹，打开该文件夹即可看到日志
+		//1、填写：desktop，则你的桌面会出现一个PicUploader_Upload_Logs文件夹，打开该文件夹即可看到日志(win10由于权限原因无法实现该功能)
 		//2、填写实际路径，比如你填写：/User/你的用户名/Downloads，则会在/User/你的用户名/Downloads下出现一个PicUploader_Upload_Logs文件夹
 		//3、如果不填，或者填写的既不是desktop也不是一个存在的路径，则不创建符号链接，但日志还是会存往：本项目目录下的logs目录中
 		//4、建议保持默认不要动，即放在桌面，这样方便查找日志

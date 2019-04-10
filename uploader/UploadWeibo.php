@@ -152,7 +152,7 @@ class UploadWeibo extends Common {
 	}
 	
 	/**
-	 * Upload image to http://sm.ms
+	 * Upload image to Weibo
 	 * @param $key  上传的文件名，由于微博无法自己指定key(因为微博图床并非官方真正提供接口，自然也就不可能自己命名上传的图片文件)，所以key在这里不使用。
 	 * @param $uploadFilePath
 	 *

@@ -56,12 +56,15 @@ class Upload extends Common {
 			//如果配置了优化宽度，则优化
 			$uploadFilePath = $filePath;
 			$tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
-			if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
+			$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
+			if(isset(static::$config['resizeOptions']['percentage']) && static::$config['resizeOptions']['percentage'] > 0 && static::$config['resizeOptions']['percentage'] < 1){
+				$tmpImgPath = $this->optimizeImage($filePath, static::$config['resizeOptions'], $quality);
+				$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+			} else if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
 				$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
 				$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 			}
-			
+
 			//添加水印
 			if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
 				$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
@@ -82,7 +85,11 @@ class Upload extends Common {
 					//new 变量类名不会带上命名空间，所以自己把命名空间加上
 					$className = __NAMESPACE__.'\\Upload'.ucfirst($uploadServer);
 					//new 变量类名，并调用对应类的upload()方法上传文件
-					$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath, $originFilename);
+					if($uploadServer == 'imgur'){
+						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath, $originFilename);
+					}else{
+						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
+					}
 					
 					if(!$params['is_mweb']){
 						//按配置文件指定的格式，格式化链接

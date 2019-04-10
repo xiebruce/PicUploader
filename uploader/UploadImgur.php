@@ -45,7 +45,7 @@ class UploadImgur extends Upload{
     }
 	
 	/**
-	 * Upload images to Imgur
+	 * Upload images to Imgur.com
 	 * @param $key 自定义文件名(变量名用$key是因为对象存储是key=>value形式的，所以所谓文件名，其实真正的叫法是key，就像redis的key对应value一样，value自然就是图片的base64码了)，由于这里使用Imgur并没有使用access_token的方式上传(Imgur只提供网页版access_token)，所以相当于没有账号系统，相当于匿名上传，无法自定义上传文件名，所以这个$key并没有用到
 	 * @param $uploadFilePath
 	 * @param $originFilename
@@ -76,7 +76,6 @@ class UploadImgur extends Upload{
 				}
 				//实例化GuzzleHttp
 				$client = new Client($GuzzleConfig);
-				$client->
 				
 				//上传
 				$response = $client->request('POST', 'image', [

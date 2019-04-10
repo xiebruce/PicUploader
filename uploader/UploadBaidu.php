@@ -50,7 +50,7 @@ class UploadBaidu extends Upload{
     }
 	
 	/**
-	 * Upload images to Netease Cloud
+	 * Upload images to Baidu BOS(Baidu Object Storage)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

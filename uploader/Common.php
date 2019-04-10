@@ -56,41 +56,41 @@ class Common {
     /**
      * Optimize the image
      * @param      $filePath
-     * @param      $imgWidth
+     * @param      $resizeOptions
      * @param null $quality
      *
      * @return string
      * @throws \ImagickException
      */
-    public function optimizeImage($filePath, $imgWidth, $quality=null){
+    public function optimizeImage($filePath, $resizeOptions, $quality=null){
         $tmpImgPath = '';
         //We don't optimize gif image for the moment, cause it need extra tools. (e.g. gifsicle)
         if($this->getMimeType($filePath) != 'image/gif'){
             $optimize = false;
-            //If Imagic was installed，we use it to get the resolution to decide if we should optimize this image.
-            //If the resolution is empty, compare if the source width is larger than dst width.
-            //If we don't get the source width, fine, we use the filesize the decide if we should optimise the image.
-            if(class_exists('Imagick', false)){
-                $imagick = new \Imagick($filePath);
-                $imgResolution = $imagick->getImageResolution();
-                $originImgWidth = $imagick->getImageWidth();
-                if((isset($imgResolution['x']) && $imgResolution['x']>=150)
-                    || (isset($imgResolution['y']) && $imgResolution['y']>=150)
-                    || ($originImgWidth > $imgWidth)
-                    || (filesize($filePath) > 500000))
-                {
-                    $optimize = true;
-                }
-            }else if(function_exists('getimagesize')){
-                $fileSize = getimagesize($filePath);
-                //If width larger than dst width, then optimise it.
-                if(isset($fileSize[0]) && $fileSize[0] > $imgWidth){
-                    $optimize = true;
-                }
-                //If filesize is lager than 500k, then optimize it.
-            }else if(filesize($filePath) > 500000){
-                $optimize = true;
-            }
+            //图片宽高
+	        $imageSize = getimagesize($filePath);
+	        //图片宽度
+	        $width = $imageSize[0] ?? 0;
+	        //图片调试
+	        $height = $imageSize[1] ?? 0;
+	        //图片文件大小
+	        $fileSize = filesize($filePath);
+	        
+	        //使用新的压缩方式(百分比)
+	        if(is_array($resizeOptions)){
+	            $widthGreaterThan = (int)$resizeOptions['widthGreaterThan'];
+	            $heightGreaterThan = (int)$resizeOptions['heightGreaterThan'];
+	            $carry = PHP_OS == 'Darwin' ? 1000 : 1024;
+		        $sizeBiggerThan = (int)$resizeOptions['sizeBiggerThan'] * $carry;
+		        
+		        if($width > $widthGreaterThan || $height > $heightGreaterThan || $fileSize > $sizeBiggerThan){
+			        $optimize = true;
+		        }
+		        //如果大于200K则压缩
+	        }else if($fileSize > 150*1024 && $width > $resizeOptions){
+	        	//旧压缩方式，压缩到指定宽度(高等比例压缩)
+		        $optimize = true;
+	        }
 
             if($optimize){
                 $tmpDir = APP_PATH.'/.tmp';
@@ -99,7 +99,18 @@ class Common {
                 }
                 $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
                 $img = new EasyImage($filePath);
-                $imgWidth && $img->fit_to_width($imgWidth);
+                
+                //旧方法压缩
+                if(is_integer($resizeOptions)){
+	                $img->fit_to_width($resizeOptions);
+                }else{
+                	//新方法压缩
+	                if($width > $height){
+		                $img->fit_to_width($width * $resizeOptions['percentage']);
+	                }else if($height > $width){
+		                $img->fit_to_height($height * $resizeOptions['percentage']);
+	                }
+                }
                 $img->save($tmpImgPath, $quality);
             }
         }

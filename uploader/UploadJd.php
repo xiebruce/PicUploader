@@ -56,7 +56,7 @@ class UploadJd extends Upload{
     }
 	
 	/**
-	 * Upload images to Jcloud
+	 * Upload images to JDcloud OSS(Object Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

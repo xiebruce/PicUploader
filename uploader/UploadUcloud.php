@@ -57,14 +57,13 @@ class UploadUcloud extends Upload{
     }
 	
 	/**
-	 * Upload images to Jcloud
+	 * Upload images to Ucloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 * @param $originFilename
 	 *
 	 * @return string
 	 */
-	public function upload($key, $uploadFilePath, $originFilename){
+	public function upload($key, $uploadFilePath){
 		//因为它的sdk里全是引用的这三个global变量，我也不去改它了，所以变在这里覆盖一下值
 		global $UCLOUD_PUBLIC_KEY, $UCLOUD_PRIVATE_KEY, $UCLOUD_PROXY_SUFFIX;
 		$UCLOUD_PUBLIC_KEY = $this->publicKey;
