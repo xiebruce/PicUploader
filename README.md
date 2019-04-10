@@ -184,7 +184,7 @@ server {
 在PicUploader的`accessorys`文件夹中找到`PicUploaderHelper-Windows.zip`，或者也可以在这里下载：[PicUploaderHelper-Windows.zip](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploaderHelper-Windows.zip)
 上传助手使用文档请查看：[PicUploaderHelper-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-Windows-README.md)
 
-## 注意事项
+## 其他
 ### 关于压缩
 - 原压缩选项`imgWidth`即将废弃，建议使用新的压缩选项`resizeOptions`，当这两个选项同时存储的情况下会使用`resizeOptions`选项，此时`imgWidth`选项无效。
 - 由于gif图片实际上是由很多张图片组合在一起的，它的压缩比较麻烦，需要Mac装一些额外的库，所以暂时选择不压缩gif。
