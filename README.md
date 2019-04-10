@@ -23,7 +23,7 @@ PicUploader
 ## 注册存储服务器账号
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博共13种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
 
-具体请查看：[Register-Cloud-Storage.md](https://github.com/xiebruce/PicUploader/blob/master/Register-Cloud-Storage.md)
+注册各个云的方法具体请查看：[Register-Cloud-Storage.md](https://github.com/xiebruce/PicUploader/blob/master/Register-Cloud-Storage.md)
 
 ## 下载使用
 ### 下载PicUploader
