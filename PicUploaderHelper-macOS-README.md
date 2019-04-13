@@ -90,7 +90,7 @@ tail -f -n 5 key_log.txt
 `debug`:两个值0或1，0为关闭调试模式，1为开启调试模式
 
 ### 运行PicUploaderHelper
-运行前，要把运行终端比如`iTerm2`(或者你自己习惯用的其它终端工具)加入到`系统偏好设置`→`  安装与隐私`→`辅助功能`里面，注意，你设置了“PicUploaderHelper-start.sh”文件使用哪个终端打开，就把哪个终端加入到系统的`辅助功能`里。
+运行前，要把运行终端比如`iTerm2`(或者你自己习惯用的其它终端工具)加入到`系统偏好设置`→`  安装与隐私`→`辅助功能`里面，注意，你设置了“PicUploaderHelper-start.sh”文件使用哪个终端打开，就把哪个终端加入到系统的`辅助功能`里。  
 **运行：** 先在iTerm2用`sudo -s`切换到root，把`PicUploaderHelper-start.sh`拖动到`iTerm2`中，回车运行即可，当然你也可以进入它所在的文件夹中然后用`sudo ./PicUploaderHelper-start.sh`来运行。
 
 **关闭：** 先查找进程id号
