@@ -1,4 +1,4 @@
-## PicUploaderHelper-macOS-README.md
+# PicUploaderHelper-macOS-README.md
 本文档为macOS版文档，Windows请看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-Windows-README.md)
 
 ### 先看效果
