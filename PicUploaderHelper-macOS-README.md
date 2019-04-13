@@ -2,6 +2,7 @@
 本文档为macOS版文档，Windows请看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-Windows-README.md)
 
 ### 先看效果
+貌似有时候看不了动图，看不了请点这个链接查看：[macOS-upload-demo](https://img.xiebruce.top/2019/03/27/a1fe3fd4f306698dd43b7408eebdce74.gif)
 ![macOS-upload](https://img.xiebruce.top/2019/03/27/a1fe3fd4f306698dd43b7408eebdce74.gif)
 
 ### 安装python依赖
