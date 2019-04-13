@@ -68,11 +68,11 @@ chmod u+x generatesh.sh && ./generatesh.sh
 ```
 按以下解释，修改你自己的配置，主要是`php_path`和`picuploader_index_path`要修改，其他的一般不需要修改，当然你也可以改。
 
-`img_type`：两个可选值`JPEG`或`PNG`(不能写其他格式)，这将决定你最终上传的图片的格式为`.png`还是`.jpeg`。
-`php_path`：php可执行文件路径，使用`which php`命令可获得，并修改成你自己的路径。
-`picuploader_index_path`：PicUploader的入口文件`index.php`的路径，这个路径要修改成你自己的路径。
-`notification`：通知消息，分为上传成功和未检测到剪贴板有图片两个通知，你可以修改里面的title、subtitle、message为你自己想要的。
-`key_combinations`：快捷键，使用数组方式指定，像上边默认的就是`cmd+shift+u`，每一组快捷键都用中括号括住(其实就是python的列表)，特别注意，如果你的快捷键用到了`alt`，那会比较不一样，`alt+ctrl`目前由于使用的`pynput`原因无法使用，假设你要设置`alt+shift+u`，配置文件里不能直接写`u`，而是你要直接按住`alt+shift`，再按`u`，它出来什么符号就是什么符号，不要手工修改它，另外如果出来的符号带“\x”的快捷键不可用而且会导致报错，如果出来的符号带`<数字>`这样的也不可用，你可以在配置文件设置`debug`为1(开启debug模式)，这样即可在与`PicUploaderHelper.py`文件同目录下生成一个`key_log.txt`文件，该文件会记录下你按下的每一个键最终识别出来的都是什么。为了方便查看，你可以新开一个终端窗口，使用以下命令监控`key_log.txt`的变化：
+- `img_type`：两个可选值`JPEG`或`PNG`(不能写其他格式)，这将决定你最终上传的图片的格式为`.png`还是`.jpeg`。
+- `php_path`：php可执行文件路径，使用`which php`命令可获得，并修改成你自己的路径。
+- `picuploader_index_path`：PicUploader的入口文件`index.php`的路径，这个路径要修改成你自己的路径。
+- `notification`：通知消息，分为上传成功和未检测到剪贴板有图片两个通知，你可以修改里面的title、subtitle、message为你自己想要的。
+- `key_combinations`：快捷键，使用数组方式指定，像上边默认的就是`cmd+shift+u`，每一组快捷键都用中括号括住(其实就是python的列表)，特别注意，如果你的快捷键用到了`alt`，那会比较不一样，`alt+ctrl`目前由于使用的`pynput`原因无法使用，假设你要设置`alt+shift+u`，配置文件里不能直接写`u`，而是你要直接按住`alt+shift`，再按`u`，它出来什么符号就是什么符号，不要手工修改它，另外如果出来的符号带“\x”的快捷键不可用而且会导致报错，如果出来的符号带`<数字>`这样的也不可用，你可以在配置文件设置`debug`为1(开启debug模式)，这样即可在与`PicUploaderHelper.py`文件同目录下生成一个`key_log.txt`文件，该文件会记录下你按下的每一个键最终识别出来的都是什么。为了方便查看，你可以新开一个终端窗口，使用以下命令监控`key_log.txt`的变化：
 ```bash
 tail -f -n 5 key_log.txt
 ```
