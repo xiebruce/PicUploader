@@ -2,10 +2,10 @@
 本文档为Windows版文档，macOS请看：[PicUploaderHelper-macOS-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
 
 ### 先看效果
-win10：如果看不了请点这个链接查看：[windows10-upload-demo](https://img.xiebruce.top/2019/03/27/840b4d80eb29383892db115406c80d3e.gif)
+win10：如果看不了请点这个链接查看：[windows10-upload-demo.gif](https://img.xiebruce.top/2019/03/27/840b4d80eb29383892db115406c80d3e.gif)
 ![windows10-upload](https://img.xiebruce.top/2019/03/27/840b4d80eb29383892db115406c80d3e.gif)
 
-Win7：如果看不了请点这个链接查看：[windows7-upload-demo](https://img.xiebruce.top/2019/03/27/43edc8c9fa7feb8ee28172e7ce764c93.gif)
+Win7：如果看不了请点这个链接查看：[windows7-upload-demo.gif](https://img.xiebruce.top/2019/03/27/43edc8c9fa7feb8ee28172e7ce764c93.gif)
 ![windows7-upload](https://img.xiebruce.top/2019/03/27/43edc8c9fa7feb8ee28172e7ce764c93.gif)
 
 ### 安装python3
@@ -70,13 +70,13 @@ pip install Pillow
 ```
 按以下解释，修改你自己的配置，主要是`php_path`和`picuploader_index_path`要修改，其他的一般不需要修改，当然你也可以改。
 
-`img_type`：两个可选值`JPEG`或`PNG`(不能写其他格式)，这将决定你最终上传的图片的格式为`.png`还是`.jpeg`。
-`php_path`：php.exe文件路径，要修改成你自己的php.exe。  
-`picuploader_index_path`：PicUploader的入口文件`index.php`的路径，这个路径要修改成你自己的路径。  
-`php_path`和`picuploader_index_path`路径的获取，请参考：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)，但这里不同的是，路径中的每个反斜杠都要再加一个反斜杠，否则无法启动。  
-`notification`：通知消息，分为上传成功和未检测到剪贴板有图片两个通知，你可以修改里面的title、message为你自己想要的，subtitle在这里没有用处，为了和mac版统一，没有删除。  
-`key_combinations`：快捷键，使用数组方式指定，像上边默认的就是`ctrl_l+shift+u`，每一组快捷键都用中括号括住(其实就是python的列表)。  
-`debug`:两个值0或1，0为关闭调试模式，1为开启调试模式，打开调试模式可以在当前目录下的key_log.txt中查看到你按了哪些键，按的这个键的键值是多少。
+- `img_type`：两个可选值`JPEG`或`PNG`(不能写其他格式)，这将决定你最终上传的图片的格式为`.png`还是`.jpeg`。
+- `php_path`：php.exe文件路径，要修改成你自己的php.exe。  
+- `picuploader_index_path`：PicUploader的入口文件`index.php`的路径，这个路径要修改成你自己的路径。  
+- `php_path`和`picuploader_index_path`路径的获取，请参考：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)，但这里不同的是，路径中的每个反斜杠都要再加一个反斜杠，否则无法启动。  
+- `notification`：通知消息，分为上传成功和未检测到剪贴板有图片两个通知，你可以修改里面的title、message为你自己想要的，subtitle在这里没有用处，为了和mac版统一，没有删除。  
+- `key_combinations`：快捷键，使用数组方式指定，像上边默认的就是`ctrl_l+shift+u`，每一组快捷键都用中括号括住(其实就是python的列表)。  
+- `debug`:两个值0或1，0为关闭调试模式，1为开启调试模式，打开调试模式可以在当前目录下的key_log.txt中查看到你按了哪些键，按的这个键的键值是多少。
 
 几个按键的写法：
 ```
