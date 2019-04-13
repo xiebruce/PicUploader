@@ -78,10 +78,13 @@ tail -f -n 5 key_log.txt
 ```
 几个按键的写法(左侧为原按键，右侧为定义快捷键的写法)：
 ```
-shift => shift
-control => ctrl
-option => alt
-command => cmd
+左shift => shift
+右shift => shift_r
+左option => alt
+右option => alt_r
+左command => cmd
+右command => cmd_r
+左control => ctrl
 ```
 `debug`:两个值0或1，0为关闭调试模式，1为开启调试模式
 
@@ -112,8 +115,8 @@ kill -9 进程id号
 把它勾上之后，再下次开机登录后，`iTerm2`会自动打开闪一下又关闭，其实它就是在启动`PicUploaderHelper`（但如果是自带的终端，就会一直显示，要你手动关闭）。
 
 ### 原理
-后台运行PicUploaderHelper，PicUploaderHelper会监听全局快捷键，当按下快捷键时，PicUploaderHelper会检测剪贴板中是否存在图片：
-1、如果不存在，它会弹出一个通知(调用applescript来实现)，告诉你未检测到图片，没有图片的通知消息具体内容可由配置文件中的`no_image`部分自定义。
+后台运行PicUploaderHelper，PicUploaderHelper会监听全局快捷键，当按下快捷键时，PicUploaderHelper会检测剪贴板中是否存在图片：  
+1、如果不存在，它会弹出一个通知(调用applescript来实现)，告诉你未检测到图片，没有图片的通知消息具体内容可由配置文件中的`no_image`部分自定义。  
 2、如果有图片，PicUploaderHelper会把剪贴板中的图片保存到与`PicUploaderHelper.py`同级目录中，文件名为`.screenshot_upload_tmp.xxx`(由于是`.`开头所以是隐藏文件)，`xxx`是图片类型，由配置文件中的`img_type`指定，`img_type`只能指定两种类型，一种是`PNG`，一种是`JPEG`。图片保存后，即会调用PicUploader来上传，上传完成会弹出通知，弹出通知后markdown格式地址已经在剪贴板，直接去粘贴即可。要把它保存成图片的原因，是因为PicUploader的所有代码都是需要指定图片文件路径的(包括所使用的对象存储的接口都是传图片路径的)，注意，保存的图片不会被删除(理论上要删除，但由于技术原因删除不了)，将会一直存在，但也只会有这一张(一般为几十到几百KB大小)，因为下一张永远会覆盖上一张，所以不会导致有垃圾，并且你是看不到的，所以不会打扰到你。
 
 ### 错误解决：按快捷键没反应
