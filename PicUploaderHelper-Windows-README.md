@@ -2,10 +2,10 @@
 本文档为Windows版文档，macOS请看：[PicUploaderHelper-macOS-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploaderHelper-macOS-README.md)
 
 ### 先看效果
-win10：
+win10：如果看不了请点这个链接查看：[windows10-upload-demo](https://img.xiebruce.top/2019/03/27/840b4d80eb29383892db115406c80d3e.gif)
 ![windows10-upload](https://img.xiebruce.top/2019/03/27/840b4d80eb29383892db115406c80d3e.gif)
 
-Win7：
+Win7：如果看不了请点这个链接查看：[windows7-upload-demo](https://img.xiebruce.top/2019/03/27/43edc8c9fa7feb8ee28172e7ce764c93.gif)
 ![windows7-upload](https://img.xiebruce.top/2019/03/27/43edc8c9fa7feb8ee28172e7ce764c93.gif)
 
 ### 安装python3
