@@ -37,7 +37,7 @@ git clone https://github.com/xiebruce/PicUploader.git
 ### 填写配置
 - 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur/Ucloud/QingCloud/Github/微博其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
-- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[查看注册七牛云对象存储教程](https://www.xiebruce.top/117.html)
+- 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[Register-Cloud-Storage.md](https://github.com/xiebruce/PicUploader/blob/master/Register-Cloud-Storage.md)
 ``` php
 //Qiniu Cloud
 'qiniu' => [
