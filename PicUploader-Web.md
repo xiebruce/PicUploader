@@ -1,9 +1,9 @@
 # PicUploader-Web端/Mweb的配置与使用
 ## 先看一下效果
-Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图片文件粘贴上传：
+Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图片文件粘贴上传，如果gif图看不了，点这里看[web-upload-demo.gif](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)：
 ![web-upload-demo](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)
 
-使用Web端配置参数，简单直观，不需要去配置文件手写了：
+使用Web端配置参数，简单直观，不需要去配置文件手写了，如果gif图看不了，点这里看[web-demo.gif](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)：
 ![web-demo](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)
 
 ## 搭建nginx服务器
