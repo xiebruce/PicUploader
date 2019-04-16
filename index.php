@@ -108,18 +108,20 @@
 
 	//if has post file
     if(isset($_FILES['file']) && $files = $_FILES['file']){
+    	$tmpDir = APP_PATH.'/.tmp';
+    	!is_dir($tmpDir) && mkdir($tmpDir, 0777);
 		//receive multi file upload
 	    if(is_array($files['tmp_name'])){
 		    $argv = [];
 		    foreach($files['tmp_name'] as $key=>$tmp_name){
-			    $dest = APP_PATH.'/.tmp/.'.$files['name'][$key];
+			    $dest = $tmpDir.$files['name'][$key];
 			    if(move_uploaded_file($tmp_name, $dest)){
 				    $argv[] = $dest;
 			    }
 		    }
 	    }else{
 	    	//receive single file upload
-		    $dest = APP_PATH.'/.tmp/.'.$files['name'];
+		    $dest = $tmpDir.$files['name'];
 		    $tmp_name = $files['tmp_name'];
 		    if(move_uploaded_file($tmp_name, $dest)){
 			    $argv[] = $dest;
