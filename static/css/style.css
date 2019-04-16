@@ -268,7 +268,19 @@ input.color {
 	height: 320px;
 	margin: 150px auto 0 auto;
 	padding: 5px;
-	overflow: scroll;
+	/*隐藏了横向滚动向，竖向滚动条是没了，但滚动区域还在*/
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+/*隐藏webkit内核的浏览器的滚动条*/
+.cloud-setting .drop-area::-webkit-scrollbar {
+	width: 0 !important
+}
+.cloud-setting .drop-area {
+	/*隐藏IE10+浏览器的滚动条*/
+	-ms-overflow-style: none;
+	/*隐藏火狐浏览器的滚动条*/
+	overflow: -moz-scrollbars-none;
 }
 .drop-area .drop-area-tips {
 	font-size: 30px;

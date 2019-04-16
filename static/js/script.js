@@ -65,17 +65,19 @@ function uploadImage(file){
 			return xhr;
 		},
 		success: function (response){
-			console.log(response);
 			var data = response.data;
 			if(response.code=='success'){
 				//隐藏“拖动图片到这里以上传”文字
 				var img = `<img class="drop-area-image" src="${data.url}" alt="${data.filename}" title="${data.filename}">
-							<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
-								<img width="16" src="/static/images/clippy.svg">
-								<div class="copied">Copied!</div>
-							</div>`;
-				
-				$('.drop-area .uploaded-image-container .uploaded-image-box').last().html(img).find('.copy-image-url').click();
+					<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
+						<img width="16" src="/static/images/clippy.svg">
+						<div class="copied">Copied!</div>
+					</div>`;
+				var lastImage = $('.drop-area .uploaded-image-container .uploaded-image-box').last();
+				console.log('lastImage');
+				console.log(lastImage.find('.copy-image-url'))
+				lastImage.html(img);
+				lastImage.find('.copy-image-url').click();
 			}
 		}
 	});
