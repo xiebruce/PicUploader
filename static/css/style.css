@@ -271,17 +271,16 @@ input.color {
 	/*隐藏了横向滚动向，竖向滚动条是没了，但滚动区域还在*/
 	overflow-x: hidden;
 	overflow-y: scroll;
-}
-/*隐藏webkit内核的浏览器的滚动条*/
-.cloud-setting .drop-area::-webkit-scrollbar {
-	width: 0 !important
-}
-.cloud-setting .drop-area {
 	/*隐藏IE10+浏览器的滚动条*/
 	-ms-overflow-style: none;
 	/*隐藏火狐浏览器的滚动条*/
 	overflow: -moz-scrollbars-none;
 }
+/*隐藏webkit内核的浏览器的滚动条*/
+.cloud-setting .drop-area::-webkit-scrollbar {
+	width: 0 !important
+}
+
 .drop-area .drop-area-tips {
 	font-size: 30px;
 	color: #b1b1b1;
@@ -343,4 +342,36 @@ input.color {
 	height:100%;
 	line-height: 150px;
 	text-align: center;
+}
+.click-upload-image {
+	display: none;
+}
+.click-upload-image-parent {
+	border: 1px solid #686868;
+	border-radius: 4px;
+	width: 57.5%;
+	height: 40px;
+	margin: 2px auto 0 auto;
+	position: relative;
+}
+.click-upload-image-parent .click-upload-image-btn {
+	position: absolute;
+	/*border: 1px solid #000000;*/
+	border-radius: 4px;
+	height: 34px;
+	line-height: 34px;
+	top: 3px;
+	right: 3px;
+	padding: 0 10px;
+	font-size: 14px;
+	background: #2D82E0;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.click-upload-image-parent .show-returned-url {
+	height: 36px;
+	line-height: 36px;
+	padding: 2px 5px;
+	background: #f1f1f1;
+	color: #469e08;
 }

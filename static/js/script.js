@@ -74,8 +74,7 @@ function uploadImage(file){
 						<div class="copied">Copied!</div>
 					</div>`;
 				var lastImage = $('.drop-area .uploaded-image-container .uploaded-image-box').last();
-				console.log('lastImage');
-				console.log(lastImage.find('.copy-image-url'))
+				$('.click-upload-image-parent .show-returned-url').html('!['+data.filename+']('+data.url+')');
 				lastImage.html(img);
 				lastImage.find('.copy-image-url').click();
 			}
@@ -351,15 +350,20 @@ $(document).ready(function (){
 		$(this).addClass('active');
 		
 		var dropAreaHtml = `
-					<div class="drop-area">
-						<div class="uploaded-image-container">
-							<div class="drop-area-tips">
-								“拖动图片到这里”以上传<br>
-								“截图后在这里粘贴”以上传<br>
-								“复制图片后在这里粘贴”以上传<br>
-							</div>
+				<div class="drop-area">
+					<div class="uploaded-image-container">
+						<div class="drop-area-tips">
+							“拖动图片到这里”以上传<br>
+							“截图后在这里粘贴”以上传<br>
+							“复制图片后在这里粘贴”以上传<br>
 						</div>
-					</div>`;
+					</div>
+				</div>
+				<div class="click-upload-image-parent">
+					<input type="file" class="click-upload-image">
+					<div class="show-returned-url"></div>
+					<div class="click-upload-image-btn" alt="点击上传文件" title="点击上传文件">点击上传文件</div>
+				<div>`;
 		$('.cloud-setting').html(dropAreaHtml);
 	});
 	
@@ -418,8 +422,18 @@ $(document).ready(function (){
 				uploadImage(file);
 			}
 			console.log(file);
-		}
+		},
 	}, '.drop-area');
+	
+	//点击上传字体文件
+	$('.cloud-setting').on('click', '.click-upload-image-btn', function (){
+		$('.click-upload-image').click();
+	});
+	//点击图片拖放区域选择文件上传
+	$('.cloud-setting').on('change' , '.click-upload-image', function (e){
+		let file = $(this).get(0).files[0];
+		uploadImage(file);
+	})
 	
 	//点击上传字体文件
 	$('.cloud-setting').on('click', '.upload-font-file', function (){
@@ -657,7 +671,8 @@ $(document).ready(function (){
 	});
 	
 	//点击放大图片
-	$('.cloud-setting').on('click','.watermark-image, .drop-area-image', function (){
+	$('.cloud-setting').on('click','.watermark-image, .drop-area-image', function (e){
+		e.stopPropagation();
 		var src = $(this).attr('src');
 		viewer.show(src, src);
 	});
