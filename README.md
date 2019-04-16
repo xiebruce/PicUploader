@@ -132,51 +132,7 @@ Win10由于权限原因，无法给logs文件夹创建快捷方式到桌面，�
 在Windows上配置环境及右键菜单请查看：[PicUploader-Windows-README.md](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)
 
 ## MWeb配置
-mweb提交图片是一张图片发起一个post请求，多张图片则会循环发起多个请求，所以需要配置一个http服务器来接收该post请求并处理上传。
-环境要求：nginx + php-fpm 或 apache + php
-环境并不是搭建在远程服务器，而是直搭建在你本地电脑即可(当然你把PicUploader当成纯服务使用，搭在远程服务器上也行)，至于怎样搭建nginx+php运行环境或apache+php运行环境，请自行网上搜索。
-
-以下是nginx配置文件（注意修改root路径为你的PicUploader目录实际路径）
-```nginx
-server {
-    listen 80;
-    server_name api.picuploader.com;
-
-    access_log /usr/local/var/log/nginx/api.picuploader.com.error.log combined;
-    error_log /usr/local/var/log/nginx/api.picuploader.com.error.log error;
-
-    root /path/to/PicUploader;
-
-    location / {
-        index index.php;
-        try_files $uri $uri/ index.php$is_args$args;
-    }
-
-    location ~ \.php$ {
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        include fastcgi.conf;
-    }
-}
-```
-
-此外记得要把nginx配置的域名添加到hosts文件中：
-```
-127.0.0.1 api.picuploader.com
-```
-
-点击mweb的偏好设置→发布(publishing)→点击右边最下面一个`自定义(custom)`：
-<p align="center"><img src="https://img.xiebruce.top/2019/01/12/e793f89b6057b6cb3938fec071d59b8b.jpg" title="Xnip2019-01-12_21-29-30.jpg" alt="Xnip2019-01-12_21-29-30.jpg"></p>
-
-按下图填写：
-<p align="center"><img src="https://img.xiebruce.top/2019/01/12/364177f976b82e0508291cfbbcc9188a.jpg" title="Xnip2019-01-12_21-32-44.jpg" alt="Xnip2019-01-12_21-32-44.jpg"></p>
-
-写好文章后，点击顶部菜单栏中的的发布(publish)或编辑器右上角的分享按钮→上传本地图片到...(Upload Local Images to...)：
-<p align="center"><img src="https://img.xiebruce.top/2019/01/12/d50d050be893e19b338afe3dd0df063a.jpg" title="Xnip2019-01-12_21-38-34.jpg" alt="Xnip2019-01-12_21-38-34.jpg"></p>
-
-如下图，点击Upload Images：
-<p align="center"><img src="https://img.xiebruce.top/2019/01/12/38e6ded515aaddada287dc2a65f096d3.jpg" title="Xnip2019-01-12_21-48-23.jpg" alt="Xnip2019-01-12_21-48-23.jpg"></p>
-上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布，而且MWeb非常好的一点是，如果你上传过所有图片后，又添加了一张新图片，那么只有新图片会被上传，上传过的不会重复被上传。
+请查看：[PicUploader-Web端/Mweb的配置与使用](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Web.md)
 
 ## 使用快捷键上传助手(v2.6.3新增)
 ### Mac版上传助手
@@ -211,6 +167,9 @@ server {
 - 其他域名都不会回收，所以如果没有自己的网站，用七牛做云存储其实可以首先排除了！
 
 ## 更新日志
+**2019-04-10 v2.7版本**
+- 新增web界面，可在界面上设置参数，可以web界面上拖拽传图、复制图片文件后在上面直接粘贴传图、截图复制到剪贴板后直接在上面粘贴传图。
+
 **2019-04-10 v2.6.6版本**
 - fixbugs
 - 修改压缩方式为指定压缩比例及宽、高、图片文件大小超过指定值时才进行压缩
