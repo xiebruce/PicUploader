@@ -37,7 +37,9 @@ class InsecureCredentials implements FetchAuthTokenInterface
      * Fetches the auth token. In this case it returns an empty string.
      *
      * @param callable $httpHandler
-     * @return array
+     * @return array A set of auth related metadata, containing the following
+     * keys:
+     *   - access_token (string)
      */
     public function fetchAuthToken(callable $httpHandler = null)
     {
@@ -64,5 +66,16 @@ class InsecureCredentials implements FetchAuthTokenInterface
     public function getLastReceivedToken()
     {
         return $this->token;
+    }
+
+    /**
+     * Get the client name. In this case, it returns an empty string.
+     *
+     * @param callable $httpHandler Not used in this implementation.
+     * @return string
+     */
+    public function getClientName(callable $httpHandler = null)
+    {
+        return '';
     }
 }

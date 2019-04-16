@@ -57,6 +57,7 @@
 	$imageWatermark = [];
 	if(is_file($imageWatermarkFile)){
 		$imageWatermark = json_decode(file_get_contents($imageWatermarkFile), true);
+		!is_file(APP_PATH.$imageWatermark['watermark']) && $imageWatermark['watermark'] = '/static/watermark/watermark.png';
 	}
 	
 	//文字水印设置
@@ -64,6 +65,7 @@
 	$textWatermark = [];
 	if(is_file($textWatermarkFile)){
 		$textWatermark = json_decode(file_get_contents($textWatermarkFile), true);
+		!is_file(APP_PATH.$textWatermark['fontFile']) && $textWatermark['fontFile'] = '/static/watermark/jdchj.ttf';
 	}
 	
 	//存储引擎配置
@@ -105,23 +107,23 @@
 		$isMweb = true;
 		$_FILES['file'] = $_FILES['mweb'];
 	}
-
+	
 	//if has post file
     if(isset($_FILES['file']) && $files = $_FILES['file']){
     	$tmpDir = APP_PATH.'/.tmp';
-    	!is_dir($tmpDir) && mkdir($tmpDir, 0777);
+    	!is_dir($tmpDir) && @mkdir($tmpDir, 0777);
 		//receive multi file upload
 	    if(is_array($files['tmp_name'])){
 		    $argv = [];
 		    foreach($files['tmp_name'] as $key=>$tmp_name){
-			    $dest = $tmpDir.$files['name'][$key];
+			    $dest = $tmpDir.'/'.$files['name'][$key];
 			    if(move_uploaded_file($tmp_name, $dest)){
 				    $argv[] = $dest;
 			    }
 		    }
 	    }else{
 	    	//receive single file upload
-		    $dest = $tmpDir.$files['name'];
+		    $dest = $tmpDir.'/'.$files['name'];
 		    $tmp_name = $files['tmp_name'];
 		    if(move_uploaded_file($tmp_name, $dest)){
 			    $argv[] = $dest;

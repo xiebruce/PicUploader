@@ -87,6 +87,7 @@ class Common {
 		        if($width > $widthGreaterThan || $height > $heightGreaterThan || $fileSize > $sizeBiggerThan){
 			        $optimize = true;
 		        }
+		        
 		        //如果大于200K则压缩
 	        }else if($fileSize > 150*1024 && $width > $resizeOptions){
 	        	//旧压缩方式，压缩到指定宽度(高等比例压缩)
@@ -95,9 +96,8 @@ class Common {
 
             if($optimize){
                 $tmpDir = APP_PATH.'/.tmp';
-                if(!is_dir($tmpDir)){
-                    @mkdir($tmpDir, 0777 ,true);
-                }
+	            !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
+	            
                 $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
                 $img = new EasyImage($filePath);
                 
@@ -123,6 +123,7 @@ class Common {
 	 * @param $filePath
 	 *
 	 * @return string
+	 * @throws \Exception
 	 */
 	public function watermark($filePath){
 	    $img = new EasyImage();
@@ -131,11 +132,7 @@ class Common {
 	    $type = $watermarkConfig['type'];
 	    if($type=='image'){
 		    $imageConfig = $watermarkConfig['image'];
-		    if(is_file(APP_PATH.$imageConfig['watermark'])){
-			    $watermark = APP_PATH.$imageConfig['watermark'];
-		    }else{
-			    $watermark = APP_PATH . '/static/watermark/'.$imageConfig['watermark'];
-		    }
+		    $watermark = APP_PATH.$imageConfig['watermark'];
 	        $img->overlay($watermark, $watermarkConfig['image']['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
 	    }else if($type=='text'){
 		    $textConfig =  $watermarkConfig['text'];
@@ -152,20 +149,15 @@ class Common {
 		    }else{
 			    $color = $textConfig['color'];
 		    }
-	
-		    if(is_file(APP_PATH.$textConfig['fontFile'])){
-			    $fontPath = APP_PATH.$textConfig['fontFile'];
-		    }else{
-			    $fontPath = APP_PATH . '/static/watermark/'.$textConfig['fontFile'];
-		    }
+		
+		    $fontPath = APP_PATH.$textConfig['fontFile'];
 		    $img->text($textConfig['words'], $fontPath, $textConfig['fontSize'], $color, $watermarkConfig['text']['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
 	    }
+	    
 	    //if no tmp file then create one
 	    if(strpos($filePath, '.tmp') === false){
 		    $tmpDir = APP_PATH.'/.tmp';
-		    if(!is_dir($tmpDir)){
-			    @mkdir($tmpDir, 0777 ,true);
-		    }
+		    !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
 		    $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
 	    }else{
 	    	//$filePath is a tmp file

@@ -64,7 +64,7 @@ class Upload extends Common {
 				$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
 				$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 			}
-
+			
 			//添加水印
 			if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
 				$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
@@ -72,10 +72,12 @@ class Upload extends Common {
 			//同时上传到多个云时，兼容字符串写法和数组
 			$uploadServers = static::$config['storageType'];
 			is_string($uploadServers) && $uploadServers = explode(',', $uploadServers);
+
 			//支持的存储服务器
 			$storageTypes = array_keys(static::$config['storageTypes']);
 			//循环上传到每个云存储服务器
 			$link = '';
+			
 			foreach($uploadServers as $uploadServer){
 				$uploadServer = strtolower(trim($uploadServer));
 				if(in_array($uploadServer, $storageTypes)){

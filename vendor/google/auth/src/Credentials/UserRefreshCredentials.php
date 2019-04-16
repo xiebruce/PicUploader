@@ -106,7 +106,13 @@ class UserRefreshCredentials extends CredentialsLoader
     /**
      * @param callable $httpHandler
      *
-     * @return array
+     * @return array A set of auth related metadata, containing the following
+     * keys:
+     *   - access_token (string)
+     *   - expires_in (int)
+     *   - scope (string)
+     *   - token_type (string)
+     *   - id_token (string)
      */
     public function fetchAuthToken(callable $httpHandler = null)
     {
@@ -127,5 +133,16 @@ class UserRefreshCredentials extends CredentialsLoader
     public function getLastReceivedToken()
     {
         return $this->auth->getLastReceivedToken();
+    }
+
+    /**
+     * Get the client name.
+     *
+     * @param callable $httpHandler Not used by this credentials type.
+     * @return string
+     */
+    public function getClientName(callable $httpHandler = null)
+    {
+        return $this->auth->getClientId();
     }
 }
