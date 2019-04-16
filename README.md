@@ -41,6 +41,9 @@ git clone https://github.com/xiebruce/PicUploader.git
 注意下载后把它解压放到一个相对稳定一点的目录，不能放在『下载』里面，因为这样你可能随手删除了。（以后最好不要移动，否则要改配置比较麻烦）
 
 ### 填写配置
+1、使用Web端设置，请查看：[Web版/MWeb的配置和使用](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Web.md)。
+
+2、手动修改配置文件(如果使用了web端配置则不需要该方式):
 - 把`PicUploader/config/config.php`文件`command+D`复制一份，命名为`config-local.php`，然后在`config-local.php`中修改你的配置(配置你的七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/Imgur/Ucloud/QingCloud/Github/微博其中一个)即可。
 - 如果使用sm.ms，那就不需要修改配置了，直接使用！
 - 以配置七牛云存储为例，在config-local.php文件中找到以下代码，填好AK/SK/bucket/domain四个参数，如果不知道参数怎么来，请查看[Register-Cloud-Storage.md](https://github.com/xiebruce/PicUploader/blob/master/Register-Cloud-Storage.md)
