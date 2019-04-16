@@ -61,10 +61,10 @@ server {
 如果你要放在远程服务器上，由于没有密码认证，请使用nginx做HTTP的密码认证即可：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
 
 ### Windows使用PhpStudy搭建
-1、先下载安装[PhpStudy](http://phpstudy.php.cn)，之前在 **[在Windows中设置使用PicUploader](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)** 中有讲过PhpStudy的安装，我的PhpStudy安装在`D:\phpStudy`，下面将以这个位置为例。
-2、把整个`PicUploader`的代码`D:\phpStudy\PHPTutorial\WWW`目录下(如果你之前已经配置过右键菜单，那么又要删掉重新配置了，因为位置移动了)。
+1、先下载安装[PhpStudy](http://phpstudy.php.cn)，之前在 **[在Windows中设置使用PicUploader](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)** 中有讲过PhpStudy的安装，我的PhpStudy安装在`D:\phpStudy`，下面将以这个位置为例。  
+2、把整个`PicUploader`的代码`D:\phpStudy\PHPTutorial\WWW`目录下(如果你之前已经配置过右键菜单，那么又要删掉重新配置了，因为位置移动了)。  
 3、进入`D:\phpStudy\PHPTutorial\Apache\conf`目录，找到`vhosts.conf`文件：
-![-w676](https://img.xiebruce.top/2019/04/16/806f8fc6994a4fa7db2576dabc62ed1c.jpg)
+![-w676](https://img.xiebruce.top/2019/04/16/806f8fc6994a4fa7db2576dabc62ed1c.jpg)  
 4、打开上边找到的`vhosts.conf`, 在它原来代码下边空一行，把下边代码加进去(注意如果你的安装目录不一样，DocumentRoot的目录要修改成你的目录)：
 ```apache
 <VirtualHost *:80>
