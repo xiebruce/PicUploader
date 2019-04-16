@@ -32,7 +32,6 @@ class SettingController {
 	 */
 	public function getStorageParams($params){
 		$key = $params['key'];
-		file_put_contents(__DIR__.'/test.txt','3242');
 		$jsonFile = $this->storagesDir.'/storage-'.$key.'.json';
 		if(is_file($jsonFile)){
 			$columns = json_decode(file_get_contents($jsonFile), true);

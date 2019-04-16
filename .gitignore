@@ -6,8 +6,6 @@
 /uploader/token/
 /config/config-local.php
 /uploader/UploadNextcloud.php
-/static/css/
-dashboard.php
 /config/.settings
 /config/.config.json
 /uploads
