@@ -17,6 +17,8 @@ PicUploader
 - 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）
 - 可作为MWeb的API使用（需要自行配置nginx+php服务器）
 - 支持快捷键上传剪贴板中的图片（需要配合PicUploaderHelper使用）
+- 支持Web端拖拽、粘贴上传图片
+- 支持Web端设置相关参数
 - 目前支持13种图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploader%20demonstration.gif)
