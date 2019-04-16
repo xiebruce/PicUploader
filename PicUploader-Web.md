@@ -58,6 +58,8 @@ server {
 
 注意：使用Web版来设置配置后，`config-local.php`将不起作用，但`config.php`来会用于读取默认参数。
 
+如果你要放在远程服务器上，由于没有密码认证，请使用nginx做HTTP的密码认证即可：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
+
 ### MWeb使用PicUploader
 MWeb一样要使用前边配置好的nginx服务器，按下边操作即可：
 
@@ -74,3 +76,4 @@ MWeb一样要使用前边配置好的nginx服务器，按下边操作即可：
 ![Xnip2019-01-12_21-38-34.jpg](https://img.xiebruce.top/2019/01/12/38e6ded515aaddada287dc2a65f096d3.jpg)
 
 上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布。
+
