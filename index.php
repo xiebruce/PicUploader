@@ -150,7 +150,7 @@
 		    ],
 	    ];
 	    header('Content-Type: application/json; charset=UTF-8');
-	    $json = json_encode($data);
+	    $json = json_encode($data, JSON_UNESCAPED_UNICODE);
 	    // file_put_contents('/Users/bruce/Downloads/picuploader.txt', $json, FILE_APPEND);
 	    echo $json;
     }else{
