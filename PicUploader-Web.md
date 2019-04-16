@@ -1,12 +1,12 @@
 # PicUploader-Web端/Mweb的配置与使用
-## 先看一下效果
+### 先看一下效果
 Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图片文件粘贴上传，如果gif图看不了，点这里看[web-upload-demo.gif](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)：
 ![web-upload-demo](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)
 
 使用Web端配置参数，简单直观，不需要去配置文件手写了，如果gif图看不了，点这里看[web-demo.gif](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)：
 ![web-demo](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)
 
-## 搭建nginx服务器
+### Mac搭建nginx服务器(Win可往下看)
 搭建nginx服务器，配置文件如下：
 ```nginx
 server {
@@ -59,6 +59,36 @@ server {
 注意：使用Web版来设置配置后，`config-local.php`将不起作用，但`config.php`来会用于读取默认参数。
 
 如果你要放在远程服务器上，由于没有密码认证，请使用nginx做HTTP的密码认证即可：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
+
+### Windows使用PhpStudy搭建
+1、先下载安装[PhpStudy](http://phpstudy.php.cn)，之前在 **[在Windows中设置使用PicUploader](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)** 中有讲过PhpStudy的安装，我的PhpStudy安装在`D:\phpStudy`，下面将以这个位置为例。
+2、把整个`PicUploader`的代码`D:\phpStudy\PHPTutorial\WWW`目录下(如果你之前已经配置过右键菜单，那么又要删掉重新配置了，因为位置移动了)。
+3、进入`D:\phpStudy\PHPTutorial\Apache\conf`目录，找到`vhosts.conf`文件：
+![-w676](https://img.xiebruce.top/2019/04/16/806f8fc6994a4fa7db2576dabc62ed1c.jpg)
+4、打开上边找到的`vhosts.conf`, 在它原来代码下边空一行，把下边代码加进去(注意如果你的安装目录不一样，DocumentRoot的目录要修改成你的目录)：
+```apache
+<VirtualHost *:80>
+    DocumentRoot "D:\phpStudy\PHPTutorial\WWW\PicUploader"
+    ServerName api.picuploader.com
+    DirectoryIndex dashboard.php
+    ErrorLog "logs/api.picuploader.com-error.log"
+    CustomLog "logs/api.picuploader.com-access.log" common
+</VirtualHost>
+```
+再重复一遍，`PicUploader`整个文件夹必须放在PhpStudy的`WWW`目录下。
+
+5、打开PhpStudy，点击切换版本，选择最新版本的php+Apache：
+![-w600](https://img.xiebruce.top/2019/04/16/bf54187ebc00bcefe21e0b70ed1eea84.jpg)
+
+6、点击`启动`或`重启`，只要运行状态里，Apache右边那个点保持绿色那就说明它在正常运行：
+![-w389](https://img.xiebruce.top/2019/04/16/e5ac6b9f482cd78eafbb461a43d0d874.jpg)
+
+7、进入`C:\Windows\System32\drivers\etc`目录，找到`hosts`文件，在它里面的内容最后添加下边这句(有可能说文件权限问题无法修改，这个请自己上网找方法看怎么能修改)：
+```ini
+127.0.0.1 		api.picuploader.com
+```
+
+8、浏览器打开`http://api.picuploader.com`试试看，如果一切正常，现在你已经能进PicUploader的页面了。
 
 ### MWeb使用PicUploader
 MWeb一样要使用前边配置好的nginx服务器，按下边操作即可：
