@@ -23,6 +23,9 @@ PicUploader
 
 ![这是一个用于演示的gif图，如果你看到这行文字说明它没加载出来，请点我直接跳转链接查看吧，或者使劲强刷](https://github.com/xiebruce/PicUploader/blob/master/accessorys/PicUploader%20demonstration.gif)
 
+[Web版](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Web.md)：
+![web-upload-demo](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)
+
 ## 注册存储服务器账号
 目前支持七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博共13种，以下服务选择一种就可以，如果是自己搭建的博客，建议参考我这篇文章：[使用nginx负载均衡+多个云的免费额度打造免费markdown图床](https://www.xiebruce.top/644.html)
 
