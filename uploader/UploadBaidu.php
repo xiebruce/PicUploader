@@ -34,10 +34,16 @@ class UploadBaidu extends Upload{
 	    $className = array_pop($tmpArr);
 	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
 	    
-	    $this->bosConfig = $ServerConfig['bosConfig'];
+	    $this->bosConfig = [
+		    'credentials' => [
+			    'accessKeyId' => $ServerConfig['accessKeyId'],
+			    'secretAccessKey' => $ServerConfig['secretAccessKey'],
+		    ],
+		    'endpoint' => $ServerConfig['endpoint'],
+	    ];
 	    $this->bucket = $ServerConfig['bucket'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
-	    if(!isset($ServerConfig['directory'])){
+	    if(!isset($ServerConfig['directory']) || $ServerConfig['directory']!==false){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
 	    }else{

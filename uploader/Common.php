@@ -78,6 +78,7 @@ class Common {
 	        
 	        //使用新的压缩方式(百分比)
 	        if(is_array($resizeOptions)){
+	            $percentage = (int)$resizeOptions['percentage'] / 100;
 	            $widthGreaterThan = (int)$resizeOptions['widthGreaterThan'];
 	            $heightGreaterThan = (int)$resizeOptions['heightGreaterThan'];
 	            $carry = PHP_OS == 'Darwin' ? 1000 : 1024;
@@ -106,9 +107,9 @@ class Common {
                 }else{
                 	//新方法压缩
 	                if($width > $height){
-		                $img->fit_to_width($width * $resizeOptions['percentage']);
+		                $img->fit_to_width($width * $percentage);
 	                }else if($height > $width){
-		                $img->fit_to_height($height * $resizeOptions['percentage']);
+		                $img->fit_to_height($height * $percentage);
 	                }
                 }
                 $img->save($tmpImgPath, $quality);
@@ -130,14 +131,35 @@ class Common {
 	    $type = $watermarkConfig['type'];
 	    if($type=='image'){
 		    $imageConfig = $watermarkConfig['image'];
-	    	$watermark = APP_PATH.'/static/watermark/'.$imageConfig['watermark'];
-	        $img->overlay($watermark, $watermarkConfig['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
+		    if(is_file(APP_PATH.$imageConfig['watermark'])){
+			    $watermark = APP_PATH.$imageConfig['watermark'];
+		    }else{
+			    $watermark = APP_PATH . '/static/watermark/'.$imageConfig['watermark'];
+		    }
+	        $img->overlay($watermark, $watermarkConfig['image']['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
 	    }else if($type=='text'){
 		    $textConfig =  $watermarkConfig['text'];
-		    $fontPath = APP_PATH . '/static/watermark/'.$textConfig['font'];
-		    $img->text($textConfig['word'], $fontPath, $textConfig['fontSize'], $textConfig['color'], $watermarkConfig['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
+		    $matches = [];
+		    preg_match("/rgba\((.*)\)/", $textConfig['color'], $matches);
+		    if(isset($matches[1])){
+			    $rgba = explode(',', $matches[1]);
+			    $color = [
+				    'r'=>$rgba[0],
+				    'g'=>$rgba[1],
+				    'b'=>$rgba[2],
+				    'a'=>$rgba[3] * 100,
+			    ];
+		    }else{
+			    $color = $textConfig['color'];
+		    }
+	
+		    if(is_file(APP_PATH.$textConfig['fontFile'])){
+			    $fontPath = APP_PATH.$textConfig['fontFile'];
+		    }else{
+			    $fontPath = APP_PATH . '/static/watermark/'.$textConfig['fontFile'];
+		    }
+		    $img->text($textConfig['words'], $fontPath, $textConfig['fontSize'], $color, $watermarkConfig['text']['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
 	    }
-		
 	    //if no tmp file then create one
 	    if(strpos($filePath, '.tmp') === false){
 		    $tmpDir = APP_PATH.'/.tmp';

@@ -10,6 +10,7 @@
 		'storageTypes' => [
 			//Qiniu Cloud
 			'qiniu' => [
+				'name' => '七牛云',
 				//七牛云AppKey
 				'AK' => 'ASG********************************0AoF',
 				//七牛云AppSecret
@@ -19,11 +20,14 @@
 				//七牛云外链域名（域名要自己绑定，因为默认域名30天后会被回收）
 				'domain' => 'http://pe5scgdex.bkt.clouddn.com',
 				//七牛优化参数，直接加在链接后面，但是不会优化原图，只会优化输出的图片，如果不需要可以不配置该项（即注释掉）
-				// 'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
+				'optimize' => '?imageMogr2/thumbnail/800x/strip/quality/80',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//Tencent Cloud
 			'tencent' => [
+				'name' => '腾讯云',
 				'appId' => '1*******0',
 				'secretId' => 'AKID*********************************ut33',
 				'secretKey' => 'zlK*********************************tjLn2',
@@ -31,10 +35,13 @@
 				'region' => 'ap-guangzhou',
 				//如果不填domain，则自动拼接腾讯给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//Netease Cloud
 			'netease' => [
+				'name' => '网易云',
 				'accessKey' => '4bd5*********************************7b',
 				'accessSecret' => '465*****************************82db',
 				'bucket' => 'markdown-bucket',
@@ -42,71 +49,82 @@
 				'endPoint' => 'nos-eastchina1.126.net',
 				//如果不填domain，则自动拼装网易云给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//baidu Cloud
 			'baidu' => [
-				'bosConfig' => [
-					'credentials' => [
-						'accessKeyId' => '4fdda********************b5',
-						'secretAccessKey' => 'ddd6****************3a3',
-					],
-					'endpoint' => 'http://gz.bcebos.com',
-				],
+				'name' => '百度云',
+				'accessKeyId' => '4fdda******************91b5',
+				'secretAccessKey' => 'ddd****************d03a3',
+				'endpoint' => 'http://gz.bcebos.com',
 				'bucket' => 'markdown',
 				//如果不写，则自动拼装百度给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			//JDCloud
 			'jd' => [
-				'key' => '050***********************B',
-				'secret' => 'E1C******************8A6F',
+				'name' => '京东云',
+				'AccessKeyId' => '050C******************6568B',
+				'AccessKeySecret' => 'E1CD******************8A6F',
 				'endpoint' => 'https://s3.cn-south-1.jcloudcs.com',
 				'region' => 'cn-south-1',
 				'bucket' => 'markdown',
 				//如果不写，则自动拼装京东给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			//Aliyun Cloud
 			'aliyun' => [
+				'name' => '阿里云',
 				'accessKey' => 'cD********aL',
 				'accessSecret' => 'dN***************V4h2',
 				'bucket' => 'bruce-markdown',
 				'endpoint' => 'oss-cn-shenzhen.aliyuncs.com',
 				//如果不写，则自动拼装阿里云给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//Upyun Cloud
 			'upyun' => [
+				'name' => '又拍云',
 				'serviceName' => 'bl******wn',
 				'operator' => '*******',
 				'password' => '**************',
 				//如果不写，则自动拼装又拍云给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//https://sm.ms
 			'smms' => [
-				'baseUri' => 'https://sm.ms/api',
+				'name' => 'sm.ms',
 				//代理地址，如果使用shadowsocks做代理，ip填127.0.0.1即可，端口从『偏好设置→HTTP→监听端口』找
 				//留空或注释掉表示不使用代理
-				// 'proxy' => 'http://127.0.0.1:1087',
+				'proxy' => 'http://127.0.0.1:1087',
 				//无法自定义域名和key名，只能直接用它返回的地址（原因是无账号系统，自己定义的key无法保证全局唯一）
 			],
 			
 			//imgur
 			'imgur' => [
-				'baseUri' => 'https://api.imgur.com/3/',
+				'name' => 'Imgur',
 				'clientId' => 'ab************cdf',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
 				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
-				// 'proxy' => 'http://127.0.0.1:1087',
+				'proxy' => 'http://127.0.0.1:1087',
 				//无法自定义域名和key名，只能直接用它返回的地址（原因是无账号系统，自己定义的key无法保证全局唯一）
 			],
 			
 			//Ucloud
 			'ucloud' => [
+				'name' => 'UCloud',
 				'publicKey' => 'Rgv************************************************************3M=',
 				'privateKey' => 'Jt4************************************************************8qGH',
 				//在“对象存储Ufile”→“单地域空间管理”下可以看到你的存储空间列表，其中第一列是“存储空间域名”
@@ -120,22 +138,26 @@
 				'endPoint' => 'ufile.ucloud.com.cn',
 				//如果不写，则自动拼装Ucloud给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//QingCloud
 			'qingcloud' => [
+				'name' => '青云',
 				'accessKeyId' => 'TIJ************ADM',
 				'secretAccessKey' => 'hvF************************************Awe0x',
 				'bucket' => 'bl******down',
 				'zone' => '***',
 				//如果不写，则自动拼装QingCloud给的域名
 				'domain' => '',
+				//存储目录
+				'directory' => '',
 			],
 			
 			//Github
 			'github' => [
-				//基础api，不要修改
-				'baseUri' => 'https://api.github.com/repos/',
+				'name' => 'Github',
 				//github仓库(github左上角的名字，带用户名)
 				'repo' => 'xiebruce/PicUploader',
 				//分支，默认为master
@@ -150,15 +172,12 @@
 				'domain' => '',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
 				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
-				// 'proxy' => 'http://127.0.0.1:1087',
+				'proxy' => 'http://127.0.0.1:1087',
 			],
 			
 			//Weibo(上传图片到微博并不会自动发一条微博，请放心使用)
 			'weibo' => [
-				//登录url，请不要修改
-				'loginUrl' => 'https://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.15)&_='.time(),
-				//上传url，请不要修改
-				'uploadUrl' => 'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog&cb=http://weibo.com/aj/static/upimgback.html?_wv=5&callback=STK_ijax_'.time(),
+				'name' => '微博',
 				//微博登录用户名(或邮箱)
 				'username' => 'zhangsan@sina.com',
 				//微博登录密码
@@ -171,8 +190,8 @@
 		
 		// 调整图片大小，以下widthGreaterThan、heightGreaterThan、sizeBiggerThan三个条件，只要有一个满足，图片即会按percentage指定的百分比压缩（只对jpg和png有效，gif暂时无法压缩）
 		'resizeOptions' => [
-			// 0.65表示把原图等比缩小为原来的65%，percentage取值为0-1之间，可使用两位小数，当percentage为0和1时，不进行压缩。
-			'percentage' => '0.65',
+			// 0.65表示把原图等比缩小为原来的65%，percentage取值为0-100之间，可使用两位小数，当percentage为0和100时，不进行压缩。
+			'percentage' => '65',
 			
 			// 当宽度超过1000px时压缩
 			'widthGreaterThan' => '1000',
@@ -197,12 +216,7 @@
 		'storageType' => 'Weibo',
 		//存储服务器可写多个，表示同时传到云，注意多个服务器的情况下返回的域名将会使用你指定的多个云中的最后一个云的域名，所以这个域名必须填写，并且需要做nginx反向代理，请参考：https://www.xiebruce.top/644.html
 		//有两种写法，一是用逗号隔开，二是直接用数组，如
-		// 'storageType' => 'Upyun, Qiniu',
-		//或使用数组写法，两种方式用一种即可，
-		/*'storageType' => [
-			'Upyun',
-			'Qiniu',
-		],*/
+		'storageType' => 'Upyun, Qiniu',
 		
 		//日志真实记录在系统日志目录下：在本项目目录下的logs目录中
 		//但你可通过该项配置建立一个软链接(即快捷方式)到你想要的地方
@@ -214,7 +228,11 @@
 		'logPath' => 'desktop',
 		
 		//允许的图片类型
-		'allowMimeTypes' => ['image/jpeg', 'image/png', 'image/gif'],
+		'allowMimeTypes' => [
+			'jpeg' => 'image/jpeg',
+			'png' => 'image/png',
+			'gif' => 'image/gif',
+		],
 		
 		//watermark/水印
 		'watermark' => [
@@ -223,11 +241,7 @@
 			
 			//水印类型，支持图片水印和文字水印：image或text，如果是image，请填写以下image配置
 			//如果是text，请填写以下的text配置。
-			'type' => 'image',
-			
-			//position有四种值，分别对应图片四个角：top-left/top-right/bottom-left/bottom-right/left/right/top/bottom/center
-			//对应：左上/右上/左下/右下/左/右/上/下/中间，默认是右下
-			'position' => 'center',
+			'type' => 'text',
 			
 			//图片水印配置
 			'image' => [
@@ -236,6 +250,10 @@
 				
 				//水印图片名称，默认为watermark.png，请把static/watermark/watermark.png替换为你自己的水印即可
 				'watermark' => 'watermark.png',
+				
+				//position有四种值，分别对应图片四个角：top-left/top-right/bottom-left/bottom-right/left/right/top/bottom/center
+				//对应：左上/右上/左下/右下/左/右/上/下/中间，默认是右下
+				'position' => 'center',
 				
 				//设置离边界的距离，设置右边和下边距离，请用负数，设置左边和上边距离，请用正数
 				//当你设置水印在右下角时，需要设置的距离为右边和下边（x、y都用负数）
@@ -255,28 +273,27 @@
 			//文字水印配置（当type=text时，该配置才会用到）
 			'text' => [
 				//水印文字
-				'word' => "这是水印",
+				'words' => "这是水印",
 				
 				//文字颜色，有两种格式，1、使用标准的16进制色值（文字无透明度），2、使用rgba颜色（可让文字带透明度）
 				// 'color' => '#ff0000',
 				//rgba格式颜色，可设置透明度，rgb分别是红绿蓝光的三原色，取值范围都是：0-255
-				'color' => [
-					'r' => 255,
-					'g' => 0,
-					'b' => 0,
-					//a表示透明度，为0-127.0之间，0为完全不透明，数字越大越透明，直到127.0为完全透明(即透明成看不见)
-					'a' => 110,
-				],
+				//a表示透明度，为0-127.0之间，0为完全不透明，数字越大越透明，直到127.0为完全透明(即透明成看不见)
+				'color' => 'rgba(255,0,0,0.85)',
 				
 				//字体文件名（字体文件必须为.ttf格式，且必须放在static/watermark文件夹下，windows下最好把字体文件名改为英文，实测win10上写中文名找不到字体文件）
 				//下载字体网站：http://www.17ziti.com（字体之家）
-				'font' => 'jdchj.ttf',
+				'fontFile' => 'jdchj.ttf',
 				
 				//字体大小，整型数字，数字越大字体越大
 				'fontSize' => 30,
 				
 				//逆时针旋转角度(0-360)，如果要顺时针旋转，请用负数
 				'angle' => 45,
+				
+				//position有四种值，分别对应图片四个角：top-left/top-right/bottom-left/bottom-right/left/right/top/bottom/center
+				//对应：左上/右上/左下/右下/左/右/上/下/中间，默认是右下
+				'position' => 'center',
 				
 				//水印距离边的距离，与图片水印的一样
 				'offset' => [

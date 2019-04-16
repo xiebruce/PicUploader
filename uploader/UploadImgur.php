@@ -37,7 +37,7 @@ class UploadImgur extends Upload{
 	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
 	    
 	    $this->clientId = $ServerConfig['clientId'];
-	    $this->baseUri = $ServerConfig['baseUri'];
+	    $this->baseUri = 'https://api.imgur.com/3/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 
         $this->argv = $argv;

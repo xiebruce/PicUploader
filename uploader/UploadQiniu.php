@@ -43,7 +43,8 @@ class UploadQiniu extends Common {
         $this->secretKey = $ServerConfig['SK'];
         $this->bucket = $ServerConfig['bucket'];
         $this->domain = $ServerConfig['domain'];
-	    if(!isset($ServerConfig['directory'])){
+        
+	    if(!isset($ServerConfig['directory']) || $ServerConfig['directory']!==false){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
 	    }else{
@@ -69,7 +70,6 @@ class UploadQiniu extends Common {
 			$token = $this->getToken();
 			// 构建 UploadManager 对象
 			$uploadMgr = new UploadManager();
-			
 			if($this->directory){
 				$key = $this->directory. '/' . $key;
 			}

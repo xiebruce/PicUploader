@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>image viewer</title>
+<script src="lib/jquery-1.11.3.min.js"></script> 
+<link href="../imageviewer.css"  rel="stylesheet" type="text/css" />
+<script src="../imageviewer.js"></script>
+
+<style>
+    .gallery-items{
+        float: left;
+        height: 350px;
+    }
+</style>
+</head>
+
+<body>
+<h3>Full Screen Mode</h3>
+
+<div id="image-gallery-1" class="cf">
+    <img src="images/1.jpg" data-high-res-src="images/1_big.jpg" alt="" class="gallery-items">
+    <img src="images/2.jpg" data-high-res-src="images/2_big.jpg" alt="" class="gallery-items">
+    <img src="images/3.jpg" data-high-res-src="images/3_big.jpg" alt="" class="gallery-items">
+    <img src="images/4.jpg" data-high-res-src="images/4_big.jpg" alt="" class="gallery-items">
+</div>
+<script type="text/javascript">
+
+$(function () {
+    var viewer = ImageViewer();
+    $('.gallery-items').click(function () {
+        var imgSrc = this.src,
+            highResolutionImage = $(this).data('high-res-img');
+ 
+        viewer.show(imgSrc, highResolutionImage);
+    });
+});
+</script>
+
+ </body>
+</html>

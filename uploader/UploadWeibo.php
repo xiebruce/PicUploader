@@ -41,8 +41,8 @@ class UploadWeibo extends Common {
 	    $tmpArr = explode('\\',__CLASS__);
 	    $className = array_pop($tmpArr);
         $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
-	
-	    $this->uploadUrl = $ServerConfig['uploadUrl'];
+        //上传url，请不要修改
+	    $this->uploadUrl = 'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog&cb=http://weibo.com/aj/static/upimgback.html?_wv=5&callback=STK_ijax_'.time();
         $this->username = $ServerConfig['username'];
         $this->password = $ServerConfig['password'];
 		//获取上传用的cookie(微博图床非公共接口，需要模拟登录取得cookie后，再模拟网页上传)

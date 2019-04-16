@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>image viewer</title>
+<link href="../imageviewer.css"  rel="stylesheet" type="text/css" />
+<script src="lib/jquery-1.11.3.min.js"></script> 
+<script src="../imageviewer.js"></script>
+
+<style>
+    .pannable-image {
+      width: 700px;
+    }
+</style>
+</head>
+
+<body>
+<h3>Image Mode</h3>
+
+<div id="image-gallery" class="cf">
+    <img src="images/1.jpg" data-high-res-src="images/1_big.jpg" alt="" class="pannable-image">
+    <img src="images/2.jpg" data-high-res-src="images/2_big.jpg" alt="" class="pannable-image">
+</div>
+<script type="text/javascript">
+
+    //Example 3
+    $(function () {
+        $('.pannable-image').ImageViewer();
+    });
+</script>
+
+ </body>
+</html>

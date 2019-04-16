@@ -35,18 +35,18 @@ class Upload extends Common {
             $this->writeLog($error, 'error_log');
             exit($error);
         }
-        
+        $allowMimeTypes = array_values(static::$config['allowMimeTypes']);
 		$links = '';
 		foreach($this->argv as $filePath){
 			$mimeType = $this->getMimeType($filePath);
 			$originFilename = $this->getOriginFileName($filePath);
 			//如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-			if(!in_array($mimeType, static::$config['allowMimeTypes'])){
+			if(!in_array($mimeType, $allowMimeTypes)){
 				$error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
 				$this->writeLog($error, 'error_log');
 				continue;
 			}
-			
+
 			//获取随机文件名
 			$newFileName = $this->genRandFileName($filePath);
 			
@@ -69,14 +69,11 @@ class Upload extends Common {
 			if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
 				$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
 			}
-			
 			//同时上传到多个云时，兼容字符串写法和数组
 			$uploadServers = static::$config['storageType'];
 			is_string($uploadServers) && $uploadServers = explode(',', $uploadServers);
-			
 			//支持的存储服务器
 			$storageTypes = array_keys(static::$config['storageTypes']);
-			
 			//循环上传到每个云存储服务器
 			$link = '';
 			foreach($uploadServers as $uploadServer){

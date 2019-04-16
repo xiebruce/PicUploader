@@ -42,7 +42,7 @@ class UploadNetease extends Upload{
         //endPoint不是域名，外链域名是 bucket.'.'.endPoint
         $this->endPoint = $ServerConfig['endPoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
-	    if(!isset($ServerConfig['directory'])){
+	    if(!isset($ServerConfig['directory']) || $ServerConfig['directory']!==false){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
 	    }else{

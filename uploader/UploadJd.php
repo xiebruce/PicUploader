@@ -37,13 +37,13 @@ class UploadJd extends Upload{
 	    $className = array_pop($tmpArr);
 	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
 	    
-        $this->accessKey = $ServerConfig['key'];
-        $this->secretKey = $ServerConfig['secret'];
+        $this->accessKey = $ServerConfig['AccessKeyId'];
+        $this->secretKey = $ServerConfig['AccessKeySecret'];
         $this->endpoint = $ServerConfig['endpoint'];
         $this->bucket = $ServerConfig['bucket'];
         $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
-	    if(!isset($ServerConfig['directory'])){
+	    if(!isset($ServerConfig['directory']) || $ServerConfig['directory']!==false){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
 	    }else{

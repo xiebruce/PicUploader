@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--http://www.menucool.com/rgba-color-picker-->
+    <title></title>
+    <script src="rgbaColorPicker.js"></script>
+    <link href="rgbaColorPicker.css" rel="stylesheet" />
+    <style type="text/css">
+        .wrapper1, .wrapper2 {
+            border:1px solid #dadada;
+            background-color:#f6f6f6;
+            padding: 40px;
+            text-align: center;
+            box-sizing: content-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .wrapper2 {
+            border: 1px solid #666;
+            margin-top:30px;
+            color:white;
+            background: repeating-linear-gradient(#808080, #999999 4px);
+        }
+
+        .wrapper1 input[type=text] {
+            border:1px solid #dadada;
+            height: 18px;
+            box-sizing:content-box;
+        }
+
+        #rgbaBox {
+            border: solid 1px rgba(0,0,0,0.8);
+            padding: 0 20px 24px;
+            color: rgba(255,255,255,0.7);
+            width: 200px;
+            margin: 20px auto;
+            border-radius: 4px;
+        }
+    </style>
+    <script type="text/javascript">
+        function OnColorChanged(selectedColor, inputId) {
+            if (inputId == "input2") {
+                var rgbaBox = document.getElementById("rgbaBox");
+                rgbaBox.style.backgroundColor = selectedColor;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <div class="wrapper1" style="padding:30px 0 0 0;">
+        DEMO 1: <input id="input1" type="text" class="color" value="" />
+        <div class="wrapper2">
+            DEMO 2: <input id="input2" type="text" class="color" value="rgba(255,0,0,0.2)" />
+            <div id="rgbaBox"><h3>RGBA</h3></div>
+        </div>
+    </div>
+    <!--<br /><button onclick="rgbaColorPicker.init();">Load Color Picker in case you have set its option 
+        { initOnPageLoad: false } in rgbaColorPicker.js</button>-->
+</body>
+</html>

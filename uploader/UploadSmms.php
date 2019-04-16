@@ -32,8 +32,8 @@ class UploadSmms extends Common {
 	    $tmpArr = explode('\\',__CLASS__);
 	    $className = array_pop($tmpArr);
         $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
-	
-	    $this->baseUri = $ServerConfig['baseUri'];
+	    //baseUri一定要斜杠结尾
+	    $this->baseUri = 'https://sm.ms/api/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
         
         $this->argv = $argv;

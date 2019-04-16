@@ -750,17 +750,17 @@
 		
 		/**
 		 * Add text to an image
-		 *
-		 * @param string $text
-		 * @param string $font_file
-		 * @param float|int $font_size
+		 * @param        $text
+		 * @param        $font_file
+		 * @param int    $font_size
 		 * @param string $color
 		 * @param string $position
-		 * @param int $x_offset
-		 * @param int $y_offset
-		 * @param int $angle(0,360)
-		 * @return EasyImage
-		 * @throws Exception
+		 * @param int    $x_offset
+		 * @param int    $y_offset
+		 * @param int    $angle
+		 *
+		 * @return $this
+		 * @throws \Exception
 		 */
 		function text($text, $font_file, $font_size = 12, $color = '#000000', $position = 'bottom right', $x_offset = 0, $y_offset = 0, $angle = 0) {
 			$rgba = $this->normalize_color ( $color );

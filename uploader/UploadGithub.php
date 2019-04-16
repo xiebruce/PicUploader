@@ -49,7 +49,7 @@ class UploadGithub extends Upload{
 	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader [https://www.xiebruce.top/17.html]';
 	    $this->access_token = $ServerConfig['access_token'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
-	    if(!isset($ServerConfig['directory'])){
+	    if(!isset($ServerConfig['directory']) || $ServerConfig['directory']!==false){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
 	    }else{
@@ -57,7 +57,7 @@ class UploadGithub extends Upload{
 		    $this->directory = trim($ServerConfig['directory'], '/');
 	    }
 	
-	    $this->baseUri = $ServerConfig['baseUri'];
+	    $this->baseUri = 'https://api.github.com/repos/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 
         $this->argv = $argv;

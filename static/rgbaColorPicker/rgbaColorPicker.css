@@ -1,0 +1,174 @@
+﻿/*! Menucool rgba Color Picker v2018.9.12. www.menucool.com/rgba-color-picker */
+
+input.color{
+    width:110px;
+    height: 18px;
+    font-size:11px;
+    border:1px solid #dadada;
+    box-sizing:content-box;
+    padding-left:4px;
+}
+
+#colorpicker
+{
+    padding: 20px;
+    position: absolute;
+    top: 22px;
+    left:auto; right:0;/*If need align to the right, set: left:0;right:auto; */
+    background-color: #FFF;
+    border: 1px solid #BBB;
+    display: none;
+    z-index: 200;
+    box-sizing:content-box;
+    font: normal 10px verdana;
+    color: #666;
+    border-radius:4px;
+    box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+
+input.color.up + .colorChooser > #colorpicker {
+    top: -306px;
+}
+
+#colorpicker div
+{
+    float:left;
+    padding:0;
+    box-sizing:content-box;
+}
+#colorpicker div.clear, #colorpicker div.separator
+{
+    float: none;
+    clear: both;
+    border: 0;
+    overflow:hidden;
+    height:0;
+    font-size:0;
+}
+#colorpicker div.separator
+{
+    margin-bottom:8px;
+}
+        
+#colorpicker #colorContainer
+{
+    border:0;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    font-size:0;
+    width:234px;
+}
+#colorContainer div
+{
+    border:0;
+    border-top: solid 1px black;
+    border-left: solid 1px black;
+    width:12px;
+    height:12px;
+    overflow:hidden;
+}
+#colorpicker .w1, #colorpicker .w2 {
+    width:80px;
+    padding-left:4px;
+    border: 1px solid #999;
+    border-radius:3px;
+    position:relative;
+}
+div.w1, div.w2 {
+    height: 22px;
+    line-height: 22px;
+}
+input.w1, input.w2 {
+    font: normal 10px verdana;
+    height: 18px;
+    line-height: 18px;
+    box-sizing:content-box;
+}
+#colorpicker .w1 {
+    float:left;
+}
+#colorpicker .w2 {
+    width:120px;
+    float:right;
+}
+#colorpicker div.w2::before {
+    content: " ";
+    width:100%;
+    height:22px;
+    position:absolute;
+    left:0;top:0;
+    z-index:-1;
+}
+.opacitySpan {display:inline-block;padding-top:4px;}
+
+input.rgbaRange {
+    width:100px;
+    margin-left:20px;
+    vertical-align:middle;
+}
+/*brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html*/
+input[type=range]{
+    -webkit-appearance: none;
+    border:none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 118px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #888;
+    margin-top: -5px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+#colorpicker .btnOK {
+    width:60px;
+    float:right;
+    height:24px;
+    font-size: 14px;
+    font-weight:600;
+    vertical-align:middle;
+    cursor:pointer;
+    background-color:#e00;
+    color:white;
+    border:1px solid #333;
+}
+
+.transChooser, #colorpicker div.w2::before {
+    background: white url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDkvMDcvMTgBUiN5AAAAKklEQVQokWNkYGDwZcAC/v//j02YgQmrKB4wHDSw4AoNRkZG6tgwHDQAAMuIBmTkVeR2AAAAAElFTkSuQmCC') repeat;
+}
+
+/*Click span.colorChooser will popup the div#colorpicker */
+.colorChooser {
+    width: 46px;
+    height: 20px;
+    border: 1px solid rgba(0,0,0,0.3);
+    display: inline-block;
+    overflow: visible;
+    vertical-align: middle;
+    position: relative;
+    box-sizing: content-box;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAICAYAAAAftBSpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAB90RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgOLVo0ngAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDkvMjIvMThMTIArAAAAvklEQVQokZXMrw6CUBiG8dc/xUICIpliOHMjH4vZeQU2LV6BmWD2DrwYNgMJyqGQSNC4gMfEpk5xftvbnu83ASTpLmmu/y+QtBYgYO+cI4oiJP2c53lkWQZwAxYDIuBUliW+748CQRCQ5znAFfABPSMCjm3bEsfxRyAMQ5qmATg//70jU2BXFAVJkrwAxhiccwAHYDaGDNv0fY+1FklYa6nrGmD7qf+GCDBVVZGmKV3XAay+tWOIAANcgOVY9wCltDLGu2gdigAAAABJRU5ErkJggg==');
+    background-position:center center;
+    background-repeat:no-repeat;
+}  
