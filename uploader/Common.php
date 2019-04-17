@@ -132,7 +132,11 @@ class Common {
 	    $type = $watermarkConfig['type'];
 	    if($type=='image'){
 		    $imageConfig = $watermarkConfig['image'];
-		    $watermark = APP_PATH.$imageConfig['watermark'];
+		    if(strpos($imageConfig['fontFile'], '/')!==false){
+			    $watermark = APP_PATH.$imageConfig['fontFile'];
+		    }else{
+			    $watermark = APP_PATH.'/static/watermark/'.$imageConfig['watermark'];
+		    }
 	        $img->overlay($watermark, $watermarkConfig['image']['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
 	    }else if($type=='text'){
 		    $textConfig =  $watermarkConfig['text'];
@@ -141,16 +145,20 @@ class Common {
 		    if(isset($matches[1])){
 			    $rgba = explode(',', $matches[1]);
 			    $color = [
-				    'r'=>$rgba[0],
-				    'g'=>$rgba[1],
-				    'b'=>$rgba[2],
-				    'a'=>$rgba[3] * 100,
+				    'r'=>$rgba[0] ?? '255',
+				    'g'=>$rgba[1] ?? '0',
+				    'b'=>$rgba[2] ?? 0,
+				    'a'=>(1-($rgba[3] ?? 0.15)) * 100,
 			    ];
 		    }else{
 			    $color = $textConfig['color'];
 		    }
 		
-		    $fontPath = APP_PATH.$textConfig['fontFile'];
+		    if(strpos($textConfig['fontFile'], '/')!==false){
+			    $fontPath = APP_PATH.$textConfig['fontFile'];
+		    }else{
+			    $fontPath = APP_PATH.'/static/watermark/'.$textConfig['fontFile'];
+		    }
 		    $img->text($textConfig['words'], $fontPath, $textConfig['fontSize'], $color, $watermarkConfig['text']['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
 	    }
 	    

@@ -11,11 +11,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Dashboard-PicUploader</title>
-	<link href="/static/rgbaColorPicker/rgbaColorPicker.css" rel="stylesheet">
-	<script src="/static/rgbaColorPicker/rgbaColorPicker.js"></script>
+<!--	<link href="/static/rgbaColorPicker/rgbaColorPicker.css" rel="stylesheet">-->
+<!--	<script src="/static/rgbaColorPicker/rgbaColorPicker.js"></script>-->
 	
 	<script src="/static/js/clipboard.js"></script>
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- 依赖jQuery -->
+	<link href="/static/spectrum/spectrum.css" rel="stylesheet">
+	<script src="/static/spectrum/spectrum.js"></script>
 	
 	<link href="/static/ImageViewer/imageviewer.css" rel="stylesheet">
 	<script src="/static/ImageViewer/imageviewer.min.js"></script>

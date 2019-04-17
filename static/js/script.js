@@ -180,7 +180,6 @@ $(document).ready(function (){
 	//点击选择图片水印和文字水印
 	$('.cloud-setting').on('change', '.watermark-type-label', function (){
 		var watermarkType = $(this).find('input').val();
-		console.log(watermarkType);
 		if(watermarkType == 'text'){
 			$('.text-watermark').show();
 			$('.text-watermark .font-file-name').show();
@@ -194,7 +193,6 @@ $(document).ready(function (){
 			$(this).find('input').attr('checked', 'checked');
 			$(this).prev().find('input').removeAttr('checked');
 		}
-		console.log($(this).find('input'));
 	});
 	
 	//点击添加水印图片
@@ -240,7 +238,6 @@ $(document).ready(function (){
 				return xhr;
 			},
 			success: function (response){
-				console.log(response);
 				if(response.code==0){
 					$('input[name="watermark[image][watermark]"]').val(response.path);
 				}
@@ -279,7 +276,6 @@ $(document).ready(function (){
 				return xhr;
 			},
 			success: function (response){
-				console.log(response);
 				if(response.code==0){
 					$('input[name="watermark[text][fontFile]"]').val(response.path);
 					$('input[name="watermark[text][fontFileName]"]').val(response.name);
@@ -294,7 +290,6 @@ $(document).ready(function (){
 		if($(this).prop('checked')){
 			$('.watermark-type').show();
 			var watermarkTypeObj = $('input[name="watermark[type]"]:checked');
-			console.log(watermarkTypeObj);
 			if(watermarkTypeObj.length){
 				var watermarkType = watermarkTypeObj.val();
 				if(watermarkType=='text'){
@@ -368,6 +363,45 @@ $(document).ready(function (){
 					<div class="click-upload-image-btn" alt="点击上传文件" title="点击上传文件">点击上传文件</div>
 				<div>`;
 		$('.cloud-setting').html(dropAreaHtml);
+		
+		//拖放/粘贴图片以上传
+		$('.drop-area').on({
+			'dragenter': function(e){
+				e.stopPropagation();
+				e.preventDefault();
+			},
+			'dragover': function(e){
+				e.stopPropagation();
+				e.preventDefault();
+			},
+			'drop': function (e){
+				e.stopPropagation();
+				e.preventDefault();
+				var dataTransfer = e.originalEvent.dataTransfer;
+				if(dataTransfer.files.length > 0){
+					var file = dataTransfer.files[0];
+					//调用上传图片方法
+					uploadImage(file);
+				}
+				return false;
+			},
+			'paste': function (e){
+				e.stopPropagation();
+				e.preventDefault();
+				var items = event.clipboardData && event.clipboardData.items;
+				var file = null;
+				for (var i = 0; i < items.length; i++) {
+					if (items[i]!=undefined && items[i].type!=undefined && items[i].type.indexOf('image') !== -1) {
+						file = items[i].getAsFile();
+						break;
+					}
+				}
+				//调用上传图片方法
+				if(file){
+					uploadImage(file);
+				}
+			},
+		});
 	});
 	
 	//点击复制图片url
@@ -387,46 +421,6 @@ $(document).ready(function (){
 		console.error('Action:', e.action);
 		console.error('Trigger:', e.trigger);
 	});
-	
-	//拖放/粘贴图片以上传
-	$('.cloud-setting').on({
-		'dragenter': function(e){
-			e.stopPropagation();
-			e.preventDefault();
-		},
-		'dragover': function(e){
-			e.stopPropagation();
-			e.preventDefault();
-		},
-		'drop': function (e){
-			e.stopPropagation();
-			e.preventDefault();
-			var dataTransfer = e.originalEvent.dataTransfer;
-			if(dataTransfer.files.length > 0){
-				var file = dataTransfer.files[0];
-				//调用上传图片方法
-				uploadImage(file);
-			}
-			return false;
-		},
-		'paste': function (e){
-			e.stopPropagation();
-			e.preventDefault();
-			var items = event.clipboardData && event.clipboardData.items;
-			var file = null;
-			for (var i = 0; i < items.length; i++) {
-				if (items[i]!=undefined && items[i].type!=undefined && items[i].type.indexOf('image') !== -1) {
-					file = items[i].getAsFile();
-					break;
-				}
-			}
-			//调用上传图片方法
-			if(file){
-				uploadImage(file);
-			}
-			console.log(file);
-		},
-	}, '.drop-area');
 	
 	//点击上传字体文件
 	$('.cloud-setting').on('click', '.click-upload-image-btn', function (){
@@ -484,163 +478,164 @@ $(document).ready(function (){
 <input type="hidden" name="allowMimeTypes[${i}][value]" value="${allowMimeTypes[i].value}"></label>`;
 				}
 				
-				var generalSettingsForm = `
-							<div class="area">
-								<div class="form-group2-area">存储引擎</div>
-								<div class="form-group2 storage-types">
-									${storageTypeHtml}
-								</div>
+				var generalSettingsForm =
+					`<div class="area">
+						<div class="form-group2-area">存储引擎</div>
+						<div class="form-group2 storage-types">
+							${storageTypeHtml}
+						</div>
+					</div>
+					<div class="area">
+						<div class="form-group2-area">图片压缩</div>
+						<div class="form-group2">
+							<label>压缩百分比</label>
+							<input class="percentage" type="number" name="resizeOptions[percentage]" placeholder="0-100" value="${data.resizeOptions.percentage}"><span>%</span>
+						</div>
+						<div class="form-group2">
+							<label>宽度超过该值时压缩</label>
+							<input class="widthGreaterThan" type="number" name="resizeOptions[widthGreaterThan]" placeholder="" value="${data.resizeOptions.widthGreaterThan}"><span>px</span>
+						</div>
+						<div class="form-group2">
+							<label>高度超过该值时压缩</label>
+							<input class="heightGreaterThan" type="number" name="resizeOptions[heightGreaterThan]" placeholder="" value="${data.resizeOptions.heightGreaterThan}"><span>px</span>
+						</div>
+						<div class="form-group2">
+							<label>文件大小超过该值时压缩</label>
+							<input class="sizeBiggerThan" type="number" name="resizeOptions[sizeBiggerThan]" placeholder="" value="${data.resizeOptions.sizeBiggerThan}"><span>kb</span>
+						</div>
+					</div>
+					<div class="area">
+						<div class="form-group2 quality">
+							<label>JPEG图片压缩质量</label>
+							<input class="text" type="number" name="quality" placeholder="0-100" value="${data.quality}"><span>%</span>
+						</div>
+						<div class="form-group2 compreLevel">
+							<label>PNG图片压缩等级</label>
+							<input class="text" type="number" name="compreLevel" placeholder="0-9" value="${data.compreLevel}"><span>数字0-9，非百分比</span>
+						</div>
+						<div class="form-group2">
+							<label>返回链接类型</label>
+							<select name="linkType">
+								<option value="normal"${data.linkType=='normal'?' selected':''}>普通链接</option>
+								<option value="markdown"${data.linkType=='markdown'?' selected':''}>Markdown格式</option>
+								<option value="markdownWithLink"${data.linkType=='markdownWithLink'?' selected':''}>带链接的Markdown格式</option>
+								<option value="custom"${data.linkType=='custom'?' selected':''}>custom</option>
+							</select>
+						</div>
+						<div class="form-group2 custom-link-type">
+							<label>自定义返回链接格式</label>
+							<textarea name="customFormat" rows="5" cols="30" placeholder="<p align=&quot;center&quot;><img src=&quot;{{url}}&quot; title=&quot;{{name}}&quot; alt=&quot;{{name}}&quot;></p>">${data.customFormat}</textarea>
+						</div>
+						<div class="form-group2 log-path">
+							<label>存储日志路径</label>
+							<input class="text" type="text" name="logPath" placeholder="存储日志路径" value="${data.logPath}"><span></span>
+						</div>
+						<div class="form-group2 allowMimeTypes">
+							<label class="allowMimeTypes-label-text">允许的图片MIME</label>
+							${allowMimeTypesHtml}
+						</div>
+					</div>
+					<div class="area">
+						<div class="form-group2-area">水印</div>
+						<div class="form-group2">
+							<label>启用水印</label>
+							<input class="text" type="checkbox" name="watermark[useWatermark]" value="1"${data.watermark.useWatermark==1?' checked':''}>
+						</div>
+						<div class="form-group2 watermark-type">
+							<label>水印类型</label>
+							<label class="watermark-type-label"><input class="text" type="radio" name="watermark[type]" value="text"${data.watermark.type=='text'?' checked':''}>文字水印</label>
+							<label class="watermark-type-label"><input class="text" type="radio" name="watermark[type]" value="image"${data.watermark.type=='image'?' checked':''}>图片水印</label>
+						</div>
+						<div class="text-watermark">
+							<div class="form-group2-area">文字水印设置</div>
+							<div class="form-group2 text-watermark-words">
+								<label>水印文字</label>
+								<input class="text" type="text" name="watermark[text][words]" placeholder="水印文字" value="${data.watermark.text.words}"><span></span>
 							</div>
-							<div class="area">
-								<div class="form-group2-area">图片压缩</div>
-								<div class="form-group2">
-									<label>压缩百分比</label>
-									<input class="percentage" type="number" name="resizeOptions[percentage]" placeholder="0-100" value="${data.resizeOptions.percentage}"><span>%</span>
-								</div>
-								<div class="form-group2">
-									<label>宽度超过该值时压缩</label>
-									<input class="widthGreaterThan" type="number" name="resizeOptions[widthGreaterThan]" placeholder="" value="${data.resizeOptions.widthGreaterThan}"><span>px</span>
-								</div>
-								<div class="form-group2">
-									<label>高度超过该值时压缩</label>
-									<input class="heightGreaterThan" type="number" name="resizeOptions[heightGreaterThan]" placeholder="" value="${data.resizeOptions.heightGreaterThan}"><span>px</span>
-								</div>
-								<div class="form-group2">
-									<label>文件大小超过该值时压缩</label>
-									<input class="sizeBiggerThan" type="number" name="resizeOptions[sizeBiggerThan]" placeholder="" value="${data.resizeOptions.sizeBiggerThan}"><span>kb</span>
-								</div>
+							<div class="form-group2">
+								<label>水印字体</label>
+								<span class="font-file-name">${data.watermark.text.fontFileName}</span>
+								<input class="upload-font-file" type="button" value="上传">
+								<input class="text-watermark-font" type="file" placeholder="水印字体">
+								<input name="watermark[text][fontFile]" type="hidden" value="${data.watermark.text.fontFile}">
+								<input name="watermark[text][fontFileName]" type="hidden" value="${data.watermark.text.fontFileName}">
 							</div>
-							<div class="area">
-								<div class="form-group2 quality">
-									<label>JPEG图片压缩质量</label>
-									<input class="text" type="number" name="quality" placeholder="0-100" value="${data.quality}"><span>%</span>
-								</div>
-								<div class="form-group2 compreLevel">
-									<label>PNG图片压缩等级</label>
-									<input class="text" type="number" name="compreLevel" placeholder="0-9" value="${data.compreLevel}"><span>数字0-9，非百分比</span>
-								</div>
-								<div class="form-group2">
-									<label>返回链接类型</label>
-									<select name="linkType">
-										<option value="normal"${data.linkType=='normal'?' selected':''}>普通链接</option>
-										<option value="markdown"${data.linkType=='markdown'?' selected':''}>Markdown格式</option>
-										<option value="markdownWithLink"${data.linkType=='markdownWithLink'?' selected':''}>带链接的Markdown格式</option>
-										<option value="custom"${data.linkType=='custom'?' selected':''}>custom</option>
-									</select>
-								</div>
-								<div class="form-group2 custom-link-type">
-									<label>自定义返回链接格式</label>
-									<textarea name="customFormat" rows="5" cols="30" placeholder="<p align=&quot;center&quot;><img src=&quot;{{url}}&quot; title=&quot;{{name}}&quot; alt=&quot;{{name}}&quot;></p>">${data.customFormat}</textarea>
-								</div>
-								<div class="form-group2 log-path">
-									<label>存储日志路径</label>
-									<input class="text" type="text" name="logPath" placeholder="存储日志路径" value="${data.logPath}"><span></span>
-								</div>
-								<div class="form-group2 allowMimeTypes">
-									<label class="allowMimeTypes-label-text">允许的图片MIME</label>
-									${allowMimeTypesHtml}
-								</div>
+							<div class="form-group2 text-watermark-fontSize">
+								<label>水印文字大小</label>
+								<input class="text" type="number" name="watermark[text][fontSize]" placeholder="" value="${data.watermark.text.fontSize}"><span>px</span>
 							</div>
-							<div class="area">
-								<div class="form-group2-area">水印</div>
-								<div class="form-group2">
-									<label>启用水印</label>
-									<input class="text" type="checkbox" name="watermark[useWatermark]" value="1"${data.watermark.useWatermark==1?' checked':''}>
-								</div>
-								<div class="form-group2 watermark-type">
-									<label>水印类型</label>
-									<label class="watermark-type-label"><input class="text" type="radio" name="watermark[type]" value="text"${data.watermark.type=='text'?' checked':''}>文字水印</label>
-									<label class="watermark-type-label"><input class="text" type="radio" name="watermark[type]" value="image"${data.watermark.type=='image'?' checked':''}>图片水印</label>
-								</div>
-								<div class="text-watermark">
-									<div class="form-group2-area">文字水印设置</div>
-									<div class="form-group2 text-watermark-words">
-										<label>水印文字</label>
-										<input class="text" type="text" name="watermark[text][words]" placeholder="水印文字" value="${data.watermark.text.words}"><span></span>
-									</div>
-									<div class="form-group2">
-										<label>水印字体</label>
-										<span class="font-file-name">${data.watermark.text.fontFileName}</span>
-										<input class="upload-font-file" type="button" value="上传">
-										<input class="text-watermark-font" type="file" placeholder="水印字体">
-										<input name="watermark[text][fontFile]" type="hidden" value="${data.watermark.text.fontFile}">
-										<input name="watermark[text][fontFileName]" type="hidden" value="${data.watermark.text.fontFileName}">
-									</div>
-									<div class="form-group2 text-watermark-fontSize">
-										<label>水印文字大小</label>
-										<input class="text" type="number" name="watermark[text][fontSize]" placeholder="" value="${data.watermark.text.fontSize}"><span>px</span>
-									</div>
-									<div class="form-group2 text-watermark-color">
-										<label>水印文字颜色</label>
-										<input class="text color" type="text" name="watermark[text][color]" value="${data.watermark.text.color}"><span></span>
-									</div>
-									<div class="form-group2 text-watermark-angle">
-										<label>水印旋转角度</label>
-										<input class="text" type="number" name="watermark[text][angle]" placeholder="" value="${data.watermark.text.angle}"><span>°</span>
-									</div>
-									<div class="form-group2 text-watermark-offset">
-										<label>水印偏移</label>
-										<input class="text" type="text" name="watermark[text][offset][x]" placeholder="横向" value="${data.watermark.text.offset.x}"><span>px</span>
-										<input class="text" type="text" name="watermark[text][offset][y]" placeholder="纵向" value="${data.watermark.text.offset.y}"><span>px</span>
-									</div>
-									<div class="form-group2">
-										<label>水印位置</label>
-										<select name="watermark[text][position]">
-										<option value="top-left"${data.watermark.text.position=='top-left'?' selected':''}>左上</option>
-										<option value="top-right"${data.watermark.text.position=='top-right'?' selected':''}>右上</option>
-										<option value="bottom-left"${data.watermark.text.position=='bottom-left'?' selected':''}>左下</option>
-										<option value="bottom-right"${data.watermark.text.position=='bottom-right'?' selected':''}>右下</option>
-										<option value="center-left"${data.watermark.text.position=='center-left'?' selected':''}>左中</option>
-										<option value="center-right"${data.watermark.text.position=='center-right'?' selected':''}>左中</option>
-										<option value="center-top"${data.watermark.text.position=='center-top'?' selected':''}>上中</option>
-										<option value="center-bottom"${data.watermark.text.position=='center-bottom'?' selected':''}>下中</option>
-										<option value="center"${data.watermark.text.position=='center'?' selected':''}>居中</option>
-										</select>
-									</div>
-								</div>
+							<div class="form-group2 text-watermark-color">
+								<label>水印文字颜色</label>
+								<input class="text" type="text" name="watermark[text][color]" value="${data.watermark.text.color}"><span></span>
+							</div>
+							<div class="form-group2 text-watermark-angle">
+								<label>水印旋转角度</label>
+								<input class="text" type="number" name="watermark[text][angle]" placeholder="" value="${data.watermark.text.angle}"><span>°</span>
+							</div>
+							<div class="form-group2 text-watermark-offset">
+								<label>水印偏移</label>
+								<input class="text" type="text" name="watermark[text][offset][x]" placeholder="横向" value="${data.watermark.text.offset.x}"><span>px</span>
+								<input class="text" type="text" name="watermark[text][offset][y]" placeholder="纵向" value="${data.watermark.text.offset.y}"><span>px</span>
+							</div>
+							<div class="form-group2">
+								<label>水印位置</label>
+								<select name="watermark[text][position]">
+								<option value="top-left"${data.watermark.text.position=='top-left'?' selected':''}>左上</option>
+								<option value="top-right"${data.watermark.text.position=='top-right'?' selected':''}>右上</option>
+								<option value="bottom-left"${data.watermark.text.position=='bottom-left'?' selected':''}>左下</option>
+								<option value="bottom-right"${data.watermark.text.position=='bottom-right'?' selected':''}>右下</option>
+								<option value="center-left"${data.watermark.text.position=='center-left'?' selected':''}>左中</option>
+								<option value="center-right"${data.watermark.text.position=='center-right'?' selected':''}>左中</option>
+								<option value="center-top"${data.watermark.text.position=='center-top'?' selected':''}>上中</option>
+								<option value="center-bottom"${data.watermark.text.position=='center-bottom'?' selected':''}>下中</option>
+								<option value="center"${data.watermark.text.position=='center'?' selected':''}>居中</option>
+								</select>
+							</div>
+						</div>
 
-								<div class="image-watermark">
-									<div class="form-group2-area">图片水印设置</div>
-									<div class="form-group2">
-										<label>水印图片</label>
-										<img class="watermark-image" src="${data.watermark.image.watermark}" alt="水印图片" title="水印图片">
-										<input class="upload-watermark" type="button" value="上传">
-										<input class="watermark-image-file" type="file" placeholder="水印图片">
-										<input name="watermark[image][watermark]" type="hidden" value="${data.watermark.image.watermark}">
-									</div>
-									<div class="form-group2 image-watermark-alpha">
-										<label>水印透明度</label>
-										<input class="text" type="number" name="watermark[image][alpha]" placeholder="0-100" value="${data.watermark.image.alpha}"><span></span>
-									</div>
-									<div class="form-group2">
-										<label>水印偏移</label>
-										<input class="image-watermark-offset" type="number" name="watermark[image][offset][x]" placeholder="横向" value="${data.watermark.image.offset.x}"><span>px</span>
-										<input class="image-watermark-offset" type="number" name="watermark[image][offset][y]" placeholder="纵向" value="${data.watermark.image.offset.y}"><span>px</span>
-									</div>
-									<div class="form-group2">
-										<label>水印位置</label>
-										<select name="watermark[image][position]">
-										<option value="top-left"${data.watermark.image.position=='top-left'?' selected':''}>左上</option>
-										<option value="top-right"${data.watermark.image.position=='top-right'?' selected':''}>右上</option>
-										<option value="bottom-left"${data.watermark.image.position=='bottom-left'?' selected':''}>左下</option>
-										<option value="bottom-right"${data.watermark.image.position=='bottom-right'?' selected':''}>右下</option>
-										<option value="center-left"${data.watermark.image.position=='center-left'?' selected':''}>左中</option>
-										<option value="center-right"${data.watermark.image.position=='center-right'?' selected':''}>左中</option>
-										<option value="center-top"${data.watermark.image.position=='center-top'?' selected':''}>上中</option>
-										<option value="center-bottom"${data.watermark.image.position=='center-bottom'?' selected':''}>下中</option>
-										<option value="center"${data.watermark.image.position=='center'?' selected':''}>居中</option>
-										</select>
-									</div>
-								</div>
+						<div class="image-watermark">
+							<div class="form-group2-area">图片水印设置</div>
+							<div class="form-group2">
+								<label>水印图片</label>
+								<img class="watermark-image" src="${data.watermark.image.watermark}" alt="水印图片" title="水印图片">
+								<input class="upload-watermark" type="button" value="上传">
+								<input class="watermark-image-file" type="file" placeholder="水印图片">
+								<input name="watermark[image][watermark]" type="hidden" value="${data.watermark.image.watermark}">
 							</div>
-							<div class="area">
-								<div class="form-group2">
-									<input class="save-button2" type="button" value="保存">
-								</div>
-							</div>`;
+							<div class="form-group2 image-watermark-alpha">
+								<label>水印透明度</label>
+								<input class="text" type="number" name="watermark[image][alpha]" placeholder="0-100" value="${data.watermark.image.alpha}"><span></span>
+							</div>
+							<div class="form-group2">
+								<label>水印偏移</label>
+								<input class="image-watermark-offset" type="number" name="watermark[image][offset][x]" placeholder="横向" value="${data.watermark.image.offset.x}"><span>px</span>
+								<input class="image-watermark-offset" type="number" name="watermark[image][offset][y]" placeholder="纵向" value="${data.watermark.image.offset.y}"><span>px</span>
+							</div>
+							<div class="form-group2">
+								<label>水印位置</label>
+								<select name="watermark[image][position]">
+								<option value="top-left"${data.watermark.image.position=='top-left'?' selected':''}>左上</option>
+								<option value="top-right"${data.watermark.image.position=='top-right'?' selected':''}>右上</option>
+								<option value="bottom-left"${data.watermark.image.position=='bottom-left'?' selected':''}>左下</option>
+								<option value="bottom-right"${data.watermark.image.position=='bottom-right'?' selected':''}>右下</option>
+								<option value="center-left"${data.watermark.image.position=='center-left'?' selected':''}>左中</option>
+								<option value="center-right"${data.watermark.image.position=='center-right'?' selected':''}>左中</option>
+								<option value="center-top"${data.watermark.image.position=='center-top'?' selected':''}>上中</option>
+								<option value="center-bottom"${data.watermark.image.position=='center-bottom'?' selected':''}>下中</option>
+								<option value="center"${data.watermark.image.position=='center'?' selected':''}>居中</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="area">
+						<div class="form-group2">
+							<input class="save-button2" type="button" value="保存">
+						</div>
+					</div>`;
 				
 				//把设置相关的form表单写入到dom中
 				$('.cloud-setting').html(generalSettingsForm);
+				
 				if(data.watermark.useWatermark == "1"){
 					$('.watermark-type').show();
 					if(data.watermark.type=='image'){
@@ -653,8 +648,25 @@ $(document).ready(function (){
 					}
 				}
 				
-				//初始化拾色器
-				rgbaColorPicker.init()
+				//初始化spectrum拾色器
+				$('.text-watermark-color input[name="watermark[text][color]"]').spectrum({
+					showAlpha: true,
+					/*
+					show: function(tinycolor) {
+						console.log('show color: '+ tinycolor);
+					},
+					beforeShow: function(tinycolor) {
+						console.log('before showing color picker: ' + tinycolor);
+					},*/
+					move: function(tinycolor) {
+						$('.text-watermark-color input[name="watermark[text][color]"]').val(tinycolor.toRgbString())
+					},
+					hide: function(tinycolor) {
+						$('.text-watermark-color input[name="watermark[text][color]"]').val(tinycolor.toRgbString());
+					},
+				});
+				//放弃这个ColorPicker插件，改用spectrum
+				// rgbaColorPicker.init()
 			}
 		});
 	});
