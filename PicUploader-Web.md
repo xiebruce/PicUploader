@@ -10,6 +10,11 @@ Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图�
 ### 安装Homebrew
 如果你没有安装过Homebrew，请先安装：[Mac安装Homebrew并更换国内镜像源](https://www.xiebruce.top/720.html)。
 
+**设置open默认打开方式：**
+使用`文本编辑`软件新建一个文件，保存成任意名字到任意地方(但要你在访达中能找到)，然后找到你保存的文件，把它的后缀名修改成`.conf`，然后右击→`显示简介`→`打开方式`，如下图，选择“文本编辑.app”为打开方式，并点击`全部更改`，弹出问你是否继续，点继续，这样就搞定了，这个文件是没用的，等下边的东西设置好了，就可以删掉。
+![Xnip2019-04-17_14-01-24](media/15553782901207/Xnip2019-04-17_14-01-24.jpg)
+
+
 ### 安装php
 使用Homebrew安装php
 ```bash
@@ -21,7 +26,7 @@ brew install php
 open /usr/local/etc/php/7.3/php-fpm.d/www.conf
 ```
 
-打开后，找到以下代码位置(大概在23-24行)：
+打开后，找到以下代码位置(cmd+F搜索即可)：
 ```ini
 user = _www
 group = _www
@@ -53,7 +58,7 @@ brew install nginx
 ### 配置nginx
 修改nginx的运行用户和组
 ```bash
-vim /usr/local/etc/nginx/nginx.conf
+open /usr/local/etc/nginx/nginx.conf
 ```
 
 在它的第一行应该有一个`#user nobody;`，把它改成：`user 你的用户名 staff;`，那你的用户名是什么呢？在终端运行`whoami`命令即可获取。
@@ -64,7 +69,7 @@ user bruce staff;
 
 创建一个虚拟主机文件夹
 ```bash
-sudo mkdir /usr/local/etc/nginx/servers
+mkdir /usr/local/etc/nginx/servers
 ```
 
 在访达中打开该文件夹：
@@ -100,9 +105,9 @@ server {
     }
 }
 ```
-**特别注意：**由于`index.php`之前已经使用，所以网页的index文件并非`index.php`，而是`dashboard.php`，所以上边的location里，一定要写`index dashboard.php;`。
+**特别注意：**由于`index.php`之前已经使用，所以网页的index文件并非`index.php`，而是`dashboard.php`，所以上边的location里，一定要写`index dashboard.php;`，我提供的配置文件已经这么写了，也就是说你不要自己改动就行。
 
-启动nginx：
+启动nginx
 ```bash
 sudo brew services start nginx
 ```
@@ -134,9 +139,10 @@ cmd+s保存后，关闭文件即可。
 
 注意：使用Web版来设置配置后，`config-local.php`将不起作用，但`config.php`来会用于读取默认参数。
 
+### 在远程服务器上搭建
 如果你要放在远程服务器上，由于没有密码认证，请使用nginx做HTTP的密码认证即可：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
 
-### Windows使用PhpStudy搭建
+### Windows使用PhpStudy搭建php+apache
 1、先下载安装[PhpStudy](http://phpstudy.php.cn)，之前在 **[在Windows中设置使用PicUploader](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)** 中有讲过PhpStudy的安装，我的PhpStudy安装在`D:\phpStudy`，下面将以这个位置为例。  
 2、把整个`PicUploader`的代码`D:\phpStudy\PHPTutorial\WWW`目录下(如果你之前已经配置过右键菜单，那么又要删掉重新配置了，因为位置移动了)。  
 3、进入`D:\phpStudy\PHPTutorial\Apache\conf`目录，找到`vhosts.conf`文件：
@@ -181,5 +187,7 @@ MWeb一样要使用前边配置好的nginx服务器，按下边操作即可：
 如下图，点击Upload Images：
 ![Xnip2019-01-12_21-38-34.jpg](https://img.xiebruce.top/2019/01/12/38e6ded515aaddada287dc2a65f096d3.jpg)
 
-上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了，然后你就可以发布这篇文章了，当然你也可以点`Copy Markdown`或`Copy HTML`复制markdown或html到其他地方(比如你的博客后台)去发布。
+上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了。
+
+我一般是把`New Document`里的文章全选复制，然后关闭`New Document`的文章，再把文章内容全部替换回原来的文章中。
 
