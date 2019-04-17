@@ -1,3 +1,5 @@
+var saveTips = '可按“ctrl+s(Win)”或“cmd+s(Mac)”保存';
+
 //保存设置
 function saveSettings(method){
 	$.ajax({
@@ -106,6 +108,7 @@ $(document).ready(function (){
 	
 	//设置云服务器参数
 	$('.sub-left-bar .list .cloud').on('click', function (){
+		$('.show-save-tip .show-save-tip-text').html(saveTips);
 		$('.show-save-tip').slideDown();
 		setTimeout(function (){
 			$('.show-save-tip').slideUp(1000);
@@ -442,6 +445,7 @@ $(document).ready(function (){
 	
 	//通用设置
 	$('.general-setting').on('click', function (){
+		$('.show-save-tip .show-save-tip-text').html(saveTips);
 		$('.show-save-tip').slideDown();
 		setTimeout(function (){
 			$('.show-save-tip').slideUp(1000);
