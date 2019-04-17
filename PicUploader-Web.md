@@ -1,13 +1,78 @@
 # PicUploader-Web端/Mweb的配置与使用
-### 先看一下效果
+## 先看一下效果
 Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图片文件粘贴上传，如果gif图看不了，点这里看[web-upload-demo.gif](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)：
 ![web-upload-demo](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)
 
 使用Web端配置参数，简单直观，不需要去配置文件手写了，如果gif图看不了，点这里看[web-demo.gif](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)：
 ![web-demo](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)
 
-### Mac搭建nginx服务器(Win可往下看)
-搭建nginx服务器，配置文件如下：
+## Mac搭建php+nginx服务器(Win可往下看)
+### 安装Homebrew
+如果你没有安装过Homebrew，请先安装：[Mac安装Homebrew并更换国内镜像源](https://www.xiebruce.top/720.html)。
+
+### 安装php
+使用Homebrew安装php
+```bash
+brew install php
+```
+
+修改php-fpm运行用户和组(注意其中的`7.3`以后可能变成7.4，7.5，未必是7.3)：
+```bash
+open /usr/local/etc/php/7.3/php-fpm.d/www.conf
+```
+
+打开后，找到以下代码位置(大概在23-24行)：
+```ini
+user = _www
+group = _www
+```
+
+把它们修改成：
+```ini
+user = 你的用户名
+group = staff
+```
+你的用户名，用`whoami`命令可以获取（注意当前不要是root用户，不能填root）。
+
+启动php-fpm：
+```bash
+brew services start php
+```
+
+或者你之前启动了，那就重启：
+```bash
+brew services restart php
+```
+
+### 安装nginx
+在终端工具下执行以下命令以安装nginx：
+```bash
+brew install nginx
+```
+
+### 配置nginx
+修改nginx的运行用户和组
+```bash
+vim /usr/local/etc/nginx/nginx.conf
+```
+
+在它的第一行应该有一个`#user nobody;`，把它改成：`user 你的用户名 staff;`，那你的用户名是什么呢？在终端运行`whoami`命令即可获取。
+比如我的就是：
+```
+user bruce staff;
+```
+
+创建一个虚拟主机文件夹
+```bash
+sudo mkdir /usr/local/etc/nginx/servers
+```
+
+在访达中打开该文件夹：
+```bash
+open /usr/local/etc/nginx/servers
+```
+
+把以下配置保存成`api.picuploader.com.conf`文件，注意保存的时候要把`root /Users/bruce/www/personal/PicUploader;`中的PicUploader路径修改成你的PicUploader所在路径，然后把保存的文件拖到到前边打开的文件夹中：
 ```nginx
 server {
     listen 80;
@@ -35,15 +100,26 @@ server {
     }
 }
 ```
-特别注意，由于`index.php`之前已经使用，所以网页的index文件并非`index.php`，而是`dashboard.php`，所以上边的location里，一定要写`index dashboard.php;`。
+**特别注意：**由于`index.php`之前已经使用，所以网页的index文件并非`index.php`，而是`dashboard.php`，所以上边的location里，一定要写`index dashboard.php;`。
 
-修改host文件，添加：
+启动nginx：
+```bash
+sudo brew services start nginx
+```
+
+打开host文件
+```bash
+open /etc/hosts
+```
+
+在文件最后添加：
 ```ini
 127.0.0.1       api.picuploader.com
 ```
-对于Mac，在`/etc/hosts`文件中添加，对于Win，在`C:\Windows\System32\drivers\etc\hosts`，windows的要把文件先复制出来，修改完后，再复制回去覆盖。
+cmd+s保存后，关闭文件即可。
 
-访问`http://api.picuploader.com`，如果能打开界面那么就成功了。
+### 配置完成
+上边已经配置完php+nginx，如果一切正常，浏览器访问`http://api.picuploader.com`就可以打开后台了。
 
 进去之后，首先要设置你要使用的云的参数：
 ![-w914](https://img.xiebruce.top/2019/04/16/484be6f7f63abc150e3427a5f4f78835.jpg)
@@ -64,7 +140,7 @@ server {
 1、先下载安装[PhpStudy](http://phpstudy.php.cn)，之前在 **[在Windows中设置使用PicUploader](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)** 中有讲过PhpStudy的安装，我的PhpStudy安装在`D:\phpStudy`，下面将以这个位置为例。  
 2、把整个`PicUploader`的代码`D:\phpStudy\PHPTutorial\WWW`目录下(如果你之前已经配置过右键菜单，那么又要删掉重新配置了，因为位置移动了)。  
 3、进入`D:\phpStudy\PHPTutorial\Apache\conf`目录，找到`vhosts.conf`文件：
-![-w676](https://img.xiebruce.top/2019/04/16/806f8fc6994a4fa7db2576dabc62ed1c.jpg)  
+![-w676](https://img.xiebruce.top/2019/04/16/806f8fc6994a4fa7db2576dabc62ed1c.jpg)
 4、打开上边找到的`vhosts.conf`, 在它原来代码下边空一行，把下边代码加进去(注意如果你的安装目录不一样，DocumentRoot的目录要修改成你的目录)：
 ```apache
 <VirtualHost *:80>
