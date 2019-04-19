@@ -22,6 +22,14 @@ function saveSettings(method){
 	});
 }
 
+function UploadSuccess (xh){
+	clearInterval(xh);
+	$('.show-save-tip .show-save-tip-text').html('图片上传成功，鼠标移动到图片上即会出现复制链接按钮');
+	setTimeout(function (){
+		$('.show-save-tip').slideUp(1000);
+	}, 5000);
+}
+
 //上传图片
 function uploadImage(file){
 	let matchArr = file.type.match(/image\/(jpeg|png|gif)/);
@@ -31,21 +39,37 @@ function uploadImage(file){
 	}
 	let reader = new FileReader();  //本地预览
 	//定义onload事件，但必须要readAsDataURL之后onload事件才会触发
+	var xh;
 	reader.onload = function(){
-		// $('.watermark-image').attr('src', reader.result).show();
+		// console.log(reader.result);return false;
+		//上传之前先显示本地图片
+		var imgBox =
+			`<div class="uploaded-image-box">
+				<img class="drop-area-image" src="${reader.result}">
+			</div>`;
+		if($('.drop-area .uploaded-image-container .uploaded-image-box').length){
+			$('.drop-area .uploaded-image-container').append(imgBox);
+		}else{
+			$('.drop-area .uploaded-image-container').html(imgBox);
+		}
+		
+		let i = 0;
+		let text = '图片上传中';
+		let uploadingTip = text;
+		xh = setInterval(function (){
+			$('.show-save-tip .show-save-tip-text').html(uploadingTip);
+			i%4==0 ? uploadingTip=text : (uploadingTip += '.');
+			i++;
+		}, 300);
+		//显示图片上传中
+		$('.show-save-tip').slideDown();
 	}
+	//读取文件，以触发reader.onload事件
 	reader.readAsDataURL(file);
 	
 	var formData = new FormData();
 	formData.append('mweb', file);
 	
-	//上传之前先显示图片框，里面显示上传进度
-	var imgBox = `<div class="uploaded-image-box"><div class="upload-progress"></div><span>`;
-	if($('.drop-area .uploaded-image-container .uploaded-image-box').length){
-		$('.drop-area .uploaded-image-container').append(imgBox);
-	}else{
-		$('.drop-area .uploaded-image-container').html(imgBox);
-	}
 	$.ajax({
 		type: 'post',
 		url: './index.php',
@@ -69,17 +93,41 @@ function uploadImage(file){
 		success: function (response){
 			var data = response.data;
 			if(response.code=='success'){
-				//隐藏“拖动图片到这里以上传”文字
-				var img = `<img class="drop-area-image" src="${data.url}" alt="${data.filename}" title="${data.filename}">
-					<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
-						<img width="16" src="/static/images/clippy.svg">
-						<div class="copied">Copied!</div>
-					</div>`;
-				var lastImage = $('.drop-area .uploaded-image-container .uploaded-image-box').last();
+				//在点击上传图片那一行显示返回的markdown链接
 				$('.click-upload-image-parent .show-returned-url').html('!['+data.filename+']('+data.url+')');
-				lastImage.html(img);
-				lastImage.find('.copy-image-url').click();
+				
+				//复制按钮
+				let copyBtn =
+				`<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
+					<img width="16" src="/static/images/clippy.svg">
+					<div class="copied">Copied!</div>
+				</div>`;
+				var lastImageBox = $('.drop-area .uploaded-image-container .uploaded-image-box').last();
+				//上传成功后，即添加复制url按钮
+				lastImageBox.append(copyBtn);
+				// 用js点击复制图片按钮，把图片链接复制到剪贴板
+				// 这一句只有在mac的google浏览器能起作用，因为基于安全原因，
+				// 很多浏览器不允许用js去click这个按钮来把内容复制到剪贴板，
+				// 必须用真正的鼠标来点击才能复制
+				lastImageBox.find('.copy-image-url').click();
+				
+				//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从文件读取base64的，并没有水印)
+				var imgObj = new Image();
+				imgObj.src = data.url;
+				imgObj.onload = function (e){
+					//图片加载完成后，替换原先显示的图
+					lastImageBox.find('.drop-area-image').attr({
+						"src": data.url,
+						"alt": data.filename,
+						"title": data.filename,
+					});
+				}
 			}
+			
+			UploadSuccess(xh);
+		},
+		error: function (error){
+			UploadSuccess(xh);
 		}
 	});
 }
@@ -360,7 +408,7 @@ $(document).ready(function (){
 				<div class="click-upload-image-parent">
 					<input type="file" class="click-upload-image">
 					<div class="show-returned-url"></div>
-					<div class="click-upload-image-btn" alt="点击上传文件" title="点击上传文件">点击上传文件</div>
+					<div class="click-upload-image-btn" alt="点击上传图片" title="点击上传图片">点击上传图片</div>
 				<div>`;
 		$('.cloud-setting').html(dropAreaHtml);
 		
@@ -426,7 +474,7 @@ $(document).ready(function (){
 	$('.cloud-setting').on('click', '.click-upload-image-btn', function (){
 		$('.click-upload-image').click();
 	});
-	//点击图片拖放区域选择文件上传
+	//点击上传图片按钮→选择图片上传
 	$('.cloud-setting').on('change' , '.click-upload-image', function (e){
 		let file = $(this).get(0).files[0];
 		uploadImage(file);
