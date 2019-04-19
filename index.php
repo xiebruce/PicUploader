@@ -76,6 +76,13 @@
 			$key = str_replace('.json', '', substr($storagesFile, strrpos($storagesFile,'-') + 1));
 			$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
 		}
+		//特殊处理sm.ms，因为它可以不需要任何参数
+		if(!array_key_exists('smms', $storageTypes)){
+			$storageTypes['smms'] = [
+				'proxy' => '',
+				'name' => 'sm.ms',
+			];
+		}
 	}else{
 		$storageTypes['smms'] = [
 			'proxy' => '',
