@@ -209,18 +209,14 @@
 			imagefilledrectangle ( $this->image, 0, 0, $this->width, $this->height, $fill_color );
 			return $this;
 		}
+		
 		/**
 		 * Save an image
+		 * @param null $filename
+		 * @param null $quality
 		 *
-		 * The resulting format will be determined by the file extension.
-		 *
-		 * @param null|string $filename
-		 *        	- original file will be overwritten
-		 * @param null|int $quality
-		 *        	quality in percents 0-100
-		 *
-		 * @return EasyImage
-		 * @throws Exception
+		 * @return $this
+		 * @throws \Exception
 		 */
 		function save($filename = null, $quality = null) {
 			$filename = $filename ? $filename : $this->filename;
@@ -260,6 +256,7 @@
 			}
 			return $this;
 		}
+		
 		/**
 		 * Get info about the original image
 		 *
@@ -275,6 +272,7 @@
 		function get_original_info() {
 			return $this->original_info;
 		}
+		
 		/**
 		 * Get the current width
 		 *
@@ -283,6 +281,7 @@
 		function get_width() {
 			return imagesx ( $this->image );
 		}
+		
 		/**
 		 * Get the current height
 		 *
@@ -291,6 +290,7 @@
 		function get_height() {
 			return imagesy ( $this->image );
 		}
+		
 		/**
 		 * Get the current orientation
 		 *
@@ -305,6 +305,7 @@
 			}
 			return 'square';
 		}
+		
 		/**
 		 * Flip an image horizontally or vertically
 		 *
@@ -330,6 +331,7 @@
 			$this->image = $new;
 			return $this;
 		}
+		
 		/**
 		 * Rotate an image
 		 *
@@ -352,6 +354,7 @@
 			$this->image = $new;
 			return $this;
 		}
+		
 		/**
 		 * Rotates and/or flips an image automatically so the orientation will be
 		 * correct (based on exif 'Orientation')
@@ -414,6 +417,7 @@
 			$this->image = $new;
 			return $this;
 		}
+		
 		/**
 		 * Adaptive resize
 		 *
@@ -441,6 +445,7 @@
 			$top = ($this->height / 2) - ($height / 2);
 			return $this->crop ( $left, $top, $width + $left, $height + $top );
 		}
+		
 		/**
 		 * Fit to width (proportionally resize to specified width)
 		 *
@@ -452,6 +457,7 @@
 			$height = $width * $aspect_ratio;
 			return $this->resize ( $width, $height );
 		}
+		
 		/**
 		 * Fit to height (proportionally resize to specified height)
 		 *
@@ -463,6 +469,7 @@
 			$width = $height / $aspect_ratio;
 			return $this->resize ( $width, $height );
 		}
+		
 		/**
 		 * Best fit (proportionally resize to fit in specified width/height)
 		 *
@@ -494,6 +501,7 @@
 			}
 			return $this->resize ( $width, $height );
 		}
+		
 		/**
 		 * Crop an image
 		 *
@@ -528,6 +536,7 @@
 			$this->image = $new;
 			return $this;
 		}
+		
 		/**
 		 * Desaturate (grayscale)
 		 *
@@ -537,6 +546,7 @@
 			imagefilter ( $this->image, IMG_FILTER_GRAYSCALE );
 			return $this;
 		}
+		
 		/**
 		 * Invert
 		 *
@@ -546,6 +556,7 @@
 			imagefilter ( $this->image, IMG_FILTER_NEGATE );
 			return $this;
 		}
+		
 		/**
 		 * Brightness
 		 *
@@ -558,6 +569,7 @@
 			imagefilter ( $this->image, IMG_FILTER_BRIGHTNESS, $this->keep_within ( $level, - 255, 255 ) );
 			return $this;
 		}
+		
 		/**
 		 * Contrast
 		 *
@@ -571,6 +583,7 @@
 			imagefilter ( $this->image, IMG_FILTER_CONTRAST, $this->keep_within ( $level, - 100, 100 ) );
 			return $this;
 		}
+		
 		/**
 		 * Colorize
 		 *
@@ -587,6 +600,7 @@
 			imagefilter ( $this->image, IMG_FILTER_COLORIZE, $this->keep_within ( $rgba ['r'], 0, 255 ), $this->keep_within ( $rgba ['g'], 0, 255 ), $this->keep_within ( $rgba ['b'], 0, 255 ), $alpha );
 			return $this;
 		}
+		
 		/**
 		 * Edge Detect
 		 *
@@ -596,6 +610,7 @@
 			imagefilter ( $this->image, IMG_FILTER_EDGEDETECT );
 			return $this;
 		}
+		
 		/**
 		 * Emboss
 		 *
@@ -605,6 +620,7 @@
 			imagefilter ( $this->image, IMG_FILTER_EMBOSS );
 			return $this;
 		}
+		
 		/**
 		 * Mean Remove
 		 *
@@ -614,6 +630,7 @@
 			imagefilter ( $this->image, IMG_FILTER_MEAN_REMOVAL );
 			return $this;
 		}
+		
 		/**
 		 * Blur
 		 *
@@ -637,6 +654,7 @@
 			}
 			return $this;
 		}
+		
 		/**
 		 * Sketch
 		 *
@@ -646,6 +664,7 @@
 			imagefilter ( $this->image, IMG_FILTER_MEAN_REMOVAL );
 			return $this;
 		}
+		
 		/**
 		 * Smooth
 		 *
@@ -658,6 +677,7 @@
 			imagefilter ( $this->image, IMG_FILTER_SMOOTH, $this->keep_within ( $level, - 10, 10 ) );
 			return $this;
 		}
+		
 		/**
 		 * Pixelate
 		 *
@@ -670,6 +690,7 @@
 			imagefilter ( $this->image, IMG_FILTER_PIXELATE, $block_size, true );
 			return $this;
 		}
+		
 		/**
 		 * Sepia
 		 *
@@ -749,6 +770,40 @@
 		}
 		
 		/**
+		 * 使用GD库，把文字转成图片(可给文字添加描边)，描边的原理，就是用imagettftext逐个像素写一个比原字更大的字，然后在这个字之上再写真正要写的字，于是后面写的盖在原来的字上，多出的部分就是所谓的“描边”，很明显，这样的做法不能搞透明度，因为透明度会让下边的字“原型毕露”，导致颜色重叠
+		 * @param       $size
+		 * @param       $angle
+		 * @param       $x
+		 * @param       $y
+		 * @param       $textcolor
+		 * @param       $fontfile
+		 * @param       $text
+		 * @param array $stroke | ele1 is color(string, like: #FF0000), while ele2 is stroke pixel(int, like: 2)
+		 *
+		 * @return $this
+		 */
+		function imagettfstroketext($size, $angle, $x, $y, $textcolor, $fontfile, $text, $stroke=['#000000', 1]) {
+			$strokecolor = $stroke[0];
+			$strokepx = $stroke[1];
+			$rgba = $this->normalize_color ( $strokecolor );
+			$strokecolor = imagecolorallocatealpha( $this->image, $rgba ['r'], $rgba ['g'], $rgba ['b']);
+			
+			//x/y是文字基线(baseline)的顶点坐标，注意这个坐标并非文字的方框左下角，而是大概在左下角，但视不同的文字略有不同
+			//请查看：https://www.codeblogbt.com/archives/437784
+			//$x-$strokepx，假设$strokepx=1，则表示x的左边1个像素的x坐标，$x-$strokepx为x的右边一个像素
+			for($c1 = ($x-$strokepx); $c1 <= ($x+$strokepx); $c1++){
+				//与x类似，$y-$strokepx，假设$strokepx=1，则表示原y的下边1个像素的y坐标，$y+$strokepx为原y的上边一个像素
+				for($c2 = ($y-$strokepx); $c2 <= ($y+$strokepx); $c2++){
+					$bg = imagettftext($this->image, $size, $angle, $c1, $c2, $strokecolor, $fontfile, $text);
+				}
+			}
+
+			imagettftext($this->image, $size, $angle, $x, $y, $textcolor, $fontfile, $text);
+			
+			return $this;
+		}
+		
+		/**
 		 * Add text to an image
 		 * @param        $text
 		 * @param        $font_file
@@ -762,14 +817,31 @@
 		 * @return $this
 		 * @throws \Exception
 		 */
-		function text($text, $font_file, $font_size = 12, $color = '#000000', $position = 'bottom right', $x_offset = 0, $y_offset = 0, $angle = 0) {
+		function text($text, $font_file, $font_size = 12, $color = '#000000', $position = 'bottom-right', $x_offset = 0, $y_offset = 0, $angle = 0) {
 			$rgba = $this->normalize_color ( $color );
 			$color = imagecolorallocatealpha ( $this->image, $rgba ['r'], $rgba ['g'], $rgba ['b'], $rgba ['a'] );
-			// Determine textbox size
 			$box = imagettfbbox ( $font_size, $angle, $font_file, $text );
-			if (! $box) {
-				throw new \Exception ( 'Unable to load font: ' . $font_file );
-			}
+			
+			/*//获取文字旋转角度后的四个点的坐标
+			$boxWithAngle = imagettfbbox ( $font_size, $angle, $font_file, $text );
+			//文字旋转角度后，组成的方框的宽高(即计算可以容纳旋转后的虚拟的矩形的宽高，该矩形是横平竖直的，没有旋转角度的)
+			$virtualBoxWith = $boxWithAngle[2] - $boxWithAngle[6];
+			$virtualBoxHeight = abs($boxWithAngle[1] - $boxWithAngle[5]);
+			
+			//被添加水印的图片的宽高
+			$width = $this->get_width();
+			$height = $this->get_height();
+			
+			//角度为0时算出原点把矩形左侧边分成的两段的长度(因为原点并不一定刚好在矩形左下角，有可能是左下角偏上的位置，这是文字基线的原因)
+			$boxWithoutAngle = imagettfbbox ( $font_size, 0, $font_file, $text );
+			
+			//文字基线原点在被添加水印的图片上应该所在的坐标，使此时旋转角度后形成的虚拟矩形能刚好在被添加水印的图片的正中心
+			$x = sin(90-$angle) * $boxWithoutAngle[7] + ($width - $virtualBoxWith)/2;
+			$y = sin(90-$angle) * $boxWithoutAngle[1] + ($height - $virtualBoxHeight)/2;
+			
+			$x += $x_offset;
+			$y += $y_offset;*/
+			
 			//注意imagettfbbox()的返回值是四个坐标，它的原点不是左上角，
 			//而是文字基线的起始点：https://www.codeblogbt.com/archives/437784
 			//这也是为什么会有负数坐标出现
@@ -815,19 +887,19 @@
 					$y = ($this->height / 2) - (($box_height / 2) - $box_height) + $y_offset;
 					break;
 			}
-			imagettftext ( $this->image, $font_size, $angle, $x, $y, $color, $font_file, $text );
+			
+			$coords = imagettftext ( $this->image, $font_size, $angle, $x, $y, $color, $font_file, $text );
+			// var_dump($coords);exit;
+			
 			return $this;
 		}
+		
 		/**
 		 * Outputs image without saving
+		 * @param null $format
+		 * @param null $quality
 		 *
-		 * @param null|string $format
-		 *        	or null - format of original file will be used, may be
-		 *        	gif|jpg|png
-		 * @param int|null $quality
-		 *        	quality in percents 0-100
-		 *
-		 * @throws Exception
+		 * @throws \Exception
 		 */
 		function output($format = null, $quality = null) {
 			$quality = $quality ? $quality : $this->quality;
@@ -869,17 +941,14 @@
 			// memory
 			$this->__destruct ();
 		}
+		
 		/**
 		 * Outputs image as data base64 to use as img src
-		 *
-		 * @param null|string $format
-		 *        	or null - format of original file will be used, may be
-		 *        	gif|jpg|png
-		 * @param int|null $quality
-		 *        	quality in percents 0-100
+		 * @param null $format
+		 * @param null $quality
 		 *
 		 * @return string
-		 * @throws Exception
+		 * @throws \Exception
 		 */
 		function output_base64($format = null, $quality = null) {
 			$quality = $quality ? $quality : $this->quality;
@@ -970,6 +1039,7 @@
 			}
 			return $value;
 		}
+		
 		/**
 		 * Returns the file extension of the specified file
 		 *
@@ -982,6 +1052,7 @@
 			}
 			return preg_replace ( '/^.*\./', '', $filename );
 		}
+		
 		/**
 		 * Converts a hex color value to its RGB equivalent
 		 *
@@ -994,7 +1065,7 @@
 		 */
 		protected function normalize_color($color) {
 			if (is_string ( $color )) {
-				$color = trim ( $color, '#' );
+				$color = ltrim ( $color, '#' );
 				if (strlen ( $color ) == 6) {
 					list ( $r, $g, $b ) = array (
 						$color [0] . $color [1],
@@ -1083,6 +1154,11 @@
 			imagecopymerge($this->image, $cut, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
 		}
 		
+		/**
+		 * @param $imgfile
+		 *
+		 * @return resource|null
+		 */
 		function image_create_from_ext($imgfile)
 		{
 			$info = getimagesize($imgfile);

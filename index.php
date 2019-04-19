@@ -10,7 +10,7 @@
      * 关于$argv与$argc变量，这两个变量是php作为脚本执行时，获取输入参数的变量
      * 比如 php test.php aa bb，那么在test.php里打印$argv变量就是一个数组，包含3个元素test.php, aa, bb，而$argc就是$argv的元素个数，相当于count($argc)
      */
-    
+	
     date_default_timezone_set('Asia/Shanghai');
 
     require 'vendor/autoload.php';
@@ -76,6 +76,11 @@
 			$key = str_replace('.json', '', substr($storagesFile, strrpos($storagesFile,'-') + 1));
 			$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
 		}
+	}else{
+		$storageTypes['smms'] = [
+			'proxy' => '',
+			'name' => 'sm.ms',
+		];
 	}
 	
 	//把以上配置合并到通用配置中
@@ -106,6 +111,7 @@
 	if(isset($_FILES['mweb'])){
 		$isMweb = true;
 		$_FILES['file'] = $_FILES['mweb'];
+		unset($_FILES['mweb']);
 	}
 	
 	//if has post file
@@ -138,7 +144,7 @@
 	    	exit('未检测到图片');
 	    }
     }
-
+	
 	//getPublickLink
     $link = (new uploader\Upload($argv, $config))->getPublickLink([
     	'is_mweb' => $isMweb,
@@ -155,7 +161,6 @@
 	    ];
 	    header('Content-Type: application/json; charset=UTF-8');
 	    $json = json_encode($data, JSON_UNESCAPED_UNICODE);
-	    // file_put_contents('/Users/bruce/Downloads/picuploader.txt', $json, FILE_APPEND);
 	    echo $json;
     }else{
     	//如果是client模式，则直接返回链接

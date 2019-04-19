@@ -213,10 +213,10 @@
 		'customFormat' => '<p align="center"><img src="{{url}}" title="{{name}}" alt="{{name}}" width="80%"></p>',
 		
 		//存储服务器，可选值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur/Ucloud/Qingcloud/Github/Weibo
-		'storageType' => 'Weibo',
+		'storageType' => 'Smms',
 		//存储服务器可写多个，表示同时传到云，注意多个服务器的情况下返回的域名将会使用你指定的多个云中的最后一个云的域名，所以这个域名必须填写，并且需要做nginx反向代理，请参考：https://www.xiebruce.top/644.html
 		//有两种写法，一是用逗号隔开，二是直接用数组，如
-		'storageType' => 'Upyun, Qiniu',
+		// 'storageType' => 'Upyun, Qiniu',
 		
 		//日志真实记录在系统日志目录下：在本项目目录下的logs目录中
 		//但你可通过该项配置建立一个软链接(即快捷方式)到你想要的地方

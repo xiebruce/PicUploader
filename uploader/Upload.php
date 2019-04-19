@@ -18,7 +18,7 @@ class Upload extends Common {
     {
         $this->argv = $argv;
         static::$config = $config;
-        static::$config['storageType'] = isset(static::$config['storageType']) ? static::$config['storageType'] : 'Qiniu';
+        static::$config['storageType'] = isset(static::$config['storageType']) ? static::$config['storageType'] : 'Smms';
     }
 	
 	/**
@@ -46,7 +46,6 @@ class Upload extends Common {
 				$this->writeLog($error, 'error_log');
 				continue;
 			}
-
 			//获取随机文件名
 			$newFileName = $this->genRandFileName($filePath);
 			
@@ -69,6 +68,7 @@ class Upload extends Common {
 			if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
 				$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
 			}
+			
 			//同时上传到多个云时，兼容字符串写法和数组
 			$uploadServers = static::$config['storageType'];
 			is_string($uploadServers) && $uploadServers = explode(',', $uploadServers);

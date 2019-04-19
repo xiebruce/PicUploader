@@ -18,8 +18,8 @@
 	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 	
 	<!-- 依赖jQuery -->
-	<link href="/static/spectrum/spectrum.css" rel="stylesheet">
-	<script src="/static/spectrum/spectrum.js"></script>
+	<link href="/static/Spectrum-ColorPicker/spectrum.css" rel="stylesheet">
+	<script src="/static/Spectrum-ColorPicker/spectrum.js"></script>
 	
 	<link href="/static/ImageViewer/imageviewer.css" rel="stylesheet">
 	<script src="/static/ImageViewer/imageviewer.min.js"></script>

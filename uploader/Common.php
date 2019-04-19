@@ -130,7 +130,8 @@ class Common {
 	    $img->load($filePath);
 	    $watermarkConfig = static::$config['watermark'];
 	    $type = $watermarkConfig['type'];
-	    if($type=='image'){
+		
+		if($type=='image'){
 		    $imageConfig = $watermarkConfig['image'];
 		    if(strpos($imageConfig['fontFile'], '/')!==false){
 			    $watermark = APP_PATH.$imageConfig['fontFile'];
@@ -148,7 +149,7 @@ class Common {
 				    'r'=>$rgba[0] ?? '255',
 				    'g'=>$rgba[1] ?? '0',
 				    'b'=>$rgba[2] ?? 0,
-				    'a'=>(1-($rgba[3] ?? 0.15)) * 100,
+				    'a'=>(int)((1-($rgba[3] ?? 0.15)) * 100),
 			    ];
 		    }else{
 			    $color = $textConfig['color'];
@@ -159,10 +160,11 @@ class Common {
 		    }else{
 			    $fontPath = APP_PATH.'/static/watermark/'.$textConfig['fontFile'];
 		    }
-		    $img->text($textConfig['words'], $fontPath, $textConfig['fontSize'], $color, $watermarkConfig['text']['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
+			
+			$img->text($textConfig['words'], $fontPath, $textConfig['fontSize'], $color, $watermarkConfig['text']['position'], $textConfig['offset']['x'], $textConfig['offset']['y'], $textConfig['angle']);
 	    }
-	    
-	    //if no tmp file then create one
+		
+		//if no tmp file then create one
 	    if(strpos($filePath, '.tmp') === false){
 		    $tmpDir = APP_PATH.'/.tmp';
 		    !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
@@ -173,6 +175,7 @@ class Common {
 	    }
 		
 		$img->save($tmpImgPath);
+	    // exit('watermark saved');
 		return $tmpImgPath;
     }
 
