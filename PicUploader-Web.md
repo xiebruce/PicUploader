@@ -1,19 +1,18 @@
-# PicUploader-Web端/Mweb的配置与使用
+# PicUploader-Web端及作为图床接口的配置与使用
 ## 先看一下效果
-Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图片文件粘贴上传，如果gif图看不了，点这里看[web-upload-demo.gif](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)：
-![web-upload-demo](https://img.xiebruce.top/2019/04/16/b511d63082f0a21f270c2f372c145e68.gif)
+Web端上传图片示例：支持拖拽上传、截图粘贴上传、复制图片文件粘贴上传，如果gif图看不了，点这里看[web-upload-demo.mp4](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)：
+<video controls name="media" title="Web-demo2.mp4"><source src="https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4" type="video/mp4"></video>
 
-使用Web端配置参数，简单直观，不需要去配置文件手写了，如果gif图看不了，点这里看[web-demo.gif](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)：
-![web-demo](https://img.xiebruce.top/2019/04/16/c47b6950bf92a1a1a5a2f018efeab1d8.gif)
+使用Web端配置参数，简单直观，不需要去配置文件手写了，如果gif图看不了，点这里看[Web-Setting-demo.mp4](https://img.xiebruce.top/2019/04/20/fd624c89d70d26aa36357b379327e099.mp4)：
+<video controls name="media" title="Web-Setting-demo.mp4"><source src="https://img.xiebruce.top/2019/04/20/fd624c89d70d26aa36357b379327e099.mp4" type="video/mp4"></video>
 
-## Mac搭建php+nginx服务器(Win可往下看)
+## 在Mac上使用Web版
 ### 安装Homebrew
 如果你没有安装过Homebrew，请先安装：[Mac安装Homebrew并更换国内镜像源](https://www.xiebruce.top/720.html)。
 
 **设置open默认打开方式：**  
 使用`文本编辑`软件新建一个文件，保存成任意名字到任意地方(但要你在访达中能找到)，然后找到你保存的文件，把它的后缀名修改成`.conf`，然后右击→`显示简介`→`打开方式`，如下图，选择“文本编辑.app”为打开方式，并点击`全部更改`，弹出问你是否继续，点继续，这样就搞定了，这个文件是没用的，等下边的东西设置好了，就可以删掉。  
 ![Xnip2019-04-17_14-01-24](https://img.xiebruce.top/2019/04/17/39eefdc236fe2860c41b543ed420762e.jpg)
-
 
 ### 安装php
 使用Homebrew安装php
@@ -134,15 +133,28 @@ cmd+s保存后，关闭文件即可。
 然后这里选择要上传到哪些云，以及其他的一些参数：
 ![-w1440](https://img.xiebruce.top/2019/04/16/2b10ae99742c00551f8f61b84b4d1d0f.jpg)
 
-配置好参数之后，就可以使用了，除了右击图片上传图片、快捷键上传图片之外，也可在这里上传，可以拖拽图片到这里、截图后直接`ctrl+v`在这里粘贴，`ctrl+c`复制图片文件后，在这里`ctrl+V`粘贴上传：
+配置好参数之后，就可以使用了，上传方式：
+- 1、选择文件上传，最传统的，没什么好说的；
+- 2、拖放上传，可同时拖放多张图片到上传区域，支持jpg/png/gif；
+- 3、粘贴上传，一次只能粘贴一张，即使你复制了多张，也只能粘贴一张：
+&nbsp;&nbsp;&nbsp;&nbsp;1）可以复制本地图片文件后到上传区域`ctrl+v`(win)或`cmd+v`(mac)粘贴；
+&nbsp;&nbsp;&nbsp;&nbsp;2）也可以右击网页上的图片→复制图片后到上传区域`ctrl+v`(win)或`cmd+v`(mac)粘贴；
+&nbsp;&nbsp;&nbsp;&nbsp;3）还可以截图→复制到剪贴板后在上传区域`ctrl+v`(win)或`cmd+v`(mac)粘贴；
+&nbsp;&nbsp;&nbsp;&nbsp;4）并且无论你复制的图片是jpg、png还是gif又或者是其他图片，只要用粘贴的方式上传，都会被转为一个名叫`image.png`的图片，这个是技术上无法左右的，这是浏览器自动将粘贴的图片转成png文件后再交给js进行处理的。
 ![-w1440](https://img.xiebruce.top/2019/04/16/65b4312f3c43b0593307255433df9f6b.jpg)
 
-注意：使用Web版来设置配置后，`config-local.php`将不起作用，但`config.php`来会用于读取默认参数。
+前面已经说过，在Web端粘贴上传，图版会被浏览器转成`image.png`再传给PicUploader，无论你是复制的图片文件(不管是jpg/png/gif)，还是截图，还是网页右击复制图片，最终都会被转成`image.png`，并且转成的这个图片还是全分辨率的，怎么全分辨率呢？比如我的Macbook Pro，retina屏系统显示分辨率是1440×900，但retina屏是4个点一个像素(横着两个点，竖着两个点)，所以浏览器把你截的图变成图片的长宽分别是1440×2和900×2，即2880×1800，这个分辨率存成的图片是比较大的，至少对一个截图来说，很大，基本上是2M多，差不多3M，以下是我在我的Mac全屏截取一个截图，用不同浏览器打开网页版并粘贴，大小如下：
+![Xnip2019-04-20_12-19-26](https://img.xiebruce.top/2019/04/20/82401e5a89dc1f8351ab94a7f2bda793.jpg)
+可以看到，除了Safari，其他的浏览器都差不多，Safari毕竟是苹果自家的，可能做了特殊处理。
 
-### 在远程服务器上搭建
-如果你要放在远程服务器上，由于没有密码认证，请使用nginx做HTTP的密码认证即可：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
+这个差不多3M的图传给PicUploader之后，假设PicUploader设置压缩比为50%，并且png压缩等级为9，我试了压缩后是800多k，所以，直接粘贴上传的图会“略大”，当然，最终大小会与你当前的屏幕分辨率及你截图的区域多大以及你设置的压缩百分比，压缩等级有关。
 
-### Windows使用PhpStudy搭建php+apache
+**注意：** 使用Web版来设置配置后，`config-local.php`将不起作用，但`config.php`来会用于读取默认参数(未设置过的参数)。
+
+## 在远程服务器上搭建Web版
+远程服务器上搭建跟在本地搭建是一样的，但由于没有做登录功能，为防止别人可以随意访问页面，请使用nginx做HTTP的密码认证即可：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
+
+## 在Windows上搭建Web版
 1、先下载安装[PhpStudy](http://phpstudy.php.cn)，之前在 **[在Windows中设置使用PicUploader](https://github.com/xiebruce/PicUploader/blob/master/PicUploader-Windows-README.md)** 中有讲过PhpStudy的安装，我的PhpStudy安装在`D:\phpStudy`，下面将以这个位置为例。  
 2、把整个`PicUploader`的代码`D:\phpStudy\PHPTutorial\WWW`目录下(如果你之前已经配置过右键菜单，那么又要删掉重新配置了，因为位置移动了)。  
 3、进入`D:\phpStudy\PHPTutorial\Apache\conf`目录，找到`vhosts.conf`文件：
@@ -172,7 +184,7 @@ cmd+s保存后，关闭文件即可。
 
 8、浏览器打开`http://api.picuploader.com`试试看，如果一切正常，现在你已经能进PicUploader的页面了。
 
-### MWeb使用PicUploader
+## 作为MWeb的发布图片服务
 MWeb一样要使用前边配置好的nginx服务器，按下边操作即可：
 
 点击mweb的偏好设置→发布(publishing)→点击右边最下面一个`自定义(custom)`：
@@ -190,3 +202,15 @@ MWeb一样要使用前边配置好的nginx服务器，按下边操作即可：
 上传完成后，即会出现地址图片地址，你可以点`New Document`建立一篇新文章，该文章就是你写的这篇文章，只不过图片全部被替换为线上地址了。
 
 我一般是把`New Document`里的文章全选复制，然后关闭`New Document`的文章，再把文章内容全部替换回原来的文章中。
+
+## 作为PicGo的第三方图床
+在PicGo的`插件设置`里，搜索“自定义”即会出来两个插件，安装其中一个即可：
+![-w799](https://img.xiebruce.top/2019/04/20/25cdd04a5e6f677c44b1c2430afa5c21.jpg)
+
+填参数，设置参数后点击确定，并设置为默认图床：
+- **url**：假设你配置的nginx或apache域名为`http://api.picuploader.com`，则这里的`url`就填`http://api.picuploader.com/index.php`；
+- **paramName**：固定填`picgo`；
+- **jsonPath**：固定填`url`；
+![-w800](https://img.xiebruce.top/2019/04/20/df68bd0e8a7ec3d9cd5c750c21d5c20b.jpg)
+
+这样PicGo就会通过PicUploader来上传图片了。
