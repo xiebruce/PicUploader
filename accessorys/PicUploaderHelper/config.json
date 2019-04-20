@@ -1,0 +1,21 @@
+{
+	"img_type": "JPEG",
+	"php_path": "/usr/local/bin/php",
+	"picuploader_index_path": "/Users/bruce/www/personal/PicUploader/index.php",
+	"notification": {
+		"success": {
+			"title": "Upload image succeed",
+			"subtitle": "",
+			"message": "Markdown link is copied to the cliboard, you can paste now!"
+		},
+		"no_image": {
+			"title": "No image detected",
+			"subtitle": "",
+			"message": "No image was detected in the clipboard, please take a screenshot first!"
+		}
+    },
+    "key_combinations": [
+        ["alt", "shift", "¨"]
+    ],
+	"debug": 0
+}

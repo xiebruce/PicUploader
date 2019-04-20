@@ -1,0 +1,21 @@
+{
+	"img_type": "JPEG",
+	"php_path": "D:\\phpStudy\\PHPTutorial\\php\\php-7.2.1-nts\\php.exe",
+	"picuploader_index_path": "D:\\phpStudy\\PHPTutorial\\WWW\\PicUploader\\index.php",
+	"notification": {
+		"success": {
+			"title": "Upload image succeed",
+			"subtitle": "",
+			"message": "Markdown link is copied to the cliboard, you can paste now!"
+		},
+		"no_image": {
+			"title": "No image detected",
+			"subtitle": "",
+			"message": "No image was detected in the clipboard, please take a screenshot first!"
+		}
+    },
+    "key_combinations": [
+        ["ctrl_l", "shift", "u"]
+    ],
+	"debug": 0
+}
