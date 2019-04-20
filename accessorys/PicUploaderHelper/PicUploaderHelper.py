@@ -129,7 +129,7 @@ def upload_image():
         child.wait()
 
         # 删除从剪贴板保存的图片文件
-        # os.remove(tmp_img)
+        os.remove(tmp_img)
 
         # Send macOS notification
         send_notification()
