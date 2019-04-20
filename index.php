@@ -8,42 +8,52 @@
 
     /*
      * 关于$argv与$argc变量，这两个变量是php作为脚本执行时，获取输入参数的变量
-     * 比如 php test.php aa bb，那么在test.php里打印$argv变量就是一个数组，包含3个元素test.php, aa, bb，而$argc就是$argv的元素个数，相当于count($argc)
+     * 比如 php test.php aa bb，那么在test.php里打印$argv变量就是一个数组，包含3个元素test.php, aa, bb，而$argc就是$argv的元素个数，相当于count($argc)，当然也可用$_SERVER['argv']，$_SERVER['argc']表示。
      */
 	
+	/*header('Content-Type: application/json; charset=UTF-8');
+    echo '{"code":"success","data":{"filename":"20190418194552.png","url":"https://ws2.sinaimg.cn/large/6db312f1gy1g270z0i9qtj207205m3yv.jpg"}}';exit;*/
+
     date_default_timezone_set('Asia/Shanghai');
 
     require 'vendor/autoload.php';
     require 'common/EasyImage.php';
 
     define('APP_PATH', strtr(__DIR__, '\\', '/'));
+    $defaultConfig = json_decode(file_get_contents(APP_PATH.'/config/.config.json'), true);
     $storageDir = APP_PATH.'/config/.settings';
     
 	//通用设置
     $generalSettingsFile = $storageDir . '/general-settings.json';
     if(is_file($generalSettingsFile)){
 	    $generalSettings = json_decode(file_get_contents($generalSettingsFile), true);
-	    $storageType = '';
-	    //把后台保存的配置文件的格式处理为可用格式
-	    if(isset($generalSettings['storageType']) && is_array($generalSettings['storageType'])){
-	    	foreach($generalSettings['storageType'] as $key=>$val){
-	    		if(isset($val['isActive']) && $val['isActive']=="1"){
-				    $storageType .= ucfirst($key).',';
-			    }
-		    }
-	    }
-	    $generalSettings['storageType'] = rtrim($storageType, ',');
-	
-	    //把后台allowMimeTypes处理为可用格式
-	    $allowMimeTypes = '';
-	    if(isset($generalSettings['allowMimeTypes']) && is_array($generalSettings['allowMimeTypes'])){
-		    foreach($generalSettings['allowMimeTypes'] as $key=>&$val){
-			    if(isset($val['isActive']) && $val['isActive']=="1"){
-				    $val = $val['value'];
-			    }
-		    }
-	    }
+    }else{
+	    $generalSettings = $defaultConfig;
     }
+	
+	$storageType = '';
+	//把后台保存的配置文件的格式处理为可用格式
+	if(isset($generalSettings['storageType']) && is_array($generalSettings['storageType'])){
+		foreach($generalSettings['storageType'] as $key=>$val){
+			if(isset($val['isActive']) && $val['isActive']=="1"){
+				$storageType .= ucfirst($key).',';
+			}
+		}
+		$storageType = rtrim($storageType, ',');
+	}else{
+		$storageType = $generalSettings['storageType'];
+	}
+	$generalSettings['storageType'] = $storageType;
+	
+	/*//把后台allowMimeTypes处理为可用格式
+	$allowMimeTypes = '';
+	if(isset($generalSettings['allowMimeTypes']) && is_array($generalSettings['allowMimeTypes'])){
+		foreach($generalSettings['allowMimeTypes'] as $key=>&$val){
+			if(isset($val['isActive']) && $val['isActive']=="1"){
+				$val = $val['value'];
+			}
+		}
+	}*/
 	
 	//自定义返回链接格式
 	$customFormatFile = $storageDir . '/customFormat.json';
@@ -120,6 +130,12 @@
 		$_FILES['file'] = $_FILES['mweb'];
 		unset($_FILES['mweb']);
 	}
+	$isPicgo = false;
+	if(isset($_FILES['picgo'])){
+		$isPicgo = true;
+		$_FILES['file'] = $_FILES['picgo'];
+		unset($_FILES['picgo']);
+	}
 	
 	//if has post file
     if(isset($_FILES['file']) && $files = $_FILES['file']){
@@ -151,21 +167,29 @@
 	    	exit('未检测到图片');
 	    }
     }
-	
+
 	//getPublickLink
     $link = (new uploader\Upload($argv, $config))->getPublickLink([
-    	'is_mweb' => $isMweb,
+    	'do_not_format' => ($isMweb || $isPicgo),
     ]);
 
-    //如果是MWeb，则返回Mweb支持的json格式
-    if($isMweb){
-	    $data = [
-		    'code' => 'success',
-		    'data' => [
-			    'filename' => $_FILES['file']['name'],
+    //如果是MWeb或PicGo，则返回Mweb/Picgo支持的json格式
+    if($isMweb || $isPicgo){
+    	if($isMweb){
+		    $data = [
+			    'code' => 'success',
+			    'data' => [
+				    'filename' => $_FILES['file']['name'],
+				    'url' => $link,
+			    ],
+		    ];
+	    }else{
+		    $data = [
+			    'code' => 'success',
 			    'url' => $link,
-		    ],
-	    ];
+		    ];
+	    }
+	    
 	    header('Content-Type: application/json; charset=UTF-8');
 	    $json = json_encode($data, JSON_UNESCAPED_UNICODE);
 	    echo $json;

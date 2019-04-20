@@ -29,15 +29,16 @@ class Common {
     public function getMimeType($filePath)
     {
         $mimetype = false;
-        if(class_exists('Imagick', false)){
-            // open with Imagick
-            $imagick = new \Imagick($filePath);
-            $mimetype = $imagick->getImageMimeType();
-        }elseif(function_exists('finfo_open')) {
-            // open with FileInfo
-            $finfo = finfo_open(FILEINFO_MIME_TYPE); // FILEINFO_MIME_TYPE means return mime type
-            $mimetype =  finfo_file($finfo, $filePath);
-            finfo_close($finfo);
+        //fileinfo可以获取任何文件的类型，不止图片
+        if(function_exists('finfo_open')){
+	        // open with FileInfo
+	        $finfo = finfo_open(FILEINFO_MIME_TYPE); // FILEINFO_MIME_TYPE means return mime type
+	        $mimetype =  finfo_file($finfo, $filePath);
+	        finfo_close($finfo);
+        }elseif(class_exists('Imagick', false)) {
+	        // open with Imagick
+	        $imagick = new \Imagick($filePath);
+	        $mimetype = $imagick->getImageMimeType();
         } elseif(function_exists('getimagesize')) {
             // open with GD
             $fileInfo = getimagesize($filePath);
@@ -113,6 +114,7 @@ class Common {
 	                }
                 }
                 $img->save($tmpImgPath, $quality);
+
             }
         }
         return $tmpImgPath;
@@ -238,25 +240,40 @@ class Common {
      *
      * @return string
      */
-    public function formatLink($url, $filename=''){
-        switch (static::$config['linkType']){
-            case 'markdown':
-                $link = '!['.$filename.']('.$url.')';
-                break;
-            case 'markdownWithLink':
-                //image with link
-                $img = '!['.$filename.']('.$url.')';
-                $link = '['.$img.']('.$url.')';
-                break;
-	        case 'custom':
-	        	$customFormat = static::$config['customFormat'];
-		        $link = str_replace('{{url}}', $url, $customFormat);
-		        $link = str_replace('{{name}}', $filename, $link);
-	        	break;
-            case 'normal':
-            default:
-                $link = $url;
-        }
+    public function formatLink($url, $filename='', $mime){
+    	//非图片
+    	if(strpos($mime, 'image')===false){
+    	    switch($mime){
+		        case 'video/mp4':
+			        // $link = '<video controls name="media" title="'.$filename.'" width="935">><source src="'.$url.'" type="video/mp4"></video>';
+			        $link = strtr(static::$config['videoFormat'], ['{{url}}'=>$url, '{{name}}'=>$filename]);
+			        break;
+		        case 'audio/mpeg':
+			        // $link = '<audio src="'.$url.'" title="'.$filename.'">';
+			        $link = strtr(static::$config['audioFormat'], ['{{url}}'=>$url, '{{name}}'=>$filename]);
+		        	break;
+		        default:
+			        $link = '['.$filename.']('.$url.')';
+	        }
+	    }else{
+		    switch (static::$config['linkType']){
+			    case 'markdown':
+				    $link = '!['.$filename.']('.$url.')';
+				    break;
+			    case 'markdownWithLink':
+				    //image with link
+				    $img = '!['.$filename.']('.$url.')';
+				    $link = '['.$img.']('.$url.')';
+				    break;
+			    case 'custom':
+				    $link = strtr(static::$config['customFormat'], ['{{url}}'=>$url, '{{name}}'=>$filename]);
+				    break;
+			    case 'normal':
+			    default:
+				    $link = $url;
+		    }
+	    }
+        
         return $link."\n";
     }
 

@@ -164,6 +164,9 @@ input, textarea {
 .custom-link-type {
 	display: none;
 }
+.video-link-type, .audio-link-type {
+	/*暂无样式*/
+}
 
 .allowMimeTypes label{
 	max-width: 200px;
@@ -350,9 +353,10 @@ input.color {
 	border: 1px solid #686868;
 	border-radius: 4px;
 	width: 57.5%;
-	height: 40px;
+	/*height: 40px;*/
 	margin: 2px auto 0 auto;
 	position: relative;
+	background: #f1f1f1;
 }
 .click-upload-image-parent .click-upload-image-btn {
 	position: absolute;
@@ -369,9 +373,25 @@ input.color {
 	cursor: pointer;
 }
 .click-upload-image-parent .show-returned-url {
-	height: 36px;
+	width: 88%;
+	overflow: scroll;
+	min-height: 36px;
+	max-height: 300px;
 	line-height: 36px;
 	padding: 2px 5px;
 	background: #f1f1f1;
 	color: #469e08;
+	white-space: pre;
+}
+.uploaded-image-box .image-mask {
+	width: 100%;
+	height: 100%;
+	line-height: 150px;
+	color: #FFFFFF;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	background: rgba(0, 0, 0, 0.42);
 }

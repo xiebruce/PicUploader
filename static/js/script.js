@@ -22,50 +22,23 @@ function saveSettings(method){
 	});
 }
 
-function UploadSuccess (xh){
+function UploadSuccess (xh, text=''){
+	if (text=='')  text = '图片';
 	clearInterval(xh);
-	$('.show-save-tip .show-save-tip-text').html('图片上传成功，鼠标移动到图片上即会出现复制链接按钮');
+	$('.show-save-tip .show-save-tip-text').html(text + '上传成功，鼠标移动到图片上即会出现复制链接按钮');
 	setTimeout(function (){
 		$('.show-save-tip').slideUp(1000);
 	}, 5000);
 }
 
-//上传图片
-function uploadImage(file){
-	let matchArr = file.type.match(/image\/(jpeg|png|gif)/);
-	if(!matchArr){
-		alert("只允许上传jpg/png/gif格式图片");
+function uploadImages(files){
+	if(files.length==0){
 		return false;
 	}
-	let reader = new FileReader();  //本地预览
-	//定义onload事件，但必须要readAsDataURL之后onload事件才会触发
-	var xh;
-	reader.onload = function(){
-		// console.log(reader.result);return false;
-		//上传之前先显示本地图片
-		var imgBox =
-			`<div class="uploaded-image-box">
-				<img class="drop-area-image" src="${reader.result}">
-			</div>`;
-		if($('.drop-area .uploaded-image-container .uploaded-image-box').length){
-			$('.drop-area .uploaded-image-container').append(imgBox);
-		}else{
-			$('.drop-area .uploaded-image-container').html(imgBox);
-		}
-		
-		let i = 0;
-		let text = '图片上传中';
-		let uploadingTip = text;
-		xh = setInterval(function (){
-			$('.show-save-tip .show-save-tip-text').html(uploadingTip);
-			i%4==0 ? uploadingTip=text : (uploadingTip += '.');
-			i++;
-		}, 300);
-		//显示图片上传中
-		$('.show-save-tip').slideDown();
-	}
-	//读取文件，以触发reader.onload事件
-	reader.readAsDataURL(file);
+	let file = files.shift();
+	var firstUnuploaded = $('.drop-area .uploaded-image-container .un-uploaded:first');
+	//状态由“未上传”改为“上传中...”
+	firstUnuploaded.find('.image-mask').html('上传中...');
 	
 	var formData = new FormData();
 	formData.append('mweb', file);
@@ -93,47 +66,101 @@ function uploadImage(file){
 		success: function (response){
 			var data = response.data;
 			if(response.code=='success'){
-				//在点击上传图片那一行显示返回的markdown链接
-				$('.click-upload-image-parent .show-returned-url').html('!['+data.filename+']('+data.url+')');
+				//移除未上传类名及遮罩
+				firstUnuploaded.removeClass('un-uploaded').find('.image-mask').remove();
+				
+				//在上传图片那一行显示返回的markdown链接
+				$('.click-upload-image-parent .show-returned-url').append('!['+data.filename+']('+data.url+')\n');
 				
 				//复制按钮
 				let copyBtn =
-				`<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
+					`<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
 					<img width="16" src="/static/images/clippy.svg">
 					<div class="copied">Copied!</div>
 				</div>`;
-				var lastImageBox = $('.drop-area .uploaded-image-container .uploaded-image-box').last();
+
 				//上传成功后，即添加复制url按钮
-				lastImageBox.append(copyBtn);
+				firstUnuploaded.append(copyBtn);
 				// 用js点击复制图片按钮，把图片链接复制到剪贴板
 				// 这一句只有在mac的google浏览器能起作用，因为基于安全原因，
 				// 很多浏览器不允许用js去click这个按钮来把内容复制到剪贴板，
 				// 必须用真正的鼠标来点击才能复制
-				lastImageBox.find('.copy-image-url').click();
+				firstUnuploaded.find('.copy-image-url').click();
 				
 				//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从文件读取base64的，并没有水印)
 				var imgObj = new Image();
 				imgObj.src = data.url;
 				imgObj.onload = function (e){
 					//图片加载完成后，替换原先显示的图
-					lastImageBox.find('.drop-area-image').attr({
+					firstUnuploaded.find('.drop-area-image').attr({
 						"src": data.url,
 						"alt": data.filename,
 						"title": data.filename,
 					});
 				}
+				
+				//继续上传第二张
+				uploadImages(files);
 			}
-			
-			UploadSuccess(xh);
 		},
 		error: function (error){
-			UploadSuccess(xh);
+			console.log(error);
 		}
 	});
 }
 
+//上传图片
+let fileList = new Array();
+function showLocalImages(files){
+	if(!(files instanceof Array)){
+		var fileArr = new Array();
+		//对象转数组
+		for(let i in files){
+			if(!isNaN(parseInt(i))){
+				fileArr.push(files[i]);
+			}
+		}
+		files = fileArr;
+	}else{
+		//全部显示完成，开始上传
+		if(files.length==0){
+			//ajax上传图片
+			uploadImages(fileList);
+			return false;
+		}
+	}
+	
+	//取出一个文件
+	let file = files.shift();
+	fileList.push(file);
+	
+	let reader = new FileReader();  //读取文件
+	//定义onload事件，但必须要readAsDataURL之后onload事件才会触发
+	reader.onload = function(){
+		// console.log(reader.result);return false;
+		//上传之前先显示本地图片
+		var imgBox =
+			`<div class="uploaded-image-box un-uploaded">
+				<img class="drop-area-image" src="${reader.result}">
+				<div class="image-mask">未开始</div>
+			</div>`;
+		if($('.drop-area .uploaded-image-container .uploaded-image-box').length){
+			$('.drop-area .uploaded-image-container').append(imgBox);
+		}else{
+			$('.drop-area .uploaded-image-container').html(imgBox);
+		}
+		//显示一张之后，再次显示
+		showLocalImages(files);
+	}
+	reader.readAsDataURL(file);
+}
+
 //jQuery入口函数
 $(document).ready(function (){
+	$(document).on('scroll', function (e){
+		$('.container .body .left-bar').height($('.form-area').outerHeight());
+	});
+	
 	//显示隐藏云服务器菜单
 	$('.cloud-storage').on({
 		'mouseenter': function (){
@@ -406,10 +433,10 @@ $(document).ready(function (){
 					</div>
 				</div>
 				<div class="click-upload-image-parent">
-					<input type="file" class="click-upload-image">
+					<input type="file" class="click-upload-image" multiple="multiple" >
 					<div class="show-returned-url"></div>
-					<div class="click-upload-image-btn" alt="点击上传图片" title="点击上传图片">点击上传图片</div>
-				<div>`;
+					<div class="click-upload-image-btn" alt="选择图片" title="选择图片">选择图片</div>
+				</div>`;
 		$('.cloud-setting').html(dropAreaHtml);
 		
 		//拖放/粘贴图片以上传
@@ -427,30 +454,37 @@ $(document).ready(function (){
 				e.preventDefault();
 				var dataTransfer = e.originalEvent.dataTransfer;
 				if(dataTransfer.files.length > 0){
-					var file = dataTransfer.files[0];
-					//调用上传图片方法
-					uploadImage(file);
+					showLocalImages(dataTransfer.files);
 				}
 				return false;
 			},
 			'paste': function (e){
 				e.stopPropagation();
 				e.preventDefault();
-				var items = event.clipboardData && event.clipboardData.items;
-				var file = null;
-				for (var i = 0; i < items.length; i++) {
+				
+				let file = null;
+				let items = event.clipboardData && event.clipboardData.items;
+				//不管粘贴几张图片，只会有一个text/plain和一个image/png对象，不管是什么格式图片都会被转成png格式。
+				for (let i in items) {
 					if (items[i]!=undefined && items[i].type!=undefined && items[i].type.indexOf('image') !== -1) {
 						file = items[i].getAsFile();
-						break;
 					}
 				}
 				//调用上传图片方法
 				if(file){
-					uploadImage(file);
+					showLocalImages([file]);
 				}
 			},
 		});
 	});
+	
+	//上传图片按钮→选择图片上传
+	$('.cloud-setting').on('change' , '.click-upload-image', function (e){
+		let files = $(this).get(0).files;
+		if (files.length) {
+			showLocalImages(files);
+		}
+	})
 	
 	//点击复制图片url
 	var clipboard = new ClipboardJS('.copy-image-url');
@@ -474,11 +508,6 @@ $(document).ready(function (){
 	$('.cloud-setting').on('click', '.click-upload-image-btn', function (){
 		$('.click-upload-image').click();
 	});
-	//点击上传图片按钮→选择图片上传
-	$('.cloud-setting').on('change' , '.click-upload-image', function (e){
-		let file = $(this).get(0).files[0];
-		uploadImage(file);
-	})
 	
 	//点击上传字体文件
 	$('.cloud-setting').on('click', '.upload-font-file', function (){
@@ -518,13 +547,14 @@ $(document).ready(function (){
 				}
 				
 				var allowMimeTypesHtml = '';
+				/*
 				var allowMimeTypes = data.allowMimeTypes;
 				for(var i in allowMimeTypes){
 					checked = (allowMimeTypes[i].isActive != undefined && allowMimeTypes[i].isActive==1) ? ' checked' : '';
 					allowMimeTypesHtml += `<label>
 <input type="checkbox" name="allowMimeTypes[${i}][isActive]" value="1"${checked}>${i}
 <input type="hidden" name="allowMimeTypes[${i}][value]" value="${allowMimeTypes[i].value}"></label>`;
-				}
+				}*/
 				
 				var generalSettingsForm =
 					`<div class="area">
@@ -573,6 +603,14 @@ $(document).ready(function (){
 						<div class="form-group2 custom-link-type">
 							<label>自定义返回链接格式</label>
 							<textarea name="customFormat" rows="5" cols="30" placeholder="<p align=&quot;center&quot;><img src=&quot;{{url}}&quot; title=&quot;{{name}}&quot; alt=&quot;{{name}}&quot;></p>">${data.customFormat}</textarea>
+						</div>
+						<div class="form-group2 video-link-type">
+							<label>视频返回链接格式</label>
+							<textarea name="videoFormat" rows="5" cols="30" placeholder="<video controls name=&quot;media&quot; title=&quot;{{name}}&quot; width=&quot;935&quot;>><source src=&quot;{{url}}&quot; type=&quot;video/mp4&quot;></video>&quot;">${data.videoFormat}</textarea>
+						</div>
+						<div class="form-group2 audio-link-type">
+							<label>音频返回链接格式</label>
+							<textarea name="audioFormat" rows="5" cols="30" placeholder="<audio controls name=&quot;media&quot; title=&quot;{{name}}&quot; width=&quot;400&quot; src=&quot;{{url}}&quot; title=&quot;{{name}}&quot;>">${data.audioFormat}</textarea>
 						</div>
 						<div class="form-group2 log-path">
 							<label>存储日志路径</label>

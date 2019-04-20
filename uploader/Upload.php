@@ -35,17 +35,17 @@ class Upload extends Common {
             $this->writeLog($error, 'error_log');
             exit($error);
         }
-        $allowMimeTypes = array_values(static::$config['allowMimeTypes']);
+        // $allowMimeTypes = array_values(static::$config['allowMimeTypes']);
 		$links = '';
 		foreach($this->argv as $filePath){
 			$mimeType = $this->getMimeType($filePath);
 			$originFilename = $this->getOriginFileName($filePath);
 			//如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-			if(!in_array($mimeType, $allowMimeTypes)){
+			/*if(!in_array($mimeType, $allowMimeTypes)){
 				$error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
 				$this->writeLog($error, 'error_log');
 				continue;
-			}
+			}*/
 			//获取随机文件名
 			$newFileName = $this->genRandFileName($filePath);
 			
@@ -54,21 +54,25 @@ class Upload extends Common {
 			
 			//如果配置了优化宽度，则优化
 			$uploadFilePath = $filePath;
-			$tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
-			$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
-			if(isset(static::$config['resizeOptions']['percentage']) && static::$config['resizeOptions']['percentage'] > 0 && static::$config['resizeOptions']['percentage'] < 1){
-				$tmpImgPath = $this->optimizeImage($filePath, static::$config['resizeOptions'], $quality);
-				$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-			} else if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-				$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
-				$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+
+			//非图片则不需要做压缩和水印处理
+			if(strpos($mimeType, 'image')!==false){
+				$tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
+				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
+				if(isset(static::$config['resizeOptions']['percentage']) && static::$config['resizeOptions']['percentage'] > 0 && static::$config['resizeOptions']['percentage'] < 100){
+					$tmpImgPath = $this->optimizeImage($filePath, static::$config['resizeOptions'], $quality);
+					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+				} else if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
+					$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
+					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+				}
+
+				//添加水印
+				if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
+					$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
+				}
 			}
-			
-			//添加水印
-			if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-				$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
-			}
-			
+
 			//同时上传到多个云时，兼容字符串写法和数组
 			$uploadServers = static::$config['storageType'];
 			is_string($uploadServers) && $uploadServers = explode(',', $uploadServers);
@@ -90,12 +94,12 @@ class Upload extends Common {
 						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
 					}
 					
-					if(!$params['is_mweb']){
+					if(!$params['do_not_format']){
 						//按配置文件指定的格式，格式化链接
 						if(in_array($uploadServer, ['smms', 'imgur'])){
-							$link['link'] = $this->formatLink($link['link'], $originFilename);
+							$link['link'] = $this->formatLink($link['link'], $originFilename, $mimeType);
 						}else{
-							$link = $this->formatLink($link, $originFilename);
+							$link = $this->formatLink($link, $originFilename, $mimeType);
 						}
 					}
 					
@@ -119,7 +123,7 @@ class Upload extends Common {
 			$links .= $link;
 			
 			//删除临时图片
-			$tmpImgPath && is_file($tmpImgPath) && @unlink($tmpImgPath);
+			isset($tmpImgPath) && is_file($tmpImgPath) && @unlink($tmpImgPath);
 		}
         return $links;
     }

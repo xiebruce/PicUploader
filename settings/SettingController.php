@@ -98,14 +98,14 @@ class SettingController {
 			$generalSettings['storageType'] = $storageType;
 			
 			//允许上传的图片类型
-			$allowMimeTypes = [];
+			/*$allowMimeTypes = [];
 			foreach($this->settings['allowMimeTypes'] as $key=>$val){
 				$allowMimeTypes[$key] = [
 					'isActive' => 1,
 					'value' => $val,
 				];
 			}
-			$generalSettings['allowMimeTypes'] = $allowMimeTypes;
+			$generalSettings['allowMimeTypes'] = $allowMimeTypes;*/
 		}
 		
 		//自定义返回链接格式
@@ -137,6 +137,8 @@ class SettingController {
 		
 		//把以上配置合并到通用配置中
 		$generalSettings['customFormat'] = $customFormat;
+		$generalSettings['videoFormat'] = $this->settings['videoFormat'];
+		$generalSettings['audioFormat'] = $this->settings['audioFormat'];
 		$generalSettings['watermark']['image'] = $imageWatermark;
 		$generalSettings['watermark']['text'] = $textWatermark;
 		
@@ -173,7 +175,7 @@ class SettingController {
 		unset($_POST['watermark']['image']);
 		unset($_POST['customFormat']);
 		
-		!isset($_POST['allowMimeTypes']) && $_POST['allowMimeTypes'] = [];
+		// !isset($_POST['allowMimeTypes']) && $_POST['allowMimeTypes'] = [];
 		!isset($_POST['storageType']) && $_POST['storageType'] = [];
 		!isset($_POST['watermark']['useWatermark']) && $_POST['watermark']['useWatermark'] = 0;
 		!isset($_POST['watermark']['type']) && $_POST['watermark']['type'] = '';

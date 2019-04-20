@@ -211,6 +211,10 @@
 		'linkType' => 'markdown',
 		//自定义返回链接格式，其中{{url}}在返回的时候会被替换为图片url，{{name}}会被替换为上传的图片名称（这样做主要为了小图居中）
 		'customFormat' => '<p align="center"><img src="{{url}}" title="{{name}}" alt="{{name}}" width="80%"></p>',
+		//视频返回链接格式
+		'videoFormat' => '<video controls name="media" title="{{name}}" width="935"><source src="{{url}}" type="video/mp4"></video>',
+		//音频返回链接格式
+		'audioFormat' => '<audio controls name="media" title="{{name}}" width="400" src="{{url}}" title="{{name}}">',
 		
 		//存储服务器，可选值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur/Ucloud/Qingcloud/Github/Weibo
 		'storageType' => 'Smms',
@@ -228,11 +232,11 @@
 		'logPath' => 'desktop',
 		
 		//允许的图片类型
-		'allowMimeTypes' => [
+		/*'allowMimeTypes' => [
 			'jpeg' => 'image/jpeg',
 			'png' => 'image/png',
 			'gif' => 'image/gif',
-		],
+		],*/
 		
 		//watermark/水印
 		'watermark' => [
