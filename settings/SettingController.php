@@ -121,7 +121,7 @@ class SettingController {
 		if(is_file($imageWatermarkFile)){
 			$imageWatermark = json_decode(file_get_contents($imageWatermarkFile), true);
 		}else{
-			$this->settings['watermark']['image']['watermark'] = '/static/watermark/'.$generalSettings['watermark']['image']['watermark'];
+			$this->settings['watermark']['image']['watermark'] = '/static/watermark/'.$this->settings['watermark']['image']['watermark'];
 			$imageWatermark = $this->settings['watermark']['image'];
 		}
 		
@@ -130,8 +130,8 @@ class SettingController {
 		if(is_file($textWatermarkFile)){
 			$textWatermark = json_decode(file_get_contents($textWatermarkFile), true);
 		}else{
-			$this->settings['watermark']['text']['fontFile'] = '/static/watermark/'.$generalSettings['watermark']['text']['fontFile'];
-			$this->settings['watermark']['text']['fontFileName'] = $generalSettings['watermark']['text']['fontFile'];
+			$this->settings['watermark']['text']['fontFileName'] = $this->settings['watermark']['text']['fontFile'];
+			$this->settings['watermark']['text']['fontFile'] = '/static/watermark/'.$this->settings['watermark']['text']['fontFile'];
 			$textWatermark = $this->settings['watermark']['text'];
 		}
 		
