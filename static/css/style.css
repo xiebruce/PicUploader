@@ -382,6 +382,13 @@ input.color {
 	background: #f1f1f1;
 	color: #469e08;
 	white-space: pre;
+	/*隐藏了横向滚动向，竖向滚动条是没了，但滚动区域还在*/
+	overflow-x: hidden;
+	overflow-y: scroll;
+	/*隐藏IE10+浏览器的滚动条*/
+	-ms-overflow-style: none;
+	/*隐藏火狐浏览器的滚动条*/
+	overflow: -moz-scrollbars-none;
 }
 .uploaded-image-box .image-mask {
 	width: 100%;
