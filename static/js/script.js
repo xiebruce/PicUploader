@@ -22,15 +22,7 @@ function saveSettings(method){
 	});
 }
 
-function UploadSuccess (xh, text=''){
-	if (text=='')  text = '图片';
-	clearInterval(xh);
-	$('.show-save-tip .show-save-tip-text').html(text + '上传成功，鼠标移动到图片上即会出现复制链接按钮');
-	setTimeout(function (){
-		$('.show-save-tip').slideUp(1000);
-	}, 5000);
-}
-
+//ajax上传图片递归上传多张图片
 function uploadImages(files){
 	if(files.length==0){
 		return false;
@@ -109,8 +101,9 @@ function uploadImages(files){
 	});
 }
 
-//上传图片
+
 let fileList = new Array();
+//显示多张本地图片，显示完后调用uploadImages上传图片
 function showLocalImages(files){
 	if(!(files instanceof Array)){
 		var fileArr = new Array();
