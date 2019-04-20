@@ -24,13 +24,13 @@ PicUploader
 [Mac演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
 ![Mac-demo.gif](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
 
-[Win10演示](https://img.xiebruce.top/2019/04/19/24d32d9391a498566f309096d49b777d.gif)
-![Win10-demo.gif](https://img.xiebruce.top/2019/04/19/24d32d9391a498566f309096d49b777d.gif)
+[Win10演示](https://img.xiebruce.top/2019/04/20/af6ba883c7336841bd66e92f68765210.gif)
+![Win10-demo.gif](https://img.xiebruce.top/2019/04/20/af6ba883c7336841bd66e92f68765210.gif)
 
-[Win7演示](https://img.xiebruce.top/2019/04/19/566602c00c6e0b736283f4695d98cbaa.gif)
-![demo-win7.gif](https://img.xiebruce.top/2019/04/19/566602c00c6e0b736283f4695d98cbaa.gif)
+[Win7演示](https://img.xiebruce.top/2019/04/20/7ac006c673dd9ab8500654de5a18b514.gif)
+![demo-win7.gif](https://img.xiebruce.top/2019/04/20/7ac006c673dd9ab8500654de5a18b514.gif)
 
 [Web版演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)
 [![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/20/871131e16abc183075cdcc095d82b5be.jpeg)](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)
 
-由于维护多个文档太累，Github flavor markdown还得空两格才会换行，并且不支持视频，基于种种原因，如果想要安装，请直接查看唯一文档：[一个还不错的图床工具-PicUploader](https://www.xiebruce.top/17.html)。
+由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[一个还不错的图床工具-PicUploader](https://www.xiebruce.top/17.html)。
