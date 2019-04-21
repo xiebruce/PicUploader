@@ -7,12 +7,11 @@ import json
 import subprocess
 import sys
 
-# The currently active modifiers
-current = set()
 # Current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 separator = '/'
+client_type = ''
 config_file_name = 'config.json'
 
 if sys.platform == 'win32':
@@ -22,9 +21,21 @@ if sys.platform == 'win32':
 
 def read_config():
     """ Read config from config.json """
+    global client_type
     config_file = current_dir + separator + config_file_name
-    if len(sys.argv) == 2:
-        config_file = sys.argv[1]
+    # if there is params
+    if len(sys.argv) > 1:
+        for i, val in enumerate(sys.argv):
+            if i == 0:
+                continue
+            else:
+                params = val.split('=')
+                key = params[0]
+                val = params[1]
+                if key == '--config':
+                    config_file = val
+                elif key == '--type':
+                    client_type = val
 
     f = open(config_file, 'r', -1, 'utf8')
     text = f.read()
@@ -38,23 +49,6 @@ config = read_config()
 if config['debug'] == 1:
     log_dir = current_dir
     logging.basicConfig(filename=(log_dir + separator + "key_log.txt"), level=logging.DEBUG,format='%(asctime)s: %(message)s')
-
-
-def get_key_combination():
-    """ Get key combinations from config """
-    tmp_list = []
-    key_combinations = config['key_combinations']
-
-    for items in key_combinations:
-        s = set()
-        for item in items:
-            if len(item) == 1:
-                ele = keyboard.KeyCode(char=item)
-            else:
-                ele = getattr(keyboard.Key, item)
-            s.add(ele)
-        tmp_list.append(s)
-    return tmp_list
 
 
 def send_notification(notification_type=''):
@@ -98,7 +92,6 @@ def get_image_from_clipboard():
         img_type = config['img_type']
 
         # Tmp image path
-        # tmp_img =  './.screenshot_upload_tmp.' + img_type.lower()
         tmp_img = current_dir + separator + '.screenshot.' + img_type.lower()
 
         # Save the image as jpg to disk
@@ -137,26 +130,49 @@ def upload_image():
         send_notification('no_image')
 
 
-COMBINATIONS = []
-COMBINATIONS = get_key_combination()
+def get_key_combination():
+    """ Get key combinations from config """
+    tmp_list = []
+    key_combinations = config['key_combinations']
+
+    for items in key_combinations:
+        s = set()
+        for item in items:
+            if len(item) == 1:
+                ele = keyboard.KeyCode(char=item)
+            else:
+                ele = getattr(keyboard.Key, item)
+            s.add(ele)
+        tmp_list.append(s)
+    return tmp_list
 
 
-def on_press(key):
-    """ Listen button press event  """
-    if config['debug'] == 1:
-        logging.info(str(key))
-    if any([key in COMBO for COMBO in COMBINATIONS]):
-        current.add(key)
-        if any(all(k in current for k in COMBO) for COMBO in COMBINATIONS):
-            upload_image()
+if client_type != 'alfred':
+
+    # The currently active modifiers
+    current = set()
+    # get key combination
+    COMBINATIONS = get_key_combination()
 
 
-def on_release(key):
-    """ Listen button release event """
-    if any([key in COMBO for COMBO in COMBINATIONS]):
-        current.remove(key)
+    def on_press(key):
+        """ Listen button press event  """
+        if config['debug'] == 1:
+            logging.info(str(key))
+        if any([key in COMBO for COMBO in COMBINATIONS]):
+            current.add(key)
+            if any(all(k in current for k in COMBO) for COMBO in COMBINATIONS):
+                upload_image()
 
 
-with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-    """ start a keyboard listener """
-    listener.join()
+    def on_release(key):
+        """ Listen button release event """
+        if any([key in COMBO for COMBO in COMBINATIONS]):
+            current.remove(key)
+
+
+    with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
+        """ start a keyboard listener """
+        listener.join()
+else:
+    upload_image()
