@@ -21,25 +21,29 @@ PicUploader
 - 支持上传任意文件(不只是图片)；
 - 目前支持13个图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博
 
-[Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
+[Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)：
 ![Mac-demo.gif](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
 
-[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)
+[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)：
 ![Mac-shortcut-upload-demo.gif](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)
 
-[Win10右击图片上传演示](https://img.xiebruce.top/2019/04/20/af6ba883c7336841bd66e92f68765210.gif)
+[Win10右击图片上传演示](https://img.xiebruce.top/2019/04/20/af6ba883c7336841bd66e92f68765210.gif)：
 ![Win10-demo.gif](https://img.xiebruce.top/2019/04/20/af6ba883c7336841bd66e92f68765210.gif)
 
 [Win10快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/8fdddaa3e5edaebbadda74aca79a4c11.gif)：
 ![windows10-shortcut-upload.gif](https://img.xiebruce.top/2019/04/21/8fdddaa3e5edaebbadda74aca79a4c11.gif)
 
-[Win7右击图片上传演示](https://img.xiebruce.top/2019/04/20/7ac006c673dd9ab8500654de5a18b514.gif)
+[Win7右击图片上传演示](https://img.xiebruce.top/2019/04/20/7ac006c673dd9ab8500654de5a18b514.gif)：
 ![demo-win7.gif](https://img.xiebruce.top/2019/04/20/7ac006c673dd9ab8500654de5a18b514.gif)
 
 [Win7快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/037c1af6239d02b964f5e62d2550c25c.gif)：
 ![windows7-shortcut-upload.gif](https://img.xiebruce.top/2019/04/21/037c1af6239d02b964f5e62d2550c25c.gif)
 
-[Web版演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)
+[Web版演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)：
 [![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/20/871131e16abc183075cdcc095d82b5be.jpeg)](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)
+
+[上传任意格式文件演示](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)：
+![upload-non-image-demo_optimized.gif](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)
+
 
 由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
