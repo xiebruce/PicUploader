@@ -85,11 +85,14 @@ class Upload extends Common {
 			foreach($uploadServers as $uploadServer){
 				$uploadServer = strtolower(trim($uploadServer));
 				if(in_array($uploadServer, $storageTypes)){
+					$isSftp = (isset(static::$config['storageTypes'][$uploadServer]['type']) && strtolower(static::$config['storageTypes'][$uploadServer]['type'])=='sftp') ? true : false;
 					//new 变量类名不会带上命名空间，所以自己把命名空间加上
 					$className = __NAMESPACE__.'\\Upload'.ucfirst($uploadServer);
 					//new 变量类名，并调用对应类的upload()方法上传文件
 					if($uploadServer == 'imgur'){
 						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath, $originFilename);
+					}else if($isSftp){
+						$link = (new UploadSftp(static::$config, $this->argv, $uploadServer))->upload($key, $uploadFilePath);
 					}else{
 						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
 					}

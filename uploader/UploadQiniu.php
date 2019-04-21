@@ -44,8 +44,8 @@ class UploadQiniu extends Common {
         $this->secretKey = $ServerConfig['SK'];
         $this->bucket = $ServerConfig['bucket'];
         $this->domain = $ServerConfig['domain'];
-
-	    if(!isset($ServerConfig['directory']) || $ServerConfig['directory']!==false){
+	
+	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
 	    }else{

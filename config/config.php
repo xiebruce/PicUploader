@@ -183,6 +183,22 @@
 				//微博登录密码
 				'password' => '*****************',
 			],
+			
+			//使用sftp协议上传到自己的服务器上
+			'bwg' => [
+				'name' => '搬瓦工',
+				//固定填写sftp
+				'type' => 'sftp',
+				//ip也可以写域名(反正域名最终也是被解析为ip，都一样)
+				'host' => '服务器ip或域名',
+				'username' => 'ssh用户名',
+				'password' => 'ssh密码',
+				//prefix为前缀，最终上传目录是：prefix+directory，那为什么要分开写呢？因为directory会拼到你的domain后面，而prefix不会
+				//prefix就相当于设置上传的“根目录”
+				'prefix' => '/home/xiebruce',
+				'directory' => '/data',
+				'domain' => 'https://img.xiebruce.top',
+			],
 		],
 		
 		// 即将舍弃，图片优化宽度（建议填1000），值为0或注释掉表示不优化，由于比较大的图片压缩为固定宽度容易导致图片很模糊，因此这种压缩为固定宽度的方式不科学，改为使用百分比，如果使用了“resizeOption”选项，该参数不再使用。
