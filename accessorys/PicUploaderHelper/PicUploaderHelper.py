@@ -108,18 +108,23 @@ def upload_image():
         # Assemble upload shell command
         upload_command = config['php_path'] + ' ' + config['picuploader_index_path'] + ' ' + tmp_img
 
-        if sys.platform == 'darwin':
-            clipboard = 'pbcopy'
-        elif sys.platform == 'win32':
-            clipboard = 'clip'
-        else:
-            clipboard = 'xsel -b'
+        if client_type != 'alfred':
+            if sys.platform == 'darwin':
+                clipboard = 'pbcopy'
+            elif sys.platform == 'win32':
+                clipboard = 'clip'
+            else:
+                clipboard = 'xsel -b'
 
-        # Execute shell with python
-        upload_command = upload_command + ' | ' + clipboard
+            # Execute shell with python
+            upload_command = upload_command + ' | ' + clipboard
 
         child = subprocess.Popen(upload_command, stdout=subprocess.PIPE, shell=True)
         child.wait()
+
+        if client_type == 'alfred':
+            link = str(child.stdout.read(), encoding='utf-8').strip()
+            print(link)
 
         # 删除从剪贴板保存的图片文件
         os.remove(tmp_img)
@@ -147,8 +152,10 @@ def get_key_combination():
     return tmp_list
 
 
-if client_type != 'alfred':
-
+# 如果是Alfred调用，则直接上传剪贴板图片即可，不需要监听剪贴板
+if client_type == 'alfred':
+    upload_image()
+else:
     # The currently active modifiers
     current = set()
     # get key combination
@@ -174,5 +181,3 @@ if client_type != 'alfred':
     with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         """ start a keyboard listener """
         listener.join()
-else:
-    upload_image()
