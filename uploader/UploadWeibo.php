@@ -99,29 +99,37 @@ class UploadWeibo extends Common {
 	        'prelt' => '0',
 	        'returntype' => 'TEXT',
 	    ];
-	
-	    //实例化GuzzleHttp
-	    $client = new Client([
-		    'base_uri' => $loginUrl,
-		    'timeout'  => 10.0,
-	    ]);
-	    $response = $client->request('POST', '', [
-		    'form_params' => $loginData
-	    ]);
-	
-	    $res = $response->getHeaderLine('Set-Cookie');
-	    // $string = $response->getBody()->getContents();
-	    //从返回的header中匹配出cookie
-	    $preg = "/(SUB)=(.*?);/";
-	    preg_match($preg, $res, $matches);
-	    
-	    $cookie = [];
-	    if(isset($matches[1]) && $matches[1]=='SUB' && $matches[2]){
-	        $cookie = [
-		        $matches[1] => $matches[2],
-	        ];
-	        file_put_contents(self::COOKIE_CACHE_FILE, json_encode($cookie));
-	    }
+		
+		$cookie = [];
+	    try {
+		    //实例化GuzzleHttp
+		    $client = new Client([
+			    'base_uri' => $loginUrl,
+			    'timeout'  => 10.0,
+		    ]);
+		    $response = $client->request('POST', '', [
+			    'form_params' => $loginData
+		    ]);
+		
+		    $res = $response->getHeaderLine('Set-Cookie');
+		    // $string = $response->getBody()->getContents();
+		    //从返回的header中匹配出cookie
+		    $preg = "/(SUB)=(.*?);/";
+		    preg_match($preg, $res, $matches);
+		    
+		    if(isset($matches[1]) && $matches[1]=='SUB' && $matches[2]){
+			    $cookie = [
+				    $matches[1] => $matches[2],
+			    ];
+			    file_put_contents(self::COOKIE_CACHE_FILE, json_encode($cookie));
+		    }else{
+			    throw new \Exception('Login faild: '.$res);
+	        }
+	    }catch (\Exception $e){
+			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+			$this->writeLog($e->getMessage()."\n", 'error_log');
+		}
+		
 	    return $cookie;
     }
 	
