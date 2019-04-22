@@ -112,7 +112,6 @@ class UploadWeibo extends Common {
 		    ]);
 		
 		    $res = $response->getHeaderLine('Set-Cookie');
-		    // $string = $response->getBody()->getContents();
 		    //从返回的header中匹配出cookie
 		    $preg = "/(SUB)=(.*?);/";
 		    preg_match($preg, $res, $matches);
@@ -123,7 +122,8 @@ class UploadWeibo extends Common {
 			    ];
 			    file_put_contents(self::COOKIE_CACHE_FILE, json_encode($cookie));
 		    }else{
-			    throw new \Exception('Login faild: '.$res);
+			    $string = $response->getBody()->getContents();
+			    throw new \Exception('Login faild: '.$string);
 	        }
 	    }catch (\Exception $e){
 			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
