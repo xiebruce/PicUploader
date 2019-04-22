@@ -71,23 +71,39 @@ class SettingController {
 	}
 	
 	/**
-	 * 返回在后台设置的配置
+	 * 后台获取配置
 	 *
 	 * @return false|string
 	 */
 	public function getGeneralSettings(){
 		//以下配置单独存储文件，是因为他们是可选的，是为了防止未选择它们时导致之前保存的数据丢失
 		
-		//通用设置
+		//=========================== 通用设置 开始 ===============================
+		//通用设置，即storageTypes,watermark,customFormat外的部分，
+		//因为storageTypes,watermark,customFormat是可选部分，每个key都单独存一个文件
 		$generalSettingsFile = $this->storagesDir . '/general-settings.json';
+		
+		//如果后台有设置过，那么会存在该文件
 		if(is_file($generalSettingsFile)){
 			$generalSettings = json_decode(file_get_contents($generalSettingsFile), true);
+			//对比配置文件中的项与单独保存的json文件中的项，如果配置文件中有新增，则添加进去
+			$storageTypeFromWebConfig = array_keys($generalSettings['storageType']);
+			$storageTypeFromConfigFile = array_keys($this->settings['storageTypes']);
+			$diffKeys = array_diff($storageTypeFromConfigFile, $storageTypeFromWebConfig);
+			if(!empty($diffKeys)){
+				foreach ($diffKeys as $diffKey){
+					$tmpStorageTypes = $this->settings['storageTypes'][$diffKey];
+					$generalSettings['storageType'][$diffKey] = [
+						'name' => isset($tmpStorageTypes['name']) ? $tmpStorageTypes['name'] : $diffKey
+					];
+				}
+			}
 		}else{
-			unset($this->settings['storageTypes']);
+			//如果后台未设置，则从config目录下的config.php/config-local.php中读取，
+			//当config-local.php存在时，config.php无效，否则才会读取config.php中的配置
 			$generalSettings = $this->settings;
 			
-			//处理配置文件中的数据为后台可用数据
-			//存储引擎
+			//处理配置文件中的存储引擎数据为后台可用数据
 			$storageType = [];
 			foreach($this->storageTypes as $key=>$val){
 				$storageType[$key] = [
@@ -96,71 +112,66 @@ class SettingController {
 				];
 			}
 			$generalSettings['storageType'] = $storageType;
-			
-			//允许上传的图片类型
-			/*$allowMimeTypes = [];
-			foreach($this->settings['allowMimeTypes'] as $key=>$val){
-				$allowMimeTypes[$key] = [
-					'isActive' => 1,
-					'value' => $val,
-				];
-			}
-			$generalSettings['allowMimeTypes'] = $allowMimeTypes;*/
 		}
+		//=========================== 通用设置 结束 ===============================
 		
-		//自定义返回链接格式
-		$customFormatFile = $this->storagesDir . '/customFormat.json';
-		if(is_file($customFormatFile)){
-			$customFormat = json_decode(file_get_contents($customFormatFile), true);
-		}else{
-			$customFormat = $this->settings['customFormat'];
-		}
-		
+		//=========================== 图片水印设置 开始 ===============================
 		//图片水印设置
 		$imageWatermarkFile = $this->storagesDir . '/image-watermark.json';
+		//如果后台有保存则使用后台的
 		if(is_file($imageWatermarkFile)){
 			$imageWatermark = json_decode(file_get_contents($imageWatermarkFile), true);
 		}else{
+			//否则直接使用配置文件中的，但要处理水印图片的路径为后台可用路径
 			$this->settings['watermark']['image']['watermark'] = '/static/watermark/'.$this->settings['watermark']['image']['watermark'];
 			$imageWatermark = $this->settings['watermark']['image'];
 		}
+		//=========================== 图片水印设置 结束 ===============================
 		
+		//=========================== 文字水印设置 开始 ===============================
 		//文字水印设置
 		$textWatermarkFile = $this->storagesDir . '/text-watermark.json';
+		//如果后台有保存则使用后台的
 		if(is_file($textWatermarkFile)){
 			$textWatermark = json_decode(file_get_contents($textWatermarkFile), true);
 		}else{
+			//否则直接使用配置文件中的，但要处理水印字体文件路径为后台可用路径，
+			//以及水印文件名配置文件中是不保存的，但后台又需要，所以需要在这里添加
 			$this->settings['watermark']['text']['fontFileName'] = $this->settings['watermark']['text']['fontFile'];
 			$this->settings['watermark']['text']['fontFile'] = '/static/watermark/'.$this->settings['watermark']['text']['fontFile'];
 			$textWatermark = $this->settings['watermark']['text'];
 		}
+		//=========================== 文字水印设置 开始 ===============================
+		
+		//=========================== 自定义返回链接格式 开始 ===============================
+		//自定义返回链接格式
+		$customFormatFile = $this->storagesDir . '/customFormat.json';
+		//如果后台有保存则使用后台的
+		if(is_file($customFormatFile)){
+			$customFormat = json_decode(file_get_contents($customFormatFile), true);
+		}else{
+			//后台没有则直接使用配置文件中的(config-local.php存在会优先读取，否则读取config.php)
+			$customFormat = $this->settings['customFormat'];
+		}
+		//=========================== 自定义返回链接格式 结束 ===============================
 		
 		//把以上配置合并到通用配置中
 		$generalSettings['customFormat'] = $customFormat;
-		$generalSettings['videoFormat'] = $this->settings['videoFormat'];
-		$generalSettings['audioFormat'] = $this->settings['audioFormat'];
+		$generalSettings['videoFormat'] = isset($generalSettings['videoFormat']) ? $generalSettings['videoFormat'] : $this->settings['videoFormat'];
+		$generalSettings['audioFormat'] = isset($generalSettings['audioFormat']) ? $generalSettings['audioFormat'] : $this->settings['audioFormat'];
 		$generalSettings['watermark']['image'] = $imageWatermark;
 		$generalSettings['watermark']['text'] = $textWatermark;
 		
-		//存储引擎配置
-		$storagesFiles = glob($this->storagesDir.'/storage-*');
-		$storageTypes = [];
-		if(!empty($storagesFiles)){
-			foreach($storagesFiles as $storagesFile){
-				$key = str_replace('.json', '', substr($storagesFile, strrpos($storagesFile,'-') + 1));
-				$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
-			}
-		}
-		
-		//合并所有配置
-		$config = array_merge($generalSettings, ['storageTypes' => $storageTypes]);
-		
 		return json_encode([
 			'code' => 0,
-			'data' => $config,
+			'data' => $generalSettings,
 		], JSON_UNESCAPED_SLASHES);
 	}
 	
+	/**
+	 * 后台保存设置
+	 * @return false|string
+	 */
 	public function setGeneralSettings(){
 		!is_dir($this->storagesDir) && mkdir($this->storagesDir, 0777);
 		$generalSettingsFile = $this->storagesDir.'/general-settings.json';
@@ -190,6 +201,105 @@ class SettingController {
 			'code' => 0,
 			'msg' => '保存成功',
 		], JSON_UNESCAPED_UNICODE);
+	}
+	
+	/**
+	 * 合并获取后台设置的配置及配置文件中的配置
+	 * @return mixed
+	 */
+	public function getMergeSettings(){
+		//================获取存储引擎配置 开始===============
+		$storagesFiles = glob(APP_PATH.'/config/.settings/storage-*');
+		$storageTypes = [];
+		if(!empty($storagesFiles)){
+			//后台保存的存储引擎
+			$backendStorageKeys = [];
+			foreach($storagesFiles as $storagesFile){
+				$key = str_replace('.json', '', substr($storagesFile, strrpos($storagesFile,'-') + 1));
+				$backendStorageKeys[] = $key;
+				$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
+			}
+			$configStorageKeys = array_keys($this->settings['storageTypes']);
+			//对比配置文件中的存储引擎，如果其中有某个存储引擎在后台配置中不存在，则把它合并到后台的配置中(当然只是合并输出，并未存储到后台)
+			$storageKeys = array_diff($configStorageKeys, $backendStorageKeys);
+			if(!empty($storageKeys)){
+				foreach ($storageKeys as $storageKey){
+					$storageTypes[$storageKey] = $this->settings['storageTypes'][$storageKey];
+				}
+			}
+		}else{
+			//否则直接从配置文件中获取（优先获取config-local.php，没有则获取local.php）
+			$storageTypes = $this->settings['storageTypes'];
+		}
+		//================获取存储引擎配置 结束===============
+		
+		//================获取通用配置 开始===============
+		$generalSettingsFile = $this->storagesDir . '/general-settings.json';
+		
+		//如果后台有设置过，那么会存在该文件
+		if(is_file($generalSettingsFile)){
+			$generalSettings = json_decode(file_get_contents($generalSettingsFile), true);
+			//把后台保存的通用配置处理为实际可用格式
+			$tmpStorageType = '';
+			foreach($generalSettings['storageType'] as $key=>$val){
+				if(isset($val['isActive']) && $val['isActive']=="1"){
+					$tmpStorageType .= ucfirst($key).',';
+				}
+			}
+			$generalSettings['storageType'] = rtrim($tmpStorageType, ',');
+		}else{
+			//否则直接使用config-local.php或config.php中的配置
+			$generalSettings = $this->settings;
+		}
+		//=====================获取通用配置 结束======================
+		
+		//=====================获取文字水印配置 开始==================
+		$textWatermarkFile = $this->storagesDir . '/text-watermark.json';
+		//如果后台有保存则使用后台的
+		if(is_file($textWatermarkFile)){
+			$textWatermark = json_decode(file_get_contents($textWatermarkFile), true);
+		}else{
+			//否则直接使用config-local.php或config.php配置文件中的，但要处理水印字体文件路径为正确相对路径
+			$this->settings['watermark']['text']['fontFile'] = '/static/watermark/'.$this->settings['watermark']['text']['fontFile'];
+			$textWatermark = $this->settings['watermark']['text'];
+		}
+		//=====================获取文字水印配置 结束====================
+		
+		//=====================获取图片水印配置 开始====================
+		$imageWatermarkFile = $this->storagesDir . '/image-watermark.json';
+		//如果后台有保存则使用后台的
+		if(is_file($imageWatermarkFile)){
+			$imageWatermark = json_decode(file_get_contents($imageWatermarkFile), true);
+		}else{
+			//否则直接使用配置文件中的，但要处理水印图片的路径为正确的相对路径
+			$this->settings['watermark']['image']['watermark'] = '/static/watermark/'.$this->settings['watermark']['image']['watermark'];
+			$imageWatermark = $this->settings['watermark']['image'];
+		}
+		//====================获取图片水印配置 结束====================
+		
+		//================获取自定义返回链接格式配置 开始===============
+		$customFormatFile = $this->storagesDir . '/customFormat.json';
+		//如果后台有保存则使用后台的
+		if(is_file($customFormatFile)){
+			$customFormat = json_decode(file_get_contents($customFormatFile), true);
+		}else{
+			//后台没有则直接使用配置文件中的(config-local.php存在会优先读取，否则读取config.php)
+			$customFormat = $this->settings['customFormat'];
+		}
+		//================获取自定义返回链接格式配置 结束===============
+		
+		//合并配置
+		$config = $generalSettings;
+		$config['storageTypes'] = $storageTypes;
+		
+		$watermark = $this->settings['watermark'];
+		$watermark['text'] = $textWatermark;
+		$watermark['image'] = $imageWatermark;
+		$config['watermark'] = $watermark;
+		
+		$config['customFormat'] = $customFormat;
+		
+		return $config;
 	}
 	
 	/**

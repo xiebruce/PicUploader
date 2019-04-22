@@ -198,7 +198,7 @@ $(document).ready(function (){
 					var data = response.data;
 					var value = '';
 					for(var key2 in data){
-						value = response.code==0 ? data[key2] : ''
+						value = response.code==0 ? data[key2] : data[key2]
 						html +=	`<div class="form-group">
 										<label>${key2}</label>
 										<input class="text" type="text" name="${key2}" placeholder="请输入${key2}" value="${value}"><span></span>
@@ -539,16 +539,6 @@ $(document).ready(function (){
 								<input type="hidden" name="storageType[${i}][name]" value="${storageType[i].name}">`;
 				}
 				
-				var allowMimeTypesHtml = '';
-				/*
-				var allowMimeTypes = data.allowMimeTypes;
-				for(var i in allowMimeTypes){
-					checked = (allowMimeTypes[i].isActive != undefined && allowMimeTypes[i].isActive==1) ? ' checked' : '';
-					allowMimeTypesHtml += `<label>
-<input type="checkbox" name="allowMimeTypes[${i}][isActive]" value="1"${checked}>${i}
-<input type="hidden" name="allowMimeTypes[${i}][value]" value="${allowMimeTypes[i].value}"></label>`;
-				}*/
-				
 				var generalSettingsForm =
 					`<div class="area">
 						<div class="form-group2-area">存储引擎</div>
@@ -608,10 +598,6 @@ $(document).ready(function (){
 						<div class="form-group2 log-path">
 							<label>存储日志路径</label>
 							<input class="text" type="text" name="logPath" placeholder="存储日志路径" value="${data.logPath}"><span></span>
-						</div>
-						<div class="form-group2 allowMimeTypes">
-							<label class="allowMimeTypes-label-text">允许的图片MIME</label>
-							${allowMimeTypesHtml}
 						</div>
 					</div>
 					<div class="area">

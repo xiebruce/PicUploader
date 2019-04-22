@@ -1,9 +1,12 @@
 <?php
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
 	
-	$config = require APP_PATH . '/config/config.php';
+	if(is_file(APP_PATH . '/config/config-local.php')){
+		$config = require APP_PATH . '/config/config-local.php';
+	}else{
+		$config = require APP_PATH . '/config/config.php';
+	}
 	file_put_contents(APP_PATH . '/config/.config.json', json_encode($config, JSON_UNESCAPED_UNICODE));
-	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@
 						<!--<i class="fa fa-times-circle close"></i>-->
 						<ul class="list">
 							<?php foreach($config['storageTypes'] as $key=>$storageType):?>
-							<li data-key="<?=$key?>" class="cloud"><?=$storageType['name']?></li>
+							<li data-key="<?=$key?>" class="cloud"><?=isset($storageType['name']) ? $storageType['name'] : $key?></li>
 							<?php endforeach;?>
 						</ul>
 					</div>
