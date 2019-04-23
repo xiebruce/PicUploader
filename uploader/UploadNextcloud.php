@@ -12,7 +12,6 @@ namespace uploader;
 use Sabre\DAV\Client as DAVClient;
 
 class UploadNextcloud extends Upload{
-    
     public $baseUri;
     public $username;
     public $password;
@@ -20,6 +19,7 @@ class UploadNextcloud extends Upload{
     //代理地址(格式：http://127.0.0.1:1087)
     public $proxy;
     public $directory;
+    public $DAVPath;
     public $DAVSetting;
     
     public static $config;
@@ -29,14 +29,11 @@ class UploadNextcloud extends Upload{
     /**
      * Upload constructor.
      *
-     * @param $config
-     * @param $argv
+     * @param $params
      */
-    public function __construct($config, $argv)
+    public function __construct($params)
     {
-	    $tmpArr = explode('\\',__CLASS__);
-	    $className = array_pop($tmpArr);
-	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
 	    if(!isset($ServerConfig['directory'])){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
@@ -49,18 +46,20 @@ class UploadNextcloud extends Upload{
 	    $this->username = $ServerConfig['username'];
 	    $this->password = $ServerConfig['password'];
 	    $this->baseUri = $ServerConfig['baseUri'];
-	
+	    $this->DAVPath = '/remote.php/webdav/';
+
 	    $this->DAVSetting = [
-		    'baseUri' => $this->baseUri,
+		    'baseUri' => $this->baseUri . $this->DAVPath,
 		    'userName' => $this->username,
 		    'password' => $this->password,
 	    ];
+
 	    if($this->proxy){
 		    $this->DAVSetting['proxy'] = $ServerConfig['proxy'] ?? '';
 	    }
 
-        $this->argv = $argv;
-        static::$config = $config;
+        $this->argv = $params['argv'];
+        static::$config = $params['config'];
     }
 	
 	/**
@@ -129,22 +128,18 @@ class UploadNextcloud extends Upload{
 		 * /2019/03
 		 * /2019/03/31
 		 */
-	    $pos = strpos($this->baseUri, 'remote.php');
-	    // $this->baseUri：https://nextcloud-fi.webo.hosting/remote.php/webdav/
-		// $basePath：/remote.php/webdav/
-	    $basePath = rtrim(substr($this->baseUri, $pos - 1), '/');
 	    //这里的目的就是找出$foldersArr中不存在于服务器的目录的其中一个，比如是：/2019/03，
 		//那么我们要创建的就是/2019/03和/2019/03/31了，但在这里只要找出/2019/03就可以了，
 	    $pathNeedToCreate = '';
 	    foreach($foldersArr as $key=>$path){
 	    	//$foldersFromServer为来自服务器的一级目录列表
 		    // 可能的值：/remote.php/webdav/2019/03/31/
-		    // $basePath就是：/remote.php/webdav
-		    // $path就是：/2019/03/31
+		    // $this->DAVPath就是：/remote.php/webdav
+		    // $this->DAVPath就是：/2019/03/31
 		    // $basePath.$path.'/'就是：/remote.php/webdav/2019/03/31/（这样刚好跟服务器的对的上，表示服务器上已经有这个文件夹）
 		    //在数组中，说明这个文件夹在服务器已存在(存在的就不用创建了)
 		    //因为我们是从短到长搜索的，一旦发现有不存在于服务器中的路径，则它下边的不用看肯定不存在，因为它自己都不存在
-		    if(!in_array($basePath.$path.'/', $foldersFromServer)){
+		    if(!in_array($this->DAVPath.$path.'/', $foldersFromServer)){
 			    $pathNeedToCreate = $path;
 			    break;
 		    }
@@ -171,6 +166,7 @@ class UploadNextcloud extends Upload{
 	 * @throws \Sabre\HTTP\ClientHttpException
 	 */
 	public function createFolder($folder){
+		file_put_contents('/Users/bruce/Downloads/UploadNextCloud.txt', "111111111\n--------\n\n", FILE_APPEND);
     	static $i = 0;
 	    static $res = [];
     	static $foldersTocreate;
@@ -195,9 +191,9 @@ class UploadNextcloud extends Upload{
 		    $j = 0;
 		    while(1){
 		    	// j和i完全不一样，i是递归的增量，每递归一次取$foldersTocreate数组的下一个元素(即待创建文件夹)
-			    // 而j则纯粹是while循环的计数，因为如果一直不返回，我也不能一直死循环下去，因为每次循环等待1秒，所以j>30就表示
+			    // 而j则纯粹是while循环的计数，因为如果一直不返回，我也不能一直死循环下去，因为每次循环等待0.5秒，所以j>30就表示
 			    // 如果30秒还不返回，那就直接返回$res，其实是创建失败了
-		    	if($j>30){
+		    	if($j>60){
 		    		return $res;
 			    }
 			    if($ret){
@@ -270,14 +266,14 @@ class UploadNextcloud extends Upload{
 			'permissions' => 1,
 		];
 		$queryString = http_build_query($data);
-	    $url = 'https://nextcloud-fi.webo.hosting/ocs/v1.php/apps/files_sharing/api/v1/shares';
+	    $ocsShareApi = $this->baseUri.'/ocs/v1.php/apps/files_sharing/api/v1/shares';
 	    $headers = [
 		    'Ocs-Apirequest: true'
 	    ];
 	
 	    $ch = curl_init();
-	    $action=='get' && $url = $url .'?' .$queryString;
-	    curl_setopt($ch, CURLOPT_URL, $url);
+	    $action=='get' && $ocsShareApi = $ocsShareApi .'?' .$queryString;
+	    curl_setopt($ch, CURLOPT_URL, $ocsShareApi);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	    //同一接口相同参数，用post就是设置为分享状态，用get就是获取分享的链接，但必须先设置为分享状态才能获取
 	    if($action == 'set'){
@@ -296,7 +292,7 @@ class UploadNextcloud extends Upload{
 	    //========================================= php curl end =========================================
 		//把返回的xml解析为对象
 	    $obj = simplexml_load_string($result);
-	    
+
 		$shareLink = '';
 	    if(isset($obj->meta->status) && $obj->meta->status == 'ok'){
 		    // file_put_contents('/Users/bruce/Downloads/abcdefg.txt', $result."========================\n\n", FILE_APPEND);

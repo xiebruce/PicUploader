@@ -29,14 +29,11 @@ class UploadQingcloud extends Upload{
 	/**
 	 * Upload constructor.
 	 *
-	 * @param $config
-	 * @param $argv
+	 * @param $params
 	 */
-	public function __construct($config, $argv)
+	public function __construct($params)
 	{
-		$tmpArr = explode('\\',__CLASS__);
-		$className = array_pop($tmpArr);
-		$ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
 		
 		$this->accessKeyId = $ServerConfig['accessKeyId'];
 		$this->secretAccessKey = $ServerConfig['secretAccessKey'];
@@ -52,8 +49,8 @@ class UploadQingcloud extends Upload{
 			$this->directory = trim($ServerConfig['directory'], '/');
 		}
 		
-		$this->argv = $argv;
-		static::$config = $config;
+		$this->argv = $params['argv'];
+		static::$config = $params['config'];
 	}
 	
 	/**

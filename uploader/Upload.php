@@ -35,17 +35,11 @@ class Upload extends Common {
             $this->writeLog($error, 'error_log');
             exit($error);
         }
-        // $allowMimeTypes = array_values(static::$config['allowMimeTypes']);
+
 		$links = '';
 		foreach($this->argv as $filePath){
 			$mimeType = $this->getMimeType($filePath);
 			$originFilename = $this->getOriginFileName($filePath);
-			//如果不是允许的图片，则直接跳过（目前允许jpg/png/gif）
-			/*if(!in_array($mimeType, $allowMimeTypes)){
-				$error = 'Only MIME in "'.join(', ', static::$config['allowMimeTypes']).'" is allow to upload, but the MIME of this photo "'.$originFilename.'" is '.$mimeType."\n";
-				$this->writeLog($error, 'error_log');
-				continue;
-			}*/
 			//获取随机文件名
 			$newFileName = $this->genRandFileName($filePath);
 			
@@ -85,18 +79,31 @@ class Upload extends Common {
 			foreach($uploadServers as $uploadServer){
 				$uploadServer = strtolower(trim($uploadServer));
 				if(in_array($uploadServer, $storageTypes)){
-					$isSftp = (isset(static::$config['storageTypes'][$uploadServer]['type']) && strtolower(static::$config['storageTypes'][$uploadServer]['type'])=='sftp') ? true : false;
-					//new 变量类名不会带上命名空间，所以自己把命名空间加上
-					$className = __NAMESPACE__.'\\Upload'.ucfirst($uploadServer);
-					//new 变量类名，并调用对应类的upload()方法上传文件
-					if($uploadServer == 'imgur'){
-						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath, $originFilename);
-					}else if($isSftp){
-						$link = (new UploadSftp(static::$config, $this->argv, $uploadServer))->upload($key, $uploadFilePath);
-					}else{
-						$link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
+					$cloudType = '';
+					if(isset(static::$config['storageTypes'][$uploadServer]['type'])){
+						$cloudType = static::$config['storageTypes'][$uploadServer]['type'];
 					}
-					
+
+					$args = [$key, $uploadFilePath];
+					$uploadServer == 'imgur' && $args[] = $originFilename;
+					$constructorParams = [
+						'config' => static::$config,
+						'argv' => $this->argv,
+						'uploadServer' => $uploadServer
+					];
+
+					if($cloudType){
+						$className = strtolower($cloudType);
+					}else{
+						$className = $uploadServer;
+					}
+					//new 变量类名不会带上命名空间，所以自己把命名空间加上
+					$className = __NAMESPACE__.'\\Upload'.ucfirst($className);
+
+					//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用
+					// $link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
+					$link = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
+
 					if(!$params['do_not_format']){
 						//按配置文件指定的格式，格式化链接
 						if(in_array($uploadServer, ['smms', 'imgur'])){

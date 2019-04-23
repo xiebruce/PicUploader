@@ -31,16 +31,14 @@ class UploadWeibo extends Common {
 	/**
 	 * Upload constructor.
 	 *
-	 * @param $config
-	 * @param $argv
+	 * @param $params
 	 *
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-    public function __construct($config, $argv)
+    public function __construct($params)
     {
-	    $tmpArr = explode('\\',__CLASS__);
-	    $className = array_pop($tmpArr);
-        $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+        $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
+        
         //上传url，请不要修改
 	    $this->uploadUrl = 'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog&cb=http://weibo.com/aj/static/upimgback.html?_wv=5&callback=STK_ijax_'.time();
         $this->username = $ServerConfig['username'];
@@ -49,9 +47,9 @@ class UploadWeibo extends Common {
 	    $this->cookie = $this->getCookie();
 	
 	    //arguments from php client, the image absolute path
-	    $this->argv = $argv;
+	    $this->argv = $params['argv'];
 	    //config from config.php, using static because the parent class needs to use it.
-	    static::$config = $config;
+	    static::$config = $params['config'];
     }
 	
 	/**

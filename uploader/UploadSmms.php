@@ -24,20 +24,17 @@ class UploadSmms extends Common {
     /**
      * Upload constructor.
      *
-     * @param $config
-     * @param $argv
+     * @param $params
      */
-    public function __construct($config, $argv)
+    public function __construct($params)
     {
-	    $tmpArr = explode('\\',__CLASS__);
-	    $className = array_pop($tmpArr);
-        $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+        $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
 	    //baseUri一定要斜杠结尾
 	    $this->baseUri = 'https://sm.ms/api/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
         
-        $this->argv = $argv;
-        static::$config = $config;
+        $this->argv = $params['argv'];
+        static::$config = $params['config'];
     }
 	
 	/**
@@ -82,6 +79,7 @@ class UploadSmms extends Common {
 				]);
 				
 				$string = $response->getBody()->getContents();
+				
 				if($response->getReasonPhrase() != 'OK'){
 					throw new \Exception($string);
 				}else{
@@ -94,7 +92,8 @@ class UploadSmms extends Common {
 							'link' => $data['url'],
 							'delLink' => $deleteLink,
 						];
-						return $link;
+					}else{
+						throw new \Exception($string);
 					}
 				}
 			}catch (\Exception $e){
@@ -105,6 +104,7 @@ class UploadSmms extends Common {
 				];
 				$this->writeLog($link, 'error_log');
 			}
+			return $link;
 		}
     }
 }

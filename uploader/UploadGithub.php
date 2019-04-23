@@ -35,14 +35,11 @@ class UploadGithub extends Upload{
     /**
      * Upload constructor.
      *
-     * @param $config
-     * @param $argv
+     * @param $params
      */
-    public function __construct($config, $argv)
+    public function __construct($params)
     {
-	    $tmpArr = explode('\\',__CLASS__);
-	    $className = array_pop($tmpArr);
-	    $ServerConfig = $config['storageTypes'][strtolower(substr($className,6))];
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
 	    
 	    $this->repo = $ServerConfig['repo'] ?? '';
 	    $this->branch = $ServerConfig['branch'] ?? 'master';
@@ -60,8 +57,8 @@ class UploadGithub extends Upload{
 	    $this->baseUri = 'https://api.github.com/repos/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 
-        $this->argv = $argv;
-        static::$config = $config;
+        $this->argv = $params['argv'];
+        static::$config = $params['config'];
     }
 	
 	/**

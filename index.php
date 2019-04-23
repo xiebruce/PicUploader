@@ -78,8 +78,10 @@
 	}
 	
 	//getPublickLink
-	$link = (new uploader\Upload($argv, $config))->getPublickLink([
-		'do_not_format' => ($isMweb || $isPicgo),
+	$link = call_user_func_array([(new uploader\Upload($argv, $config)), 'getPublickLink'], [
+		[
+			'do_not_format' => ($isMweb || $isPicgo)
+		]
 	]);
 	
 	//如果是MWeb或PicGo，则返回Mweb/Picgo支持的json格式

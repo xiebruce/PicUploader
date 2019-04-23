@@ -26,13 +26,12 @@ class UploadSftp extends Common {
 	/**
 	 * Upload constructor.
 	 *
-	 * @param $config
-	 * @param $argv
-	 * @param $uploadServer
+	 * @param $params
 	 */
-	public function __construct($config, $argv, $uploadServer)
+	public function __construct($params)
 	{
-		$ServerConfig = $config['storageTypes'][$uploadServer];
+		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
+		
 		$this->host = $ServerConfig['host'];
 		$this->username = $ServerConfig['username'];
 		$this->password = $ServerConfig['password'];
@@ -46,8 +45,8 @@ class UploadSftp extends Common {
 			$this->directory = trim($ServerConfig['directory'], '/');
 		}
 		
-		$this->argv = $argv;
-		static::$config = $config;
+		$this->argv = $params['argv'];
+		static::$config = $params['config'];
 	}
 	
 	/**
