@@ -45,5 +45,7 @@ PicUploader
 [上传任意格式文件演示](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)：
 ![upload-non-image-demo_optimized.gif](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)
 
+[MWeb使用PicUploader上传图片演示](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)
+[![screenshot.jpeg](https://img.xiebruce.top/2019/04/23/f799c1d3855b2b71a36d8e34f1ddf1ca.jpeg)](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)
 
 由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
