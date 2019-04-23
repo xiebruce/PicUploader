@@ -158,8 +158,11 @@
 			//NextCloud 有一个第三方的enxtcloud网盘：https://nextcloud-fi.webo.hosting
 			'nextcloud' => [
 				'name' => 'Nextcloud',
-				//设置为你的nextcloud的上传uri
-				'baseUri' => 'https://nextcloud-fi.webo.hosting/remote.php/webdav/',
+				//固定写“nextcloud”
+				'type' => 'nextcloud',
+				//设置为你的nextcloud右下角，点击设置显示的那个WebDAV地址，但是去掉“/remote.php/webdav/”这部分
+				//只保留域名部分
+				'baseUri' => 'https://nextcloud-fi.webo.hosting',
 				'username' => 'zhangsam@hotmail.com',
 				'password' => 'xi***********MD',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
