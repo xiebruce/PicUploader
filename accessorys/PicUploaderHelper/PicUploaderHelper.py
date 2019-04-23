@@ -102,13 +102,13 @@ def get_image_from_clipboard():
 
 def upload_image():
     """ Upload image to remote server by running shell command """
-    # 上传前先显示图片上传中
-    send_notification('uploading')
-
     # 从剪贴板中获取截图保存后的路径
     tmp_img = get_image_from_clipboard()
 
     if tmp_img != '':
+        # 上传前先显示图片上传中
+        send_notification('uploading')
+        
         # Assemble upload shell command
         upload_command = config['php_path'] + ' ' + config['picuploader_index_path'] + ' ' + tmp_img
 
