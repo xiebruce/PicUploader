@@ -155,6 +155,26 @@
 				'directory' => '',
 			],
 			
+			//NextCloud 有一个第三方的enxtcloud网盘：https://nextcloud-fi.webo.hosting
+			'nextcloud' => [
+				'name' => 'Nextcloud',
+				//设置为你的nextcloud的上传uri
+				'baseUri' => 'https://nextcloud-fi.webo.hosting/remote.php/webdav/',
+				'username' => 'zhangsam@hotmail.com',
+				'password' => 'xi***********MD',
+				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+				//比如：'proxy' => 'http://127.0.0.1:1087'，端口从『偏好设置→HTTP→监听端口』找，留空表示不使用代理
+				'proxy' => '',
+				//指定目录后，上传的文件将会上传到指定目录中，由于nextcloud是使用WebDav协议，并非对象存储，为了保证速度，这里只允许最多指定5层目录，如：Photos/travel/Turkey，)，也可以指定按年月日存，如：
+				// 'directory' => date('Y/m/d/'),
+				//自定义目录格式：Photos/2019/03/31
+				// 'directory' =>  date('Y/m/d/'),
+				//自定义目录格式：Photos/Travel/2019/03/31
+				// 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+				//自定义目录格式：Photos/Travel/Maldives
+				// 'directory' => 'Photos/Travel/Maldives',
+			],
+			
 			//Github
 			'github' => [
 				'name' => 'Github',

@@ -5,7 +5,6 @@
 /logs/
 /uploader/token/
 /config/config-local.php
-/uploader/UploadNextcloud.php
 /config/.settings
 /config/.config.json
 /uploads
