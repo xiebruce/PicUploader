@@ -155,13 +155,14 @@
 				'directory' => '',
 			],
 			
-			//NextCloud 有一个第三方的enxtcloud网盘：https://nextcloud-fi.webo.hosting
+			//NextCloud 有一个别人搭建的nextcloud网盘：https://nextcloud-fi.webo.hosting，不过很慢
+			//Nextcloud一般都是自己搭建
 			'nextcloud' => [
 				'name' => 'Nextcloud',
 				//固定写“nextcloud”
 				'type' => 'nextcloud',
-				//设置为你的nextcloud右下角，点击设置显示的那个WebDAV地址，但是去掉“/remote.php/webdav/”这部分
-				//只保留域名部分
+				//设置为你的nextcloud右下角，点击“设置”后显示的那个WebDAV地址，
+				//但是去掉“/remote.php/webdav/”，即只保留域名部分
 				'baseUri' => 'https://nextcloud-fi.webo.hosting',
 				'username' => 'zhangsam@hotmail.com',
 				'password' => 'xi***********MD',

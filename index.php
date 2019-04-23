@@ -30,8 +30,7 @@
 	});
 	
 	//获取配置
-	$setting = new \settings\SettingController();
-	$config = $setting->getMergeSettings();
+	$config = call_user_func([(new \settings\SettingController()), 'getMergeSettings']);
 	
 	$isMweb = false;
 	if(isset($_FILES['mweb'])){
