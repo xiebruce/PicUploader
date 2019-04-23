@@ -166,7 +166,6 @@ class UploadNextcloud extends Upload{
 	 * @throws \Sabre\HTTP\ClientHttpException
 	 */
 	public function createFolder($folder){
-		file_put_contents('/Users/bruce/Downloads/UploadNextCloud.txt', "111111111\n--------\n\n", FILE_APPEND);
     	static $i = 0;
 	    static $res = [];
     	static $foldersTocreate;
