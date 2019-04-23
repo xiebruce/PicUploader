@@ -60,7 +60,7 @@ class UploadSmms extends Common {
 			try{
 				$GuzzleConfig = [
 					'base_uri' => $this->baseUri,
-					'timeout'  => 10.0,
+					'timeout'  => 15.0,
 				];
 				if($this->proxy){
 					$GuzzleConfig['proxy'] = $this->proxy;

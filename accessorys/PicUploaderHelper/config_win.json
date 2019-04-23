@@ -12,6 +12,11 @@
 			"title": "No image detected",
 			"subtitle": "",
 			"message": "No image was detected in the clipboard, please take a screenshot first!"
+		},
+		"uploading": {
+		  "title": "Uploading",
+		  "subtitle": "",
+		  "message": "Image was uploading, please wait for a while!"
 		}
     },
     "key_combinations": [
