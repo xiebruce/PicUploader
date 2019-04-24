@@ -79,7 +79,7 @@ class UploadNetease extends Upload{
 	    } catch (NosException $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
-		    $this->writeLog(date('Y-m-d H:i:s').'(NeteaseYun) => '.$e->getMessage(), 'error_log');
+		    $this->writeLog(date('Y-m-d H:i:s').'(NeteaseCloud) => '.$e->getMessage(), 'error_log');
 	    }
         return $link;
     }

@@ -77,22 +77,22 @@ class UploadJd extends Upload{
 		    }
 		
 		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public');
-		    if(is_object($retObj)){
-		    	//返回链接格式：
-			    //https://markdown.s3.cn-south-1.jcloudcs.com/2018/11/28/bc4443f413b4eb32b3964d9c8e1fe755.jpeg
-			    $link = $retObj->get('ObjectURL');
-			    if($this->domain){
-				    $pos = strpos($this->endpoint, '://') + 3;
-				    $defaultDomain = substr($this->endpoint, 0, $pos) . $this->bucket . '.' . substr($this->endpoint, $pos);
-				    $link = str_replace($defaultDomain, $this->domain,$link);
-			    }
-		    }else{
-			    throw new \Exception(var_export($retObj, true)."\n");
+		    if(!is_object($retObj)){
+			    throw new \Exception(var_export($retObj, true));
+		    }
+		
+		    //返回链接格式：
+		    //https://markdown.s3.cn-south-1.jcloudcs.com/2018/11/28/bc4443f413b4eb32b3964d9c8e1fe755.jpeg
+		    $link = $retObj->get('ObjectURL');
+		    if($this->domain){
+			    $pos = strpos($this->endpoint, '://') + 3;
+			    $defaultDomain = substr($this->endpoint, 0, $pos) . $this->bucket . '.' . substr($this->endpoint, $pos);
+			    $link = str_replace($defaultDomain, $this->domain,$link);
 		    }
 	    } catch (\Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
-		    $this->writeLog(date('Y-m-d H:i:s').'(JdYun) => '.$e->getMessage(), 'error_log');
+		    $this->writeLog(date('Y-m-d H:i:s').'(JdCloud) => '.$e->getMessage(), 'error_log');
 	    }
         return $link;
     }
