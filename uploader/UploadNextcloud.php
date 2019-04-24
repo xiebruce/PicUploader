@@ -145,6 +145,10 @@ class UploadNextcloud extends Upload{
 			    break;
 		    }
 	    }
+	    
+	    if($pathNeedToCreate==''){
+	    	return [];
+	    }
 
 	    //过滤$foldersArr数组，只留下长度大于等于要创建的那个路径的路径，因为比它短的肯定已经创建了
 		$pathNeedToCreateLen = mb_strlen($pathNeedToCreate);
@@ -331,6 +335,7 @@ class UploadNextcloud extends Upload{
 
 			//-------------------------- 上传文件 开始 -----------------------------
 			$client = new DAVClient($this->DAVSetting);
+
 			// Upload a file
 			$response = $client->request('PUT', $key, file_get_contents($uploadFilePath));
 			//-------------------------- 上传文件 结束 -----------------------------
