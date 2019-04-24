@@ -58,40 +58,43 @@ class UploadUcloud extends Upload{
 	 * @return string
 	 */
 	public function upload($key, $uploadFilePath){
-		//因为它的sdk里全是引用的这三个global变量，我也不去改它了，所以变在这里覆盖一下值
-		global $UCLOUD_PUBLIC_KEY, $UCLOUD_PRIVATE_KEY, $UCLOUD_PROXY_SUFFIX;
-		$UCLOUD_PUBLIC_KEY = $this->publicKey;
-		$UCLOUD_PRIVATE_KEY = $this->privateKey;
-		$UCLOUD_PROXY_SUFFIX = $this->proxySuffix;
-		
-		if($this->directory){
-			$key = $this->directory. '/' . $key;
+		try{
+			//因为它的sdk里全是引用的这三个global变量，我也不去改它了，所以变在这里覆盖一下值
+			global $UCLOUD_PUBLIC_KEY, $UCLOUD_PRIVATE_KEY, $UCLOUD_PROXY_SUFFIX;
+			$UCLOUD_PUBLIC_KEY = $this->publicKey;
+			$UCLOUD_PRIVATE_KEY = $this->privateKey;
+			$UCLOUD_PROXY_SUFFIX = $this->proxySuffix;
+			
+			if($this->directory){
+				$key = $this->directory. '/' . $key;
+			}
+			//初始化分片上传,获取本地上传的uploadId和分片大小
+			list($data, $err) = UCloud_MInit($this->bucket, $key);
+			if ($err) {
+				throw new \Exception('UCloud_MFinish: '.var_export($err, true));
+			}
+			
+			//数据上传
+			list($etagList, $err) = UCloud_MUpload($this->bucket, $key, $uploadFilePath, $data['UploadId'], $data['BlkSize']);
+			if ($err) {
+				throw new \Exception('UCloud_MFinish: '.var_export($err, true));
+			}
+			
+			//上传p完成
+			list($data, $err) = UCloud_MFinish($this->bucket, $key, $data['UploadId'], $etagList);
+			if ($err) {
+				throw new \Exception('UCloud_MFinish: '.var_export($err, true));
+			}
+			
+			if(!$this->domain){
+				$this->domain = 'http://'.$this->bucket.'.'.ltrim($this->endPoint, '.');
+			}
+			$link = $this->domain.'/'.$data['Key'];
+		}catch (\Exception $e){
+			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+			$link = $e->getMessage();
+			$this->writeLog(date('Y-m-d H:i:s').'(Ucloud) => '.$e->getMessage(), 'error_log');
 		}
-		//初始化分片上传,获取本地上传的uploadId和分片大小
-		list($data, $err) = UCloud_MInit($this->bucket, $key);
-		if ($err) {
-			$this->writeLog('UCloud_MInit: '.var_export($err, true)."\n", 'error_log');
-			exit;
-		}
-
-		//数据上传
-		list($etagList, $err) = UCloud_MUpload($this->bucket, $key, $uploadFilePath, $data['UploadId'], $data['BlkSize']);
-		if ($err) {
-			$this->writeLog('UCloud_MUpload: '.var_export($err, true)."\n", 'error_log');
-			exit;
-		}
-		
-		//上传p完成
-		list($data, $err) = UCloud_MFinish($this->bucket, $key, $data['UploadId'], $etagList);
-		if ($err) {
-			$this->writeLog('UCloud_MFinish: '.var_export($err, true)."\n", 'error_log');
-			exit;
-		}
-		
-		if(!$this->domain){
-			$this->domain = 'http://'.$this->bucket.'.'.ltrim($this->endPoint, '.');
-		}
-		$link = $this->domain.'/'.$data['Key'];
 		return $link;
     }
 }

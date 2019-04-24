@@ -9,7 +9,6 @@
 namespace uploader;
 
 use Qiniu\Auth;
-use Qiniu\Config;
 use Qiniu\Storage\UploadManager;
 
 class UploadQiniu extends Common {
@@ -53,6 +52,34 @@ class UploadQiniu extends Common {
         $this->argv = $params['argv'];
         static::$config = $params['config'];
     }
+
+    /**
+     * 获取七牛token
+     * @return bool|string
+     */
+    public function getToken(){
+        // 初始化签权对象
+        $auth = new Auth($this->accessKey, $this->secretKey);
+        //你创建你的七牛云存储空间名称
+        $bucket = $this->bucket;
+        //token过期时间
+        $expires = 7190;
+        //如果文件存在，且未过期，且文件里有内容，则使用文件缓存的token
+        $tokenDir = __DIR__ . '/token';
+        if(!is_dir($tokenDir)){
+            @mkdir($tokenDir, 0777, true);
+        }
+        $tokenFile = __DIR__ . '/token/qiniuToken';
+        if(is_file($tokenFile) && ((time() - filemtime($tokenFile)) < $expires) && file_get_contents($tokenFile)!=''){
+            $token = file_get_contents($tokenFile);
+        }else{
+            // 生成上传Token
+            $token = $auth->uploadToken($bucket, null, $expires);
+            //缓存到文件中
+            file_put_contents($tokenFile,$token);
+        }
+        return $token;
+    }
 	
 	/**
 	 * Upload Images to Qiniu Kodo
@@ -82,38 +109,10 @@ class UploadQiniu extends Common {
 				$optimize && $link .= $optimize;
 			}
 		}catch (\Exception $e){
-			//上传数错，记录错误日志
-			$link = $e->getMessage()."\n";
-			$this->writeLog($link, 'error_log');
+			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+			$link = $e->getMessage();
+			$this->writeLog(date('Y-m-d H:i:s').'(Qiniu) => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
-    }
-
-    /**
-     * 获取七牛token
-     * @return bool|string
-     */
-    public function getToken(){
-        // 初始化签权对象
-        $auth = new Auth($this->accessKey, $this->secretKey);
-        //你创建你的七牛云存储空间名称
-        $bucket = $this->bucket;
-        //token过期时间
-        $expires = 7190;
-        //如果文件存在，且未过期，且文件里有内容，则使用文件缓存的token
-        $tokenDir = __DIR__ . '/token';
-        if(!is_dir($tokenDir)){
-            @mkdir($tokenDir, 0777, true);
-        }
-        $tokenFile = __DIR__ . '/token/qiniuToken';
-        if(is_file($tokenFile) && ((time() - filemtime($tokenFile)) < $expires) && file_get_contents($tokenFile)!=''){
-            $token = file_get_contents($tokenFile);
-        }else{
-            // 生成上传Token
-            $token = $auth->uploadToken($bucket, null, $expires);
-            //缓存到文件中
-            file_put_contents($tokenFile,$token);
-        }
-        return $token;
-    }
+	}
 }

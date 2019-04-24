@@ -6,9 +6,7 @@
  * Time: 21:01
  */
 
-
 namespace uploader;
-
 
 use GuzzleHttp\Client;
 
@@ -51,83 +49,84 @@ class UploadImgur extends Upload{
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
-		$fileSize = filesize($uploadFilePath);
-		if($fileSize > 10000000){
-			$imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
-			if($imgWidth){
-				$error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
-			}else{
-				$error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
+		try {
+			$fileSize = filesize($uploadFilePath);
+			if($fileSize > 10485760){
+				$useWatermark = static::$config['watermark']['useWatermark'] ?? 0;
+				$fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
+				$errMsg = 'Imgur限制最大文件为10M，你上传的文件'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！\n";
+				throw new \Exception($errMsg);
+			}
+			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
+				$errMsg = 'Imgur只能上传图片，你上传的文件“'.$originFilename.'”不是图片，无法上传！';
+				throw new \Exception($errMsg);
+			}
+
+			$GuzzleConfig = [
+				'base_uri' => $this->baseUri,
+				'timeout'  => 10.0,
+			];
+			if($this->proxy){
+				$GuzzleConfig['proxy'] = $this->proxy;
+			}
+			//实例化GuzzleHttp
+			$client = new Client($GuzzleConfig);
+			
+			//上传
+			$response = $client->request('POST', 'image', [
+				'headers'=>[
+					'Authorization' => 'Client-ID '.$this->clientId,
+				],
+				'multipart' => [
+					[
+						'name' => 'image',
+						'contents' => fopen($uploadFilePath, 'r'),
+					],
+					[
+						'name' => 'type',
+						'contents' => 'file',
+					],
+					[
+						'name' => 'name',
+						'contents' => $key,
+					],
+					[
+						'name' => 'title',
+						'contents' => $originFilename,
+					],
+					[
+						'name' => 'description',
+						'contents' => $originFilename,
+					],
+				]
+			]);
+			
+			$string = $response->getBody()->getContents();
+			
+			if($response->getReasonPhrase() != 'OK'){
+				throw new \Exception('上传接口返回的数据：'.$string);
 			}
 			
-			$this->writeLog($error, 'error_log');
-			return $error;
-		}else{
-			try {
-				$GuzzleConfig = [
-					'base_uri' => $this->baseUri,
-					'timeout'  => 10.0,
-				];
-				if($this->proxy){
-					$GuzzleConfig['proxy'] = $this->proxy;
-				}
-				//实例化GuzzleHttp
-				$client = new Client($GuzzleConfig);
-				
-				//上传
-				$response = $client->request('POST', 'image', [
-					'headers'=>[
-						'Authorization' => 'Client-ID '.$this->clientId,
-					],
-					'multipart' => [
-						[
-							'name' => 'image',
-							'contents' => fopen($uploadFilePath, 'r'),
-						],
-						[
-							'name' => 'type',
-							'contents' => 'file',
-						],
-						[
-							'name' => 'name',
-							'contents' => $key,
-						],
-						[
-							'name' => 'title',
-							'contents' => $originFilename,
-						],
-						[
-							'name' => 'description',
-							'contents' => $originFilename,
-						],
-					]
-				]);
-				
-				$string = $response->getBody()->getContents();
-				if($response->getReasonPhrase() != 'OK'){
-					throw new \Exception($string);
-				}else{
-					$returnArr = json_decode($string, true);
-					if($returnArr['success'] === true){
-						$data = $returnArr['data'];
-						$deleteLink = 'Delete Hash: '.$data['deletehash'];
-						$link = [
-							'link' => $data['link'],
-							'delLink' => $deleteLink
-						];
-					}else{
-						throw new \Exception(var_export($returnArr, true));
-					}
-				}
-			} catch (\Exception $e) {
-				//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-				$link = [
-					'link' => $e->getMessage()."\n",
-					'delLink' => '',
-				];
-				$this->writeLog($link, 'error_log');
+			$returnArr = json_decode($string, true);
+			if($returnArr['success'] !== true){
+				throw new \Exception('json_decode后的数据'.var_export($returnArr, true));
 			}
-			return $link;
+			
+			$data = $returnArr['data'];
+			$deleteLink = 'Delete Hash: '.$data['deletehash'];
+			
+			$link = [
+				'link' => $data['link'],
+				'delLink' => $deleteLink
+			];
+		} catch (\Exception $e) {
+			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+			$link = [
+				'link' => $e->getMessage()."\n",
+				'delLink' => '',
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(Imgur) => '.$e->getMessage(), 'error_log');
 		}
+		return $link;
     }
 }

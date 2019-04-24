@@ -232,6 +232,34 @@ class Common {
     public function getRandString(){
         return md5(uniqid(microtime(true)));
     }
+	
+	/**
+	 * 根据不同系统返回对应的人性化显示的文件大小（带单位）
+	 * @param $file
+	 *
+	 * @return int|string
+	 */
+	public function getFileSizeHuman($file){
+	    $filesize = 0;
+    	if(is_file($file)){
+		    $filesize = filesize($file);
+	    }
+    	//Mac系统显示文件大小是按1000进位的(与硬盘相同)
+	    $carry = PHP_OS=='Darwin' ? 1000 : 1024;
+	    $carry3 = pow($carry, 3);
+	    $carry2 = pow($carry, 2);
+	    $carry1 = $carry;
+    	if($filesize >= $carry3){
+		    $filesize = (string)round($filesize / $carry3, 2) . 'GB';
+	    }else if($filesize >= $carry2){
+		    $filesize = (string)round($filesize / $carry2, 2) . 'MB';
+	    }else if($filesize >= $carry1){
+    		$filesize = (string)round($filesize / $carry1, 2) . 'KB';
+	    }else{
+    		$filesize = (string)round($filesize, 2) . 'B';
+	    }
+    	return $filesize;
+    }
 
     /**
      * Format the Link
@@ -286,7 +314,7 @@ class Common {
         $logPath = isset(static::$config['logPath']) ? str_replace('\\', '/', static::$config['logPath']) : 'default';
 	    //日志文件实际存储路径（在本项目目录下的logs目录中）
 	    $realLogPath = APP_PATH . '/logs';
-        
+
         //配置指定了日志位置，则创建一个符号链接到指定的位置
         if(is_dir($logPath)){
 	        $symbolic = rtrim($logPath, '/') . '/PicUploader_Upload_Logs';

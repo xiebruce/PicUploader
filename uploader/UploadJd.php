@@ -61,16 +61,17 @@ class UploadJd extends Upload{
 	 * @throws \Exception
 	 */
 	public function upload($key, $uploadFilePath){
-	    $s3Client = new S3Client([
-		    'version' => 'latest',
-		    'region' => $this->region,
-		    'endpoint' => $this->endpoint,
-		    'credentials' => [
-			    'key' => $this->accessKey,
-			    'secret' => $this->secretKey,
-		    ],
-	    ]);
 	    try {
+		    $s3Client = new S3Client([
+			    'version' => 'latest',
+			    'region' => $this->region,
+			    'endpoint' => $this->endpoint,
+			    'credentials' => [
+				    'key' => $this->accessKey,
+				    'secret' => $this->secretKey,
+			    ],
+		    ]);
+		    
 		    if($this->directory){
 			    $key = $this->directory. '/' . $key;
 		    }
@@ -89,9 +90,9 @@ class UploadJd extends Upload{
 			    throw new \Exception(var_export($retObj, true)."\n");
 		    }
 	    } catch (\Exception $e) {
-		    //上传数错，记录错误日志
-		    $link = $e->getMessage()."\n";
-		    $this->writeLog($link, 'error_log');
+		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+		    $link = $e->getMessage();
+		    $this->writeLog(date('Y-m-d H:i:s').'(JdYun) => '.$e->getMessage(), 'error_log');
 	    }
         return $link;
     }

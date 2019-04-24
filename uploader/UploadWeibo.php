@@ -162,62 +162,61 @@ class UploadWeibo extends Common {
 	 * @param $key  上传的文件名，由于微博无法自己指定key(因为微博图床并非官方真正提供接口，自然也就不可能自己命名上传的图片文件)，所以key在这里不使用。
 	 * @param $uploadFilePath
 	 *
-	 * @return array
+	 * @return String
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-	public function upload($key, $uploadFilePath){
-		$fileSize = filesize($uploadFilePath);
-		if($fileSize > 5000000){
-			$imgWidth = isset(static::$config['imgWidth']) && static::$config['imgWidth'] ? static::$config['imgWidth'] : 0;
-			if($imgWidth){
-				$error = 'Due to https://sm.ms restriction, you can\'t upload photos lager than 5M, this photo is '.($fileSize/1000000).'M after compress.'."\n";
-			}else{
-				$error = "Due to https://sm.ms restriction, you can't upload photos lager than 5M, and you didn't set the compress option at the config file.\n";
+	public function upload($key, $uploadFilePath, $originFilename){
+		try{
+			$fileSize = filesize($uploadFilePath);
+			if($fileSize > 20971520){
+				$useWatermark = static::$config['watermark']['useWatermark'] ?? 0;
+				$fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
+				$errMsg = 'PicUploader限制上传到微博的最大图片为20M，你上传的文件'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！";
+				throw new \Exception($errMsg);
+			}
+			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
+				$errMsg = '微博图床只能上传图片，你上传的文件“'.$originFilename.'”不是图片，无法上传！';
+				throw new \Exception($errMsg);
 			}
 			
-			$this->writeLog($error, 'error_log');
-		}else{
-			try{
-				//实例化GuzzleHttp
-				$client = new Client([
-					'base_uri' => $this->uploadUrl,
-					'timeout'  => 10.0,
-				]);
-				$cookieJar = CookieJar::fromArray($this->cookie, 'picupload.service.weibo.com');
-
-				$response = $client->request('POST', '', [
-					'cookies' => $cookieJar,
-					'multipart' => [
-						[
-							'name' => 'pic1',
-							'contents' => fopen($uploadFilePath, 'r')
-						],
-					]
-				]);
-				
-				$string = $response->getBody()->getContents();
-				
-				$match = [];
-				preg_match('/{.*}/i', $string, $match);
-				if(!isset($match[0])){
-					throw new \Exception($string);
-				}
-				
-				$arr = json_decode($match[0], true);
-				if(!isset($arr['data']['pics']['pic_1']['pid'])){
-					throw new \Exception($string);
-				}else{
-					$link = $this->getUrl($arr['data']['pics']['pic_1']['pid']);
-					return $link;
-				}
-			}catch (\Exception $e){
-				//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-				$link = [
-					'link' => $e->getMessage()."\n",
-					'delLink' => '',
-				];
-				$this->writeLog($link, 'error_log');
+			//实例化GuzzleHttp
+			$client = new Client([
+				'base_uri' => $this->uploadUrl,
+				'timeout'  => 10.0,
+			]);
+			$cookieJar = CookieJar::fromArray($this->cookie, 'picupload.service.weibo.com');
+			
+			$response = $client->request('POST', '', [
+				'cookies' => $cookieJar,
+				'multipart' => [
+					[
+						'name' => 'pic1',
+						'contents' => fopen($uploadFilePath, 'r')
+					],
+				]
+			]);
+			
+			$string = $response->getBody()->getContents();
+			
+			$match = [];
+			preg_match('/{.*}/i', $string, $match);
+			if(!isset($match[0])){
+				throw new \Exception($string);
 			}
+			
+			$arr = json_decode($match[0], true);
+			if(!isset($arr['data']['pics']['pic_1']['pid'])){
+				throw new \Exception($string);
+			}
+			
+			$link = $this->getUrl($arr['data']['pics']['pic_1']['pid']);
+			
+		}catch (\Exception $e){
+			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+			$link = $e->getMessage();
+			$this->writeLog(date('Y-m-d H:i:s').'(Weibo) => '.$e->getMessage(), 'error_log');
 		}
+		
+		return $link;
 	}
 }

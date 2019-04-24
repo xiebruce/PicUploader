@@ -30,14 +30,23 @@ class Upload extends Common {
 	 */
 	public function getPublickLink($params){
         $fileCount = count($this->argv);
-        if($fileCount > 5){
-            $error = "Sorry, it's too slow if you upload more than 5 photos at a time, {$fileCount} were selected!\n";
+        if($fileCount > 10){
+            $error = "同时上传多个文件会比较慢，所以限制最多只能上传10个文件, 你选择的文件数为：{$fileCount} 个!\n";
             $this->writeLog($error, 'error_log');
             exit($error);
         }
 
 		$links = '';
 		foreach($this->argv as $filePath){
+			$fileSize = filesize($filePath);
+			//为防止不小心上传了过大的文件，大于100M的文件一律跳过不上传
+			if($fileSize > 104857600){
+				$fileSizeHuman = (new Common())->getFileSizeHuman($filePath);
+				$error = '为防止文件过大导致上传时间太长或上传失败，PicUploader限制上传的文件最大为100M，当前上传的文件大小为'.$fileSizeHuman."！\n";
+				$this->writeLog($error, 'error_log');
+				continue;
+			}
+			
 			$mimeType = $this->getMimeType($filePath);
 			$originFilename = $this->getOriginFileName($filePath);
 			//获取随机文件名
@@ -85,7 +94,9 @@ class Upload extends Common {
 					}
 
 					$args = [$key, $uploadFilePath];
-					$uploadServer == 'imgur' && $args[] = $originFilename;
+					if(in_array($uploadServer, ['imgur', 'smms', 'weibo'])){
+						$args[] = $originFilename;
+					}
 					$constructorParams = [
 						'config' => static::$config,
 						'argv' => $this->argv,

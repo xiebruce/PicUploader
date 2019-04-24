@@ -78,7 +78,7 @@ class UploadNextcloud extends Upload{
 	
 	    //获取一级列表的键(因为键是路径，值是文件夹属性，在这里用不着文件夹属性)
 	    $filesFromServer = array_keys($props);
-	
+
 	    //过滤出文件夹(最后有斜杠的就是文件夹)
 	    $foldersFromServer = array_filter($filesFromServer, function ($item){
 		    if($item[-1] == '/'){
@@ -131,6 +131,7 @@ class UploadNextcloud extends Upload{
 	    //这里的目的就是找出$foldersArr中不存在于服务器的目录的其中一个，比如是：/2019/03，
 		//那么我们要创建的就是/2019/03和/2019/03/31了，但在这里只要找出/2019/03就可以了，
 	    $pathNeedToCreate = '';
+		$DAVPath = rtrim($this->DAVPath, '/');
 	    foreach($foldersArr as $key=>$path){
 	    	//$foldersFromServer为来自服务器的一级目录列表
 		    // 可能的值：/remote.php/webdav/2019/03/31/
@@ -139,12 +140,12 @@ class UploadNextcloud extends Upload{
 		    // $basePath.$path.'/'就是：/remote.php/webdav/2019/03/31/（这样刚好跟服务器的对的上，表示服务器上已经有这个文件夹）
 		    //在数组中，说明这个文件夹在服务器已存在(存在的就不用创建了)
 		    //因为我们是从短到长搜索的，一旦发现有不存在于服务器中的路径，则它下边的不用看肯定不存在，因为它自己都不存在
-		    if(!in_array($this->DAVPath.$path.'/', $foldersFromServer)){
+		    if(!in_array($DAVPath.$path.'/', $foldersFromServer)){
 			    $pathNeedToCreate = $path;
 			    break;
 		    }
 	    }
-		
+
 	    //过滤$foldersArr数组，只留下长度大于等于要创建的那个路径的路径，因为比它短的肯定已经创建了
 		$pathNeedToCreateLen = mb_strlen($pathNeedToCreate);
 		$foldersNeedToCreate = array_filter($foldersArr, function ($item) use($pathNeedToCreateLen){
@@ -177,7 +178,7 @@ class UploadNextcloud extends Upload{
 			    return true;
 		    }
 	    }
-    	
+
     	//发起创建文件夹请求
 	    $client = new DAVClient($this->DAVSetting);
     	// 已经测试，如果父文件夹不存在，会报：409：Parent node does not exist，也就是无法递归创建
@@ -200,7 +201,6 @@ class UploadNextcloud extends Upload{
 				    
 				    $i++;
 				    if($i < $foldersTocreateCount){
-				    	
 					    // file_put_contents('/Users/bruce/Downloads/nextcloud.txt', $i."\n", FILE_APPEND);
 					    $this->createFolder(ltrim($foldersTocreate[$i], '/'));
 					    break;
@@ -328,29 +328,29 @@ class UploadNextcloud extends Upload{
 				$createdFolderRes = $this->createFolder($folder);
 			}
 			//------------------------ 创建文件夹 结束 -----------------------------
-			
+
 			//-------------------------- 上传文件 开始 -----------------------------
 			$client = new DAVClient($this->DAVSetting);
 			// Upload a file
 			$response = $client->request('PUT', $key, file_get_contents($uploadFilePath));
 			//-------------------------- 上传文件 结束 -----------------------------
-			
+
 			//返回状态码为201表示上传文件成功(其实HTTP状态码201是表示资源在服务器创建成功)
-			if(is_array($response) && isset($response['statusCode']) && $response['statusCode'] == 201){
-				// 获取分享链接
-				$shareLink = $this->shareLink($key);
-				if(strpos($this->getMimeType($uploadFilePath), 'image')!==false){
-					$link = $shareLink . '/preview';
-				}else{
-					$link = $shareLink . '/download';
-				}
-			}else{
+			if(!is_array($response) || !isset($response['statusCode']) || !$response['statusCode'] == 201){
 				throw new \Exception(var_export($response, true)."\n");
 			}
+			
+			// 获取分享链接
+			$shareLink = $this->shareLink($key);
+			if(strpos($this->getMimeType($uploadFilePath), 'image')!==false){
+				$link = $shareLink . '/preview';
+			}else{
+				$link = $shareLink . '/download';
+			}
 		} catch (Exception $e) {
-			//上传或获取分享链接出错
-			$link = $e->getMessage()."\n";
-			$this->writeLog($link, 'error_log');
+			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+			$link = $e->getMessage();
+			$this->writeLog(date('Y-m-d H:i:s').'(Nextcloud) => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
     }

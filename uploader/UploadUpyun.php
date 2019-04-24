@@ -70,16 +70,15 @@ class UploadUpyun extends Upload{
 		
 		    if(!isset($retArr['x-upyun-content-length'])){
 			    throw new \Exception(var_export($retArr, true)."\n");
-		    }else{
-		    	if(!$this->domain){
-				    $this->domain = 'http://'.$this->serviceName.'.test.upcdn.net';
-			    }
-			    $link = $this->domain.'/'.$key;
 		    }
+		    if(!$this->domain){
+			    $this->domain = 'http://'.$this->serviceName.'.test.upcdn.net';
+		    }
+		    $link = $this->domain.'/'.$key;
 	    } catch (NosException $e) {
-		    //上传数错，记录错误日志
-		    $link = $e->getMessage()."\n";
-		    $this->writeLog($link, 'error_log');
+		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+		    $link = $e->getMessage();
+		    $this->writeLog(date('Y-m-d H:i:s').'(Upyun) => '.$e->getMessage(), 'error_log');
 	    }
 		return $link;
     }

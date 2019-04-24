@@ -66,20 +66,19 @@ class UploadAliyun extends Upload{
 		    }
 		    $oss = new OssClient($this->accessKey, $this->secretKey, $this->endpoint);
 		    $retArr = $oss->uploadFile($this->bucket, $key, $uploadFilePath);
-		    if(isset($retArr['info']['url'])){
-		    	// http://bruce-markdown.oss-cn-shenzhen.aliyuncs.com
-			    $defaultDomain = 'http://'.$this->bucket.'.'.$this->endpoint;
-			    $link = $retArr['info']['url'];
-			    if($this->domain){
-				    $link = str_replace($defaultDomain, $this->domain, $link);
-			    }
-		    }else{
+		    if(!isset($retArr['info']['url'])){
 			    throw new \Exception(var_export($retArr, true)."\n");
 		    }
+		    // http://bruce-markdown.oss-cn-shenzhen.aliyuncs.com
+		    $defaultDomain = 'http://'.$this->bucket.'.'.$this->endpoint;
+		    $link = $retArr['info']['url'];
+		    if($this->domain){
+			    $link = str_replace($defaultDomain, $this->domain, $link);
+		    }
 	    } catch (\Exception $e) {
-		    //上传数错，记录错误日志
-		    $link = $e->getMessage()."\n";
-		    $this->writeLog($link, 'error_log');
+		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+		    $link = $e->getMessage();
+		    $this->writeLog(date('Y-m-d H:i:s').'(Aliyun) => '.$e->getMessage(), 'error_log');
 	    }
 	    return $link;
     }

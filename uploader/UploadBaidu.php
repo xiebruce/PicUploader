@@ -61,8 +61,8 @@ class UploadBaidu extends Upload{
 	 * @throws \Exception
 	 */
 	public function upload($key, $uploadFilePath){
-	    $bosClient = new BosClient($this->bosConfig);
 	    try {
+		    $bosClient = new BosClient($this->bosConfig);
 		    if($this->directory){
 			    $key = $this->directory. '/' . $key;
 		    }
@@ -74,9 +74,9 @@ class UploadBaidu extends Upload{
 		    }
 		    $link = $this->domain.'/'.$key;
 	    } catch (BceClientException $e) {
-		    //上传数错，记录错误日志
-		    $link = $e->getMessage()."\n";
-		    $this->writeLog($link, 'error_log');
+		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
+		    $link = $e->getMessage();
+		    $this->writeLog(date('Y-m-d H:i:s').'(BaiduYun) => '.$e->getMessage(), 'error_log');
 	    }
 		return $link;
     }
