@@ -388,7 +388,7 @@ class Common {
 		    	break;
 		    case 'WINNT':
 			    $powerShell = APP_PATH.'/accessorys/PicUploaderHelper/notification.ps1';
-			    $notification_script = "powershell {$powerShell} '{$title}' '{$message}'";
+			    $notification_script = "powershell -ExecutionPolicy Unrestricted {$powerShell} '{$title}' '{$message}'";
 		    	break;
 		    default:
 			    //Linux(目前仅测试了Ubuntu通过，其他Linux系统未测试，有些系统可能要自己安装“notify-send”)
@@ -427,7 +427,9 @@ class Common {
 	 * @return string
 	 */
 	public function getImageFromClipboard(){
-		$imgPath = APP_PATH.'/.tmp/.screenshot.jpeg';
+		$configFileName = PHP_OS=='WINNT' ? 'config_win.json' : 'config.json';
+		$config = json_decode(file_get_contents(APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName));
+		$imgPath = APP_PATH.'/.tmp/.screenshot.'.strtolower($config['img_type']);
 		is_file($imgPath) && unlink($imgPath);
 		
 		$command = '/usr/local/bin/pngpaste ' . $imgPath;

@@ -90,7 +90,7 @@ def get_image_from_clipboard():
     img_obj = ImageGrab.grabclipboard()
 
     if img_obj is None:
-        return '';
+        return ''
     else:
         # Get image type from config
         img_type = config['img_type']
