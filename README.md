@@ -10,7 +10,7 @@ PicUploader
 - **方式四：** 使用网页版上传，包括拖放上传(支持多文件)、复制本地图片文件后粘贴上传、截图后粘贴上传、复制网页上的图片后粘贴上传、点击上传按钮选择图片后上传(支持多文件)。
 
 ## 主要功能
-- 支持Mac和Windows(也可用于Linux服务器端，Linux桌面肯定也支持的但未测试)；
+- 支持Mac和Windows(也可用于Linux服务器端)；
 - 支持图片压缩后上传(支持jpg/png，gif不支持压缩)；
 - 支持添加水印后上传(支持文字水印、图片水印、自定义水印颜色/透明度/角度/位置，也只支持jpg/png，gif不支持水印)；
 - 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）；
@@ -49,3 +49,8 @@ PicUploader
 [![screenshot.jpeg](https://img.xiebruce.top/2019/04/23/80dd5a000be625bb47833f1c8da0a032.jpeg)](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)
 
 由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
+
+### 打赏
+如果本工具确实能帮助到你，不妨鼓励一下我继续更新并维护`PicUploader`。
+<img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/wechat.png">
+<img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/alipay.png">
