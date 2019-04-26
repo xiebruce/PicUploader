@@ -14,13 +14,16 @@
 	/*header('Content-Type: application/json; charset=UTF-8');
     echo '{"code":"success","data":{"filename":"20190418194552.png","url":"https://ws2.sinaimg.cn/large/6db312f1gy1g270z0i9qtj207205m3yv.jpg"}}';exit;*/
 	
+	use uploader\Common;
+	use settings\SettingController;
+	
 	date_default_timezone_set('Asia/Shanghai');
 	
 	require 'vendor/autoload.php';
 	require 'common/EasyImage.php';
 	
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
-	
+
 	require APP_PATH . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
 	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 
@@ -28,9 +31,9 @@
 	spl_autoload_register(function ($class_name) {
 		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
 	});
-	
+	// (new Common())->copyPlainTextToClipboard(var_export($argv[1]));exit;
 	//获取配置
-	$config = call_user_func([(new \settings\SettingController()), 'getMergeSettings']);
+	$config = call_user_func([(new SettingController()), 'getMergeSettings']);
 	
 	$isMweb = false;
 	if(isset($_FILES['mweb'])){
@@ -66,6 +69,12 @@
 				$argv[] = $dest;
 			}
 		}
+	}else if(isset($argv[1]) && $argv[1]=='--type=alfred'){
+		$imgPath = (new Common())->getImageFromClipboard();
+		$argv = [];
+		if(is_file($imgPath)){
+			$argv = [$imgPath];
+		}
 	}else{
 		//去除第一个元素（因为第一个元素是index.php，因为$argv是linux/mac的参数，
 		//用php执行index.php的时候，index.php也算是一个参数）
@@ -75,9 +84,11 @@
 			exit('未检测到图片');
 		}
 	}
-	
+
+	$uploader = 'uploader\Upload';
+	// $uploader = 'uploader\UploadCoroutine';
 	//getPublickLink
-	$link = call_user_func_array([(new uploader\Upload($argv, $config)), 'getPublickLink'], [
+	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
 			'do_not_format' => ($isMweb || $isPicgo)
 		]
@@ -105,5 +116,6 @@
 		echo $json;
 	}else{
 		//如果是client模式，则直接返回链接
+		(new Common())->sendNotification('success');
 		echo $link;
 	}

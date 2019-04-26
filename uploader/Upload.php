@@ -30,6 +30,12 @@ class Upload extends Common {
 	 */
 	public function getPublickLink($params){
         $fileCount = count($this->argv);
+		if($fileCount == 0){
+			$error = "没有文件可上传！\n";
+			$this->writeLog($error, 'error_log');
+			$this->sendNotification('no_image');
+			exit($error);
+		}
         if($fileCount > 10){
             $error = "同时上传多个文件会比较慢，所以限制最多只能上传10个文件, 你选择的文件数为：{$fileCount} 个!\n";
             $this->writeLog($error, 'error_log');
@@ -138,14 +144,14 @@ class Upload extends Common {
 					$this->writeLog($errMsg, 'StorageTypeError');
 				}
 			}
+			// $this->copyPlainTextToClipboard($link);
+			// $this->sendNotification('success');
 			//只返回最后一个云的link（但由于只有域名不同，所以不同云之间只要换个域名，就可以访问同一张照片），
 			//而且由于我自己做了反向代理，所以我的所有云都访问使用同一个图片域名(我自己的域名)，然后我在我的
 			//服务器把这个域名代理到真正的域名
 			$links .= $link;
-			
-			//删除临时图片
-			isset($tmpImgPath) && is_file($tmpImgPath) && @unlink($tmpImgPath);
 		}
-        return $links;
+		$this->clearTmpFiles();
+		return $links;
     }
 }

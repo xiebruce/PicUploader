@@ -8,3 +8,4 @@
 /config/.settings
 /config/.config.json
 /uploads
+/uploader/UploadCoroutine.php

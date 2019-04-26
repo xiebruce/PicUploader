@@ -361,4 +361,86 @@ class Common {
             file_put_contents($logFile, $content, FILE_APPEND);
         }
     }
+	
+	/**
+	 * 调用系统通知脚本，显示通知(Mac右上角弹出，Win10右下角弹出，Win7右下角气泡，Ubuntu顶部中间下滑)
+	 * @param string $type
+	 *
+	 * @return bool
+	 */
+	public function sendNotification($type='success'){
+	    $configFileName = PHP_OS=='WINNT' ? 'config_win.json' : 'config.json';
+	    $configFile = APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName;
+	    $config = json_decode(file_get_contents($configFile), true);
+	    if(!isset($config['notification'][$type])){
+		    return false;
+	    }
+	    $config = $config['notification'][$type];
+	    $title = $config['title'];
+	    $message = $config['message'];
+	    $subtitle = '';
+	    switch (PHP_OS){
+		    case 'Darwin':
+			    # Apple script: display notification
+			    $applescript_command = 'display notification "' . $message . '" with title "' . $title . '" subtitle "' . $subtitle . '"';
+			    # Execute apple script
+			    $notification_script = "osascript -e '" . $applescript_command . "'";
+		    	break;
+		    case 'WINNT':
+			    $powerShell = APP_PATH.'/accessorys/PicUploaderHelper/notification.ps1';
+			    $notification_script = "powershell {$powerShell} '{$title}' '{$message}'";
+		    	break;
+		    default:
+			    //Linux(目前仅测试了Ubuntu通过，其他Linux系统未测试，有些系统可能要自己安装“notify-send”)
+			    $notification_script = "notify-send '{$title}' '{$message}'";
+	    }
+	    $handle = popen($notification_script, 'r');
+	    pclose($handle);
+    }
+	
+	/**
+	 * 清理缓存文件
+	 */
+	public function clearTmpFiles(){
+	    $files = scandir(APP_PATH.'/.tmp');
+	    $files = array_slice($files, 2);
+	    foreach ($files as $file){
+	    	unlink(APP_PATH.'/.tmp/'.$file);
+	    }
+    }
+	
+	/**
+	 * 把给定纯文本内容复制到系统剪贴板，兼容Mac/Win/Linux(只能普通文本内容，不支持富文本及图片甚至文件)
+	 * @param $content
+	 *
+	 * @return string|null
+	 */
+	public function copyPlainTextToClipboard($content){
+	    $clipboard = PHP_OS=='Darwin' ? 'pbcopy' : (PHP_OS=='WINNT' ? 'clip' : 'xsel');
+	    $command = "echo '{$content}' | {$clipboard}";
+		$handle = popen($command, 'r');
+		pclose($handle);
+    }
+	
+	/**
+	 * 使用pngpaste工具把剪贴板中的图片保存到文件中
+	 * @return string
+	 */
+	public function getImageFromClipboard(){
+		$imgPath = APP_PATH.'/.tmp/.screenshot.jpeg';
+		is_file($imgPath) && unlink($imgPath);
+		
+		$command = '/usr/local/bin/pngpaste ' . $imgPath;
+		//通过Alfred调用时，这个$output始终无法获取，但直接执行Alfred调用的脚本又正常
+		$output = shell_exec($command);
+		if(!is_file($imgPath)){
+			$this->sendNotification('no_image');
+		}else{
+			$this->sendNotification('uploading');
+		}
+		if(is_file($imgPath)){
+			return $imgPath;
+		}
+		return '';
+    }
 }

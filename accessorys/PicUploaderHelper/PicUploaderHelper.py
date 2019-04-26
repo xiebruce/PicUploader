@@ -78,6 +78,10 @@ def send_notification(notification_type=''):
 
         # Execute shell by python
         subprocess.Popen(applescript_command, shell=True)
+    else:
+        notification_script = 'notify-send "' + title + '" "' + message + '"'
+        # Execute shell by python
+        subprocess.Popen(notification_script, shell=True)
 
 
 def get_image_from_clipboard():
@@ -134,8 +138,8 @@ def upload_image():
         # 删除从剪贴板保存的图片文件
         os.remove(tmp_img)
 
-        # Send macOS notification
-        send_notification()
+        # 上传成功后，不使用python来通知，而是用php来弹出通知，因为可能有多个上传任务，只有php知道哪个上传完了
+        # send_notification()
     else:
         send_notification('no_image')
 

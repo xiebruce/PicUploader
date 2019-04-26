@@ -9,6 +9,7 @@
 namespace uploader;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class UploadImgur extends Upload{
     //Imgur的clientId，相当于在上面创建的一个应用的识别码
@@ -46,7 +47,7 @@ class UploadImgur extends Upload{
 	 * @param $originFilename
 	 *
 	 * @return array
-	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 * @throws GuzzleException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
 		try {
@@ -64,7 +65,7 @@ class UploadImgur extends Upload{
 
 			$GuzzleConfig = [
 				'base_uri' => $this->baseUri,
-				'timeout'  => 10.0,
+				'timeout'  => 30.0,
 			];
 			if($this->proxy){
 				$GuzzleConfig['proxy'] = $this->proxy;
