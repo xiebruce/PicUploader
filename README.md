@@ -51,6 +51,6 @@ PicUploader
 由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
 
 ### 打赏
-如果本工具确实能帮助到你，不妨鼓励一下我继续更新并维护`PicUploader`。
+如果本工具确实能帮助到你，不妨鼓励一下我继续更新并维护`PicUploader`。  
 <img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/wechat.png">
 <img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/alipay.png">
