@@ -139,7 +139,7 @@ def upload_image():
         os.remove(tmp_img)
 
         # 上传成功后，不使用python来通知，而是用php来弹出通知，因为可能有多个上传任务，只有php知道哪个上传完了
-        # send_notification()
+        send_notification()
     else:
         send_notification('no_image')
 

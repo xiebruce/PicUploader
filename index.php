@@ -31,7 +31,7 @@
 	spl_autoload_register(function ($class_name) {
 		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
 	});
-	// (new Common())->copyPlainTextToClipboard(var_export($argv[1]));exit;
+	
 	//获取配置
 	$config = call_user_func([(new SettingController()), 'getMergeSettings']);
 	
@@ -70,6 +70,7 @@
 			}
 		}
 	}else if(isset($argv[1]) && $argv[1]=='--type=alfred'){
+		$alfred = true;
 		$imgPath = (new Common())->getImageFromClipboard();
 		$argv = [];
 		if(is_file($imgPath)){
@@ -115,7 +116,10 @@
 		$json = json_encode($data, JSON_UNESCAPED_UNICODE);
 		echo $json;
 	}else{
+		//这个通知，在一个win10可以，另一个win10又不行(这个win10上用管理员又可以，可是另一上win10也没有用管理员，而且本身用户都有管理员权限)，在win上还是用python来通知好了。
+		if(isset($alfred)){
+			(new Common())->sendNotification('success');
+		}
 		//如果是client模式，则直接返回链接
-		(new Common())->sendNotification('success');
 		echo $link;
 	}

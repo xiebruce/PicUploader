@@ -428,7 +428,7 @@ class Common {
 	 */
 	public function getImageFromClipboard(){
 		$configFileName = PHP_OS=='WINNT' ? 'config_win.json' : 'config.json';
-		$config = json_decode(file_get_contents(APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName));
+		$config = json_decode(file_get_contents(APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName), true);
 		$imgPath = APP_PATH.'/.tmp/.screenshot.'.strtolower($config['img_type']);
 		is_file($imgPath) && unlink($imgPath);
 		
