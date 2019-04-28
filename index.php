@@ -49,7 +49,7 @@
 	}
 	$sharex = false;
 	if(isset($_FILES['sharex'])){
-		$isPicgo = true;
+		$sharex = true;
 		$_FILES['file'] = $_FILES['sharex'];
 		unset($_FILES['sharex']);
 	}
