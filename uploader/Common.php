@@ -405,7 +405,7 @@ class Common {
 	    $files = scandir(APP_PATH.'/.tmp');
 	    $files = array_slice($files, 2);
 	    foreach ($files as $file){
-	    	unlink(APP_PATH.'/.tmp/'.$file);
+	    	@unlink(APP_PATH.'/.tmp/'.$file);
 	    }
     }
 	
