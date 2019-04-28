@@ -97,7 +97,7 @@
 	//getPublickLink
 	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
-			'do_not_format' => ($isMweb || $isPicgo)
+			'do_not_format' => ($isMweb || $isPicgo || $sharex)
 		]
 	]);
 	
