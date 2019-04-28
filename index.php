@@ -102,8 +102,8 @@
 	]);
 	
 	//如果是MWeb或PicGo，则返回Mweb/Picgo支持的json格式
-	if($isMweb || $isPicgo){
-		if($isMweb){
+	if($isMweb || $isPicgo || $sharex){
+		if($isMweb || $sharex){
 			$data = [
 				'code' => 'success',
 				'data' => [
