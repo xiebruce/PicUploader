@@ -62,9 +62,12 @@ class Upload extends Common {
 			$newFileName = $this->genRandFileName($filePath);
 			
 			//组装key名（因为我们用的是对象存储服务，存储是用key=>value的方式存的，所以这个key就相当于文件名，当然带路径，但其实这个所谓的路径又与我们平常的路径不太相同，它其实就是文件名的一部分）
-			$key = $newFileName;
-			
-			//如果配置了优化宽度，则优化
+			if(isset(static::$config['keepOriginalFilename']) && static::$config['keepOriginalFilename'] == 1){
+				$key = $originFilename;
+			}else{
+				$key = $newFileName;
+			}
+
 			$uploadFilePath = $filePath;
 
 			//非图片则不需要做压缩和水印处理

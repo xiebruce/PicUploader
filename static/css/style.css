@@ -182,7 +182,7 @@ input, textarea {
 .watermark-type {
 	display: none;
 }
-.form-group2 .watermark-type-label {
+.form-group2 .watermark-type-label, .form-group2 .keepOriginalFilename-label {
 	min-width: 50px;
 }
 .image-watermark, .text-watermark {

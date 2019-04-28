@@ -599,6 +599,16 @@ $(document).ready(function (){
 							<label>存储日志路径</label>
 							<input class="text" type="text" name="logPath" placeholder="存储日志路径" value="${data.logPath}"><span></span>
 						</div>
+						<div class="form-group2">
+							<label>允许同时上传文件数</label>
+							<input class="text" type="number" name="maxNum" placeholder="允许同时上传文件数" value="${data.maxNum}"><span></span>
+						</div>
+						<div class="form-group2">
+							<label>保持原始文件名</label>
+							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="1"${data.keepOriginalFilename=='1'?' checked':''}>是</label>
+							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="0"${data.keepOriginalFilename=='0'?' checked':''}>否</label>
+						</div>
+						
 					</div>
 					<div class="area">
 						<div class="form-group2-area">水印</div>
