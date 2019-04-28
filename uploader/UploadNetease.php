@@ -72,7 +72,6 @@ class UploadNetease extends Upload{
 		    $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
 		    $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
 		    if(!$this->domain){
-			    //domain => http://markdown-bucket.nos-eastchina1.126.net
 			    $this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
 		    }
 		    $link = $this->domain.'/'.$key;

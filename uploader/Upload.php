@@ -11,6 +11,8 @@ namespace uploader;
 class Upload extends Common {
     //arguments from MacOS(the absolute path of image)
     public $argv;
+	//Maximum number of uploading files at a time
+	public $maxNum;
     //the config
     public static $config;
 
@@ -18,6 +20,7 @@ class Upload extends Common {
     {
         $this->argv = $argv;
         static::$config = $config;
+        $this->maxNum = static::$config['maxNum'] ?? 10;
         static::$config['storageType'] = isset(static::$config['storageType']) ? static::$config['storageType'] : 'Smms';
     }
 	
@@ -36,8 +39,8 @@ class Upload extends Common {
 			$this->sendNotification('no_image');
 			exit($error);
 		}
-        if($fileCount > 10){
-            $error = "同时上传多个文件会比较慢，所以限制最多只能上传10个文件, 你选择的文件数为：{$fileCount} 个!\n";
+        if($fileCount > $this->maxNum){
+            $error = "同时上传多个文件会比较慢，所以限制最多只能上传{$this->maxNum}个文件, 你选择的文件数为：{$fileCount} 个!\n";
             $this->writeLog($error, 'error_log');
             exit($error);
         }

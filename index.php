@@ -47,6 +47,12 @@
 		$_FILES['file'] = $_FILES['picgo'];
 		unset($_FILES['picgo']);
 	}
+	$sharex = false;
+	if(isset($_FILES['sharex'])){
+		$isPicgo = true;
+		$_FILES['file'] = $_FILES['sharex'];
+		unset($_FILES['sharex']);
+	}
 	
 	//if has post file
 	if(isset($_FILES['file']) && $files = $_FILES['file']){
