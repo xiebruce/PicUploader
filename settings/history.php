@@ -248,42 +248,42 @@
 					<th class="file-operation">操作</th>
 				</thead>
 				<tbody>
-					<tr>
-						<td>12323432</td>
-						<td>
-							<img class="image" src="/static/watermark/watermark.png">
-							<div class="filename">screenshot.jpeg</div>
-						</td>
-						<td>http://img.qhjack.cn/2019/04/28/b5764a1304dc4b5d8f7b952b313fa224.jpg</td>
-						<td>250k</td>
-						<td>2019-04-29 12:32:32</td>
-						<td class="operations">
-							<span class="button copy-url">原始url</span>
-							<span class="button copy-markdown">markdown</span><br>
-							<span class="button copy-markdown-with-link">带链接的markdown</span>
-							<span class="button copy-markdown-with-link">BB Code</span>
-							<span class="button remove-from-list" title="从历史记录中移除">移除</span>
-						</td>
-					</tr>
-					<tr>
-						<td>12323432</td>
-						<td>
-							<img class="image" src="/static/watermark/watermark.png">
-							<div class="filename">screenshot.jpeg</div>
-						</td>
-						<td>http://img.qhjack.cn/2019/04/28/b5764a1304dc4b5d8f7b952b313fa224.jpg</td>
-						<td>250k</td>
-						<td>2019-04-29 12:32:32</td>
-						<td class="operations">
-							<span class="button copy-url">原始url</span>
-							<span class="button copy-markdown">markdown</span><br>
-							<span class="button copy-markdown-with-link">带链接的markdown</span>
-							<span class="button copy-markdown-with-link">BB Code</span>
-							<span class="button remove-from-list" title="从历史记录中移除">移除</span>
-						</td>
-					</tr>
 					<tr class="no-history">
 						<td colspan="6">暂无上传历史记录</td>
+					</tr>
+					<!--<tr>
+						<td>12323432</td>
+						<td>
+							<img class="image" src="/static/watermark/watermark.png">
+							<div class="filename">screenshot.jpeg</div>
+						</td>
+						<td>http://img.qhjack.cn/2019/04/28/b5764a1304dc4b5d8f7b952b313fa224.jpg</td>
+						<td>250k</td>
+						<td>2019-04-29 12:32:32</td>
+						<td class="operations">
+							<span class="button copy-url">原始url</span>
+							<span class="button copy-markdown">markdown</span><br>
+							<span class="button copy-markdown-with-link">带链接的markdown</span>
+							<span class="button copy-markdown-with-link">BB Code</span>
+							<span class="button remove-from-list" title="从历史记录中移除">移除</span>
+						</td>
+					</tr>
+					<tr>
+						<td>12323432</td>
+						<td>
+							<img class="image" src="/static/watermark/watermark.png">
+							<div class="filename">screenshot.jpeg</div>
+						</td>
+						<td>http://img.qhjack.cn/2019/04/28/b5764a1304dc4b5d8f7b952b313fa224.jpg</td>
+						<td>250k</td>
+						<td>2019-04-29 12:32:32</td>
+						<td class="operations">
+							<span class="button copy-url">原始url</span>
+							<span class="button copy-markdown">markdown</span><br>
+							<span class="button copy-markdown-with-link">带链接的markdown</span>
+							<span class="button copy-markdown-with-link">BB Code</span>
+							<span class="button remove-from-list" title="从历史记录中移除">移除</span>
+						</td>
 					</tr>
 					<tr class="pagination">
 						<td colspan="6">
@@ -295,7 +295,7 @@
 							<input type="number" class="jump-to-page">
 							<span class="button last">跳转</span>
 						</td>
-					</tr>
+					</tr>-->
 				</tbody>
 			</table>
 		</div>
