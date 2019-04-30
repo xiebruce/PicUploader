@@ -359,7 +359,7 @@
 			// 如果使用Sqlite，不需要指定db的具体路径，不需要修改，直接这样就能用
 			'dsn' => 'sqlite:PicUploader.db',
 			//dbname=PicUploader指定的是数据库名，这个数据库必须要自己手动在mysql中创建，而表则会自动创建
-			'dsn' => 'mysql:host=127.0.0.1:3306;dbname=PicUploader',
+			//'dsn' => 'mysql:host=127.0.0.1:3306;dbname=PicUploader',
 			'username' => 'root',
 			'password' => '123',
 		],
