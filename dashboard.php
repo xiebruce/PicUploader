@@ -1,7 +1,7 @@
 <?php
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
 	if(isset($_GET['history']) && $_GET['history']==1){
-		echo shell_exec("php ".APP_PATH.'/settings/history.php');
+		include APP_PATH.'/settings/history.php';
 		exit;
 	}
 	

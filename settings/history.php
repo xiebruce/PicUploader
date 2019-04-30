@@ -105,6 +105,10 @@
 					dataType: 'json',
 					success: function (response){
 						if(response.code == 0){
+							var data = response.data;
+							if(data.length == 0){
+								return false;
+							}
 							var pagination =
 								`<tr class="pagination">
 									<td colspan="6">
@@ -112,7 +116,7 @@
 									</td>
 								</tr>`;
 							var tr = '';
-							var data = response.data;
+							
 							for(let i=0; i<data.length; i++){
 								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|\/preview/;
 								var img = pattern.test(data[i].url) ? '<img class="image" src="'+data[i].url+'"">' : '';
