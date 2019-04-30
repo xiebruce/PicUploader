@@ -8,6 +8,9 @@
 
 namespace uploader;
 
+use settings\DbModel;
+use settings\HistoryController;
+
 class Upload extends Common {
     //arguments from MacOS(the absolute path of image)
     public $argv;
@@ -72,7 +75,7 @@ class Upload extends Common {
 
 			//非图片则不需要做压缩和水印处理
 			if(strpos($mimeType, 'image')!==false){
-				$tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
+				// $tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
 				if(isset(static::$config['resizeOptions']['percentage']) && static::$config['resizeOptions']['percentage'] > 0 && static::$config['resizeOptions']['percentage'] < 100){
 					$tmpImgPath = $this->optimizeImage($filePath, static::$config['resizeOptions'], $quality);
@@ -123,9 +126,16 @@ class Upload extends Common {
 					//new 变量类名不会带上命名空间，所以自己把命名空间加上
 					$className = __NAMESPACE__.'\\Upload'.ucfirst($className);
 
-					//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用
+					//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用，缺点是无法用IDE跟踪函数
 					// $link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
 					$link = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
+					
+					// 如果数据库连接正常，则保存上传记录到数据库
+					if((new DbModel())->connection){
+						$url = isset($link['link']) ? $link['link'] : $link;
+						$size = filesize($uploadFilePath);
+						(new HistoryController)->Add($originFilename, $url, $size);
+					}
 
 					if(!$params['do_not_format']){
 						//按配置文件指定的格式，格式化链接

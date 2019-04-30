@@ -8,7 +8,7 @@
 
 namespace settings;
 
-class SettingController {
+class SettingController extends Controller {
 	public $settings;
 	public $storageTypes;
 	public $storagesDir;
@@ -381,5 +381,30 @@ class SettingController {
 			return false;
 		}
 		return $relativeDir.'/'.$newName;
+	}
+	
+	/**
+	 * 获取数据库配置
+	 * @return array
+	 */
+	public function getDatabaseConfig(){
+		$database = [];
+		if(!is_dir($this->storagesDir)){
+			return $database;
+		}
+
+		$generalSettingsFile = $this->storagesDir.'/general-settings.json';
+		if(!is_file($generalSettingsFile)){
+			if(isset($this->settings['database'])){
+				$database = $this->settings['database'];
+			}
+		}else{
+			$generalSettings = json_decode(file_get_contents($generalSettingsFile), true);
+			if(isset($generalSettings['database'])){
+				$database = $generalSettings['database'];
+			}
+		}
+		
+		return $database;
 	}
 }

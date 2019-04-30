@@ -5,6 +5,9 @@
 	 * Date: 2019-04-13
 	 * Time: 03:10
 	 */
+	
+	require '../vendor/autoload.php';
+	
 	define('APP_PATH', strtr(dirname(__DIR__), '\\', '/'));
 	spl_autoload_register(function ($class_name) {
 		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
@@ -22,8 +25,8 @@
 		$func = join('', $arr);
 	}
 	
-	// var_dump($key);exit;
+	$className = '\\settings\\'.(!isset($_GET['class']) ? 'SettingController' : $_GET['class']);
 	if($func){
-		$json = call_user_func_array(array((new \settings\SettingController()), $func), [$_REQUEST]);
+		$json = call_user_func_array(array((new $className()), $func), [$_REQUEST]);
 		echo $json;
 	}

@@ -63,6 +63,9 @@
 						</ul>
 					</div>
 				</div>
+				<div class="icons upload-history" title="上传历史">
+					<i class="fa fa-history"></i>
+				</div>
 			</div>
 			<div class="main">
 				<div class="show-save-tip">

@@ -243,6 +243,8 @@ class Common {
 	    $filesize = 0;
     	if(is_file($file)){
 		    $filesize = filesize($file);
+	    }else if(is_numeric($file)){
+    		$filesize = $file;
 	    }
     	//Mac系统显示文件大小是按1000进位的(与硬盘相同)
 	    $carry = PHP_OS=='Darwin' ? 1000 : 1024;

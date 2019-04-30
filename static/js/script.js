@@ -174,7 +174,7 @@ $(document).ready(function (){
 		}
 	}, '.uploaded-image-box');
 	
-	//设置云服务器参数
+	//点击某个云
 	$('.sub-left-bar .list .cloud').on('click', function (){
 		$('.show-save-tip .show-save-tip-text').html(saveTips);
 		$('.show-save-tip').slideDown();
@@ -608,7 +608,21 @@ $(document).ready(function (){
 							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="1"${data.keepOriginalFilename=='1'?' checked':''}>是</label>
 							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="0"${data.keepOriginalFilename=='0'?' checked':''}>否</label>
 						</div>
-						
+					</div>
+					<div class="area">
+						<div class="form-group2-area">数据库配置</div>
+						<div class="form-group2 database">
+							<label class="database-dsn-label">DSN</label>
+							<input class="database-dsn" type="text" name="database[dsn]" placeholder="mysql:host=127.0.0.1:3306;dbname=PicUploader" value="${data.database.dsn}"><span></span>
+						</div>
+						<div class="form-group2 database">
+							<label class="database-dsn-label">Username</label>
+							<input class="database-username" type="text" name="database[username]" placeholder="mysql:host=127.0.0.1:3306;dbname=PicUploader" value="${data.database.username}"><span></span>
+						</div>
+						<div class="form-group2 database">
+							<label class="database-dsn-label">Password</label>
+							<input class="database-password" type="text" name="database[password]" placeholder="mysql:host=127.0.0.1:3306;dbname=PicUploader" value="${data.database.password}"><span></span>
+						</div>
 					</div>
 					<div class="area">
 						<div class="form-group2-area">水印</div>
@@ -749,6 +763,11 @@ $(document).ready(function (){
 	//保存通用设置
 	$('.cloud-setting').on('click', '.save-button2', function (){
 		saveSettings('set-general-settings');
+	});
+	
+	//点击查看历史
+	$('.left-bar .upload-history').on('click', function (){
+		window.location.href = window.location.href + '?history=1';
 	});
 	
 	//================== 图片放大 开始 ======================

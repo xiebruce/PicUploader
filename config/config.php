@@ -353,6 +353,16 @@
 		//0: 使用随机字符串文件名(这样不会覆盖原图)
 		//1: 使用原文件名，有可能会覆盖原图(同一天上传同一文件名的文件两次以上，后面的就会覆盖前面的)
 		'keepOriginalFilename' => 0,
+		
+		//数据库是用于存储上传历史记录的，不存在配置
+		'database' => [
+			// 如果使用Sqlite，不需要指定db的具体路径，不需要修改，直接这样就能用
+			'dsn' => 'sqlite:PicUploader.db',
+			//dbname=PicUploader指定的是数据库名，这个数据库必须要自己手动在mysql中创建，而表则会自动创建
+			'dsn' => 'mysql:host=127.0.0.1:3306;dbname=PicUploader',
+			'username' => 'root',
+			'password' => '123',
+		],
 	];
 	
 	return $config;

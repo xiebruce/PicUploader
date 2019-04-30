@@ -23,31 +23,26 @@ print_r($DB->getlist('select * from test order by id desc'));
 //更新数据
 $DB->query('update test set title = "三大" where id = 9');
  ***/
- 
+
+namespace settings;
+
+use PDO;
+
 class SQLite
 {
+	private $connection;
 	function __construct($file)
 	{
-		try
-		{
-			$this->connection=new PDO('sqlite:'.$file);
-		}
-		catch(PDOException $e)
-		{
-			try
-			{
-				$this->connection=new PDO('sqlite2:'.$file);
-			}
-			catch(PDOException $e)
-			{
-				exit('error!');
-			}
+		try {
+			$this->connection = new PDO('sqlite:'.$file);
+		} catch(PDOException $e) {
+		
 		}
 	}
 	
 	function __destruct()
 	{
-		$this->connection=null;
+		$this->connection = null;
 	}
 	
 	function query($sql) //直接运行SQL，可用于更新、删除数据
@@ -67,7 +62,8 @@ class SQLite
 	
 	function Execute($sql)
 	{
-		return $this->query($sql)->fetch();
+		$res = $this->connection->exec($sql);
+		var_export($res);exit;
 	}
 	
 	function RecordArray($sql)

@@ -32,6 +32,11 @@
 		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
 	});
 	
+	/*if((new \settings\DbModel())->connection)
+		// $arr = (new \settings\HistoryController())->getList(1);
+		// var_dump($arr);
+		(new \settings\HistoryController())->Add('试试中文.png', 'https://3243.jpg', 43242);
+	exit;*/
 	//获取配置
 	$config = call_user_func([(new SettingController()), 'getMergeSettings']);
 	

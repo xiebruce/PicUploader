@@ -9,3 +9,4 @@
 /config/.config.json
 /uploads
 /uploader/UploadCoroutine.php
+/db
