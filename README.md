@@ -19,7 +19,7 @@ PicUploader
 - 支持Web端拖放、粘贴、或直接选择上传图片；
 - 支持Web端设置所有参数；
 - 支持上传任意文件(不只是图片)；
-- 目前支持13个图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/微博，此外还支持自建云盘`Nextcloud`，及通过sftp协议上传到个人服务器(使用ssh账号密码即可)。
+- 目前支持13个图床：七牛云/腾讯云/网易云/百度云/阿里云/京东云/又拍云/sm.ms/Imgur/Ucloud/QingCloud/Github/Gitee(码云)/微博/Nextcloud，以及支持通过sftp协议上传到个人服务器(使用ssh账号密码即可)。
 
 [Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)：
 ![Mac-demo.gif](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
