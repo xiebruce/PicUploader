@@ -211,7 +211,7 @@
 				//提交的评论信息，可以不填
 				'message' => 'Upload from PicUploader',
 				//access_token，授权token
-				'access_token' => '0e6bb6a94d077ac64159de556cd9a5f2',
+				'access_token' => '0e6bb6**************d9a5f2',
 				//不填则使用gittee默认的域名，填了则使用填的域名
 				'domain' => '',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
