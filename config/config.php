@@ -199,6 +199,33 @@
 				'proxy' => '',
 			],
 			
+			//Gitee
+			'gitee' => [
+				'name' => '码云',
+				//gittee仓库(gittee左上角的名字，带用户名)
+				'repo' => 'xiebruce/imagebed',
+				//分支，默认为master
+				'branch' => 'master',
+				//文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
+				'directory' => 'images',
+				//提交的评论信息，可以不填
+				'message' => 'Upload from PicUploader',
+				//access_token，授权token
+				'access_token' => '0e6bb6a94d077ac64159de556cd9a5f2',
+				//不填则使用gittee默认的域名，填了则使用填的域名
+				'domain' => '',
+				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
+				// 'proxy' => 'http://127.0.0.1:1087',
+				// 'directory' => date('Y/m/d/'),
+				//自定义目录格式：Photos/2019/03/31
+				// 'directory' => 'Photos/' . date('Y/m/d/'),
+				//自定义目录格式：Photos/Travel/2019/03/31
+				// 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+				//自定义目录格式：Photos/Travel/Maldives
+				// 'directory' => 'Photos/Travel/Maldives',
+			],
+			
 			//Weibo(上传图片到微博并不会自动发一条微博，请放心使用)
 			'weibo' => [
 				'name' => '微博',
