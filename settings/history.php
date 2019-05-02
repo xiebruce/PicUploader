@@ -118,7 +118,7 @@
 							var tr = '';
 							
 							for(let i=0; i<data.length; i++){
-								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|\/preview/;
+								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|\/preview/;
 								var img = pattern.test(data[i].url) ? '<img class="image" src="'+data[i].url+'"">' : '';
 								tr += `<tr class="history">
 											<td>${data[i].id}</td>

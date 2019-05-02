@@ -117,14 +117,13 @@
 				imagedestroy ( $this->image );
 			}
 		}
+		
 		/**
 		 * Load an image
+		 * @param $filename
 		 *
-		 * @param string $filename
-		 *        	image file
-		 *
-		 * @return EasyImage
-		 * @throws Exception
+		 * @return $this
+		 * @throws \Exception
 		 */
 		function load($filename) {
 			ini_set('memory_limit', '1024M');
@@ -143,6 +142,12 @@
 					break;
 				case 'image/png' :
 					$this->image = imagecreatefrompng ( $this->filename );
+					break;
+				case 'image/webp' :
+					$this->image = imagecreatefromwebp ( $this->filename );
+					break;
+				case 'image/bmp' :
+					$this->image = imagecreatefrombmp( $this->filename );
 					break;
 				default :
 					throw new \Exception ( 'Invalid image: ' . $this->filename );
@@ -247,6 +252,17 @@
 					}else{
 						$result = imagepng ( $this->image, $filename);
 					}
+					break;
+				case 'webp':
+					if($quality){
+						$quality = $this->keep_within($quality, 0, 100);
+						$result = imagewebp($this->image, $filename, round($quality));
+					}else{
+						$result = imagewebp($this->image, $filename);
+					}
+					break;
+				case 'bmp':
+					$result = imagebmp($this->image, $filename, true);
 					break;
 				default :
 					throw new \Exception ( 'Unsupported format' );
