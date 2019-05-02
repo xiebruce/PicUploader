@@ -90,6 +90,13 @@
 				height: 50px;
 				line-height: 50px;
 			}
+			.upload-history-list .file-upload-time {
+				width: 11%;
+			}
+			
+			.upload-history-list .operations {
+				width: 12%;
+			}
 		</style>
 		<script>
 			//获取一页历史记录
