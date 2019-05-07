@@ -71,16 +71,31 @@ class DbModel {
 		return new self();
 	}*/
 	
+	/**
+	 * @param $sql
+	 *
+	 * @return DbModel
+	 */
 	public function query($sql){
 		$res = $this->connection->query($sql);
 		return $res->fetch(PDO::FETCH_ASSOC);
 	}
 	
+	/**
+	 * @param $sql
+	 *
+	 * @return array
+	 */
 	public function queryAll($sql){
 		$res = $this->connection->query($sql);
 		return $res->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
+	/**
+	 * @param $sql
+	 *
+	 * @return int
+	 */
 	public function execute($sql){
 		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$res = $this->connection->exec($sql);

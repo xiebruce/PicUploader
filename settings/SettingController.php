@@ -389,10 +389,6 @@ class SettingController extends Controller {
 	 */
 	public function getDatabaseConfig(){
 		$database = [];
-		if(!is_dir($this->storagesDir)){
-			return $database;
-		}
-
 		$generalSettingsFile = $this->storagesDir.'/general-settings.json';
 		if(!is_file($generalSettingsFile)){
 			if(isset($this->settings['database'])){
