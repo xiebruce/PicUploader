@@ -1,4 +1,15 @@
-var saveTips = '可按“ctrl+s(Win)”或“cmd+s(Mac)”保存';
+var defaultSaveTips = '可按“ctrl+s(Win)”或“cmd+s(Mac)”保存';
+
+function showSaveTips (msg, expire){
+	//显示保存成功提示
+	$('.show-save-tip .show-save-tip-text').html(msg);
+	$('.show-save-tip').slideDown(function (){
+		var $this = $(this);
+		setTimeout(function (){
+			$this.slideUp();
+		}, expire);
+	});
+}
 
 //保存设置
 function saveSettings(method){
@@ -9,14 +20,7 @@ function saveSettings(method){
 		dataType: 'json',
 		success: function (response){
 			if(response.code==0){
-				//显示保存成功提示
-				$('.show-save-tip .show-save-tip-text').html(response.msg);
-				$('.show-save-tip').slideDown(function (){
-					var $this = $(this);
-					setTimeout(function (){
-						$this.slideUp(800);
-					}, 1500);
-				});
+				showSaveTips(response.msg, 1500);
 			}
 		}
 	});
@@ -176,11 +180,7 @@ $(document).ready(function (){
 	
 	//点击某个云
 	$('.sub-left-bar .list .cloud').on('click', function (){
-		$('.show-save-tip .show-save-tip-text').html(saveTips);
-		$('.show-save-tip').slideDown();
-		setTimeout(function (){
-			$('.show-save-tip').slideUp(1000);
-		}, 2000);
+		showSaveTips(defaultSaveTips, 2000);
 		
 		var $this = $(this);
 		var key = $(this).data('key');
@@ -415,7 +415,40 @@ $(document).ready(function (){
 		$('.sub-left-bar .list li').removeClass('active');
 		$(this).addClass('active');
 		
+		//获取当前的目录
+		let directoryStr = '';
+		$.ajax({
+			type: 'get',
+			url: './settings/dispatch.php?func=get-common-used-dir',
+			data: {
+			
+			},
+			async: false,
+			dataType: 'json',
+			success: function (response){
+				if(response.code == '0'){
+					let data = response.data;
+					let selected = '';
+					for (let i = 0; i<data.commonUsedDirs.length; i++){
+						selected = data.curVal == data.commonUsedDirs[i] ? ' selected' : '';
+						directoryStr += '<option value="'+data.commonUsedDirs[i]+'"'+selected+'>'+data.commonUsedDirs[i]+'</option>';
+					}
+					directoryStr = '<option value="">-- 根目录 --</option>' + directoryStr;
+				}
+			},
+			error: function (error){
+				console.log(error);
+			}
+		});
+		
 		var dropAreaHtml = `
+				<div class="upload-to-folder">
+					<label>上传到</label>
+					<select name="upload-dest-dir">
+						${directoryStr}
+					</select>
+					<i class="fa fa-question-circle-o question"></i>
+				</div>
 				<div class="drop-area">
 					<div class="uploaded-image-container">
 						<div class="drop-area-tips">
@@ -471,6 +504,33 @@ $(document).ready(function (){
 		});
 	});
 	
+	//提示修改上传目录
+	$('.cloud-setting').on('click', '.upload-to-folder .question', function (){
+		alert('该设置会修改所有可配置上传目录的云服务器配置中的上传目录为所选目录！注意根目录默认不会生效，需要先切换到其他的再切换到根目录才会生效！');
+	});
+	
+	//上传界面设置上传目录(该设置将会设置所有storageType的directory为选中的值)
+	$('.cloud-setting').on('change', '.upload-to-folder select[name="upload-dest-dir"]', function (){
+		let directory = $(this).val();
+		$.ajax({
+			type: 'post',
+			url: './settings/dispatch.php?func=set-allstorage-type-directory',
+			data: {
+				directory: directory,
+			},
+			dataType: 'json',
+			success: function (response){
+				// console.log(response);
+				if(response.code == '0'){
+					showSaveTips('目录切换成功', 1500);
+				}
+			},
+			error: function (error){
+				console.log(error);
+			}
+		});
+	});
+	
 	//上传图片按钮→选择图片上传
 	$('.cloud-setting').on('change' , '.click-upload-image', function (e){
 		let files = $(this).get(0).files;
@@ -509,11 +569,7 @@ $(document).ready(function (){
 	
 	//通用设置
 	$('.general-setting').on('click', function (){
-		$('.show-save-tip .show-save-tip-text').html(saveTips);
-		$('.show-save-tip').slideDown();
-		setTimeout(function (){
-			$('.show-save-tip').slideUp(1000);
-		}, 2000);
+		showSaveTips(defaultSaveTips, 2000);
 		
 		var $this = $(this);
 		$.ajax({
@@ -538,6 +594,7 @@ $(document).ready(function (){
 						`<label><input type="checkbox" name="storageType[${i}][isActive]" value="1"${checked}>${storageType[i].name}</label>
 								<input type="hidden" name="storageType[${i}][name]" value="${storageType[i].name}">`;
 				}
+				let commonUsedDirStr = data.commonUsedDirs.join('\n');
 				
 				var generalSettingsForm =
 					`<div class="area">
@@ -607,6 +664,10 @@ $(document).ready(function (){
 							<label>保持原始文件名</label>
 							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="1"${data.keepOriginalFilename=='1'?' checked':''}>是</label>
 							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="0"${data.keepOriginalFilename=='0'?' checked':''}>否</label>
+						</div>
+						<div class="form-group2">
+							<label>常用目录(每行一个)</label>
+							<textarea name="common-used-dir" cols="30" rows="5">${commonUsedDirStr}</textarea>
 						</div>
 					</div>
 					<div class="area">

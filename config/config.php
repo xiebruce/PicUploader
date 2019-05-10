@@ -247,6 +247,7 @@
 				//prefix为前缀，最终上传目录是：prefix+directory，那为什么要分开写呢？因为directory会拼到你的domain后面，而prefix不会
 				//prefix就相当于设置上传的“根目录”
 				'prefix' => '/home/xiebruce',
+				//如果指定了directory，则directory指定的目录必须存在，否则不会自动创建，会报错
 				'directory' => '/data',
 				'domain' => 'https://img.xiebruce.top',
 			],
@@ -390,6 +391,13 @@
 			//如果用sqlite，则用户名密码不会被使用，只有mysql/MariaDB才会用到
 			'username' => 'root',
 			'password' => '123',
+		],
+		
+		//常用目录，用于网页版上传时快速设置当前想上传到哪
+		'commonUsedDirs' => [
+			'/path/to/images',
+			'/path/to/images2',
+			'/path/to/images3',
 		],
 	];
 	

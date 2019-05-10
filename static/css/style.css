@@ -269,7 +269,7 @@ input.color {
 	border: 1px solid #000000;
 	width: 56.7%;
 	height: 320px;
-	margin: 150px auto 0 auto;
+	margin: 5px auto 0 auto;
 	padding: 5px;
 	/*隐藏了横向滚动向，竖向滚动条是没了，但滚动区域还在*/
 	overflow-x: hidden;
@@ -401,4 +401,11 @@ input.color {
 }
 .database .database-dsn {
 	width: 400px;
+}
+.form-area .upload-to-folder {
+	width: 57.5%;
+	margin: 10px auto 0 auto;
+}
+.form-area .upload-to-folder .question {
+	cursor: pointer;
 }

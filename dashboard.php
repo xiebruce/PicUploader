@@ -71,7 +71,6 @@
 				<div class="show-save-tip">
 					<div class="show-save-tip-text">可按“ctrl+s(Win)”或“cmd+s(Mac)”保存</div>
 				</div>
-				
 				<div class="form-area">
 					<form class="cloud-setting">
 						<!-- 动态插入 -->

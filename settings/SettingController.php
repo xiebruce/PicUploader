@@ -162,12 +162,25 @@ class SettingController extends Controller {
 		}
 		//=========================== 自定义返回链接格式 结束 ===============================
 		
+		//=========================== 常用目录 开始 ===============================
+		//自定义返回链接格式
+		$commonUsedDirFile = $this->storagesDir . '/common-used-dir.json';
+		//如果后台有保存则使用后台的
+		if(is_file($commonUsedDirFile)){
+			$commonUsedDir = json_decode(file_get_contents($commonUsedDirFile), true);
+		}else{
+			//后台没有则直接使用配置文件中的(config-local.php存在会优先读取，否则读取config.php)
+			$commonUsedDir = $this->settings['commonUsedDirs'];
+		}
+		//=========================== 常用目录 结束 ===============================
+		
 		//把以上配置合并到通用配置中
 		$generalSettings['customFormat'] = $customFormat;
 		$generalSettings['videoFormat'] = isset($generalSettings['videoFormat']) ? $generalSettings['videoFormat'] : $this->settings['videoFormat'];
 		$generalSettings['audioFormat'] = isset($generalSettings['audioFormat']) ? $generalSettings['audioFormat'] : $this->settings['audioFormat'];
 		$generalSettings['watermark']['image'] = $imageWatermark;
 		$generalSettings['watermark']['text'] = $textWatermark;
+		$generalSettings['commonUsedDirs'] = $commonUsedDir;
 		
 		return json_encode([
 			'code' => 0,
@@ -185,13 +198,30 @@ class SettingController extends Controller {
 		$textWatermarkFile = $this->storagesDir.'/text-watermark.json';
 		$imageWatermarkFile = $this->storagesDir.'/image-watermark.json';
 		$customFormatFile = $this->storagesDir.'/customFormat.json';
+		$commonUsedDirFile = $this->storagesDir . '/common-used-dir.json';
 		
 		$textWatermarkJson = json_encode($_POST['watermark']['text'], JSON_UNESCAPED_UNICODE);
 		$imageWatermarkJson = json_encode($_POST['watermark']['image'], JSON_UNESCAPED_UNICODE);
 		$customFormatJson = json_encode($_POST['customFormat'], JSON_UNESCAPED_UNICODE);
+		
+		$commonUsedDir = trim($_POST['common-used-dir']);
+		$commonUsedDirs = [];
+		if($commonUsedDir){
+			$commonUsedDirs = explode("\n", $commonUsedDir);
+			//把每个元素去除两端空格，如果是空值则删除
+			array_walk($commonUsedDirs, function(&$val, $key) use (&$commonUsedDirs){
+				$val = trim($val);
+				if($val == ''){
+					unset($commonUsedDirs[$key]);
+				}
+			});
+		}
+		$commonUsedDirJson = json_encode(array_values($commonUsedDirs), JSON_UNESCAPED_UNICODE);
+		
 		unset($_POST['watermark']['text']);
 		unset($_POST['watermark']['image']);
 		unset($_POST['customFormat']);
+		unset($_POST['common-used-dir']);
 		
 		// !isset($_POST['allowMimeTypes']) && $_POST['allowMimeTypes'] = [];
 		!isset($_POST['storageType']) && $_POST['storageType'] = [];
@@ -203,6 +233,7 @@ class SettingController extends Controller {
 		file_put_contents($imageWatermarkFile, $imageWatermarkJson);
 		file_put_contents($customFormatFile, $customFormatJson);
 		file_put_contents($generalSettingsFile, $generalSettingsJson);
+		file_put_contents($commonUsedDirFile, $commonUsedDirJson);
 		
 		return json_encode([
 			'code' => 0,
@@ -311,11 +342,10 @@ class SettingController extends Controller {
 	
 	/**
 	 * 上传水印图片
-	 * @param $params
 	 *
 	 * @return false|string
 	 */
-	public function uploadWatermarkImage($params){
+	public function uploadWatermarkImage(){
 		if(!isset($_FILES['watermark']['tmp_name'])){
 			return json_encode([
 				'code' => -1,
@@ -402,5 +432,83 @@ class SettingController extends Controller {
 		}
 		
 		return $database;
+	}
+	
+	/**
+	 * 获取常用目录
+	 * @return false|string
+	 */
+	public function getCommonUsedDir() {
+		//自定义返回链接格式
+		$commonUsedDirsFile = $this->storagesDir . '/common-used-dir.json';
+		//如果后台有保存则使用后台的
+		if(is_file($commonUsedDirsFile)){
+			$commonUsedDirs = json_decode(file_get_contents($commonUsedDirsFile), true);
+		}else{
+			//后台没有则直接使用配置文件中的(config-local.php存在会优先读取，否则读取config.php)
+			$commonUsedDirs = $this->settings['commonUsedDirs'];
+		}
+		
+		$curVal = '';
+		$commonUsedDirsFile = $this->storagesDir . '/upload-dest-dir.json';
+		if(is_file($commonUsedDirsFile)){
+			$curVal = file_get_contents($commonUsedDirsFile);
+		}
+		
+		return json_encode([
+			'code' => 0,
+			'data' => [
+				'commonUsedDirs' => $commonUsedDirs,
+				'curVal' => $curVal,
+			],
+		], JSON_UNESCAPED_SLASHES);
+	}
+	
+	/**
+	 * 设置所有云服务器的上传目录（smms,imgur,weibo等不可设置的除外）
+	 * @return false|string
+	 */
+	public function setAllStorageTypeDirectory() {
+		$directory = trim($_POST['directory']);
+		
+		$storagesFiles = glob($this->storagesDir . '/storage-*');
+		$storageTypes = [];
+		if(!empty($storagesFiles)){
+			//后台保存的存储引擎
+			$backendStorageKeys = [];
+			foreach($storagesFiles as $storagesFile){
+				$key = str_replace('.json', '', substr($storagesFile, strrpos($storagesFile,'-') + 1));
+				$backendStorageKeys[] = $key;
+				$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
+			}
+			$configStorageKeys = array_keys($this->settings['storageTypes']);
+			//对比配置文件中的存储引擎，如果其中有某个存储引擎在后台配置中不存在，则把它合并到后台的配置中(当然只是合并输出，并未存储到后台)
+			$storageKeys = array_diff($configStorageKeys, $backendStorageKeys);
+			if(!empty($storageKeys)){
+				foreach ($storageKeys as $storageKey){
+					$storageTypes[$storageKey] = $this->settings['storageTypes'][$storageKey];
+				}
+			}
+		}else{
+			//否则直接从配置文件中获取（优先获取config-local.php，没有则获取local.php）
+			$storageTypes = $this->settings['storageTypes'];
+		}
+		
+		foreach ($storageTypes as $key => $storageType){
+			if(in_array($key, ['smms', 'imgur', 'weibo'])){
+				continue;
+			}
+			$jsonFile = $this->storagesDir . '/storage-' . $key . '.json';
+			$storageType['directory'] = $directory;
+			file_put_contents($jsonFile, json_encode($storageType, JSON_UNESCAPED_SLASHES));
+		}
+		
+		file_put_contents($this->storagesDir . '/upload-dest-dir.json', $directory);
+		
+		//同时修改所有存储服务器的上传路径
+		return json_encode([
+			'code' => 0,
+			'msg' => 'success',
+		]);
 	}
 }
