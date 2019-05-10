@@ -433,7 +433,7 @@ $(document).ready(function (){
 						selected = data.curVal == data.commonUsedDirs[i] ? ' selected' : '';
 						directoryStr += '<option value="'+data.commonUsedDirs[i]+'"'+selected+'>'+data.commonUsedDirs[i]+'</option>';
 					}
-					directoryStr = '<option value="">-- 根目录 --</option>' + directoryStr;
+					directoryStr = '<option value="/">-- 根目录 --</option>' + directoryStr;
 				}
 			},
 			error: function (error){
