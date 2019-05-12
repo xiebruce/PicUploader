@@ -8,12 +8,7 @@
 	
 namespace uploader;
 
-use phpseclib\Net\SFTP;
-
-class UploadSftp extends Common {
-	public $host;
-	public $username;
-	public $password;
+class UploadLocal extends Common {
 	public $prefix;
 	public $directory;
 	public $domain;
@@ -32,9 +27,6 @@ class UploadSftp extends Common {
 	{
 		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 		
-		$this->host = $ServerConfig['host'];
-		$this->username = $ServerConfig['username'];
-		$this->password = $ServerConfig['password'];
 		$this->prefix = rtrim($ServerConfig['prefix'], '/');
 		$this->domain = $ServerConfig['domain'];
 		if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
@@ -50,7 +42,7 @@ class UploadSftp extends Common {
 	}
 	
 	/**
-	 * Upload Images to a server by sftp
+	 * Upload Images to local(the server that PicUploader located at)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
@@ -58,16 +50,20 @@ class UploadSftp extends Common {
 	 */
 	public function upload($key, $uploadFilePath){
 		try{
-			$sftp = new SFTP($this->host);
-			if (!$sftp->login($this->username, $this->password)) {
-				throw new \Exception('Login Failed');
+			if(!is_dir($this->prefix)){
+				throw new \Exception('Please make sure that prefix directory exists.');
 			}
-			$key2 = $key;
-			$key = $this->prefix.'/'.$this->directory.'/'.$key;
-			if(!$sftp->put($key, $uploadFilePath, SFTP::SOURCE_LOCAL_FILE)){
+			
+			$destDir = $this->prefix.'/'.$this->directory;
+			//如果目录不存在，则创建
+			!is_dir($destDir) && @mkdir($destDir, 0777, true);
+			
+			$destFilePath = $destDir.'/'.$key;
+			
+			if(!copy($uploadFilePath, $destFilePath)){
 				throw new \Exception('Upload failed');
 			}
-			$link = $this->domain.'/'.$this->directory.'/'.$key2;
+			$link = $this->domain.'/'.$this->directory.'/'.$key;
 		}catch (\Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();

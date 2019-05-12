@@ -251,6 +251,18 @@
 				'directory' => '/data',
 				'domain' => 'https://img.xiebruce.top',
 			],
+			
+			//上传到PicUploader所在服务器本地(适用于把PicUploader部署到远程服务器上的用户)
+			'local' => [
+				'name' => '本地服务器',
+				//prefix为前缀，最终上传目录是：prefix+directory，那为什么要分开写呢？因为directory会拼到你的domain后面，而prefix不会
+				//prefix就相当于设置上传的“根目录”
+				'prefix' => '/home/xiebruce',
+				//directory指定的目录不存在会自动创建(但必须php-fpm对prefix指定的目录具有写权限)
+				//按本例的配置，文件最终将被上传到：/home/xiebruce/data/images 目录下(即prefix+directory)
+				'directory' => '/data/images',
+				'domain' => 'https://img.xiebruce.top',
+			],
 		],
 		
 		// 即将舍弃，图片优化宽度（建议填1000），值为0或注释掉表示不优化，由于比较大的图片压缩为固定宽度容易导致图片很模糊，因此这种压缩为固定宽度的方式不科学，改为使用百分比，如果使用了“resizeOption”选项，该参数不再使用。
