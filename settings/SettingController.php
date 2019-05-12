@@ -256,6 +256,11 @@ class SettingController extends Controller {
 				$key = str_replace('.json', '', substr($storagesFile, strrpos($storagesFile,'-') + 1));
 				$backendStorageKeys[] = $key;
 				$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
+				
+				//替换年月日位符为当前年月日
+				if(isset($storageTypes[$key]['directory']) && $storageTypes[$key]['directory']){
+					$storageTypes[$key]['directory'] = strtr($storageTypes[$key]['directory'], ['{Y}'=>date('Y'), '{m}'=>date('m'), '{d}'=>date('d')]);
+				}
 			}
 			$configStorageKeys = array_keys($this->settings['storageTypes']);
 			//对比配置文件中的存储引擎，如果其中有某个存储引擎在后台配置中不存在，则把它合并到后台的配置中(当然只是合并输出，并未存储到后台)

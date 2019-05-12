@@ -426,12 +426,14 @@ $(document).ready(function (){
 			async: false,
 			dataType: 'json',
 			success: function (response){
-				if(response.code == '0'){
+				if(response.code == 0){
 					let data = response.data;
 					let selected = '';
-					for (let i = 0; i<data.commonUsedDirs.length; i++){
-						selected = data.curVal == data.commonUsedDirs[i] ? ' selected' : '';
-						directoryStr += '<option value="'+data.commonUsedDirs[i]+'"'+selected+'>'+data.commonUsedDirs[i]+'</option>';
+					if(data.commonUsedDirs!=null && data.commonUsedDirs!=undefined){
+						for (let i = 0; i<data.commonUsedDirs.length; i++){
+							selected = data.curVal == data.commonUsedDirs[i] ? ' selected' : '';
+							directoryStr += '<option value="'+data.commonUsedDirs[i]+'"'+selected+'>'+data.commonUsedDirs[i]+'</option>';
+						}
 					}
 					directoryStr = '<option value="/">-- 根目录 --</option>' + directoryStr;
 				}
@@ -594,7 +596,10 @@ $(document).ready(function (){
 						`<label><input type="checkbox" name="storageType[${i}][isActive]" value="1"${checked}>${storageType[i].name}</label>
 								<input type="hidden" name="storageType[${i}][name]" value="${storageType[i].name}">`;
 				}
-				let commonUsedDirStr = data.commonUsedDirs.join('\n');
+				let commonUsedDirStr = '';
+				if(data.commonUsedDirs!=null && data.commonUsedDirs!=undefined){
+					commonUsedDirStr = data.commonUsedDirs.join('\n')
+				}
 				
 				var generalSettingsForm =
 					`<div class="area">
