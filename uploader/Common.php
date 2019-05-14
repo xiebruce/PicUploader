@@ -334,8 +334,10 @@ class Common {
 	        	//其他Linux，未测试
 		        $desktopPath = '/home/' . $SysUsername . '/Desktop';
 	        }
-	        $symbolic = $desktopPath . '/PicUploader_Upload_Logs';
-	        !is_link($symbolic) && @symlink($realLogPath, $symbolic);
+	        if(@is_dir($desktopPath)){
+		        $symbolic = $desktopPath . '/PicUploader_Upload_Logs';
+		        !is_link($symbolic) && @symlink($realLogPath, $symbolic);
+	        }
         }
         
 	    $realLogPath .= '/' . date('Y/m');
