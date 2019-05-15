@@ -335,13 +335,12 @@ class SettingController extends Controller {
 		$config = $generalSettings;
 		$config['storageTypes'] = $storageTypes;
 		
-		$watermark = $this->settings['watermark'];
+		$watermark = $generalSettings['watermark'];
 		$watermark['text'] = $textWatermark;
 		$watermark['image'] = $imageWatermark;
 		$config['watermark'] = $watermark;
 		
 		$config['customFormat'] = $customFormat;
-		
 		return $config;
 	}
 	
