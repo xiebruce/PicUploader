@@ -634,7 +634,7 @@ $(document).ready(function (){
 						</div>
 						<div class="form-group2 compreLevel">
 							<label>PNG图片压缩等级</label>
-							<input class="text" type="number" name="compreLevel" placeholder="0-9" value="${data.compreLevel}"><span>数字0-9，非百分比</span>
+							<input class="text" type="number" name="compreLevel" placeholder="0-9" value="${data.compreLevel}"><span>0-9，非百分比(0不压缩)</span>
 						</div>
 						<div class="form-group2">
 							<label>返回链接类型</label>
