@@ -833,7 +833,11 @@ $(document).ready(function (){
 	
 	//点击查看历史
 	$('.left-bar .upload-history').on('click', function (){
-		window.location.href = window.location.href + '?history=1';
+		let href = window.location.href + '?history=1';
+		if(window.location.href.indexOf('history=') > -1){
+			href = window.location.href.replace(/history=(.*?)(\\&.*?)*/, 'history=1');
+		}
+		window.location.href = href;
 	});
 	
 	//================== 图片放大 开始 ======================
