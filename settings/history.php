@@ -69,13 +69,20 @@
 			.container .upload-history-list tr:hover {
 				background: rgba(246, 248, 250, 0.95);
 			}
-			.pagination .jump-to-page {
+			.pagination .jump-to-page, .search-form .search-box-input {
 				width: 50px;
 				height: 28px;
 				line-height: 28px;
 				padding: 2px;
 				text-align: center;
 				font-size: 14px;
+			}
+			.search-form {
+				margin-block-end: 0;
+			}
+			.search-form .search-box-input {
+				width: 300px;
+				text-align: left;
 			}
 			.container .upload-history-list .pagination .cur {
 				background: #ff4c00;
@@ -100,7 +107,7 @@
 		</style>
 		<script>
 			//获取一页历史记录
-			function getHistoryList (page){
+			function getHistoryList (page, keyword){
 				$.ajax({
 					type: 'get',
 					url: './settings/dispatch.php',
@@ -108,20 +115,25 @@
 						class: 'HistoryController',
 						func: 'get-list',
 						page: page,
+						keyword: keyword,
 					},
 					dataType: 'json',
 					success: function (response){
 						if(response.code == 0){
 							var data = response.data;
 							if(data.length == 0){
+								var tr = `<tr class="no-history">
+									<td colspan="6">未查询到相关的历史记录</td>
+								</tr>`;
+								$('.upload-history-list tbody').html(tr);
+								//顶部分页
+								$('.upload-history-list thead tr.pagination').empty();
 								return false;
 							}
 							var pagination =
-								`<tr class="pagination">
-									<td colspan="6">
-										${response.pagination}
-									</td>
-								</tr>`;
+								`<td colspan="6">
+									${response.pagination}
+								</td>`;
 							var tr = '';
 							
 							for(let i=0; i<data.length; i++){
@@ -145,8 +157,10 @@
 										</td>
 									</tr>`;
 							}
-							tr = pagination + tr + pagination;
+							tr = tr + '<tr class="pagination">' + pagination + '</tr>';
 							$('.upload-history-list tbody').html(tr);
+							//顶部分页
+							$('.upload-history-list thead tr.pagination').html(pagination);
 						}
 					},
 					error: function (error){
@@ -222,7 +236,7 @@
 				});
 				
 				//进入页面时先获取一页
-				getHistoryList(1);
+				getHistoryList(1, '');
 				
 				//点击上一页、下一页、首页、末页、跳转到第n页时，获取该页数据
 				$('.upload-history-list').on('click', '.pagination .button', function (){
@@ -239,7 +253,20 @@
 					}else{
 						page = $(this).data('page');
 					}
-					getHistoryList(page);
+					let keyword = $('.search-form .search-box-input').val();
+					getHistoryList(page, keyword);
+				});
+				
+				//点击查询按钮
+				$('.search-box-btn').on('click', function (){
+					$('.search-form').submit();
+				});
+				
+				//提交搜索
+				$('.search-form').on('submit', function (){
+					let keyword = $('.search-form .search-box-input').val();
+					getHistoryList(1, keyword);
+					return false;
 				});
 			});
 		</script>
@@ -251,12 +278,25 @@
 			</div>
 			<table class="upload-history-list">
 				<thead>
-					<th class="file-id">ID</th>
-					<th class="filename">原始文件名/图片</th>
-					<th class="file-url">url</th>
-					<th class="file-size">大小</th>
-					<th class="file-upload-time">上传时间</th>
-					<th class="file-operation">操作</th>
+					<tr class="pagination">
+						<td colspan="6"><!-- ajax填充 --></td>
+					</tr>
+					<tr class="search-box">
+						<td colspan="6">
+							<form class="search-form">
+								<input type="text" class="search-box-input" placeholder="请输入原始文件名/url/时间">
+								<span class="button search-box-btn">查询</span>
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<th class="file-id">ID</th>
+						<th class="filename">原始文件名/图片</th>
+						<th class="file-url">url</th>
+						<th class="file-size">大小</th>
+						<th class="file-upload-time">上传时间</th>
+						<th class="file-operation">操作</th>
+					</tr>
 				</thead>
 				<tbody>
 					<tr class="no-history">

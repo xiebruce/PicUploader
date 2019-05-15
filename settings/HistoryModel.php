@@ -65,10 +65,15 @@ class HistoryModel extends DbModel {
 	
 	/**
 	 * Get total rows in the table
+	 * @param $where
+	 *
 	 * @return int
 	 */
-	public function getTotal(){
+	public function getTotal($where=''){
 		$sql = 'SELECT COUNT(*) as rowCount FROM '.self::$tableName;
+		if($where) {
+			$sql .= ' WHERE '.$where;
+		}
 		$res = $this->query($sql);
 		return isset($res['rowCount']) ? (int)$res['rowCount'] : 0;
 	}

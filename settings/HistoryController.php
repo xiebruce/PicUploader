@@ -62,16 +62,25 @@ class HistoryController extends Controller {
 	 */
 	public function getList(){
 		$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+		$keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
+
 		$model = new HistoryModel();
 		$pageSize = 10;
-		$total = $model->getTotal();
+		
+		$where = '';
+		if($keyword){
+			$where = '((`filename` LIKE "%'.$keyword.'%") OR (`url` LIKE "%'.$keyword.'%") OR (`created_at` LIKE "%'.$keyword.'%"))';
+		}
+		
+		$total = $model->getTotal($where);
 		$pageCount = (int)ceil($total / $pageSize);
 		$page > $pageCount && $page = $pageCount;
 		$page < 1 && $page = 1;
 		$offset = ($page-1) * $pageSize;
 		$limit = $offset . ',' . $pageSize;
 		$order = 'id DESC';
-		$rows = $model->findAll('', $order, $limit);
+		
+		$rows = $model->findAll($where, $order, $limit);
 		$common = new Common();
 		foreach($rows as &$row){
 			$row['size'] = $common->getFileSizeHuman($row['size']);
