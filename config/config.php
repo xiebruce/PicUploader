@@ -421,9 +421,9 @@
 		
 		//常用目录，用于网页版上传时快速设置当前想上传到哪
 		'commonUsedDirs' => [
-			'/path/to/images',
-			'/path/to/images2',
-			'/path/to/images3',
+			// “/{Y}/{m}/{d}/” 会被替换成当前的年月日，即“/2019/05/15/”这样的形式
+			'/{Y}/{m}/{d}/',
+			'/images/{Y}/{m}/{d}/',
 		],
 	];
 	

@@ -75,19 +75,21 @@ class Upload extends Common {
 
 			//非图片则不需要做压缩和水印处理
 			if(strpos($mimeType, 'image')!==false){
-				// $tmpImgPath = APP_PATH . '/.tmp/'.$originFilename;
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
+				
+				//添加水印
+				if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
+					$tmpImgPath = $this->watermark($uploadFilePath, $quality);
+					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+				}
+				
+				//压缩
 				if(isset(static::$config['resizeOptions']['percentage']) && static::$config['resizeOptions']['percentage'] > 0 && static::$config['resizeOptions']['percentage'] < 100){
 					$tmpImgPath = $this->optimizeImage($filePath, static::$config['resizeOptions'], $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 				} else if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
 					$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-				}
-
-				//添加水印
-				if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
-					$tmpImgPath = $uploadFilePath = $this->watermark($uploadFilePath);
 				}
 			}
 

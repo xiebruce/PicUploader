@@ -123,11 +123,12 @@ class Common {
 	/**
 	 * Add watermark
 	 * @param $filePath
+	 * @param $quality
 	 *
 	 * @return string
 	 * @throws \Exception
 	 */
-	public function watermark($filePath){
+	public function watermark($filePath, $quality){
 	    $img = new EasyImage();
 	    $img->load($filePath);
 	    $watermarkConfig = static::$config['watermark'];
@@ -176,7 +177,7 @@ class Common {
 		    $tmpImgPath = $filePath;
 	    }
 		
-		$img->save($tmpImgPath);
+		$img->save($tmpImgPath, $quality);
 	    // exit('watermark saved');
 		return $tmpImgPath;
     }
@@ -406,11 +407,20 @@ class Common {
 	 * 清理缓存文件
 	 */
 	public function clearTmpFiles(){
-	    $files = scandir(APP_PATH.'/.tmp');
+		$tmpDir = APP_PATH.'/.tmp';
+		if(!is_dir($tmpDir)){
+			return false;
+		}
+	    $files = scandir($tmpDir);
+		//小于3表示只有“.”和“..”，其实就是文件夹没有文件
+		if(count($files) < 3){
+			return true;
+		}
 	    $files = array_slice($files, 2);
 	    foreach ($files as $file){
-	    	@unlink(APP_PATH.'/.tmp/'.$file);
+	    	@unlink($tmpDir.'/'.$file);
 	    }
+	    return true;
     }
 	
 	/**
