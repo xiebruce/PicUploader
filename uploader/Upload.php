@@ -84,11 +84,13 @@ class Upload extends Common {
 				}
 				
 				//压缩
-				if(isset(static::$config['resizeOptions']['percentage']) && static::$config['resizeOptions']['percentage'] > 0 && static::$config['resizeOptions']['percentage'] < 100){
-					$tmpImgPath = $this->optimizeImage($filePath, static::$config['resizeOptions'], $quality);
+				$resizeOptions = isset(static::$config['resizeOptions']['percentage']) ? static::$config['resizeOptions']['percentage'] : 0;
+				if($resizeOptions && $resizeOptions > 0){
+					static::$config['resizeOptions']['percentage'] = $resizeOptions > 100 ? 100 : $resizeOptions;
+					$tmpImgPath = $this->optimizeImage($uploadFilePath, static::$config['resizeOptions'], $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 				} else if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-					$tmpImgPath = $this->optimizeImage($filePath, static::$config['imgWidth'], $quality);
+					$tmpImgPath = $this->optimizeImage($uploadFilePath, static::$config['imgWidth'], $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 				}
 			}
