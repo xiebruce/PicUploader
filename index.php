@@ -42,7 +42,7 @@
 	
 	/**
 	 * 由于这三个变量是可变变量，IDE无法识别变量，会导致下边使用这些变量的代码提示变量未定义，
-	 * 所以用这种方法定义，这样IDE就能识别，注意第一个斜杠后边必须是两个“*”号，一定星号是不会起作用的。
+	 * 所以用这种方法定义，这样IDE就能识别，注意第一个斜杠后边必须是两个“*”号，一个星号是不会起作用的。
 	 *
 	 * @var bool $isMweb
 	 * @var bool $isPicgo
@@ -51,7 +51,7 @@
 	$plugins = ['mweb','picgo','sharex',];
 	foreach($plugins as $plugin) {
 		$tmp = ucfirst($plugin);
-		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex，用于下边代码判断当前是否是mweb请求 或 picgo请求 或 shareX请求。
+		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex，用于下边代码判断当前是否是mweb/picgo/sharex请求。
 		${'is'.$tmp} = false;
 		if(isset($_FILES[$plugin])){
 			${'is'.$tmp} = true;
