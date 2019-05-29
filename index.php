@@ -40,23 +40,24 @@
 	//获取配置
 	$config = call_user_func([(new SettingController()), 'getMergeSettings']);
 	
-	$isMweb = false;
-	if(isset($_FILES['mweb'])){
-		$isMweb = true;
-		$_FILES['file'] = $_FILES['mweb'];
-		unset($_FILES['mweb']);
-	}
-	$isPicgo = false;
-	if(isset($_FILES['picgo'])){
-		$isPicgo = true;
-		$_FILES['file'] = $_FILES['picgo'];
-		unset($_FILES['picgo']);
-	}
-	$sharex = false;
-	if(isset($_FILES['sharex'])){
-		$sharex = true;
-		$_FILES['file'] = $_FILES['sharex'];
-		unset($_FILES['sharex']);
+	/**
+	 * 由于这三个变量是可变变量，IDE无法识别变量，会导致下边使用这些变量的代码提示变量未定义，
+	 * 所以用这种方法定义，这样IDE就能识别，注意第一个斜杠后边必须是两个“*”号，一定星号是不会起作用的。
+	 *
+	 * @var bool $isMweb
+	 * @var bool $isPicgo
+	 * @var bool $isSharex
+	 */
+	$plugins = ['mweb','picgo','sharex',];
+	foreach($plugins as $plugin) {
+		$tmp = ucfirst($plugin);
+		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex，用于下边代码判断当前是否是mweb请求 或 picgo请求 或 shareX请求。
+		${'is'.$tmp} = false;
+		if(isset($_FILES[$plugin])){
+			${'is'.$tmp} = true;
+			$_FILES['file'] = $_FILES[$plugin];
+			unset($_FILES[$plugin]);
+		}
 	}
 	
 	//if has post file
@@ -88,7 +89,7 @@
 			$argv = [$imgPath];
 		}
 	}else{
-		//去除第一个元素（因为第一个元素是index.php，因为$argv是linux/mac的参数，
+		//去除第一个元素（因为第一个元素是index.php，$argv可接收client方式执行时的参数，
 		//用php执行index.php的时候，index.php也算是一个参数）
 		if(isset($argv) && $argv){
 			array_shift($argv);
@@ -102,13 +103,14 @@
 	//getPublickLink
 	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
-			'do_not_format' => ($isMweb || $isPicgo || $sharex)
+			'do_not_format' => ($isMweb || $isPicgo || $isSharex)
 		]
 	]);
 	
 	//如果是MWeb或PicGo，则返回Mweb/Picgo支持的json格式
-	if($isMweb || $isPicgo || $sharex){
-		if($isMweb || $sharex){
+	if($isMweb || $isPicgo || $isSharex){
+		if($isMweb || $isSharex){
+			// mweb或sharex接收的json格式
 			$data = [
 				'code' => 'success',
 				'data' => [
@@ -117,6 +119,7 @@
 				],
 			];
 		}else{
+			// PicGo接收的json格式
 			$data = [
 				'code' => 'success',
 				'url' => $link,
