@@ -54,7 +54,7 @@ PicUploader
 [上传记录](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
 [![Xnip2019-05-01_00-50-56.jpg](https://img.xiebruce.top/2019/05/01/7153e7428808207abdbd05f98229a999.jpg)](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
 
-由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
+由于维护多个文档太累，Github flavor markdown不支持视频，并且gif图大点就不显示，还得空两格才会换行，基于种种原因，如果要继续查看文档，请直接查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)(如果打不开，请扶墙！)。
 
 ### 点赞
 如果觉得PicUploader还不错，给个star鼓励鼓励我吧！
