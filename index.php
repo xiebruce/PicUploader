@@ -109,22 +109,14 @@
 	
 	//如果是MWeb或PicGo，则返回Mweb/Picgo支持的json格式
 	if($isMweb || $isPicgo || $isSharex){
-		if($isMweb || $isSharex){
-			// mweb或sharex接收的json格式
-			$data = [
-				'code' => 'success',
-				'data' => [
-					'filename' => $_FILES['file']['name'],
-					'url' => $link,
-				],
-			];
-		}else{
-			// PicGo接收的json格式
-			$data = [
-				'code' => 'success',
+		// mweb或sharex接收的json格式
+		$data = [
+			'code' => 'success',
+			'data' => [
+				'filename' => $_FILES['file']['name'],
 				'url' => $link,
-			];
-		}
+			],
+		];
 		
 		header('Content-Type: application/json; charset=UTF-8');
 		$json = json_encode($data, JSON_UNESCAPED_UNICODE);
