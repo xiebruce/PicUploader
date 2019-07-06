@@ -61,6 +61,8 @@
 	}
 	
 	//if has post file
+	//是否需要删除原始文件(如果是上传的那就需要，如果是本地的就不需要)
+	$deleteOriginalFile = true;
 	if(isset($_FILES['file']) && $files = $_FILES['file']){
 		$tmpDir = APP_PATH.'/.tmp';
 		!is_dir($tmpDir) && @mkdir($tmpDir, 0777);
@@ -89,6 +91,9 @@
 			$argv = [$imgPath];
 		}
 	}else{
+		//只有右击上传时，不删除源文件(从剪贴板粘贴或通过接口上传，源文件其实都是在临时文件目录里，
+		//所以要删除源文件，因为这个“源文件”已经不是最初上传的那个源文件了)
+		$deleteOriginalFile = false;
 		//去除第一个元素（因为第一个元素是index.php，$argv可接收client方式执行时的参数，
 		//用php执行index.php的时候，index.php也算是一个参数）
 		if(isset($argv) && $argv){
@@ -103,7 +108,8 @@
 	//getPublickLink
 	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
-			'do_not_format' => ($isMweb || $isPicgo || $isSharex)
+			'doNotFormat' => ($isMweb || $isPicgo || $isSharex),
+			'deleteOriginalFile' => $deleteOriginalFile,
 		]
 	]);
 	

@@ -74,13 +74,13 @@ class DbModel {
 	/**
 	 * @param $sql
 	 *
-	 * @return DbModel
+	 * @return mixed
 	 */
 	public function query($sql){
 		$res = $this->connection->query($sql);
 		return $res->fetch(PDO::FETCH_ASSOC);
 	}
-	
+
 	/**
 	 * @param $sql
 	 *
@@ -97,6 +97,8 @@ class DbModel {
 	 * @return int
 	 */
 	public function execute($sql){
+		// file_put_contents('/Users/bruce/Downloads/db-sql.txt', $sql.";\n\n", FILE_APPEND);
+		//开启之后，如果报错则会显示出来，否则有错也不显示
 		$this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$res = $this->connection->exec($sql);
 		return $res;

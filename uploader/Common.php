@@ -96,10 +96,16 @@ class Common {
 	        }
 
             if($optimize){
-                $tmpDir = APP_PATH.'/.tmp';
-	            !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
+	            //if no tmp file then create one
+	            if(strpos($filePath, '.tmp') === false){
+		            $tmpDir = APP_PATH.'/.tmp';
+		            !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
+		            $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+	            }else{
+		            //$filePath is a tmp file
+		            $tmpImgPath = $filePath;
+	            }
 	            
-                $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
                 $img = new EasyImage($filePath);
                 
                 //旧方法压缩

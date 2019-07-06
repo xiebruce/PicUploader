@@ -27,7 +27,6 @@ class HistoryModel extends DbModel {
 	 * @return int
 	 */
 	public function createOne($data){
-		//开启之后，如果报错则会显示出来，否则有错也不显示
 		$uploadTime = date('Y-m-d H:i:s');
 		$sql = 'INSERT INTO `history`(`filename`, `url`, `size`, `created_at`) VALUES("'.$data['filename'].'", "'.$data['url'].'", '.$data['size'].', "'.$uploadTime.'")';
 		$affectedRow = $this->execute($sql);

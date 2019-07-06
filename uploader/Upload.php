@@ -73,7 +73,7 @@ class Upload extends Common {
 
 			$uploadFilePath = $filePath;
 
-			//非图片则不需要做压缩和水印处理
+			//如果是图片则做压缩和水印处理
 			if(strpos($mimeType, 'image')!==false){
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
 				
@@ -138,10 +138,11 @@ class Upload extends Common {
 					if((new DbModel())->connection){
 						$url = isset($link['link']) ? $link['link'] : $link;
 						$size = filesize($uploadFilePath);
+						// $size = is_numeric($size) ? $size : 0;
 						(new HistoryController)->Add($originFilename, $url, $size);
 					}
 
-					if(!$params['do_not_format']){
+					if(!$params['doNotFormat']){
 						//按配置文件指定的格式，格式化链接
 						if(in_array($uploadServer, ['smms', 'imgur'])){
 							$link['link'] = $this->formatLink($link['link'], $originFilename, $mimeType);
@@ -149,6 +150,8 @@ class Upload extends Common {
 							$link = $this->formatLink($link, $originFilename, $mimeType);
 						}
 					}
+					//对于从剪贴板粘贴的或接口上传的，删除源文件(这个源文件实质上是上传后的那个文件，它在.tmp目录里，并不是你电脑上的源文件)
+					$params['deleteOriginalFile'] && @unlink($filePath);
 					
 					$log = $link;
 					if(in_array($uploadServer, ['smms', 'imgur'])){
@@ -171,7 +174,9 @@ class Upload extends Common {
 			//服务器把这个域名代理到真正的域名
 			$links .= $link;
 		}
-		$this->clearTmpFiles();
+		// $str = var_export(isset($tmpImgPath), true);
+		// file_put_contents('/Users/bruce/Downloads/tmp-debug.txt', "{$str}--{$tmpImgPath}\n----------------------------------------\n\n", FILE_APPEND);
+		isset($tmpImgPath) && @unlink($tmpImgPath);
 		return $links;
     }
 }
