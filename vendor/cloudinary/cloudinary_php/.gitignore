@@ -1,0 +1,8 @@
+samples/PhotoAlbumCake/Config/CloudinaryPrivate.php
+.project
+vendor/
+coverage/
+phpdocs/
+.idea
+dbfile.db
+*.bak

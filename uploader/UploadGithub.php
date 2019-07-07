@@ -27,6 +27,8 @@ class UploadGithub extends Upload{
 	public $baseUri;
 	//是否使用代理
 	public $proxy;
+	//上传目标服务器名称
+	public $uploadServer;
 	
     public static $config;
     //arguments from php client, the image absolute path
@@ -43,7 +45,7 @@ class UploadGithub extends Upload{
 	    
 	    $this->repo = $ServerConfig['repo'] ?? '';
 	    $this->branch = $ServerConfig['branch'] ?? 'master';
-	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader [https://www.xiebruce.top/17.html]';
+	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader: https://github.com/xiebruce/PicUploader';
 	    $this->access_token = $ServerConfig['access_token'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
@@ -56,6 +58,7 @@ class UploadGithub extends Upload{
 	
 	    $this->baseUri = 'https://api.github.com/repos/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
+	    $this->uploadServer = ucfirst($params['uploadServer']);
 
         $this->argv = $params['argv'];
         static::$config = $params['config'];
@@ -116,7 +119,7 @@ class UploadGithub extends Upload{
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(Github) => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
     }

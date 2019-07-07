@@ -21,6 +21,7 @@ return array(
     '04c6c5c2f7095ccf6c481d3e53e1776f' => $vendorDir . '/mustangostang/spyc/Spyc.php',
     'ebdb698ed4152ae445614b69b5e4bb6a' => $vendorDir . '/sabre/http/lib/functions.php',
     '8a9dc1de0ca7e01f3e08231539562f61' => $vendorDir . '/aws/aws-sdk-php/src/functions.php',
+    'c15243c55ab4c20eff78d1e24be20dac' => $vendorDir . '/cloudinary/cloudinary_php/src/Helpers.php',
     '841780ea2e1d6545ea3a253239d59c05' => $vendorDir . '/qiniu/php-sdk/src/Qiniu/functions.php',
     'cab01a477104179f77303ac3e0aabb0e' => $vendorDir . '/yunify/qingstor-sdk/src/Handler/GuzzleV5/GuzzleHandler.php',
     '7c2b47ca18c73719428cbad34d80d8b2' => $vendorDir . '/yunify/qingstor-sdk/src/Handler/GuzzleV6/GuzzleHandler.php',

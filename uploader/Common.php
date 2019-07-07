@@ -216,7 +216,7 @@ class Common {
     public function getFileExt($filePath){
         //获取图片扩展名
         $pathinfo = pathinfo($filePath);
-        return $pathinfo['extension'] ?? '';
+        return isset($pathinfo['extension']) ? strtolower($pathinfo['extension']) : '';
     }
 
     /**

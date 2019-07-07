@@ -1,0 +1,35 @@
+{
+    "name": "cloudinary/cloudinary_php",
+    "version": "1.14.0",
+    "description": "Cloudinary PHP SDK",
+    "keywords": ["cloudinary", "sdk", "cloud", "image management", "cdn"],
+    "type": "library",
+    "homepage": "https://github.com/cloudinary/cloudinary_php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cloudinary",
+            "homepage": "https://github.com/cloudinary/cloudinary_php/graphs/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*"
+    },
+    "support": {
+      "email": "info@cloudinary.com",
+      "issues": "https://github.com/cloudinary/cloudinary_php/issues"
+    },
+    "autoload": {
+        "classmap": ["src"],
+        "files": ["src/Helpers.php"]
+    },
+    "autoload-dev": {
+        "psr-4": { "Cloudinary\\Test\\": "tests/" },
+        "files": ["tests/TestHelper.php"]
+    }
+}

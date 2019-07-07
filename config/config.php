@@ -277,6 +277,16 @@
 				'directory' => '/images/{Y}/{m}/{d}',
 				'domain' => 'https://img.xiebruce.top',
 			],
+			
+			//https://cloudinary.com
+			'cloudinary' => [
+				'cloudName' => 'bruce',
+				'apiKey' => '793175116696878',
+				'apiSecret' => 'rM1Xnvn3O2bJ3EJtGZSQx0efggE',
+				'domain' => '',
+				//使用代理
+				// 'proxy' => 'http://127.0.0.1:1087',
+			],
 		],
 		
 		// 即将舍弃，图片优化宽度（建议填1000），值为0或注释掉表示不优化，由于比较大的图片压缩为固定宽度容易导致图片很模糊，因此这种压缩为固定宽度的方式不科学，改为使用百分比，如果使用了“resizeOption”选项，该参数不再使用。

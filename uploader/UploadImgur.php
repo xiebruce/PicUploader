@@ -18,6 +18,8 @@ class UploadImgur extends Upload{
     public $baseUri;
     //代理url
     public $proxy;
+	//上传目标服务器名称
+	public $uploadServer;
 
     public static $config;
     //arguments from php client, the image absolute path
@@ -35,6 +37,7 @@ class UploadImgur extends Upload{
 	    $this->clientId = $ServerConfig['clientId'];
 	    $this->baseUri = 'https://api.imgur.com/3/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
+	    $this->uploadServer = ucfirst($params['uploadServer']);
 
         $this->argv = $params['argv'];
         static::$config = $params['config'];
@@ -126,7 +129,7 @@ class UploadImgur extends Upload{
 				'link' => $e->getMessage()."\n",
 				'delLink' => '',
 			];
-			$this->writeLog(date('Y-m-d H:i:s').'(Imgur) => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
     }

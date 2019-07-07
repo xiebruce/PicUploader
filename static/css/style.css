@@ -77,11 +77,15 @@ html,body{
 }
 .container .body .sub-left-bar {
 	display: none;
+	min-width: 130px;
+	height: 316px;
 	position: absolute;
 	top: 0;
 	left: 50px;
 	background: #252a2f;
 	/*border: 1px solid hsla(0,0%,100%,.2);*/
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 .sub-left-bar .list {
 	list-style-type: none;

@@ -1,0 +1,3 @@
+<Files ~ "\.(json|dist)$">
+  deny from all
+</Files>

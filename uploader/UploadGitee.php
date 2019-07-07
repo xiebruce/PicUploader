@@ -27,6 +27,8 @@ class UploadGitee extends Upload{
 	public $baseUri;
 	//是否使用代理
 	public $proxy;
+	//上传目标服务器名称
+	public $uploadServer;
 	
     public static $config;
     //arguments from php client, the image absolute path
@@ -56,6 +58,7 @@ class UploadGitee extends Upload{
 	
 	    $this->baseUri = 'https://gitee.com/api/v5/repos/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
+	    $this->uploadServer = ucfirst($params['uploadServer']);
 
         $this->argv = $params['argv'];
         static::$config = $params['config'];
@@ -114,7 +117,7 @@ class UploadGitee extends Upload{
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(gittee) => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
     }

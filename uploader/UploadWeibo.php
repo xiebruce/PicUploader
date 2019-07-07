@@ -22,6 +22,8 @@ class UploadWeibo extends Common {
 	public $password;
 	//上传cookie
 	public $cookie;
+	//上传目标服务器名称
+	public $uploadServer;
 	
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
@@ -45,6 +47,7 @@ class UploadWeibo extends Common {
         $this->password = $ServerConfig['password'];
 		//获取上传用的cookie(微博图床非公共接口，需要模拟登录取得cookie后，再模拟网页上传)
 	    $this->cookie = $this->getCookie();
+	    $this->uploadServer = ucfirst($params['uploadServer']);
 	
 	    //arguments from php client, the image absolute path
 	    $this->argv = $params['argv'];
@@ -215,7 +218,7 @@ class UploadWeibo extends Common {
 		}catch (\Exception $e){
 			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(Weibo) => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 		}
 		
 		return $link;

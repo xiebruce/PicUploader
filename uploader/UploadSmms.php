@@ -16,6 +16,8 @@ class UploadSmms extends Common {
 	public $baseUri;
 	//代理url
 	public $proxy;
+	//上传目标服务器名称
+	public $uploadServer;
 	
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
@@ -33,6 +35,7 @@ class UploadSmms extends Common {
 	    //baseUri一定要斜杠结尾
 	    $this->baseUri = 'https://sm.ms/api/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
+	    $this->uploadServer = ucfirst($params['uploadServer']);
         
         $this->argv = $params['argv'];
         static::$config = $params['config'];
@@ -105,7 +108,7 @@ class UploadSmms extends Common {
 				'link' => $e->getMessage(),
 				'delLink' => '',
 			];
-			$this->writeLog(date('Y-m-d H:i:s').'(Smms) => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
     }
