@@ -281,8 +281,8 @@
 			//https://cloudinary.com
 			'cloudinary' => [
 				'cloudName' => 'bruce',
-				'apiKey' => '793175116696878',
-				'apiSecret' => 'rM1Xnvn3O2bJ3EJtGZSQx0efggE',
+				'apiKey' => '79*********78',
+				'apiSecret' => 'rM**********************E',
 				'domain' => '',
 				//使用代理
 				// 'proxy' => 'http://127.0.0.1:1087',
