@@ -123,23 +123,25 @@
 							var data = response.data;
 							if(data.length == 0){
 								var tr = `<tr class="no-history">
-									<td colspan="6">未查询到相关的历史记录</td>
+									<td colspan="7">未查询到相关的历史记录</td>
 								</tr>`;
 								$('.upload-history-list tbody').html(tr);
 								//顶部分页
 								$('.upload-history-list thead tr.pagination').empty();
 								return false;
 							}
+							
+							var tr = '';
 							var pagination =
-								`<td colspan="6">
+								`<td colspan="7">
 									${response.pagination}
 								</td>`;
-							var tr = '';
 							
 							for(let i=0; i<data.length; i++){
 								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|\/preview/;
 								var img = pattern.test(data[i].url) ? '<img class="image" src="'+data[i].url+'"">' : '';
 								tr += `<tr class="history">
+											<td><input class="check-item" type="checkbox" value="${data[i].id}"></td>
 											<td>${data[i].id}</td>
 											<td>
 											${img}
@@ -157,7 +159,14 @@
 										</td>
 									</tr>`;
 							}
-							tr = tr + '<tr class="pagination">' + pagination + '</tr>';
+							tr = tr + `<tr>
+											<td><input type="checkbox" class="select-all"></td>
+											<td colspan="5"></td>
+											<td><span class="button delete-all">删除所选</span></td>
+										</tr>
+										<tr class="pagination">
+											${pagination}
+										</tr>`;
 							$('.upload-history-list tbody').html(tr);
 							//顶部分页
 							$('.upload-history-list thead tr.pagination').html(pagination);
@@ -165,6 +174,44 @@
 					},
 					error: function (error){
 						console.log(error);
+					}
+				});
+			}
+			
+			//删除一条或多条历史记录
+			function deleteItems(ids){
+				$.ajax({
+					type: 'post',
+					url: './settings/dispatch.php?class=HistoryController&func=remove-items',
+					data: {
+						ids: ids,
+					},
+					dataType: 'json',
+					success: function (response){
+						if (response.code == 0){
+							$('.check-item').each(function (){
+								let curId = $(this).val();
+								//删除单条记录
+								if(!isNaN(ids)){
+									if(curId == ids){
+										$(this).parents('tr').css('backgroundColor', '#faebd7').remove(500);
+									}
+								}else{
+									//删除多条记录
+									let idArr = ids.split(',');
+									for(let item of idArr){
+										if(item == curId){
+											$(this).parents('tr').css('backgroundColor', '#faebd7').remove(500);
+										}
+									}
+								}
+							});
+						}else{
+							alert(response.msg);
+						}
+					},
+					error:function (xhr){
+						console.log(xhr);
 					}
 				});
 			}
@@ -212,27 +259,8 @@
 					if(!confirm('移除后无法恢复，确定要移除吗?')){
 						return false;
 					}
-					var id = $(this).data('id');
-					var $this = $(this);
-					$.ajax({
-						type: 'get',
-						url: './settings/dispatch.php',
-						data: {
-							class: 'HistoryController',
-							func: 'remove-item',
-							id: id,
-						},
-						dataType: 'json',
-						success: function (response){
-							console.log(response.data);
-							if (response.code == 0){
-								$this.parents('tr').hide();
-							}else{
-								alert(response.msg);
-							}
-						}
-					});
-					$(this).parents('tr').hide();
+					let id = $(this).data('id');
+					deleteItems(id);
 				});
 				
 				//进入页面时先获取一页
@@ -244,9 +272,10 @@
 						return false;
 					}
 					var page = 1;
-					if($(this).hasClass('jump-to-page-button')){
-						page = $('.jump-to-page').val();
-						var pageCount = $(this).data('pageCount');
+					var $this = $(this);
+					if($this.hasClass('jump-to-page-button')){
+						var pageCount = $(this).data('pagecount');
+						page = $this.prev().val();
 						if(page > pageCount){
 							$('.jump-to-page').val(pageCount);
 						}
@@ -255,6 +284,48 @@
 					}
 					let keyword = $('.search-form .search-box-input').val();
 					getHistoryList(page, keyword);
+				});
+				
+				//跳转页码focus
+				$('.upload-history-list').on('focus', '.jump-to-page', function (){
+					$(this).attr('focus',1);
+				});
+				//跳转页码blur
+				$('.upload-history-list').on('blur', '.jump-to-page', function (){
+					$(this).attr('focus',0);
+				});
+				
+				//监听放开按键事件(有放开说明一定按了这个按钮，因为只有先按下了才能放开)
+				$(document).on('keyup', function (e){
+					//回车键
+					if(e.keyCode == 13){
+						let page = $('.jump-to-page[focus="1"]').val();
+						let keyword = $('.search-form .search-box-input').val();
+						getHistoryList(page, keyword);
+					}
+					
+					//左方向键
+					if(e.keyCode == 37){
+						let page = $('.jump-to-page').eq(0).val();
+						let keyword = $('.search-form .search-box-input').val();
+						if(page > 1){
+							getHistoryList(page - 1, keyword);
+						}
+					}
+					
+					//右方向键
+					if(e.keyCode == 39){
+						let page = $('.jump-to-page').eq(0).val();
+						page = parseInt(page);
+						if(isNaN(page)){
+							page = 1;
+						}
+						let pageCount = $('.jump-to-page').eq(0).next().data('pagecount');
+						let keyword = $('.search-form .search-box-input').val();
+						if(page < pageCount){
+							getHistoryList(page + 1, keyword);
+						}
+					}
 				});
 				
 				//点击查询按钮
@@ -268,6 +339,55 @@
 					getHistoryList(1, keyword);
 					return false;
 				});
+				
+				//全选
+				$('.upload-history-list').on('change', '.select-all', function (){
+					if($(this).prop('checked')){
+						//选中所有行
+						$('.check-item').prop('checked', true);
+						//把另一个全选按钮也选中
+						$('.select-all').prop('checked', true);
+					}else{
+						//取消选中所有行
+						$('.check-item').prop('checked', false);
+						//把另一个全选按钮也取消选中
+						$('.select-all').prop('checked', false);
+					}
+				});
+				
+				//选择某一个(注意要处理当全部选中时，要把全选的复选框也选中，当减掉一个时，要把全选复选框取消选中)
+				$('.upload-history-list').on('change', '.check-item', function (){
+					if(!$(this).prop('checked')){
+						$('.select-all').prop('checked', false);
+					}else{
+						var allChecked = true;
+						$('.check-item').each(function (){
+							allChecked  = allChecked && $(this).prop('checked');
+						});
+						$('.select-all').prop('checked', allChecked);
+					}
+				});
+				
+				//删除所选
+				$('.upload-history-list').on('click', '.delete-all', function (){
+					let ids = [];
+					//循环获取要删除的id
+					$('.check-item').each(function (){
+						if($(this).prop('checked')){
+							ids.push($(this).val());
+						}
+					});
+					if(ids.length > 0) {
+						if(!confirm('确定要删除选择的记录吗？')){
+							return false;
+						}
+					}else{
+						alert('请先选择要删除的历史记录');
+						return false;
+					}
+					deleteItems(ids.join(','));
+					$('.select-all').prop('checked', false);
+				});
 			});
 		</script>
 	</head>
@@ -279,10 +399,10 @@
 			<table class="upload-history-list">
 				<thead>
 					<tr class="pagination">
-						<td colspan="6"><!-- ajax填充 --></td>
+						<td colspan="7"><!-- ajax填充 --></td>
 					</tr>
 					<tr class="search-box">
-						<td colspan="6">
+						<td colspan="7">
 							<form class="search-form">
 								<input type="text" class="search-box-input" placeholder="请输入原始文件名/url/时间">
 								<span class="button search-box-btn">查询</span>
@@ -290,6 +410,7 @@
 						</td>
 					</tr>
 					<tr>
+						<th><input type="checkbox" class="select-all"></th>
 						<th class="file-id">ID</th>
 						<th class="filename">原始文件名/图片</th>
 						<th class="file-url">url</th>
@@ -300,7 +421,7 @@
 				</thead>
 				<tbody>
 					<tr class="no-history">
-						<td colspan="6">暂无上传历史记录</td>
+						<td colspan="7">暂无上传历史记录</td>
 					</tr>
 					<!--<tr>
 						<td>12323432</td>
@@ -337,7 +458,7 @@
 						</td>
 					</tr>
 					<tr class="pagination">
-						<td colspan="6">
+						<td colspan="7">
 							<span class="">共100页</span>
 							<span class="button first cur">首页</span>
 							<span class="button prev">上一页</span>

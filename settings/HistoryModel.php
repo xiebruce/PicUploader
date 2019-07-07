@@ -79,12 +79,12 @@ class HistoryModel extends DbModel {
 	
 	/**
 	 * Delete a row
-	 * @param $id
+	 * @param $ids
 	 *
 	 * @return int
 	 */
-	public function delete($id){
-		$sql = 'DELETE FROM '.self::$tableName.' WHERE id='.$id;
+	public function delete($ids){
+		$sql = 'DELETE FROM '.self::$tableName.' WHERE id IN(' . $ids . ')';
 		return $this->execute($sql);
 	}
 }

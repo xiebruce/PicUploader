@@ -51,7 +51,7 @@ class HistoryController extends Controller {
 		$pagination .= '<span class="button' . ($curPage==$pageCount ? ' forbidden' : '') . '" data-page="' . ($curPage==$pageCount ? $pageCount : $curPage+1) . '">下一页</span>';
 		$pagination .= '<span class="button' . ($curPage==$pageCount ? ' cur' : '') . '" data-page="' .$pageCount. '">末页</span>';
 		$pagination .= '当前页<input type="number" class="jump-to-page" value="'. $curPage .'">';
-		$pagination .= '<span class="button jump-to-page-button" data-pageCount="' .$pageCount. '">跳转</span>';
+		$pagination .= '<span class="button jump-to-page-button" data-pagecount="' .$pageCount. '">跳转</span>';
 		return $pagination;
 	}
 	
@@ -101,18 +101,18 @@ class HistoryController extends Controller {
 	 *
 	 * @return false|string
 	 */
-	public function removeItem(){
-		$id = isset($_GET['id']) ? $_GET['id'] : 0;
+	public function removeItems(){
+		$ids = isset($_REQUEST['ids']) ? $_REQUEST['ids'] : '';
+		
 		$ret = [
 			'code' => -1,
 			'msg' => '删除失败',
 		];
-		if(!$id){
+		if(!$ids){
 			return $ret;
 		}
 		$model = new HistoryModel();
-		
-		if($model->delete($id) !== false){
+		if($model->delete($ids) !== false){
 			$ret = [
 				'code' => 0,
 				'msg' => '删除成功',
