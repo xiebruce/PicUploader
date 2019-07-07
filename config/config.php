@@ -335,13 +335,6 @@
 		//4、建议保持默认不要动，即放在桌面，这样方便查找日志
 		'logPath' => 'desktop',
 		
-		//允许的图片类型
-		/*'allowMimeTypes' => [
-			'jpeg' => 'image/jpeg',
-			'png' => 'image/png',
-			'gif' => 'image/gif',
-		],*/
-		
 		//watermark/水印
 		'watermark' => [
 			//两个值，0或1，0表示不添加水印，1表示添加水印

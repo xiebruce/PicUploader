@@ -258,9 +258,9 @@ class SettingController extends Controller {
 				$storageTypes[$key] = json_decode(file_get_contents($storagesFile), true);
 				
 				//替换年月日位符为当前年月日
-				if(isset($storageTypes[$key]['directory']) && $storageTypes[$key]['directory']){
+				/*if(isset($storageTypes[$key]['directory']) && $storageTypes[$key]['directory']){
 					$storageTypes[$key]['directory'] = strtr($storageTypes[$key]['directory'], ['{Y}'=>date('Y'), '{m}'=>date('m'), '{d}'=>date('d')]);
-				}
+				}*/
 			}
 			$configStorageKeys = array_keys($this->settings['storageTypes']);
 			//对比配置文件中的存储引擎，如果其中有某个存储引擎在后台配置中不存在，则把它合并到后台的配置中(当然只是合并输出，并未存储到后台)
@@ -273,6 +273,12 @@ class SettingController extends Controller {
 		}else{
 			//否则直接从配置文件中获取（优先获取config-local.php，没有则获取local.php）
 			$storageTypes = $this->settings['storageTypes'];
+		}
+		//替换年月日位符为当前年月日
+		foreach($storageTypes as $key => $storageType){
+			if(isset($storageTypes[$key]['directory']) && $storageTypes[$key]['directory']){
+					$storageTypes[$key]['directory'] = strtr($storageTypes[$key]['directory'], ['{Y}'=>date('Y'), '{m}'=>date('m'), '{d}'=>date('d')]);
+			}
 		}
 		//================获取存储引擎配置 结束===============
 		
