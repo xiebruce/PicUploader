@@ -150,8 +150,6 @@ class Upload extends Common {
 							$link = $this->formatLink($link, $originFilename, $mimeType);
 						}
 					}
-					//对于从剪贴板粘贴的或接口上传的，删除源文件(这个源文件实质上是上传后的那个文件，它在.tmp目录里，并不是你电脑上的源文件)
-					$params['deleteOriginalFile'] && @unlink($filePath);
 					
 					$log = $link;
 					if(in_array($uploadServer, ['smms', 'imgur'])){
@@ -167,6 +165,8 @@ class Upload extends Common {
 					$this->writeLog($errMsg, 'StorageTypeError');
 				}
 			}
+			//对于从剪贴板粘贴的或接口上传的，删除源文件(这个源文件实质上是上传后的那个文件，它在.tmp目录里，并不是你电脑上的源文件)
+			$params['deleteOriginalFile'] && @unlink($filePath);
 			// $this->copyPlainTextToClipboard($link);
 			// $this->sendNotification('success');
 			//只返回最后一个云的link（但由于只有域名不同，所以不同云之间只要换个域名，就可以访问同一张照片），

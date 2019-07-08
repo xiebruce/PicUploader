@@ -162,7 +162,7 @@
 							tr = tr + `<tr>
 											<td><input type="checkbox" class="select-all"></td>
 											<td colspan="5"></td>
-											<td><span class="button delete-all">删除所选</span></td>
+											<td><span class="button delete-all">批量删除</span></td>
 										</tr>
 										<tr class="pagination">
 											${pagination}
@@ -368,7 +368,7 @@
 					}
 				});
 				
-				//删除所选
+				//批量删除
 				$('.upload-history-list').on('click', '.delete-all', function (){
 					let ids = [];
 					//循环获取要删除的id
