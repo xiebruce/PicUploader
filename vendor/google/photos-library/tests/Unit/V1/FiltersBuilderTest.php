@@ -18,9 +18,9 @@
 namespace Google\Photos\Library\Tests\Unit\V1;
 
 use DateTime;
-use DeepCopy\Filter\Filter;
 use Google\ApiCore\Testing\GeneratedTest;
 use Google\Photos\Library\V1\ContentCategory;
+use Google\Photos\Library\V1\FeatureFilter\Feature;
 use Google\Photos\Library\V1\FiltersBuilder;
 use Google\Photos\Library\V1\MediaTypeFilter\MediaType;
 use Google\Type\Date;
@@ -91,6 +91,24 @@ class FiltersBuilderTest extends GeneratedTest
         $this->assertContains(
             ContentCategory::LANDSCAPES,
             $filters->getContentFilter()->getIncludedContentCategories()->getIterator()
+        );
+    }
+
+    public function testAddInvalidIncludedFeature()
+    {
+        $this->expectException(\UnexpectedValueException::class);
+        FiltersBuilder::construct()
+            ->addIncludedFeatureFromString("not a feature");
+    }
+
+    public function testAddIncludedFeatureFromString()
+    {
+        $filters = FiltersBuilder::construct()
+            ->addIncludedFeatureFromString("FAVORITES")->build();
+
+        $this->assertContains(
+            Feature::FAVORITES,
+            $filters->getFeatureFilter()->getIncludedFeatures()->getIterator()
         );
     }
 

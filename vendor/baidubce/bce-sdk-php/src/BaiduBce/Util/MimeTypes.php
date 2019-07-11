@@ -1,0 +1,36 @@
+<?php
+/*
+* Copyright 2014 Baidu, Inc.
+*
+* Licensed under the Apache License, Version 2.0 (the "License"); you may not
+* use this file except in compliance with the License. You may obtain a copy of
+* the License at
+*
+* Http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+* WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+* License for the specific language governing permissions and limitations under
+* the License.
+*/
+
+namespace baidubce\util;
+
+class MimeTypes
+{
+    static $map;
+    /**
+     * Guess mime-type from file name extension. Return default mime-type if guess failed.
+     *
+     * @param string $fileName
+     *
+     * @return string
+     */
+    static function guessMimeType($fileName)
+    {
+        self::$map = include(__DIR__ . "/mime.types.php");
+        $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+        return isset(self::$map[$ext]) ? self::$map[$ext] : 'application/octet-stream';
+    }
+} 

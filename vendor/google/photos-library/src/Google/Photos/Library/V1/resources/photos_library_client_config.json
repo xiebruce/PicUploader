@@ -31,6 +31,11 @@
           "retry_codes_name": "idempotent",
           "retry_params_name": "default"
         },
+        "BatchAddMediaItemsToAlbum": {
+          "timeout_millis": 60000,
+          "retry_codes_name": "idempotent",
+          "retry_params_name": "default"
+        },
         "SearchMediaItems": {
           "timeout_millis": 60000,
           "retry_codes_name": "non_idempotent",
@@ -94,6 +99,11 @@
         "UnshareAlbum": {
           "timeout_millis": 60000,
           "retry_codes_name": "non_idempotent",
+          "retry_params_name": "default"
+        },
+        "BatchRemoveMediaItemsFromAlbum": {
+          "timeout_millis": 60000,
+          "retry_codes_name": "idempotent",
           "retry_params_name": "default"
         }
       }

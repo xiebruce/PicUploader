@@ -18,7 +18,7 @@
 namespace Google\Photos\Library\Tests\Unit\V1;
 
 use Google\ApiCore\Testing\GeneratedTest;
-use Google\Photos\Library\V1\Album;
+use Google\Photos\Types\Album;
 use Google\Photos\Library\V1\AlbumPosition;
 use Google\Photos\Library\V1\AlbumPosition\PositionType;
 use Google\Photos\Library\V1\Location;

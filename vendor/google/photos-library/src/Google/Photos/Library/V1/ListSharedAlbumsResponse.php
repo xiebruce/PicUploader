@@ -16,13 +16,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class ListSharedAlbumsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * [Output only] List of shared albums.
+     * Output only. List of shared albums.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.Album shared_albums = 1;</code>
+     * Generated from protobuf field <code>repeated .google.photos.types.Album shared_albums = 1;</code>
      */
     private $shared_albums;
     /**
-     * [Output only] Token to use to get the next set of shared albums. Populated
+     * Output only. Token to use to get the next set of shared albums. Populated
      * if there are more shared albums to retrieve for this request.
      *
      * Generated from protobuf field <code>string next_page_token = 2;</code>
@@ -35,10 +35,10 @@ class ListSharedAlbumsResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Google\Photos\Library\V1\Album[]|\Google\Protobuf\Internal\RepeatedField $shared_albums
-     *           [Output only] List of shared albums.
+     *     @type \Google\Photos\Types\Album[]|\Google\Protobuf\Internal\RepeatedField $shared_albums
+     *           Output only. List of shared albums.
      *     @type string $next_page_token
-     *           [Output only] Token to use to get the next set of shared albums. Populated
+     *           Output only. Token to use to get the next set of shared albums. Populated
      *           if there are more shared albums to retrieve for this request.
      * }
      */
@@ -48,9 +48,9 @@ class ListSharedAlbumsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of shared albums.
+     * Output only. List of shared albums.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.Album shared_albums = 1;</code>
+     * Generated from protobuf field <code>repeated .google.photos.types.Album shared_albums = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getSharedAlbums()
@@ -59,22 +59,22 @@ class ListSharedAlbumsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of shared albums.
+     * Output only. List of shared albums.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.Album shared_albums = 1;</code>
-     * @param \Google\Photos\Library\V1\Album[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .google.photos.types.Album shared_albums = 1;</code>
+     * @param \Google\Photos\Types\Album[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setSharedAlbums($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Photos\Library\V1\Album::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Photos\Types\Album::class);
         $this->shared_albums = $arr;
 
         return $this;
     }
 
     /**
-     * [Output only] Token to use to get the next set of shared albums. Populated
+     * Output only. Token to use to get the next set of shared albums. Populated
      * if there are more shared albums to retrieve for this request.
      *
      * Generated from protobuf field <code>string next_page_token = 2;</code>
@@ -86,7 +86,7 @@ class ListSharedAlbumsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] Token to use to get the next set of shared albums. Populated
+     * Output only. Token to use to get the next set of shared albums. Populated
      * if there are more shared albums to retrieve for this request.
      *
      * Generated from protobuf field <code>string next_page_token = 2;</code>

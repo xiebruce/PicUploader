@@ -27,7 +27,7 @@ class DateFilter extends \Google\Protobuf\Internal\Message
      * List of dates ranges that match the media items' creation date. A
      * maximum of 5 dates ranges can be included per request.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.DateRange ranges = 2;</code>
+     * Generated from protobuf field <code>repeated .google.photos.types.DateRange ranges = 2;</code>
      */
     private $ranges;
 
@@ -40,7 +40,7 @@ class DateFilter extends \Google\Protobuf\Internal\Message
      *     @type \Google\Type\Date[]|\Google\Protobuf\Internal\RepeatedField $dates
      *           List of dates that match the media items' creation date. A maximum of
      *           5 dates can be included per request.
-     *     @type \Google\Photos\Library\V1\DateRange[]|\Google\Protobuf\Internal\RepeatedField $ranges
+     *     @type \Google\Photos\Types\DateRange[]|\Google\Protobuf\Internal\RepeatedField $ranges
      *           List of dates ranges that match the media items' creation date. A
      *           maximum of 5 dates ranges can be included per request.
      * }
@@ -82,7 +82,7 @@ class DateFilter extends \Google\Protobuf\Internal\Message
      * List of dates ranges that match the media items' creation date. A
      * maximum of 5 dates ranges can be included per request.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.DateRange ranges = 2;</code>
+     * Generated from protobuf field <code>repeated .google.photos.types.DateRange ranges = 2;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRanges()
@@ -94,13 +94,13 @@ class DateFilter extends \Google\Protobuf\Internal\Message
      * List of dates ranges that match the media items' creation date. A
      * maximum of 5 dates ranges can be included per request.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.DateRange ranges = 2;</code>
-     * @param \Google\Photos\Library\V1\DateRange[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .google.photos.types.DateRange ranges = 2;</code>
+     * @param \Google\Photos\Types\DateRange[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setRanges($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Photos\Library\V1\DateRange::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Photos\Types\DateRange::class);
         $this->ranges = $arr;
 
         return $this;

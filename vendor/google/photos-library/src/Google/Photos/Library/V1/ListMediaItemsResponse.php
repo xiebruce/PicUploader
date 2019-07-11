@@ -16,13 +16,13 @@ use Google\Protobuf\Internal\GPBUtil;
 class ListMediaItemsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * [Output only] List of media items in the user's library.
+     * Output only. List of media items in the user's library.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.MediaItem media_items = 1;</code>
+     * Generated from protobuf field <code>repeated .google.photos.types.MediaItem media_items = 1;</code>
      */
     private $media_items;
     /**
-     * [Output only] Token to use to get the next set of media items. Its presence
+     * Output only. Token to use to get the next set of media items. Its presence
      * is the only reliable indicator of more media items being available in the
      * next request.
      *
@@ -36,10 +36,10 @@ class ListMediaItemsResponse extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Google\Photos\Library\V1\MediaItem[]|\Google\Protobuf\Internal\RepeatedField $media_items
-     *           [Output only] List of media items in the user's library.
+     *     @type \Google\Photos\Types\MediaItem[]|\Google\Protobuf\Internal\RepeatedField $media_items
+     *           Output only. List of media items in the user's library.
      *     @type string $next_page_token
-     *           [Output only] Token to use to get the next set of media items. Its presence
+     *           Output only. Token to use to get the next set of media items. Its presence
      *           is the only reliable indicator of more media items being available in the
      *           next request.
      * }
@@ -50,9 +50,9 @@ class ListMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of media items in the user's library.
+     * Output only. List of media items in the user's library.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.MediaItem media_items = 1;</code>
+     * Generated from protobuf field <code>repeated .google.photos.types.MediaItem media_items = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getMediaItems()
@@ -61,22 +61,22 @@ class ListMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of media items in the user's library.
+     * Output only. List of media items in the user's library.
      *
-     * Generated from protobuf field <code>repeated .google.photos.library.v1.MediaItem media_items = 1;</code>
-     * @param \Google\Photos\Library\V1\MediaItem[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .google.photos.types.MediaItem media_items = 1;</code>
+     * @param \Google\Photos\Types\MediaItem[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setMediaItems($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Photos\Library\V1\MediaItem::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Google\Photos\Types\MediaItem::class);
         $this->media_items = $arr;
 
         return $this;
     }
 
     /**
-     * [Output only] Token to use to get the next set of media items. Its presence
+     * Output only. Token to use to get the next set of media items. Its presence
      * is the only reliable indicator of more media items being available in the
      * next request.
      *
@@ -89,7 +89,7 @@ class ListMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] Token to use to get the next set of media items. Its presence
+     * Output only. Token to use to get the next set of media items. Its presence
      * is the only reliable indicator of more media items being available in the
      * next request.
      *

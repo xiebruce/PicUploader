@@ -18,6 +18,7 @@
 namespace Google\Photos\Library\V1;
 
 use Google\Photos\Library\V1\AlbumPosition\PositionType;
+use Google\Photos\Types\Album;
 
 class PhotosLibraryResourceFactory
 {

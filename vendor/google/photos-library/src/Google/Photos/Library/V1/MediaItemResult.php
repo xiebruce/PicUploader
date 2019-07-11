@@ -27,7 +27,7 @@ class MediaItemResult extends \Google\Protobuf\Internal\Message
      * Media item retrieved from the user's library. It's populated if no errors
      * occurred and the media item was fetched successfully.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.MediaItem media_item = 2;</code>
+     * Generated from protobuf field <code>.google.photos.types.MediaItem media_item = 2;</code>
      */
     private $media_item = null;
 
@@ -41,7 +41,7 @@ class MediaItemResult extends \Google\Protobuf\Internal\Message
      *           If an error occurred while accessing this media item, this field
      *           is populated with information related to the error. For details regarding
      *           this field, see [Status][google.rpc.Status].
-     *     @type \Google\Photos\Library\V1\MediaItem $media_item
+     *     @type \Google\Photos\Types\MediaItem $media_item
      *           Media item retrieved from the user's library. It's populated if no errors
      *           occurred and the media item was fetched successfully.
      * }
@@ -85,8 +85,8 @@ class MediaItemResult extends \Google\Protobuf\Internal\Message
      * Media item retrieved from the user's library. It's populated if no errors
      * occurred and the media item was fetched successfully.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.MediaItem media_item = 2;</code>
-     * @return \Google\Photos\Library\V1\MediaItem
+     * Generated from protobuf field <code>.google.photos.types.MediaItem media_item = 2;</code>
+     * @return \Google\Photos\Types\MediaItem
      */
     public function getMediaItem()
     {
@@ -97,13 +97,13 @@ class MediaItemResult extends \Google\Protobuf\Internal\Message
      * Media item retrieved from the user's library. It's populated if no errors
      * occurred and the media item was fetched successfully.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.MediaItem media_item = 2;</code>
-     * @param \Google\Photos\Library\V1\MediaItem $var
+     * Generated from protobuf field <code>.google.photos.types.MediaItem media_item = 2;</code>
+     * @param \Google\Photos\Types\MediaItem $var
      * @return $this
      */
     public function setMediaItem($var)
     {
-        GPBUtil::checkMessage($var, \Google\Photos\Library\V1\MediaItem::class);
+        GPBUtil::checkMessage($var, \Google\Photos\Types\MediaItem::class);
         $this->media_item = $var;
 
         return $this;

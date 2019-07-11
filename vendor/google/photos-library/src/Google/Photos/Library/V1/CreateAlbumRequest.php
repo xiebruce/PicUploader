@@ -18,7 +18,7 @@ class CreateAlbumRequest extends \Google\Protobuf\Internal\Message
     /**
      * The album to be created.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.Album album = 1;</code>
+     * Generated from protobuf field <code>.google.photos.types.Album album = 1;</code>
      */
     private $album = null;
 
@@ -28,7 +28,7 @@ class CreateAlbumRequest extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Google\Photos\Library\V1\Album $album
+     *     @type \Google\Photos\Types\Album $album
      *           The album to be created.
      * }
      */
@@ -40,8 +40,8 @@ class CreateAlbumRequest extends \Google\Protobuf\Internal\Message
     /**
      * The album to be created.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.Album album = 1;</code>
-     * @return \Google\Photos\Library\V1\Album
+     * Generated from protobuf field <code>.google.photos.types.Album album = 1;</code>
+     * @return \Google\Photos\Types\Album
      */
     public function getAlbum()
     {
@@ -51,13 +51,13 @@ class CreateAlbumRequest extends \Google\Protobuf\Internal\Message
     /**
      * The album to be created.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.Album album = 1;</code>
-     * @param \Google\Photos\Library\V1\Album $var
+     * Generated from protobuf field <code>.google.photos.types.Album album = 1;</code>
+     * @param \Google\Photos\Types\Album $var
      * @return $this
      */
     public function setAlbum($var)
     {
-        GPBUtil::checkMessage($var, \Google\Photos\Library\V1\Album::class);
+        GPBUtil::checkMessage($var, \Google\Photos\Types\Album::class);
         $this->album = $var;
 
         return $this;

@@ -304,6 +304,13 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
                 0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
             ),
         ),
+        'B' => 
+        array (
+            'BaiduBce' => 
+            array (
+                0 => __DIR__ . '/..' . '/baidubce/bce-sdk-php/src',
+            ),
+        ),
     );
 
     public static $classMap = array (

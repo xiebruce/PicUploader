@@ -73,7 +73,7 @@ class PhotosLibraryClientWrapperTest extends GeneratedTest
 
         $request = $this->mockHttpHandler->getLastRequest();
         $this->assertSame("application/octet-stream", $request->getHeaderLine('Content-type'));
-        $this->assertSame("my_file.png", $request->getHeaderLine('X-Google-Upload-File-Name'));
+        $this->assertSame("my_file.png", $request->getHeaderLine('X-Goog-Upload-File-Name'));
         $this->assertSame("bearer string", $request->getHeaderLine('Authorization'));
         $this->assertSame("some bytes", (string) $request->getBody());
     }

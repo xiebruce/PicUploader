@@ -13,6 +13,18 @@ return [
                 'uriTemplate' => '/v1/mediaItems:batchCreate',
                 'body' => '*',
             ],
+            'BatchAddMediaItemsToAlbum' => [
+                'method' => 'post',
+                'uriTemplate' => '/v1/albums/{album_id=*}:batchAddMediaItems',
+                'body' => '*',
+                'placeholders' => [
+                    'album_id' => [
+                        'getters' => [
+                            'getAlbumId',
+                        ],
+                    ],
+                ],
+            ],
             'SearchMediaItems' => [
                 'method' => 'post',
                 'uriTemplate' => '/v1/mediaItems:search',
@@ -104,6 +116,18 @@ return [
             'UnshareAlbum' => [
                 'method' => 'post',
                 'uriTemplate' => '/v1/albums/{album_id=*}:unshare',
+                'body' => '*',
+                'placeholders' => [
+                    'album_id' => [
+                        'getters' => [
+                            'getAlbumId',
+                        ],
+                    ],
+                ],
+            ],
+            'BatchRemoveMediaItemsFromAlbum' => [
+                'method' => 'post',
+                'uriTemplate' => '/v1/albums/{album_id=*}:batchRemoveMediaItems',
                 'body' => '*',
                 'placeholders' => [
                     'album_id' => [

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,20 +28,22 @@ use Google\ApiCore\CredentialsWrapper;
 use Google\ApiCore\Testing\GeneratedTest;
 use Google\ApiCore\Testing\MockTransport;
 use Google\Photos\Library\V1\AddEnrichmentToAlbumResponse;
-use Google\Photos\Library\V1\Album;
 use Google\Photos\Library\V1\AlbumPosition;
+use Google\Photos\Library\V1\BatchAddMediaItemsToAlbumResponse;
 use Google\Photos\Library\V1\BatchCreateMediaItemsResponse;
 use Google\Photos\Library\V1\BatchGetMediaItemsResponse;
+use Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumResponse;
 use Google\Photos\Library\V1\JoinSharedAlbumResponse;
 use Google\Photos\Library\V1\LeaveSharedAlbumResponse;
 use Google\Photos\Library\V1\ListAlbumsResponse;
 use Google\Photos\Library\V1\ListMediaItemsResponse;
 use Google\Photos\Library\V1\ListSharedAlbumsResponse;
-use Google\Photos\Library\V1\MediaItem;
 use Google\Photos\Library\V1\NewEnrichmentItem;
 use Google\Photos\Library\V1\SearchMediaItemsResponse;
 use Google\Photos\Library\V1\ShareAlbumResponse;
 use Google\Photos\Library\V1\UnshareAlbumResponse;
+use Google\Photos\Types\Album;
+use Google\Photos\Types\MediaItem;
 use Google\Protobuf\Any;
 use Google\Rpc\Code;
 use stdClass;
@@ -218,6 +220,82 @@ class PhotosLibraryClientTest extends GeneratedTest
 
         try {
             $client->batchCreateMediaItems($newMediaItems);
+            // If the $client method call did not throw, fail the test
+            $this->fail('Expected an ApiException, but no exception was thrown.');
+        } catch (ApiException $ex) {
+            $this->assertEquals($status->code, $ex->getCode());
+            $this->assertEquals($expectedExceptionMessage, $ex->getMessage());
+        }
+
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $transport->popReceivedCalls();
+        $this->assertTrue($transport->isExhausted());
+    }
+
+    /**
+     * @test
+     */
+    public function batchAddMediaItemsToAlbumTest()
+    {
+        $transport = $this->createTransport();
+        $client = $this->createClient(['transport' => $transport]);
+
+        $this->assertTrue($transport->isExhausted());
+
+        // Mock response
+        $expectedResponse = new BatchAddMediaItemsToAlbumResponse();
+        $transport->addResponse($expectedResponse);
+
+        // Mock request
+        $albumId = 'albumId1532078315';
+        $mediaItemIds = [];
+
+        $response = $client->batchAddMediaItemsToAlbum($albumId, $mediaItemIds);
+        $this->assertEquals($expectedResponse, $response);
+        $actualRequests = $transport->popReceivedCalls();
+        $this->assertSame(1, count($actualRequests));
+        $actualFuncCall = $actualRequests[0]->getFuncCall();
+        $actualRequestObject = $actualRequests[0]->getRequestObject();
+        $this->assertSame('/google.photos.library.v1.PhotosLibrary/BatchAddMediaItemsToAlbum', $actualFuncCall);
+
+        $actualValue = $actualRequestObject->getAlbumId();
+
+        $this->assertProtobufEquals($albumId, $actualValue);
+        $actualValue = $actualRequestObject->getMediaItemIds();
+
+        $this->assertProtobufEquals($mediaItemIds, $actualValue);
+
+        $this->assertTrue($transport->isExhausted());
+    }
+
+    /**
+     * @test
+     */
+    public function batchAddMediaItemsToAlbumExceptionTest()
+    {
+        $transport = $this->createTransport();
+        $client = $this->createClient(['transport' => $transport]);
+
+        $this->assertTrue($transport->isExhausted());
+
+        $status = new stdClass();
+        $status->code = Code::DATA_LOSS;
+        $status->details = 'internal error';
+
+        $expectedExceptionMessage = json_encode([
+           'message' => 'internal error',
+           'code' => Code::DATA_LOSS,
+           'status' => 'DATA_LOSS',
+           'details' => [],
+        ], JSON_PRETTY_PRINT);
+        $transport->addResponse(null, $status);
+
+        // Mock request
+        $albumId = 'albumId1532078315';
+        $mediaItemIds = [];
+
+        try {
+            $client->batchAddMediaItemsToAlbum($albumId, $mediaItemIds);
             // If the $client method call did not throw, fail the test
             $this->fail('Expected an ApiException, but no exception was thrown.');
         } catch (ApiException $ex) {
@@ -1187,6 +1265,82 @@ class PhotosLibraryClientTest extends GeneratedTest
 
         try {
             $client->unshareAlbum($albumId);
+            // If the $client method call did not throw, fail the test
+            $this->fail('Expected an ApiException, but no exception was thrown.');
+        } catch (ApiException $ex) {
+            $this->assertEquals($status->code, $ex->getCode());
+            $this->assertEquals($expectedExceptionMessage, $ex->getMessage());
+        }
+
+        // Call popReceivedCalls to ensure the stub is exhausted
+        $transport->popReceivedCalls();
+        $this->assertTrue($transport->isExhausted());
+    }
+
+    /**
+     * @test
+     */
+    public function batchRemoveMediaItemsFromAlbumTest()
+    {
+        $transport = $this->createTransport();
+        $client = $this->createClient(['transport' => $transport]);
+
+        $this->assertTrue($transport->isExhausted());
+
+        // Mock response
+        $expectedResponse = new BatchRemoveMediaItemsFromAlbumResponse();
+        $transport->addResponse($expectedResponse);
+
+        // Mock request
+        $albumId = 'albumId1532078315';
+        $mediaItemIds = [];
+
+        $response = $client->batchRemoveMediaItemsFromAlbum($albumId, $mediaItemIds);
+        $this->assertEquals($expectedResponse, $response);
+        $actualRequests = $transport->popReceivedCalls();
+        $this->assertSame(1, count($actualRequests));
+        $actualFuncCall = $actualRequests[0]->getFuncCall();
+        $actualRequestObject = $actualRequests[0]->getRequestObject();
+        $this->assertSame('/google.photos.library.v1.PhotosLibrary/BatchRemoveMediaItemsFromAlbum', $actualFuncCall);
+
+        $actualValue = $actualRequestObject->getAlbumId();
+
+        $this->assertProtobufEquals($albumId, $actualValue);
+        $actualValue = $actualRequestObject->getMediaItemIds();
+
+        $this->assertProtobufEquals($mediaItemIds, $actualValue);
+
+        $this->assertTrue($transport->isExhausted());
+    }
+
+    /**
+     * @test
+     */
+    public function batchRemoveMediaItemsFromAlbumExceptionTest()
+    {
+        $transport = $this->createTransport();
+        $client = $this->createClient(['transport' => $transport]);
+
+        $this->assertTrue($transport->isExhausted());
+
+        $status = new stdClass();
+        $status->code = Code::DATA_LOSS;
+        $status->details = 'internal error';
+
+        $expectedExceptionMessage = json_encode([
+           'message' => 'internal error',
+           'code' => Code::DATA_LOSS,
+           'status' => 'DATA_LOSS',
+           'details' => [],
+        ], JSON_PRETTY_PRINT);
+        $transport->addResponse(null, $status);
+
+        // Mock request
+        $albumId = 'albumId1532078315';
+        $mediaItemIds = [];
+
+        try {
+            $client->batchRemoveMediaItemsFromAlbum($albumId, $mediaItemIds);
             // If the $client method call did not throw, fail the test
             $this->fail('Expected an ApiException, but no exception was thrown.');
         } catch (ApiException $ex) {

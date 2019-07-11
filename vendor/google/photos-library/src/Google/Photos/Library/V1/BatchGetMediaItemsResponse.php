@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class BatchGetMediaItemsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * [Output only] List of media items retrieved.
+     * Output only. List of media items retrieved.
      * Note that even if the call to BatchGetMediaItems succeeds, there may have
      * been failures for some media items in the batch. These failures are
      * indicated in each
@@ -33,7 +33,7 @@ class BatchGetMediaItemsResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Google\Photos\Library\V1\MediaItemResult[]|\Google\Protobuf\Internal\RepeatedField $media_item_results
-     *           [Output only] List of media items retrieved.
+     *           Output only. List of media items retrieved.
      *           Note that even if the call to BatchGetMediaItems succeeds, there may have
      *           been failures for some media items in the batch. These failures are
      *           indicated in each
@@ -46,7 +46,7 @@ class BatchGetMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of media items retrieved.
+     * Output only. List of media items retrieved.
      * Note that even if the call to BatchGetMediaItems succeeds, there may have
      * been failures for some media items in the batch. These failures are
      * indicated in each
@@ -61,7 +61,7 @@ class BatchGetMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of media items retrieved.
+     * Output only. List of media items retrieved.
      * Note that even if the call to BatchGetMediaItems succeeds, there may have
      * been failures for some media items in the batch. These failures are
      * indicated in each

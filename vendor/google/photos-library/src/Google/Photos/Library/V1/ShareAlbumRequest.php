@@ -25,7 +25,7 @@ class ShareAlbumRequest extends \Google\Protobuf\Internal\Message
     /**
      * Options to be set when converting the album to a shared album.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
+     * Generated from protobuf field <code>.google.photos.types.SharedAlbumOptions shared_album_options = 2;</code>
      */
     private $shared_album_options = null;
 
@@ -38,7 +38,7 @@ class ShareAlbumRequest extends \Google\Protobuf\Internal\Message
      *     @type string $album_id
      *           Identifier of the album to be shared. This `albumId` must belong to an
      *           album created by the developer.
-     *     @type \Google\Photos\Library\V1\SharedAlbumOptions $shared_album_options
+     *     @type \Google\Photos\Types\SharedAlbumOptions $shared_album_options
      *           Options to be set when converting the album to a shared album.
      * }
      */
@@ -78,8 +78,8 @@ class ShareAlbumRequest extends \Google\Protobuf\Internal\Message
     /**
      * Options to be set when converting the album to a shared album.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
-     * @return \Google\Photos\Library\V1\SharedAlbumOptions
+     * Generated from protobuf field <code>.google.photos.types.SharedAlbumOptions shared_album_options = 2;</code>
+     * @return \Google\Photos\Types\SharedAlbumOptions
      */
     public function getSharedAlbumOptions()
     {
@@ -89,13 +89,13 @@ class ShareAlbumRequest extends \Google\Protobuf\Internal\Message
     /**
      * Options to be set when converting the album to a shared album.
      *
-     * Generated from protobuf field <code>.google.photos.library.v1.SharedAlbumOptions shared_album_options = 2;</code>
-     * @param \Google\Photos\Library\V1\SharedAlbumOptions $var
+     * Generated from protobuf field <code>.google.photos.types.SharedAlbumOptions shared_album_options = 2;</code>
+     * @param \Google\Photos\Types\SharedAlbumOptions $var
      * @return $this
      */
     public function setSharedAlbumOptions($var)
     {
-        GPBUtil::checkMessage($var, \Google\Photos\Library\V1\SharedAlbumOptions::class);
+        GPBUtil::checkMessage($var, \Google\Photos\Types\SharedAlbumOptions::class);
         $this->shared_album_options = $var;
 
         return $this;

@@ -24,7 +24,6 @@
 	
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
 
-	require APP_PATH . '/thirdpart/bce-php-sdk-0.9/BaiduBce.phar';
 	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 
 	//autoload class

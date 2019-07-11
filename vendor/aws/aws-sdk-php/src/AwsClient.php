@@ -19,6 +19,9 @@ class AwsClient implements AwsClientInterface
     use AwsClientTrait;
 
     /** @var array */
+    private $aliases;
+
+    /** @var array */
     private $config;
 
     /** @var string */
@@ -68,6 +71,16 @@ class AwsClient implements AwsClientInterface
      *   credentials or return null. See Aws\Credentials\CredentialProvider for
      *   a list of built-in credentials providers. If no credentials are
      *   provided, the SDK will attempt to load them from the environment.
+     * - csm:
+     *   (Aws\ClientSideMonitoring\ConfigurationInterface|array|callable) Specifies
+     *   the credentials used to sign requests. Provide an
+     *   Aws\ClientSideMonitoring\ConfigurationInterface object, a callable
+     *   configuration provider used to create client-side monitoring configuration,
+     *   `false` to disable csm, or an associative array with the following keys:
+     *   enabled: (bool) Set to true to enable client-side monitoring, defaults
+     *   to false; host: (string) the host location to send monitoring events to,
+     *   defaults to 127.0.0.1; port: (int) The port used for the host connection,
+     *   defaults to 31000; client_id: (string) An identifier for this project
      * - debug: (bool|array) Set to true to display debug information when
      *   sending requests. Alternatively, you can provide an associative array
      *   with the following keys: logfn: (callable) Function that is invoked
@@ -181,9 +194,10 @@ class AwsClient implements AwsClientInterface
         $this->defaultRequestOptions = $config['http'];
         $this->addSignatureMiddleware();
         $this->addInvocationId();
-        $this->addClientSideMonitoring($args);
         $this->addEndpointParameterMiddleware($args);
         $this->addEndpointDiscoveryMiddleware($config, $args);
+        $this->loadAliases();
+        $this->addStreamRequestPayload();
 
         if (isset($args['with_resolved'])) {
             $args['with_resolved']($config);
@@ -345,29 +359,30 @@ class AwsClient implements AwsClientInterface
         $this->handlerList->prependSign(Middleware::invocationId(), 'invocation-id');
     }
 
-    private function addClientSideMonitoring($args)
+    private function loadAliases($file = null)
     {
-        $options = ConfigurationProvider::defaultProvider($args);
+        if (!isset($this->aliases)) {
+            if (is_null($file)) {
+                $file = __DIR__ . '/data/aliases.json';
+            }
+            $aliases = \Aws\load_compiled_json($file);
+            $serviceId = $this->api->getServiceId();
+            $version = $this->getApi()->getApiVersion();
+            if (!empty($aliases['operations'][$serviceId][$version])) {
+                $this->aliases = array_flip($aliases['operations'][$serviceId][$version]);
+            }
+        }
+    }
 
-        $this->handlerList->appendBuild(
-            ApiCallMonitoringMiddleware::wrap(
-                $this->credentialProvider,
-                $options,
-                $this->region,
-                $this->getApi()->getServiceId()
-            ),
-            'ApiCallMonitoringMiddleware'
+    private function addStreamRequestPayload()
+    {
+        $streamRequestPayloadMiddleware = StreamRequestPayloadMiddleware::wrap(
+            $this->api
         );
 
-        $callAttemptMiddleware = ApiCallAttemptMonitoringMiddleware::wrap(
-            $this->credentialProvider,
-            $options,
-            $this->region,
-            $this->getApi()->getServiceId()
-        );
-        $this->handlerList->appendAttempt (
-            $callAttemptMiddleware,
-            'ApiCallAttemptMonitoringMiddleware'
+        $this->handlerList->prependSign(
+            $streamRequestPayloadMiddleware,
+            'StreamRequestPayloadMiddleware'
         );
     }
 
@@ -385,6 +400,20 @@ class AwsClient implements AwsClientInterface
      */
     public static function applyDocFilters(array $api, array $docs)
     {
+        $aliases = \Aws\load_compiled_json(__DIR__ . '/data/aliases.json');
+        $serviceId = $api['metadata']['serviceId'];
+        $version = $api['metadata']['apiVersion'];
+
+        // Replace names for any operations with SDK aliases
+        if (!empty($aliases['operations'][$serviceId][$version])) {
+            foreach ($aliases['operations'][$serviceId][$version] as $op => $alias) {
+                $api['operations'][$alias] = $api['operations'][$op];
+                $docs['operations'][$alias] = $docs['operations'][$op];
+                unset($api['operations'][$op], $docs['operations'][$op]);
+            }
+        }
+        ksort($api['operations']);
+
         return [
             new Service($api, ApiProvider::defaultProvider()),
             new DocModel($docs)

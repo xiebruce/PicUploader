@@ -164,4 +164,10 @@ class PhotosLibraryClient extends PhotosLibraryGapicClient
     {
         return ['ALL_MEDIA', 'PHOTO', 'VIDEO'];
     }
+
+    public static function features()
+    {
+        return ['NONE', 'FAVORITES'];
+    }
+
 }

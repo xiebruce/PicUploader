@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class BatchCreateMediaItemsResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * [Output only] List of media items created.
+     * Output only. List of media items created.
      *
      * Generated from protobuf field <code>repeated .google.photos.library.v1.NewMediaItemResult new_media_item_results = 1;</code>
      */
@@ -29,7 +29,7 @@ class BatchCreateMediaItemsResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Google\Photos\Library\V1\NewMediaItemResult[]|\Google\Protobuf\Internal\RepeatedField $new_media_item_results
-     *           [Output only] List of media items created.
+     *           Output only. List of media items created.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,7 +38,7 @@ class BatchCreateMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of media items created.
+     * Output only. List of media items created.
      *
      * Generated from protobuf field <code>repeated .google.photos.library.v1.NewMediaItemResult new_media_item_results = 1;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
@@ -49,7 +49,7 @@ class BatchCreateMediaItemsResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] List of media items created.
+     * Output only. List of media items created.
      *
      * Generated from protobuf field <code>repeated .google.photos.library.v1.NewMediaItemResult new_media_item_results = 1;</code>
      * @param \Google\Photos\Library\V1\NewMediaItemResult[]|\Google\Protobuf\Internal\RepeatedField $var

@@ -1,6 +1,6 @@
 <?php
 /*
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,19 +28,23 @@ namespace Google\Photos\Library\V1\Gapic;
 
 use Google\ApiCore\ApiException;
 use Google\ApiCore\CredentialsWrapper;
-use Google\ApiCore\FetchAuthTokenInterface;
 use Google\ApiCore\GapicClientTrait;
+use Google\ApiCore\RequestParamsHeaderDescriptor;
 use Google\ApiCore\RetrySettings;
 use Google\ApiCore\Transport\TransportInterface;
 use Google\ApiCore\ValidationException;
+use Google\Auth\FetchAuthTokenInterface;
 use Google\Photos\Library\V1\AddEnrichmentToAlbumRequest;
 use Google\Photos\Library\V1\AddEnrichmentToAlbumResponse;
-use Google\Photos\Library\V1\Album;
 use Google\Photos\Library\V1\AlbumPosition;
+use Google\Photos\Library\V1\BatchAddMediaItemsToAlbumRequest;
+use Google\Photos\Library\V1\BatchAddMediaItemsToAlbumResponse;
 use Google\Photos\Library\V1\BatchCreateMediaItemsRequest;
 use Google\Photos\Library\V1\BatchCreateMediaItemsResponse;
 use Google\Photos\Library\V1\BatchGetMediaItemsRequest;
 use Google\Photos\Library\V1\BatchGetMediaItemsResponse;
+use Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumRequest;
+use Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumResponse;
 use Google\Photos\Library\V1\CreateAlbumRequest;
 use Google\Photos\Library\V1\Filters;
 use Google\Photos\Library\V1\GetAlbumRequest;
@@ -56,16 +60,17 @@ use Google\Photos\Library\V1\ListMediaItemsRequest;
 use Google\Photos\Library\V1\ListMediaItemsResponse;
 use Google\Photos\Library\V1\ListSharedAlbumsRequest;
 use Google\Photos\Library\V1\ListSharedAlbumsResponse;
-use Google\Photos\Library\V1\MediaItem;
 use Google\Photos\Library\V1\NewEnrichmentItem;
 use Google\Photos\Library\V1\NewMediaItem;
 use Google\Photos\Library\V1\SearchMediaItemsRequest;
 use Google\Photos\Library\V1\SearchMediaItemsResponse;
 use Google\Photos\Library\V1\ShareAlbumRequest;
 use Google\Photos\Library\V1\ShareAlbumResponse;
-use Google\Photos\Library\V1\SharedAlbumOptions;
 use Google\Photos\Library\V1\UnshareAlbumRequest;
 use Google\Photos\Library\V1\UnshareAlbumResponse;
+use Google\Photos\Types\Album;
+use Google\Photos\Types\MediaItem;
+use Google\Photos\Types\SharedAlbumOptions;
 
 /**
  * Service Description: Service which allows developers to perform the following actions on behalf of
@@ -229,7 +234,7 @@ class PhotosLibraryGapicClient
      *          {@see Google\ApiCore\RetrySettings} for example usage.
      * }
      *
-     * @return \Google\Photos\Library\V1\Album
+     * @return \Google\Photos\Types\Album
      *
      * @throws ApiException if the remote call fails
      * @experimental
@@ -317,6 +322,74 @@ class PhotosLibraryGapicClient
         return $this->startCall(
             'BatchCreateMediaItems',
             BatchCreateMediaItemsResponse::class,
+            $optionalArgs,
+            $request
+        )->wait();
+    }
+
+    /**
+     * Adds one or more media items in a user's Google Photos library to
+     * an album. The media items and albums must have been created by the
+     * developer via the API.
+     *
+     * Media items are added to the end of the album. If multiple media items are
+     * given, they are added in the order specified in this call.
+     *
+     * Only media items that are in the user's library can be added to an
+     * album. For albums that are shared, the album must either be owned by the
+     * user or the user must have joined the album as a collaborator.
+     *
+     * Partial success is not supported. The entire request will fail if an
+     * invalid media item or album is specified.
+     *
+     * Sample code:
+     * ```
+     * $photosLibraryClient = new PhotosLibraryClient();
+     * try {
+     *     $albumId = '';
+     *     $mediaItemIds = [];
+     *     $response = $photosLibraryClient->batchAddMediaItemsToAlbum($albumId, $mediaItemIds);
+     * } finally {
+     *     $photosLibraryClient->close();
+     * }
+     * ```
+     *
+     * @param string   $albumId      Identifier of the [Album][google.photos.types.Album] that the
+     *                               media items are added to.
+     * @param string[] $mediaItemIds Identifiers of the [MediaItem][google.photos.types.MediaItem]s to be
+     *                               added.
+     *                               The maximum number of media items that can be added in one call is 50.
+     * @param array    $optionalArgs {
+     *                               Optional.
+     *
+     *     @type RetrySettings|array $retrySettings
+     *          Retry settings to use for this call. Can be a
+     *          {@see Google\ApiCore\RetrySettings} object, or an associative array
+     *          of retry settings parameters. See the documentation on
+     *          {@see Google\ApiCore\RetrySettings} for example usage.
+     * }
+     *
+     * @return \Google\Photos\Library\V1\BatchAddMediaItemsToAlbumResponse
+     *
+     * @throws ApiException if the remote call fails
+     * @experimental
+     */
+    public function batchAddMediaItemsToAlbum($albumId, $mediaItemIds, array $optionalArgs = [])
+    {
+        $request = new BatchAddMediaItemsToAlbumRequest();
+        $request->setAlbumId($albumId);
+        $request->setMediaItemIds($mediaItemIds);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'album_id' => $request->getAlbumId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
+        return $this->startCall(
+            'BatchAddMediaItemsToAlbum',
+            BatchAddMediaItemsToAlbumResponse::class,
             $optionalArgs,
             $request
         )->wait();
@@ -505,7 +578,7 @@ class PhotosLibraryGapicClient
      *          {@see Google\ApiCore\RetrySettings} for example usage.
      * }
      *
-     * @return \Google\Photos\Library\V1\MediaItem
+     * @return \Google\Photos\Types\MediaItem
      *
      * @throws ApiException if the remote call fails
      * @experimental
@@ -514,6 +587,13 @@ class PhotosLibraryGapicClient
     {
         $request = new GetMediaItemRequest();
         $request->setMediaItemId($mediaItemId);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'media_item_id' => $request->getMediaItemId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'GetMediaItem',
@@ -674,7 +754,7 @@ class PhotosLibraryGapicClient
      *          {@see Google\ApiCore\RetrySettings} for example usage.
      * }
      *
-     * @return \Google\Photos\Library\V1\Album
+     * @return \Google\Photos\Types\Album
      *
      * @throws ApiException if the remote call fails
      * @experimental
@@ -683,6 +763,13 @@ class PhotosLibraryGapicClient
     {
         $request = new GetAlbumRequest();
         $request->setAlbumId($albumId);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'album_id' => $request->getAlbumId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'GetAlbum',
@@ -717,7 +804,7 @@ class PhotosLibraryGapicClient
      *          {@see Google\ApiCore\RetrySettings} for example usage.
      * }
      *
-     * @return \Google\Photos\Library\V1\Album
+     * @return \Google\Photos\Types\Album
      *
      * @throws ApiException if the remote call fails
      * @experimental
@@ -726,6 +813,13 @@ class PhotosLibraryGapicClient
     {
         $request = new GetSharedAlbumRequest();
         $request->setShareToken($shareToken);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'share_token' => $request->getShareToken(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'GetSharedAlbum',
@@ -775,6 +869,13 @@ class PhotosLibraryGapicClient
         $request->setAlbumId($albumId);
         $request->setNewEnrichmentItem($newEnrichmentItem);
         $request->setAlbumPosition($albumPosition);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'album_id' => $request->getAlbumId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
 
         return $this->startCall(
             'AddEnrichmentToAlbum',
@@ -914,6 +1015,13 @@ class PhotosLibraryGapicClient
             $request->setSharedAlbumOptions($optionalArgs['sharedAlbumOptions']);
         }
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'album_id' => $request->getAlbumId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'ShareAlbum',
             ShareAlbumResponse::class,
@@ -1041,9 +1149,83 @@ class PhotosLibraryGapicClient
         $request = new UnshareAlbumRequest();
         $request->setAlbumId($albumId);
 
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'album_id' => $request->getAlbumId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
         return $this->startCall(
             'UnshareAlbum',
             UnshareAlbumResponse::class,
+            $optionalArgs,
+            $request
+        )->wait();
+    }
+
+    /**
+     * Removes one or more media items from a specified album. The media items and
+     * the album must have been created by the developer via the API.
+     *
+     * For albums that are shared, this action is only supported for media items
+     * that were added to the album by this user, or for all media items if the
+     * album was created by this user.
+     *
+     * Partial success is not supported. The entire request will fail and no
+     * action will be performed on the album if an invalid media item or album is
+     * specified.
+     *
+     * Sample code:
+     * ```
+     * $photosLibraryClient = new PhotosLibraryClient();
+     * try {
+     *     $albumId = '';
+     *     $mediaItemIds = [];
+     *     $response = $photosLibraryClient->batchRemoveMediaItemsFromAlbum($albumId, $mediaItemIds);
+     * } finally {
+     *     $photosLibraryClient->close();
+     * }
+     * ```
+     *
+     * @param string   $albumId      Identifier of the [Album][google.photos.types.Album] that the media
+     *                               items are to be removed from.
+     * @param string[] $mediaItemIds Identifiers of the [MediaItem][google.photos.types.MediaItem]s to be
+     *                               removed.
+     *
+     * Must not contain repeated identifiers and cannot be empty. The maximum
+     * number of media items that can be removed in one call is 50.
+     * @param array $optionalArgs {
+     *                            Optional.
+     *
+     *     @type RetrySettings|array $retrySettings
+     *          Retry settings to use for this call. Can be a
+     *          {@see Google\ApiCore\RetrySettings} object, or an associative array
+     *          of retry settings parameters. See the documentation on
+     *          {@see Google\ApiCore\RetrySettings} for example usage.
+     * }
+     *
+     * @return \Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumResponse
+     *
+     * @throws ApiException if the remote call fails
+     * @experimental
+     */
+    public function batchRemoveMediaItemsFromAlbum($albumId, $mediaItemIds, array $optionalArgs = [])
+    {
+        $request = new BatchRemoveMediaItemsFromAlbumRequest();
+        $request->setAlbumId($albumId);
+        $request->setMediaItemIds($mediaItemIds);
+
+        $requestParams = new RequestParamsHeaderDescriptor([
+          'album_id' => $request->getAlbumId(),
+        ]);
+        $optionalArgs['headers'] = isset($optionalArgs['headers'])
+            ? array_merge($requestParams->getHeader(), $optionalArgs['headers'])
+            : $requestParams->getHeader();
+
+        return $this->startCall(
+            'BatchRemoveMediaItemsFromAlbum',
+            BatchRemoveMediaItemsFromAlbumResponse::class,
             $optionalArgs,
             $request
         )->wait();

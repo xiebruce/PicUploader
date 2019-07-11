@@ -4,6 +4,8 @@
 
 namespace Google\Photos\Library\V1;
 
+use UnexpectedValueException;
+
 /**
  * This is a set of pre-defined content categories that you can filter on.
  *
@@ -133,5 +135,97 @@ class ContentCategory
      * Generated from protobuf enum <code>UTILITY = 19;</code>
      */
     const UTILITY = 19;
+    /**
+     * Media items containing art.
+     *
+     * Generated from protobuf enum <code>ARTS = 20;</code>
+     */
+    const ARTS = 20;
+    /**
+     * Media items containing crafts.
+     *
+     * Generated from protobuf enum <code>CRAFTS = 21;</code>
+     */
+    const CRAFTS = 21;
+    /**
+     * Media items related to fashion.
+     *
+     * Generated from protobuf enum <code>FASHION = 22;</code>
+     */
+    const FASHION = 22;
+    /**
+     * Media items containing houses.
+     *
+     * Generated from protobuf enum <code>HOUSES = 23;</code>
+     */
+    const HOUSES = 23;
+    /**
+     * Media items containing gardens.
+     *
+     * Generated from protobuf enum <code>GARDENS = 24;</code>
+     */
+    const GARDENS = 24;
+    /**
+     * Media items containing flowers.
+     *
+     * Generated from protobuf enum <code>FLOWERS = 25;</code>
+     */
+    const FLOWERS = 25;
+    /**
+     * Media items taken of holidays.
+     *
+     * Generated from protobuf enum <code>HOLIDAYS = 26;</code>
+     */
+    const HOLIDAYS = 26;
+
+    private static $valueToName = [
+        self::NONE => 'NONE',
+        self::LANDSCAPES => 'LANDSCAPES',
+        self::RECEIPTS => 'RECEIPTS',
+        self::CITYSCAPES => 'CITYSCAPES',
+        self::LANDMARKS => 'LANDMARKS',
+        self::SELFIES => 'SELFIES',
+        self::PEOPLE => 'PEOPLE',
+        self::PETS => 'PETS',
+        self::WEDDINGS => 'WEDDINGS',
+        self::BIRTHDAYS => 'BIRTHDAYS',
+        self::DOCUMENTS => 'DOCUMENTS',
+        self::TRAVEL => 'TRAVEL',
+        self::ANIMALS => 'ANIMALS',
+        self::FOOD => 'FOOD',
+        self::SPORT => 'SPORT',
+        self::NIGHT => 'NIGHT',
+        self::PERFORMANCES => 'PERFORMANCES',
+        self::WHITEBOARDS => 'WHITEBOARDS',
+        self::SCREENSHOTS => 'SCREENSHOTS',
+        self::UTILITY => 'UTILITY',
+        self::ARTS => 'ARTS',
+        self::CRAFTS => 'CRAFTS',
+        self::FASHION => 'FASHION',
+        self::HOUSES => 'HOUSES',
+        self::GARDENS => 'GARDENS',
+        self::FLOWERS => 'FLOWERS',
+        self::HOLIDAYS => 'HOLIDAYS',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

@@ -18,7 +18,9 @@
 namespace Google\Photos\Library\V1;
 
 use DateTime;
+use Google\Photos\Library\V1\FeatureFilter\Feature;
 use Google\Photos\Library\V1\MediaTypeFilter\MediaType;
+use Google\Photos\Types\DateRange;
 use Google\Type\Date;
 
 /**
@@ -35,6 +37,7 @@ class FiltersBuilder
 {
     private $mediaType = 0;
     private $includedCategories = [];
+    private $includedFeatures = [];
     private $excludedCategories = [];
     private $ranges = [];
     private $dates = [];
@@ -52,21 +55,35 @@ class FiltersBuilder
      */
     public function build()
     {
-        $mediaTypeFilter = new MediaTypeFilter();
-        $mediaTypeFilter->setMediaTypes([$this->mediaType]);
-
-        $contentFilter = new ContentFilter();
-        $contentFilter->setIncludedContentCategories($this->includedCategories);
-        $contentFilter->setExcludedContentCategories($this->excludedCategories);
-
-        $dateFilter = new DateFilter();
-        $dateFilter->setDates($this->dates);
-        $dateFilter->setRanges($this->ranges);
-
         $filters = new Filters();
-        $filters->setMediaTypeFilter($mediaTypeFilter);
-        $filters->setContentFilter($contentFilter);
-        $filters->setDateFilter($dateFilter);
+
+        if ($this->mediaType) {
+            $mediaTypeFilter = new MediaTypeFilter();
+            $mediaTypeFilter->setMediaTypes([$this->mediaType]);
+            $filters->setMediaTypeFilter($mediaTypeFilter);
+        }
+
+        if (!empty($this->includedCategories) || !empty($this->excludedCategories)) {
+            $contentFilter = new ContentFilter();
+            $contentFilter->setIncludedContentCategories($this->includedCategories);
+            $contentFilter->setExcludedContentCategories($this->excludedCategories);
+            $filters->setContentFilter($contentFilter);
+
+        }
+
+        if (!empty($this->dates) || !empty($this->ranges)) {
+            $dateFilter = new DateFilter();
+            $dateFilter->setDates($this->dates);
+            $dateFilter->setRanges($this->ranges);
+            $filters->setDateFilter($dateFilter);
+        }
+
+        if (!empty($this->includedFeatures)) {
+            $featureFilter = new FeatureFilter();
+            $featureFilter->setIncludedFeatures($this->includedFeatures);
+            $filters->setFeatureFilter($featureFilter);
+        }
+
         $filters->setIncludeArchivedMedia($this->includeArchivedMedia);
         return $filters;
     }
@@ -207,6 +224,30 @@ class FiltersBuilder
     public function addIncludedCategoryFromString($category)
     {
         return $this->addIncludedCategory($this->convertToCategory($category));
+    }
+
+    /**
+     * Adds a feature to the list of included features.
+     *
+     * @param int $feature The feature to include; a constant from {@link Feature}.
+     * @return $this
+     */
+    public function addIncludedFeature($feature)
+    {
+        $this->includedFeatures[] = $feature;
+        return $this;
+    }
+
+    /**
+     * Adds a category to the list of included features.
+     *
+     * @param string $feature The feature to include. Must be an element of
+     *     {@link PhotosLibraryClient::features()}
+     * @return $this
+     */
+    public function addIncludedFeatureFromString($feature)
+    {
+        return $this->addIncludedFeature(Feature::value($feature));
     }
 
     /**

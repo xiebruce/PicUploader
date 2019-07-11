@@ -36,6 +36,12 @@ class Filters extends \Google\Protobuf\Internal\Message
      */
     private $media_type_filter = null;
     /**
+     * Filters the media items based on their features.
+     *
+     * Generated from protobuf field <code>.google.photos.library.v1.FeatureFilter feature_filter = 7;</code>
+     */
+    private $feature_filter = null;
+    /**
      * If set, the results include media items that the user has archived.
      * Defaults to false (archived media items aren't included).
      *
@@ -63,6 +69,8 @@ class Filters extends \Google\Protobuf\Internal\Message
      *           Filters the media items based on their content.
      *     @type \Google\Photos\Library\V1\MediaTypeFilter $media_type_filter
      *           Filters the media items based on the type of media.
+     *     @type \Google\Photos\Library\V1\FeatureFilter $feature_filter
+     *           Filters the media items based on their features.
      *     @type bool $include_archived_media
      *           If set, the results include media items that the user has archived.
      *           Defaults to false (archived media items aren't included).
@@ -151,6 +159,32 @@ class Filters extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Google\Photos\Library\V1\MediaTypeFilter::class);
         $this->media_type_filter = $var;
+
+        return $this;
+    }
+
+    /**
+     * Filters the media items based on their features.
+     *
+     * Generated from protobuf field <code>.google.photos.library.v1.FeatureFilter feature_filter = 7;</code>
+     * @return \Google\Photos\Library\V1\FeatureFilter
+     */
+    public function getFeatureFilter()
+    {
+        return $this->feature_filter;
+    }
+
+    /**
+     * Filters the media items based on their features.
+     *
+     * Generated from protobuf field <code>.google.photos.library.v1.FeatureFilter feature_filter = 7;</code>
+     * @param \Google\Photos\Library\V1\FeatureFilter $var
+     * @return $this
+     */
+    public function setFeatureFilter($var)
+    {
+        GPBUtil::checkMessage($var, \Google\Photos\Library\V1\FeatureFilter::class);
+        $this->feature_filter = $var;
 
         return $this;
     }

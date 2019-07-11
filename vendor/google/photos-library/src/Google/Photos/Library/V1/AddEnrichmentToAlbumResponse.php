@@ -16,7 +16,7 @@ use Google\Protobuf\Internal\GPBUtil;
 class AddEnrichmentToAlbumResponse extends \Google\Protobuf\Internal\Message
 {
     /**
-     * [Output only] Enrichment which was added.
+     * Output only. Enrichment which was added.
      *
      * Generated from protobuf field <code>.google.photos.library.v1.EnrichmentItem enrichment_item = 1;</code>
      */
@@ -29,7 +29,7 @@ class AddEnrichmentToAlbumResponse extends \Google\Protobuf\Internal\Message
      *     Optional. Data for populating the Message object.
      *
      *     @type \Google\Photos\Library\V1\EnrichmentItem $enrichment_item
-     *           [Output only] Enrichment which was added.
+     *           Output only. Enrichment which was added.
      * }
      */
     public function __construct($data = NULL) {
@@ -38,7 +38,7 @@ class AddEnrichmentToAlbumResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] Enrichment which was added.
+     * Output only. Enrichment which was added.
      *
      * Generated from protobuf field <code>.google.photos.library.v1.EnrichmentItem enrichment_item = 1;</code>
      * @return \Google\Photos\Library\V1\EnrichmentItem
@@ -49,7 +49,7 @@ class AddEnrichmentToAlbumResponse extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * [Output only] Enrichment which was added.
+     * Output only. Enrichment which was added.
      *
      * Generated from protobuf field <code>.google.photos.library.v1.EnrichmentItem enrichment_item = 1;</code>
      * @param \Google\Photos\Library\V1\EnrichmentItem $var

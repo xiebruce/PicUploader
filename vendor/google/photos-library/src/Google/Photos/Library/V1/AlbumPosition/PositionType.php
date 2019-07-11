@@ -4,6 +4,8 @@
 
 namespace Google\Photos\Library\V1\AlbumPosition;
 
+use UnexpectedValueException;
+
 /**
  * Possible positions in an album.
  *
@@ -41,6 +43,34 @@ class PositionType
      * Generated from protobuf enum <code>AFTER_ENRICHMENT_ITEM = 4;</code>
      */
     const AFTER_ENRICHMENT_ITEM = 4;
+
+    private static $valueToName = [
+        self::POSITION_TYPE_UNSPECIFIED => 'POSITION_TYPE_UNSPECIFIED',
+        self::FIRST_IN_ALBUM => 'FIRST_IN_ALBUM',
+        self::LAST_IN_ALBUM => 'LAST_IN_ALBUM',
+        self::AFTER_MEDIA_ITEM => 'AFTER_MEDIA_ITEM',
+        self::AFTER_ENRICHMENT_ITEM => 'AFTER_ENRICHMENT_ITEM',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 
 // Adding a class alias for backwards compatibility with the previous class name.

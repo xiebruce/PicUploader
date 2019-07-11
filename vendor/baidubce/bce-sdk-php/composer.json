@@ -1,0 +1,42 @@
+{
+  "name": "baidubce/bce-sdk-php",
+  "homepage": "http://bce.baidu.com/sdkforphp",
+  "description": "BCE SDK for PHP",
+  "keywords": [
+    "bce",
+    "baidu",
+    "sdk"
+  ],
+  "type": "library",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Baidu BCE",
+      "homepage": "http://bce.baidu.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/baidubce/bce-sdk-php/issues"
+  },
+  "require": {
+    "php": ">=5.3.3",
+    "psr/log": "^1.0.0",
+    "guzzle/guzzle": "~3.9"
+  },
+  "suggest": {
+    "monolog/monolog": "Adds support for logging HTTP requests and responses"
+  },
+  "require-dev": {
+    "monolog/monolog": "~1.4"
+  },
+  "autoload": {
+    "psr-0": {
+      "BaiduBce": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.8.22-dev"
+    }
+  }
+}

@@ -29,6 +29,8 @@ class RetryMiddleware
         'RequestThrottled'                       => true,
         'BandwidthLimitExceeded'                 => true,
         'RequestThrottledException'              => true,
+        'TooManyRequestsException'               => true,
+        'IDPCommunicationError'                  => true,
     ];
 
     private $decider;

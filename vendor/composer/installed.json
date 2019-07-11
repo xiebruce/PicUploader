@@ -44,17 +44,17 @@
     },
     {
         "name": "aws/aws-sdk-php",
-        "version": "3.91.4",
-        "version_normalized": "3.91.4.0",
+        "version": "3.106.1",
+        "version_normalized": "3.106.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "41b67dce3c86da61137b47054d9d52c6ef57b5ec"
+            "reference": "ed3bd17b8a6caa5c99ed5fe559d061a1f9fc2c8c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/41b67dce3c86da61137b47054d9d52c6ef57b5ec",
-            "reference": "41b67dce3c86da61137b47054d9d52c6ef57b5ec",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ed3bd17b8a6caa5c99ed5fe559d061a1f9fc2c8c",
+            "reference": "ed3bd17b8a6caa5c99ed5fe559d061a1f9fc2c8c",
             "shasum": ""
         },
         "require": {
@@ -78,7 +78,8 @@
             "ext-sockets": "*",
             "nette/neon": "^2.3",
             "phpunit/phpunit": "^4.8.35|^5.4.3",
-            "psr/cache": "^1.0"
+            "psr/cache": "^1.0",
+            "psr/simple-cache": "^1.0"
         },
         "suggest": {
             "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
@@ -87,7 +88,7 @@
             "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2019-04-05T18:10:20+00:00",
+        "time": "2019-07-10T18:29:49+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -123,6 +124,63 @@
             "ec2",
             "glacier",
             "s3",
+            "sdk"
+        ]
+    },
+    {
+        "name": "baidubce/bce-sdk-php",
+        "version": "0.8.22",
+        "version_normalized": "0.8.22.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/baidubce/bce-sdk-php.git",
+            "reference": "c3164434c8f0fe53b6ffe4479def893465137282"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/baidubce/bce-sdk-php/zipball/c3164434c8f0fe53b6ffe4479def893465137282",
+            "reference": "c3164434c8f0fe53b6ffe4479def893465137282",
+            "shasum": ""
+        },
+        "require": {
+            "guzzle/guzzle": "~3.9",
+            "php": ">=5.3.3",
+            "psr/log": "^1.0.0"
+        },
+        "require-dev": {
+            "monolog/monolog": "~1.4"
+        },
+        "suggest": {
+            "monolog/monolog": "Adds support for logging HTTP requests and responses"
+        },
+        "time": "2017-03-03T04:28:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.8.22-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "BaiduBce": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Baidu BCE",
+                "homepage": "http://bce.baidu.com"
+            }
+        ],
+        "description": "BCE SDK for PHP",
+        "homepage": "http://bce.baidu.com/sdkforphp",
+        "keywords": [
+            "BCE",
+            "baidu",
             "sdk"
         ]
     },
@@ -230,17 +288,17 @@
     },
     {
         "name": "google/auth",
-        "version": "v1.5.0",
-        "version_normalized": "1.5.0.0",
+        "version": "v1.5.1",
+        "version_normalized": "1.5.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/googleapis/google-auth-library-php.git",
-            "reference": "1d86371424d0352b554c4006e95c5ca9c6938647"
+            "reference": "0f75e20e7392e863f5550ed2c2d3d50af21710fb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/1d86371424d0352b554c4006e95c5ca9c6938647",
-            "reference": "1d86371424d0352b554c4006e95c5ca9c6938647",
+            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/0f75e20e7392e863f5550ed2c2d3d50af21710fb",
+            "reference": "0f75e20e7392e863f5550ed2c2d3d50af21710fb",
             "shasum": ""
         },
         "require": {
@@ -261,7 +319,7 @@
         "suggest": {
             "phpseclib/phpseclib": "May be used in place of OpenSSL for signing strings. Please require version ^2."
         },
-        "time": "2019-04-15T17:30:04+00:00",
+        "time": "2019-04-16T18:48:28+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -379,17 +437,17 @@
     },
     {
         "name": "google/photos-library",
-        "version": "v1.1.1",
-        "version_normalized": "1.1.1.0",
+        "version": "v1.3.0",
+        "version_normalized": "1.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/google/php-photoslibrary.git",
-            "reference": "7d44b3f34b0f51c8a012d5702661f7d4e758fb7c"
+            "reference": "f45c1ddc4029f787a58b8cf10a3316a3a153ca03"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/php-photoslibrary/zipball/7d44b3f34b0f51c8a012d5702661f7d4e758fb7c",
-            "reference": "7d44b3f34b0f51c8a012d5702661f7d4e758fb7c",
+            "url": "https://api.github.com/repos/google/php-photoslibrary/zipball/f45c1ddc4029f787a58b8cf10a3316a3a153ca03",
+            "reference": "f45c1ddc4029f787a58b8cf10a3316a3a153ca03",
             "shasum": ""
         },
         "require": {
@@ -400,7 +458,7 @@
         "require-dev": {
             "phpunit/phpunit": "^4.8|^5.0"
         },
-        "time": "2018-12-18T03:46:23+00:00",
+        "time": "2019-05-30T05:35:46+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -422,17 +480,17 @@
     },
     {
         "name": "google/protobuf",
-        "version": "v3.7.1",
-        "version_normalized": "3.7.1.0",
+        "version": "v3.8.0",
+        "version_normalized": "3.8.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/protocolbuffers/protobuf-php.git",
-            "reference": "0657d28864692480c3d8506ba4fc90e8813deae5"
+            "reference": "a257235dc1a0d45f8cfc641d0c2ad852f57396c4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/0657d28864692480c3d8506ba4fc90e8813deae5",
-            "reference": "0657d28864692480c3d8506ba4fc90e8813deae5",
+            "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/a257235dc1a0d45f8cfc641d0c2ad852f57396c4",
+            "reference": "a257235dc1a0d45f8cfc641d0c2ad852f57396c4",
             "shasum": ""
         },
         "require": {
@@ -444,7 +502,7 @@
         "suggest": {
             "ext-bcmath": "Need to support JSON deserialization"
         },
-        "time": "2019-03-26T18:06:41+00:00",
+        "time": "2019-05-29T00:06:29+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -465,17 +523,17 @@
     },
     {
         "name": "grpc/grpc",
-        "version": "1.19.0",
-        "version_normalized": "1.19.0.0",
+        "version": "1.22.0",
+        "version_normalized": "1.22.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/grpc/grpc-php.git",
-            "reference": "0f1ffdde45bfb9257c5d9eab81695d0f042bea22"
+            "reference": "88235e786ef9b55fcb049f00c5c5202f8086a299"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/grpc/grpc-php/zipball/0f1ffdde45bfb9257c5d9eab81695d0f042bea22",
-            "reference": "0f1ffdde45bfb9257c5d9eab81695d0f042bea22",
+            "url": "https://api.github.com/repos/grpc/grpc-php/zipball/88235e786ef9b55fcb049f00c5c5202f8086a299",
+            "reference": "88235e786ef9b55fcb049f00c5c5202f8086a299",
             "shasum": ""
         },
         "require": {
@@ -488,7 +546,7 @@
             "ext-protobuf": "For better performance, install the protobuf C extension.",
             "google/protobuf": "To get started using grpc quickly, install the native protobuf library."
         },
-        "time": "2019-02-27T04:47:56+00:00",
+        "time": "2019-07-03T19:57:39+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -726,35 +784,39 @@
     },
     {
         "name": "guzzlehttp/psr7",
-        "version": "1.5.2",
-        "version_normalized": "1.5.2.0",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/guzzle/psr7.git",
-            "reference": "9f83dded91781a01c63574e387eaa769be769115"
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
-            "reference": "9f83dded91781a01c63574e387eaa769be769115",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.0",
             "psr/http-message": "~1.0",
-            "ralouphie/getallheaders": "^2.0.5"
+            "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
         },
         "provide": {
             "psr/http-message-implementation": "1.0"
         },
         "require-dev": {
+            "ext-zlib": "*",
             "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
         },
-        "time": "2018-12-04T20:46:45+00:00",
+        "suggest": {
+            "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+        },
+        "time": "2019-07-01T23:21:34+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.5-dev"
+                "dev-master": "1.6-dev"
             }
         },
         "installation-source": "dist",
@@ -999,17 +1061,17 @@
     },
     {
         "name": "phpseclib/phpseclib",
-        "version": "2.0.15",
-        "version_normalized": "2.0.15.0",
+        "version": "2.0.20",
+        "version_normalized": "2.0.20.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpseclib/phpseclib.git",
-            "reference": "11cf67cf78dc4acb18dc9149a57be4aee5036ce0"
+            "reference": "d6819a55b05e123db1e881d8b230d57f912126be"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/11cf67cf78dc4acb18dc9149a57be4aee5036ce0",
-            "reference": "11cf67cf78dc4acb18dc9149a57be4aee5036ce0",
+            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d6819a55b05e123db1e881d8b230d57f912126be",
+            "reference": "d6819a55b05e123db1e881d8b230d57f912126be",
             "shasum": ""
         },
         "require": {
@@ -1027,7 +1089,7 @@
             "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
             "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
         },
-        "time": "2019-03-10T16:53:45+00:00",
+        "time": "2019-06-23T16:33:11+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1242,24 +1304,24 @@
     },
     {
         "name": "qcloud/cos-sdk-v5",
-        "version": "v1.3.1",
-        "version_normalized": "1.3.1.0",
+        "version": "v1.3.2",
+        "version_normalized": "1.3.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/tencentyun/cos-php-sdk-v5.git",
-            "reference": "ca816d61a5412dd7a248119992b7d32687b10f86"
+            "reference": "0454f48629210749ae6316ab317548169dac9d8f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/ca816d61a5412dd7a248119992b7d32687b10f86",
-            "reference": "ca816d61a5412dd7a248119992b7d32687b10f86",
+            "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/0454f48629210749ae6316ab317548169dac9d8f",
+            "reference": "0454f48629210749ae6316ab317548169dac9d8f",
             "shasum": ""
         },
         "require": {
             "guzzle/guzzle": "~3.7",
             "php": ">=5.3.0"
         },
-        "time": "2019-01-28T12:46:20+00:00",
+        "time": "2019-04-25T12:23:41+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1290,27 +1352,27 @@
     },
     {
         "name": "qiniu/php-sdk",
-        "version": "v7.2.7",
-        "version_normalized": "7.2.7.0",
+        "version": "v7.2.8",
+        "version_normalized": "7.2.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/qiniu/php-sdk.git",
-            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6"
+            "reference": "464f3eb3b0f51586d274733aee67f372fc6276ef"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/88d11a5857ebc6871204e9be6ceec54bf5f381e6",
-            "reference": "88d11a5857ebc6871204e9be6ceec54bf5f381e6",
+            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/464f3eb3b0f51586d274733aee67f372fc6276ef",
+            "reference": "464f3eb3b0f51586d274733aee67f372fc6276ef",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
         "require-dev": {
-            "phpunit/phpunit": "~4.0",
+            "phpunit/phpunit": "~8.0",
             "squizlabs/php_codesniffer": "~2.3"
         },
-        "time": "2018-11-06T13:34:32+00:00",
+        "time": "2019-06-21T06:22:05+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1343,27 +1405,27 @@
     },
     {
         "name": "ralouphie/getallheaders",
-        "version": "2.0.5",
-        "version_normalized": "2.0.5.0",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/ralouphie/getallheaders.git",
-            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            "reference": "120b605dfeb996808c31b6477290a714d356e822"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
-            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+            "reference": "120b605dfeb996808c31b6477290a714d356e822",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3"
+            "php": ">=5.6"
         },
         "require-dev": {
-            "phpunit/phpunit": "~3.7.0",
-            "satooshi/php-coveralls": ">=1.0"
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^5 || ^6.5"
         },
-        "time": "2016-02-11T07:05:27+00:00",
+        "time": "2019-03-08T08:55:37+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1803,8 +1865,8 @@
     },
     {
         "name": "symfony/event-dispatcher",
-        "version": "v2.8.49",
-        "version_normalized": "2.8.49.0",
+        "version": "v2.8.50",
+        "version_normalized": "2.8.50.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/event-dispatcher.git",

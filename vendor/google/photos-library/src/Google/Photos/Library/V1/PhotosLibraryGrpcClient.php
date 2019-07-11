@@ -2,7 +2,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 // Original file comments:
-// Copyright 2018 Google LLC.
+// Copyright 2019 Google LLC.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ class PhotosLibraryGrpcClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/CreateAlbum',
         $argument,
-        ['\Google\Photos\Library\V1\Album', 'decode'],
+        ['\Google\Photos\Types\Album', 'decode'],
         $metadata, $options);
     }
 
@@ -82,6 +82,32 @@ class PhotosLibraryGrpcClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/BatchCreateMediaItems',
         $argument,
         ['\Google\Photos\Library\V1\BatchCreateMediaItemsResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * Adds one or more media items in a user's Google Photos library to
+     * an album. The media items and albums must have been created by the
+     * developer via the API.
+     *
+     * Media items are added to the end of the album. If multiple media items are
+     * given, they are added in the order specified in this call.
+     *
+     * Only media items that are in the user's library can be added to an
+     * album. For albums that are shared, the album must either be owned by the
+     * user or the user must have joined the album as a collaborator.
+     *
+     * Partial success is not supported. The entire request will fail if an
+     * invalid media item or album is specified.
+     * @param \Google\Photos\Library\V1\BatchAddMediaItemsToAlbumRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function BatchAddMediaItemsToAlbum(\Google\Photos\Library\V1\BatchAddMediaItemsToAlbumRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/BatchAddMediaItemsToAlbum',
+        $argument,
+        ['\Google\Photos\Library\V1\BatchAddMediaItemsToAlbumResponse', 'decode'],
         $metadata, $options);
     }
 
@@ -129,7 +155,7 @@ class PhotosLibraryGrpcClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/GetMediaItem',
         $argument,
-        ['\Google\Photos\Library\V1\MediaItem', 'decode'],
+        ['\Google\Photos\Types\MediaItem', 'decode'],
         $metadata, $options);
     }
 
@@ -175,7 +201,7 @@ class PhotosLibraryGrpcClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/GetAlbum',
         $argument,
-        ['\Google\Photos\Library\V1\Album', 'decode'],
+        ['\Google\Photos\Types\Album', 'decode'],
         $metadata, $options);
     }
 
@@ -189,7 +215,7 @@ class PhotosLibraryGrpcClient extends \Grpc\BaseStub {
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/GetSharedAlbum',
         $argument,
-        ['\Google\Photos\Library\V1\Album', 'decode'],
+        ['\Google\Photos\Types\Album', 'decode'],
         $metadata, $options);
     }
 
@@ -283,6 +309,29 @@ class PhotosLibraryGrpcClient extends \Grpc\BaseStub {
         return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/UnshareAlbum',
         $argument,
         ['\Google\Photos\Library\V1\UnshareAlbumResponse', 'decode'],
+        $metadata, $options);
+    }
+
+    /**
+     * Removes one or more media items from a specified album. The media items and
+     * the album must have been created by the developer via the API.
+     *
+     * For albums that are shared, this action is only supported for media items
+     * that were added to the album by this user, or for all media items if the
+     * album was created by this user.
+     *
+     * Partial success is not supported. The entire request will fail and no
+     * action will be performed on the album if an invalid media item or album is
+     * specified.
+     * @param \Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function BatchRemoveMediaItemsFromAlbum(\Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumRequest $argument,
+      $metadata = [], $options = []) {
+        return $this->_simpleRequest('/google.photos.library.v1.PhotosLibrary/BatchRemoveMediaItemsFromAlbum',
+        $argument,
+        ['\Google\Photos\Library\V1\BatchRemoveMediaItemsFromAlbumResponse', 'decode'],
         $metadata, $options);
     }
 
