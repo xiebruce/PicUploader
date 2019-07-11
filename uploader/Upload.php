@@ -74,7 +74,7 @@ class Upload extends Common {
 			$uploadFilePath = $filePath;
 
 			//如果是图片则做压缩和水印处理
-			if(strpos($mimeType, 'image')!==false){
+			if(strpos($mimeType, 'image')!==false && $mimeType!=='image/svg'){
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
 				
 				//添加水印
