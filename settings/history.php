@@ -194,14 +194,22 @@
 								//删除单条记录
 								if(!isNaN(ids)){
 									if(curId == ids){
-										$(this).parents('tr').css('backgroundColor', '#faebd7').remove(500);
+										let deleteTr = $(this).parents('tr');
+										deleteTr.css('backgroundColor', '#faebd7');
+										setTimeout(function (){
+											deleteTr.remove();
+										}, 500);
 									}
 								}else{
 									//删除多条记录
 									let idArr = ids.split(',');
 									for(let item of idArr){
 										if(item == curId){
-											$(this).parents('tr').css('backgroundColor', '#faebd7').remove(500);
+											let deleteTr = $(this).parents('tr');
+											deleteTr.css('backgroundColor', '#faebd7');
+											setTimeout(function (){
+												deleteTr.remove();
+											}, 500);
 										}
 									}
 								}
