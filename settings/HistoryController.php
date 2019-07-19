@@ -22,7 +22,7 @@ class HistoryController extends Controller {
 	 * @return int
 	 */
 	public function Add($filename, $url, $size){
-		$pattern = '/http[s]?.*?/';
+		$pattern = '/^http[s]?.*?/';
 		if(!preg_match($pattern, $url)){
 			return false;
 		}

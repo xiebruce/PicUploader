@@ -25,6 +25,7 @@
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
 
 	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
+	require APP_PATH . '/thirdpart/eSDK_Storage_OBS_V3.1.3_PHP/obs-autoloader.php';
 
 	//autoload class
 	spl_autoload_register(function ($class_name) {

@@ -249,6 +249,7 @@
 			
 			//使用sftp协议上传到自己的服务器上
 			'bwg' => [
+				//这是自定义名称，可以自己改(因为你用的机器也不一定是搬瓦工的，也有可能是阿里云或其他的)
 				'name' => '搬瓦工',
 				//固定填写sftp
 				'type' => 'sftp',
@@ -280,12 +281,24 @@
 			
 			//https://cloudinary.com
 			'cloudinary' => [
+				'name' => 'Cloudinary',
 				'cloudName' => 'bruce',
 				'apiKey' => '79*********78',
 				'apiSecret' => 'rM**********************E',
 				'domain' => '',
 				//使用代理
 				// 'proxy' => 'http://127.0.0.1:1087',
+			],
+			
+			//华为云对象存储
+			'huawei' => [
+				'name' => '华为云',
+				'accessKey' => 'STB**********5WJ',
+				'secretKey' => 'QqvppZ*************obuPayrB',
+				'bucket' => 'ma****wn',
+				'endpoint' => 'obs.cn-*******weicloud.com',
+				'directory' => '/{Y}/{m}/{d}',
+				'domain' => '',
 			],
 		],
 		
