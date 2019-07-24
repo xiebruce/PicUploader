@@ -76,7 +76,6 @@ class Common {
 	        $height = $imageSize[1] ?? 0;
 	        //图片文件大小
 	        $fileSize = filesize($filePath);
-	        
 	        //使用新的压缩方式(百分比)
 	        if(is_array($resizeOptions)){
 	            $percentage = (int)$resizeOptions['percentage'] / 100;
@@ -94,18 +93,17 @@ class Common {
 	        	//旧压缩方式，压缩到指定宽度(高等比例压缩)
 		        $optimize = true;
 	        }
-
+	
+	        if(strpos($filePath, '.tmp') === false){
+		        $tmpDir = APP_PATH.'/.tmp';
+		        !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
+		        $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+	        }else{
+		        //$filePath is a tmp file
+		        $tmpImgPath = $filePath;
+	        }
             if($optimize){
 	            //if no tmp file then create one
-	            if(strpos($filePath, '.tmp') === false){
-		            $tmpDir = APP_PATH.'/.tmp';
-		            !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
-		            $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
-	            }else{
-		            //$filePath is a tmp file
-		            $tmpImgPath = $filePath;
-	            }
-	            
                 $img = new EasyImage($filePath);
                 
                 //旧方法压缩
