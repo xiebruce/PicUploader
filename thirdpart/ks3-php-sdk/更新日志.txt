@@ -1,0 +1,24 @@
+V1.2.3
+1、copyObject接口支持回调
+
+V1.2.2
+1、修复某些接口操作成功但返回布尔值不正确的问题，如deleteObject等
+2、更新sample中Ks3Client初始化时用户需要提供endpoint值
+
+V1.2.1
+1、Ks3Client 初始化时用户需要提供endpoint值，详见http://ks3.ksyun.com/doc/api/index.html Region part
+2、修复某些时候会出现Notice警告的bug
+
+V1.2
+1、常量配置项添加 KS3_API_前缀
+2、getObject的WriteTo不再是必要参数，当不提供该参数时，会直接返回文件内容。
+3、修复Ks3EncryptionClient分块下载可能出现的bug
+4、优化获取文件大小的逻辑，windows下上传小文件，将不再需要COM组件
+5、修复不支持某些特殊字符的bug
+
+V1.1
+1、添加Ks3EncryptionClient,可以将数据加密之后再上传到服务器上。
+2、修复putObjectByFile可能出现的bug
+3、SDK添加服务端加密的支持
+
+V1.0 初始化版本
