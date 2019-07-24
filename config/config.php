@@ -331,11 +331,11 @@
 			'chevereto' => [
 				'name' => 'Chevereto',
 				//必填，请求接口的key
-				'accessKey' => '8ec5b9f96bc9638a0b619cbbdc60c932',
+				'accessKey' => '8ec5**************0c932',
 				//必填，Chevereto网站的域名(当然，这有可能是你自己搭建的，也有可能你用的别人的服务)
-				'siteUrl' => 'http://chevereto.xiebruce.tk',
+				'siteUrl' => 'http://www.mysite.com',
 				//自定义域名，如果为空，则默认使用siteUrl使用域名
-				// 'domain' => 'https://img.xiebruce.top',
+				'domain' => '',
 				//使用代理，如：http://127.0.0.1:1087
 				'proxy' => '',
 			],
