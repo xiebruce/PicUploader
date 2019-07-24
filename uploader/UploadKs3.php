@@ -3,23 +3,21 @@
  * Created by PhpStorm.
  * User: bruce
  * Date: 2018-09-06
- * Time: 15:00
+ * Time: 21:01
  */
 
 namespace uploader;
+use Ks3Client;
 
-
-use Aws\S3\S3Client;
-
-class UploadJd extends Upload{
+class UploadKs3 extends Upload{
 
     public $accessKey;
     public $secretKey;
-    public $endpoint;
     public $bucket;
-    public $region;
-	public $domain;
-	public $directory;
+    //即domain，域名
+    public $endpoint;
+    public $domain;
+    public $directory;
 	//上传目标服务器名称
 	public $uploadServer;
 	
@@ -35,14 +33,15 @@ class UploadJd extends Upload{
      */
     public function __construct($params)
     {
-	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+    	$ch = curl_init();
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
-        $this->accessKey = $ServerConfig['AccessKeyId'];
-        $this->secretKey = $ServerConfig['AccessKeySecret'];
-        $this->endpoint = $ServerConfig['endpoint'];
+        $this->accessKey = $ServerConfig['accessKey'];
+        $this->secretKey = $ServerConfig['accessSecret'];
         $this->bucket = $ServerConfig['bucket'];
-        $this->region = $ServerConfig['region'];
+        $this->endpoint = $ServerConfig['endpoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -51,52 +50,51 @@ class UploadJd extends Upload{
 		    $this->directory = trim($ServerConfig['directory'], '/');
 	    }
 	    $this->uploadServer = ucfirst($params['uploadServer']);
-
-        $this->argv = $params['argv'];
-        static::$config = $params['config'];
+	
+	    $this->argv = $params['argv'];
+	    static::$config = $params['config'];
     }
 	
 	/**
-	 * Upload images to JDcloud OSS(Object Storage Service)
+	 * Upload images to Aliyun OSS(Object Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
 	 * @return string
-	 * @throws \Exception
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
-		    $s3Client = new S3Client([
-			    'version' => 'latest',
-			    'region' => $this->region,
-			    'endpoint' => $this->endpoint,
-			    'credentials' => [
-				    'key' => $this->accessKey,
-				    'secret' => $this->secretKey,
+		    $aa = curl_init();
+		    // var_export($aa);exit;
+	    	if($this->directory){
+			    $key = $this->directory. '/' . $key;
+		    }
+	    	
+		    $client = new Ks3Client($this->accessKey, $this->secretKey, $this->endpoint);
+		    $res = $client->putObjectByFile([
+		    	'Bucket' => $this->bucket,
+		    	'Key' => $key,
+			    "ACL"=>"public-read",//可以设置访问权限,合法值,private、public-read
+		    	'Content' => [
+		    		'content' => fopen($uploadFilePath, 'r'),
+				    'seek_position' => 0,
 			    ],
 		    ]);
 		    
-		    if($this->directory){
-			    $key = $this->directory. '/' . $key;
+	    	
+		    if(!isset($res['ETag'])){
+			    throw new \Exception(var_export($res, true)."\n");
 		    }
-		
-		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public');
-		    if(!is_object($retObj)){
-			    throw new \Exception(var_export($retObj, true));
+		    //默认域名：https://ks3-cn-guangzhou.ksyun.com（与不同区域有关）
+		    if(!$this->domain){
+		    	$this->domain = 'https://' . $this->endpoint;
 		    }
-		
-		    //返回链接格式：
-		    //https://markdown.s3.cn-south-1.jcloudcs.com/2018/11/28/bc4443f413b4eb32b3964d9c8e1fe755.jpeg
-		    $link = $retObj->get('ObjectURL');
-		    if($this->domain){
-			    $defaultDomain = 'https://'.$this->bucket.'.s3.'.$this->region.'.jcloudcs.com';
-			    $link = str_replace($defaultDomain, $this->domain,$link);
-		    }
+		    $link = $this->domain . '/' . $this->bucket . '/' . $key;
 	    } catch (\Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
 		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 	    }
-        return $link;
+	    return $link;
     }
 }

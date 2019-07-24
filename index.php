@@ -13,6 +13,7 @@
 	
 	/*header('Content-Type: application/json; charset=UTF-8');
     echo '{"code":"success","data":{"filename":"20190418194552.png","url":"https://ws2.sinaimg.cn/large/6db312f1gy1g270z0i9qtj207205m3yv.jpg"}}';exit;*/
+	error_reporting(E_ALL ^E_NOTICE);
 	
 	use uploader\Common;
 	use settings\SettingController;
@@ -26,6 +27,19 @@
 
 	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 	require APP_PATH . '/thirdpart/eSDK_Storage_OBS_V3.1.3_PHP/obs-autoloader.php';
+	//是否使用VHOST
+	define("KS3_API_VHOST",FALSE);
+	//是否开启日志(写入日志文件)
+	define("KS3_API_LOG",FALSE);
+	//是否显示日志(直接输出日志)
+	define("KS3_API_DISPLAY_LOG", FALSE);
+	//定义日志目录(默认是该项目log下)
+	define("KS3_API_LOG_PATH","");
+	//是否使用HTTPS
+	define("KS3_API_USE_HTTPS",TRUE);
+	//是否开启curl debug模式
+	define("KS3_API_DEBUG_MODE",FALSE);
+	require APP_PATH . '/thirdpart/ks3-php-sdk/Ks3Client.class.php';
 
 	//autoload class
 	spl_autoload_register(function ($class_name) {
@@ -47,11 +61,12 @@
 	 * @var bool $isMweb
 	 * @var bool $isPicgo
 	 * @var bool $isSharex
+	 * @var bool $isUpic
 	 */
-	$plugins = ['mweb','picgo','sharex',];
+	$plugins = ['mweb','picgo','sharex','upic'];
 	foreach($plugins as $plugin) {
 		$tmp = ucfirst($plugin);
-		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex，用于下边代码判断当前是否是mweb/picgo/sharex请求。
+		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex、$isUpic，用于下边代码判断当前是否是mweb/picgo/sharex/upic请求。
 		${'is'.$tmp} = false;
 		if(isset($_FILES[$plugin])){
 			${'is'.$tmp} = true;
@@ -108,13 +123,13 @@
 	//getPublickLink
 	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
-			'doNotFormat' => ($isMweb || $isPicgo || $isSharex),
+			'doNotFormat' => ($isMweb || $isPicgo || $isSharex || $isUpic),
 			'deleteOriginalFile' => $deleteOriginalFile,
 		]
 	]);
 	
 	//如果是MWeb或PicGo，则返回Mweb/Picgo支持的json格式
-	if($isMweb || $isPicgo || $isSharex){
+	if($isMweb || $isPicgo || $isSharex || $isUpic){
 		// mweb或sharex接收的json格式
 		$data = [
 			'code' => 'success',

@@ -11,11 +11,10 @@ namespace uploader;
 
 use Aws\S3\S3Client;
 
-class UploadJd extends Upload{
+class UploadS3 extends Upload{
 
     public $accessKey;
     public $secretKey;
-    public $endpoint;
     public $bucket;
     public $region;
 	public $domain;
@@ -39,7 +38,6 @@ class UploadJd extends Upload{
 	    
         $this->accessKey = $ServerConfig['AccessKeyId'];
         $this->secretKey = $ServerConfig['AccessKeySecret'];
-        $this->endpoint = $ServerConfig['endpoint'];
         $this->bucket = $ServerConfig['bucket'];
         $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
@@ -66,30 +64,29 @@ class UploadJd extends Upload{
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
+		    if($this->directory){
+			    $key = $this->directory. '/' . $key;
+		    }
+		    
 		    $s3Client = new S3Client([
 			    'version' => 'latest',
 			    'region' => $this->region,
-			    'endpoint' => $this->endpoint,
 			    'credentials' => [
 				    'key' => $this->accessKey,
 				    'secret' => $this->secretKey,
 			    ],
 		    ]);
 		    
-		    if($this->directory){
-			    $key = $this->directory. '/' . $key;
-		    }
-		
-		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public');
+		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public-read');
 		    if(!is_object($retObj)){
 			    throw new \Exception(var_export($retObj, true));
 		    }
-		
+			
 		    //返回链接格式：
-		    //https://markdown.s3.cn-south-1.jcloudcs.com/2018/11/28/bc4443f413b4eb32b3964d9c8e1fe755.jpeg
+		    //https://markdownimgbed.s3.ap-northeast-1.amazonaws.com/2019/07/24/b7f2ea3fb8a86f710f24687924d17d64.png
 		    $link = $retObj->get('ObjectURL');
 		    if($this->domain){
-			    $defaultDomain = 'https://'.$this->bucket.'.s3.'.$this->region.'.jcloudcs.com';
+			    $defaultDomain = 'https://'.$this->bucket.'.s3.'.$this->region.'.amazonaws.com';
 			    $link = str_replace($defaultDomain, $this->domain,$link);
 		    }
 	    } catch (\Exception $e) {

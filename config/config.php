@@ -300,6 +300,45 @@
 				'directory' => '/{Y}/{m}/{d}',
 				'domain' => '',
 			],
+			
+			//亚马逊s3(s3是指三个s开头的单词：simple storage service)
+			's3' => [
+				'name' => '亚马逊s3',
+				'AccessKeyId' => 'AK**********2DWA',
+				'AccessKeySecret' => 'V6reYCx*************h/Zlw7o51',
+				'region' => 'ap-*****-1',
+				'bucket' => 'mar*****bed',
+				//如果不写，则自动拼装s3给的域名，规则为：https://[bucket].s3.[region].amazonaws.com，
+				'domain' => '',
+				//自定义目录格式：2019/03/31
+				'directory' => '/{Y}/{m}/{d}',
+			],
+			
+			//金山云(k是KingSoft，即金山软件，s3是指三个s开头的单词：standard storage service)
+			'ks3' => [
+				'name' => '金山云',
+				'accessKey' => 'AKLT*********a1vBw',
+				'accessSecret' => 'OH97dc***********UeJBh1mQg==',
+				'bucket' => 'm***wn',
+				'endpoint' => 'ks3-*********un.com',
+				//如果不写，则自动拼装金山云给的域名，如：https://ks3-cn-guangzhou.ksyun.com
+				'domain' => '',
+				//自定义目录格式：2019/03/31
+				'directory' => '/{Y}/{m}/{d}',
+			],
+			
+			//Chevereto是一个php编写的开源自建图床程序(https://github.com/Chevereto/Chevereto-Free)
+			'chevereto' => [
+				'name' => 'Chevereto',
+				//必填，请求接口的key
+				'accessKey' => '8ec5b9f96bc9638a0b619cbbdc60c932',
+				//必填，Chevereto网站的域名(当然，这有可能是你自己搭建的，也有可能你用的别人的服务)
+				'siteUrl' => 'http://chevereto.xiebruce.tk',
+				//自定义域名，如果为空，则默认使用siteUrl使用域名
+				// 'domain' => 'https://img.xiebruce.top',
+				//使用代理，如：http://127.0.0.1:1087
+				'proxy' => '',
+			],
 		],
 		
 		// 即将舍弃，图片优化宽度（建议填1000），值为0或注释掉表示不优化，由于比较大的图片压缩为固定宽度容易导致图片很模糊，因此这种压缩为固定宽度的方式不科学，改为使用百分比，如果使用了“resizeOption”选项，该参数不再使用。
