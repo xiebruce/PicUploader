@@ -312,6 +312,8 @@
 				'domain' => '',
 				//自定义目录格式：2019/03/31
 				'directory' => '/{Y}/{m}/{d}',
+				//使用代理，格式：http://127.0.0.1:1087
+				'proxy' => '',
 			],
 			
 			//金山云(k是KingSoft，即金山软件，s3是指三个s开头的单词：standard storage service)
@@ -334,7 +336,7 @@
 				'accessKey' => '8ec5**************0c932',
 				//必填，Chevereto网站的域名(当然，这有可能是你自己搭建的，也有可能你用的别人的服务)
 				'siteUrl' => 'http://www.mysite.com',
-				//自定义域名，如果为空，则默认使用siteUrl使用域名
+				//自定义域名，如果为空，则默认使用siteUrl作为域名
 				'domain' => '',
 				//使用代理，如：http://127.0.0.1:1087
 				'proxy' => '',

@@ -8,7 +8,7 @@
 
 namespace uploader;
 
-
+use Aws\DynamoDb\DynamoDbClient;
 use Aws\S3\S3Client;
 
 class UploadS3 extends Upload{
@@ -18,6 +18,7 @@ class UploadS3 extends Upload{
     public $bucket;
     public $region;
 	public $domain;
+	public $proxy;
 	public $directory;
 	//上传目标服务器名称
 	public $uploadServer;
@@ -41,6 +42,7 @@ class UploadS3 extends Upload{
         $this->bucket = $ServerConfig['bucket'];
         $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -68,15 +70,22 @@ class UploadS3 extends Upload{
 			    $key = $this->directory. '/' . $key;
 		    }
 		    
-		    $s3Client = new S3Client([
+		    $config = [
 			    'version' => 'latest',
 			    'region' => $this->region,
 			    'credentials' => [
 				    'key' => $this->accessKey,
 				    'secret' => $this->secretKey,
 			    ],
-		    ]);
-		    
+		    ];
+		    //如果有使用代理
+		    if($this->proxy){
+			    $config['http'] = [
+				    'proxy' => $this->proxy,
+			    ];
+		    }
+		    // var_dump($config);exit;
+		    $s3Client = new S3Client($config);
 		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public-read');
 		    if(!is_object($retObj)){
 			    throw new \Exception(var_export($retObj, true));
