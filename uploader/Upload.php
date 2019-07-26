@@ -65,17 +65,18 @@ class Upload extends Common {
 			$originFilename = $this->getOriginFileName($filePath);
 			
 			$fileNameFormat = isset(static::$config['fileNameFormat']) ? trim(static::$config['fileNameFormat']) : '';
-			$pattern = '/{Y}|{m}|{d}|{H}|{i}|{s}|{origin}|{timestamp}|{random:(\d+)}/';
+			$pattern1 = '/{Y}|{m}|{d}|{H}|{i}|{s}|{origin}|{timestamp}|{random:(\d+)}/';
 			//
-			if(preg_match($pattern, $fileNameFormat) !== false){
+			if(preg_match($pattern1, $fileNameFormat) !== false){
 				// 替换随机字符串
 				$matches = [];
-				$isMatch = preg_match('/\{random:(\d+)\}/', $fileNameFormat, $matches);
+				$pattern2 = '/\{random:(\d+)\}/';
+				$isMatch = preg_match($pattern2, $fileNameFormat, $matches);
 				if($isMatch){
 					$randomStrLen = isset($matches[1]) ? strval($matches[1]) : 8;
 					$randomStrLen = $randomStrLen < 8 ? 8 : ($randomStrLen > 100 ? 100 : $randomStrLen);
 					$randomStr = $this->getRandomString($randomStrLen);
-					$fileNameFormat = preg_replace($pattern, $randomStr, $fileNameFormat);
+					$fileNameFormat = preg_replace($pattern2, $randomStr, $fileNameFormat);
 				}
 				$newFileName = strtr($fileNameFormat, [
 					'{Y}' => date('Y'),
