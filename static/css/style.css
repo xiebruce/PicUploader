@@ -413,3 +413,9 @@ input.color {
 .form-area .upload-to-folder .question {
 	cursor: pointer;
 }
+label.filename-format {
+	min-width: 150px;
+}
+input.filename-format-value {
+	width: 300px;
+}

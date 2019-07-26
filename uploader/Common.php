@@ -193,16 +193,19 @@ class Common {
      * @return mixed
      */
     public function getOriginFileName($filePath){
+    	// windows
     	if(strpos($filePath, '\\')){
 		    $arr = explode('\\', $filePath);
-	    }else{
+	    }else{ //macOS / Linux
 		    $arr = explode('/', $filePath);
 	    }
 	    $filename = array_pop($arr);
+    	// 如果是点开头的文件名，则把点去掉
     	if(strpos($filename, '.')===0){
     		$filename = substr($filename, 1);
 	    }
-	    return $filename;
+    	$fileExt = $this->getFileExt($filePath);
+	    return str_replace('.'.$fileExt, '', $filename);
     }
 
     /**
@@ -224,19 +227,29 @@ class Common {
      * @return string
      */
     public function genRandFileName($filePath){
-        $ext = $this->getFileExt($filePath);
         //生成图片名
         $randStr = $this->getRandString();
-        return $randStr.'.'.$ext;
+        return $randStr;
     }
 
     /**
-     * 获取随机字符串
+     * 获取唯一的随机字符串，固定32位长度
      * @return string
      */
     public function getRandString(){
         return md5(uniqid(microtime(true)));
     }
+	
+	/**
+	 * 获取指定长度的随机字符串，字符串中包含数字及大小写字母
+	 * @param int $length
+	 *
+	 * @return bool|string
+	 */
+	public function getRandomString($length = 16) {
+		$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
+	}
 	
 	/**
 	 * 根据不同系统返回对应的人性化显示的文件大小（带单位）

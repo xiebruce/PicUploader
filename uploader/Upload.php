@@ -60,17 +60,39 @@ class Upload extends Common {
 			}
 			
 			$mimeType = $this->getMimeType($filePath);
+			$fileExt = $this->getFileExt($filePath);
+			//不带后缀名的原始文件名
 			$originFilename = $this->getOriginFileName($filePath);
-			//获取随机文件名
-			$newFileName = $this->genRandFileName($filePath);
 			
-			//组装key名（因为我们用的是对象存储服务，存储是用key=>value的方式存的，所以这个key就相当于文件名，当然带路径，但其实这个所谓的路径又与我们平常的路径不太相同，它其实就是文件名的一部分）
-			if(isset(static::$config['keepOriginalFilename']) && static::$config['keepOriginalFilename'] == 1){
-				$key = $originFilename;
+			$fileNameFormat = isset(static::$config['fileNameFormat']) ? trim(static::$config['fileNameFormat']) : '';
+			if($fileNameFormat){
+				// 替换随机字符串
+				$matches = [];
+				$pattern = '/\{random:(\d+)\}/';
+				$isMatch = preg_match($pattern, $fileNameFormat, $matches);
+				if($isMatch){
+					$randomStrLen = isset($matches[1]) ? strval($matches[1]) : 8;
+					$randomStrLen = $randomStrLen < 8 ? 8 : ($randomStrLen > 100 ? 100 : $randomStrLen);
+					$randomStr = $this->getRandomString($randomStrLen);
+					$fileNameFormat = preg_replace($pattern, $randomStr, $fileNameFormat);
+				}
+				$newFileName = strtr($fileNameFormat, [
+					'{Y}' => date('Y'),
+					'{m}' => date('m'),
+					'{d}' => date('d'),
+					'{H}' => date('H'),
+					'{i}' => date('i'),
+					'{s}' => date('s'),
+					'{origin}' => $originFilename,
+					'{timestamp}' => time(),
+				]);
 			}else{
-				$key = $newFileName;
+				//获取随机文件名
+				$newFileName = $this->genRandFileName($filePath);
 			}
-
+			// 对象存储的key
+			$key = $newFileName . '.' . $fileExt;
+			// 原始文件路径
 			$uploadFilePath = $filePath;
 
 			//如果是图片则做压缩和水印处理

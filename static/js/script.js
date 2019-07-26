@@ -626,8 +626,6 @@ $(document).ready(function (){
 							<label>文件大小超过该值时压缩</label>
 							<input class="sizeBiggerThan" type="number" name="resizeOptions[sizeBiggerThan]" placeholder="" value="${data.resizeOptions.sizeBiggerThan}"><span>kb</span>
 						</div>
-					</div>
-					<div class="area">
 						<div class="form-group2 quality">
 							<label>JPEG图片压缩质量</label>
 							<input class="text" type="number" name="quality" placeholder="0-100" value="${data.quality}"><span>%</span>
@@ -636,6 +634,16 @@ $(document).ready(function (){
 							<label>PNG图片压缩等级</label>
 							<input class="text" type="number" name="compreLevel" placeholder="0-9" value="${data.compreLevel}"><span>0-9，非百分比(0不压缩)</span>
 						</div>
+					</div>
+					<div class="area">
+						<div class="form-group2-area">文件名配置</div>
+						<div class="form-group2">
+							<label class="filename-format">文件名格式</label>
+							<input class="filename-format-value" type="text" placeholder="{Y}-{m}-{d}-{H}-{i}-{s}-{random:16}" name="fileNameFormat" value="${data.fileNameFormat}">
+							<div>替换变量：{origin}原始文件名, {Y}当前年, {m}当前月, {d}当前日, {H}当前小时, {i}当前分, {s}当前秒, {timestamp}当前时间戳, {random:8}随机字符串(8为长度，为避免文件覆盖，至少8位，设置8以下的数值会自动使用8位，最多100位)，留空默认使用32位md5加密文件名，注意该设置只对能自定义文件名的存储引擎起效果，并且这里最好不要使用“/”作为分隔符，因为对象存储会把“/”分隔的文件名当成目录。<br>例：{Y}-{m}-{d}-{H}-{i}-{s}-{random:16}，产生的文件名格式为：2019-07-26-15-16-55-mQVAiII4Ff8PNXfb.png</div>
+						</div>
+					</div>
+					<div class="area">
 						<div class="form-group2">
 							<label>返回链接类型</label>
 							<select name="linkType">
@@ -664,11 +672,6 @@ $(document).ready(function (){
 						<div class="form-group2">
 							<label>允许同时上传文件数</label>
 							<input class="text" type="number" name="maxNum" placeholder="允许同时上传文件数" value="${data.maxNum}"><span></span>
-						</div>
-						<div class="form-group2">
-							<label>保持原始文件名</label>
-							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="1"${data.keepOriginalFilename=='1'?' checked':''}>是(有同名覆盖的危险)</label>
-							<label class="keepOriginalFilename-label"><input class="text" type="radio" name="keepOriginalFilename" value="0"${data.keepOriginalFilename=='0'?' checked':''}>否</label>
 						</div>
 						<div class="form-group2">
 							<label>常用目录(每行一个)</label>
