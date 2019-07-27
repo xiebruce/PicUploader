@@ -21,6 +21,11 @@ PicUploader
 - 支持上传任意文件(不只是图片)；
 - 目前支持的图床：七牛、阿里、腾讯、华为、网易、京东、百度、又拍、青云、Ucloud、sm.ms、Imgur、Gibhub、Gitee(码云)、微博、Nextcloud、Cloudinary、Chevereto、Aws s3、金山、个人服务器(sftp)、本地(即PicUploader所在机器)。
 
+## 功能演示
+如果图片看不了请点击图片上边的文字链接单独打开即可查看。
+
+---
+
 [Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)：
 ![Mac-demo.gif](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
 
