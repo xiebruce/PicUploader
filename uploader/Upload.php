@@ -65,9 +65,9 @@ class Upload extends Common {
 			$originFilename = $this->getOriginFileName($filePath);
 			
 			$fileNameFormat = isset(static::$config['fileNameFormat']) ? trim(static::$config['fileNameFormat']) : '';
-			$pattern1 = '/{Y}|{m}|{d}|{H}|{i}|{s}|{origin}|{timestamp}|{random:(\d+)}/';
-			//
-			if(preg_match($pattern1, $fileNameFormat) !== false){
+			$pattern1 = '/\{Y\}|\{m\}|\{d\}|\{H\}|\{i\}|\{s\}|\{origin\}|\{timestamp\}|\{random:(\d+)\}/';
+			//preg_match()返回1表示匹配到了，返回0表示未匹配到，返回false表示发生错误了
+			if(preg_match($pattern1, $fileNameFormat) === 1){
 				// 替换随机字符串
 				$matches = [];
 				$pattern2 = '/\{random:(\d+)\}/';
