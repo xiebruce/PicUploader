@@ -611,7 +611,7 @@ $(document).ready(function (){
 					<div class="area">
 						<div class="form-group2-area">图片压缩</div>
 						<div class="form-group2">
-							<label>压缩百分比</label>
+							<label>压缩到原图的</label>
 							<input class="percentage" type="number" name="resizeOptions[percentage]" placeholder="0-100" value="${data.resizeOptions.percentage}"><span>% (100%表示不压缩)</span>
 						</div>
 						<div class="form-group2">

@@ -13,3 +13,6 @@
 /uploader/UploadXrcloud.php
 /db
 /accessorys/PicUploaderHelper/key_log.txt
+/accessorys/PicUploaderHelper/PicUploader.py
+/accessorys/PicUploaderHelper/PicUploader.php
+/accessorys/PicUploaderHelper/PicUploader-local.php

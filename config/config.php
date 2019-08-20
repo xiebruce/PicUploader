@@ -348,7 +348,7 @@
 		
 		// 调整图片大小，以下widthGreaterThan、heightGreaterThan、sizeBiggerThan三个条件，只要有一个满足，图片即会按percentage指定的百分比压缩（只对jpg和png有效，gif暂时无法压缩）
 		'resizeOptions' => [
-			// 0.65表示把原图等比缩小为原来的65%，percentage取值为0-100之间，可使用两位小数，当percentage为0和100时，不进行压缩。
+			// 65表示把原图等比缩小为原来的65%(所以数字越小压的越厉害)，percentage取值为0-100之间，可使用两位小数，当percentage为0和100时，不进行压缩。
 			'percentage' => '65',
 			
 			// 当宽度超过1000px时压缩

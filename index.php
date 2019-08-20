@@ -11,8 +11,6 @@
 	 * 比如 php test.php aa bb，那么在test.php里打印$argv变量就是一个数组，包含3个元素test.php, aa, bb，而$argc就是$argv的元素个数，相当于count($argc)，当然也可用$_SERVER['argv']，$_SERVER['argc']表示。
 	 */
 	
-	/*header('Content-Type: application/json; charset=UTF-8');
-    echo '{"code":"success","data":{"filename":"20190418194552.png","url":"https://ws2.sinaimg.cn/large/6db312f1gy1g270z0i9qtj207205m3yv.jpg"}}';exit;*/
 	error_reporting(E_ALL ^E_NOTICE);
 	
 	use uploader\Common;
@@ -27,6 +25,7 @@
 
 	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 	require APP_PATH . '/thirdpart/eSDK_Storage_OBS_V3.1.3_PHP/obs-autoloader.php';
+	//金山云的define数据
 	//是否使用VHOST
 	define("KS3_API_VHOST",FALSE);
 	//是否开启日志(写入日志文件)
