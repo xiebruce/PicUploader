@@ -56,7 +56,7 @@ class UploadNetease extends Upload{
     }
 	
 	/**
-	 * Upload images to Netease Cloud
+	 * Upload files to Netease Cloud
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

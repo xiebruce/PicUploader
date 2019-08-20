@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 15:00
+ * Date: 2019-07-24
+ * Time: 19:49
  */
 
 namespace uploader;
@@ -57,7 +57,7 @@ class UploadS3 extends Upload{
     }
 	
 	/**
-	 * Upload images to JDcloud OSS(Object Storage Service)
+	 * Upload files to Amazon S3(S3 stands for three words that begin with letter S：Simple Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

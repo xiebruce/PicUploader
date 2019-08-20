@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 00:46
+ * Date: 2019-07-19
+ * Time: 20:32
  */
 
 namespace uploader;
@@ -61,7 +61,7 @@ class UploadHuawei extends Common {
     }
 	
 	/**
-	 * Upload Images to Huawei OBS(Object-O)
+	 * Upload files to Huawei OBS(Object-Storage)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

@@ -58,7 +58,7 @@ class UploadQingcloud extends Upload{
 	}
 	
 	/**
-	 * Upload images to QingCloud QingStor
+	 * Upload files to QingCloud QingStor
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

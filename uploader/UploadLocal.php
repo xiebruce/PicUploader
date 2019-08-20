@@ -45,7 +45,7 @@ class UploadLocal extends Common {
 	}
 	
 	/**
-	 * Upload Images to local(the server that PicUploader located at)
+	 * Upload files to local(the server that PicUploader located at)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

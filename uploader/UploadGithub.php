@@ -65,7 +65,7 @@ class UploadGithub extends Upload{
     }
 	
 	/**
-	 * Upload images to Github
+	 * Upload files to Github
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

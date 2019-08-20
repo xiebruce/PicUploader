@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 21:01
+ * Date: 2018-07-06
+ * Time: 22:52
  */
 
 
@@ -57,7 +57,7 @@ class UploadAliyun extends Upload{
     }
 	
 	/**
-	 * Upload images to Aliyun OSS(Object Storage Service)
+	 * Upload files to Aliyun OSS(Object Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

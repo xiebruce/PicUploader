@@ -55,7 +55,7 @@ class UploadUpyun extends Upload{
     }
 	
 	/**
-	 * Upload images to Upyun
+	 * Upload files to Upyun(又拍云)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

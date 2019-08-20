@@ -56,7 +56,7 @@ class UploadBaidu extends Upload{
     }
 	
 	/**
-	 * Upload images to Baidu BOS(Baidu Object Storage)
+	 * Upload files to Baidu BOS(Baidu Object Storage)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

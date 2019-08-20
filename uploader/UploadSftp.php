@@ -53,7 +53,7 @@ class UploadSftp extends Common {
 	}
 	
 	/**
-	 * Upload Images to a server by sftp
+	 * Upload files to a server by sftp
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

@@ -42,7 +42,7 @@ class UploadSmms extends Common {
     }
 	
 	/**
-	 * Upload image to http://sm.ms
+	 * Upload files to http://sm.ms
 	 * @param $key  由于sm.ms无法自己指定key(主要是没有账号系统怕跟别人重复，所以都是它重命名)，所以key在这里不使用。
 	 * @param $uploadFilePath
 	 * @param $originFilename

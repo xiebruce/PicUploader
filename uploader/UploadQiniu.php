@@ -85,7 +85,7 @@ class UploadQiniu extends Common {
     }
 	
 	/**
-	 * Upload Images to Qiniu Kodo
+	 * Upload files to Qiniu Kodo
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

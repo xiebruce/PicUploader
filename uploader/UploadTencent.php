@@ -53,7 +53,7 @@ class UploadTencent extends Common {
     }
 	
 	/**
-	 * Upload Images to Tecent COS(Cloud Object Storage)
+	 * Upload files to Tecent COS(Cloud Object Storage)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

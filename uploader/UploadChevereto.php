@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 21:01
+ * Date: 2019-07-20
+ * Time: 18:53
  */
 
 namespace uploader;
@@ -45,7 +45,7 @@ class UploadChevereto extends Upload{
     }
 	
 	/**
-	 * Upload images to Github
+	 * Upload files to Chevereto(An open source self-hosted image host)
 	 * @param $key, 由于Chevereto不能自定义上传的文件名称，所以key在这里用不到
 	 * @param $uploadFilePath
 	 *

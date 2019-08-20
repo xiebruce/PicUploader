@@ -311,7 +311,7 @@ class UploadNextcloud extends Upload{
     }
 	
 	/**
-	 * Upload images to NextCloud
+	 * Upload files to NextCloud
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

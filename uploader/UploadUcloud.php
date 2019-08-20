@@ -54,7 +54,7 @@ class UploadUcloud extends Upload{
     }
 	
 	/**
-	 * Upload images to Ucloud
+	 * Upload files to Ucloud
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

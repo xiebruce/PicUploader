@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 21:01
+ * Date: 2019-07-06
+ * Time: 22:47
  */
 
 
@@ -58,7 +58,7 @@ class UploadCloudinary extends Upload{
     }
 	
 	/**
-	 * Upload images to Cloudinary
+	 * Upload files to Cloudinary
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

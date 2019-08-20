@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 21:01
+ * Date: 2019-07-06
+ * Time: 22:52
  */
 
 namespace uploader;
@@ -65,7 +65,7 @@ class UploadGitee extends Upload{
     }
 	
 	/**
-	 * Upload images to gittee
+	 * Upload files to gittee(即码云)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *

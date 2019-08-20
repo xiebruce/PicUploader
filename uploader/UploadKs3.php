@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: bruce
- * Date: 2018-09-06
- * Time: 21:01
+ * Date: 2019-07-24
+ * Time: 16:18
  */
 
 namespace uploader;
@@ -56,7 +56,7 @@ class UploadKs3 extends Upload{
     }
 	
 	/**
-	 * Upload images to Aliyun OSS(Object Storage Service)
+	 * Upload files to KingSoft KS3(KingSoft Standard Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
