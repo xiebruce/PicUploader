@@ -36,7 +36,7 @@ class UploadQingcloud extends Upload{
 	 */
 	public function __construct($params)
 	{
-		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 		
 		$this->accessKeyId = $ServerConfig['accessKeyId'];
 		$this->secretAccessKey = $ServerConfig['secretAccessKey'];

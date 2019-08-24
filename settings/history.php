@@ -106,6 +106,32 @@
 			}
 		</style>
 		<script>
+			function deleteFromImgur(hash, obj){
+				if(!confirm('确定要从Imgur中删除吗？')){
+					return false;
+				}
+				$.ajax({
+					type: 'get',
+					url: './settings/dispatch.php',
+					data: {
+						class: 'HistoryController',
+						func: 'deleteFromImgur',
+						hash: hash,
+					},
+					dataType: 'json',
+					success: function (response){
+						if(response.code == 0){
+							$(obj).parent().html('从Imgur中删除成功，请点击右侧“移除”按钮从本地记录中移除该记录');
+						}else{
+							alert('删除失败');
+						}
+					},
+					error: function (error){
+						console.log(error);
+					}
+				});
+			}
+			
 			//获取一页历史记录
 			function getHistoryList (page, keyword){
 				$.ajax({
@@ -138,26 +164,41 @@
 								</td>`;
 							
 							for(let i=0; i<data.length; i++){
+								var url = data[i].url;
+								var deleteLink = '';
+								if(url.indexOf(',') > 0){
+									var arr = url.split(',');
+									url = arr[0];
+									deleteLink = '<div>Delete Link: '+arr[1]+' <a href="'+arr[1]+'" target="_blank" onclick="return confirm(\'确定要从sm.ms中删除该图片吗? 删除后请手动移除本条记录\')">Delete</a></div>';
+								}
+								if(url.indexOf(';') > 0){
+									var arr = url.split(';');
+									url = arr[0];
+									deleteLink = '<div>Delete Hash: '+arr[1]+' <button onclick="return deleteFromImgur(\''+arr[1]+'\', this)">Delete</button></div>';
+								}
 								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|.svg|\/preview/;
-								var img = pattern.test(data[i].url) ? '<img class="image" src="'+data[i].url+'"">' : '';
+								var img = pattern.test(url) ? '<img class="image" src="'+url+'"">' : '';
 								tr += `<tr class="history">
 											<td><input class="check-item" type="checkbox" value="${data[i].id}"></td>
 											<td>${data[i].id}</td>
 											<td>
-											${img}
-											<div class="filename">${data[i].filename}</div>
+												${img}
+												<div class="filename">${data[i].filename}</div>
 											</td>
-											<td>${data[i].url}</td>
+											<td>
+												<a href="${url}" target="_blank">${url}</a>
+												${deleteLink}
+											</td>
 											<td>${data[i].size}</td>
 											<td>${data[i].created_at}</td>
 											<td class="operations">
-											<span class="button copy-image-url copy-url" data-clipboard-text='${data[i].url}' title="点击复制原始url到剪贴板">原始url</span>
-											<span class="button copy-image-url copy-markdown" data-clipboard-text='![${data[i].filename}](${data[i].url})' title="点击复制markdown格式url到剪贴板">markdown</span><br>
-											<span class="button copy-image-url copy-markdown-with-link" data-clipboard-text='[![${data[i].filename}](${data[i].url})](${data[i].url})' title="点击复制带链接的markdown格式到剪贴板">带链接的markdown</span>
-											<span class="button copy-image-url copy-markdown-with-link" data-clipboard-text='[img]${data[i].url}[/img]' title="点击复制BBC格式到剪贴板">BB Code</span>
-											<span class="button remove-from-list" data-id="${data[i].id}" title="从历史记录中移除">移除</span>
-										</td>
-									</tr>`;
+												<span class="button copy-image-url copy-url" data-clipboard-text='${url}' title="点击复制原始url到剪贴板">原始url</span>
+												<span class="button copy-image-url copy-markdown" data-clipboard-text='![${data[i].filename}](${url})' title="点击复制markdown格式url到剪贴板">markdown</span><br>
+												<span class="button copy-image-url copy-markdown-with-link" data-clipboard-text='[![${data[i].filename}](${url})](${url})' title="点击复制带链接的markdown格式到剪贴板">带链接的markdown</span>
+												<span class="button copy-image-url copy-markdown-with-link" data-clipboard-text='[img]${url}[/img]' title="点击复制BBC格式到剪贴板">BB Code</span>
+												<span class="button remove-from-list" data-id="${data[i].id}" title="从历史记录中移除">移除</span>
+											</td>
+										</tr>`;
 							}
 							tr = tr + `<tr>
 											<td><input type="checkbox" class="select-all"></td>

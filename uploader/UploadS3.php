@@ -35,7 +35,7 @@ class UploadS3 extends Upload{
      */
     public function __construct($params)
     {
-	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
         $this->accessKey = $ServerConfig['AccessKeyId'];
         $this->secretKey = $ServerConfig['AccessKeySecret'];

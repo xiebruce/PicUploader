@@ -16,6 +16,8 @@ class UploadSmms extends Common {
 	public $baseUri;
 	//代理url
 	public $proxy;
+	//上传token
+	public $token;
 	//上传目标服务器名称
 	public $uploadServer;
 	
@@ -31,12 +33,12 @@ class UploadSmms extends Common {
      */
     public function __construct($params)
     {
-        $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+        $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    //baseUri一定要斜杠结尾
 	    $this->baseUri = 'https://sm.ms/api/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
+	    $this->token = $ServerConfig['token'] ?? '';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
-        
         $this->argv = $params['argv'];
         static::$config = $params['config'];
     }
@@ -73,9 +75,11 @@ class UploadSmms extends Common {
 			}
 			//实例化GuzzleHttp
 			$client = new Client($GuzzleConfig);
-			//upload?ssl=1
-			//post file to https://sm.ms
-			$response = $client->request('POST', 'upload?ssl=1', [
+			//upload file to https://sm.ms
+			$response = $client->request('POST', 'v2/upload?ssl=1', [
+				'headers' => [
+					'Authorization' => 'Basic '.$this->token,
+				],
 				'multipart' => [
 					[
 						'name'     => 'smfile',
@@ -95,7 +99,8 @@ class UploadSmms extends Common {
 				throw new \Exception($string);
 			}
 			$data = $returnArr['data'];
-			$deleteLink = 'Delete Link: '.$data['delete'];
+			// $deleteLink = 'Delete Link: '.$data['delete'];
+			$deleteLink = $data['delete'];
 			// $link .= $this->formatLink($data['url'], $originFilename);
 			$link = [
 				'link' => $data['url'],

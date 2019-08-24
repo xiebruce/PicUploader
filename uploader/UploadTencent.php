@@ -32,7 +32,7 @@ class UploadTencent extends Common {
      */
     public function __construct($params)
     {
-	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
         $this->region = $ServerConfig['region'];
         $this->secretId = $ServerConfig['secretId'];

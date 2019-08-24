@@ -160,10 +160,10 @@ class Upload extends Common {
 					
 					// 如果数据库连接正常，则保存上传记录到数据库
 					if((new DbModel())->connection){
-						$url = isset($link['link']) ? $link['link'] : $link;
+						$url = isset($link['link']) ? ($uploadServer=='smms'?join(",", $link):join(";", $link)) : $link;
 						$size = filesize($uploadFilePath);
 						// $size = is_numeric($size) ? $size : 0;
-						(new HistoryController)->Add($originFilename, $url, $size);
+						(new HistoryController)->Add($originFilename . '.' . $fileExt, $url, $size);
 					}
 
 					if(!$params['doNotFormat']){
@@ -176,10 +176,15 @@ class Upload extends Common {
 					}
 					
 					$log = $link;
-					if(in_array($uploadServer, ['smms', 'imgur'])){
-						$log = join("\n", $link);
+					if($uploadServer == 'smms'){
+						$log = $link['link']."\nDelete Link: ".$link['delLink'];
 						$link = $link['link'];
 					}
+					if($uploadServer == 'imgur'){
+						$log = $link['link']."\nDelete Hash: ".$link['delHash'];
+						$link = $link['link'];
+					}
+
 					//记录上传日志
 					$datetime = date('Y-m-d H:i:s');
 					$content = "Picture uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";

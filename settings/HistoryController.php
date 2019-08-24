@@ -9,7 +9,9 @@
 namespace  settings;
 
 use uploader\Common;
+use uploader\UploadImgur;
 use zelda\Pagination;
+use GuzzleHttp\Client;
 
 class HistoryController extends Controller {
 	
@@ -119,5 +121,18 @@ class HistoryController extends Controller {
 			];
 		}
 		return json_encode($ret, JSON_UNESCAPED_UNICODE);
+	}
+	
+	public function deleteFromImgur(){
+		$hash = isset($_REQUEST['hash']) ? $_REQUEST['hash'] : '';
+		$config = call_user_func([(new SettingController()), 'getMergeSettings']);
+		$constructorParams = [
+			'config' => $config,
+			'argv' => '',
+			'uploadServer' => 'imgur'
+		];
+		
+		$res = (new UploadImgur($constructorParams))->deleteImage($hash);
+		return json_encode($res);
 	}
 }

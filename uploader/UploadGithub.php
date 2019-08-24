@@ -41,7 +41,7 @@ class UploadGithub extends Upload{
      */
     public function __construct($params)
     {
-	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
 	    $this->repo = $ServerConfig['repo'] ?? '';
 	    $this->branch = $ServerConfig['branch'] ?? 'master';

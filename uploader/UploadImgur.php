@@ -32,7 +32,7 @@ class UploadImgur extends Upload{
      */
     public function __construct($params)
     {
-	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
 	    $this->clientId = $ServerConfig['clientId'];
 	    $this->baseUri = 'https://api.imgur.com/3/';
@@ -117,11 +117,11 @@ class UploadImgur extends Upload{
 			}
 			
 			$data = $returnArr['data'];
-			$deleteLink = 'Delete Hash: '.$data['deletehash'];
+			$deleteLink = $data['deletehash'];
 			
 			$link = [
 				'link' => $data['link'],
-				'delLink' => $deleteLink
+				'delHash' => $deleteLink
 			];
 		} catch (\Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
@@ -132,5 +132,53 @@ class UploadImgur extends Upload{
 			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
 		}
 		return $link;
+    }
+	
+	/**
+	 * Delete image from Imgur
+	 * @param $hash
+	 *
+	 * @return array
+	 * @throws GuzzleException
+	 */
+	public function deleteImage($hash){
+	    $GuzzleConfig = [
+		    'base_uri' => $this->baseUri,
+		    'timeout'  => 30.0,
+	    ];
+	    if($this->proxy){
+		    $GuzzleConfig['proxy'] = $this->proxy;
+	    }
+	    //实例化GuzzleHttp
+	    $client = new Client($GuzzleConfig);
+	
+	    //上传
+	    $response = $client->request('DELETE', 'image/'.$hash, [
+		    'headers'=>[
+			    'Authorization' => 'Client-ID '.$this->clientId,
+		    ],
+	    ]);
+	
+	    $string = $response->getBody()->getContents();
+	
+	    if($response->getReasonPhrase() != 'OK'){
+		    return [
+			    'code' => -1,
+			    'message' => '删除接口返回数据：'.$string,
+		    ];
+	    }
+	
+	    $returnArr = json_decode($string, true);
+	    if($returnArr['success'] !== true){
+		    return [
+			    'code' => -2,
+			    'message' => '删除接口返回数据json_decode后'.var_export($returnArr, true),
+		    ];
+	    }
+	    
+	    return [
+		    'code' => 0,
+		    'message' => 'Delete success',
+	    ];
     }
 }

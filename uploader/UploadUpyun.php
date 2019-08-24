@@ -35,7 +35,7 @@ class UploadUpyun extends Upload{
      */
     public function __construct($params)
     {
-	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];;
+	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
         $this->serviceName = $ServerConfig['serviceName'];
         $this->operator = $ServerConfig['operator'];
