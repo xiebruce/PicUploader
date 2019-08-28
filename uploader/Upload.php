@@ -92,8 +92,14 @@ class Upload extends Common {
 				//获取随机文件名
 				$newFileName = $this->genRandFileName($filePath);
 			}
-			// 对象存储的key
-			$key = $newFileName . '.' . $fileExt;
+			
+			// 对象存储的key(上传的文件可能是没有后缀的文件)
+			if($fileExt){
+				$key = $newFileName . '.' . $fileExt;
+			}else{
+				$key = $newFileName;
+			}
+			
 			// 原始文件路径
 			$uploadFilePath = $filePath;
 
@@ -163,7 +169,8 @@ class Upload extends Common {
 						$url = isset($link['link']) ? ($uploadServer=='smms'?join(",", $link):join(";", $link)) : $link;
 						$size = filesize($uploadFilePath);
 						// $size = is_numeric($size) ? $size : 0;
-						(new HistoryController)->Add($originFilename . '.' . $fileExt, $url, $size);
+						$filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
+						(new HistoryController)->Add($filename, $url, $size);
 					}
 
 					if(!$params['doNotFormat']){

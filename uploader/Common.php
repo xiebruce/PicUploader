@@ -448,9 +448,10 @@ class Common {
 	 */
 	public function copyPlainTextToClipboard($content){
 	    $clipboard = PHP_OS=='Darwin' ? 'pbcopy' : (PHP_OS=='WINNT' ? 'clip' : 'xsel');
-	    $command = "echo '{$content}' | {$clipboard}";
-		$handle = popen($command, 'r');
-		pclose($handle);
+	    //$content不要加引号，因为引号会被输出的，因为这句命令已经是shell执行，而不是php
+		//echo也不是php命令，而是shell命令，win/mac/linux都有echo这个命令的
+	    $command = "echo {$content} | {$clipboard}";
+		return shell_exec($command);
     }
 	
 	/**
@@ -460,20 +461,24 @@ class Common {
 	public function getImageFromClipboard(){
 		$configFileName = PHP_OS=='WINNT' ? 'config_win.json' : 'config.json';
 		$config = json_decode(file_get_contents(APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName), true);
-		$imgPath = APP_PATH.'/.tmp/.screenshot.'.strtolower($config['img_type']);
-		is_file($imgPath) && unlink($imgPath);
-		
-		$command = '/usr/local/bin/pngpaste ' . $imgPath;
-		//通过Alfred调用时，这个$output始终无法获取，但直接执行Alfred调用的脚本又正常
-		$output = shell_exec($command);
-		if(!is_file($imgPath)){
-			$this->sendNotification('no_image');
+		$imgType = strtolower($config['img_type']) == 'jpeg' ? 'jpg' : 'png';
+		if(PHP_OS == 'WINNT'){
+			$powershell = APP_PATH . '/accessorys/PicUploaderHelper/dump-clipboard-'.$imgType.'.ps1';
+			$command = "powershell -ExecutionPolicy Unrestricted {$powershell}";
+			$output = shell_exec($command);
+			$imgPath = trim($output);
 		}else{
-			$this->sendNotification('uploading');
+			$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
+			// is_file($imgPath) && unlink($imgPath);
+			// Mac上要求安装pngpaste
+			$command = '/usr/local/bin/pngpaste ' . $imgPath;
+			//pngpaste保存图片成功是没有任何输出的(Linux/Unit系统惯例)
+			$output = shell_exec($command);
 		}
+		
 		if(is_file($imgPath)){
 			return $imgPath;
 		}
 		return '';
-    }
+	}
 }

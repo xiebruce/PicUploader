@@ -28,15 +28,15 @@ class UploadLocal extends Common {
 	public function __construct($params)
 	{
 		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
-		
-		$this->prefix = rtrim($ServerConfig['prefix'], '/');
+		//处理目标机是Windows的情况(虽然不太可能是Win，但who knows?)
+		$this->prefix = rtrim(str_replace( '\\', '/', $ServerConfig['prefix']), '/');
 		$this->domain = $ServerConfig['domain'];
 		if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 			//如果没有设置，使用默认的按年/月/日方式使用目录
 			$this->directory = date('Y/m/d');
 		}else{
 			//设置了，则按设置的目录走
-			$this->directory = trim($ServerConfig['directory'], '/');
+			$this->directory = trim(str_replace( '\\', '/', $ServerConfig['directory']), '/');
 		}
 		$this->uploadServer = ucfirst($params['uploadServer']);
 		
@@ -58,11 +58,11 @@ class UploadLocal extends Common {
 			}
 			
 			$destDir = $this->prefix.'/'.$this->directory;
+			
 			//如果目录不存在，则创建
 			!is_dir($destDir) && @mkdir($destDir, 0777, true);
 			
 			$destFilePath = $destDir.'/'.$key;
-			
 			if(!copy($uploadFilePath, $destFilePath)){
 				throw new \Exception('Upload failed');
 			}

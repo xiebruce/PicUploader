@@ -22,7 +22,7 @@
 	require 'common/EasyImage.php';
 	
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
-
+	
 	require APP_PATH . '/thirdpart/ufile-phpsdk/v1/ucloud/proxy.php';
 	require APP_PATH . '/thirdpart/eSDK_Storage_OBS_V3.1.3_PHP/obs-autoloader.php';
 	//金山云的define数据
@@ -39,7 +39,7 @@
 	//是否开启curl debug模式
 	define("KS3_API_DEBUG_MODE",FALSE);
 	require APP_PATH . '/thirdpart/ks3-php-sdk/Ks3Client.class.php';
-
+	
 	//autoload class
 	spl_autoload_register(function ($class_name) {
 		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
@@ -100,6 +100,10 @@
 	}else if(isset($argv[1]) && $argv[1]=='--type=alfred'){
 		$alfred = true;
 		$imgPath = (new Common())->getImageFromClipboard();
+		if(!is_file($imgPath)){
+			(new Common())->sendNotification('no_image');
+			exit();
+		}
 		$argv = [];
 		if(is_file($imgPath)){
 			$argv = [$imgPath];
@@ -116,7 +120,13 @@
 			exit('未检测到图片');
 		}
 	}
-
+	// print_r($argv);exit;
+	//Mac快捷键上传才要通知上传中，Win快捷键上传由于任务栏会闪现php-cgi，当图标显示就表明是上传中，无需通知
+	if(!empty($argv) && isset($alfred) && PHP_OS=='Darwin'){
+		//提示上传中
+		(new Common())->sendNotification('uploading');
+	}
+	
 	$uploader = 'uploader\Upload';
 	// $uploader = 'uploader\UploadCoroutine';
 	//getPublickLink
@@ -142,10 +152,26 @@
 		$json = json_encode($data, JSON_UNESCAPED_UNICODE);
 		echo $json;
 	}else{
-		//这个通知，在一个win10可以，另一个win10又不行(这个win10上用管理员又可以，可是另一上win10也没有用管理员，而且本身用户都有管理员权限)，在win上还是用python来通知好了。
+		//快捷键上传
 		if(isset($alfred)){
-			(new Common())->sendNotification('success');
+			$link = trim($link);
+			switch(PHP_OS){
+				case 'Darwin':
+					// Mac不需要复制到剪贴板，因为Alfred会做这个事
+					break;
+				case 'WINNT':
+					//复制到剪贴板
+					(new Common())->copyPlainTextToClipboard($link);
+					//Win快捷键上传由于任务栏会闪现php-cgi，当图标消失就是上传完，所以无需通知上传成功
+					break;
+				default:
+					//复制到剪贴板
+					(new Common())->copyPlainTextToClipboard($link);
+			}
+		}else{
+			// 右击上传
+			echo $link;
 		}
-		//如果是client模式，则直接返回链接
-		echo $link;
+		//通知上传成功
+		(new Common())->sendNotification('success');
 	}

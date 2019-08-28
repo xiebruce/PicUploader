@@ -7,7 +7,7 @@ function Show-BalloonTip {
      [string]$MessageType = "Info",            
      [parameter(Mandatory=$true)]            
      [string]$Message,            
-     [string]$Duration=10000            
+     [string]$Duration=100
     )            
 
     [system.Reflection.Assembly]::LoadWithPartialName('System.Windows.Forms') | Out-Null            
@@ -23,4 +23,4 @@ function Show-BalloonTip {
 }
 
 
-Show-BalloonTip -Title $($args[0]) -MessageType Info -Message $($args[1]) -Duration 1000
+Show-BalloonTip -Title $($args[0]) -MessageType Info -Message $($args[1]) -Duration 100
