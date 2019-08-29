@@ -27,37 +27,34 @@ PicUploader
 
 ---
 
-[Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)：
+[Mac右击图片上传演示(图片不动请点我查看)](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)：
 ![Mac-demo.gif](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)
 
-[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)：
+[Mac快捷键上传截图演示(图片不动请点我查看)](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)：
 ![Mac-shortcut-upload-demo.gif](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)
 
-[Win10右击图片上传演示](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)
+[Win10右击图片上传演示(图片不动请点我查看)](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)
 ![Win10-upload by right click](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)
 
-[Win10快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/8fdddaa3e5edaebbadda74aca79a4c11.gif)：
-![windows10-shortcut-upload.gif](https://img.xiebruce.top/2019/04/21/8fdddaa3e5edaebbadda74aca79a4c11.gif)
-
-[Win10快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)：
+[Win10快捷键上传截图演示(图片不动请点我查看)](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)：
 ![Win10-upload by shortcut](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)
 
-[Win7右击图片上传演示](https://img.xiebruce.top/2019/08/28/d06379b706f8cccc1e727548c1c9ef21.gif)：
+[Win7右击图片上传演示(图片不动请点我查看)](https://img.xiebruce.top/2019/08/28/d06379b706f8cccc1e727548c1c9ef21.gif)：
 ![demo-win7.gif](https://img.xiebruce.top/2019/08/28/d06379b706f8cccc1e727548c1c9ef21.gif)
 
-[Win7快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/4c7c44d6e262a5c2fcc68edda71d9f56.gif)：
+[Win7快捷键上传截图演示(图片不动请点我查看)](https://img.xiebruce.top/2019/08/29/4c7c44d6e262a5c2fcc68edda71d9f56.gif)：
 ![Win7-upload by shortcut](https://img.xiebruce.top/2019/08/29/4c7c44d6e262a5c2fcc68edda71d9f56.gif)
 
 [Web版演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)：
 [![screenshot_upload_tmp.jpeg](https://img.xiebruce.top/2019/04/20/871131e16abc183075cdcc095d82b5be.jpeg)](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)
 
-[上传任意格式文件演示](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)：
+[上传任意格式文件演示(图片不动请点我查看)](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)：
 ![upload-non-image-demo_optimized.gif](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)
 
 [MWeb使用PicUploader上传图片演示](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)
 [![screenshot.jpeg](https://img.xiebruce.top/2019/04/23/80dd5a000be625bb47833f1c8da0a032.jpeg)](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)
 
-[ShareX使用演示](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)
+[ShareX使用演示(图片不动请点我查看)](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)
 ![sharex-customize-upload-demo_optimized_optimized.gif](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)
 
 [上传记录](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
