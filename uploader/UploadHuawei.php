@@ -66,7 +66,6 @@ class UploadHuawei extends Common {
 	 * @param $uploadFilePath
 	 *
 	 * @return string
-	 * @throws \Exception
 	 */
 	public function upload($key, $uploadFilePath){
 		try {

@@ -8,6 +8,7 @@
 
 namespace uploader;
 
+use Exception;
 use Qiniu\Auth;
 use Qiniu\Storage\UploadManager;
 
@@ -90,7 +91,7 @@ class UploadQiniu extends Common {
 	 * @param $uploadFilePath
 	 *
 	 * @return string
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
 		try {
@@ -104,14 +105,14 @@ class UploadQiniu extends Common {
 			// 调用 UploadManager 的 putFile 方法进行文件的上传。
 			list($ret, $err) = $uploadMgr->putFile($token, $key, $uploadFilePath);
 			if ($err !== null) {
-				throw new \Exception(var_export($err, true)."\n");
+				throw new Exception(var_export($err, true)."\n");
 			} else {
 				//拼接域名和优化参数成为一个可访问的外链
 				$link = $this->domain . '/' . $ret['key'];
 				$optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
 				$optimize && $link .= $optimize;
 			}
-		}catch (\Exception $e){
+		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
 			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

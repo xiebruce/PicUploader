@@ -9,6 +9,7 @@
 
 namespace uploader;
 
+use Exception;
 use Upyun\Config;
 use Upyun\Upyun;
 
@@ -60,7 +61,7 @@ class UploadUpyun extends Upload{
 	 * @param $uploadFilePath
 	 *
 	 * @return string
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
@@ -72,13 +73,13 @@ class UploadUpyun extends Upload{
 		    $retArr = $client->write($key, fopen($uploadFilePath, 'r'));
 		
 		    if(!isset($retArr['x-upyun-content-length'])){
-			    throw new \Exception(var_export($retArr, true)."\n");
+			    throw new Exception(var_export($retArr, true)."\n");
 		    }
 		    if(!$this->domain){
 			    $this->domain = 'http://'.$this->serviceName.'.test.upcdn.net';
 		    }
 		    $link = $this->domain.'/'.$key;
-	    } catch (NosException $e) {
+	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
 		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

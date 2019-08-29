@@ -1,26 +1,31 @@
 {
 	"img_type": "JPEG",
-	"php_path": "D:\\phpStudy\\PHPTutorial\\php\\php-7.2.1-nts\\php.exe",
-	"picuploader_index_path": "D:\\phpStudy\\PHPTutorial\\WWW\\PicUploader\\index.php",
+	"php_path": "D:\\phpstudy_pro\\Extensions\\php\\php7.3.4nts\\php.exe",
+	"picuploader_index_path": "D:\\phpstudy_pro\\WWW\\PicUploader\\index.php",
 	"notification": {
 		"success": {
-			"title": "Upload image succeed",
+			"title": "上传成功",
 			"subtitle": "",
-			"message": "Markdown link is copied to the cliboard, you can paste now!"
+			"message": "链接已在剪贴板中，请直接去粘贴"
 		},
 		"no_image": {
-			"title": "No image detected",
+			"title": "未检测到图片",
 			"subtitle": "",
-			"message": "No image was detected in the clipboard, please take a screenshot first!"
+			"message": "未检测到剪贴板中有图片，请先截图"
 		},
 		"uploading": {
-		  "title": "Uploading",
-		  "subtitle": "",
-		  "message": "Image was uploading, please wait for a while!"
+			"title": "文件上传中…",
+			"subtitle": "",
+			"message": "文件正在上传，请稍等片刻"
+		},
+		"failed": {
+			"title": "上传失败",
+			"subtitle": "",
+			"message": "文件上传失败，请粘贴或去日志看是否有报错信息"
 		}
-    },
-    "key_combinations": [
-        ["ctrl_l", "shift", "u"]
-    ],
+	},
+	"key_combinations": [
+		["ctrl_l", "shift", "u"]
+	],
 	"debug": 0
 }

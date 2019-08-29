@@ -120,7 +120,7 @@
 			exit('未检测到图片');
 		}
 	}
-	// print_r($argv);exit;
+
 	//Mac快捷键上传才要通知上传中，Win快捷键上传由于任务栏会闪现php-cgi，当图标显示就表明是上传中，无需通知
 	if(!empty($argv) && isset($alfred) && PHP_OS=='Darwin'){
 		//提示上传中
@@ -157,7 +157,8 @@
 			$link = trim($link);
 			switch(PHP_OS){
 				case 'Darwin':
-					// Mac不需要复制到剪贴板，因为Alfred会做这个事
+					// Mac不需要复制到剪贴板，因为Alfred会做这个事，所以我们直接把返回的链接输出给Alfred
+					echo $link;
 					break;
 				case 'WINNT':
 					//复制到剪贴板
@@ -172,6 +173,12 @@
 			// 右击上传
 			echo $link;
 		}
-		//通知上传成功
-		(new Common())->sendNotification('success');
+
+		if(preg_match('/:?http[s]?(.*?)$/', $link)){
+			//通知上传成功
+			(new Common())->sendNotification('success');
+		}else{
+			//通知上传成功
+			(new Common())->sendNotification('failed');
+		}
 	}

@@ -205,17 +205,17 @@ class UploadWeibo extends Common {
 			$match = [];
 			preg_match('/{.*}/i', $string, $match);
 			if(!isset($match[0])){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			
 			$arr = json_decode($match[0], true);
 			if(!isset($arr['data']['pics']['pic_1']['pid'])){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			
 			$link = $this->getUrl($arr['data']['pics']['pic_1']['pid']);
 			
-		}catch (\Exception $e){
+		}catch (Exception $e){
 			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
 			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

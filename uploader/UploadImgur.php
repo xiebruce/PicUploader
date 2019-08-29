@@ -51,6 +51,7 @@ class UploadImgur extends Upload{
 	 *
 	 * @return array
 	 * @throws GuzzleException
+	 * @throws \ImagickException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
 		try {
@@ -108,12 +109,12 @@ class UploadImgur extends Upload{
 			$string = $response->getBody()->getContents();
 			
 			if($response->getReasonPhrase() != 'OK'){
-				throw new \Exception('上传接口返回的数据：'.$string);
+				throw new Exception('上传接口返回的数据：'.$string);
 			}
 			
 			$returnArr = json_decode($string, true);
 			if($returnArr['success'] !== true){
-				throw new \Exception('json_decode后的数据'.var_export($returnArr, true));
+				throw new Exception('json_decode后的数据'.var_export($returnArr, true));
 			}
 			
 			$data = $returnArr['data'];
@@ -123,7 +124,7 @@ class UploadImgur extends Upload{
 				'link' => $data['link'],
 				'delHash' => $deleteLink
 			];
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = [
 				'link' => $e->getMessage()."\n",

@@ -8,7 +8,7 @@
 
 namespace uploader;
 
-use BaiduBce\Exception\BceClientException;
+use Exception;
 use BaiduBce\Services\Bos\BosClient;
 
 class UploadBaidu extends Upload{
@@ -69,14 +69,18 @@ class UploadBaidu extends Upload{
 		    if($this->directory){
 			    $key = $this->directory. '/' . $key;
 		    }
-		    $bosClient->putObjectFromFile($this->bucket, $key, $uploadFilePath);
+		    $retArr = $bosClient->putObjectFromFile($this->bucket, $key, $uploadFilePath);
+		    if(!isset($retArr->metadata['etag'])){
+			    throw new Exception(var_export($retArr, true)."\n\n");
+		    }
+		    // var_dump($retArr);exit;
 		    if(!$this->domain){
 		    	$endpoint = $this->bosConfig['endpoint'];
 		    	$pos = strpos($endpoint, '://') + 3;
 		    	$this->domain = substr($endpoint, 0, $pos) . $this->bucket . '.' . substr($endpoint, $pos);
 		    }
 		    $link = $this->domain.'/'.$key;
-	    } catch (BceClientException $e) {
+	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
 		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

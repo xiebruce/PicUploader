@@ -8,6 +8,7 @@
 
 namespace uploader;
 
+use Exception;
 use GuzzleHttp\Client;
 
 class UploadGitee extends Upload{

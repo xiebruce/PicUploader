@@ -8,7 +8,7 @@
 	
 namespace uploader;
 
-use Guzzle\Common\Exception\ExceptionCollection;
+use Exception;
 use QingStor\SDK\Config;
 use QingStor\SDK\Service\QingStor;
 
@@ -63,7 +63,7 @@ class UploadQingcloud extends Upload{
 	 * @param $uploadFilePath
 	 *
 	 * @return string
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
 		try {
@@ -85,9 +85,9 @@ class UploadQingcloud extends Upload{
 				}
 				$link = $this->domain.'/'.$key;
 			}else{
-				throw new \Exception('error_code => '.$res->code."\nerror_message => ".$res->message, $res->statusCode);
+				throw new Exception('error_code => '.$res->code."\nerror_message => ".$res->message, $res->statusCode);
 			}
-		} catch (\Exception $e) {
+		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
 			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

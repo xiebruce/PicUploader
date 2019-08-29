@@ -8,6 +8,7 @@
 
 namespace uploader;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
@@ -51,6 +52,7 @@ class UploadSmms extends Common {
 	 *
 	 * @return array
 	 * @throws GuzzleException
+	 * @throws \ImagickException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
 		try{
@@ -91,12 +93,12 @@ class UploadSmms extends Common {
 			$string = $response->getBody()->getContents();
 			
 			if($response->getReasonPhrase() != 'OK'){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			
 			$returnArr = json_decode($string, true);
 			if($returnArr['code'] != 'success'){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			$data = $returnArr['data'];
 			// $deleteLink = 'Delete Link: '.$data['delete'];
@@ -107,7 +109,7 @@ class UploadSmms extends Common {
 				'delLink' => $deleteLink,
 			];
 			
-		}catch (\Exception $e){
+		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = [
 				'link' => $e->getMessage(),

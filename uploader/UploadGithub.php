@@ -8,6 +8,7 @@
 
 namespace uploader;
 
+use Exception;
 use GuzzleHttp\Client;
 
 class UploadGithub extends Upload{
@@ -103,12 +104,12 @@ class UploadGithub extends Upload{
 			$string = $response->getBody()->getContents();
 			
 			if($response->getReasonPhrase() != 'Created'){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			
 			$returnArr = json_decode($string, true);
 			if(!isset($returnArr['content']['download_url'])){
-				throw new \Exception(var_export($returnArr, true));
+				throw new Exception(var_export($returnArr, true));
 			}
 			
 			if(!$this->domain){

@@ -9,6 +9,7 @@
 
 namespace uploader;
 
+use Exception;
 use Cloudinary;
 
 class UploadCloudinary extends Upload{
@@ -89,14 +90,14 @@ class UploadCloudinary extends Upload{
 		    //上传文件
 		    $retArr = Cloudinary\Uploader::upload_large_part($uploadFilePath, $uploadOptions);
 		    if(!isset($retArr['secure_url'])){
-			    throw new \Exception(var_export($retArr, true)."\n");
+			    throw new Exception(var_export($retArr, true)."\n");
 		    }
 		    if($this->domain){
 		    	$link = $this->domain . '/' .$retArr['public_id'];
 		    }else{
 			    $link = $retArr['secure_url'];
 		    }
-	    } catch (NosException $e) {
+	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
 		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

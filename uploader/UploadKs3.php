@@ -7,10 +7,10 @@
  */
 
 namespace uploader;
+
 use Ks3Client;
 
 class UploadKs3 extends Upload{
-
     public $accessKey;
     public $secretKey;
     public $bucket;
@@ -33,7 +33,6 @@ class UploadKs3 extends Upload{
      */
     public function __construct($params)
     {
-    	$ch = curl_init();
 	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
         $this->accessKey = $ServerConfig['accessKey'];
@@ -64,8 +63,6 @@ class UploadKs3 extends Upload{
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
-		    $aa = curl_init();
-		    // var_export($aa);exit;
 	    	if($this->directory){
 			    $key = $this->directory. '/' . $key;
 		    }
@@ -81,16 +78,15 @@ class UploadKs3 extends Upload{
 			    ],
 		    ]);
 		    
-	    	
 		    if(!isset($res['ETag'])){
-			    throw new \Exception(var_export($res, true)."\n");
+			    throw new Exception(var_export($res, true)."\n\n");
 		    }
 		    //默认域名：https://ks3-cn-guangzhou.ksyun.com（与不同区域有关）
 		    if(!$this->domain){
 		    	$this->domain = 'https://' . $this->endpoint;
 		    }
 		    $link = $this->domain . '/' . $this->bucket . '/' . $key;
-	    } catch (\Exception $e) {
+	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
 		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

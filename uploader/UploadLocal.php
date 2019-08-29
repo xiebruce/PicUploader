@@ -8,6 +8,8 @@
 	
 namespace uploader;
 
+use Exception;
+
 class UploadLocal extends Common {
 	public $prefix;
 	public $directory;
@@ -54,7 +56,7 @@ class UploadLocal extends Common {
 	public function upload($key, $uploadFilePath){
 		try{
 			if(!is_dir($this->prefix)){
-				throw new \Exception('Please make sure that prefix directory exists.');
+				throw new Exception('Please make sure that prefix directory exists.');
 			}
 			
 			$destDir = $this->prefix.'/'.$this->directory;
@@ -64,10 +66,10 @@ class UploadLocal extends Common {
 			
 			$destFilePath = $destDir.'/'.$key;
 			if(!copy($uploadFilePath, $destFilePath)){
-				throw new \Exception('Upload failed');
+				throw new Exception('Upload failed');
 			}
 			$link = $this->domain.'/'.$this->directory.'/'.$key;
-		}catch (\Exception $e){
+		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$link = $e->getMessage();
 			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

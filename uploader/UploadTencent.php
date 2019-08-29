@@ -8,6 +8,7 @@
 
 namespace uploader;
 
+use Exception;
 use Qcloud\Cos\Client;
 
 class UploadTencent extends Common {
@@ -74,7 +75,7 @@ class UploadTencent extends Common {
 	        $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
 	        if (!is_object($retObj) || !$retObj->get('Location')) {
 		        //上传数错，抛出异常
-		        throw new \Exception(var_export($retObj, true)."\n");
+		        throw new Exception(var_export($retObj, true)."\n");
 	        } else {
 		        //拼接域名和优化参数成为一个可访问的外链
 		        $location = urldecode($retObj->get('Location'));
@@ -91,7 +92,7 @@ class UploadTencent extends Common {
 			        $link = $location;
 		        }
 	        }
-        }catch (\Exception $e){
+        }catch (Exception $e){
 	        //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 	        $link = $e->getMessage();
 	        $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

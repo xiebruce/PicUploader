@@ -95,8 +95,10 @@ def get_image_from_clipboard():
         # Get image type from config
         img_type = config['img_type']
 
+        ext = 'jpg' if img_type == 'JPEG' else img_type.lower()
+
         # Tmp image path
-        tmp_img = current_dir + separator + '.screenshot.' + img_type.lower()
+        tmp_img = current_dir + separator + 'image.' + ext
 
         # Save the image as jpg to disk
         img_obj.save(tmp_img, img_type.upper())
@@ -139,8 +141,9 @@ def upload_image():
         os.remove(tmp_img)
 
         # 上传成功后，不使用python来通知，而是用php来弹出通知，因为可能有多个上传任务，只有php知道哪个上传完了
-        send_notification()
+        # send_notification()
     else:
+        # 提示没有图片
         send_notification('no_image')
 
 

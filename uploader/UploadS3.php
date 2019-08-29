@@ -8,7 +8,7 @@
 
 namespace uploader;
 
-use Aws\DynamoDb\DynamoDbClient;
+use Exception;
 use Aws\S3\S3Client;
 
 class UploadS3 extends Upload{
@@ -62,7 +62,7 @@ class UploadS3 extends Upload{
 	 * @param $uploadFilePath
 	 *
 	 * @return string
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
@@ -88,7 +88,7 @@ class UploadS3 extends Upload{
 		    $s3Client = new S3Client($config);
 		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public-read');
 		    if(!is_object($retObj)){
-			    throw new \Exception(var_export($retObj, true));
+			    throw new Exception(var_export($retObj, true));
 		    }
 			
 		    //返回链接格式：
@@ -98,7 +98,7 @@ class UploadS3 extends Upload{
 			    $defaultDomain = 'https://'.$this->bucket.'.s3.'.$this->region.'.amazonaws.com';
 			    $link = str_replace($defaultDomain, $this->domain,$link);
 		    }
-	    } catch (\Exception $e) {
+	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 		    $link = $e->getMessage();
 		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');

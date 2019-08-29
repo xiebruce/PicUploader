@@ -9,6 +9,7 @@
 
 namespace uploader;
 
+use Exception;
 use Sabre\DAV\Client as DAVClient;
 
 class UploadNextcloud extends Upload{
@@ -345,7 +346,7 @@ class UploadNextcloud extends Upload{
 
 			//返回状态码为201表示上传文件成功(其实HTTP状态码201是表示资源在服务器创建成功)
 			if(!is_array($response) || !isset($response['statusCode']) || !$response['statusCode'] == 201){
-				throw new \Exception(var_export($response, true)."\n");
+				throw new Exception(var_export($response, true)."\n");
 			}
 			
 			// 获取分享链接
