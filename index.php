@@ -178,7 +178,7 @@
 			//通知上传成功
 			(new Common())->sendNotification('success');
 		}else{
-			//通知上传成功
+			//通知上传失败
 			(new Common())->sendNotification('failed');
 		}
 	}
