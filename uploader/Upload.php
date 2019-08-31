@@ -16,6 +16,8 @@ class Upload extends Common {
     public $argv;
 	//Maximum number of uploading files at a time
 	public $maxNum;
+	//Reverse proxy domain
+	public $reverseProxyDomain;
     //the config
     public static $config;
 
@@ -24,6 +26,12 @@ class Upload extends Common {
         $this->argv = $argv;
         static::$config = $config;
         $this->maxNum = static::$config['maxNum'] ?? 10;
+        $this->reverseProxyDomain = static::$config['reverseProxyDomain'] ?? '';
+        $useReverseProxyDomain = (isset(static::$config['useReverseProxyDomain']) && static::$config['useReverseProxyDomain']!='') ? static::$config['useReverseProxyDomain'] : 0;
+        if(!$useReverseProxyDomain){
+            $this->reverseProxyDomain = '';
+        }
+        
         static::$config['storageType'] = isset(static::$config['storageType']) ? static::$config['storageType'] : 'Smms';
     }
 	
@@ -112,19 +120,15 @@ class Upload extends Common {
 					$tmpImgPath = $this->watermark($uploadFilePath, $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 				}
-				
+
 				//压缩
-				$resizeOptions = isset(static::$config['resizeOptions']['percentage']) ? static::$config['resizeOptions']['percentage'] : 0;
-				if($resizeOptions && $resizeOptions > 0){
-					static::$config['resizeOptions']['percentage'] = $resizeOptions > 100 ? 100 : $resizeOptions;
+				$percentage = isset(static::$config['resizeOptions']['percentage']) ? static::$config['resizeOptions']['percentage'] : 0;
+				if($percentage > 0 && $percentage < 100){
 					$tmpImgPath = $this->optimizeImage($uploadFilePath, static::$config['resizeOptions'], $quality);
-					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
-				} else if(isset(static::$config['imgWidth']) && static::$config['imgWidth'] > 0){
-					$tmpImgPath = $this->optimizeImage($uploadFilePath, static::$config['imgWidth'], $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 				}
 			}
-
+			
 			//同时上传到多个云时，兼容字符串写法和数组
 			$uploadServers = static::$config['storageType'];
 			is_string($uploadServers) && $uploadServers = explode(',', $uploadServers);
@@ -133,80 +137,86 @@ class Upload extends Common {
 			$storageTypes = array_keys(static::$config['storageTypes']);
 			//循环上传到每个云存储服务器
 			$link = '';
-			
 			foreach($uploadServers as $uploadServer){
 				$uploadServer = strtolower(trim($uploadServer));
-				if(in_array($uploadServer, $storageTypes)){
-					$cloudType = '';
-					if(isset(static::$config['storageTypes'][$uploadServer]['type'])){
-						$cloudType = static::$config['storageTypes'][$uploadServer]['type'];
-					}
-
-					$args = [$key, $uploadFilePath];
-					if(in_array($uploadServer, ['imgur', 'smms', 'weibo'])){
-						$args[] = $originFilename;
-					}
-					$constructorParams = [
-						'config' => static::$config,
-						'argv' => $this->argv,
-						'uploadServer' => $uploadServer
-					];
-
-					if($cloudType){
-						$className = strtolower($cloudType);
-					}else{
-						$className = $uploadServer;
-					}
-					//new 变量类名不会带上命名空间，所以自己把命名空间加上
-					$className = __NAMESPACE__.'\\Upload'.ucfirst($className);
-
-					//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用，缺点是无法用IDE跟踪函数
-					// $link = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
-					$link = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
-					
-					// 如果数据库连接正常，则保存上传记录到数据库
-					if((new DbModel())->connection){
-						$url = isset($link['link']) ? ($uploadServer=='smms'?join(",", $link):join(";", $link)) : $link;
-						$size = filesize($uploadFilePath);
-						// $size = is_numeric($size) ? $size : 0;
-						$filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
-						(new HistoryController)->Add($filename, $url, $size);
-					}
-
-					if(!$params['doNotFormat']){
-						//按配置文件指定的格式，格式化链接
-						if(in_array($uploadServer, ['smms', 'imgur'])){
-							$link['link'] = $this->formatLink($link['link'], $originFilename, $mimeType);
-						}else{
-							$link = $this->formatLink($link, $originFilename, $mimeType);
-						}
-					}
-					
-					$log = $link;
-					if($uploadServer == 'smms'){
-						$log = $link['link']."\nDelete Link: ".$link['delLink'];
-						$link = $link['link'];
-					}
-					if($uploadServer == 'imgur'){
-						$log = $link['link']."\nDelete Hash: ".$link['delHash'];
-						$link = $link['link'];
-					}
-
-					//记录上传日志
-					$datetime = date('Y-m-d H:i:s');
-					$content = "Picture uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";
-					$this->writeLog($content);
-				}else{
+				if(!in_array($uploadServer, $storageTypes)){
 					$errMsg = "Cannot find storage type `{$uploadServer}` in config file, please check the config file and try again.\n";
 					$this->writeLog($errMsg, 'StorageTypeError');
+					continue;
 				}
+				
+				$cloudType = '';
+				if(isset(static::$config['storageTypes'][$uploadServer]['type'])){
+					$cloudType = static::$config['storageTypes'][$uploadServer]['type'];
+				}
+				
+				$args = [$key, $uploadFilePath];
+				if(in_array($uploadServer, ['imgur', 'smms', 'weibo', 'cloudinary'])){
+					$args[] = $originFilename;
+				}
+				$constructorParams = [
+					'config' => static::$config,
+					'argv' => $this->argv,
+					'uploadServer' => $uploadServer,
+				];
+				if($uploadServer == 'cloudinary'){
+					$constructorParams['useOriginalName'] = true;
+				}
+				
+				if($cloudType){
+					$className = strtolower($cloudType);
+				}else{
+					$className = $uploadServer;
+				}
+				//new 变量类名不会带上命名空间，所以自己把命名空间加上
+				$className = __NAMESPACE__.'\\Upload'.ucfirst($className);
+				
+				//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用，缺点是无法用IDE跟踪函数
+				// $retArr = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
+				$retArr = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
+				//处理使用默认域名
+				$this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
+				$link = $retArr['domain'] . '/' . $retArr['key'];
+				
+				// 如果数据库连接正常，则保存上传记录到数据库
+				if((new DbModel())->connection){
+					$url = $link;
+					if($uploadServer == 'smms'){
+						$url = $link . ',' . $retArr['delLink'];
+					}
+					if($uploadServer == 'imgur'){
+						$url = $link . ';' . $retArr['delHash'];
+					}
+					$size = filesize($uploadFilePath);
+					// $size = is_numeric($size) ? $size : 0;
+					$filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
+					(new HistoryController)->Add($filename, $url, $size);
+				}
+				
+				if(!$params['doNotFormat']){
+					//按配置文件指定的格式，格式化链接
+					$link = $this->formatLink($link, $originFilename, $mimeType);
+				}
+				
+				$log = $link;
+				if($uploadServer == 'smms'){
+					$log = $link."\nDelete Link: ".$retArr['delLink'];
+				}
+				if($uploadServer == 'imgur'){
+					$log = $link."\nDelete Hash: ".$retArr['delHash'];
+				}
+				
+				//记录上传日志
+				$datetime = date('Y-m-d H:i:s');
+				$content = "Picture uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";
+				$this->writeLog($content);
 			}
 			//对于从剪贴板粘贴的或接口上传的，删除源文件(这个源文件实质上是上传后的那个文件，它在.tmp目录里，并不是用户电脑上的源文件)
 			$params['deleteOriginalFile'] && @unlink($filePath);
 			//只返回最后一个云的link（但由于只有域名不同，所以不同云之间只要换个域名，就可以访问同一张照片），
 			//而且由于我自己做了反向代理，所以我的所有云都访问使用同一个图片域名(我自己的域名)，然后我在我的
 			//服务器把这个域名代理到真正的域名
-			$links .= $link;
+			$links .= $link . "\n";
 		}
 		// $str = var_export(isset($tmpImgPath), true);
 		// file_put_contents('/Users/bruce/Downloads/tmp-debug.txt', "{$str}--{$tmpImgPath}\n----------------------------------------\n\n", FILE_APPEND);

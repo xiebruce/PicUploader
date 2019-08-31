@@ -40,6 +40,10 @@ class UploadTencent extends Common {
         $this->secretKey = $ServerConfig['secretKey'];
         $this->bucket = $ServerConfig['bucket'];
         $this->domain = $ServerConfig['domain'] ?? '';
+	    // http://markdown-1254010860.cos.ap-guangzhou.myqcloud.com
+	    $defaultDomain = 'http://' . $this->bucket . '.cos.' . $this->region . '.myqcloud.com';
+	    !$this->domain && $this->domain = $defaultDomain;
+	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -58,7 +62,7 @@ class UploadTencent extends Common {
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
+	 * @return array
 	 */
 	public function upload($key, $uploadFilePath){
         try{
@@ -70,33 +74,34 @@ class UploadTencent extends Common {
 		        ],
 	        ]);
 	        if($this->directory){
-		        $key = $this->directory. '/' . $key;
+		        $key = $this->directory . '/' . $key;
 	        }
-	        $retObj = $cosClient->Upload($this->bucket, $key, fopen($uploadFilePath, 'rb'));
+	        $fp = fopen($uploadFilePath, 'rb');
+	        $retObj = $cosClient->Upload($this->bucket, $key, $fp);
+	        is_resource($fp) && fclose($fp);
+	        
 	        if (!is_object($retObj) || !$retObj->get('Location')) {
 		        //上传数错，抛出异常
-		        throw new Exception(var_export($retObj, true)."\n");
-	        } else {
-		        //拼接域名和优化参数成为一个可访问的外链
-		        $location = urldecode($retObj->get('Location'));
-		        $matches = [];
-		        preg_match('/\d{4}\/\d{2}\/\d{2}\/.+/',$location,$matches);
-		        $key = $matches[0] ?? '';
-		        if(!$this->domain){
-			        $this->domain = 'http://'.$this->bucket.'.cos.'.$this->region.'.myqcloud.com';
-		        }
-		        // http://markdown-1254010860.cos.ap-guangzhou.myqcloud.com
-		        if($key){
-			        $link = $this->domain .'/'.$key;
-		        }else{
-			        $link = $location;
-		        }
+		        throw new Exception(var_export($retObj, true));
 	        }
+	
+	        //这样可以拿到外链，但因为可以自己接，所以不需要用这个拿
+	        // $link = urldecode($retObj->get('Location'));
+	
+	        $data = [
+		        'code' => 0,
+		        'msg' => 'success',
+		        'key' => $key,
+		        'domain' => $this->domain,
+	        ];
         }catch (Exception $e){
 	        //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-	        $link = $e->getMessage();
-	        $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+	        $data = [
+		        'code' => -1,
+		        'msg' => $e->getMessage(),
+	        ];
+	        $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
         }
-		return $link;
+		return $data;
 	}
 }

@@ -11,6 +11,7 @@
 		$config = require APP_PATH . '/config/config.php';
 	}
 	file_put_contents(APP_PATH . '/config/.config.json', json_encode($config, JSON_UNESCAPED_UNICODE));
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +59,7 @@
 						<!--<i class="fa fa-times-circle close"></i>-->
 						<ul class="list">
 							<?php foreach($config['storageTypes'] as $key=>$storageType):?>
-							<li data-key="<?=$key?>" class="cloud"><?=isset($storageType['name']) ? $storageType['name'] : $key?></li>
+							<li data-key="<?=$key?>" class="cloud"><?=(isset($storageType['name']) && $storageType['name']) ? $storageType['name'] : $key?></li>
 							<?php endforeach;?>
 						</ul>
 					</div>

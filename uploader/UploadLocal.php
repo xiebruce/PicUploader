@@ -51,7 +51,7 @@ class UploadLocal extends Common {
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
+	 * @return array
 	 */
 	public function upload($key, $uploadFilePath){
 		try{
@@ -59,21 +59,31 @@ class UploadLocal extends Common {
 				throw new Exception('Please make sure that prefix directory exists.');
 			}
 			
-			$destDir = $this->prefix.'/'.$this->directory;
+			$destDir = $this->prefix . '/' . $this->directory;
 			
 			//如果目录不存在，则创建
 			!is_dir($destDir) && @mkdir($destDir, 0777, true);
 			
-			$destFilePath = $destDir.'/'.$key;
+			$destFilePath = $destDir . '/' . $key;
 			if(!copy($uploadFilePath, $destFilePath)){
 				throw new Exception('Upload failed');
 			}
-			$link = $this->domain.'/'.$this->directory.'/'.$key;
+			$key = $this->directory . '/' . $key;
+			
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
 	}
 }

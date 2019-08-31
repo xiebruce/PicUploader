@@ -44,6 +44,10 @@ class UploadQingcloud extends Upload{
 		//endPoint不是域名，外链域名是 bucket.'.'.endPoint
 		$this->zone = $ServerConfig['zone'];
 		$this->domain = $ServerConfig['domain'] ?? '';
+		// http://blog-markdown.gd2.qingstor.com
+		$defaultDomain = 'http://' . $this->bucket . '.' . $this->zone . '.qingstor.com';
+		!$this->domain && $this->domain = $defaultDomain;
+		
 		if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 			//如果没有设置，使用默认的按年/月/日方式使用目录
 			$this->directory = date('Y/m/d');
@@ -62,7 +66,7 @@ class UploadQingcloud extends Upload{
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
+	 * @return array
 	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
@@ -72,26 +76,31 @@ class UploadQingcloud extends Upload{
 			$bucket = $service->Bucket($this->bucket, $this->zone);
 			
 			if($this->directory){
-				$key = $this->directory. '/' . $key;
+				$key = $this->directory . '/' . $key;
 			}
 			// Put object
-			$body = file_get_contents($uploadFilePath);
-			$res = $bucket->putObject($key, ['body' => $body]);
+			$res = $bucket->putObject($key, [
+				'body' => file_get_contents($uploadFilePath)
+			]);
 			//http状态码201表示Created，即创建成功（这里表示文件在服务器创建成功，即上传成功）
-			if($res->statusCode==201){
-				if(!$this->domain){
-					//http://blog-markdown.gd2.qingstor.com
-					$this->domain = 'http://'.$this->bucket.'.'.$this->zone.'.qingstor.com/';
-				}
-				$link = $this->domain.'/'.$key;
-			}else{
+			if($res->statusCode != 201){
 				throw new Exception('error_code => '.$res->code."\nerror_message => ".$res->message, $res->statusCode);
 			}
+			
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
 	}
 }

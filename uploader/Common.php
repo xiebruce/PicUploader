@@ -87,17 +87,12 @@ class Common {
 		        if($width > $widthGreaterThan || $height > $heightGreaterThan || $fileSize > $sizeBiggerThan){
 			        $optimize = true;
 		        }
-		        
-		        //如果大于200K则压缩
-	        }else if($fileSize > 150*1024 && $width > $resizeOptions){
-	        	//旧压缩方式，压缩到指定宽度(高等比例压缩)
-		        $optimize = true;
 	        }
 	
 	        if(strpos($filePath, '.tmp') === false){
 		        $tmpDir = APP_PATH.'/.tmp';
 		        !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
-		        $tmpImgPath = $tmpDir.'/.'.$this->getRandString().'.'.$this->getFileExt($filePath);
+		        $tmpImgPath = $tmpDir . '/.' . $this->getRandString() . '.' . $this->getFileExt($filePath);
 	        }else{
 		        //$filePath is a tmp file
 		        $tmpImgPath = $filePath;
@@ -105,20 +100,12 @@ class Common {
             if($optimize){
 	            //if no tmp file then create one
                 $img = new EasyImage($filePath);
-                
-                //旧方法压缩
-                if(is_integer($resizeOptions)){
-	                $img->fit_to_width($resizeOptions);
-                }else{
-                	//新方法压缩
-	                if($width > $height){
-		                $img->fit_to_width($width * $percentage);
-	                }else if($height > $width){
-		                $img->fit_to_height($height * $percentage);
-	                }
-                }
+	            if($width > $height){
+		            $img->fit_to_width($width * $percentage);
+	            }else if($height > $width){
+		            $img->fit_to_height($height * $percentage);
+	            }
                 $img->save($tmpImgPath, $quality);
-
             }
         }
         return $tmpImgPath;
@@ -321,8 +308,7 @@ class Common {
 				    $link = $url;
 		    }
 	    }
-        
-        return $link."\n";
+        return $link;
     }
 
     /**

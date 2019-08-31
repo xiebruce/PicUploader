@@ -18,6 +18,10 @@ class UploadImgur extends Upload{
     public $baseUri;
     //代理url
     public $proxy;
+	//域名
+	public $domain;
+	//默认域名
+	public $defaultDomain;
 	//上传目标服务器名称
 	public $uploadServer;
 
@@ -35,10 +39,12 @@ class UploadImgur extends Upload{
 	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
 	    $this->clientId = $ServerConfig['clientId'];
-	    $this->baseUri = 'https://api.imgur.com/3/';
+	    $this->baseUri = 'https://api.imgur.com';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
+	    $this->domain = $ServerConfig['domain'] ?? '';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
-
+	    $this->defaultDomain = 'https://i.imgur.com';
+	    !$this->domain && $this->domain = $this->defaultDomain;
         $this->argv = $params['argv'];
         static::$config = $params['config'];
     }
@@ -60,11 +66,11 @@ class UploadImgur extends Upload{
 				$useWatermark = static::$config['watermark']['useWatermark'] ?? 0;
 				$fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
 				$errMsg = 'Imgur限制最大文件为10M，你上传的文件'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！\n";
-				throw new \Exception($errMsg);
+				throw new Exception($errMsg);
 			}
 			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
 				$errMsg = 'Imgur只能上传图片，你上传的文件“'.$originFilename.'”不是图片，无法上传！';
-				throw new \Exception($errMsg);
+				throw new Exception($errMsg);
 			}
 
 			$GuzzleConfig = [
@@ -78,14 +84,21 @@ class UploadImgur extends Upload{
 			$client = new Client($GuzzleConfig);
 			
 			//上传
-			$response = $client->request('POST', 'image', [
+			$fp = fopen($uploadFilePath, 'rb');
+			$response = $client->request('POST', '/3/image', [
+				'curl' => [
+					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+					CURLOPT_SSL_VERIFYPEER => false,
+					CURLOPT_SSL_VERIFYHOST => false,
+				],
 				'headers'=>[
 					'Authorization' => 'Client-ID '.$this->clientId,
 				],
 				'multipart' => [
 					[
 						'name' => 'image',
-						'contents' => fopen($uploadFilePath, 'r'),
+						'contents' => $fp,
 					],
 					[
 						'name' => 'type',
@@ -93,7 +106,7 @@ class UploadImgur extends Upload{
 					],
 					[
 						'name' => 'name',
-						'contents' => $key,
+						'contents' => $originFilename,
 					],
 					[
 						'name' => 'title',
@@ -105,11 +118,12 @@ class UploadImgur extends Upload{
 					],
 				]
 			]);
+			is_resource($fp) && fclose($fp);
 			
 			$string = $response->getBody()->getContents();
 			
 			if($response->getReasonPhrase() != 'OK'){
-				throw new Exception('上传接口返回的数据：'.$string);
+				throw new Exception('上传接口返回的数据：' . $string);
 			}
 			
 			$returnArr = json_decode($string, true);
@@ -118,21 +132,28 @@ class UploadImgur extends Upload{
 			}
 			
 			$data = $returnArr['data'];
+			// 图片链接，但这里不用，而是自己拼接
+			$link = $data['link'];
 			$deleteLink = $data['deletehash'];
 			
-			$link = [
-				'link' => $data['link'],
-				'delHash' => $deleteLink
+			$key = str_replace($this->defaultDomain . '/', '', $link);
+			
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+				'delHash' => $deleteLink,
 			];
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = [
-				'link' => $e->getMessage()."\n",
-				'delLink' => '',
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
 			];
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
     }
 	
 	/**

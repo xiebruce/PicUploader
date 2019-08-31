@@ -49,6 +49,10 @@ class UploadGitee extends Upload{
 	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader [https://www.xiebruce.top/17.html]';
 	    $this->access_token = $ServerConfig['access_token'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    // https://gitee.com/xiebruce/imagebed/raw/master/2019/08/31/9ac6b79ca970fe0a6be2e5f31bf2bc59.jpeg
+	    $defaultDomain = 'https://gitee.com/' . $this->repo . '/raw/' . $this->branch;
+	    !$this->domain && $this->domain = $defaultDomain;
+	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -91,6 +95,12 @@ class UploadGitee extends Upload{
 			}
 			$uri = $this->repo . '/contents/'. $key;
 			$response = $client->request('POST', $uri, [
+				'curl' => [
+					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+					CURLOPT_SSL_VERIFYPEER => false,
+					CURLOPT_SSL_VERIFYHOST => false,
+				],
 				'json' => [
 					'access_token' => $this->access_token,
 					'message' => $this->message,
@@ -102,24 +112,28 @@ class UploadGitee extends Upload{
 			$string = $response->getBody()->getContents();
 			
 			if($response->getReasonPhrase() != 'Created'){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			
 			$returnArr = json_decode($string, true);
 			if(!isset($returnArr['content']['download_url'])){
-				throw new \Exception(var_export($returnArr, true));
+				throw new Exception(var_export($returnArr, true));
 			}
 			
-			if(!$this->domain){
-				$link = $returnArr['content']['download_url'];
-			}else{
-				$link = $this->domain . '/' .$returnArr['content']['path'];
-			}
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
     }
 }

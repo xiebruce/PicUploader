@@ -42,6 +42,9 @@ class UploadS3 extends Upload{
         $this->bucket = $ServerConfig['bucket'];
         $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    $defaultDomain = 'https://' . $this->bucket . '.s3.' . $this->region . '.amazonaws.com';
+	    !$this->domain && $this->domain = $defaultDomain;
+	    
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
@@ -61,13 +64,13 @@ class UploadS3 extends Upload{
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
+	 * @return array
 	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
 		    if($this->directory){
-			    $key = $this->directory. '/' . $key;
+			    $key = $this->directory . '/' . $key;
 		    }
 		    
 		    $config = [
@@ -84,25 +87,35 @@ class UploadS3 extends Upload{
 				    'proxy' => $this->proxy,
 			    ];
 		    }
-		    // var_dump($config);exit;
+
 		    $s3Client = new S3Client($config);
-		    $retObj = $s3Client->upload($this->bucket, $key, fopen($uploadFilePath, 'r'), 'public-read');
+		    $fp = fopen($uploadFilePath, 'rb');
+		    $retObj = $s3Client->upload($this->bucket, $key, $fp, 'public-read');
+		    is_resource($fp) && fclose($fp);
+		    
 		    if(!is_object($retObj)){
 			    throw new Exception(var_export($retObj, true));
 		    }
 			
 		    //返回链接格式：
 		    //https://markdownimgbed.s3.ap-northeast-1.amazonaws.com/2019/07/24/b7f2ea3fb8a86f710f24687924d17d64.png
-		    $link = $retObj->get('ObjectURL');
-		    if($this->domain){
-			    $defaultDomain = 'https://'.$this->bucket.'.s3.'.$this->region.'.amazonaws.com';
-			    $link = str_replace($defaultDomain, $this->domain,$link);
-		    }
+		    //可以这样获取返回的链接，但我们不用它，直接拼就可以
+		    // $link = $retObj->get('ObjectURL');
+		
+		    $data = [
+			    'code' => 0,
+			    'msg' => 'success',
+			    'key' => $key,
+			    'domain' => $this->domain,
+		    ];
 	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-		    $link = $e->getMessage();
-		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+		    $data = [
+			    'code' => -1,
+			    'msg' => $e->getMessage(),
+		    ];
+		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 	    }
-        return $link;
+        return $data;
     }
 }

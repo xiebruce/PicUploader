@@ -19,6 +19,10 @@ class UploadSmms extends Common {
 	public $proxy;
 	//上传token
 	public $token;
+	//域名
+	public $domain;
+	//默认域名
+	public $defaultDomain;
 	//上传目标服务器名称
 	public $uploadServer;
 	
@@ -40,6 +44,10 @@ class UploadSmms extends Common {
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    $this->token = $ServerConfig['token'] ?? '';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
+	    $this->defaultDomain = 'https://i.loli.net';
+	    $this->domain = $ServerConfig['domain'] ?? '';
+	    !$this->domain && $this->domain = $this->defaultDomain;
+	    
         $this->argv = $params['argv'];
         static::$config = $params['config'];
     }
@@ -61,11 +69,11 @@ class UploadSmms extends Common {
 				$useWatermark = static::$config['watermark']['useWatermark'] ?? 0;
 				$fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
 				$errMsg = 'Smms限制最大文件为10M，你上传的文件'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！\n";
-				throw new \Exception($errMsg);
+				throw new Exception($errMsg);
 			}
 			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
 				$errMsg = 'Smms只能上传图片，你上传的文件“'.$originFilename.'”不是图片，无法上传！';
-				throw new \Exception($errMsg);
+				throw new Exception($errMsg);
 			}
 			
 			$GuzzleConfig = [
@@ -78,17 +86,25 @@ class UploadSmms extends Common {
 			//实例化GuzzleHttp
 			$client = new Client($GuzzleConfig);
 			//upload file to https://sm.ms
+			$fp = fopen($uploadFilePath, 'rb');
 			$response = $client->request('POST', 'v2/upload?ssl=1', [
+				'curl' => [
+					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+					CURLOPT_SSL_VERIFYPEER => false,
+					CURLOPT_SSL_VERIFYHOST => false,
+				],
 				'headers' => [
 					'Authorization' => 'Basic '.$this->token,
 				],
 				'multipart' => [
 					[
 						'name'     => 'smfile',
-						'contents' => fopen($uploadFilePath, 'r')
+						'contents' => $fp,
 					],
 				]
 			]);
+			is_resource($fp) && fclose($fp);
 			
 			$string = $response->getBody()->getContents();
 			
@@ -101,22 +117,25 @@ class UploadSmms extends Common {
 				throw new Exception($string);
 			}
 			$data = $returnArr['data'];
-			// $deleteLink = 'Delete Link: '.$data['delete'];
+			$key = ltrim($data['path'], '/');
 			$deleteLink = $data['delete'];
-			// $link .= $this->formatLink($data['url'], $originFilename);
-			$link = [
-				'link' => $data['url'],
+			
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
 				'delLink' => $deleteLink,
 			];
 			
 		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = [
-				'link' => $e->getMessage(),
-				'delLink' => '',
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
 			];
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
     }
 }

@@ -594,11 +594,19 @@ $(document).ready(function (){
 					checked = (storageType[i].isActive != undefined && storageType[i].isActive==1) ? ' checked' : '';
 					storageTypeHtml +=
 						`<label><input type="checkbox" name="storageType[${i}][isActive]" value="1"${checked}>${storageType[i].name}</label>
-								<input type="hidden" name="storageType[${i}][name]" value="${storageType[i].name}">`;
+						<input type="hidden" name="storageType[${i}][name]" value="${storageType[i].name}">`;
 				}
 				let commonUsedDirStr = '';
 				if(data.commonUsedDirs!=null && data.commonUsedDirs!=undefined){
 					commonUsedDirStr = data.commonUsedDirs.join('\n')
+				}
+				let reverseProxyDomain = '';
+				if(data.reverseProxyDomain!=undefined && data.reverseProxyDomain!=null){
+					reverseProxyDomain = data.reverseProxyDomain;
+				}
+				let useReverseProxyDomain = '';
+				if(data.useReverseProxyDomain!=undefined && data.useReverseProxyDomain!=null){
+					useReverseProxyDomain = data.useReverseProxyDomain;
 				}
 				
 				var generalSettingsForm =
@@ -655,7 +663,7 @@ $(document).ready(function (){
 						</div>
 						<div class="form-group2 custom-link-type">
 							<label>自定义返回链接格式</label>
-							<textarea name="customFormat" rows="5" cols="30" placeholder="<p align=&quot;center&quot;><img src=&quot;{{url}}&quot; title=&quot;{{name}}&quot; alt=&quot;{{name}}&quot;></p>">${data.customFormat}</textarea>
+							<textarea name="customFormat" rows="5" cols="30" placeholder="<p align=&quot;center&quot;><img src=&quot;{{url}}&quot; title=&quot;{{name}}&quot; alt=&quot;{{name}}&quot;></p>">${data.customFormat!=undefined?data.customFormat:''}</textarea>
 						</div>
 						<div class="form-group2 video-link-type">
 							<label>视频返回链接格式</label>
@@ -675,7 +683,15 @@ $(document).ready(function (){
 						</div>
 						<div class="form-group2">
 							<label>常用目录(每行一个)</label>
-							<textarea name="common-used-dir" cols="30" rows="5">${commonUsedDirStr}</textarea>
+							<textarea name="commonUsedDir" cols="30" rows="5">${commonUsedDirStr}</textarea>
+						</div>
+						<div class="form-group reverse-proxy-domain">
+							<label>反向代理域名</label>
+							<input class="text" type="text" name="reverseProxyDomain" placeholder="请填写你的统一反向代理域名" value="${reverseProxyDomain}">
+							<label class="useReverseProxyDomain">
+							启用<input type="checkbox" name="useReverseProxyDomain" value="1"${useReverseProxyDomain=='1'?' checked':''}>
+							</label>
+							<span></span>
 						</div>
 					</div>
 					<div class="area">

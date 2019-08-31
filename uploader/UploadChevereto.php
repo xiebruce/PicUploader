@@ -17,6 +17,8 @@ class UploadChevereto extends Upload{
 	public $domain;
 	//api基础地址
 	public $siteUrl;
+	//默认域名
+	public $defaultDomain;
 	//是否使用代理
 	public $proxy;
 	//上传目标服务器名称
@@ -39,6 +41,7 @@ class UploadChevereto extends Upload{
 	    $this->siteUrl = $ServerConfig['siteUrl'] ?? '';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    $this->defaultDomain = $this->siteUrl;
 	    $this->uploadServer = ucfirst($params['uploadServer']);
 
         $this->argv = $params['argv'];
@@ -68,6 +71,12 @@ class UploadChevereto extends Upload{
 			
 			$uri = '/api/1/upload';
 			$response = $client->request('POST', $uri, [
+				'curl' => [
+					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+					CURLOPT_SSL_VERIFYPEER => false,
+					CURLOPT_SSL_VERIFYHOST => false,
+				],
 				'multipart' => [
 					[
 						'name'     => 'key',
@@ -85,24 +94,31 @@ class UploadChevereto extends Upload{
 			]);
 			$string = $response->getBody()->getContents();
 			if($response->getReasonPhrase() != 'OK'){
-				throw new \Exception($string);
+				throw new Exception($string);
 			}
 			
 			$returnArr = json_decode($string, true);
 			if(!isset($returnArr['status_code']) || $returnArr['status_code'] !== 200){
-				throw new \Exception(var_export($returnArr, true));
+				throw new Exception(var_export($returnArr, true));
 			}
 			
-			if(!$this->domain){
-				$link = $returnArr['image']['url'];
-			}else{
-				$link = str_replace($this->siteUrl, $this->domain, $returnArr['image']['url']);
-			}
+			$link = $returnArr['image']['url'];
+			//删除domain，只剩key部分(因为需要统一决定是使用这个域名还是使用反向代理域名)
+			$key = str_replace($this->defaultDomain . '/', '', $link);
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
     }
 }

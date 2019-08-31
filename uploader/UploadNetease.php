@@ -8,6 +8,8 @@
 
 namespace uploader;
 
+use Aws\S3\S3Client;
+use Exception;
 use NOS\NosClient;
 
 class UploadNetease extends Upload{
@@ -18,6 +20,7 @@ class UploadNetease extends Upload{
     //即domain，域名
     public $endPoint;
     public $domain;
+    public $region;
     public $directory;
 	//上传目标服务器名称
 	public $uploadServer;
@@ -41,7 +44,12 @@ class UploadNetease extends Upload{
         $this->bucket = $ServerConfig['bucket'];
         //endPoint不是域名，外链域名是 bucket.'.'.endPoint
         $this->endPoint = $ServerConfig['endPoint'];
+        $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    //http://markdown-bucket.nos-eastchina1.126.net/2019/08/30/d2c3738f9ce6293116b971b353ef70b5.jpg
+	    $defaultDomain = str_replace('//', '//'.$this->bucket.'.', $this->endPoint);
+	    !$this->domain && $this->domain = $defaultDomain;
+	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -60,30 +68,60 @@ class UploadNetease extends Upload{
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
-	 * @throws \NOS\Core\NosException
+	 * @return mixed|string
+	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
-		    $tmpArr = explode('/', $key);
-		    $newFileName = array_pop($tmpArr);
-		    $options[NosClient::NOS_HEADERS]['Cache-Control'] = 'max-age=31536000';
-		    $options[NosClient::NOS_HEADERS]['Content-Disposition'] = 'attachment; filename="'.$newFileName.'"';
-		
 		    if($this->directory){
-			    $key = $this->directory. '/' . $key;
+			    $key = $this->directory . '/' . $key;
 		    }
-		    $nosClient = new NosClient($this->accessKey, $this->secretKey, $this->endPoint);
-		    $nosClient->uploadFile($this->bucket, $key, $uploadFilePath, $options);
-		    if(!$this->domain){
-			    $this->domain = 'http://'.$this->bucket.'.'.$this->endPoint;
+		    
+		    $config = [
+			    'version' => 'latest',
+			    'region' => $this->region,
+			    'credentials' => [
+				    'key' => $this->accessKey,
+				    'secret' => $this->secretKey,
+			    ],
+			    'endpoint' => $this->endPoint,
+		    ];
+		    
+		    //如果有使用代理
+		    if($this->proxy){
+			    $config['http'] = [
+				    'proxy' => $this->proxy,
+			    ];
 		    }
-		    $link = $this->domain.'/'.$key;
+
+		    $s3Client = new S3Client($config);
+		    $fp = fopen($uploadFilePath, 'rb');
+		    $retObj = $s3Client->upload($this->bucket, $key, $fp, 'public-read');
+		    is_resource($fp) && fclose($fp);
+			
+		    if(!is_object($retObj)){
+			    throw new Exception(var_export($retObj, true));
+		    }
+		
+		    //返回链接格式：
+		    //http://markdown-bucket.nos-eastchina1.126.net/2019/08/30/d2c3738f9ce6293116b971b353ef70b5.jpg
+		    // 这样可以获取到返回的链接，但我们不需要，这个链接可以自己拼
+		    // $link = $retObj->get('ObjectURL');
+		    
+		    $data = [
+			    'code' => 0,
+			    'msg' => 'success',
+			    'key' => $key,
+			    'domain' => $this->domain,
+		    ];
 	    } catch (NosException $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-		    $link = $e->getMessage();
-		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+		    $data = [
+			    'code' => -1,
+			    'msg' => $e->getMessage(),
+		    ];
+		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 	    }
-        return $link;
+        return $data;
     }
 }

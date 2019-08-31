@@ -183,6 +183,12 @@ input, textarea {
 .log-path input{
 	width: 200px;
 }
+.reverse-proxy-domain input.text{
+	width: 280px;
+}
+label.useReverseProxyDomain{
+	min-width: auto;
+}
 .watermark-type {
 	display: none;
 }

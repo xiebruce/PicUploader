@@ -42,7 +42,7 @@ class UploadQiniu extends Common {
         $this->accessKey = $ServerConfig['AK'];
         $this->secretKey = $ServerConfig['SK'];
         $this->bucket = $ServerConfig['bucket'];
-        $this->domain = $ServerConfig['domain'];
+        $this->domain = $ServerConfig['domain'] ?? '';
 	
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
@@ -90,7 +90,7 @@ class UploadQiniu extends Common {
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
+	 * @return array
 	 * @throws Exception
 	 */
 	public function upload($key, $uploadFilePath){
@@ -100,23 +100,32 @@ class UploadQiniu extends Common {
 			// 构建 UploadManager 对象
 			$uploadMgr = new UploadManager();
 			if($this->directory){
-				$key = $this->directory. '/' . $key;
+				$key = $this->directory . '/' . $key;
 			}
 			// 调用 UploadManager 的 putFile 方法进行文件的上传。
 			list($ret, $err) = $uploadMgr->putFile($token, $key, $uploadFilePath);
 			if ($err !== null) {
-				throw new Exception(var_export($err, true)."\n");
-			} else {
-				//拼接域名和优化参数成为一个可访问的外链
-				$link = $this->domain . '/' . $ret['key'];
-				$optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
-				$optimize && $link .= $optimize;
+				throw new Exception(var_export($err, true));
 			}
+			
+			//拼接域名和优化参数
+			$optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
+			$optimize && $key .= $optimize;
+			
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
 	}
 }

@@ -49,6 +49,7 @@ class UploadNextcloud extends Upload{
 	    $this->username = $ServerConfig['username'];
 	    $this->password = $ServerConfig['password'];
 	    $this->baseUri = $ServerConfig['baseUri'];
+	    $this->domain = $this->baseUri;
 	    $this->DAVPath = '/remote.php/webdav/';
 
 	    $this->DAVSetting = [
@@ -315,8 +316,9 @@ class UploadNextcloud extends Upload{
 	 * Upload files to NextCloud
 	 * @param $key
 	 * @param $uploadFilePath
-	 *
-	 * @return string
+	 *  创建文件夹，上传文件：https://docs.nextcloud.com/server/12/developer_manual/client_apis/WebDAV/index.html
+	 *	分享文件：https://docs.nextcloud.com/server/9/developer_manual/core/ocs-share-api.html
+	 * @return array
 	 * @throws \ImagickException
 	 * @throws \Sabre\HTTP\ClientHttpException
 	 */
@@ -326,7 +328,7 @@ class UploadNextcloud extends Upload{
 		//分享文件：https://docs.nextcloud.com/server/9/developer_manual/core/ocs-share-api.html
 		try {
 			if($this->directory){
-				$key = $this->directory. '/' . $key;
+				$key = $this->directory . '/' . $key;
 			}
 			//------------------------ 创建文件夹 开始 -----------------------------
 			$pos = strrpos($key, '/');
@@ -346,21 +348,33 @@ class UploadNextcloud extends Upload{
 
 			//返回状态码为201表示上传文件成功(其实HTTP状态码201是表示资源在服务器创建成功)
 			if(!is_array($response) || !isset($response['statusCode']) || !$response['statusCode'] == 201){
-				throw new Exception(var_export($response, true)."\n");
+				throw new Exception(var_export($response, true));
 			}
 			
 			// 获取分享链接
+			// https://nextcloud.xiebruce.top/s/etJdniMaE9cpWJN/preview
 			$shareLink = $this->shareLink($key);
 			if(strpos($this->getMimeType($uploadFilePath), 'image')!==false){
 				$link = $shareLink . '/preview';
 			}else{
 				$link = $shareLink . '/download';
 			}
+			$key = str_replace($this->domain . '/', '', $link);
+			
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		} catch (Exception $e) {
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
     }
 }

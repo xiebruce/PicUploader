@@ -42,6 +42,10 @@ class UploadUcloud extends Upload{
         $this->bucket = $ServerConfig['bucket'];
         $this->endPoint = $ServerConfig['endPoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    // http://markdown-blog.ufile.ucloud.com.cn
+	    $defaultDomain = 'http://' . $this->bucket . '.' . $this->endPoint;
+	    !$this->domain && $this->domain = $defaultDomain;
+	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -71,7 +75,7 @@ class UploadUcloud extends Upload{
 			$UCLOUD_PROXY_SUFFIX = $this->proxySuffix;
 			
 			if($this->directory){
-				$key = $this->directory. '/' . $key;
+				$key = $this->directory . '/' . $key;
 			}
 			//初始化分片上传,获取本地上传的uploadId和分片大小
 			list($data, $err) = UCloud_MInit($this->bucket, $key);
@@ -91,15 +95,20 @@ class UploadUcloud extends Upload{
 				throw new Exception('UCloud_MFinish: '.var_export($err, true));
 			}
 			
-			if(!$this->domain){
-				$this->domain = 'http://'.$this->bucket.'.'.ltrim($this->endPoint, '.');
-			}
-			$link = $this->domain.'/'.$data['Key'];
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		}catch (Exception $e){
 			//上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
-		return $link;
+		return $data;
     }
 }

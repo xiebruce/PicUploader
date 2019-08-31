@@ -109,6 +109,12 @@ class UploadWeibo extends Common {
 			    'timeout'  => 10.0,
 		    ]);
 		    $response = $client->request('POST', '', [
+			    'curl' => [
+				    //如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+				    //CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+				    // CURLOPT_SSL_VERIFYPEER => false,
+				    // CURLOPT_SSL_VERIFYHOST => false,
+			    ],
 			    'form_params' => $loginData
 		    ]);
 		
@@ -124,9 +130,9 @@ class UploadWeibo extends Common {
 			    file_put_contents(self::COOKIE_CACHE_FILE, json_encode($cookie));
 		    }else{
 			    $string = $response->getBody()->getContents();
-			    throw new \Exception('Login faild: '.$string);
+			    throw new Exception('Login faild: '.$string);
 	        }
-	    }catch (\Exception $e){
+	    }catch (Exception $e){
 			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
 			$this->writeLog($e->getMessage()."\n", 'error_log');
 		}
@@ -166,8 +172,9 @@ class UploadWeibo extends Common {
 	 * @param $uploadFilePath
 	 * @param $originFilename
 	 *
-	 * @return String
+	 * @return array
 	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 * @throws \ImagickException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
 		try{
@@ -176,11 +183,11 @@ class UploadWeibo extends Common {
 				$useWatermark = static::$config['watermark']['useWatermark'] ?? 0;
 				$fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
 				$errMsg = 'PicUploader限制上传到微博的最大图片为20M，你上传的文件'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！";
-				throw new \Exception($errMsg);
+				throw new Exception($errMsg);
 			}
 			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
 				$errMsg = '微博图床只能上传图片，你上传的文件“'.$originFilename.'”不是图片，无法上传！';
-				throw new \Exception($errMsg);
+				throw new Exception($errMsg);
 			}
 			
 			//实例化GuzzleHttp
@@ -189,16 +196,27 @@ class UploadWeibo extends Common {
 				'timeout'  => 10.0,
 			]);
 			$cookieJar = CookieJar::fromArray($this->cookie, 'picupload.service.weibo.com');
-			
+			// $fp = fopen($uploadFilePath, 'rb');
 			$response = $client->request('POST', '', [
+				/*'curl' => [
+					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+					// CURLOPT_SSL_VERIFYPEER => false,
+					// CURLOPT_SSL_VERIFYHOST => false,
+				],*/
 				'cookies' => $cookieJar,
 				'multipart' => [
-					[
+					/*[
 						'name' => 'pic1',
-						'contents' => fopen($uploadFilePath, 'r')
+						'contents' => $fp
+					],*/
+					[
+						'name' => 'b64_data',
+						'contents' => base64_encode(file_get_contents($uploadFilePath))
 					],
 				]
 			]);
+			// is_resource($fp) && fclose($fp);
 			
 			$string = $response->getBody()->getContents();
 			
@@ -214,13 +232,22 @@ class UploadWeibo extends Common {
 			}
 			
 			$link = $this->getUrl($arr['data']['pics']['pic_1']['pid']);
-			
+			var_dump($link);
+			$data = [
+				'code' => 0,
+				'msg' => 'success',
+				'key' => $key,
+				'domain' => $this->domain,
+			];
 		}catch (Exception $e){
 			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-			$link = $e->getMessage();
-			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+			$data = [
+				'code' => -1,
+				'msg' => $e->getMessage(),
+			];
+			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
 		
-		return $link;
+		return $data;
 	}
 }

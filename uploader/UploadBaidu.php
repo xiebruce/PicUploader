@@ -42,6 +42,9 @@ class UploadBaidu extends Upload{
 	    ];
 	    $this->bucket = $ServerConfig['bucket'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    $defaultDomain = str_replace('//', '//'.$this->bucket.'.', $this->bosConfig['endpoint']);
+	    !$this->domain && $this->domain = $defaultDomain;
+	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
 		    $this->directory = date('Y/m/d');
@@ -60,31 +63,37 @@ class UploadBaidu extends Upload{
 	 * @param $key
 	 * @param $uploadFilePath
 	 *
-	 * @return string
-	 * @throws \Exception
+	 * @return array
 	 */
 	public function upload($key, $uploadFilePath){
 	    try {
 		    $bosClient = new BosClient($this->bosConfig);
 		    if($this->directory){
-			    $key = $this->directory. '/' . $key;
+			    $key = $this->directory . '/' . $key;
+		    }
+		    if(!is_file($uploadFilePath)){
+			    throw new Exception('file '. $uploadFilePath . ' does not exists.');
 		    }
 		    $retArr = $bosClient->putObjectFromFile($this->bucket, $key, $uploadFilePath);
-		    if(!isset($retArr->metadata['etag'])){
-			    throw new Exception(var_export($retArr, true)."\n\n");
-		    }
 		    // var_dump($retArr);exit;
-		    if(!$this->domain){
-		    	$endpoint = $this->bosConfig['endpoint'];
-		    	$pos = strpos($endpoint, '://') + 3;
-		    	$this->domain = substr($endpoint, 0, $pos) . $this->bucket . '.' . substr($endpoint, $pos);
+		    if(!isset($retArr->metadata['etag'])){
+			    throw new Exception(var_export($retArr, true));
 		    }
-		    $link = $this->domain.'/'.$key;
+
+		    $data = [
+		    	'code' => 0,
+			    'msg' => 'success',
+		    	'key' => $key,
+			    'domain' => $this->domain,
+		    ];
 	    } catch (Exception $e) {
 		    //上传出错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)
-		    $link = $e->getMessage();
-		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage(), 'error_log');
+		    $data = [
+			    'code' => -1,
+		    	'msg' => $e->getMessage(),
+		    ];
+		    $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 	    }
-		return $link;
+		return $data;
     }
 }
