@@ -225,10 +225,10 @@
 		 */
 		function save($filename = null, $quality = null) {
 			$filename = $filename ? $filename : $this->filename;
-			imageinterlace ( $this->image, true );
 			// Determine format via file extension (fall back to original format)
 			$ext = $this->file_ext ( $filename );
 			$format = $ext ? $ext : $this->original_info ['format'];
+			imageinterlace ( $this->image, true );
 			// Determine output format
 			switch (strtolower($format)) {
 				case 'gif' :

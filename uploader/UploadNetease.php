@@ -18,7 +18,7 @@ class UploadNetease extends Upload{
     public $secretKey;
     public $bucket;
     //即domain，域名
-    public $endPoint;
+    public $endpoint;
     public $domain;
     public $region;
     public $directory;
@@ -42,12 +42,12 @@ class UploadNetease extends Upload{
         $this->accessKey = $ServerConfig['accessKey'];
         $this->secretKey = $ServerConfig['accessSecret'];
         $this->bucket = $ServerConfig['bucket'];
-        //endPoint不是域名，外链域名是 bucket.'.'.endPoint
-        $this->endPoint = $ServerConfig['endPoint'];
+        //endpoint不是域名，外链域名是 bucket.'.'.endpoint
+        $this->endpoint = $ServerConfig['endpoint'];
         $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    //http://markdown-bucket.nos-eastchina1.126.net/2019/08/30/d2c3738f9ce6293116b971b353ef70b5.jpg
-	    $defaultDomain = str_replace('//', '//'.$this->bucket.'.', $this->endPoint);
+	    $defaultDomain = str_replace('//', '//'.$this->bucket.'.', $this->endpoint);
 	    !$this->domain && $this->domain = $defaultDomain;
 	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
@@ -84,7 +84,7 @@ class UploadNetease extends Upload{
 				    'key' => $this->accessKey,
 				    'secret' => $this->secretKey,
 			    ],
-			    'endpoint' => $this->endPoint,
+			    'endpoint' => $this->endpoint,
 		    ];
 		    
 		    //如果有使用代理

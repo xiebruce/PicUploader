@@ -16,7 +16,7 @@ class UploadUcloud extends Upload{
     public $privateKey;
     public $proxySuffix;
 	public $bucket;
-	public $endPoint;
+	public $endpoint;
 	public $domain;
 	public $directory;
 	//上传目标服务器名称
@@ -40,10 +40,10 @@ class UploadUcloud extends Upload{
         $this->privateKey = $ServerConfig['privateKey'];
         $this->proxySuffix = $ServerConfig['proxySuffix'];
         $this->bucket = $ServerConfig['bucket'];
-        $this->endPoint = $ServerConfig['endPoint'];
+        $this->endpoint = $ServerConfig['endpoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    // http://markdown-blog.ufile.ucloud.com.cn
-	    $defaultDomain = 'http://' . $this->bucket . '.' . $this->endPoint;
+	    $defaultDomain = 'http://' . $this->bucket . '.' . $this->endpoint;
 	    !$this->domain && $this->domain = $defaultDomain;
 	    
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){

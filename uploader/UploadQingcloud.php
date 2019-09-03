@@ -41,7 +41,7 @@ class UploadQingcloud extends Upload{
 		$this->accessKeyId = $ServerConfig['accessKeyId'];
 		$this->secretAccessKey = $ServerConfig['secretAccessKey'];
 		$this->bucket = $ServerConfig['bucket'];
-		//endPoint不是域名，外链域名是 bucket.'.'.endPoint
+		//endpoint不是域名，外链域名是 bucket.'.'.endpoint
 		$this->zone = $ServerConfig['zone'];
 		$this->domain = $ServerConfig['domain'] ?? '';
 		// http://blog-markdown.gd2.qingstor.com

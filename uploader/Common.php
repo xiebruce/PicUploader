@@ -64,50 +64,50 @@ class Common {
      * @throws \ImagickException
      */
     public function optimizeImage($filePath, $resizeOptions, $quality=null){
-        $tmpImgPath = '';
         //We don't optimize gif image for the moment, cause it need extra tools. (e.g. gifsicle)
-        if($this->getMimeType($filePath) != 'image/gif'){
-            $optimize = false;
-            //图片宽高
-	        $imageSize = getimagesize($filePath);
-	        //图片宽度
-	        $width = $imageSize[0] ?? 0;
-	        //图片调试
-	        $height = $imageSize[1] ?? 0;
-	        //图片文件大小
-	        $fileSize = filesize($filePath);
-	        //使用新的压缩方式(百分比)
-	        if(is_array($resizeOptions)){
-	            $percentage = (int)$resizeOptions['percentage'] / 100;
-	            $widthGreaterThan = (int)$resizeOptions['widthGreaterThan'];
-	            $heightGreaterThan = (int)$resizeOptions['heightGreaterThan'];
-	            $carry = PHP_OS == 'Darwin' ? 1000 : 1024;
-		        $sizeBiggerThan = (int)$resizeOptions['sizeBiggerThan'] * $carry;
-		        
-		        if($width > $widthGreaterThan || $height > $heightGreaterThan || $fileSize > $sizeBiggerThan){
-			        $optimize = true;
-		        }
-	        }
+	    $mime = $this->getMimeType($filePath);
+	    if(!preg_match('/image\/(jpeg|png|bmp|webp)/', $mime)){
+	    	return false;
+	    }
 	
-	        if(strpos($filePath, '.tmp') === false){
-		        $tmpDir = APP_PATH.'/.tmp';
-		        !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
-		        $tmpImgPath = $tmpDir . '/.' . $this->getRandString() . '.' . $this->getFileExt($filePath);
-	        }else{
-		        //$filePath is a tmp file
-		        $tmpImgPath = $filePath;
-	        }
-            if($optimize){
-	            //if no tmp file then create one
-                $img = new EasyImage($filePath);
-	            if($width > $height){
-		            $img->fit_to_width($width * $percentage);
-	            }else if($height > $width){
-		            $img->fit_to_height($height * $percentage);
-	            }
-                $img->save($tmpImgPath, $quality);
-            }
-        }
+	    $optimize = false;
+	    //图片宽高
+	    $imageSize = getimagesize($filePath);
+	    //图片宽度
+	    $width = $imageSize[0] ?? 0;
+	    //图片调试
+	    $height = $imageSize[1] ?? 0;
+	    //图片文件大小
+	    $fileSize = filesize($filePath);
+	    $percentage = (int)$resizeOptions['percentage'] / 100;
+	    $widthGreaterThan = (int)$resizeOptions['widthGreaterThan'];
+	    $heightGreaterThan = (int)$resizeOptions['heightGreaterThan'];
+	    $carry = PHP_OS == 'Darwin' ? 1000 : 1024;
+	    $sizeBiggerThan = (int)$resizeOptions['sizeBiggerThan'] * $carry;
+	
+	    if($width > $widthGreaterThan || $height > $heightGreaterThan || $fileSize > $sizeBiggerThan){
+		    $optimize = true;
+	    }
+	
+	    //$filePath is a tmp file
+	    $tmpImgPath = $filePath;
+	    if(strpos($filePath, '.tmp') === false){
+		    $tmpDir = APP_PATH.'/.tmp';
+		    !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
+		    $tmpImgPath = $tmpDir . '/.' . $this->getRandString() . '.' . $this->getFileExt($filePath);
+	    }
+	    
+	    if($optimize){
+		    //if no tmp file then create one
+		    $img = new EasyImage($filePath);
+		    if($width > $height){
+			    $img->fit_to_width($width * $percentage);
+		    }else if($height > $width){
+			    $img->fit_to_height($height * $percentage);
+		    }
+		    $img->save($tmpImgPath, $quality);
+	    }
+	    
         return $tmpImgPath;
     }
 	
@@ -120,8 +120,7 @@ class Common {
 	 * @throws \Exception
 	 */
 	public function watermark($filePath, $quality){
-	    $img = new EasyImage();
-	    $img->load($filePath);
+	    $img = new EasyImage($filePath);
 	    $watermarkConfig = static::$config['watermark'];
 	    $type = $watermarkConfig['type'];
 		

@@ -110,9 +110,9 @@ class Upload extends Common {
 			
 			// 原始文件路径
 			$uploadFilePath = $filePath;
-
+			
 			//如果是图片则做压缩和水印处理
-			if(strpos($mimeType, 'image')!==false && $mimeType!=='image/svg'){
+			if(strpos($mimeType, 'image')!==false && !preg_match('/image\/(gif|svg|x-icon)/', $mimeType)){
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
 				
 				//添加水印

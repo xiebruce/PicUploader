@@ -50,8 +50,8 @@
 				//以后如果有华南1估计就是“cn-south-1”，以后有华北就是“cn-north-1”等。
 				'region' => 'cn-east-1',
 				'bucket' => 'markdown-bucket',
-				//endPoint不是域名，域名是 bucket.'.'.endPoint
-				'endPoint' => 'http://nos-eastchina1.126.net',
+				//endpoint不是域名，域名是 bucket.'.'.endpoint
+				'endpoint' => 'http://nos-eastchina1.126.net',
 				//如果不填domain，则自动拼装网易云给的域名
 				'domain' => '',
 				//存储目录，可使用年月日点位符，如 {Y}/{m}/{d}，真正被解析出来的时候会被替换成当前的年月日(如 2019/05/10)
@@ -60,7 +60,6 @@
 			],
 			
 			//baidu Cloud
-			//由于未知原因，阿里云与百度云目前开启图片压缩和水印将导致上传失败，排查出问题会马上更新
 			'baidu' => [
 				'name' => '百度云',
 				'accessKeyId' => '4fdda******************91b5',
@@ -153,9 +152,9 @@
 				//比如我的域名叫：markdown-blog.cn-gd.ufileos.com，那么“markdown-blog”是自己填的，“.cn-gd.ufileos.com”是自动的，因为我选的是广东，所以“cn-”后面是“gd”，如果我选的是北京，那么“cn-”后面就是“bj”
 				'proxySuffix' => '.cn-**.ufileos.com',
 				'bucket' => 'mar******log',
-				//endPoint，cdn加速域名是bucket名+endPoint组成，Ucloud中没有endPoint的说法，
-				//但其实这就是endPoint，这个值请自己复制cdn加速域名除去bucket名部分到这里（不包含英文句点）
-				'endPoint' => 'ufile.ucloud.com.cn',
+				//endpoint，cdn加速域名是bucket名+endpoint组成，Ucloud中没有endpoint的说法，
+				//但其实这就是endpoint，这个值请自己复制cdn加速域名除去bucket名部分到这里（不包含英文句点）
+				'endpoint' => 'ufile.ucloud.com.cn',
 				//如果不写，则自动拼装Ucloud给的域名
 				'domain' => '',
 				//存储目录，可使用年月日点位符，如 {Y}/{m}/{d}，真正被解析出来的时候会被替换成当前的年月日(如 2019/05/10)

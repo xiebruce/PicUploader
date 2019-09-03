@@ -9,6 +9,7 @@
 
 namespace uploader;
 
+use Aws\S3\S3Client;
 use Exception;
 use OSS\OssClient;
 
@@ -66,23 +67,56 @@ class UploadAliyun extends Upload{
 	 * Upload files to Aliyun OSS(Object Storage Service)
 	 * @param $key
 	 * @param $uploadFilePath
+	 * @param $useS3CompatibleApi
 	 *
 	 * @return array
 	 */
-	public function upload($key, $uploadFilePath){
+	public function upload($key, $uploadFilePath, $useS3CompatibleApi=true){
 	    try {
 	    	if($this->directory){
 			    $key = $this->directory . '/' . $key;
 		    }
-		    
-		    $oss = new OssClient($this->accessKey, $this->secretKey, $this->endpoint);
-		    if(!is_file($uploadFilePath)){
-			    throw new Exception('file '. $uploadFilePath . ' does not exists.');
-		    }
-
-		    $retArr = $oss->uploadFile($this->bucket, $key, $uploadFilePath);
-		    if(!isset($retArr['info']['url'])){
-			    throw new Exception(var_export($retArr, true));
+		
+	    	if($useS3CompatibleApi){
+			    $region = str_replace('.aliyuncs.com', '', $this->endpoint);
+			    // ======================== 阿里云s3兼容api start =========================
+			    $config = [
+				    'version'     => 'latest',
+				    'region'      => $region,
+				    'credentials' => [
+					    'key'    => $this->accessKey,
+					    'secret' => $this->secretKey,
+				    ],
+				    'endpoint' => 'http://'.$this->endpoint,
+				    'signature_version' => 'v4',
+			    ];
+			
+			    $s3Client = new S3Client($config);
+			    $fp = fopen($uploadFilePath, 'rb');
+			    $retObj = $s3Client->upload($this->bucket, $key, $fp, 'public-read');
+			    is_resource($fp) && fclose($fp);
+			
+			    if(!is_object($retObj)){
+				    throw new Exception(var_export($retObj, true));
+			    }
+			
+			    //返回链接格式：
+			    //http://markdown.s3.gz.bcebos.com/8b7c7cf23652d92afa50668fd10aaba9.jpg
+			    //可以这样获取返回的链接，但我们不用它，直接拼就可以
+			    // $link = $retObj->get('ObjectURL');
+			    // ======================== 阿里云s3兼容api end =========================
+		    }else{
+			    // ======================== 阿里云api start =========================
+			    $oss = new OssClient($this->accessKey, $this->secretKey, $this->endpoint);
+			    if(!is_file($uploadFilePath)){
+				    throw new Exception('file '. $uploadFilePath . ' does not exists.');
+			    }
+			
+			    $retArr = $oss->uploadFile($this->bucket, $key, $uploadFilePath);
+			    if(!isset($retArr['info']['url'])){
+				    throw new Exception(var_export($retArr, true));
+			    }
+			    // ======================== 阿里云api end =========================
 		    }
 		    
 		    //上传后返回的链接，但返回的链接不需要，因为图片链接一定是默认域名+key
