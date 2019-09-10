@@ -7,8 +7,7 @@
     -->
     <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
   </rule>
-  <exclude-pattern>src/ApiCore/Jison</exclude-pattern>
-  <exclude-pattern>src/ApiCore/LongRunning</exclude-pattern>
-  <exclude-pattern>src/ApiCore/Testing</exclude-pattern>
-  <file>src/ApiCore</file>
+  <exclude-pattern>src/LongRunning</exclude-pattern>
+  <exclude-pattern>src/Testing</exclude-pattern>
+  <file>src</file>
 </ruleset>

@@ -97,20 +97,7 @@ class FiltersBuilder
      */
     public function setMediaTypeFromString($mediaType)
     {
-        switch ($mediaType) {
-            case "ALL_MEDIA":
-                $this->mediaType = MediaType::ALL_MEDIA;
-                break;
-            case "PHOTO":
-                $this->mediaType = MediaType::PHOTO;
-                break;
-            case "VIDEO":
-                $this->mediaType = MediaType::VIDEO;
-                break;
-            default:
-                throw new \InvalidArgumentException($mediaType . " is not a valid MediaType");
-        }
-
+        $this->mediaType = MediaType::value($mediaType);
         return $this;
     }
 
@@ -124,82 +111,6 @@ class FiltersBuilder
     {
         $this->mediaType = $mediaType;
         return $this;
-    }
-
-    /**
-     * Converts a string into a {@link ContentCategory}.
-     *
-     * @param string $category A stringified version of a ContentCategory, e.g. "NONE".
-     * @throws \InvalidArgumentException if $category is not an element of
-     *     {@link PhotosLibraryClient::contentCategories()}.
-     * @return int A constant from ContentCategory.
-     */
-    private function convertToCategory($category)
-    {
-        switch ($category) {
-            case "NONE":
-                return ContentCategory::NONE;
-                break;
-            case "LANDSCAPES":
-                return ContentCategory::LANDSCAPES;
-                break;
-            case "RECEIPTS":
-                return ContentCategory::RECEIPTS;
-                break;
-            case "CITYSCAPES":
-                return ContentCategory::CITYSCAPES;
-                break;
-            case "LANDMARKS":
-                return ContentCategory::LANDMARKS;
-                break;
-            case "SELFIES":
-                return ContentCategory::SELFIES;
-                break;
-            case "PEOPLE":
-                return ContentCategory::PEOPLE;
-                break;
-            case "PETS":
-                return ContentCategory::PETS;
-                break;
-            case "WEDDINGS":
-                return ContentCategory::WEDDINGS;
-                break;
-            case "BIRTHDAYS":
-                return ContentCategory::BIRTHDAYS;
-                break;
-            case "DOCUMENTS":
-                return ContentCategory::DOCUMENTS;
-                break;
-            case "TRAVEL":
-                return ContentCategory::TRAVEL;
-                break;
-            case "ANIMALS":
-                return ContentCategory::ANIMALS;
-                break;
-            case "FOOD":
-                return ContentCategory::FOOD;
-                break;
-            case "SPORT":
-                return ContentCategory::SPORT;
-                break;
-            case "NIGHT":
-                return ContentCategory::NIGHT;
-                break;
-            case "PERFORMANCES":
-                return ContentCategory::PERFORMANCES;
-                break;
-            case "WHITEBOARDS":
-                return ContentCategory::WHITEBOARDS;
-                break;
-            case "SCREENSHOTS":
-                return ContentCategory::SCREENSHOTS;
-                break;
-            case "UTILITY":
-                return ContentCategory::UTILITY;
-                break;
-            default:
-                throw new \InvalidArgumentException($category . " is not a valid category.");
-        }
     }
 
     /**
@@ -223,7 +134,7 @@ class FiltersBuilder
      */
     public function addIncludedCategoryFromString($category)
     {
-        return $this->addIncludedCategory($this->convertToCategory($category));
+        return $this->addIncludedCategory(ContentCategory::value($category));
     }
 
     /**
@@ -271,7 +182,7 @@ class FiltersBuilder
      */
     public function addExcludedCategoryFromString($category)
     {
-        return $this->addExcludedCategory($this->convertToCategory($category));
+        return $this->addExcludedCategory(ContentCategory::value($category));
     }
 
     /**

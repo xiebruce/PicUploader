@@ -49,7 +49,7 @@ use Google\Rpc\Code;
 use stdClass;
 
 /**
- * @group photoslibrary
+ * @group library
  * @group gapic
  */
 class PhotosLibraryClientTest extends GeneratedTest
@@ -63,14 +63,22 @@ class PhotosLibraryClientTest extends GeneratedTest
     }
 
     /**
+     * @return CredentialsWrapper
+     */
+    private function createCredentials()
+    {
+        return $this->getMockBuilder(CredentialsWrapper::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+    }
+
+    /**
      * @return PhotosLibraryClient
      */
     private function createClient(array $options = [])
     {
         $options += [
-            'credentials' => $this->getMockBuilder(CredentialsWrapper::class)
-                ->disableOriginalConstructor()
-                ->getMock(),
+            'credentials' => $this->createCredentials(),
         ];
 
         return new PhotosLibraryClient($options);

@@ -1,17 +1,9 @@
 <?php
 
 namespace Qcloud\Cos;
+use GuzzleHttp\Command\Command as CommandInterface;
 
-use Guzzle\Service\Command\OperationCommand;
-use Guzzle\Service\Resource\Model;
-use Guzzle\Common\Event;
-
-/**
- * Adds functionality to Qcloud Cos commands:
- *   - Adds the PutObject URL to a response
- *   - Allows creating a Pre-signed URL from any command
- */
-class Command extends OperationCommand {
+class Command extends GuzzleCommand {
     /**
      * Create a pre-signed URL for the operation
      *
@@ -21,18 +13,18 @@ class Command extends OperationCommand {
      */
     public function createPresignedUrl($expires)
     {
-        return $this->client->createPresignedUrl($this->prepare(), $expires);
+        // return $this->client->createPresignedUrl($this->prepare(), $expires);
     }
     public function createAuthorization($expires)
     {
-        return $this->client->createAuthorization($this->prepare(), $expires);
+        // return $this->client->createAuthorization($this->prepare(), $expires);
     }
 
     protected function process() {
         parent::process();
         // Set the GetObject URL if using the PutObject operation
         if ($this->result instanceof Model && $this->getName() == 'PutObject') {
-            $request = $this->getRequest();;
+            $request = $this->getRequest();
             $this->result->set('ObjectURL', $request->getUrl());
         }
     }

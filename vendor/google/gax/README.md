@@ -33,7 +33,7 @@ Contributions to this library are always welcome and highly encouraged.
 
 See the [CONTRIBUTING][] documentation for more information on how to get started.
 
-[CONTRIBUTING]: https://github.com/googleapis/gax-php/blob/master/CONTRIBUTING.md
+[CONTRIBUTING]: https://github.com/googleapis/gax-php/blob/master/.github/CONTRIBUTING.md
 
 
 Versioning
@@ -41,9 +41,7 @@ Versioning
 
 This library follows [Semantic Versioning][].
 
-It is currently in major version zero (``0.y.z``), which means that anything
-may change at any time and the public API should not be considered
-stable.
+This library is considered GA (generally available). As such, it will not introduce backwards-incompatible changes in any minor or patch releases. We will address issues and requests with the highest priority.
 
 [Semantic Versioning]: http://semver.org/
 

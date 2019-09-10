@@ -8,7 +8,9 @@
 
 namespace uploader;
 
+use Aws\S3\S3Client;
 use Exception;
+use GuzzleHttp\Command\Result;
 use Qcloud\Cos\Client;
 
 class UploadTencent extends Common {
@@ -61,33 +63,77 @@ class UploadTencent extends Common {
 	 * Upload files to Tecent COS(Cloud Object Storage)
 	 * @param $key
 	 * @param $uploadFilePath
+	 * @param $useS3CompatibleApi
 	 *
 	 * @return array
 	 */
-	public function upload($key, $uploadFilePath){
+	public function upload($key, $uploadFilePath, $useS3CompatibleApi=false){
         try{
-	        $cosClient = new Client([
-		        'region' => $this->region,
-		        'credentials' => [
-			        'secretId' => $this->secretId,
-			        'secretKey' => $this->secretKey,
-		        ],
-	        ]);
 	        if($this->directory){
 		        $key = $this->directory . '/' . $key;
 	        }
-	        $fp = fopen($uploadFilePath, 'rb');
-	        $retObj = $cosClient->Upload($this->bucket, $key, $fp);
-	        is_resource($fp) && fclose($fp);
-	        
-	        if (!is_object($retObj) || !$retObj->get('Location')) {
-		        //上传数错，抛出异常
-		        throw new Exception(var_export($retObj, true));
+	
+	        if($useS3CompatibleApi){
+		        // ================= s3兼容 接口 start ==================
+		        $endpoint = 'https://cos.' . $this->region . '.myqcloud.com';
+		        $config = [
+			        'version'     => 'latest',
+			        'region'      => $this->region,
+			        'credentials' => [
+				        'key'    => $this->secretId,
+				        'secret' => $this->secretKey,
+			        ],
+			        'endpoint' => $endpoint,
+			        'signature_version' => 'v4',
+		        ];
+		
+		        $s3Client = new S3Client($config);
+		        $fp = fopen($uploadFilePath, 'rb');
+		        $retObj = $s3Client->upload($this->bucket, $key, $fp, 'public-read');
+		        is_resource($fp) && fclose($fp);
+				
+		        if(!is_object($retObj) || !$retObj->get('ObjectURL')){
+			        throw new Exception(var_export($retObj, true));
+		        }
+		
+		        //返回链接格式：
+		        //https://markdown-1254010860.cos.ap-guangzhou.myqcloud.com/2019/09/10/d9431e84fa2c07024af4b8d3b9cb0b7e.jpg
+		        //可以这样获取返回的链接，但我们不用它，直接拼就可以
+		        // $link = $retObj->get('ObjectURL');
+		        // ================= s3兼容 接口 end ==================
+	        }else{
+		        $cosClient = new Client([
+			        'region' => $this->region,
+			        'credentials' => [
+				        'secretId' => $this->secretId,
+				        'secretKey' => $this->secretKey,
+			        ],
+		        ]);
+		
+		        $fp = fopen($uploadFilePath, 'rb');
+		        /** @var Result $retObj */
+		        $retObj = $cosClient->Upload($this->bucket, $key, $fp);
+		        is_resource($fp) && fclose($fp);
+		
+		        /** 返回对象格式
+		        object(GuzzleHttp\Command\Result)#101 (2) {
+		        ["ETag"]=>
+		        string(34) ""fa11f89f42cb84117ca7c6a3e5b922aa""
+		        ["RequestId"]=>
+		        string(40) "NWQ3NzBmNmNfY2JhMzNiMGFfNGNlMF8xNWM5Mzdj"
+		        }
+		         */
+		        if (!is_object($retObj)) {
+			        //上传数错，抛出异常
+			        throw new Exception(var_export($retObj, true));
+		        }
+		        $retArr = $retObj->toArray();
+		        if(!isset($retArr['ETag'])){
+			        //上传数错，抛出异常
+			        throw new Exception(var_export($retObj, true));
+		        }
 	        }
-	
-	        //这样可以拿到外链，但因为可以自己接，所以不需要用这个拿
-	        // $link = urldecode($retObj->get('Location'));
-	
+	        
 	        $data = [
 		        'code' => 0,
 		        'msg' => 'success',

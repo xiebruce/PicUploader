@@ -3,7 +3,7 @@
 # Script to build doc site.
 # This script expects to be invoked from the gax-php root.
 #
-# This script will look for the TRAVIS_TAG cenvironment variable, and
+# This script will look for the TRAVIS_TAG environment variable, and
 # use that as the version number. If no environment variable is found,
 # it will use the first command line argument. If no command line
 # argument is specified, default to 'master'.

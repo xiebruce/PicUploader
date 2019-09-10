@@ -78,7 +78,7 @@ class FiltersBuilderTest extends GeneratedTest
 
     public function testAddInvalidIncludedCategory()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\UnexpectedValueException::class);
         FiltersBuilder::construct()
             ->addIncludedCategoryFromString("not a category");
     }
@@ -114,7 +114,7 @@ class FiltersBuilderTest extends GeneratedTest
 
     public function testAddInvalidExcludedCategory()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\UnexpectedValueException::class);
         FiltersBuilder::construct()
             ->addExcludedCategoryFromString("not a category");
     }
@@ -160,7 +160,7 @@ class FiltersBuilderTest extends GeneratedTest
 
     public function testAddInvalidMediaType()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(\UnexpectedValueException::class);
         FiltersBuilder::construct()->setMediaTypeFromString("not a media type");
     }
 

@@ -44,6 +44,12 @@ class ShareInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool is_joined = 4;</code>
      */
     private $is_joined = false;
+    /**
+     * True if the user owns the album.
+     *
+     * Generated from protobuf field <code>bool is_owned = 5;</code>
+     */
+    private $is_owned = false;
 
     /**
      * Constructor.
@@ -63,6 +69,8 @@ class ShareInfo extends \Google\Protobuf\Internal\Message
      *     @type bool $is_joined
      *           True if the user has joined the album. This is always true for the owner
      *           of the shared album.
+     *     @type bool $is_owned
+     *           True if the user owns the album.
      * }
      */
     public function __construct($data = NULL) {
@@ -178,6 +186,32 @@ class ShareInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->is_joined = $var;
+
+        return $this;
+    }
+
+    /**
+     * True if the user owns the album.
+     *
+     * Generated from protobuf field <code>bool is_owned = 5;</code>
+     * @return bool
+     */
+    public function getIsOwned()
+    {
+        return $this->is_owned;
+    }
+
+    /**
+     * True if the user owns the album.
+     *
+     * Generated from protobuf field <code>bool is_owned = 5;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsOwned($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->is_owned = $var;
 
         return $this;
     }

@@ -95,8 +95,8 @@ class UploadAliyun extends Upload{
 			    $fp = fopen($uploadFilePath, 'rb');
 			    $retObj = $s3Client->upload($this->bucket, $key, $fp, 'public-read');
 			    is_resource($fp) && fclose($fp);
-			
-			    if(!is_object($retObj)){
+			    
+			    if(!is_object($retObj) || !$retObj->get('ObjectURL')){
 				    throw new Exception(var_export($retObj, true));
 			    }
 			

@@ -44,17 +44,17 @@
     },
     {
         "name": "aws/aws-sdk-php",
-        "version": "3.106.1",
-        "version_normalized": "3.106.1.0",
+        "version": "3.110.11",
+        "version_normalized": "3.110.11.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aws/aws-sdk-php.git",
-            "reference": "ed3bd17b8a6caa5c99ed5fe559d061a1f9fc2c8c"
+            "reference": "3f222649634fa039c59f58082e60159a6bb59bbf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ed3bd17b8a6caa5c99ed5fe559d061a1f9fc2c8c",
-            "reference": "ed3bd17b8a6caa5c99ed5fe559d061a1f9fc2c8c",
+            "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f222649634fa039c59f58082e60159a6bb59bbf",
+            "reference": "3f222649634fa039c59f58082e60159a6bb59bbf",
             "shasum": ""
         },
         "require": {
@@ -88,7 +88,7 @@
             "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
             "ext-sockets": "To use client-side monitoring"
         },
-        "time": "2019-07-10T18:29:49+00:00",
+        "time": "2019-09-06T18:21:14+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -288,17 +288,17 @@
     },
     {
         "name": "google/auth",
-        "version": "v1.5.1",
-        "version_normalized": "1.5.1.0",
+        "version": "v1.5.2",
+        "version_normalized": "1.5.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/googleapis/google-auth-library-php.git",
-            "reference": "0f75e20e7392e863f5550ed2c2d3d50af21710fb"
+            "reference": "2ee962e5df3e9427fda859f1b0515d6d62c4afa5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/0f75e20e7392e863f5550ed2c2d3d50af21710fb",
-            "reference": "0f75e20e7392e863f5550ed2c2d3d50af21710fb",
+            "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/2ee962e5df3e9427fda859f1b0515d6d62c4afa5",
+            "reference": "2ee962e5df3e9427fda859f1b0515d6d62c4afa5",
             "shasum": ""
         },
         "require": {
@@ -319,7 +319,7 @@
         "suggest": {
             "phpseclib/phpseclib": "May be used in place of OpenSSL for signing strings. Please require version ^2."
         },
-        "time": "2019-04-16T18:48:28+00:00",
+        "time": "2019-07-22T21:01:31+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -340,47 +340,85 @@
         ]
     },
     {
-        "name": "google/gax",
-        "version": "0.37.0",
-        "version_normalized": "0.37.0.0",
+        "name": "google/common-protos",
+        "version": "1.1",
+        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/googleapis/gax-php.git",
-            "reference": "2d8b9103f1be3e3ababd8a733beae705d563edf5"
+            "url": "https://github.com/googleapis/common-protos-php.git",
+            "reference": "89dd797f0620b3399121b027794b18de91e1269f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/googleapis/gax-php/zipball/2d8b9103f1be3e3ababd8a733beae705d563edf5",
-            "reference": "2d8b9103f1be3e3ababd8a733beae705d563edf5",
+            "url": "https://api.github.com/repos/googleapis/common-protos-php/zipball/89dd797f0620b3399121b027794b18de91e1269f",
+            "reference": "89dd797f0620b3399121b027794b18de91e1269f",
+            "shasum": ""
+        },
+        "require": {
+            "google/protobuf": "^3.6.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36",
+            "sami/sami": "*"
+        },
+        "time": "2019-07-24T01:25:25+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Google\\": "src",
+                "GPBMetadata\\Google\\": "metadata"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "description": "Google API Common Protos for PHP",
+        "homepage": "https://github.com/googleapis/common-protos-php",
+        "keywords": [
+            "google"
+        ]
+    },
+    {
+        "name": "google/gax",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/googleapis/gax-php.git",
+            "reference": "4389c4103f0469f02c078250c73eaa57bdc91452"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/googleapis/gax-php/zipball/4389c4103f0469f02c078250c73eaa57bdc91452",
+            "reference": "4389c4103f0469f02c078250c73eaa57bdc91452",
             "shasum": ""
         },
         "require": {
             "google/auth": "^1.2.0",
+            "google/common-protos": "^1.0",
             "google/grpc-gcp": "^0.1.0",
-            "google/protobuf": "^3.5.1",
+            "google/protobuf": "^3.7.1",
             "grpc/grpc": "^1.4",
             "guzzlehttp/promises": "^1.3",
             "guzzlehttp/psr7": "^1.2",
             "php": ">=5.5"
+        },
+        "conflict": {
+            "ext-protobuf": "<3.7.0"
         },
         "require-dev": {
             "phpunit/phpunit": "^4.8.36",
             "sami/sami": "*",
             "squizlabs/php_codesniffer": "3.*"
         },
-        "time": "2018-08-20T19:05:50+00:00",
+        "time": "2019-09-06T18:27:35+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Google\\Api\\": "src/Api",
-                "Google\\ApiCore\\": "src/ApiCore",
-                "Google\\Cloud\\": "src/Cloud",
-                "Google\\Iam\\": "src/Iam",
-                "Google\\Jison\\": "src/Jison",
-                "Google\\LongRunning\\": "src/LongRunning",
-                "Google\\Rpc\\": "src/Rpc",
-                "Google\\Type\\": "src/Type",
+                "Google\\ApiCore\\": "src",
                 "GPBMetadata\\Google\\": "metadata"
             }
         },
@@ -437,28 +475,28 @@
     },
     {
         "name": "google/photos-library",
-        "version": "v1.3.0",
-        "version_normalized": "1.3.0.0",
+        "version": "v1.4.0",
+        "version_normalized": "1.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/google/php-photoslibrary.git",
-            "reference": "f45c1ddc4029f787a58b8cf10a3316a3a153ca03"
+            "reference": "9d231bec2eef1cb88f1864202ed2834ab7fe127f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/google/php-photoslibrary/zipball/f45c1ddc4029f787a58b8cf10a3316a3a153ca03",
-            "reference": "f45c1ddc4029f787a58b8cf10a3316a3a153ca03",
+            "url": "https://api.github.com/repos/google/php-photoslibrary/zipball/9d231bec2eef1cb88f1864202ed2834ab7fe127f",
+            "reference": "9d231bec2eef1cb88f1864202ed2834ab7fe127f",
             "shasum": ""
         },
         "require": {
-            "google/gax": "^0.37.0",
-            "google/protobuf": "^3.5.1",
+            "google/gax": "^1.0.2",
+            "google/protobuf": "^3.7.1",
             "php": "^5.5 || ^7.0"
         },
         "require-dev": {
             "phpunit/phpunit": "^4.8|^5.0"
         },
-        "time": "2019-05-30T05:35:46+00:00",
+        "time": "2019-08-13T01:53:01+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -480,17 +518,17 @@
     },
     {
         "name": "google/protobuf",
-        "version": "v3.8.0",
-        "version_normalized": "3.8.0.0",
+        "version": "v3.9.1",
+        "version_normalized": "3.9.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/protocolbuffers/protobuf-php.git",
-            "reference": "a257235dc1a0d45f8cfc641d0c2ad852f57396c4"
+            "reference": "4bb1a332b47f618a0a21ad3cc9a43f1c4aaa5b62"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/a257235dc1a0d45f8cfc641d0c2ad852f57396c4",
-            "reference": "a257235dc1a0d45f8cfc641d0c2ad852f57396c4",
+            "url": "https://api.github.com/repos/protocolbuffers/protobuf-php/zipball/4bb1a332b47f618a0a21ad3cc9a43f1c4aaa5b62",
+            "reference": "4bb1a332b47f618a0a21ad3cc9a43f1c4aaa5b62",
             "shasum": ""
         },
         "require": {
@@ -502,7 +540,7 @@
         "suggest": {
             "ext-bcmath": "Need to support JSON deserialization"
         },
-        "time": "2019-05-29T00:06:29+00:00",
+        "time": "2019-08-06T17:47:34+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -663,6 +701,61 @@
         "abandoned": "guzzlehttp/guzzle"
     },
     {
+        "name": "guzzlehttp/command",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/command.git",
+            "reference": "2aaa2521a8f8269d6f5dfc13fe2af12c76921034"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/command/zipball/2aaa2521a8f8269d6f5dfc13fe2af12c76921034",
+            "reference": "2aaa2521a8f8269d6f5dfc13fe2af12c76921034",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/guzzle": "^6.2",
+            "guzzlehttp/promises": "~1.3",
+            "guzzlehttp/psr7": "~1.0",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2016-11-24T13:34:15+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.9-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Command\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Jeremy Lindblom",
+                "email": "jeremeamia@gmail.com",
+                "homepage": "https://github.com/jeremeamia"
+            }
+        ],
+        "description": "Provides the foundation for building command-based web service clients"
+    },
+    {
         "name": "guzzlehttp/guzzle",
         "version": "6.3.3",
         "version_normalized": "6.3.3.0",
@@ -728,6 +821,68 @@
             "rest",
             "web service"
         ]
+    },
+    {
+        "name": "guzzlehttp/guzzle-services",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle-services.git",
+            "reference": "9e3abf20161cbf662d616cbb995f2811771759f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/guzzle-services/zipball/9e3abf20161cbf662d616cbb995f2811771759f7",
+            "reference": "9e3abf20161cbf662d616cbb995f2811771759f7",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/command": "~1.0",
+            "guzzlehttp/guzzle": "^6.2",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0"
+        },
+        "suggest": {
+            "gimler/guzzle-description-loader": "^0.0.4"
+        },
+        "time": "2017-10-06T14:32:02+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Command\\Guzzle\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Jeremy Lindblom",
+                "email": "jeremeamia@gmail.com",
+                "homepage": "https://github.com/jeremeamia"
+            },
+            {
+                "name": "Stefano Kowalke",
+                "email": "blueduck@mail.org",
+                "homepage": "https://github.com/konafets"
+            }
+        ],
+        "description": "Provides an implementation of the Guzzle Command library that uses Guzzle service descriptions to describe web services, serialize requests, and parse responses into easy to use model structures."
     },
     {
         "name": "guzzlehttp/promises",
@@ -909,17 +1064,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "1.24.0",
-        "version_normalized": "1.24.0.0",
+        "version": "1.25.1",
+        "version_normalized": "1.25.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+            "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
-            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
+            "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
             "shasum": ""
         },
         "require": {
@@ -955,7 +1110,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2018-11-05T09:00:11+00:00",
+        "time": "2019-09-06T13:49:17+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -1141,17 +1296,17 @@
     },
     {
         "name": "phpseclib/phpseclib",
-        "version": "2.0.20",
-        "version_normalized": "2.0.20.0",
+        "version": "2.0.21",
+        "version_normalized": "2.0.21.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpseclib/phpseclib.git",
-            "reference": "d6819a55b05e123db1e881d8b230d57f912126be"
+            "reference": "9f1287e68b3f283339a9f98f67515dd619e5bf9d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d6819a55b05e123db1e881d8b230d57f912126be",
-            "reference": "d6819a55b05e123db1e881d8b230d57f912126be",
+            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/9f1287e68b3f283339a9f98f67515dd619e5bf9d",
+            "reference": "9f1287e68b3f283339a9f98f67515dd619e5bf9d",
             "shasum": ""
         },
         "require": {
@@ -1169,7 +1324,7 @@
             "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
             "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
         },
-        "time": "2019-06-23T16:33:11+00:00",
+        "time": "2019-07-12T12:53:49+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1384,24 +1539,25 @@
     },
     {
         "name": "qcloud/cos-sdk-v5",
-        "version": "v1.3.2",
-        "version_normalized": "1.3.2.0",
+        "version": "v1.3.4",
+        "version_normalized": "1.3.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/tencentyun/cos-php-sdk-v5.git",
-            "reference": "0454f48629210749ae6316ab317548169dac9d8f"
+            "reference": "2f7c84b4321bdf07fa7847c051558fcea1d26a8d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/0454f48629210749ae6316ab317548169dac9d8f",
-            "reference": "0454f48629210749ae6316ab317548169dac9d8f",
+            "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/2f7c84b4321bdf07fa7847c051558fcea1d26a8d",
+            "reference": "2f7c84b4321bdf07fa7847c051558fcea1d26a8d",
             "shasum": ""
         },
         "require": {
-            "guzzle/guzzle": "~3.7",
+            "guzzlehttp/guzzle": "~6.3",
+            "guzzlehttp/guzzle-services": "~1.1",
             "php": ">=5.3.0"
         },
-        "time": "2019-04-25T12:23:41+00:00",
+        "time": "2019-08-30T13:40:45+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1432,27 +1588,27 @@
     },
     {
         "name": "qiniu/php-sdk",
-        "version": "v7.2.8",
-        "version_normalized": "7.2.8.0",
+        "version": "v7.2.9",
+        "version_normalized": "7.2.9.0",
         "source": {
             "type": "git",
             "url": "https://github.com/qiniu/php-sdk.git",
-            "reference": "464f3eb3b0f51586d274733aee67f372fc6276ef"
+            "reference": "afe7d8715d8a688b1d8d8cdf031240d2363dad90"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/464f3eb3b0f51586d274733aee67f372fc6276ef",
-            "reference": "464f3eb3b0f51586d274733aee67f372fc6276ef",
+            "url": "https://api.github.com/repos/qiniu/php-sdk/zipball/afe7d8715d8a688b1d8d8cdf031240d2363dad90",
+            "reference": "afe7d8715d8a688b1d8d8cdf031240d2363dad90",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
         "require-dev": {
-            "phpunit/phpunit": "~8.0",
+            "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~2.3"
         },
-        "time": "2019-06-21T06:22:05+00:00",
+        "time": "2019-07-09T07:55:07+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

@@ -12,8 +12,8 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
-        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '383eaff206634a77a1be54e64e6459c7' => __DIR__ . '/..' . '/sabre/uri/lib/functions.php',
+        'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
         '2b9d0f43f9552984cfa82fee95491826' => __DIR__ . '/..' . '/sabre/event/lib/coroutine.php',
         'd81bab31d3feb45bfe2f283ea3c8fdf7' => __DIR__ . '/..' . '/sabre/event/lib/Loop/functions.php',
@@ -86,20 +86,16 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\Command\\Guzzle\\' => 26,
+            'GuzzleHttp\\Command\\' => 19,
             'GuzzleHttp\\' => 11,
             'Grpc\\Gcp\\' => 9,
             'Grpc\\' => 5,
-            'Google\\Type\\' => 12,
-            'Google\\Rpc\\' => 11,
             'Google\\Protobuf\\' => 16,
             'Google\\Photos\\Library\\Tests\\' => 28,
-            'Google\\LongRunning\\' => 19,
-            'Google\\Jison\\' => 13,
-            'Google\\Iam\\' => 11,
-            'Google\\Cloud\\' => 13,
             'Google\\Auth\\' => 12,
-            'Google\\Api\\' => 11,
             'Google\\ApiCore\\' => 15,
+            'Google\\' => 7,
             'GPBMetadata\\Google\\Protobuf\\' => 28,
             'GPBMetadata\\Google\\' => 19,
         ),
@@ -214,6 +210,14 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
         ),
+        'GuzzleHttp\\Command\\Guzzle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle-services/src',
+        ),
+        'GuzzleHttp\\Command\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/command/src',
+        ),
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
@@ -226,14 +230,6 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/grpc/grpc/src/lib',
         ),
-        'Google\\Type\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Type',
-        ),
-        'Google\\Rpc\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Rpc',
-        ),
         'Google\\Protobuf\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/Google/Protobuf',
@@ -242,33 +238,17 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/google/photos-library/tests',
         ),
-        'Google\\LongRunning\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/LongRunning',
-        ),
-        'Google\\Jison\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Jison',
-        ),
-        'Google\\Iam\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Iam',
-        ),
-        'Google\\Cloud\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Cloud',
-        ),
         'Google\\Auth\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/auth/src',
         ),
-        'Google\\Api\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src/Api',
-        ),
         'Google\\ApiCore\\' => 
         array (
-            0 => __DIR__ . '/..' . '/google/gax/src/ApiCore',
+            0 => __DIR__ . '/..' . '/google/gax/src',
+        ),
+        'Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/common-protos/src',
         ),
         'GPBMetadata\\Google\\Protobuf\\' => 
         array (
@@ -276,7 +256,8 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         ),
         'GPBMetadata\\Google\\' => 
         array (
-            0 => __DIR__ . '/..' . '/google/gax/metadata',
+            0 => __DIR__ . '/..' . '/google/common-protos/metadata',
+            1 => __DIR__ . '/..' . '/google/gax/metadata',
         ),
         'Firebase\\JWT\\' => 
         array (

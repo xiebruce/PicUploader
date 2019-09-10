@@ -432,7 +432,8 @@ class Common {
 	 * @return string|null
 	 */
 	public function copyPlainTextToClipboard($content){
-	    $clipboard = PHP_OS=='Darwin' ? 'pbcopy' : (PHP_OS=='WINNT' ? 'clip' : 'xsel');
+		//Mac和Win都自带，Linux(桌面系统)一般需要需要自己安装xclip(如Ubuntu: apt install xclip)
+	    $clipboard = PHP_OS=='Darwin' ? 'pbcopy' : (PHP_OS=='WINNT' ? 'clip' : 'xclip -selection clipboard');
 	    //$content不要加引号，因为引号会被输出的，因为这句命令已经是shell执行，而不是php
 		//echo也不是php命令，而是shell命令，win/mac/linux都有echo这个命令的
 	    $command = "echo {$content} | {$clipboard}";
@@ -447,20 +448,37 @@ class Common {
 		$configFileName = PHP_OS=='WINNT' ? 'config_win.json' : 'config.json';
 		$config = json_decode(file_get_contents(APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName), true);
 		$imgType = strtolower($config['img_type']) == 'jpeg' ? 'jpg' : 'png';
-		if(PHP_OS == 'WINNT'){
-			$powershell = APP_PATH . '/accessorys/PicUploaderHelper/dump-clipboard-'.$imgType.'.ps1';
-			$command = "powershell -ExecutionPolicy Unrestricted {$powershell}";
-			$output = shell_exec($command);
-			$imgPath = trim($output);
-		}else{
-			$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
-			// is_file($imgPath) && unlink($imgPath);
-			// Mac上要求安装pngpaste
-			$command = '/usr/local/bin/pngpaste ' . $imgPath;
-			//pngpaste保存图片成功是没有任何输出的(Linux/Unit系统惯例)
-			$output = shell_exec($command);
+		switch (PHP_OS){
+			case 'Darwin':
+				//图片地址不在$output中，而是在$imgPath里
+				$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
+				// Mac上要求安装pngpaste(虽然叫pngpaste，但它支持输入PNG, PDF, GIF, TIF, JPEG，输出PNG, GIF, JPEG, TIFF.)
+				$command = '/usr/local/bin/pngpaste ' . $imgPath;
+				//pngpaste保存图片成功是没有任何输出的(Linux/Unit系统惯例)
+				$output = shell_exec($command);
+				break;
+			case 'WINNT':
+				// Win10可直接用，Win7需要升级powershell到5.1
+				$powershell = APP_PATH . '/accessorys/PicUploaderHelper/dump-clipboard-'.$imgType.'.ps1';
+				$command = "powershell -ExecutionPolicy Unrestricted {$powershell}";
+				$output = shell_exec($command);
+				$imgPath = trim($output);
+				break;
+			case 'Linux':
+			default:
+				//Linux桌面系统要求安装xclip(如Ubuntu: apt install xclip)
+				$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
+				$mime = $imgType == 'jpg' ? 'image/jpeg' : 'image/png';
+				$xclipPath = '/usr/bin/xclip';
+				$clipboardContentTypeCmd = $xclipPath . ' -selection clipboard -t TARGETS -o';
+				$contentTypes = shell_exec($clipboardContentTypeCmd);
+				if(strpos($contentTypes, $mime) !== false){
+					$command = $xclipPath . ' -selection clipboard -t ' . $mime . ' -o > ' . $imgPath;
+					//图片地址不在$output中，而是在$imgPath里
+					$output = shell_exec($command);
+				}
 		}
-		
+
 		if(is_file($imgPath)){
 			return $imgPath;
 		}

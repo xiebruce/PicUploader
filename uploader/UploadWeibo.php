@@ -41,11 +41,9 @@ class UploadWeibo extends Common {
     {
         $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
         
-        //上传url，请不要修改
-	    $this->uploadUrl = 'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog&cb=http://weibo.com/aj/static/upimgback.html?_wv=5&callback=STK_ijax_'.time();
-	    // $this->uploadUrl = 'https://picupload.weibo.com/interface/pic_upload.php?cb=https%3A%2F%2Fweibo.com%2Faj%2Fstatic%2Fupimgback.html%3F_wv%3D5%26callback%3DSTK_ijax_156728790232633&mime=image%2Fjpeg&data=base64&url=weibo.com%2F525330129&markpos=1&logo=1&nick=%40XDBruce&marks=0&app=miniblog&s=rdxt&pri=null&file_source=1'.time();
         $this->username = $ServerConfig['username'];
         $this->password = $ServerConfig['password'];
+
 		//获取上传用的cookie(微博图床非公共接口，需要模拟登录取得cookie后，再模拟网页上传)
 	    $this->cookie = $this->getCookie();
 	    $this->uploadServer = ucfirst($params['uploadServer']);
@@ -192,13 +190,14 @@ class UploadWeibo extends Common {
 				throw new Exception($errMsg);
 			}
 			
+			$uploadUrl = 'http://picupload.service.weibo.com/interface/pic_upload.php?mime=image%2Fjpeg&data=base64&url=0&markpos=1&logo=&nick=0&marks=1&app=miniblog&cb=http://weibo.com/aj/static/upimgback.html?_wv=5&callback=STK_ijax_'.time();
+			
 			//实例化GuzzleHttp
 			$client = new Client([
-				'base_uri' => $this->uploadUrl,
+				'base_uri' => $uploadUrl,
 				'timeout'  => 10.0,
 			]);
 			$cookieJar = CookieJar::fromArray($this->cookie, 'picupload.service.weibo.com');
-			// $fp = fopen($uploadFilePath, 'rb');
 			$response = $client->request('POST', '', [
 				'curl' => [
 					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
@@ -208,17 +207,12 @@ class UploadWeibo extends Common {
 				],
 				'cookies' => $cookieJar,
 				'multipart' => [
-					/*[
-						'name' => 'pic1',
-						'contents' => $fp
-					],*/
 					[
 						'name' => 'b64_data',
 						'contents' => base64_encode(file_get_contents($uploadFilePath))
 					],
 				]
 			]);
-			// is_resource($fp) && fclose($fp);
 			
 			$string = $response->getBody()->getContents();
 			
@@ -234,12 +228,25 @@ class UploadWeibo extends Common {
 			}
 			
 			$link = $this->getUrl($arr['data']['pics']['pic_1']['pid']);
-			var_dump($link);
+			
+			$domain = '';
+			$pattern = '/https\:\/\/.*?\.sinaimg.cn\/large/';
+			if(preg_match($pattern, $link, $mathes)){
+				$domain = isset($mathes[0]) ? $mathes[0] : '';
+			}
+			if(!isset($domain)){
+				strpos($link, 'ws1.sinaimg.cn') && $domain = 'https://ws1.sinaimg.cn/large';
+				strpos($link, 'ws2.sinaimg.cn') && $domain = 'https://ws2.sinaimg.cn/large';
+				strpos($link, 'ws3.sinaimg.cn') && $domain = 'https://ws3.sinaimg.cn/large';
+				strpos($link, 'ws4.sinaimg.cn') && $domain = 'https://ws4.sinaimg.cn/large';
+			}
+			$key = str_replace($domain.'/', '', $link);
+			
 			$data = [
 				'code' => 0,
 				'msg' => 'success',
 				'key' => $key,
-				'domain' => $this->domain,
+				'domain' => $domain,
 			];
 		}catch (Exception $e){
 			//上传数错，记录错误日志(为了保证统一处理那里不出错，虽然报错，但这里还是返回对应格式)

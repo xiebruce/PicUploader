@@ -13,6 +13,14 @@ jobs:
     - php: '7.2'
     - php: '7.2'
       env: PROTOBUF_C_EXT=true
+    - php: '7.3'
+    - php: '7.3'
+      env: PROTOBUF_C_EXT=true
+    - php: '7.2'
+      install:
+      - travis_retry pecl install protobuf-3.6.1
+      script:
+      - ./dev/sh/test-composer-conflict.sh
     - stage: 'deploy'
       php: '7.2'
       install:
@@ -29,7 +37,7 @@ stages:
 
 install:
   - travis_retry pecl install grpc
-  - if [[ $PROTOBUF_C_EXT =~ ^true ]]; then travis_retry pecl install protobuf-3.5.1; fi
+  - if [[ $PROTOBUF_C_EXT =~ ^true ]]; then travis_retry pecl install protobuf-3.7.1; fi
   - travis_retry composer install
 script:
   - vendor/bin/phpunit --coverage-clover=coverage.xml
@@ -37,4 +45,3 @@ script:
   - if [[ $TRAVIS_PHP_VERSION =~ ^7 ]]; then ./dev/sh/build-docs.sh; fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
