@@ -120,13 +120,18 @@
 			exit('未检测到图片');
 		}
 	}
+	
+	//提示没有图片可上传
+	if(empty($argv)){
+		(new Common())->sendNotification('no_image');
+	}
 
 	//Mac快捷键上传才要通知上传中，Win快捷键上传由于任务栏会闪现php-cgi，当图标显示就表明是上传中，无需通知
-	if(!empty($argv) && isset($alfred) && PHP_OS=='Darwin'){
+	if(isset($alfred) && PHP_OS=='Darwin'){
 		//提示上传中
 		(new Common())->sendNotification('uploading');
 	}
-	
+	// file_put_contents('/Users/bruce/Downloads/qcloud.txt', var_export($argv,true));exit;
 	$uploader = 'uploader\Upload';
 	// $uploader = 'uploader\UploadCoroutine';
 	//getPublickLink
@@ -144,7 +149,7 @@
 			'code' => 'success',
 			'data' => [
 				'filename' => $_FILES['file']['name'],
-				'url' => $link,
+				'url' => trim($link),
 			],
 		];
 		

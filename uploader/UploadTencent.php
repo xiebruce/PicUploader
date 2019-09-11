@@ -67,7 +67,7 @@ class UploadTencent extends Common {
 	 *
 	 * @return array
 	 */
-	public function upload($key, $uploadFilePath, $useS3CompatibleApi=false){
+	public function upload($key, $uploadFilePath, $useS3CompatibleApi=true){
         try{
 	        if($this->directory){
 		        $key = $this->directory . '/' . $key;
@@ -86,7 +86,7 @@ class UploadTencent extends Common {
 			        'endpoint' => $endpoint,
 			        'signature_version' => 'v4',
 		        ];
-		
+		        
 		        $s3Client = new S3Client($config);
 		        $fp = fopen($uploadFilePath, 'rb');
 		        $retObj = $s3Client->upload($this->bucket, $key, $fp, 'public-read');
@@ -109,10 +109,12 @@ class UploadTencent extends Common {
 				        'secretKey' => $this->secretKey,
 			        ],
 		        ]);
-		
+		        
 		        $fp = fopen($uploadFilePath, 'rb');
 		        /** @var Result $retObj */
-		        $retObj = $cosClient->Upload($this->bucket, $key, $fp);
+		        $retObj = $cosClient->Upload($this->bucket, $key, $fp, [
+			        'ContentType' => $this->getMimeType($uploadFilePath),
+		        ]);
 		        is_resource($fp) && fclose($fp);
 		
 		        /** 返回对象格式
