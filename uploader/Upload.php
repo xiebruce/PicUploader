@@ -175,17 +175,21 @@ class Upload extends Common {
 				// $retArr = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
 				$retArr = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
 				//处理使用默认域名
-				$this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
-				$link = $retArr['domain'] . '/' . $retArr['key'];
+				// $this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
+				if($this->reverseProxyDomain){
+					$link = $this->reverseProxyDomain . '/' . $retArr['key'];
+				}else{
+					$link = $retArr['domain'] . '/' . $retArr['key'];
+				}
 				
 				// 如果数据库连接正常，则保存上传记录到数据库
 				if((new DbModel())->connection){
-					$url = $link;
+					$url = $retArr['domain'] . '/' . $retArr['key'];
 					if($uploadServer == 'smms'){
-						$url = $link . ',' . $retArr['delLink'];
+						$url = $url . ',' . $retArr['delLink'];
 					}
 					if($uploadServer == 'imgur'){
-						$url = $link . ';' . $retArr['delHash'];
+						$url = $url . ';' . $retArr['delHash'];
 					}
 					$size = filesize($uploadFilePath);
 					// $size = is_numeric($size) ? $size : 0;

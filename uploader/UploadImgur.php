@@ -39,7 +39,7 @@ class UploadImgur extends Upload{
 	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
 	    $this->clientId = $ServerConfig['clientId'];
-	    $this->baseUri = 'https://api.imgur.com';
+	    $this->baseUri = 'https://api.imgur.com/3/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
@@ -85,7 +85,7 @@ class UploadImgur extends Upload{
 			
 			//上传
 			$fp = fopen($uploadFilePath, 'rb');
-			$response = $client->request('POST', '/3/image', [
+			$response = $client->request('POST', 'image', [
 				'curl' => [
 					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
 					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
