@@ -176,7 +176,7 @@ class Upload extends Common {
 				$retArr = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
 				//处理使用默认域名
 				// $this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
-				if($this->reverseProxyDomain){
+				if($this->reverseProxyDomain && !in_array($uploadServer, ['weibo'])){
 					$link = $this->reverseProxyDomain . '/' . $retArr['key'];
 				}else{
 					$link = $retArr['domain'] . '/' . $retArr['key'];
