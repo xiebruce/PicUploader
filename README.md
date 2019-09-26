@@ -20,7 +20,7 @@ PicUploader
 - 支持Web端拖放、粘贴、或直接选择上传图片；
 - 支持Web端设置所有参数；
 - 支持上传任意格式文件(除了图片，还可以上传任意格式文件，只要你的存储端支持就行)；
-- 目前支持的图床：七牛、阿里、腾讯、华为、网易、京东、百度、又拍、青云、Ucloud、sm.ms、Imgur、Github、Gitee(码云)、微博、Nextcloud、Cloudinary、Chevereto、Aws s3、金山、个人服务器(sftp)、本地(即PicUploader所在机器)。
+- 目前支持的图床：七牛、阿里、腾讯、华为、网易、京东、百度、又拍、青云、Ucloud、sm.ms、Imgur、Github、Gitee(码云)、微博、Nextcloud、Cloudinary、Chevereto、Minio、Aws s3、金山、个人服务器(sftp)、本地(即PicUploader所在机器)。
 
 ## 功能演示
 如果图片看不了请点击图片上边的文字链接单独打开即可查看。
