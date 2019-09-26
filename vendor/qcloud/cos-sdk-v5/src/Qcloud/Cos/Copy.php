@@ -7,10 +7,11 @@ use GuzzleHttp\Pool;
 
 class Copy {
     /**
-     * const var: part size from 5MB to 5GB, and max parts of 10000 are allowed for each upload.
+     * const var: part size from 1MB to 5GB, and max parts of 10000 are allowed for each upload.
      */
-    const MIN_PART_SIZE = 5242880;
+    const MIN_PART_SIZE = 1048576;
     const MAX_PART_SIZE = 5368709120;
+    const DEFAULT_PART_SIZE = 52428800;
     const MAX_PARTS     = 10000;
 
     private $client;
@@ -23,16 +24,16 @@ class Copy {
     private $requestList = [];
 
     public function __construct($client, $source, $options = array()) {
-        $minPartSize = $options['min_part_size'];
-        unset($options['min_part_size']);
+        $minPartSize = $options['PartSize'];
+        unset($options['PartSize']);
         $this->client = $client;
         $this->copySource = $source;
         $this->options = $options;
         $this->size = $source['ContentLength'];
         unset($source['ContentLength']);
         $this->partSize = $this->calculatePartSize($minPartSize);
-        $this->concurrency = isset($options['concurrency']) ? $options['concurrency'] : 10;
-        $this->retry = isset($options['retry']) ? $options['retry'] : 5;
+        $this->concurrency = isset($options['Concurrency']) ? $options['Concurrency'] : 10;
+        $this->retry = isset($options['Retry']) ? $options['Retry'] : 5;
     }
     public function copy() {
         $uploadId= $this->initiateMultipartUpload();
@@ -132,7 +133,6 @@ class Copy {
         $partSize = max($minPartSize, $partSize);
         $partSize = min($partSize, self::MAX_PART_SIZE);
         $partSize = max($partSize, self::MIN_PART_SIZE);
-
         return $partSize;
     }
 

@@ -47,7 +47,9 @@ class ExceptionParser {
      */
     protected function parseHeaders(RequestInterface $request, ResponseInterface $response, array &$data) {
         $data['message'] = $response->getStatusCode() . ' ' . $response->getReasonPhrase();
-        if ($requestId = $response->getHeader('x-cos-request-id')[0]) {
+        $requestId = $response->getHeader('x-cos-request-id');
+        if (isset($requestId[0])) {
+            $requestId = $requestId[0];
             $data['request_id'] = $requestId;
             $data['message'] .= " (Request-ID: $requestId)";
         }

@@ -34,30 +34,41 @@ class Client extends GuzzleClient {
         $this->rawCosConfig = $cosConfig;
         $this->cosConfig['schema'] = isset($cosConfig['schema']) ? $cosConfig['schema'] : 'http';
         $this->cosConfig['endpoint'] = isset($cosConfig['endpoint']) ? $cosConfig['endpoint'] : null;
-        $this->cosConfig['region'] =  isset($regionmap[$cosConfig['region']]) ? region_map($cosConfig['region']) : $cosConfig['region'];
+        $this->cosConfig['region'] =  region_map($cosConfig['region']);
         $this->cosConfig['appId'] = isset($cosConfig['credentials']['appId']) ? $cosConfig['credentials']['appId'] : null;
         $this->cosConfig['secretId'] = isset($cosConfig['credentials']['secretId']) ? $cosConfig['credentials']['secretId'] : "";
         $this->cosConfig['secretKey'] = isset($cosConfig['credentials']['secretKey']) ? $cosConfig['credentials']['secretKey'] : "";
+        $this->cosConfig['anonymous'] = isset($cosConfig['credentials']['anonymous']) ? $cosConfig['anonymous']['anonymous'] : false;
         $this->cosConfig['token'] = isset($cosConfig['credentials']['token']) ? $cosConfig['credentials']['token'] : null;
         $this->cosConfig['timeout'] = isset($cosConfig['timeout']) ? $cosConfig['timeout'] : 3600;
         $this->cosConfig['connect_timeout'] = isset($cosConfig['connect_timeout']) ? $cosConfig['connect_timeout'] : 3600;
-
         $this->cosConfig['ip'] = isset($cosConfig['ip']) ? $cosConfig['ip'] : null;
         $this->cosConfig['port'] = isset($cosConfig['port']) ? $cosConfig['port'] : null;
-        $this->cosConfig['host'] = isset($cosConfig['host']) ? $cosConfig['host'] : null;
+        $this->cosConfig['endpoint'] = isset($cosConfig['endpoint']) ? $cosConfig['endpoint'] : 'myqcloud.com';
         $this->cosConfig['proxy'] = isset($cosConfig['proxy']) ? $cosConfig['proxy'] : null;
+        $this->cosConfig['userAgent'] = isset($cosConfig['userAgent']) ? $cosConfig['userAgent'] : 'cos-php-sdk-v5.'. Client::VERSION;
+        $this->cosConfig['pathStyle'] = isset($cosConfig['pathStyle']) ? $cosConfig['pathStyle'] : false;
+        
         
         $service = Service::getService();
         $handler = HandlerStack::create();
 		$handler->push(Middleware::mapRequest(function (RequestInterface $request) {
-			return $request->withHeader('User-Agent', 'cos-php-sdk-v5.'. Client::VERSION);
-		}));
-		$handler->push($this::handleSignature($this->cosConfig['secretId'], $this->cosConfig['secretKey']));
+			return $request->withHeader('User-Agent', $this->cosConfig['userAgent']);
+        }));
+        if ($this->cosConfig['anonymous'] != true) {
+            $handler->push($this::handleSignature($this->cosConfig['secretId'], $this->cosConfig['secretKey']));
+        }
+        if ($this->cosConfig['token'] != null) {
+            $handler->push(Middleware::mapRequest(function (RequestInterface $request) {
+                return $request->withHeader('x-cos-security-token', $this->cosConfig['token']);
+            }));
+        }
         $handler->push($this::handleErrors());
         $this->signature = new Signature($this->cosConfig['secretId'], $this->cosConfig['secretKey']);
         $this->httpClient = new HttpClient([
             'base_uri' => $this->cosConfig['schema'].'://cos.' . $this->cosConfig['region'] . '.myqcloud.com/',
-			'handler' => $handler,
+            'handler' => $handler,
+            'proxy' => $this->cosConfig['proxy']
         ]);
         $this->desc = new Description($service);
         $this->api = (array)($this->desc->getOperations());
@@ -91,12 +102,20 @@ class Client extends GuzzleClient {
         }
         $deseri = new Deserializer($this->desc, true);
         $response = $deseri($response, $request, $command);
+        if ($command['Key'] != null && $response['Key'] == null) {
+            $response['Key'] = $command['Key'];
+        }
+        if ($command['Bucket'] != null && $response['Bucket'] == null) {
+            $response['Bucket'] = $command['Bucket'];
+        }
+        $response['Location'] = $request->getUri()->getHost() .  $request->getUri()->getPath();
+
         return $response;
     }
     public function __destruct() {
     }
 
-    public function __call($method, $args) {
+    public function __call($method, array $args) {
         try {
             return parent::__call(ucfirst($method), $args);
 		} catch (CommandException $e) {
@@ -124,20 +143,19 @@ class Client extends GuzzleClient {
     public function getPresignetUrl($method, $args, $expires = null) {
         $command = $this->getCommand($method, $args);
         $request = $this->commandToRequestTransformer($command);
-        return ($expires == null) ? $this->createPresignedUrl($request, $expires) : $request->getUri();
+        return $this->createPresignedUrl($request, $expires);
     }
 
     public function getObjectUrl($bucket, $key, $expires = null, array $args = array()) {
         $command = $this->getCommand('GetObject', $args + array('Bucket' => $bucket, 'Key' => $key));
         $request = $this->commandToRequestTransformer($command);
-        return ($expires == null) ? $this->createPresignedUrl($request, $expires) : $request->getUri();
+        return $this->createPresignedUrl($request, $expires);
     }
 
     public function upload($bucket, $key, $body, $options = array()) {
         $body = Psr7\stream_for($body);
-        $options = array_change_key_case($options);
-        $options['min_part_size'] = isset($options['min_part_size']) ? $options['min_part_size'] : MultipartUpload::MIN_PART_SIZE;
-        if ($body->getSize() < $options['min_part_size']) {
+        $options['PartSize'] = isset($options['PartSize']) ? $options['PartSize'] : MultipartUpload::MIN_PART_SIZE;
+        if ($body->getSize() < $options['PartSize']) {
             $rt = $this->putObject(array(
                     'Bucket' => $bucket,
                     'Key'    => $key,
@@ -151,20 +169,17 @@ class Client extends GuzzleClient {
                 ) + $options);
 
             $rt = $multipartUpload->performUploading();
-            unset($rt['Bucket']);
-            unset($rt['Key']);
-            unset($rt['Location']);
         }
         return $rt;
     }
 
     public function resumeUpload($bucket, $key, $body, $uploadId, $options = array()) {
         $body = Psr7\stream_for($body);
-        $options = array_change_key_case($options);
-        $options['min_part_size'] = isset($options['min_part_size']) ? $options['min_part_size'] : MultipartUpload::MIN_PART_SIZE;
+        $options['PartSize'] = isset($options['PartSize']) ? $options['PartSize'] : MultipartUpload::DEFAULT_PART_SIZE;
         $multipartUpload = new MultipartUpload($this, $body, array(
                 'Bucket' => $bucket,
                 'Key' => $key,
+                'UploadId' => $uploadId,
             ) + $options);
 
         $rt = $multipartUpload->resumeUploading();
@@ -173,8 +188,7 @@ class Client extends GuzzleClient {
 
     public function copy($bucket, $key, $copySource, $options = array()) {
 
-        $options = array_change_key_case($options);
-        $options['min_part_size'] = isset($options['min_part_size']) ? $options['min_part_size'] : Copy::MIN_PART_SIZE;
+        $options['PartSize'] = isset($options['PartSize']) ? $options['PartSize'] : Copy::DEFAULT_PART_SIZE;
 
         // set copysource client
         $sourceConfig = $this->rawCosConfig;
@@ -194,11 +208,11 @@ class Client extends GuzzleClient {
 
         $contentLength =$rt['ContentLength'];
         // sample copy
-        if ($contentLength < $options['min_part_size']) {
+        if ($contentLength < $options['PartSize']) {
             $rt = $this->copyObject(array(
                     'Bucket' => $bucket,
                     'Key'    => $key,
-                    'CopySource'   => $copysource['Bucket']. '.cos.'. $copySource['Region'].
+                    'CopySource'   => $copySource['Bucket']. '.cos.'. $copySource['Region'].
                                       ".myqcloud.com/". $copySource['Key']. "?versionId=". $copySource['VersionId'],
                 ) + $options
             );

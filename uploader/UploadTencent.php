@@ -117,14 +117,6 @@ class UploadTencent extends Common {
 		        ]);
 		        is_resource($fp) && fclose($fp);
 		
-		        /** 返回对象格式
-		        object(GuzzleHttp\Command\Result)#101 (2) {
-		        ["ETag"]=>
-		        string(34) ""fa11f89f42cb84117ca7c6a3e5b922aa""
-		        ["RequestId"]=>
-		        string(40) "NWQ3NzBmNmNfY2JhMzNiMGFfNGNlMF8xNWM5Mzdj"
-		        }
-		         */
 		        if (!is_object($retObj)) {
 			        //上传数错，抛出异常
 			        throw new Exception(var_export($retObj, true));

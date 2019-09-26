@@ -33,7 +33,6 @@ class CosTransformer {
         if ($action == 'ListBuckets') {
             return $request->withUri(new Uri($this->config['schema']."://service.cos.myqcloud.com/"));
         }
-
         $operation = $this->operation;
         $bucketname = $command['Bucket'];
 
@@ -42,18 +41,29 @@ class CosTransformer {
         {
             $bucketname = $bucketname.'-'.$appId;
         }
-
+        $command['Bucket'] = $bucketname;
         $path = ''; 
         $http_method = $operation['httpMethod'];
         $uri = $operation['uri'];
         
-        if (isset($operation['parameters']['Bucket']) && $command->hasParam('Bucket')) {
-            $uri = str_replace("{Bucket}", '', $uri);
-        }   
-        if (isset($operation['parameters']['Key']) && $command->hasParam('Key')) {
-            $uri = str_replace("{/Key*}", encodeKey($command['Key']), $uri);
+        // Hoststyle is used by default
+        // Pathstyle
+        if ($this->config['pathStyle'] != true) {
+            if (isset($operation['parameters']['Bucket']) && $command->hasParam('Bucket')) {
+                $uri = str_replace("{Bucket}", '', $uri);
+            }   
+            if (isset($operation['parameters']['Key']) && $command->hasParam('Key')) {
+                $uri = str_replace("{/Key*}", encodeKey($command['Key']), $uri);
+            }
         }
-        $host = $bucketname. '.cos.' . $this->config['region'] .'.myqcloud.com';
+        
+        $host = $bucketname. '.cos.' . $this->config['region'] . '.' . $this->config['endpoint'];
+        if ($this->config['ip'] != null) {
+            $host = $this->config['ip'];
+            if ($this->config['port'] != null) {
+                $host = $this->config['ip'] . ":" . $this->config['port'];
+            }
+        }
         $path = $this->config['schema'].'://'. $host . $uri;
         $uri = new Uri($path);
         $uri = $uri->withQuery($request->getUri()->getQuery());

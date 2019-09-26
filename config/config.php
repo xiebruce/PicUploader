@@ -357,6 +357,23 @@
 				//使用代理，如：http://127.0.0.1:1087
 				'proxy' => '',
 			],
+			
+			// 开源自建对象存储服务器Minio：https://github.com/minio/minio
+			'minio' => [
+				'name' => 'Minio',
+				'AccessKeyId' => '0CQ2*******2A9',
+				'AccessKeySecret' => 'ucya0Ot+**********1fnjXU6I4',
+				//如果你的minio服务器未设置region，那就留空
+				'region' => '',
+				'bucket' => 'ma****wn',
+				'endpoint' => 'http://*********',
+				//自定义域名，如果为空，则默认使用endpoint作为域名
+				'domain' => '',
+				//自定义目录格式：2019/03/31
+				'directory' => '/{Y}/{m}/{d}',
+				//使用代理，格式：http://127.0.0.1:1087
+				'proxy' => '',
+			],
 		],
 		
 		/*

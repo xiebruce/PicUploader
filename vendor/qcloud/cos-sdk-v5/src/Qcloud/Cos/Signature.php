@@ -18,7 +18,7 @@ class Signature {
         $authorization = $this->createAuthorization($request);
         return $request->withHeader('Authorization', $authorization);
     }
-    public function createAuthorization(RequestInterface $request, $expires = "10 minutes") {
+    public function createAuthorization(RequestInterface $request, $expires = "+30 minutes") {
         $signTime = (string)(time() - 60) . ';' . (string)(strtotime($expires));
         $httpString = strtolower($request->getMethod()) . "\n" . urldecode($request->getUri()->getPath()) .
             "\n\nhost=" . $request->getUri()->getHost() . "\n";
@@ -31,7 +31,7 @@ class Signature {
             "q-signature=$signature";
         return $authorization;
     }
-    public function createPresignedUrl(RequestInterface $request, $expires = "10 minutes") {
+    public function createPresignedUrl(RequestInterface $request, $expires = "+30 minutes") {
         $authorization = $this->createAuthorization($request, $expires);
         $uri = $request->getUri();
         $uri = $uri->withQuery("sign=".urlencode($authorization));

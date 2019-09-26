@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b28a8372f8b3c822c2a832db9980f604",
+    "content-hash": "aa4aa63eab254acca1a4830459e54feb",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -49,16 +49,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.110.11",
+            "version": "3.112.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "3f222649634fa039c59f58082e60159a6bb59bbf"
+                "reference": "c27c64904dcf3f3131a927b09b0036273a22a0ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/3f222649634fa039c59f58082e60159a6bb59bbf",
-                "reference": "3f222649634fa039c59f58082e60159a6bb59bbf",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c27c64904dcf3f3131a927b09b0036273a22a0ae",
+                "reference": "c27c64904dcf3f3131a927b09b0036273a22a0ae",
                 "shasum": ""
             },
             "require": {
@@ -128,7 +128,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-09-06T18:21:14+00:00"
+            "time": "2019-09-18T18:09:31+00:00"
         },
         {
             "name": "baidubce/bce-sdk-php",
@@ -1257,16 +1257,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.21",
+            "version": "2.0.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "9f1287e68b3f283339a9f98f67515dd619e5bf9d"
+                "reference": "c78eb5058d5bb1a183133c36d4ba5b6675dfa099"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/9f1287e68b3f283339a9f98f67515dd619e5bf9d",
-                "reference": "9f1287e68b3f283339a9f98f67515dd619e5bf9d",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c78eb5058d5bb1a183133c36d4ba5b6675dfa099",
+                "reference": "c78eb5058d5bb1a183133c36d4ba5b6675dfa099",
                 "shasum": ""
             },
             "require": {
@@ -1345,7 +1345,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2019-07-12T12:53:49+00:00"
+            "time": "2019-09-17T03:41:22+00:00"
         },
         {
             "name": "psr/cache",
@@ -1492,16 +1492,16 @@
         },
         {
             "name": "qcloud/cos-sdk-v5",
-            "version": "v1.3.4",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tencentyun/cos-php-sdk-v5.git",
-                "reference": "2f7c84b4321bdf07fa7847c051558fcea1d26a8d"
+                "reference": "a8ac2dc1f58ddb36e5d702d19f9d7cb8d6f1dc5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/2f7c84b4321bdf07fa7847c051558fcea1d26a8d",
-                "reference": "2f7c84b4321bdf07fa7847c051558fcea1d26a8d",
+                "url": "https://api.github.com/repos/tencentyun/cos-php-sdk-v5/zipball/a8ac2dc1f58ddb36e5d702d19f9d7cb8d6f1dc5e",
+                "reference": "a8ac2dc1f58ddb36e5d702d19f9d7cb8d6f1dc5e",
                 "shasum": ""
             },
             "require": {
@@ -1535,7 +1535,7 @@
                 "php",
                 "qcloud"
             ],
-            "time": "2019-08-30T13:40:45+00:00"
+            "time": "2019-09-25T12:28:54+00:00"
         },
         {
             "name": "qiniu/php-sdk",

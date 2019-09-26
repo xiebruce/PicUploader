@@ -286,6 +286,10 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionPolly(array $args = [])
  * @method \Aws\Pricing\PricingClient createPricing(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionPricing(array $args = [])
+ * @method \Aws\QLDB\QLDBClient createQLDB(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionQLDB(array $args = [])
+ * @method \Aws\QLDBSession\QLDBSessionClient createQLDBSession(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionQLDBSession(array $args = [])
  * @method \Aws\QuickSight\QuickSightClient createQuickSight(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionQuickSight(array $args = [])
  * @method \Aws\RAM\RAMClient createRAM(array $args = [])
@@ -372,6 +376,8 @@ namespace Aws;
  * @method \Aws\MultiRegionClient createMultiRegionWorkLink(array $args = [])
  * @method \Aws\WorkMail\WorkMailClient createWorkMail(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionWorkMail(array $args = [])
+ * @method \Aws\WorkMailMessageFlow\WorkMailMessageFlowClient createWorkMailMessageFlow(array $args = [])
+ * @method \Aws\MultiRegionClient createMultiRegionWorkMailMessageFlow(array $args = [])
  * @method \Aws\WorkSpaces\WorkSpacesClient createWorkSpaces(array $args = [])
  * @method \Aws\MultiRegionClient createMultiRegionWorkSpaces(array $args = [])
  * @method \Aws\XRay\XRayClient createXRay(array $args = [])
@@ -381,7 +387,7 @@ namespace Aws;
  */
 class Sdk
 {
-    const VERSION = '3.110.11';
+    const VERSION = '3.112.3';
 
     /** @var array Arguments for creating clients */
     private $args;

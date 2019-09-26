@@ -702,6 +702,21 @@ class Service {
                             'location' => 'query',
                             'sentAs' => 'versionId',
                         ),
+                        'SSECustomerAlgorithm' => array(
+                            'type' => 'string',
+                            'location' => 'header',
+                            'sentAs' => 'x-cos-server-side-encryption-customer-algorithm',
+                        ),
+                        'SSECustomerKey' => array(
+                            'type' => 'string',
+                            'location' => 'header',
+                            'sentAs' => 'x-cos-server-side-encryption-customer-key',
+                        ),
+                        'SSECustomerKeyMD5' => array(
+                            'type' => 'string',
+                            'location' => 'header',
+                            'sentAs' => 'x-cos-server-side-encryption-customer-key-MD5',
+                        ),
                     )
                 ),
                 // 获取 COS 对象的访问权限信息（Access Control List, ACL）的方法.
@@ -1074,7 +1089,7 @@ class Service {
                         'SSEKMSKeyId' => array(
                             'type' => 'string',
                             'location' => 'header',
-                            'sentAs' => 'x-cos-server-side-encryption-aws-kms-key-id',
+                            'sentAs' => 'x-cos-server-side-encryption-cos-kms-key-id',
                         ),
                         'RequestPayer' => array(
                             'type' => 'string',
@@ -1084,6 +1099,11 @@ class Service {
                         'ACP' => array(
                             'type' => 'object',
                             'additionalProperties' => true,
+                        ),
+                        'PicOperations' => array(
+                            'type' => 'string',
+                            'location' => 'header',
+                            'sentAs' => 'Pic-Operations',
                         )
                     )
                 ),
