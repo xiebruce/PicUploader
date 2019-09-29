@@ -111,7 +111,7 @@ class UploadMinio extends Upload{
 			$data = [
 				'code' => 0,
 				'msg' => 'success',
-				'key' => $key,
+				'key' => $this->bucket . '/' . $key,
 				'domain' => $this->domain,
 			];
 		} catch (Exception $e) {
