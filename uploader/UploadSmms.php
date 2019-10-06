@@ -19,6 +19,8 @@ class UploadSmms extends Common {
 	public $proxy;
 	//上传token
 	public $token;
+	//接口版本
+	public $version;
 	//域名
 	public $domain;
 	//默认域名
@@ -43,6 +45,7 @@ class UploadSmms extends Common {
 	    $this->baseUri = 'https://sm.ms/api/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    $this->token = $ServerConfig['token'] ?? '';
+	    $this->version = $ServerConfig['version'] ?? 'v1';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
 	    $this->defaultDomain = 'https://i.loli.net';
 	    $this->domain = $ServerConfig['domain'] ?? '';
@@ -87,7 +90,9 @@ class UploadSmms extends Common {
 			$client = new Client($GuzzleConfig);
 			//upload file to https://sm.ms
 			$fp = fopen($uploadFilePath, 'rb');
-			$response = $client->request('POST', 'v2/upload?ssl=1', [
+			$uri = 'upload?ssl=1';
+			$this->version == 'v2' && $uri = 'v2/' . $uri;
+			$response = $client->request('POST', $uri, [
 				'curl' => [
 					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
 					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',

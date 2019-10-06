@@ -118,6 +118,8 @@
 			//也就是说后面使用sm.ms就必须注册了
 			'smms' => [
 				'name' => 'sm.ms',
+				// 有两种值可填，v1或v2，使用v1时，token不需要填，使用v2时，token要填(v2可以sm.ms后台看到自己上传的图片)
+				'version' => 'v1',
 				//sm.ms新版api需要token，请注册后，在Dashboard中生成Api token并填写到这里
 				'token' => 'zMY50m***********fxXHly',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
