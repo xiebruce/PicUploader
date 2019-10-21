@@ -152,8 +152,80 @@ function showLocalImages(files){
 	reader.readAsDataURL(file);
 }
 
+/**
+ * 获取当前tab值(如果没有自动添加)
+ * @param tabParamName
+ * @param initTab
+ * @param max
+ * @returns {number|string}
+ */
+function getCurTab(tabParamName, initTab, max){
+	if(tabParamName==undefined){
+		tabParamName = 'tab';
+	}
+	if(initTab==undefined){
+		initTab = 0;
+	}
+	
+	//如果链接没有tab，则给链接添加tab，且默认值为0（即第一个tab）
+	let curTab = initTab;
+	let cur_url = window.location.href.toString();
+	//检测url中是否有：?tab=数字 或 &tab=数字
+	// let reg = /[?&]tab=(\d)+/gi;
+	let reg = new RegExp('[?&]' + tabParamName + '=(\\d+)', 'gi');
+	let match = reg.exec(cur_url);
+	// console.log(match);
+	//如果没有tab=数字，我们要添加一个上去(用pushState())
+	if(match==null || match==undefined || match[1]==null || match[1]==undefined){
+		//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
+		let seperator = window.location.search.length ? '&' : '?';
+		//seperator + tabName + '=' + curTab 举例：?tab=1 , &tab=1
+		cur_url = cur_url.replace(cur_url,cur_url + seperator + tabParamName + '=' + curTab);
+		window.history.replaceState('','',cur_url);
+	}else{
+		//如果有，则直接获取数字是多少
+		curTab = match[1];
+	}
+	if(max!=undefined){
+		curTab = curTab > max ? max : curTab;
+	}
+	return curTab;
+}
+
+/**
+ * 设置当前tab值
+ * @param tabParamName
+ * @param curTab
+ */
+function setTab(tabParamName, curTab){
+	let cur_url = window.location.href.toString();
+	//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
+	let reg = new RegExp('([?|&]'  + tabParamName + '=)\\d+', 'gi');
+	// console.log(reg);
+	cur_url = cur_url.replace(reg, '$1'+curTab);
+	window.history.replaceState('', '', cur_url);
+}
+
 //jQuery入口函数
 $(document).ready(function (){
+	// ============================ 显示对应tab start ============================
+	let tabName = 'tab';
+	let tabName2 = 'tab2';
+	let curTab = 0;
+	let curTab2 = 0;
+	setTimeout(function (){
+		curTab = getCurTab(tabName);
+		curTab2 = getCurTab(tabName2);
+		if(curTab == 2){
+			// console.log(curTab2);
+			// console.log($('.sub-left-bar .list .cloud').eq(curTab2));
+			$('.sub-left-bar .list .cloud').eq(curTab2).click();
+		}else{
+			$('.left-bar .icons').eq(curTab).click();
+		}
+	}, 100);
+	// ============================ 显示对应tab end ============================
+	
 	$(document).on('scroll', function (e){
 		$('.container .body .left-bar').height($('.form-area').outerHeight());
 	});
@@ -179,8 +251,16 @@ $(document).ready(function (){
 	}, '.uploaded-image-box');
 	
 	//点击某个云
-	$('.sub-left-bar .list .cloud').on('click', function (){
+	$('.sub-left-bar .list .cloud').on('click', function (e){
+		//防止冒泡(否则会跟父级的操作死循环)
+		e.stopPropagation();
+		
 		showSaveTips(defaultSaveTips, 2000);
+		
+		//设置tab值(用于设置云图标处于选中状态)
+		setTab(tabName, 2);
+		//设置tab2值(用于设置是哪个云)
+		setTab(tabName2, $(this).index());
 		
 		var $this = $(this);
 		var key = $(this).data('key');
@@ -411,6 +491,8 @@ $(document).ready(function (){
 	
 	//点击左侧栏的上传图片选项
 	$('.left-bar .upload-image').on('click', function (){
+		//设置tab值
+		setTab(tabName, 0);
 		$('.left-bar .icons').removeClass('active');
 		$('.sub-left-bar .list li').removeClass('active');
 		$(this).addClass('active');
@@ -571,8 +653,9 @@ $(document).ready(function (){
 	
 	//通用设置
 	$('.general-setting').on('click', function (){
+		//设置tab值为1
 		showSaveTips(defaultSaveTips, 2000);
-		
+		setTab(tabName, 1);
 		var $this = $(this);
 		$.ajax({
 			type: 'get',
@@ -850,6 +933,12 @@ $(document).ready(function (){
 		saveSettings('set-general-settings');
 	});
 	
+	//通用设置
+	$('.cloud-storage').on('click', function (){
+		setTab(tabName, 2);
+		$(this).find('.sub-left-bar .list .cloud').eq(0).click();
+	});
+	
 	//点击查看历史
 	$('.left-bar .upload-history').on('click', function (){
 		let href = window.location.href + '?history=1';
@@ -877,7 +966,4 @@ $(document).ready(function (){
 	});
 	
 	//================== 图片放大 结束 ======================
-	
-	$('.left-bar .upload-image').click();
-	
 });
