@@ -27,11 +27,13 @@ function saveSettings(method){
 }
 
 //ajax上传图片递归上传多张图片
-function uploadImages(files){
+function uploadFiles(files){
 	if(files.length==0){
 		return false;
 	}
 	let file = files.shift();
+	let isImg = file.type.substr(0, 5) == 'image' ? true : false;
+	
 	var firstUnuploaded = $('.drop-area .uploaded-image-container .un-uploaded:first');
 	//状态由“未上传”改为“上传中...”
 	firstUnuploaded.find('.image-mask').html('上传中...');
@@ -65,12 +67,21 @@ function uploadImages(files){
 				//移除未上传类名及遮罩
 				firstUnuploaded.removeClass('un-uploaded').find('.image-mask').remove();
 				
+				let exclamatoryMark = '!';
+				if(isImg){
+					//如果不是图片而是其它图片，则不使用感叹号(图片的markdown前面要感叹号，而没有感叹号就是普通链接)
+					exclamatoryMark = '';
+				}
 				//在上传图片那一行显示返回的markdown链接
-				$('.click-upload-image-parent .show-returned-url').append('!['+data.filename+']('+data.url+')\n');
+				$('.click-upload-image-parent .show-returned-url').append(exclamatoryMark+'['+data.filename+']('+data.url+')\n');
 				
 				//复制按钮
+				var exclamationMark = '!';
+				if(file.type.substr(0, 5) !== 'image'){
+					exclamationMark = '';
+				}
 				let copyBtn =
-					`<div class="copy-image-url" data-clipboard-text='![${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
+					`<div class="copy-image-url" data-clipboard-text='${exclamationMark}[${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
 					<img width="16" src="/static/images/clippy.svg">
 					<div class="copied">Copied!</div>
 				</div>`;
@@ -80,23 +91,25 @@ function uploadImages(files){
 				// 用js点击复制图片按钮，把图片链接复制到剪贴板
 				// 这一句只有在mac的google浏览器能起作用，因为基于安全原因，
 				// 很多浏览器不允许用js去click这个按钮来把内容复制到剪贴板，
-				// 必须用真正的鼠标来点击才能复制
+				// 必须用真正的鼠标来点击才能复制，所以这句在大多数浏览器下其实并不管用
 				firstUnuploaded.find('.copy-image-url').click();
 				
-				//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从文件读取base64的，并没有水印)
-				var imgObj = new Image();
-				imgObj.src = data.url;
-				imgObj.onload = function (e){
-					//图片加载完成后，替换原先显示的图
-					firstUnuploaded.find('.drop-area-image').attr({
-						"src": data.url,
-						"alt": data.filename,
-						"title": data.filename,
-					});
+				if(isImg){
+					//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从文件读取base64的，并没有水印)
+					var imgObj = new Image();
+					imgObj.src = data.url;
+					imgObj.onload = function (e){
+						//图片加载完成后，替换原先显示的图
+						firstUnuploaded.find('.drop-area-image').attr({
+							"src": data.url,
+							"alt": data.filename,
+							"title": data.filename,
+						});
+					}
 				}
 				
 				//继续上传第二张
-				uploadImages(files);
+				uploadFiles(files);
 			}
 		},
 		error: function (error){
@@ -107,8 +120,9 @@ function uploadImages(files){
 
 
 let fileList = new Array();
-//显示多张本地图片，显示完后调用uploadImages上传图片
+//显示多张本地图片，显示完后调用uploadFiles上传图片
 function showLocalImages(files){
+	//第一次传进来的files是对象而不是数组，所以要把它转成数组
 	if(!(files instanceof Array)){
 		var fileArr = new Array();
 		//对象转数组
@@ -119,28 +133,35 @@ function showLocalImages(files){
 		}
 		files = fileArr;
 	}else{
-		//全部显示完成，开始上传
+		//files数组为空(即全部用shift()取出来了)时，表示全部图片显示完成，开始上传
 		if(files.length==0){
 			//ajax上传图片
-			uploadImages(fileList);
+			uploadFiles(fileList);
 			return false;
 		}
 	}
 	
 	//取出一个文件
 	let file = files.shift();
+	//每取出一张，就放到fileList数组里，然后显示这张图片，当全部取完，就表示全部显示完了，就可以开始上传了
 	fileList.push(file);
 	
 	let reader = new FileReader();  //读取文件
 	//定义onload事件，但必须要readAsDataURL之后onload事件才会触发
 	reader.onload = function(){
-		// console.log(reader.result);return false;
 		//上传之前先显示本地图片
-		var imgBox =
+		let img = '<img class="drop-area-image" src="' + reader.result + '">';
+		//如果不是图片文件而是其它文件(如：text/zip等等)
+		if(reader.result.substr(0, 10) !== 'data:image'){
+			img = '<div class="drop-area-div">' + file.name + '</div>';
+		}
+		
+		let imgBox =
 			`<div class="uploaded-image-box un-uploaded">
-				<img class="drop-area-image" src="${reader.result}">
+				${img}
 				<div class="image-mask">未开始</div>
 			</div>`;
+		
 		if($('.drop-area .uploaded-image-container .uploaded-image-box').length){
 			$('.drop-area .uploaded-image-container').append(imgBox);
 		}else{
@@ -201,7 +222,6 @@ function setTab(tabParamName, curTab){
 	let cur_url = window.location.href.toString();
 	//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
 	let reg = new RegExp('([?|&]'  + tabParamName + '=)\\d+', 'gi');
-	// console.log(reg);
 	cur_url = cur_url.replace(reg, '$1'+curTab);
 	window.history.replaceState('', '', cur_url);
 }
@@ -217,8 +237,6 @@ $(document).ready(function (){
 		curTab = getCurTab(tabName);
 		curTab2 = getCurTab(tabName2);
 		if(curTab == 2){
-			// console.log(curTab2);
-			// console.log($('.sub-left-bar .list .cloud').eq(curTab2));
 			$('.sub-left-bar .list .cloud').eq(curTab2).click();
 		}else{
 			$('.left-bar .icons').eq(curTab).click();
@@ -545,7 +563,7 @@ $(document).ready(function (){
 				<div class="click-upload-image-parent">
 					<input type="file" class="click-upload-image" multiple="multiple" >
 					<div class="show-returned-url"></div>
-					<div class="click-upload-image-btn" alt="选择图片" title="选择图片">选择图片</div>
+					<div class="click-upload-image-btn" alt="选择文件" title="选择文件">选择文件</div>
 				</div>`;
 		$('.cloud-setting').html(dropAreaHtml);
 		
@@ -941,9 +959,11 @@ $(document).ready(function (){
 	
 	//点击查看历史
 	$('.left-bar .upload-history').on('click', function (){
-		let href = window.location.href + '?history=1';
+		//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
+		let seperator = window.location.search.length ? '&' : '?';
+		let href = window.location.href + seperator + 'history=1';
 		if(window.location.href.indexOf('history=') > -1){
-			href = window.location.href.replace(/history=(.*?)(\\&.*?)*/, 'history=1');
+			href = window.location.href.replace(/history=(.*?)(&.*?)*/, 'history=1');
 		}
 		window.location.href = href;
 	});

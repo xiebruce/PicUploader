@@ -20,10 +20,11 @@ class HistoryController extends Controller {
 	 * @param $filename
 	 * @param $url
 	 * @param $size
+	 * @param $mime
 	 *
 	 * @return int
 	 */
-	public function Add($filename, $url, $size){
+	public function Add($filename, $url, $size, $mime){
 		$pattern = '/^http[s]?.*?/';
 		if(!preg_match($pattern, $url)){
 			return false;
@@ -33,6 +34,7 @@ class HistoryController extends Controller {
 			'filename' => $filename,
 			'url' => $url,
 			'size' => $size,
+			'mime' => $mime,
 		]);
 	}
 	

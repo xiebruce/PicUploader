@@ -69,7 +69,9 @@ class UploadWeibo extends Common {
 		}
 		$cookieFile = self::COOKIE_CACHE_FILE;
 		if(is_file($cookieFile) && ((time() - filemtime($cookieFile)) < $expires) && file_get_contents($cookieFile)!=''){
-			return json_decode(file_get_contents($cookieFile), true);
+			$cookieArr = json_decode(file_get_contents($cookieFile), true);
+			// print_r($cookieArr);exit;
+			return $cookieArr;
 		}
 		
 		return $this->weiboLogin();
@@ -109,7 +111,7 @@ class UploadWeibo extends Common {
 		    ]);
 		    $response = $client->request('POST', '', [
 			    'curl' => [
-				    //如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+				    //如果使用了cacert.pem，貌似需要隔一段时间更新一次，所以还是不使用它了
 				    //CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
 				    CURLOPT_SSL_VERIFYPEER => false,
 				    CURLOPT_SSL_VERIFYHOST => false,
@@ -258,5 +260,80 @@ class UploadWeibo extends Common {
 		}
 		
 		return $data;
+	}
+	
+	
+	/*
+	 * 微相册：https://photo.weibo.com
+		图片内容：微相册禁止上传涉及色情、暴力、政治敏感问题等照片。一旦发现，将关闭该帐号的所有服务。
+		图片格式：微相册支持上传PNG，JPG，GIF，JPEG四种图片格式。
+		图片大小：微相册支持单张照片上传最大20MB，单次上传最多传120张。
+		相册容量：微相册支持单个用户自建专辑100个，单个自建专辑可储存1000张照片。
+	 */
+	
+	/**
+	 * 创建微博相册，无法创建成功，不知道少了啥
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
+	private function createAlbum(){
+		$api = 'http://photo.weibo.com/albums/create';
+		$params = [
+			'property'=> "2",
+			'caption'=> 'PicUploader_' . date('Ymd'),
+			'description' => '由PicUploader创建于' . date('Ymd'),
+			'answer'=> "",
+			'question'=> "",
+			'album_id'=> "",
+		];
+		
+		//实例化GuzzleHttp
+		$client = new Client([
+			'base_uri' => $api,
+			'timeout'  => 10.0,
+		]);
+		$cookieJar = CookieJar::fromArray($this->cookie, 'sina.com.cn');
+		$response = $client->request('POST', '', [
+			'curl' => [
+				//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+				//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_SSL_VERIFYHOST => false,
+			],
+			'cookies' => $cookieJar,
+			'form_params' => $params,
+		]);
+		
+		$string = $response->getBody()->getContents();
+		var_export($string);exit;
+	}
+	
+	private function attachToAlbum($pid, $albumId){
+		!$albumId && $albumId = 4421240252137641;
+		$params = [
+			'pid' => $pid,
+			'album_id' => $albumId,
+			'isOrig' => 1,
+			'upload_type' => 1,
+		];
+		
+		$api = 'http://photo.weibo.com/upload/photo';
+		//实例化GuzzleHttp
+		$client = new Client([
+			'base_uri' => $api,
+			'timeout'  => 10.0,
+		]);
+		$cookieJar = CookieJar::fromArray($this->cookie, 'sina.com.cn');
+		$response = $client->request('POST', '', [
+			'curl' => [
+				//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
+				//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_SSL_VERIFYHOST => false,
+			],
+			'cookies' => $cookieJar,
+			'form_params' => $params,
+		]);
+		
+		$string = $response->getBody()->getContents();
 	}
 }

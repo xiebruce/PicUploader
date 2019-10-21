@@ -28,7 +28,7 @@ class HistoryModel extends DbModel {
 	 */
 	public function createOne($data){
 		$uploadTime = date('Y-m-d H:i:s');
-		$sql = 'INSERT INTO `history`(`filename`, `url`, `size`, `created_at`) VALUES("'.$data['filename'].'", "'.$data['url'].'", '.$data['size'].', "'.$uploadTime.'")';
+		$sql = 'INSERT INTO `history`(`filename`, `url`, `size`, `created_at`, `mime`) VALUES("'.$data['filename'].'", "'.$data['url'].'", '.$data['size'].', "'.$uploadTime.'", "'.$data['mime'].'")';
 		$affectedRow = $this->execute($sql);
 		return $affectedRow;
 	}

@@ -194,7 +194,7 @@ class Upload extends Common {
 					$size = filesize($uploadFilePath);
 					// $size = is_numeric($size) ? $size : 0;
 					$filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
-					(new HistoryController)->Add($filename, $url, $size);
+					(new HistoryController)->Add($filename, $url, $size, $mimeType);
 				}
 				
 				if(!$params['doNotFormat']){

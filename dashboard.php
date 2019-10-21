@@ -34,7 +34,7 @@
 	
 	<link href="/static/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	
-	<link href="/static/css/style.css" rel="stylesheet">
+	<link href="/static/css/dashboard.css" rel="stylesheet">
 	<script src="/static/js/dashboard.js"></script>
 </head>
 <body>
