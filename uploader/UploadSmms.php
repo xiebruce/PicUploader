@@ -91,16 +91,12 @@ class UploadSmms extends Common {
 			//upload file to https://sm.ms
 			$fp = fopen($uploadFilePath, 'rb');
 			$uri = 'upload?ssl=1';
-			$this->version == 'v2' && $uri = 'v2/' . $uri;
-			$response = $client->request('POST', $uri, [
+			$postData = [
 				'curl' => [
 					//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
 					//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
 					CURLOPT_SSL_VERIFYPEER => false,
 					CURLOPT_SSL_VERIFYHOST => false,
-				],
-				'headers' => [
-					'Authorization' => 'Basic '.$this->token,
 				],
 				'multipart' => [
 					[
@@ -108,7 +104,16 @@ class UploadSmms extends Common {
 						'contents' => $fp,
 					],
 				]
-			]);
+			];
+			
+			//如果是v2接口，则在header中传一个token，接口也加一个v2
+			if($this->version == 'v2'){
+				$uri = 'v2/' . $uri;
+				$postData['header'] = [
+					'Authorization' => 'Basic '.$this->token,
+				];
+			}
+			$response = $client->request('POST', $uri, $postData);
 			is_resource($fp) && fclose($fp);
 			
 			$string = $response->getBody()->getContents();
