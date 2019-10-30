@@ -123,12 +123,29 @@ class UploadSmms extends Common {
 			}
 			
 			$returnArr = json_decode($string, true);
-			if($returnArr['code'] != 'success'){
-				throw new Exception($string);
+			
+			if($returnArr['code'] == 'success'){
+				$data = $returnArr['data'];
+				$key = ltrim($data['path'], '/');
+				$deleteLink = $data['delete'];
+			}else{
+				/**
+				 //当图片已上传过时，会返回以下结果，由于图片可能是在别人那里传的，所以不能返回删除链接(否则有可能把别人的图删掉)
+				   {
+						"success": false,
+						"code": "exception",
+						"message": "Image upload repeated limit, this image exists at: https://i.loli.net/2019/10/30/3BgAobJtkDfNOH2.jpg",
+						"RequestId": "A321EA8D-3553-41F5-9F7D-748A97119058"
+					}
+				 */
+				$matches = [];
+				if(preg_match('/.*?(https\:\/\/i.loli.net)\/(.*$)/', $returnArr['message'], $matches) && isset($matches[2])){
+					$key = $matches[2];
+					$deleteLink = '';
+				}else{
+					throw new Exception($string);
+				}
 			}
-			$data = $returnArr['data'];
-			$key = ltrim($data['path'], '/');
-			$deleteLink = $data['delete'];
 			
 			$data = [
 				'code' => 0,
