@@ -11,10 +11,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
-        '383eaff206634a77a1be54e64e6459c7' => __DIR__ . '/..' . '/sabre/uri/lib/functions.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
+        '383eaff206634a77a1be54e64e6459c7' => __DIR__ . '/..' . '/sabre/uri/lib/functions.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         '2b9d0f43f9552984cfa82fee95491826' => __DIR__ . '/..' . '/sabre/event/lib/coroutine.php',
         'd81bab31d3feb45bfe2f283ea3c8fdf7' => __DIR__ . '/..' . '/sabre/event/lib/Loop/functions.php',
         'a1cce3d26cc15c00fcd0b3354bd72c88' => __DIR__ . '/..' . '/sabre/event/lib/Promise/functions.php',
@@ -73,6 +73,8 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Microsoft\\Graph\\Test\\' => 21,
+            'Microsoft\\Graph\\' => 16,
         ),
         'K' => 
         array (
@@ -89,15 +91,7 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
             'GuzzleHttp\\Command\\Guzzle\\' => 26,
             'GuzzleHttp\\Command\\' => 19,
             'GuzzleHttp\\' => 11,
-            'Grpc\\Gcp\\' => 9,
-            'Grpc\\' => 5,
-            'Google\\Protobuf\\' => 16,
-            'Google\\Photos\\Library\\Tests\\' => 28,
             'Google\\Auth\\' => 12,
-            'Google\\ApiCore\\' => 15,
-            'Google\\' => 7,
-            'GPBMetadata\\Google\\Protobuf\\' => 28,
-            'GPBMetadata\\Google\\' => 19,
         ),
         'F' => 
         array (
@@ -194,6 +188,14 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Microsoft\\Graph\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/microsoft/microsoft-graph/tests/Functional',
+        ),
+        'Microsoft\\Graph\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/microsoft/microsoft-graph/src',
+        ),
         'Katzgrau\\KLogger\\' => 
         array (
             0 => __DIR__ . '/..' . '/katzgrau/klogger/src',
@@ -222,42 +224,9 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'Grpc\\Gcp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/grpc-gcp/src',
-        ),
-        'Grpc\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/grpc/grpc/src/lib',
-        ),
-        'Google\\Protobuf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/protobuf/src/Google/Protobuf',
-        ),
-        'Google\\Photos\\Library\\Tests\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/photos-library/tests',
-        ),
         'Google\\Auth\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/auth/src',
-        ),
-        'Google\\ApiCore\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/gax/src',
-        ),
-        'Google\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/common-protos/src',
-        ),
-        'GPBMetadata\\Google\\Protobuf\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
-        ),
-        'GPBMetadata\\Google\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/google/common-protos/metadata',
-            1 => __DIR__ . '/..' . '/google/gax/metadata',
         ),
         'Firebase\\JWT\\' => 
         array (
@@ -267,11 +236,6 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
         ),
-    );
-
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/..' . '/google/grpc-gcp/src/generated',
-        1 => __DIR__ . '/..' . '/google/photos-library/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -291,6 +255,14 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
             'Guzzle' => 
             array (
                 0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
+            ),
+            'Google_Service_' => 
+            array (
+                0 => __DIR__ . '/..' . '/google/apiclient-services/src',
+            ),
+            'Google_' => 
+            array (
+                0 => __DIR__ . '/..' . '/google/apiclient/src',
             ),
         ),
         'B' => 
@@ -328,6 +300,8 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'Cloudinary\\SignatureVerifier' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/SignatureVerifier.php',
         'Cloudinary\\Uploader' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Uploader.php',
         'Cloudinary\\Utils\\Singleton' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Utils/Singleton.php',
+        'Google_Service_Exception' => __DIR__ . '/..' . '/google/apiclient/src/Google/Service/Exception.php',
+        'Google_Service_Resource' => __DIR__ . '/..' . '/google/apiclient/src/Google/Service/Resource.php',
         'Katzgrau\\KLogger\\Logger' => __DIR__ . '/..' . '/katzgrau/klogger/src/Logger.php',
     );
 
@@ -336,7 +310,6 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d::$classMap;
 

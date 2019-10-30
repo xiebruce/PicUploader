@@ -1,5 +1,7 @@
 <?php
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
+	
+	// 历史记录页面
 	if(isset($_GET['history']) && $_GET['history']==1){
 		include APP_PATH.'/settings/history.php';
 		exit;
@@ -23,7 +25,7 @@
 <!--	<script src="/static/rgbaColorPicker/rgbaColorPicker.js"></script>-->
 	
 	<script src="/static/js/clipboard.js"></script>
-	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
 	
 	<!-- 依赖jQuery -->
 	<link href="/static/Spectrum-ColorPicker/spectrum.css" rel="stylesheet">

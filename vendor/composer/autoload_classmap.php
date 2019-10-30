@@ -31,5 +31,7 @@ return array(
     'Cloudinary\\SignatureVerifier' => $vendorDir . '/cloudinary/cloudinary_php/src/SignatureVerifier.php',
     'Cloudinary\\Uploader' => $vendorDir . '/cloudinary/cloudinary_php/src/Uploader.php',
     'Cloudinary\\Utils\\Singleton' => $vendorDir . '/cloudinary/cloudinary_php/src/Utils/Singleton.php',
+    'Google_Service_Exception' => $vendorDir . '/google/apiclient/src/Google/Service/Exception.php',
+    'Google_Service_Resource' => $vendorDir . '/google/apiclient/src/Google/Service/Resource.php',
     'Katzgrau\\KLogger\\Logger' => $vendorDir . '/katzgrau/klogger/src/Logger.php',
 );

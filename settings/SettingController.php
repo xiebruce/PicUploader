@@ -8,6 +8,9 @@
 
 namespace settings;
 
+use uploader\UploadOnedrive;
+use uploader\UploadGoogledrive;
+
 class SettingController extends Controller {
 	public $settings;
 	public $storageTypes;
@@ -36,6 +39,7 @@ class SettingController extends Controller {
 	 * @param $params
 	 *
 	 * @return false|string
+	 * @throws \Exception
 	 */
 	public function getStorageParams($params){
 		$key = $params['key'];
@@ -51,10 +55,34 @@ class SettingController extends Controller {
 			$code = 1;
 		}
 		unset($columns['name']);
-		return json_encode([
+		
+		$returnArr = [
 			'code' => $code,
 			'data' => $columns,
-		]);
+		];
+		//暂时用false
+		$authorized = false;
+		if(in_array($key, ['onedrive', 'googledrive'])){
+			$config = $this->getMergeSettings();
+			$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
+			$uploader = 'uploader\\Upload' . ucfirst($key);
+			/** @var UploadOnedrive $upload */
+			/** @var UploadGoogledrive $upload */
+			$upload = new $uploader($constructorParams);
+			$token = $upload->getAccessToken();
+			$authUrl = '';
+			if($token){
+				$authorized = true;
+			}else{
+				$authUrl = $upload->getAuthorizationUrl();
+			}
+			
+			$returnArr['oauth'] = [
+				'authorized' => $authorized,
+				'authUrl' => $authUrl,
+			];
+		}
+		return json_encode($returnArr);
 	}
 	
 	/**
@@ -521,6 +549,25 @@ class SettingController extends Controller {
 		return json_encode([
 			'code' => 0,
 			'msg' => 'success',
+		]);
+	}
+	
+	/**
+	 *
+	 * @param $data
+	 *
+	 * @return false|string
+	 * @throws \Exception
+	 */
+	public function setRedirectUri($data){
+		$config = $this->getMergeSettings();
+		$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => 'onedrive'];
+		$authUrl = (new UploadOnedrive($constructorParams))->getAuthorizationUrl();
+		file_put_contents(APP_PATH.'/.tmp/redirectUri', $data['uri']);
+		return json_encode([
+			'code' => 0,
+			'authUrl' => $authUrl,
+			'msg' => '保存重定向地址成功',
 		]);
 	}
 }

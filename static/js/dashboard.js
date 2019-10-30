@@ -303,6 +303,18 @@ $(document).ready(function (){
 									</div>`;
 						value = '';
 					}
+					var authentication = '';
+					if(key == 'onedrive' || key == 'googledrive'){
+						let oauth = response.oauth;
+						if(oauth!=undefined){
+							if(oauth.authorized === false){
+								authentication = '<input id="authorize" class="authorize" type="button" value="点击获取'+key+'授权">';
+								// authentication = '<a href="#" id="authorize">获取onedrive授权</a>';
+							}else{
+								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权">';
+							}
+						}
+					}
 					html = `<div class="area">
 								<div class="form-group2-area">${cloudName}</div>
 								${html}
@@ -310,6 +322,7 @@ $(document).ready(function (){
 							<div class="area">
 								<div class="form-group">
 									<input class="save-button" type="button" value="保存">
+									${authentication}
 									<input type="hidden" name="key" value="${key}">
 									<input type="hidden" name="name" value="${cloudName}">
 								</div>
@@ -332,6 +345,25 @@ $(document).ready(function (){
 	//点击保存云存储参数
 	$('.cloud-setting').on('click', '.save-button', function (){
 		saveSettings('set-storage-params');
+	});
+	
+	//点击获取onedrive授权
+	$('.cloud-setting').on('click', '#authorize', function (){
+		$.ajax({
+			type: 'post',
+			url: './settings/dispatch.php?func=setRedirectUri',
+			data: {
+				uri: window.location.href,
+			},
+			dataType: 'json',
+			success: function (response){
+				if(response.code == 0){
+					// console.log(response.authUrl);
+					window.location.href = response.authUrl;
+				}
+			}
+		});
+		return false;
 	});
 	
 	//选择自定义返回链接时，显示自定义链接输入框，否则隐藏

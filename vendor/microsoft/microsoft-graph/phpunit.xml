@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+	<testsuites>
+		<testsuite name="Microsoft Graph SDK Test Suite">
+			<directory>tests</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist addUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php">src</directory>
+			<exclude><directory suffix=".php">src/Model</directory></exclude>
+		</whitelist>
+	</filter>
+	<logging>
+		<log type="coverage-html" target="coverage/report" charset="UTF-8" yui="true" highlight="true" lowUpperBound="50" highLowerBound="80"/>
+	</logging>
+</phpunit>

@@ -256,9 +256,18 @@ input.color {
 	width: 60px;
 }
 .save-button, .save-button2 {
-	width: 50px;
+	min-width: 50px;
 	display: block;
 	margin: 0 auto;
+}
+.authorize {
+	min-width: 50px;
+	display: block;
+	margin: 0 auto;
+}
+.authorized {
+	color: #FFFFFF;
+	background: #11B704;
 }
 .show-save-tip {
 	display: none;
