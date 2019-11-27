@@ -376,6 +376,21 @@
 				//使用代理，格式：http://127.0.0.1:1087
 				'proxy' => '',
 			],
+			
+			//Dropbox网盘： https://www.dropbox.com/home
+			//由于它是网盘，需要先上传再创建分享链接，所以每一次上传需要请求两次api，并且国内又要用代理，所以速度会慢一点
+			//反代域名：https://dl.dropboxusercontent.com/s (最后一个s是有的，没有敲错了)
+			'dropbox' => [
+				'name' => 'DropBox',
+				'appKey' => '5k********fb',
+				'appSecret' => 'kzy********8v9',
+				//使用代理(国内必须使用代理)，如：http://127.0.0.1:1087
+				'proxy' => 'http://127.0.0.1:1087',
+				//自定义目录格式：2019/03/31
+				'directory' => '/{Y}/{m}/{d}',
+				//自定义域名
+				'domain' => '',
+			],
 		],
 		
 		/*

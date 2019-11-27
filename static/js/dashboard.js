@@ -304,7 +304,7 @@ $(document).ready(function (){
 						value = '';
 					}
 					var authentication = '';
-					if(key == 'onedrive' || key == 'googledrive'){
+					if(key == 'onedrive' || key == 'googledrive' || key == 'dropbox'){
 						let oauth = response.oauth;
 						if(oauth!=undefined){
 							if(oauth.authorized === false){
@@ -347,12 +347,14 @@ $(document).ready(function (){
 		saveSettings('set-storage-params');
 	});
 	
-	//点击获取onedrive授权
+	//点击获取onedrive/googledrive/dropgox等授权
 	$('.cloud-setting').on('click', '#authorize', function (){
+		let key = $(this).next().val();
 		$.ajax({
 			type: 'post',
 			url: './settings/dispatch.php?func=setRedirectUri',
 			data: {
+				key: key,
 				uri: window.location.href,
 			},
 			dataType: 'json',

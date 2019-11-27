@@ -20,8 +20,13 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'a1cce3d26cc15c00fcd0b3354bd72c88' => __DIR__ . '/..' . '/sabre/event/lib/Promise/functions.php',
         '3569eecfeed3bcf0bad3c998a494ecb8' => __DIR__ . '/..' . '/sabre/xml/lib/Deserializer/functions.php',
         '93aa591bc4ca510c520999e34229ee79' => __DIR__ . '/..' . '/sabre/xml/lib/Serializer/functions.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
         'ebdb698ed4152ae445614b69b5e4bb6a' => __DIR__ . '/..' . '/sabre/http/lib/functions.php',
+        'fe62ba7e10580d903cc46d808b5961a4' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/helpers.php',
+        'caf31cc6ec7cf2241cb6f12c226c3846' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/alias.php',
         'c15243c55ab4c20eff78d1e24be20dac' => __DIR__ . '/..' . '/cloudinary/cloudinary_php/src/Helpers.php',
         '841780ea2e1d6545ea3a253239d59c05' => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu/functions.php',
         'cab01a477104179f77303ac3e0aabb0e' => __DIR__ . '/..' . '/yunify/qingstor-sdk/src/Handler/GuzzleV5/GuzzleHandler.php',
@@ -37,9 +42,17 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             'Upyun\\' => 6,
         ),
+        'T' => 
+        array (
+            'Tightenco\\Collect\\' => 18,
+        ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php72\\' => 23,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\VarDumper\\' => 28,
             'Symfony\\Component\\EventDispatcher\\' => 34,
+            'Spatie\\Dropbox\\' => 15,
             'Sabre\\Xml\\' => 10,
             'Sabre\\VObject\\' => 14,
             'Sabre\\Uri\\' => 10,
@@ -78,6 +91,7 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         ),
         'K' => 
         array (
+            'Kunnu\\Dropbox\\' => 14,
             'Katzgrau\\KLogger\\' => 17,
         ),
         'J' => 
@@ -91,6 +105,7 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
             'GuzzleHttp\\Command\\Guzzle\\' => 26,
             'GuzzleHttp\\Command\\' => 19,
             'GuzzleHttp\\' => 11,
+            'GrahamCampbell\\GuzzleFactory\\' => 29,
             'Google\\Auth\\' => 12,
         ),
         'F' => 
@@ -112,9 +127,29 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/upyun/sdk/src/Upyun',
         ),
+        'Tightenco\\Collect\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tightenco/collect/src/Collect',
+        ),
+        'Symfony\\Polyfill\\Php72\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
         'Symfony\\Component\\EventDispatcher\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
+        'Spatie\\Dropbox\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/dropbox-api/src',
         ),
         'Sabre\\Xml\\' => 
         array (
@@ -196,6 +231,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         array (
             0 => __DIR__ . '/..' . '/microsoft/microsoft-graph/src',
         ),
+        'Kunnu\\Dropbox\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kunalvarma05/dropbox-php-sdk/src/Dropbox',
+        ),
         'Katzgrau\\KLogger\\' => 
         array (
             0 => __DIR__ . '/..' . '/katzgrau/klogger/src',
@@ -223,6 +262,10 @@ class ComposerStaticInitf8801ffaa241e6a8037414d147a12e8d
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'GrahamCampbell\\GuzzleFactory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/guzzle-factory/src',
         ),
         'Google\\Auth\\' => 
         array (

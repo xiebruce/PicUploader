@@ -29,13 +29,19 @@ def read_config():
             if i == 0:
                 continue
             else:
-                params = val.split('=')
-                key = params[0]
-                val = params[1]
-                if key == '--config':
+                """ 判断是直接执行还是用Alfred """
+                pos = val.find('=')
+                if pos > -1:
+                    params = val.split('=')
+                    key = params[0]
+                    val = params[1]
+                    if key == '--config':
+                        config_file = val
+                    elif key == '--type':
+                        client_type = val
+                else:
                     config_file = val
-                elif key == '--type':
-                    client_type = val
+                    client_type = ''
 
     f = open(config_file, 'r', -1, 'utf8')
     text = f.read()

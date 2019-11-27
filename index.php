@@ -10,8 +10,8 @@
 	 * 关于$argv与$argc变量，这两个变量是php作为脚本执行时，获取输入参数的变量
 	 * 比如 php test.php aa bb，那么在test.php里打印$argv变量就是一个数组，包含3个元素test.php, aa, bb，而$argc就是$argv的元素个数，相当于count($argc)，当然也可用$_SERVER['argv']，$_SERVER['argc']表示。
 	 */
-	// echo php_sapi_name();exit;
-	error_reporting(E_ALL ^E_NOTICE);
+	error_reporting(0);
+	// error_reporting(E_ALL);
 	
 	use uploader\Common;
 	use settings\SettingController;

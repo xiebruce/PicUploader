@@ -25,7 +25,7 @@
 <!--	<script src="/static/rgbaColorPicker/rgbaColorPicker.js"></script>-->
 	
 	<script src="/static/js/clipboard.js"></script>
-	<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+	<script src="/static/js/jquery.min.js"></script>
 	
 	<!-- 依赖jQuery -->
 	<link href="/static/Spectrum-ColorPicker/spectrum.css" rel="stylesheet">

@@ -22,6 +22,7 @@ class UploadNetease extends Upload{
     public $domain;
     public $region;
     public $directory;
+    public $proxy;
 	//上传目标服务器名称
 	public $uploadServer;
 	
@@ -46,6 +47,7 @@ class UploadNetease extends Upload{
         $this->endpoint = $ServerConfig['endpoint'];
         $this->region = $ServerConfig['region'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
+	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    //http://markdown-bucket.nos-eastchina1.126.net/2019/08/30/d2c3738f9ce6293116b971b353ef70b5.jpg
 	    $defaultDomain = str_replace('//', '//'.$this->bucket.'.', $this->endpoint);
 	    !$this->domain && $this->domain = $defaultDomain;

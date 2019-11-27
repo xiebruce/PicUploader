@@ -8,6 +8,8 @@
 /accessorys/PicUploaderHelper/PicUploader.py
 /accessorys/PicUploaderHelper/PicUploader.php
 /accessorys/PicUploaderHelper/PicUploader-local.php
+accessorys/PicUploaderHelper/PicUploaderHelper.log
+accessorys/PicUploaderHelper/PicUploaderHelper-start.sh
 
 /auth/
 /uploader/token/

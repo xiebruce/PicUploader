@@ -116,7 +116,7 @@ class Upload extends Common {
 				$quality = $mimeType=='image/png' ? static::$config['compreLevel'] : static::$config['quality'];
 				
 				//添加水印
-				if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1 && $this->getMimeType($filePath) != 'image/gif'){
+				if(isset(static::$config['watermark']['useWatermark']) && static::$config['watermark']['useWatermark']==1){
 					$tmpImgPath = $this->watermark($uploadFilePath, $quality);
 					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
 				}
@@ -125,7 +125,7 @@ class Upload extends Common {
 				$percentage = isset(static::$config['resizeOptions']['percentage']) ? static::$config['resizeOptions']['percentage'] : 0;
 				if($percentage > 0 && $percentage < 100){
 					$tmpImgPath = $this->optimizeImage($uploadFilePath, static::$config['resizeOptions'], $quality);
-					$uploadFilePath = $tmpImgPath ? $tmpImgPath : $filePath;
+					$uploadFilePath = is_file($tmpImgPath) ? $tmpImgPath : $filePath;
 				}
 			}
 			

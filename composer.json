@@ -14,6 +14,8 @@
         "monolog/monolog": "^1.24",
         "qcloud/cos-sdk-v5": "^2.0",
         "microsoft/microsoft-graph": "^1.11",
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "kunalvarma05/dropbox-php-sdk": "^0.2.1",
+        "spatie/dropbox-api": "^1.11"
     }
 }
