@@ -86,6 +86,7 @@ class Upload extends Common {
 					$randomStr = $this->getRandomString($randomStrLen);
 					$fileNameFormat = preg_replace($pattern2, $randomStr, $fileNameFormat);
 				}
+				//除了random规则，其它都可以用strtr()函数转换
 				$newFileName = strtr($fileNameFormat, [
 					'{Y}' => date('Y'),
 					'{m}' => date('m'),
@@ -159,9 +160,6 @@ class Upload extends Common {
 					'argv' => $this->argv,
 					'uploadServer' => $uploadServer,
 				];
-				if($uploadServer == 'cloudinary'){
-					$constructorParams['useOriginalName'] = true;
-				}
 				
 				if($cloudType){
 					$className = strtolower($cloudType);

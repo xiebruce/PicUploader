@@ -45,7 +45,8 @@ class UploadCloudinary extends Upload{
         $this->cloudName = $ServerConfig['cloudName'];
 	    $this->apiKey = $ServerConfig['apiKey'];
 	    $this->apiSecret = $ServerConfig['apiSecret'];
-	    $this->useOriginalName = $ServerConfig['useOriginalName'];
+	    //默认都使用原文件名(这里的原文件名是cloudinary本身的配置项，但PicUploader里可以设置不使用原文件名，虽然这对于cloudinary来说还是原文件名，但由于这个“原文件名”已经是PicUploader修改后的名称，所以保持原文件名并不会导致覆盖)
+	    $this->useOriginalName = 1;
         $this->domain = $ServerConfig['domain'] ?? '';
 	    // https://res.cloudinary.com/bruce/image/upload/v1567241594/2019/08/31/11.jpg
 	    // Cloudinary中的域名中的v1567241594是时间戳，表示版本，但不写版本也是可以的(如果你在cloudinary后台修改了图片则有可能还是获取到原来的图)，或者写短点，写成v1也行，参考：https://support.cloudinary.com/hc/en-us/articles/202520912-What-are-image-versions-
@@ -89,7 +90,7 @@ class UploadCloudinary extends Upload{
 		    ));
 		
 		    $uploadOptions = [
-		    	//不用带后缀，因为cloudinary会根据文件类型自动添加，如果你带了，会有两个后缀
+		    	//就相当于文件名，不用带后缀，因为cloudinary会根据文件类型自动添加，如果你带了，会有两个后缀
 			    'public_id' => substr($key, 0, strrpos($key, '.')),
 			    // 默认值：public，所以可不指定
 			    'access_mode' => 'public',
