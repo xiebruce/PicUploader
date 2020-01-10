@@ -191,7 +191,7 @@ class Common {
     		$filename = substr($filename, 1);
 	    }
     	$fileExt = $this->getFileExt($filePath);
-	    return str_replace('.'.$fileExt, '', $filename);
+	    return str_ireplace('.'.$fileExt, '', $filename);
     }
 
     /**
