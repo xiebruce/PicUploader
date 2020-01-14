@@ -105,6 +105,7 @@ class UploadChevereto extends Upload{
 			$link = $returnArr['image']['url'];
 			//删除domain，只剩key部分(因为需要统一决定是使用这个域名还是使用反向代理域名)
 			$key = str_replace($this->defaultDomain . '/', '', $link);
+			$this->domain = $this->domain ? $this->domain : $this->defaultDomain;
 			$data = [
 				'code' => 0,
 				'msg' => 'success',
