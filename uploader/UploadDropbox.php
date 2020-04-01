@@ -133,7 +133,7 @@ class UploadDropbox extends Upload{
 		$client = $this->newGuzzleClient($this->baseUrl);
 		//upload file to onedrive root path
 		$data = [];
-		$data['curl'] = static::CURL_OPTION;
+		$data['verify'] = false;
 		$response = $client->request('POST', $uri, $data);
 		
 		$string = $response->getBody()->getContents();
