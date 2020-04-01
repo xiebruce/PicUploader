@@ -468,10 +468,12 @@ class Common {
 			default:
 				//Linux桌面系统要求安装xclip(如Ubuntu: apt install xclip)
 				$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
-				$mime = $imgType == 'jpg' ? 'image/jpeg' : 'image/png';
+				$mime = ($imgType == 'jpg') ? 'image/jpeg' : 'image/png';
 				$xclipPath = '/usr/bin/xclip';
+				//Linux中用于判断剪贴板中内容的类型的命令
 				$clipboardContentTypeCmd = $xclipPath . ' -selection clipboard -t TARGETS -o';
 				$contentTypes = shell_exec($clipboardContentTypeCmd);
+				//如果剪贴板中的内容是图片，则用以下命令把剪贴板中的图片输出到$imgPath指定的图片文件中
 				if(strpos($contentTypes, $mime) !== false){
 					$command = $xclipPath . ' -selection clipboard -t ' . $mime . ' -o > ' . $imgPath;
 					//图片地址不在$output中，而是在$imgPath里

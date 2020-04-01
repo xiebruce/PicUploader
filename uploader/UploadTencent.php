@@ -67,7 +67,7 @@ class UploadTencent extends Common {
 	 *
 	 * @return array
 	 */
-	public function upload($key, $uploadFilePath, $useS3CompatibleApi=true){
+	public function upload($key, $uploadFilePath, $useS3CompatibleApi=false){
         try{
 	        if($this->directory){
 		        $key = $this->directory . '/' . $key;

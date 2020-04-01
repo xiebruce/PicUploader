@@ -39,7 +39,7 @@ class SettingController extends Controller {
 	 * @param $params
 	 *
 	 * @return false|string
-	 * @throws \Exception
+	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
 	public function getStorageParams($params){
 		$key = $params['key'];
@@ -67,7 +67,6 @@ class SettingController extends Controller {
 			$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
 			$uploader = 'uploader\\Upload' . ucfirst($key);
 			/** @var UploadOnedrive $upload */
-			/** @var UploadGoogledrive $upload */
 			$upload = new $uploader($constructorParams);
 			$token = $upload->getAccessToken();
 			$authUrl = '';
@@ -97,6 +96,10 @@ class SettingController extends Controller {
 		unset($_POST['key']);
 		foreach($_POST as &$val){
 			$val = trim($val);
+		}
+		if($key=='github'){
+			$arr = explode('/', $_POST['repo']);
+			$_POST['repo'] = rtrim($arr[0]) . '/' . ltrim($arr[1]);
 		}
 		!is_dir($this->storagesDir) && mkdir($this->storagesDir, 0777);
 		$jsonFile = $this->storagesDir.'/storage-'.$key.'.json';

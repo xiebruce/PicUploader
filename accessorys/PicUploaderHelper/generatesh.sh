@@ -55,7 +55,9 @@ nohup python3 \${dir}"/PicUploaderHelper.py" \${dir}"/config.json" >> PicUploade
 
 PID=\$(ps aux | grep PicUploaderHelper.py | grep -v "grep" | tr -s ' ' | cut -d ' ' -f 2)
 if [[ "\$PID" -gt "0" ]]; then
-    echo "PicUploaderHelper运行成功，进程ID为："\$PID"，使用“ps aux | grep -v "grep" | grep PicUploaderHelper.py”命令可查询进程"
+    echo "PicUploaderHelper启动成功，进程ID为："\$PID"，使用“ps aux | grep -v "grep" | grep PicUploaderHelper.py”命令可查询进程"
+else
+    echo "PicUploaderHelper启动失败"
 fi
 EOF
 

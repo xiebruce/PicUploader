@@ -60,7 +60,8 @@
 				color: #ffffff;
 				background: #ff9e4a;
 			}
-			.container .upload-history-list .remove-from-list {
+			.container .upload-history-list .remove-from-list,
+			.container .upload-history-list .delete-all {
 				background: #e14337;
 			}
 			.container .upload-history-list .no-history{
@@ -176,7 +177,8 @@
 									url = arr[0];
 									deleteLink = '<div>Delete Hash: '+arr[1]+' <button onclick="return deleteFromImgur(\''+arr[1]+'\', this)">Delete</button></div>';
 								}
-								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|.svg|\/preview/;
+								//其中preview是nextcloud的，\=view是GoogleDrive的
+								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|.svg|\=view/;
 								var img = pattern.test(url) ? '<img class="image" src="'+url+'"">' : '';
 								
 								var exclamationMark = '!';

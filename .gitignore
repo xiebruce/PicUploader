@@ -11,7 +11,7 @@
 accessorys/PicUploaderHelper/PicUploaderHelper.log
 accessorys/PicUploaderHelper/PicUploaderHelper-start.sh
 
-/auth/
+/auth/GoogledriveRedirect.php
 /uploader/token/
 /config/config-local.php
 /config/.settings

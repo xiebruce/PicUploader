@@ -110,12 +110,7 @@ class UploadWeibo extends Common {
 			    'timeout'  => 10.0,
 		    ]);
 		    $response = $client->request('POST', '', [
-			    'curl' => [
-				    //如果使用了cacert.pem，貌似需要隔一段时间更新一次，所以还是不使用它了
-				    //CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
-				    CURLOPT_SSL_VERIFYPEER => false,
-				    CURLOPT_SSL_VERIFYHOST => false,
-			    ],
+			    'verify' => false,
 			    'form_params' => $loginData
 		    ]);
 		

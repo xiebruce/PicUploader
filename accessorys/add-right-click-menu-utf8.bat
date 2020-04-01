@@ -13,7 +13,7 @@ rem Initialization
 set php_path=
 set PicUploader_path=
 set start_setup=
-set btn_text=获取markdown链接
+set btn_text=Upload by PicUploader
 
 rem read user input
 

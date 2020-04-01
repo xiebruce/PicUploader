@@ -28,7 +28,6 @@ return array(
     'QingStor\\SDK\\' => array($vendorDir . '/yunify/qingstor-sdk/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
-    'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'OSS\\' => array($vendorDir . '/aliyuncs/oss-sdk-php/src/OSS'),
     'NOS\\' => array($vendorDir . '/netease/nos-php-sdk/src/NOS'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
@@ -43,7 +42,5 @@ return array(
     'GuzzleHttp\\Command\\' => array($vendorDir . '/guzzlehttp/command/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'GrahamCampbell\\GuzzleFactory\\' => array($vendorDir . '/graham-campbell/guzzle-factory/src'),
-    'Google\\Auth\\' => array($vendorDir . '/google/auth/src'),
-    'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
 );

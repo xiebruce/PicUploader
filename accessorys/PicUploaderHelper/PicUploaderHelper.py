@@ -122,7 +122,7 @@ def upload_image():
         send_notification('uploading')
         
         # Assemble upload shell command
-        upload_command = config['php_path'] + ' ' + config['picuploader_index_path'] + ' ' + tmp_img
+        upload_command = config['php_path'] + ' ' + config['picuploader_index_path'] + ' --type=python ' + tmp_img
 
         if client_type != 'alfred':
             if sys.platform == 'darwin':
@@ -157,13 +157,18 @@ def get_key_combination():
     """ Get key combinations from config """
     tmp_list = []
     key_combinations = config['key_combinations']
+    # print(key_combinations)
 
     for items in key_combinations:
         s = set()
         for item in items:
+            # 长度为1时，说明它是单字母，这时只获取KeyCode就行(也就是一个ASCII数字)
             if len(item) == 1:
+                # char=item这种参数传法是因为函数的参数是"关键字参数"
                 ele = keyboard.KeyCode(char=item)
+            # 长度大于1，说明按的不是单字母，而是类似Ctrl,Alt,win/cmd等等按键，就要获取它们在Keyboard里的表示方法
             else:
+                # 从keyboard.Key对象里获取item属性(item是变量，值可以是：shift,alt,ctrl等等)
                 ele = getattr(keyboard.Key, item)
             s.add(ele)
         tmp_list.append(s)
@@ -178,16 +183,25 @@ else:
     current = set()
     # get key combination
     COMBINATIONS = get_key_combination()
-
-
+    # print出来有尖括号是因为它是枚举类型
+    # COMBINATIONS的值是这样的：[{<Key.alt: <58>>, <Key.shift: <56>>, '¨'}]
+    # print(COMBINATIONS)
+    # for COMBO in COMBINATIONS:
+    #     print(COMBO)
+    # quit()
     def on_press(key):
+        print(key)
         """ Listen button press event  """
         if config['debug'] == 1:
             logging.info(str(key))
+        # COMBINATIONS是二维数组(多组快捷键)，COMBO是集合(单组快捷键)
         if any([key in COMBO for COMBO in COMBINATIONS]):
+            # 只要按下的键是在COMBINATIONS里的，则存到current集合里
             current.add(key)
+            # 如果COMBINATIONS里的任意一组任意一组快捷键(即COMBO)里的所有按键都在current里，说明这组快捷键被按下了
             if any(all(k in current for k in COMBO) for COMBO in COMBINATIONS):
-                upload_image()
+                print(111111)
+                # upload_image()
 
 
     def on_release(key):

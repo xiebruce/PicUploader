@@ -25,7 +25,7 @@
 		}
     },
     "key_combinations": [
-        ["alt", "shift", "¨"]
+        ["ctrl", "shift", "u"]
     ],
 	"debug": 0
 }

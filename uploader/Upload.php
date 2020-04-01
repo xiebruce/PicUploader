@@ -152,7 +152,7 @@ class Upload extends Common {
 				}
 				
 				$args = [$key, $uploadFilePath];
-				if(in_array($uploadServer, ['imgur', 'smms', 'weibo', 'cloudinary'])){
+				if(in_array($uploadServer, ['imgur', 'smms', 'weibo', 'cloudinary','googledrive'])){
 					$args[] = $originFilename;
 				}
 				$constructorParams = [

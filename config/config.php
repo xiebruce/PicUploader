@@ -114,12 +114,11 @@
 				'directory' => '',
 			],
 			
-			//https://sm.ms, 新版api每人5GB免费空间，收费的截止到2019-08-25还没上线，但已经在开发中，原api在新api完善后，将会下线
-			//也就是说后面使用sm.ms就必须注册了
+			//https://sm.ms, 新版api每人5GB免费空间，现在旧版已经不能用了，也就是必须注册使用token了
 			'smms' => [
 				'name' => 'sm.ms',
-				// 有两种值可填，v1或v2，使用v1时，token不需要填，使用v2时，token要填(v2可以sm.ms后台看到自己上传的图片)
-				'version' => 'v1',
+				// 之前v1和v2都可以用，现在v1已经废弃，必须v2(要注册登录，在Dashboard里拿到API token)
+				'version' => 'v2',
 				//sm.ms新版api需要token，请注册后，在Dashboard中生成Api token并填写到这里
 				'token' => 'zMY50m***********fxXHly',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
@@ -391,6 +390,26 @@
 				//自定义域名
 				'domain' => '',
 			],
+            
+            //微软网盘，以前叫Skydrive，后来改名叫OneDrive，不过它都是通过微软的云服务Azure(Azure Active Directory，简称Azure AD)来操作的
+            //而Azure的套餐又是通过Office365来购买的(OneDrive属于Office365下的一个存储服务，Word/Excel/Powerpoint之类的Office软件可直接把文档保存到OneDrive中)
+            'onedrive' => [
+                'name' => 'OneDrive',
+                //tenant终结点域名后面那一段的值，有可能是"organizations"，也有可能是一串类似"8eaef023-2b34-4da1-9baa-8bc8c9d6a490"这样的
+                'tenant' => 'organizations',
+                'clientId' => 'a94be80e-***************51ea3d31a',
+                'clientSecret' => 'Gz1r7?:**************03QkT9Yss',
+                'proxy' => 'http://127.0.0.1:1087',
+            ],
+            
+            //GoogleDrive: https://drive.google.com/drive/my-drive
+            'googledrive' => [
+                'name' => 'GoogleDrive',
+                'clientId' => '810255146704-9esrhfq2r********le.apps.googleusercontent.com',
+                'clientSecret' => 'vq8K9**********1eSkq2o',
+                //使用代理，如：http://127.0.0.1:1087
+                'proxy' => 'http://127.0.0.1:1087',
+            ],
 		],
 		
 		/*

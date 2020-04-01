@@ -13,7 +13,6 @@ use Exception;
 use BaiduBce\Services\Bos\BosClient;
 
 class UploadBaidu extends Upload{
-	public $bosConfig;
 	public $accessKeyId;
 	public $secretAccessKey;
 	public $endpoint;

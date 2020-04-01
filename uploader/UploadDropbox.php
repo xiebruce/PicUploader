@@ -20,12 +20,6 @@ class UploadDropbox extends Upload{
 	const AUTH_TOKEN_URL = 'https://api.dropboxapi.com/oauth2/token';
 	const UPLOAD_URL = 'https://content.dropboxapi.com/2/files/upload';
 	const CREATE_SHARED_LINK = 'https://api.dropboxapi.com/2/sharing/create_shared_link';
-	const CURL_OPTION = [
-		//如果使用了cacert.pem，貌似隔一段时间更新一次，所以还是不使用它了
-		//CURLOPT_CAINFO => APP_PATH.'/static/cacert.pem',
-		CURLOPT_SSL_VERIFYPEER => false,
-		CURLOPT_SSL_VERIFYHOST => false,
-	];
 	public $domain;
 	public $proxy;
 	public $directory;
@@ -188,7 +182,7 @@ class UploadDropbox extends Upload{
 		$client = $this->newGuzzleClient();
 		
 		$postData = [
-			'curl' => static::CURL_OPTION,
+			'verify' => false,
 			'headers' => [
 				'Authorization' => 'Bearer ' . $accessToken,
 				'Content-Type'  => 'application/json',
@@ -256,7 +250,7 @@ class UploadDropbox extends Upload{
 			
 			$client = $this->newGuzzleClient();
 			$response = $client->request('POST', static::UPLOAD_URL, [
-				'curl' => static::CURL_OPTION,
+				'verify' => false,
 				'headers' => [
 					'Authorization' => 'Bearer ' . $accessToken,
 					'Content-Type'  => 'application/octet-stream',
