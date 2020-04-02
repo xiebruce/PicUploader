@@ -68,7 +68,7 @@ function uploadFiles(files){
 				firstUnuploaded.removeClass('un-uploaded').find('.image-mask').remove();
 				
 				let exclamatoryMark = '!';
-				if(isImg){
+				if(!isImg){
 					//如果不是图片而是其它图片，则不使用感叹号(图片的markdown前面要感叹号，而没有感叹号就是普通链接)
 					exclamatoryMark = '';
 				}
