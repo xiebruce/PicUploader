@@ -39,7 +39,7 @@ function uploadFiles(files){
 	firstUnuploaded.find('.image-mask').html('上传中...');
 	
 	var formData = new FormData();
-	formData.append('mweb', file);
+	formData.append('web', file);
 	
 	$.ajax({
 		type: 'post',
@@ -66,22 +66,10 @@ function uploadFiles(files){
 			if(response.code=='success'){
 				//移除未上传类名及遮罩
 				firstUnuploaded.removeClass('un-uploaded').find('.image-mask').remove();
-				
-				let exclamatoryMark = '!';
-				if(!isImg){
-					//如果不是图片而是其它图片，则不使用感叹号(图片的markdown前面要感叹号，而没有感叹号就是普通链接)
-					exclamatoryMark = '';
-				}
 				//在上传图片那一行显示返回的markdown链接
-				$('.click-upload-image-parent .show-returned-url').append(exclamatoryMark+'['+data.filename+']('+data.url+')\n');
-				
-				//复制按钮
-				var exclamationMark = '!';
-				if(file.type.substr(0, 5) !== 'image'){
-					exclamationMark = '';
-				}
+				$('.click-upload-image-parent .show-returned-url').append(data.url + '\n');
 				let copyBtn =
-					`<div class="copy-image-url" data-clipboard-text='${exclamationMark}[${data.filename}](${data.url})' alt="Copy to clipboard" title="Copy to clipboard">
+					`<div class="copy-image-url" data-clipboard-text='${data.url}' alt="Copy to clipboard" title="Copy to clipboard">
 					<img width="16" src="/static/images/clippy.svg">
 					<div class="copied">Copied!</div>
 				</div>`;
@@ -93,15 +81,20 @@ function uploadFiles(files){
 				// 很多浏览器不允许用js去click这个按钮来把内容复制到剪贴板，
 				// 必须用真正的鼠标来点击才能复制，所以这句在大多数浏览器下其实并不管用
 				firstUnuploaded.find('.copy-image-url').click();
-				
+				//括号中"?:"开头表示不捕获引用
+				let res = data.url.match(/http[s]?\:\/\/.*?(?:view|download)/);
+				let url = '';
+				if(res!==null){
+					url = res[0];
+				}
 				if(isImg){
 					//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从文件读取base64的，并没有水印)
 					var imgObj = new Image();
-					imgObj.src = data.url;
+					imgObj.src = url;
 					imgObj.onload = function (e){
 						//图片加载完成后，替换原先显示的图
 						firstUnuploaded.find('.drop-area-image').attr({
-							"src": data.url,
+							"src": url,
 							"alt": data.filename,
 							"title": data.filename,
 						});
@@ -113,7 +106,7 @@ function uploadFiles(files){
 			}
 		},
 		error: function (error){
-			console.log(error);
+			console.log(error.responseText);
 		}
 	});
 }

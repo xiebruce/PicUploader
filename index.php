@@ -58,8 +58,9 @@
 	 * @var bool $isPicgo
 	 * @var bool $isSharex
 	 * @var bool $isUpic
+	 * @var bool $isWeb
 	 */
-	$plugins = ['mweb','picgo','sharex','upic'];
+	$plugins = ['mweb','picgo','sharex','upic','web'];
 	foreach($plugins as $plugin) {
 		$tmp = ucfirst($plugin);
 		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex、$isUpic，用于下边代码判断当前是否是mweb/picgo/sharex/upic请求。
@@ -163,14 +164,14 @@
 		]
 	]);
 	
-	//如果是MWeb/PicGo/ShareX/Upic等，则返回它们支持的json格式
-	if($isMweb || $isPicgo || $isSharex || $isUpic){
+	//如果是MWeb/PicGo/ShareX/Upic/Web等，则返回它们支持的json格式
+	if($isMweb || $isPicgo || $isSharex || $isUpic || $isWeb){
 		// mweb或sharex接收的json格式
 		$data = [
 			'code' => 'success',
 			'data' => [
 				'filename' => $_FILES['file']['name'],
-				'url' => trim($link),
+				'url' => $link,
 			],
 		];
 		
@@ -213,7 +214,8 @@
 		}
 
 		//只要非第三方客户端或网页上传，都要通知上传成功还是失败
-		if(preg_match('/:?http[s]?(.*?)$/', $link)){
+        //?号表示[s]可能是0个或1个
+		if(preg_match('/http[s]?:\/\/(.*?)$/', $link)){
 			//通知上传成功
 			(new Common())->sendNotification('success');
 		}else{

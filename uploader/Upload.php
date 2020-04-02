@@ -220,6 +220,9 @@ class Upload extends Common {
 			//服务器把这个域名代理到真正的域名
 			$links .= $link . "\n";
 		}
+		//去掉最后一个换行，否则会影响复制到剪贴板(如，在win中：echo xxxx | clip，如果xxxx后面有换行
+        //，即把"| clip"换到第二行，这就变成不是一句命令而是两句，导致无法把内容输出到剪贴板)
+        $links = rtrim($links);
 		// $str = var_export(isset($tmpImgPath), true);
 		// file_put_contents('/Users/bruce/Downloads/tmp-debug.txt', "{$str}--{$tmpImgPath}\n----------------------------------------\n\n", FILE_APPEND);
 		isset($tmpImgPath) && @unlink($tmpImgPath);

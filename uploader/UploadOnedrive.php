@@ -24,7 +24,12 @@ use Exception;
 use GuzzleHttp\Client;
 
 class UploadOnedrive extends Upload{
-
+    
+    //块大小为10M(虽然普通上传不能大于4M，但分块上传每块的大小是可以超过4M的)
+    const CHUNK_SIZE = 10485760;  //实际使用
+    // const CHUNK_SIZE = 1048576; //just for test
+    // const CHUNK_SIZE = 10485760; //just for test
+    
     public $clientId;
     public $clientSecret;
 	public $redirectUri;
@@ -344,7 +349,7 @@ class UploadOnedrive extends Upload{
 		try{
 			//把文件分块上传，每块4M(但最后一块可能小于4M)
 			// $chunkSize = 4 * 1024 * 1024;
-			$chunkSize = 1 * 1024 * 1024; //just for test
+			$chunkSize = static::CHUNK_SIZE; //just for test
 			$file = file_get_contents($uploadFilePath);
 			$fileSize = strlen($file);
 			//还剩多少字节没上传(刚开始未上传的字节肯定就是整个文件大小)
@@ -479,11 +484,9 @@ class UploadOnedrive extends Upload{
 	public function upload($key, $uploadFilePath){
 		try {
 			//4 * 1024 * 1024 = 4194304(即4M)，如果文件大于4M，则分块上传
-			// if(filesize($uploadFilePath) > 4194304){    //真实使用
-			if(filesize($uploadFilePath) < 4194304){    //测试用
-				// if(filesize($uploadFilePath) > 4194304){
+			if(filesize($uploadFilePath) > static::CHUNK_SIZE){    //真实使用
+			// if(filesize($uploadFilePath) < static::CHUNK_SIZE){    //测试用
 				$UploadSession = $this->createUploadSession($key);
-				// var_dump($UploadSession);exit;
 				if(!isset($UploadSession['uploadUrl'])){
 					throw new Exception('创建上传会话失败');
 				}

@@ -33,9 +33,10 @@ use GuzzleHttp\Exception\RequestException;
 class UploadGoogledrive extends Upload{
 	
 	//块大小为5M(因为小于5M可以直接上传)
-	// const CHUNK_SIZE = 5242880;  //实际使用
+	const CHUNK_SIZE = 10485760;  //实际使用
 	// const CHUNK_SIZE = 1048576; //just for test
-	const CHUNK_SIZE = 20971520; //just for test
+	// const CHUNK_SIZE = 20971520; //just for test
+ 
 	const OAUTH_BASE_URL = 'https://oauth2.googleapis.com';
 	const API_BASE_URL = 'https://www.googleapis.com';
 	
@@ -84,7 +85,7 @@ class UploadGoogledrive extends Upload{
 		
 		$this->domain = $ServerConfig['domain'] ?? '';
 		
-		$this->defaultDomain = 'http://drive.google.com';
+		$this->defaultDomain = 'https://drive.google.com';
 		!$this->domain && $this->domain = $this->defaultDomain;
 		
 		if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
@@ -850,7 +851,7 @@ class UploadGoogledrive extends Upload{
 			//参考：https://github.com/googlecolab/colabtools/issues/882#issuecomment-560490773
 			//能链接到markdown的非图片格式：https://drive.google.com/uc?id=<fileId>&export=download
 			//能链接到markdown的图片格式：https://drive.google.com/uc?id=<fileId>&export=view
-			$shareLink = 'http://drive.google.com/uc?id='.$fileId.'&export=';
+			$shareLink = 'https://drive.google.com/uc?id='.$fileId.'&export=';
 			if($isImg){
 				$shareLink .= 'view';
 			}else{
@@ -929,7 +930,7 @@ class UploadGoogledrive extends Upload{
 			}
 			
 			if(filesize($uploadFilePath) > static::CHUNK_SIZE){    //真实使用
-			// if(filesize($uploadFilePath) < 5242880){    //测试用
+			// if(filesize($uploadFilePath) < static::CHUNK_SIZE)){    //测试用
 				$uploadUrl = $this->createUploadSession($key, $uploadFilePath, $originFilename, $lastFolderId);
 				if(!$uploadUrl){
 					throw new Exception('创建上传会话失败');
