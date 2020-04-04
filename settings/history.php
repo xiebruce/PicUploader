@@ -105,30 +105,58 @@
 			.upload-history-list .operations {
 				width: 12%;
 			}
+			.img-url-td {
+				position: relative;
+			}
+			.deleting-mask {
+				display: none;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.8);
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.deleting-text {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: #e6d9d9;
+				/*background: #4E82A8;*/
+			}
 		</style>
 		<script>
-			function deleteFromImgur(hash, obj){
-				if(!confirm('确定要从Imgur中删除吗？')){
+			function deleteImage(hash, obj, engine='Imgur'){
+				if(!confirm('确定要从'+engine+'中删除吗？')){
 					return false;
 				}
+				$(obj).parent().parent().find('.deleting-mask').show();
 				$.ajax({
 					type: 'get',
 					url: './settings/dispatch.php',
 					data: {
 						class: 'HistoryController',
-						func: 'deleteFromImgur',
+						func: 'deleteImage',
 						hash: hash,
+						engine: engine,
 					},
 					dataType: 'json',
 					success: function (response){
 						if(response.code == 0){
-							$(obj).parent().html('从Imgur中删除成功，请点击右侧“移除”按钮从本地记录中移除该记录');
+							$(obj).parent().parent().find('.deleting-text').html('从'+engine+'删除成功<br>正在从本地记录中删除…');
+							setTimeout(function (){
+								$(obj).parent().parent().find('.deleting-mask').hide();
+								let id = $(obj).attr('local-history-id');
+								deleteItems(id);
+							}, 1000);
 						}else{
 							alert('删除失败');
 						}
 					},
 					error: function (error){
-						console.log(error);
+						console.log(error.responseText);
+						$(obj).parent().parent().find('.deleting-text').html(error.responseText);
 					}
 				});
 			}
@@ -170,15 +198,17 @@
 								if(url.indexOf(',') > 0){
 									var arr = url.split(',');
 									url = arr[0];
-									deleteLink = '<div>Delete Link: '+arr[1]+' <a href="'+arr[1]+'" target="_blank" onclick="return confirm(\'确定要从sm.ms中删除该图片吗? 删除后请手动移除本条记录\')">Delete</a></div>';
+									let lastSlashPos = arr[1].lastIndexOf('\/');
+									let deleteHash = arr[1].substr(lastSlashPos+1);
+									deleteLink = '<div>Delete Link: '+arr[1]+' <button onclick="return deleteImage(\''+deleteHash+'\', this, \'smms\')" local-history-id="'+ data[i].id +'">Delete</button></div>';
 								}
 								if(url.indexOf(';') > 0){
 									var arr = url.split(';');
 									url = arr[0];
-									deleteLink = '<div>Delete Hash: '+arr[1]+' <button onclick="return deleteFromImgur(\''+arr[1]+'\', this)">Delete</button></div>';
+									deleteLink = '<div>Delete Hash: '+arr[1]+' <button onclick="return deleteImage(\''+arr[1]+'\', this, \'Imgur\')" local-history-id="'+ data[i].id +'">Delete</button></div>';
 								}
 								//其中preview是nextcloud的，\=view是GoogleDrive的
-								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|.svg|\=view/;
+								var pattern = /http[s]{0,1}.*?\.jpg|\.jpeg|\.png|.gif|.webp|.bmp|.svg|\/preview|\=view/;
 								var img = pattern.test(url) ? '<img class="image" src="'+url+'"">' : '';
 								
 								var exclamationMark = '!';
@@ -196,7 +226,10 @@
 												${img}
 												<div class="filename">${data[i].filename}</div>
 											</td>
-											<td>
+											<td class="img-url-td">
+												<div class="deleting-mask">
+													<div class="deleting-text">删除中...</div>
+												</div>
 												<a href="${url}" target="_blank">${url}</a>
 												${deleteLink}
 											</td>

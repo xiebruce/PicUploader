@@ -297,14 +297,13 @@ $(document).ready(function (){
 						value = '';
 					}
 					var authentication = '';
-					if(key == 'onedrive' || key == 'googledrive' || key == 'dropbox'){
+					if(key == 'onedrive' || key == 'googledrive' || key == 'dropbox' || key == 'imgur'){
 						let oauth = response.oauth;
 						if(oauth!=undefined){
 							if(oauth.authorized === false){
 								authentication = '<input id="authorize" class="authorize" type="button" value="点击获取'+key+'授权">';
-								// authentication = '<a href="#" id="authorize">获取onedrive授权</a>';
 							}else{
-								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权">';
+								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权"><input id="authorize" class="authorize" type="button" value="重新获取'+key+'授权"><br>(注意:在已获取授权的情况下，点击"重新获取授权"，如果是OneDrive、Dropbox，你的感觉就是刷新了一下，但其实已经重新获取了，如果是GoogleDrive则会重新显示同意页面，重新获取的原因：当上传一直失败时，可以尝试重新获取一下授权，另外如果你更换了账号，也需要重新获取！)';
 							}
 						}
 					}
@@ -340,12 +339,12 @@ $(document).ready(function (){
 		saveSettings('set-storage-params');
 	});
 	
-	//点击获取onedrive/googledrive/dropgox等授权
+	//点击获取onedrive/googledrive/dropgox/imgur等授权
 	$('.cloud-setting').on('click', '#authorize', function (){
-		let key = $(this).next().val();
+		let key = $(this).parent().find('input[name="key"]').val();
 		$.ajax({
 			type: 'post',
-			url: './settings/dispatch.php?func=setRedirectUri',
+			url: './settings/dispatch.php?func=getAuthUrl',
 			data: {
 				key: key,
 				uri: window.location.href,

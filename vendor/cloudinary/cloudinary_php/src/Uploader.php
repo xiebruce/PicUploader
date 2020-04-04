@@ -10,7 +10,7 @@ namespace Cloudinary {
      */
     class Uploader
     {
-        const REMOTE_URL_REGEX = '/^@|^ftp:|^https?:|^s3:|^gs:|^data:([\w-]+\/[\w-]+)?(;[\w-]+=[\w-]+)*;base64,([a-zA-Z0-9\/+\n=]+)$/';
+        const REMOTE_URL_REGEX = '/^@|^ftp:|^https?:|^s3:|^gs:|^data:([\w-]+\/[\w-]+(\+[\w-]+)?)?(;[\w-]+=[\w-]+)*;base64,([a-zA-Z0-9\/+\n=]+)$/';
 
         public static function build_upload_params(&$options)
         {
@@ -26,6 +26,7 @@ namespace Cloudinary {
                 "backup" => \Cloudinary::option_get($options, "backup"),
                 "callback" => \Cloudinary::option_get($options, "callback"),
                 "categorization" => \Cloudinary::option_get($options, "categorization"),
+                "cinemagraph_analysis" => \Cloudinary::option_get($options, "cinemagraph_analysis"),
                 "colors" => \Cloudinary::option_get($options, "colors"),
                 "context" => \Cloudinary::encode_assoc_array(\Cloudinary::option_get($options, "context")),
                 "custom_coordinates" => \Cloudinary::encode_double_array(
@@ -46,6 +47,7 @@ namespace Cloudinary {
                 "headers" => Uploader::build_custom_headers(\Cloudinary::option_get($options, "headers")),
                 "image_metadata" => \Cloudinary::option_get($options, "image_metadata"),
                 "invalidate" => \Cloudinary::option_get($options, "invalidate"),
+                "metadata" => \Cloudinary::encode_assoc_array(\Cloudinary::option_get($options, "metadata")),
                 "moderation" => \Cloudinary::option_get($options, "moderation"),
                 "notification_url" => \Cloudinary::option_get($options, "notification_url"),
                 "ocr" => \Cloudinary::option_get($options, "ocr"),
@@ -198,6 +200,38 @@ namespace Cloudinary {
             );
 
             return Uploader::call_api("rename", $params, $options);
+        }
+
+        /**
+         * Populates metadata fields with the given values. Existing values will be overwritten.
+         *
+         * Any metadata-value pairs given are merged with any existing metadata-value pairs
+         * (an empty value for an existing metadata field clears the value)
+         *
+         * @param array $metadata   A list of custom metadata fields (by external_id) and the values to assign to each
+         *                          of them.
+         * @param array $public_ids An array of Public IDs of assets uploaded to Cloudinary.
+         * @param array $options {
+         *
+         *      @var string resource_type   The type of file. Default: image. Valid values: image, raw, video.
+         *      @var string type            The storage type. Default: upload.
+         *                                  Valid values: upload, private, authenticated
+         * }
+         *
+         * @return mixed a list of public IDs that were updated
+         *
+         * @throws Error
+         */
+        public static function update_metadata($metadata, $public_ids, $options = array())
+        {
+            $params = array(
+                "timestamp" => time(),
+                "metadata" => \Cloudinary::encode_assoc_array($metadata),
+                "public_ids" => \Cloudinary::build_array($public_ids),
+                "type" => \Cloudinary::option_get($options, "type"),
+            );
+
+            return Uploader::call_api("metadata", $params, $options);
         }
 
         public static function explicit($public_id, $options = array())
@@ -511,7 +545,17 @@ namespace Cloudinary {
                 if ($return_error) {
                     $result["error"]["http_code"] = $code;
                 } else {
-                    throw new Error($result["error"]["message"], $code);
+                    $message = "";
+
+                    if (isset($result["error"]["message"])) {
+                        if (is_array($result["error"]["message"])) {
+                            $message = $result["error"]["message"]["message"];
+                        } else {
+                            $message = $result["error"]["message"];
+                        }
+                    }
+
+                    throw new Error($message, $code);
                 }
             }
 

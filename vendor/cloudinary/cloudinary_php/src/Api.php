@@ -337,6 +337,7 @@ namespace Cloudinary {
          *      @var string     derived_next_cursor If there are more derived images than max_results,
          *          the derived_next_cursor value is returned as part of the response. You can then specify this value
          *          as the derived_next_cursor parameter of the following listing request.
+         *      @var boolean    cinemagraph_analysis    Include cinemagraph analysis information. Default: false
          * }
          *
          * @return Api\Response
@@ -355,6 +356,7 @@ namespace Cloudinary {
                     "colors",
                     "faces",
                     "quality_analysis",
+                    "cinemagraph_analysis",
                     "image_metadata",
                     "phash",
                     "pages",
@@ -774,8 +776,9 @@ namespace Cloudinary {
          */
         public function transformation($transformation, $options = array())
         {
-            $uri = array("transformations", $this->transformation_string($transformation));
+            $uri = array("transformations");
             $params = $this->only($options, array("next_cursor", "max_results"));
+            $params["transformation"] = \Cloudinary::build_single_eager($transformation);
 
             return $this->call_api("get", $uri, $params, $options);
         }
@@ -798,8 +801,8 @@ namespace Cloudinary {
          */
         public function delete_transformation($transformation, $options = array())
         {
-            $uri = array("transformations", $this->transformation_string($transformation));
-            $params = array();
+            $uri = array("transformations");
+            $params = array("transformation" => \Cloudinary::build_single_eager($transformation));
             if (isset($options["invalidate"])) {
                 $params["invalidate"] = $options["invalidate"];
             }
@@ -830,11 +833,12 @@ namespace Cloudinary {
          */
         public function update_transformation($transformation, $updates = array(), $options = array())
         {
-            $uri = array("transformations", $this->transformation_string($transformation));
+            $uri = array("transformations");
             $params = $this->only($updates, array("allowed_for_strict"));
             if (isset($updates["unsafe_update"])) {
                 $params["unsafe_update"] = $this->transformation_string($updates["unsafe_update"]);
             }
+            $params["transformation"] = \Cloudinary::build_single_eager($transformation);
 
             return $this->call_api("put", $uri, $params, $options);
         }
@@ -855,8 +859,8 @@ namespace Cloudinary {
          */
         public function create_transformation($name, $definition, $options = array())
         {
-            $uri = array("transformations", $name);
-            $params = array("transformation" => $this->transformation_string($definition));
+            $uri = array("transformations");
+            $params = array("transformation" => \Cloudinary::build_single_eager($definition), "name" => $name);
 
             return $this->call_api("post", $uri, $params, $options);
         }
@@ -950,7 +954,7 @@ namespace Cloudinary {
         {
             $uri = array("upload_presets", $name);
             $params = \Cloudinary\Uploader::build_upload_params($options);
-            $params = array_merge($params, $this->only($options, array("unsigned", "disallow_public_id")));
+            $params = array_merge($params, $this->only($options, array("unsigned", "disallow_public_id", "live")));
 
             return $this->call_api("put", $uri, $params, $options);
         }
@@ -979,7 +983,10 @@ namespace Cloudinary {
         public function create_upload_preset($options = array())
         {
             $params = \Cloudinary\Uploader::build_upload_params($options);
-            $params = array_merge($params, $this->only($options, array("name", "unsigned", "disallow_public_id")));
+            $params = array_merge(
+                $params,
+                $this->only($options, array("name", "unsigned", "disallow_public_id", "live"))
+            );
 
             return $this->call_api("post", array("upload_presets"), $params, $options);
         }
@@ -989,7 +996,13 @@ namespace Cloudinary {
          *
          * @see https://cloudinary.com/documentation/admin_api#list_all_root_folders
          *
-         * @param array $options    Additional options
+         * @param array $options {
+         *
+         *      @var int     max_results     Max number of root folders to return. Default: 2000. Maximum: 2000
+         *      @var string  next_cursor     When a listing request has more results to return than max_results,
+         *          the next_cursor value is returned as part of the response. You can then specify this value as the
+         *          next_cursor parameter of the following listing request.
+         * }
          *
          * @return Api\Response
          *
@@ -997,7 +1010,9 @@ namespace Cloudinary {
          */
         public function root_folders($options = array())
         {
-            return $this->call_api("get", array("folders"), array(), $options);
+            $params = $this->only($options, array("next_cursor", "max_results"));
+
+            return $this->call_api("get", array("folders"), $params, $options);
         }
 
         /**
@@ -1008,7 +1023,13 @@ namespace Cloudinary {
          * @see https://cloudinary.com/documentation/admin_api#list_subfolders
          *
          * @param string    $of_folder_path The root folder
-         * @param array     $options        Additional options
+         * @param array $options {
+         *
+         *      @var int     max_results     Max number of sub-folders to return. Default: 2000. Maximum: 2000
+         *      @var string  next_cursor     When a listing request has more results to return than max_results,
+         *          the next_cursor value is returned as part of the response. You can then specify this value as the
+         *          next_cursor parameter of the following listing request.
+         * }
          *
          * @return Api\Response
          *
@@ -1017,8 +1038,29 @@ namespace Cloudinary {
         public function subfolders($of_folder_path, $options = array())
         {
             $uri = array("folders", $of_folder_path);
+            $params = $this->only($options, array("next_cursor", "max_results"));
 
-            return $this->call_api("get", $uri, array(), $options);
+            return $this->call_api("get", $uri, $params, $options);
+        }
+
+        /**
+         * Creates folder
+         *
+         * Creates an empty folder
+         *
+         * @param string $path    The folder path to create
+         * @param array  $options Additional options
+         *
+         * @return Api\Response
+         *
+         * @throws Api\BadRequest
+         * @throws Api\GeneralError
+         */
+        public function create_folder($path, $options = array())
+        {
+            $uri = array("folders", $path);
+
+            return $this->call_api("post", $uri, array(), $options);
         }
 
         /**

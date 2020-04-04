@@ -24,7 +24,7 @@ namespace Cloudinary {
             if (!\Cloudinary::config_get("api_secret")) {
                 $this->markTestSkipped('Please setup environment for Upload test to run');
             }
-            
+
             Uploader::upload("tests/logo.png", array("tags" => $this->tags));
             Uploader::upload("tests/logo.png", array("tags" => $this->tags, "width" => 10, "crop" => "scale"));
         }
@@ -83,6 +83,30 @@ namespace Cloudinary {
             $zip->open($file);
             $this->assertEquals(2, $zip->numFiles);
             unlink($file);
+        }
+
+        public function test_create_archive_multiple_resource_types()
+        {
+            Curl::mockUpload($this);
+
+            $testIds = [
+                "image/upload/" . UNIQUE_TEST_ID,
+                "video/upload/" . UNIQUE_TEST_ID,
+                "raw/upload/" . UNIQUE_TEST_ID,
+            ];
+
+            Uploader::create_zip(
+                array(
+                    "resource_type"              => "auto",
+                    "fully_qualified_public_ids" => $testIds
+                )
+            );
+
+            assertUrl($this, '/auto/generate_archive');
+
+            assertParam($this, "fully_qualified_public_ids[0]", $testIds[0]);
+            assertParam($this, "fully_qualified_public_ids[1]", $testIds[1]);
+            assertParam($this, "fully_qualified_public_ids[2]", $testIds[2]);
         }
     }
 }

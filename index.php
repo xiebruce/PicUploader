@@ -194,6 +194,7 @@
 				 *  到剪贴板，但用终端执行只是调试，真正使用不会这么用，所以可以不管。
 				 */
 				echo $link;
+                // (new Common())->copyPlainTextToClipboard($link);
 				break;
 			case 'WINNT':
 				/*
@@ -203,19 +204,25 @@
 				 *  调用的命令加了--type=alfred，所以这里判断alfred的就复制)
 				 *  2.Pyhon: python里有复制，所以这里不需要
 				 */
-				if(isset($alfred)){
-					(new Common())->copyPlainTextToClipboard($link);
-				}
+				
 				break;
 			default:
-			    //Linux不确定是怎么调用，按复制到剪贴板处理
-				//复制到剪贴板
-				(new Common())->copyPlainTextToClipboard($link);
+			    //Linux
+                if(isset($alfred)){
+                    (new Common())->copyPlainTextToClipboard($link);
+                }else{
+                    echo $link;
+                }
 		}
 
 		//只要非第三方客户端或网页上传，都要通知上传成功还是失败
         //?号表示[s]可能是0个或1个
-		if(preg_match('/http[s]?:\/\/(.*?)$/', $link)){
+        /*
+         * 这个也带https，但不能认为是成功
+         * sh: -c: line 0: syntax error near unexpected token `('
+sh: -c: line 0: `echo cURL error 28: Operation timed out after 30005 milliseconds with 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) | pbcopy'
+         */
+		if(!strpos($link, 'Operation timed out') && preg_match('/http[s]?:\/\/(.*?)$/', $link)){
 			//通知上传成功
 			(new Common())->sendNotification('success');
 		}else{

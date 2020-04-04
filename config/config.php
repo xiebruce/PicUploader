@@ -114,12 +114,11 @@
 				'directory' => '',
 			],
 			
-			//https://sm.ms, 新版api每人5GB免费空间，现在旧版已经不能用了，也就是必须注册使用token了
+			//https://sm.ms
 			'smms' => [
 				'name' => 'sm.ms',
-				// 之前v1和v2都可以用，现在v1已经废弃，必须v2(要注册登录，在Dashboard里拿到API token)
-				'version' => 'v2',
-				//sm.ms新版api需要token，请注册后，在Dashboard中生成Api token并填写到这里
+                //请注册后，在Dashboard中生成Api token并填写到这里(不填
+                //也可以，不填就相当于匿名上传，不会出现在后台Dashboard中)
 				'token' => 'zMY50m***********fxXHly',
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
 				//端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
@@ -139,7 +138,6 @@
 				//代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
 				//比如：'proxy' => 'http://127.0.0.1:1087'，端口从『偏好设置→HTTP→监听端口』找，留空表示不使用代理
 				'proxy' => ''
-				//无法自定义域名和key名，只能直接用它返回的地址（原因是无账号系统，自己定义的key无法保证全局唯一）
 			],
 			
 			//Ucloud
@@ -251,18 +249,6 @@
 				// 'directory' => 'Photos/Travel/Maldives',
 			],
 			
-			//Weibo(上传图片到微博并不会自动发一条微博，请放心使用)
-			// 2019.09.01更新：微博目前不能上传了，原来用的接口已经用不了，有新方法再更新吧
-			// 2019.09.10更新：微博上传恢复，能正常使用
-			// 由于微博的图片域名不稳定(目前知道有https://ws1.sinaimg.cn和https://ws4.sinaimg.cn两个)，所以无法做反代
-			'weibo' => [
-				'name' => '微博',
-				//微博登录用户名(或邮箱)
-				'username' => 'zhangsan@sina.com',
-				//微博登录密码
-				'password' => '*****************',
-			],
-			
 			//使用sftp协议上传到自己的服务器上
 			'bwg' => [
 				//这是自定义名称，可以自己改(因为你用的机器也不一定是搬瓦工的，也有可能是阿里云或其他的)
@@ -271,6 +257,10 @@
 				'type' => 'sftp',
 				//ip也可以写域名(反正域名最终也是被解析为ip，都一样)
 				'host' => '服务器ip或域名',
+                //服务器ssh端口(默认22，除非你改了)
+                'port' => '22',
+                //超时时间：单位(秒)
+                'timeout' => '30',
 				'username' => 'ssh用户名',
 				'password' => 'ssh密码',
 				//prefix为前缀，最终上传目录是：prefix+directory，那为什么要分开写呢？因为directory会拼到你的domain后面，而prefix不会

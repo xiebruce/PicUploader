@@ -11,16 +11,18 @@ namespace uploader;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
 
 class UploadSmms extends Common {
-	//api url
-	public $baseUri;
+    
+    const BASE_URI = 'https://sm.ms/api/v2/';
+    const DEFAULT_DOMAIN = 'https://i.loli.net';
+    
 	//代理url
 	public $proxy;
 	//上传token
 	public $token;
-	//接口版本
-	public $version;
 	//域名
 	public $domain;
 	//默认域名
@@ -42,17 +44,39 @@ class UploadSmms extends Common {
     {
         $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    //baseUri一定要斜杠结尾
-	    $this->baseUri = 'https://sm.ms/api/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    $this->token = $ServerConfig['token'] ?? '';
-	    $this->version = $ServerConfig['version'] ? strtolower($ServerConfig['version']) : 'v1';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
-	    $this->defaultDomain = 'https://i.loli.net';
 	    $this->domain = $ServerConfig['domain'] ?? '';
-	    !$this->domain && $this->domain = $this->defaultDomain;
+	    !$this->domain && $this->domain = static::DEFAULT_DOMAIN;
 	    
         $this->argv = $params['argv'];
         static::$config = $params['config'];
+    }
+    
+    public function uploadByCurl($uploadFilePath){
+        $ch = curl_init();
+        $options = [
+            CURLOPT_URL => 'https://sm.ms/api/v2/upload',
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => [
+                'Authorization: ' . $this->token,
+            ],
+            CURLOPT_POSTFIELDS => [
+                'smfile' => new \CURLFile($uploadFilePath, mime_content_type($uploadFilePath), substr(basename($uploadFilePath),1)),
+            ],
+            CURLOPT_SSL_VERIFYHOST => false,
+            CURLOPT_SSL_VERIFYPEER => 0
+        ];
+        //if case you need a proxy
+        $options[CURLOPT_PROXY] = 'http://127.0.0.1:1087';
+        curl_setopt_array($ch, $options);
+        $ret = curl_exec($ch);
+        if(curl_errno($ch)){
+            echo 'Error: ' . curl_error($ch);
+        }
+        return $ret;
     }
 	
 	/**
@@ -66,6 +90,9 @@ class UploadSmms extends Common {
 	 * @throws \ImagickException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
+	    // $ret = $this->uploadByCurl($uploadFilePath);
+	    // var_dump($ret);
+	    // exit;
 		try{
 			$fileSize = filesize($uploadFilePath);
 			if($fileSize > 5242880){
@@ -75,12 +102,13 @@ class UploadSmms extends Common {
 				throw new Exception($errMsg);
 			}
 			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
-				$errMsg = 'Smms只能上传图片，你上传的文件“'.$originFilename.'”不是图片，无法上传！';
+                $fileExt = (new Common())->getFileExt($uploadFilePath);
+				$errMsg = 'Smms只能上传图片，你上传的文件“'.$originFilename . '.' . $fileExt .'”不是图片，无法上传！';
 				throw new Exception($errMsg);
 			}
 			
 			$GuzzleConfig = [
-				'base_uri' => $this->baseUri,
+				'base_uri' => static::BASE_URI,
 				'timeout'  => 30.0,
 			];
 			if($this->proxy){
@@ -89,37 +117,33 @@ class UploadSmms extends Common {
 			//实例化GuzzleHttp
 			$client = new Client($GuzzleConfig);
 			//upload file to https://sm.ms
-			$fp = fopen($uploadFilePath, 'rb');
-			$postData = [
-				'verify' => false,
-				'multipart' => [
-					[
-						'name'     => 'smfile',
-						'contents' => $fp,
-					],
-				]
-			];
-			
-			//如果是v2接口，则在header中传一个token，接口也加一个v2
-			$uri = 'upload';
-			if($this->version == 'v2'){
-				$uri = 'v2/' . $uri;
-				$postData['header'] = [
-					'Authorization' => 'Basic '.$this->token,
-				];
-			}
-			
-			$response = $client->request('POST', $uri, $postData);
+			$fp = fopen($uploadFilePath, 'r');
+			//Smms默认会将原文件名作为上传后的文件名，但这里的"原文件"可能是压缩或添加水印后的文件(有一个
+            //句点开头，因为这样表示隐藏文件，所以在这里要手动指定filename，这样就不会直接使用文件名了)
+			$filename = strpos($key, '.')===0 ? substr($key, 1) : $key;
+            $formData = [
+                [
+                    'name' => 'smfile',
+                    'contents' => $fp,
+                    'filename' => $filename,
+                ],
+            ];
+            $response = $client->request('POST', 'upload', [
+                'verify' => false,
+                'headers'=>[
+                    //当token为空时，相当于匿名上传
+                    'Authorization' => $this->token,
+                ],
+                'multipart' => $formData,
+            ]);
 			is_resource($fp) && fclose($fp);
-			
+		
 			$string = $response->getBody()->getContents();
-			
 			if($response->getReasonPhrase() != 'OK'){
 				throw new Exception($string);
 			}
 			
 			$returnArr = json_decode($string, true);
-			
 			if($returnArr['code'] == 'success'){
 				$data = $returnArr['data'];
 				$key = ltrim($data['path'], '/');
@@ -160,5 +184,47 @@ class UploadSmms extends Common {
 			$this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
 		}
 		return $data;
+    }
+    
+    /**
+     * Delete image from Imgur
+     * @param $hash
+     *
+     * @return array
+     * @throws GuzzleException
+     */
+    public function deleteImage($hash){
+        $GuzzleConfig = [
+            'base_uri' => static::BASE_URI,
+            'timeout'  => 30.0,
+        ];
+        if($this->proxy){
+            $GuzzleConfig['proxy'] = $this->proxy;
+        }
+        //实例化GuzzleHttp
+        $client = new Client($GuzzleConfig);
+        $response = $client->request('GET', 'delete/'.$hash, [
+            'verify' => false,
+        ]);
+        $string = $response->getBody()->getContents();
+        if($response->getReasonPhrase() != 'OK'){
+            return [
+                'code' => -1,
+                'message' => '删除接口返回数据：'.$string,
+            ];
+        }
+        
+        $returnArr = json_decode($string, true);
+        if($returnArr['success'] !== true && $returnArr['message']!='File already deleted.'){
+            return [
+                'code' => -2,
+                'message' => '删除接口返回数据json_decode后'.var_export($returnArr, true),
+            ];
+        }
+        
+        return [
+            'code' => 0,
+            'message' => 'Delete success',
+        ];
     }
 }

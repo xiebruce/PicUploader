@@ -62,7 +62,7 @@ class SettingController extends Controller {
 		];
 		//暂时用false
 		$authorized = false;
-		if(in_array($key, ['onedrive', 'googledrive', 'dropbox'])){
+		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur'])){
 			$config = $this->getMergeSettings();
 			$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
 			$uploader = 'uploader\\Upload' . ucfirst($key);
@@ -566,20 +566,19 @@ class SettingController extends Controller {
 	 * @return false|string
 	 * @throws \Exception
 	 */
-	public function setRedirectUri($data){
+	public function getAuthUrl($data){
 		$config = $this->getMergeSettings();
 		$key = $data['key'];
 		$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
 		$uploader = 'uploader\\Upload' . ucfirst($key);
-		/** @var UploadOnedrive $upload */
-		/** @var UploadGoogledrive $upload */
-		$upload = new $uploader($constructorParams);
-		$authUrl = (new $upload($constructorParams))->getAuthorizationUrl();
+		/** @var UploadOnedrive $uploader */
+		/** @var UploadGoogledrive $uploader */
+		$authUrl = (new $uploader($constructorParams))->getAuthorizationUrl();
 		file_put_contents(APP_PATH.'/.tmp/redirectUri', $data['uri']);
 		return json_encode([
 			'code' => 0,
 			'authUrl' => $authUrl,
-			'msg' => '保存重定向地址成功',
+			'msg' => 'Please redirect to authUrl to ask for authorization.',
 		]);
 	}
 }

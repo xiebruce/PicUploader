@@ -9,12 +9,12 @@
         "yunify/qingstor-sdk": "^2.2",
         "sabre/dav": "^3.2",
         "phpseclib/phpseclib": "^2.0",
-        "cloudinary/cloudinary_php": "^1.14",
         "baidubce/bce-sdk-php": "^0.8.22",
         "monolog/monolog": "^1.24",
         "qcloud/cos-sdk-v5": "^2.0",
         "microsoft/microsoft-graph": "^1.11",
         "kunalvarma05/dropbox-php-sdk": "^0.2.1",
-        "spatie/dropbox-api": "^1.11"
+        "spatie/dropbox-api": "^1.11",
+        "cloudinary/cloudinary_php": "^1.16"
     }
 }

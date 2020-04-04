@@ -12,13 +12,16 @@ use Exception;
 use GuzzleHttp\Client;
 
 class UploadGitee extends Upload{
+    
+    const BASE_URI = 'https://gitee.com/api/v5/repos/';
+    
     //gittee仓库(带用户名)，如：xiebruce/PicUploader
     public $repo;
     //分支，默认：master
     public $branch;
 	//文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
     public $directory;
-    //gittee commit时的-m参数指定的内容，默认：Upload from PicUploader [https://www.xiebruce.top/17.html]
+    //gittee commit时的-m参数指定的内容，默认：Upload by PicUploader [https://github.com/xiebruce/PicUploader]
     public $message;
     //access_token，需要有这个才有权限操作
     public $access_token;
@@ -46,7 +49,7 @@ class UploadGitee extends Upload{
 	    
 	    $this->repo = $ServerConfig['repo'] ?? '';
 	    $this->branch = $ServerConfig['branch'] ?? 'master';
-	    $this->message = $ServerConfig['message'] ?? 'Upload from PicUploader [https://www.xiebruce.top/17.html]';
+	    $this->message = $ServerConfig['message'] ?? 'Upload by PicUploader [https://github.com/xiebruce/PicUploader]';
 	    $this->access_token = $ServerConfig['access_token'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    // https://gitee.com/xiebruce/imagebed/raw/master/2019/08/31/9ac6b79ca970fe0a6be2e5f31bf2bc59.jpeg
@@ -61,7 +64,6 @@ class UploadGitee extends Upload{
 		    $this->directory = trim($ServerConfig['directory'], '/');
 	    }
 	
-	    $this->baseUri = 'https://gitee.com/api/v5/repos/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
 	    $this->uploadServer = ucfirst($params['uploadServer']);
 
@@ -80,7 +82,7 @@ class UploadGitee extends Upload{
 	public function upload($key, $uploadFilePath){
 		try {
 			$GuzzleConfig = [
-				'base_uri' => $this->baseUri,
+				'base_uri' => static::BASE_URI,
 				'timeout'  => 30.0,
 			];
 			if($this->proxy){

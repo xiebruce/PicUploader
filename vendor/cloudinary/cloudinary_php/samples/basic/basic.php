@@ -5,6 +5,7 @@ if (is_file(__DIR__ . '/../../vendor/autoload.php') && is_readable(__DIR__ . '/.
 } else {
     // Fallback to legacy autoloader
     require_once __DIR__.'/../../autoload.php';
+    require_once __DIR__.'/../../src/Helpers.php';
 }
 
 if (file_exists('settings.php')) {

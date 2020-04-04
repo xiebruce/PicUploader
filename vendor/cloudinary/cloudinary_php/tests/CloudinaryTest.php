@@ -22,6 +22,8 @@ class CloudinaryTest extends TestCase
     protected static $crop_transformation = ['crop' => 'crop', 'width' => 100];
     protected static $crop_transformation_str = 'c_crop,w_100';
     protected static $raw_transformation = "c_fill,e_grayscale,q_auto";
+    protected static $sepia_transformation = ['crop' => 'lfill', 'width' => 400, 'effect' => 'sepia'];
+    protected static $sepia_transformation_str = 'c_lfill,e_sepia,w_400';
 
     private static $custom_function_wasm = ['function_type' => 'wasm', 'source' => 'blur.wasm'];
     private static $custom_function_wasm_str = 'wasm:blur.wasm';
@@ -1330,7 +1332,7 @@ class CloudinaryTest extends TestCase
         );
     }
 
-    public function test_duration()
+    public function test_duration_parameter()
     {
         // should support decimal seconds
         $this->cloudinary_url_assertion(
@@ -1536,6 +1538,19 @@ class CloudinaryTest extends TestCase
         $this->assertEquals(array(), $options);
     }
 
+    public function test_normalize_expression_should_not_convert_user_variables()
+    {
+        $options = array(
+            'transformation' => array(
+                array('$width' => 10),
+                array('width' => '$width + 10 + width'),
+            ),
+        );
+
+        $t = Cloudinary::generate_transformation_string($options);
+
+        $this->assertEquals('$width_10/w_$width_add_10_add_w', $t);
+    }
 
     public function test_array_should_define_set_of_variables()
     {
@@ -1553,6 +1568,19 @@ class CloudinaryTest extends TestCase
         $this->assertEquals('if_fc_gt_2,$z_5,$foo_$z_mul_2,c_scale,w_$foo_mul_200', $t);
     }
 
+    public function test_duration_variable()
+    {
+        $options = array('if' => "duration > 30", 'width' => '100', 'crop' => "scale");
+        $t = Cloudinary::generate_transformation_string($options);
+
+        $this->assertEquals('if_du_gt_30,c_scale,w_100', $t);
+
+        $options = array('if' => "initial_duration > 30", 'width' => '100', 'crop' => "scale");
+        $t = Cloudinary::generate_transformation_string($options);
+
+        $this->assertEquals('if_idu_gt_30,c_scale,w_100', $t);
+    }
+
     public function test_key_should_define_variable()
     {
         $options = array(
@@ -1566,6 +1594,19 @@ class CloudinaryTest extends TestCase
 
         $t = Cloudinary::generate_transformation_string($options);
         $this->assertEquals('$foo_10/if_fc_gt_2/c_scale,w_$foo_mul_200_div_fc/if_end', $t);
+    }
+
+    public function test_url_should_convert_operators()
+    {
+        $options = array(
+            'transformation' => array(
+                array('width' => 'initial_width ^ 2','height' => 'initial_height * 2', 'crop' => 'scale'),
+            ),
+        );
+
+        $result = Cloudinary::cloudinary_url("test", $options);
+
+        $this->assertEquals(CloudinaryTest::DEFAULT_UPLOAD_PATH . 'c_scale,h_ih_mul_2,w_iw_pow_2/test', $result);
     }
 
     public function test_should_support_streaming_profile()
@@ -1821,6 +1862,45 @@ class CloudinaryTest extends TestCase
             self::FETCH_URL,
             $actual_url
         );
+    }
+
+    public function test_build_eager()
+    {
+        $test_data = [
+            ['should support strings',
+                [self::$sepia_transformation_str, self::$sepia_transformation_str . '/jpg'],
+                self::$sepia_transformation_str . '|' . self::$sepia_transformation_str . '/jpg'],
+            ['should concatenate transformations using pipe',
+                [self::$crop_transformation, self::$sepia_transformation],
+                self::$crop_transformation_str . '|' . self::$sepia_transformation_str],
+            ['should support transformations with multiple components',
+                [['transformation' => [self::$crop_transformation, self::$sepia_transformation]],
+                    self::$sepia_transformation],
+                self::$crop_transformation_str . '/' . self::$sepia_transformation_str . '|' .
+                    self::$sepia_transformation_str],
+            ['should concatenate format at the end of the transformation',
+                [array_merge(self::$crop_transformation, ['format' => 'gif']), self::$sepia_transformation],
+                self::$crop_transformation_str . '/gif|' . self::$sepia_transformation_str],
+            ['should support an empty format',
+                [array_merge(self::$crop_transformation, ['format' => '']), self::$sepia_transformation],
+                self::$crop_transformation_str . '/|' . self::$sepia_transformation_str],
+            ['should treat a null format as none',
+                [array_merge(self::$crop_transformation, ['format' => null]), self::$sepia_transformation],
+                self::$crop_transformation_str . '|' . self::$sepia_transformation_str],
+            ['should concatenate format at the end of the transformation',
+                [array_merge(self::$crop_transformation, ['format' => 'gif']),
+                    array_merge(self::$sepia_transformation, ['format' => 'jpg'])],
+                self::$crop_transformation_str . '/gif|' . self::$sepia_transformation_str . '/jpg'],
+            ['should support transformations with multiple components and format',
+                [['transformation' => [self::$crop_transformation, self::$sepia_transformation], 'format' => 'gif'],
+                    self::$sepia_transformation],
+                self::$crop_transformation_str . '/' . self::$sepia_transformation_str . '/gif|' .
+                    self::$sepia_transformation_str]
+        ];
+
+        foreach ($test_data as $single_test) {
+            $this->assertEquals($single_test[2], Cloudinary::build_eager($single_test[1]), $single_test[0]);
+        }
     }
 
     private function cloudinary_url_assertion($source, $options, $expected, $expected_options = array())

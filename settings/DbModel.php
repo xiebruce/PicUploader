@@ -26,6 +26,7 @@ class DbModel {
 		try{
 			if(strpos($database['dsn'], 'sqlite') === 0){
 				$file = str_replace('sqlite:', '', $database['dsn']);
+				//如果没有指定数据库文件路径则用默认路径
 				strpos($file, '/')===false && $file = APP_PATH . '/db/'.$file;
 				if(!is_file($file)){
 					$dbDir = dirname($file);
@@ -39,6 +40,11 @@ class DbModel {
 					$this->connection = new PDO('sqlite:'.$file);
 				}
 			}else{
+			    //dsn标准写法：
+                //1. mysql => "mysql:host=<DATABASE_IP OR DATABASE_DOMAIN>;dbname=<DATABASE_NAME>"
+                //例如：mysql:host=localhost;dbname=history
+                //2. sqlite => "sqlite:/path/to/<FILENAME>.db"
+                //例如：sqlite:/path/to/PicUploader.db
 				$this->connection = new PDO($database['dsn'], $database['username'], $database['password']);
 				$res = $this->connection->query("SHOW TABLES LIKE 'history'");
 				$row = $res->fetch();

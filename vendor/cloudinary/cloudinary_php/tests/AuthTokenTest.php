@@ -175,5 +175,19 @@ class AuthTokenTest extends TestCase
             $acl_token_url_ignored
         );
     }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function test_escape_to_lower()
+    {
+        $method = new ReflectionMethod('Cloudinary\\AuthToken', 'escape_to_lower');
+        $method->setAccessible(true);
+
+        $this->assertEquals(
+            'Encode%20these%20%3a%7e%40%23%25%5e%26%7b%7d%5b%5d%5c%22%27%3b%2f%22,%20but%20not%20those%20$!()_.*',
+            $method->invoke(null, 'Encode these :~@#%^&{}[]\\"\';/", but not those $!()_.*')
+        );
+    }
 }
 

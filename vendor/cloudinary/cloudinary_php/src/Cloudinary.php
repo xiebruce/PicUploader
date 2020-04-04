@@ -12,7 +12,7 @@ class Cloudinary
     const RANGE_VALUE_RE = '/^(?P<value>(\d+\.)?\d+)(?P<modifier>[%pP])?$/';
     const RANGE_RE = '/^(\d+\.)?\d+[%pP]?\.\.(\d+\.)?\d+[%pP]?$/';
 
-    const VERSION = "1.14.0";
+    const VERSION = "1.16.0";
 
     /**
      * @internal
@@ -144,10 +144,17 @@ class Cloudinary
         self::$config = array();
         if ($cloudinary_url) {
             $uri = parse_url($cloudinary_url);
+
+            if (!isset($uri["scheme"]) || strtolower($uri["scheme"]) !== "cloudinary") {
+                throw new InvalidArgumentException("Invalid CLOUDINARY_URL scheme. Expecting to start with 'cloudinary://'");
+            }
+
             $q_params = array();
+
             if (isset($uri["query"])) {
                 parse_str($uri["query"], $q_params);
             }
+
             $private_cdn = isset($uri["path"]) && $uri["path"] != "/";
             $config = array_merge(
                 $q_params,
@@ -526,7 +533,7 @@ class Cloudinary
         $height = Cloudinary::option_get($options, "height");
 
         $has_layer = Cloudinary::option_get($options, "underlay") || Cloudinary::option_get($options, "overlay");
-        $angle = implode(Cloudinary::build_array(Cloudinary::option_consume($options, "angle")), ".");
+        $angle = implode(".", Cloudinary::build_array(Cloudinary::option_consume($options, "angle")));
         $crop = Cloudinary::option_consume($options, "crop");
 
         $no_html_sizes = $has_layer || !empty($angle) || $crop == "fit" || $crop == "limit" || $responsive_width;
@@ -564,7 +571,7 @@ class Cloudinary
 
         $border = Cloudinary::process_border(Cloudinary::option_consume($options, "border"));
 
-        $flags = implode(Cloudinary::build_array(Cloudinary::option_consume($options, "flags")), ".");
+        $flags = implode(".", Cloudinary::build_array(Cloudinary::option_consume($options, "flags")));
         $dpr = Cloudinary::option_consume($options, "dpr", Cloudinary::config_get("dpr"));
 
         $duration = Cloudinary::norm_range_value(Cloudinary::option_consume($options, "duration"));
@@ -877,13 +884,16 @@ class Cloudinary
         "/" => 'div',
         "+" => 'add',
         "-" => 'sub',
+        "^" => 'pow',
     );
     private static $PREDEFINED_VARS = array(
         "aspect_ratio" => "ar",
         "current_page" => "cp",
+        "duration" => "du",
         "face_count" => "fc",
         "height" => "h",
         "initial_aspect_ratio" => "iar",
+        "initial_duration" => "idu",
         "initial_height" => "ih",
         "initial_width" => "iw",
         "page_count" => "pc",
@@ -934,8 +944,8 @@ class Cloudinary
             return $exp;
         } else {
             if (empty(self::$IF_REPLACE_RE)) {
-                self::$IF_REPLACE_RE = '/((\|\||>=|<=|&&|!=|>|=|<|\/|\-|\+|\*)(?=[ _])|'.
-                    implode('|', array_keys(self::$PREDEFINED_VARS)) . ')/';
+                self::$IF_REPLACE_RE = '/((\|\||>=|<=|&&|!=|>|=|<|\/|\-|\+|\*|\^)(?=[ _])|(?<!\$)('.
+                    implode('|', array_keys(self::$PREDEFINED_VARS)) . '))/';
             }
             if (isset($exp)) {
                 $exp = preg_replace('/[ _]+/', '_', $exp);
@@ -1546,9 +1556,15 @@ class Cloudinary
         return \Cloudinary\AuthToken::generate($token_options);
     }
 
-    # Returns a Hash of parameters used to create an archive
-    # @param [Hash] options
-    # @private
+    /**
+     * @internal
+     *
+     * Returns an array of parameters used to create an archive
+     *
+     * @param array $options
+     *
+     * @return array
+     */
     public static function build_archive_params(&$options)
     {
         $params = array(
@@ -1563,6 +1579,9 @@ class Cloudinary
             "phash" => \Cloudinary::option_get($options, "phash"),
             "prefixes" => \Cloudinary::build_array(\Cloudinary::option_get($options, "prefixes")),
             "public_ids" => \Cloudinary::build_array(\Cloudinary::option_get($options, "public_ids")),
+            "fully_qualified_public_ids" => \Cloudinary::build_array(
+                \Cloudinary::option_get($options, "fully_qualified_public_ids")
+            ),
             "skip_transformation_name" => \Cloudinary::option_get($options, "skip_transformation_name"),
             "tags" => \Cloudinary::build_array(\Cloudinary::option_get($options, "tags")),
             "target_format" => \Cloudinary::option_get($options, "target_format"),
@@ -1592,20 +1611,41 @@ class Cloudinary
     {
         $eager = array();
         foreach (\Cloudinary::build_array($transformations) as $trans) {
-            $transformation = $trans;
-            if (is_string($transformation)) {
-                $single_eager = $transformation;
-            } else {
-                $format = \Cloudinary::option_consume($transformation, "format");
-                $single_eager = implode(
-                    "/",
-                    array_filter(array(\Cloudinary::generate_transformation_string($transformation), $format))
-                );
-            }
+            $single_eager = \Cloudinary::build_single_eager($trans);
             array_push($eager, $single_eager);
         }
 
         return implode("|", $eager);
+    }
+
+    /**
+     * Builds a single eager transformation which consists of transformation and (optionally) format joined by "/"
+     *
+     * @param  array|string $options Options containing transformation parameters and (optionally) a "format" key
+     *    format can be a string value (jpg, gif, etc) or can be set to "" (empty string).
+     *    The latter leads to transformation ending with "/", which means "No extension, use original format"
+     *    If format is not provided or set to null, only transformation is used (without the trailing "/")
+     *
+     * @return string
+     */
+    public static function build_single_eager($options)
+    {
+        if (is_string($options)) {
+            return $options;
+        }
+
+        $trans_str = \Cloudinary::generate_transformation_string($options);
+
+        if (empty($trans_str)) {
+            return "";
+        }
+
+        $file_format_str = "";
+        if (isset($options["format"])) {
+            $file_format_str = "/" . $options["format"];
+        }
+
+        return $trans_str . $file_format_str;
     }
 
     public static function private_download_url($public_id, $format, $options = array())

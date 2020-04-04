@@ -2,9 +2,13 @@
 
 namespace Cloudinary;
 
+/**
+ * Class AuthToken
+ * @package Cloudinary
+ */
 class AuthToken
 {
-    const UNSAFE = '/([ "#%&\'\/:;<=>?@\[\]^`{\|}~\\\])/';
+    const UNSAFE = '/([ "#%&\'\/:;<=>?@\[\]^`{\|}~\\\\])/';
 
     /**
      *  Generate an authorization token.
@@ -82,7 +86,7 @@ class AuthToken
     private static function escape_to_lower($url)
     {
         return preg_replace_callback(self::UNSAFE, function ($match) {
-            return '%'.bin2hex($match[1]);
+            return '%'.bin2hex($match[0]);
         }, $url);
     }
 }

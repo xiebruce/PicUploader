@@ -186,17 +186,17 @@
     },
     {
         "name": "cloudinary/cloudinary_php",
-        "version": "1.14.0",
-        "version_normalized": "1.14.0.0",
+        "version": "1.16.0",
+        "version_normalized": "1.16.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/cloudinary/cloudinary_php.git",
-            "reference": "d4c947f6728c339649a10999a6a6362e5c7b9490"
+            "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/d4c947f6728c339649a10999a6a6362e5c7b9490",
-            "reference": "d4c947f6728c339649a10999a6a6362e5c7b9490",
+            "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/e33619e48ea8fa0350c007d640777091bfa4fdbc",
+            "reference": "e33619e48ea8fa0350c007d640777091bfa4fdbc",
             "shasum": ""
         },
         "require": {
@@ -207,7 +207,7 @@
         "require-dev": {
             "phpunit/phpunit": "4.8.*"
         },
-        "time": "2019-05-13T14:27:40+00:00",
+        "time": "2019-11-28T15:57:33+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1085,17 +1085,17 @@
     },
     {
         "name": "phpseclib/phpseclib",
-        "version": "2.0.23",
-        "version_normalized": "2.0.23.0",
+        "version": "2.0.26",
+        "version_normalized": "2.0.26.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpseclib/phpseclib.git",
-            "reference": "c78eb5058d5bb1a183133c36d4ba5b6675dfa099"
+            "reference": "09655fcc1f8bab65727be036b28f6f20311c126c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c78eb5058d5bb1a183133c36d4ba5b6675dfa099",
-            "reference": "c78eb5058d5bb1a183133c36d4ba5b6675dfa099",
+            "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/09655fcc1f8bab65727be036b28f6f20311c126c",
+            "reference": "09655fcc1f8bab65727be036b28f6f20311c126c",
             "shasum": ""
         },
         "require": {
@@ -1113,7 +1113,7 @@
             "ext-mcrypt": "Install the Mcrypt extension in order to speed up a few other cryptographic operations.",
             "ext-openssl": "Install the OpenSSL extension in order to speed up a wide variety of cryptographic operations."
         },
-        "time": "2019-09-17T03:41:22+00:00",
+        "time": "2020-03-13T04:15:39+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

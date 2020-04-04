@@ -434,9 +434,10 @@ class Common {
 	public function copyPlainTextToClipboard($content){
 		//Mac和Win都自带，Linux(桌面系统)一般需要需要自己安装xclip(如Ubuntu: apt install xclip)
 	    $clipboard = PHP_OS=='Darwin' ? 'pbcopy' : (PHP_OS=='WINNT' ? 'clip' : 'xclip -selection clipboard');
-	    //$content不要加引号，因为引号会被输出的，因为这句命令已经是shell执行，而不是php
-		//echo也不是php命令，而是shell命令，win/mac/linux都有echo这个命令的
-	    $command = "echo {$content} | {$clipboard}";
+		//echo不是php命令，而是shell命令，win/mac/linux都有echo这个命令的
+        //在Mint(基于Ubuntu)系统中，发现在终端执行命令的方式调用上传，如果有使用shell_exec()则会导致终端不退出
+        //但在Mac和Win就没这个问题
+	    $command = "echo '{$content}' | {$clipboard}";
 		return shell_exec($command);
     }
 	

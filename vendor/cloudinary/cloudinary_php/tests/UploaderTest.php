@@ -108,6 +108,14 @@ namespace Cloudinary {
             Uploader::upload(TEST_IMG, array("ocr" => "adv_ocr", "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),));
             $fields = Curl::$instance->fields();
             $this->assertArraySubset(array("ocr" => "adv_ocr"), $fields);
+
+            // Test upload with metadata
+            Uploader::upload(
+                TEST_IMG,
+                array("metadata" => array("metadata_color" => "red", "metadata_shape" => "dodecahedron"))
+            );
+            $fields = Curl::$instance->fields();
+            $this->assertArraySubset(array("metadata" => "metadata_color=red|metadata_shape=dodecahedron"), $fields);
         }
 
         public function test_upload_responsive_breakpoints_cache()
@@ -176,6 +184,14 @@ namespace Cloudinary {
             Uploader::explicit("cloudinary", array("ocr" => "adv_ocr"));
             $fields = Curl::$instance->fields();
             $this->assertArraySubset(array("ocr" => "adv_ocr"), $fields);
+
+            // Test explicit with metadata
+            Uploader::explicit(
+                "cloudinary",
+                array("metadata" => array("metadata_color" => "red", "metadata_shape" => "dodecahedron"))
+            );
+            $fields = Curl::$instance->fields();
+            $this->assertArraySubset(array("metadata" => "metadata_color=red|metadata_shape=dodecahedron"), $fields);
         }
 
         public function test_explicit_responsive_breakpoints_cache()
@@ -193,6 +209,24 @@ namespace Cloudinary {
             );
 
             $this::assertEquals(self::$rbp_values, $res);
+        }
+
+        public function test_update_metadata()
+        {
+            Curl::mockUpload($this);
+
+            Uploader::update_metadata(
+                array("metadata_color" => "red", "metadata_shape" => ""),
+                array("test_id_1", "test_id_2")
+            );
+            $fields = Curl::$instance->fields();
+            $this->assertArraySubset(
+                array("metadata"      => "metadata_color=red|metadata_shape=",
+                      "public_ids[0]" => "test_id_1",
+                      "public_ids[1]" => "test_id_2",
+                ),
+                $fields
+            );
         }
 
         public function test_build_eager()
@@ -395,6 +429,21 @@ namespace Cloudinary {
 
             $this->assertArrayHasKey("quality_analysis", $explicitRes);
             $this->assertInternalType("double", $explicitRes["quality_analysis"]["focus"]);
+        }
+
+        public function test_cinemagraph_analysis()
+        {
+            //Should allow cinemagraph_analysis parameter
+
+            Curl::mockUpload($this);
+
+            Uploader::upload(TEST_IMG, ["cinemagraph_analysis" => true]);
+
+            assertParam($this, "cinemagraph_analysis", "1");
+
+            Uploader::explicit("Cloudinary", ["cinemagraph_analysis" => true, "type" => "upload"]);
+
+            assertParam($this, "cinemagraph_analysis", "1");
         }
 
         public function test_context()
@@ -624,6 +673,7 @@ TAG
                 "data:image/gif;charset=utf-8;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
                 "data:image/gif;param1=value1;param2=value2;".
                 "base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+                "data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg",
                 Cloudinary::BLANK
             ];
 

@@ -177,11 +177,15 @@ class Upload extends Common {
 				if($this->reverseProxyDomain && !in_array($uploadServer, ['weibo'])){
 					$link = $this->reverseProxyDomain . '/' . $retArr['key'];
 				}else{
-					$link = $retArr['domain'] . '/' . $retArr['key'];
+				    if($retArr['code']===0){
+                        $link = $retArr['domain'] . '/' . $retArr['key'];
+                    }else{
+				        $link = $retArr['msg'];
+                    }
 				}
 				
 				// 如果数据库连接正常，则保存上传记录到数据库
-				if((new DbModel())->connection){
+				if((new DbModel())->connection && $retArr['code']===0){
 					$url = $retArr['domain'] . '/' . $retArr['key'];
 					if($uploadServer == 'smms'){
 						$url = $url . ',' . $retArr['delLink'];
@@ -195,22 +199,24 @@ class Upload extends Common {
 					(new HistoryController)->Add($filename, $url, $size, $mimeType);
 				}
 				
-				if(!$params['doNotFormat']){
+				if(!$params['doNotFormat'] && $retArr['code']===0){
 					//按配置文件指定的格式，格式化链接
 					$link = $this->formatLink($link, $originFilename, $mimeType);
 				}
 				
 				$log = $link;
-				if($uploadServer == 'smms'){
-					$log = $link."\nDelete Link: ".$retArr['delLink'];
-				}
-				if($uploadServer == 'imgur'){
-					$log = $link."\nDelete Hash: ".$retArr['delHash'];
-				}
+				if($retArr['code']===0){
+                    if($uploadServer == 'smms'){
+                        $log = $link."\nDelete Link: ".$retArr['delLink'];
+                    }
+                    if($uploadServer == 'imgur'){
+                        $log = $link."\nDelete Hash: ".$retArr['delHash'];
+                    }
+                }
 				
 				//记录上传日志
 				$datetime = date('Y-m-d H:i:s');
-				$content = "Picture uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";
+				$content = "File uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";
 				$this->writeLog($content);
 			}
 			//对于从剪贴板粘贴的或接口上传的，删除源文件(这个源文件实质上是上传后的那个文件，它在.tmp目录里，并不是用户电脑上的源文件)

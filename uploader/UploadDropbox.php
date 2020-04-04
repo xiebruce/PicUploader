@@ -12,14 +12,16 @@ use Exception;
 use GuzzleHttp\Client as GuzzleClient;
 
 class UploadDropbox extends Upload{
-	
+    
+    const BASE_URL = 'https://dropbox.com';
+    const AUTH_TOKEN_URL = 'https://api.dropboxapi.com/oauth2/token';
+    const UPLOAD_URL = 'https://content.dropboxapi.com/2/files/upload';
+    const CREATE_SHARED_LINK = 'https://api.dropboxapi.com/2/sharing/create_shared_link';
+    
 	public $appKey;
 	public $appSecret;
 	public $redirectUri;
-	public $baseUrl = 'https://dropbox.com';
-	const AUTH_TOKEN_URL = 'https://api.dropboxapi.com/oauth2/token';
-	const UPLOAD_URL = 'https://content.dropboxapi.com/2/files/upload';
-	const CREATE_SHARED_LINK = 'https://api.dropboxapi.com/2/sharing/create_shared_link';
+	public $baseUrl = '';
 	public $domain;
 	public $proxy;
 	public $directory;
@@ -84,7 +86,7 @@ class UploadDropbox extends Upload{
 		];
 		
 		$queryParams = http_build_query($params);
-        $authUrl = $this->baseUrl . '/oauth2/authorize?' . $queryParams;
+        $authUrl = static::BASE_URL . '/oauth2/authorize?' . $queryParams;
 		return $authUrl;
 	}
 	
@@ -130,11 +132,11 @@ class UploadDropbox extends Upload{
 		$uri = static::AUTH_TOKEN_URL . '?' . $queryString;
 		
 		//实例化GuzzleHttp
-		$client = $this->newGuzzleClient($this->baseUrl);
+		$client = $this->newGuzzleClient(static::BASE_URL);
 		//upload file to onedrive root path
-		$data = [];
-		$data['verify'] = false;
-		$response = $client->request('POST', $uri, $data);
+		$response = $client->request('POST', $uri, [
+		    'verify' => false,
+        ]);
 		
 		$string = $response->getBody()->getContents();
 		if($response->getReasonPhrase() != 'OK'){
@@ -226,20 +228,10 @@ class UploadDropbox extends Upload{
 	public function upload($key, $uploadFilePath){
 		try {
 			$accessToken = $this->getAccessToken();
-			
-			/*$guzzleClient = new GuzzleClient([
-				'timeout'  => 30.0,
-				'proxy' => 'http://127.0.0.1:1087',
-			]);
-			$client = new Client($accessToken, $guzzleClient);
-			$res = $client->upload('test.jpg', fopen($uploadFilePath, 'rb'));
-			$client->createSharedLinkWithSettings();
-			var_dump($res);*/
-			
 			if($this->directory){
 				$key = $this->directory . '/' . $key;
 			}
-			//dropbox要求前面有斜杠开头
+			//dropbox要求key的前面必须斜杠开头
 			$key = '/' . $key;
 			
 			$fp = fopen($uploadFilePath, 'rb');

@@ -390,6 +390,19 @@ namespace Cloudinary {
         }
 
         /**
+         * Should allow cinemagraph_analysis parameter
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_resource_cinemagraph_analysis()
+        {
+            Curl::mockApi($this);
+
+            $this->api->resource(self::$api_test, ["type" => "upload", "cinemagraph_analysis" => true]);
+            assertParam($this, "cinemagraph_analysis", 1);
+        }
+
+        /**
          * Should allow derived_next_cursor parameter
          *
          * @throws Api\GeneralError
@@ -585,12 +598,17 @@ namespace Cloudinary {
         {
             Curl::mockApi($this);
             $this->api->transformation(self::$scale_transformation_str, array("next_cursor" => "234123132345"));
-            assertUrl($this, "/transformations/" . self::$encoded_scale_transformation_str);
+            assertUrl($this, "/transformations");
             assertParam(
                 $this,
                 "next_cursor",
                 "234123132345",
                 "api->transformation should pass the next_cursor paramter"
+            );
+            assertParam(
+                $this,
+                "transformation",
+                self::$scale_transformation_str
             );
         }
 
@@ -645,9 +663,10 @@ namespace Cloudinary {
         {
             Curl::mockApi($this);
             $this->api->update_transformation(self::$scale_transformation_str, array("allowed_for_strict" => true));
-            assertUrl($this, "/transformations/" . self::$encoded_scale_transformation_str);
+            assertUrl($this, "/transformations");
             assertPut($this);
             assertParam($this, "allowed_for_strict", 1);
+            assertParam($this, "transformation", self::$scale_transformation_str);
         }
 
         /**
@@ -659,8 +678,9 @@ namespace Cloudinary {
         {
             Curl::mockApi($this);
             $this->api->create_transformation(self::$api_test_transformation, self::$scale_transformation);
-            assertUrl($this, "/transformations/" . self::$api_test_transformation);
+            assertUrl($this, "/transformations");
             assertPost($this);
+            assertParam($this, "name", self::$api_test_transformation);
             assertParam($this, "transformation", self::$scale_transformation_str);
         }
 
@@ -685,6 +705,44 @@ namespace Cloudinary {
             $this->assertNotEquals($transformation, null);
             $this->assertEquals($transformation["info"], array($updated_transformation));
             $this->assertEquals($transformation["used"], false);
+        }
+
+        /**
+         * Should allow creating unnamed transformation with specified format
+         *
+         * @throws Api\GeneralError
+         */
+        public function test15b_transformation_create_unnamed_with_format()
+        {
+            Curl::mockApi($this);
+
+            $with_extension = self::$scale_transformation;
+            $with_extension["format"] = "jpg";
+            $with_extension_str = self::$scale_transformation_str . "/jpg";
+            $this->api->create_transformation($with_extension_str, $with_extension);
+            assertUrl($this, "/transformations");
+            assertPost($this);
+            assertParam($this, "name", $with_extension_str);
+            assertParam($this, "transformation", $with_extension_str);
+        }
+
+        /**
+         * Should allow creating unnamed extensionless transformation
+         *
+         * @throws Api\GeneralError
+         */
+        public function test15c_transformation_create_unnamed_with_empty_format()
+        {
+            Curl::mockApi($this);
+
+            $with_extension = self::$scale_transformation;
+            $with_extension["format"] = "";
+            $with_extension_str = self::$scale_transformation_str . "/";
+            $this->api->create_transformation($with_extension_str, $with_extension);
+            assertUrl($this, "/transformations");
+            assertPost($this);
+            assertParam($this, "name", $with_extension_str);
+            assertParam($this, "transformation", $with_extension_str);
         }
 
         /**
@@ -713,7 +771,8 @@ namespace Cloudinary {
         {
             Curl::mockApi($this);
             $this->api->delete_transformation(self::$scale_transformation_str);
-            assertUrl($this, "/transformations/" . self::$encoded_scale_transformation_str);
+            assertUrl($this, "/transformations");
+            assertParam($this, "transformation", self::$scale_transformation_str);
             assertDelete($this);
         }
 
@@ -727,25 +786,28 @@ namespace Cloudinary {
             Curl::mockApi($this);
 
             $transformation = self::$scale_transformation_str . ",a_90";
-            $expected_url = '/transformations/' . self::$encoded_scale_transformation_str . '%2Ca_90';
+            $expected_url = '/transformations';
 
             // should pass 'invalidate' param when 'invalidate' is set to true
             $this->api->delete_transformation($transformation, array("invalidate" => true));
             assertUrl($this, $expected_url);
             assertDelete($this);
             assertParam($this, "invalidate", "1");
+            assertParam($this, "transformation", self::$scale_transformation_str . ',a_90');
 
             // should pass 'invalidate' param when 'invalidate' is set to false
             $this->api->delete_transformation($transformation, array("invalidate" => false));
             assertUrl($this, $expected_url);
             assertDelete($this);
             assertParam($this, "invalidate", "");
+            assertParam($this, "transformation", self::$scale_transformation_str . ',a_90');
 
             // should not pass 'invalidate' param if not set
             $this->api->delete_transformation($transformation);
             assertUrl($this, $expected_url);
             assertDelete($this);
             assertNoParam($this, "invalidate");
+            assertParam($this, "transformation", self::$scale_transformation_str . ',a_90');
         }
 
         /**
@@ -923,11 +985,12 @@ namespace Cloudinary {
         public function test28_create_upload_presets()
         {
             Curl::mockApi($this);
-            $this->api->create_upload_preset(array("name" => TEST_PRESET_NAME, "folder" => "folder"));
+            $this->api->create_upload_preset(array("name" => TEST_PRESET_NAME, "folder" => "folder", "live" => true));
             assertUrl($this, "/upload_presets");
             assertPost($this);
             assertParam($this, "name", TEST_PRESET_NAME);
             assertParam($this, "folder", "folder");
+            assertParam($this, "live", 1);
         }
 
         /**
@@ -979,13 +1042,14 @@ namespace Cloudinary {
             Curl::mockApi($this);
             $this->api->update_upload_preset(
                 TEST_PRESET_NAME,
-                array("colors" => true, "unsigned" => true, "disallow_public_id" => true)
+                array("colors" => true, "unsigned" => true, "disallow_public_id" => true, "live" => true)
             );
             assertPut($this);
             assertUrl($this, "/upload_presets/" . TEST_PRESET_NAME);
             assertParam($this, "colors", 1);
             assertParam($this, "unsigned", 1);
             assertParam($this, "disallow_public_id", 1);
+            assertParam($this, "live", 1);
         }
 
         /**
@@ -1018,6 +1082,36 @@ namespace Cloudinary {
         }
 
         /**
+         * Should allow max_results and next_cursor in root_folders and subfolders
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_root_folder_and_subfolders_allow_max_results_and_next_cursor()
+        {
+            Curl::mockApi($this);
+            $next_cursor = '72410bbc4bfa1a135d9df56d91c072ba3356570d333450b286'.
+                'aec30af27dbe3b6b51054047a65b007c8363900c3fe6ae';
+
+            $this->api->root_folders([
+                'max_results'   => 3,
+                'next_cursor'   => $next_cursor,
+            ]);
+
+            assertGet($this);
+            assertParam($this, "max_results", 3);
+            assertParam($this, "next_cursor", $next_cursor);
+
+            $this->api->subfolders('folder1', [
+                'max_results'   => 3,
+                'next_cursor'   => $next_cursor,
+            ]);
+
+            assertGet($this);
+            assertParam($this, "max_results", 3);
+            assertParam($this, "next_cursor", $next_cursor);
+        }
+
+        /**
          * Should throw exception on non-existing folder
          *
          * @expectedException \Cloudinary\Api\NotFound
@@ -1027,6 +1121,24 @@ namespace Cloudinary {
         public function test33_folder_listing_error()
         {
             $this->api->subfolders("I-do-not-exist");
+        }
+
+        /**
+         * Should create folder
+         *
+         * @throws Api\GeneralError
+         * @throws Exception
+         */
+        public function test_create_folder()
+        {
+            $folderPath = 'folder7';
+
+            Curl::mockApi($this);
+
+            $this->api->create_folder($folderPath);
+
+            assertPost($this);
+            assertUrl($this, "/folders/$folderPath");
         }
 
         /**

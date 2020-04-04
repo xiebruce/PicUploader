@@ -9,9 +9,6 @@
 namespace  settings;
 
 use uploader\Common;
-use uploader\UploadImgur;
-use zelda\Pagination;
-use GuzzleHttp\Client;
 
 class HistoryController extends Controller {
 	
@@ -124,17 +121,24 @@ class HistoryController extends Controller {
 		}
 		return json_encode($ret, JSON_UNESCAPED_UNICODE);
 	}
-	
-	public function deleteFromImgur(){
+    
+    /**
+     * 删除Imgur或sm.ms的图片
+     * @return false|string
+     * @throws \Exception
+     */
+    public function deleteImage(){
 		$hash = isset($_REQUEST['hash']) ? $_REQUEST['hash'] : '';
+		$engine = isset($_REQUEST['engine']) ? $_REQUEST['engine'] : '';
 		$config = call_user_func([(new SettingController()), 'getMergeSettings']);
 		$constructorParams = [
 			'config' => $config,
 			'argv' => '',
-			'uploadServer' => 'imgur'
+			'uploadServer' => strtolower($engine),
 		];
-		
-		$res = (new UploadImgur($constructorParams))->deleteImage($hash);
+        $uploadServer = 'uploader\\Upload'.ucfirst($engine);
+		$res = (new $uploadServer($constructorParams))->deleteImage($hash);
 		return json_encode($res);
 	}
+	
 }

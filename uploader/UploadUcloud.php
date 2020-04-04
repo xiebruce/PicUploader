@@ -40,7 +40,7 @@ class UploadUcloud extends Upload{
         $this->privateKey = $ServerConfig['privateKey'];
         $this->proxySuffix = $ServerConfig['proxySuffix'];
         $this->bucket = $ServerConfig['bucket'];
-        $this->endpoint = $ServerConfig['endpoint'];
+        $this->endpoint = $ServerConfig['endpoint'] ?? '';
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    // http://markdown-blog.ufile.ucloud.com.cn
 	    $defaultDomain = 'http://' . $this->bucket . '.' . $this->endpoint;

@@ -13,6 +13,8 @@ use phpseclib\Net\SFTP;
 
 class UploadSftp extends Common {
 	public $host;
+	public $port;
+	public $timeout;
 	public $username;
 	public $password;
 	public $prefix;
@@ -35,7 +37,9 @@ class UploadSftp extends Common {
 	{
 		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 		
-		$this->host = $ServerConfig['host'];
+		$this->host = $ServerConfig['host'] ?? '';
+		$this->port = $ServerConfig['port'] ?? '';
+		$this->timeout = $ServerConfig['timeout'] ?? '30';
 		$this->username = $ServerConfig['username'];
 		$this->password = $ServerConfig['password'];
 		$this->prefix = rtrim($ServerConfig['prefix'], '/');
@@ -62,7 +66,7 @@ class UploadSftp extends Common {
 	 */
 	public function upload($key, $uploadFilePath){
 		try{
-			$sftp = new SFTP($this->host);
+			$sftp = new SFTP($this->host, $this->port, $this->timeout);
 			if (!$sftp->login($this->username, $this->password)) {
 				throw new Exception('Login Failed');
 			}

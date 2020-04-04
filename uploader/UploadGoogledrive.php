@@ -71,7 +71,6 @@ class UploadGoogledrive extends Upload{
 		$this->clientId = $ServerConfig['clientId'];
 		$this->clientSecret = $ServerConfig['clientSecret'];
 		$this->proxy = $ServerConfig['proxy'] ?? '';
-		$this->tenant = $ServerConfig['tenant'] ?? 'common';
 		if(php_sapi_name() != 'cli'){
 			$scheme = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://';
 			$this->redirectUri = $scheme . $_SERVER['HTTP_HOST'] . '/auth/' . $this->uploadServer . 'Redirect.php';

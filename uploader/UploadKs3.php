@@ -41,7 +41,7 @@ class UploadKs3 extends Upload{
         $this->endpoint = $ServerConfig['endpoint'];
 	    $this->domain = $ServerConfig['domain'] ?? '';
 	    //默认域名：https://ks3-cn-guangzhou.ksyun.com（与不同区域有关）
-	    $defaultDomain = 'https://' . $this->endpoint;
+	    $defaultDomain = 'https://' . $this->endpoint . '/' . $this->bucket;
 	    !$this->domain && $this->domain = $defaultDomain;
 	
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
