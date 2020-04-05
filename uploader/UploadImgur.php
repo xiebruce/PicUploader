@@ -51,7 +51,7 @@ class UploadImgur extends Upload{
 	    $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
 	    
 	    $this->clientId = $ServerConfig['clientId'];
-	    $this->clientSecret = $ServerConfig['clientSecret'];
+	    $this->clientSecret = $ServerConfig['clientSecret'] ?? '';
 	    //Guzzle要求最后有"/"才能做base_uri
         $this->uploadBaseUri = static::BASE_URL . static::VERSION . '/';
 	    $this->proxy = $ServerConfig['proxy'] ?? '';
