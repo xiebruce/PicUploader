@@ -136,6 +136,11 @@
 		(new Common())->sendNotification('no_image');
 		exit;
 	}
+	
+	//处理在Linux中右键上传时，传过来的路径中可能有反斜杠的情况(去掉反斜杠)
+    array_walk($argv, function (&$item){
+       $item = stripslashes($item);
+    });
  
 	/*
 	 1.python快捷键上传：无论Mac还是Win，都在Python那边做了提示，这里不需要处理
