@@ -449,10 +449,12 @@ class Common {
 		$configFileName = PHP_OS=='WINNT' ? 'config_win.json' : 'config.json';
 		$config = json_decode(file_get_contents(APP_PATH.'/accessorys/PicUploaderHelper/'.$configFileName), true);
 		$imgType = strtolower($config['img_type']) == 'jpeg' ? 'jpg' : 'png';
+        $tmpDir = APP_PATH.'/.tmp';
+        !is_dir($tmpDir) && @mkdir($tmpDir, 0777 ,true);
+        $imgPath = $tmpDir . '/image.'.$imgType;
 		switch (PHP_OS){
 			case 'Darwin':
 				//图片地址不在$output中，而是在$imgPath里
-				$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
 				// Mac上要求安装pngpaste(虽然叫pngpaste，但它支持输入PNG, PDF, GIF, TIF, JPEG，输出PNG, GIF, JPEG, TIFF.)
 				$command = '/usr/local/bin/pngpaste ' . $imgPath;
 				//pngpaste保存图片成功是没有任何输出的(Linux/Unit系统惯例)
@@ -468,7 +470,6 @@ class Common {
 			case 'Linux':
 			default:
 				//Linux桌面系统要求安装xclip(如Ubuntu: apt install xclip)
-				$imgPath = APP_PATH.'/.tmp/image.'.$imgType;
 				$mime = ($imgType == 'jpg') ? 'image/jpeg' : 'image/png';
 				$xclipPath = '/usr/bin/xclip';
 				//Linux中用于判断剪贴板中内容的类型的命令
