@@ -20,7 +20,7 @@ class DbModel {
 	{
 		$database = (new SettingController())->getDatabaseConfig();
 		if(!isset($database['dsn']) || !$database['dsn']){
-			return $this->connection;
+			$database['dsn'] = 'sqlite:PicUploader.db';
 		}
 
 		try{
@@ -47,14 +47,20 @@ class DbModel {
                 //例如：sqlite:/path/to/PicUploader.db
 				$this->connection = new PDO($database['dsn'], $database['username'], $database['password']);
 				$res = $this->connection->query("SHOW TABLES LIKE 'history'");
-				$row = $res->fetch();
-				if(!$row || !isset($row[0]) || $row[0]!='history'){
-					$historyTableSqlFile = APP_PATH . '/settings/PicUploader.sql';
-					if(is_file($historyTableSqlFile)){
-						$historyTable = file_get_contents($historyTableSqlFile);
-						$this->connection->exec($historyTable);
-					}
-				}
+                $createTable = true;
+				if($res!==false){
+                    $row = $res->fetch();
+                    if($row && isset($row[0]) && $row[0]=='history'){
+                        $createTable = false;
+                    }
+                }
+				if($createTable){
+                    $historyTableSqlFile = APP_PATH . '/settings/PicUploader.sql';
+                    if(is_file($historyTableSqlFile)){
+                        $historyTable = file_get_contents($historyTableSqlFile);
+                        $this->connection->exec($historyTable);
+                    }
+                }
 			}
 		}catch (PDOException $e){
 			(new Common())->writeLog($e->getMessage(), 'error_log');

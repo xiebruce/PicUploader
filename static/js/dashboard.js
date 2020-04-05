@@ -819,7 +819,8 @@ $(document).ready(function (){
 						<div class="form-group2-area">数据库配置</div>
 						<div class="form-group2 database">
 							<label class="database-dsn-label">DSN</label>
-							<input class="database-dsn" type="text" name="database[dsn]" placeholder="mysql:host=127.0.0.1:3306;dbname=PicUploader" value="${data.database.dsn}"><span></span>
+							<input class="database-dsn" type="text" name="database[dsn]" placeholder="mysql:host=127.0.0.1:3306;dbname=PicUploader" value="${data.database.dsn}"><br>
+							<span>留空自动使用sqlite，如使用mysql/MariaDB，则dbname指定的是数据库名(该库必须在mysql中已存在)，表会自动创建！</span>
 						</div>
 						<div class="form-group2 database">
 							<label class="database-dsn-label">Username</label>

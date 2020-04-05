@@ -443,8 +443,8 @@
 		'videoFormat' => '<video controls name="media" title="{{name}}" width="935"><source src="{{url}}" type="video/mp4"></video>',
 		//音频返回链接格式
 		'audioFormat' => '<audio controls name="media" title="{{name}}" width="400" src="{{url}}" title="{{name}}">',
-		
-		//存储服务器，可选值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur/Ucloud/Qingcloud/Github/Weibo
+        
+        //存储服务器，可选值为：Qiniu/Tencent/Netease/Baidu/Aliyun/Jd/Upyun/Smms/Imgur/Ucloud/Qingcloud/Nextcloud/Github/Gitee/Local/Cloudinary/Minio/Huawei/S3/Ks3/Chevereto/Dropbox/Onedrive/Googledrive
 		'storageType' => 'Smms',
 		//存储服务器可写多个，表示同时传到云，注意多个服务器的情况下返回的域名将会使用你指定的多个云中的最后一个云的域名，所以这个域名必须填写，并且需要做nginx反向代理，请参考：https://www.xiebruce.top/644.html
 		//有两种写法，一是用逗号隔开，二是直接用数组，如
@@ -537,9 +537,11 @@
 		
 		//数据库是用于存储上传历史记录的，不存储配置
 		'database' => [
-			// 如果使用Sqlite，不需要指定db的具体路径，不需要修改，直接这样就能用
-			'dsn' => 'sqlite:PicUploader.db',
-			//dbname=PicUploader指定的是数据库名，这个数据库必须要自己手动在mysql中创建，而表则会自动创建
+			// 留空默认使用sqlite
+			'dsn' => '',
+            //sqlite格式(如果你不需要自己指定sqlite db文件目录则留空即可)：
+            //'dsn' => 'sqlite:/path/toPicUploader.db',
+			//如果是mysql/mariaDB，则dbname指定的是数据库名，该库在mysql中必须已存在
 			//'dsn' => 'mysql:host=127.0.0.1:3306;dbname=PicUploader',
 			//如果用sqlite，则用户名密码不会被使用，只有mysql/MariaDB才会用到
 			'username' => 'root',
