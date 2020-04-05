@@ -184,47 +184,55 @@
 	}else if(isset($typora)){
 		echo $link;
 	}else{
-		switch(PHP_OS){
-			case 'Darwin':
-				/**
-				 * 快捷键上传:
-				 *  1.Alfred: 不需要在这里复制到剪贴板，因为Alfred会做这事儿
-				 *  2.Python: 不需要在这里复制到剪贴板，因为Python那边有做这事儿
-				 *
-				 * 非快捷键上传：
-				 *  1.右击上传: 右击上传最终调用的命令里会复制到剪贴板，不需要在这里做这事儿
-				 *  2.直接在终端执行: 这种情况如果后面没有跟复制到剪贴板的命令就不会复制
-				 *  到剪贴板，但用终端执行只是调试，真正使用不会这么用，所以可以不管。
-				 */
-				echo $link;
-                // (new Common())->copyPlainTextToClipboard($link);
-				break;
-			case 'WINNT':
-				/*
-				 * 右击上传：会自动复制到剪贴板(命令里有输出到剪贴板)
-				 * 快捷键上传：
-				 *  1.WinHotKey: 不会自动复制，所以这里要复制一下(由于WinHotKey
-				 *  调用的命令加了--type=alfred，所以这里判断alfred的就复制)
-				 *  2.Pyhon: python里有复制，所以这里不需要
-				 */
-				
-				break;
-			default:
-			    //Linux
-                if(isset($alfred)){
-                    (new Common())->copyPlainTextToClipboard($link);
-                }else{
-                    echo $link;
-                }
-		}
-
+	    if(PHP_OS != 'Darwin'){
+            /*
+             * Windows
+             * 右击上传：会自动复制到剪贴板(命令里有输出到剪贴板)
+             * 快捷键上传：
+             *  1.WinHotKey: 不会自动复制，所以这里要复制一下(由于WinHotKey
+             *  调用的命令加了--type=alfred，所以这里判断alfred的就复制)
+             *  2.Pyhon: python里有复制到剪贴板，所以这里不需要
+             * ========================================================
+             * Linux
+             * 右击上传：会自动复制到剪贴板(命令里有输出到剪贴板)
+             * 快捷键上传：
+             *  1.系统可设置快捷键上传，本质也是执行命令，所以命令里可以输出到剪贴板
+             *  2.Python: python里有复制到剪贴板，所以这里不需要
+             */
+            if(isset($alfred)){
+                (new Common())->copyPlainTextToClipboard($link);
+            }else{
+                echo $link;
+            }
+        }else{
+            /**
+             * macOS
+             * 快捷键上传:
+             *  1.Alfred: 不需要在这里复制到剪贴板，因为Alfred会做这事儿
+             *  2.Python: 不需要在这里复制到剪贴板，因为Python那边有做这事儿
+             *
+             * 非快捷键上传：
+             *  1.右击上传: 右击上传最终调用的命令里会复制到剪贴板，不需要在这里做这事儿
+             *  2.直接在终端执行: 这种情况如果后面没有跟复制到剪贴板的命令就不会复制
+             *  到剪贴板，但用终端执行只是调试，真正使用不会这么用，所以可以不管。
+             * ================================================================
+             * Windows:
+             * 右击上传：会自动复制到剪贴板(命令里有输出到剪贴板)
+             * 快捷键上传：
+             *  1.WinHotKey: 不会自动复制，所以这里要复制一下(由于WinHotKey
+             *  调用的命令加了--type=alfred，所以这里判断alfred的就复制)
+             *  2.Pyhon: python里有复制，所以这里不需要
+             */
+            echo $link;
+        }
+		
 		//只要非第三方客户端或网页上传，都要通知上传成功还是失败
-        //?号表示[s]可能是0个或1个
         /*
          * 这个也带https，但不能认为是成功
          * sh: -c: line 0: syntax error near unexpected token `('
 sh: -c: line 0: `echo cURL error 28: Operation timed out after 30005 milliseconds with 0 bytes received (see http://curl.haxx.se/libcurl/c/libcurl-errors.html) | pbcopy'
          */
+        //?号表示[s]可能是0个或1个
 		if(!strpos($link, 'Operation timed out') && preg_match('/http[s]?:\/\/(.*?)$/', $link)){
 			//通知上传成功
 			(new Common())->sendNotification('success');
