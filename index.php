@@ -159,6 +159,7 @@
     $doDotFormat = $isMweb || $isPicgo || $isSharex || $isUpic || isset($typora) || strtolower($config['storageType'])=='onedrive';
 	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
+            'isWeb' => $isWeb,
 			'doNotFormat' => $doDotFormat,
 			'deleteOriginalFile' => $deleteOriginalFile,
 		]
@@ -171,7 +172,9 @@
 			'code' => 'success',
 			'data' => [
 				'filename' => $_FILES['file']['name'],
-				'url' => $link,
+				'url' => $isWeb ? $link['formatLink'] : $link,
+                //专用于web上传，其它客户端上传该参数无用
+                'notFormatUrl' => $isWeb ? $link['notFormatLink'] : '',
 			],
 		];
 		

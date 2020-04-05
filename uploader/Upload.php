@@ -57,6 +57,7 @@ class Upload extends Common {
         }
 
 		$links = '';
+        $notFormatLink = '';
 		foreach($this->argv as $filePath){
 			$fileSize = filesize($filePath);
 			//为防止不小心上传了过大的文件，大于100M的文件一律跳过不上传
@@ -198,7 +199,8 @@ class Upload extends Common {
 					$filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
 					(new HistoryController)->Add($filename, $url, $size, $mimeType);
 				}
-				
+                
+                $params['isWeb'] && $notFormatLink = $link;
 				if(!$params['doNotFormat'] && $retArr['code']===0){
 					//按配置文件指定的格式，格式化链接
 					$link = $this->formatLink($link, $originFilename, $mimeType);
@@ -232,6 +234,14 @@ class Upload extends Common {
 		// $str = var_export(isset($tmpImgPath), true);
 		// file_put_contents('/Users/bruce/Downloads/tmp-debug.txt', "{$str}--{$tmpImgPath}\n----------------------------------------\n\n", FILE_APPEND);
 		isset($tmpImgPath) && @unlink($tmpImgPath);
+		//当isWeb为true时，肯定是单文件上传(即使是多文件但也是循环按单文件处理)，
+        //web那边需要同时用到格式化过的和未格式化过的链接
+		if($params['isWeb']){
+		    return [
+                'formatLink' => $links,
+                'notFormatLink' => $notFormatLink,
+            ];
+        }
 		return $links;
     }
 }

@@ -259,8 +259,6 @@
 				'host' => '服务器ip或域名',
                 //服务器ssh端口(默认22，除非你改了)
                 'port' => '22',
-                //超时时间：单位(秒)
-                'timeout' => '30',
 				'username' => 'ssh用户名',
 				'password' => 'ssh密码',
 				//prefix为前缀，最终上传目录是：prefix+directory，那为什么要分开写呢？因为directory会拼到你的domain后面，而prefix不会

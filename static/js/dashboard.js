@@ -81,20 +81,14 @@ function uploadFiles(files){
 				// 很多浏览器不允许用js去click这个按钮来把内容复制到剪贴板，
 				// 必须用真正的鼠标来点击才能复制，所以这句在大多数浏览器下其实并不管用
 				firstUnuploaded.find('.copy-image-url').click();
-				//括号中"?:"开头表示不捕获引用
-				let res = data.url.match(/http[s]?\:\/\/.*?(?:view|download)/);
-				let url = '';
-				if(res!==null){
-					url = res[0];
-				}
 				if(isImg){
-					//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从文件读取base64的，并没有水印)
+					//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从真正的源文件里读取的base64，并没有水印)
 					var imgObj = new Image();
-					imgObj.src = url;
+					imgObj.src = data.notFormatUrl;
 					imgObj.onload = function (e){
 						//图片加载完成后，替换原先显示的图
 						firstUnuploaded.find('.drop-area-image').attr({
-							"src": url,
+							"src": data.notFormatUrl,
 							"alt": data.filename,
 							"title": data.filename,
 						});
