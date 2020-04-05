@@ -249,7 +249,7 @@
 				// 'directory' => 'Photos/Travel/Maldives',
 			],
 			
-			//使用sftp协议上传到自己的服务器上
+			//使用sftp协议上传到自己的服务器上的指定目录
 			'bwg' => [
 				//这是自定义名称，可以自己改(因为你用的机器也不一定是搬瓦工的，也有可能是阿里云或其他的)
 				'name' => '搬瓦工',
@@ -262,9 +262,9 @@
 				'username' => 'ssh用户名',
 				'password' => 'ssh密码',
 				//prefix为前缀，最终上传目录是：prefix+directory，那为什么要分开写呢？因为directory会拼到你的domain后面，而prefix不会
-				//prefix就相当于设置上传的“根目录”
+				//prefix就相当于设置上传的“根目录”，prefix不存在会自动创建，但要求登录的用户有权限在根目录下创建
 				'prefix' => '/home/xiebruce',
-				//如果指定了directory，则directory指定的目录必须存在，否则不会自动创建，会报错
+				//如果不存在则会自动创建，如果指定的prefix已存在，则要求登录的用户具有在prefix目录下创建目录的权限
 				'directory' => '/data',
 				'domain' => 'https://img.xiebruce.top',
 			],
