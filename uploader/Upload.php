@@ -173,17 +173,18 @@ class Upload extends Common {
 				//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用，缺点是无法用IDE跟踪函数
 				// $retArr = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
 				$retArr = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
-				//处理使用默认域名
-				// $this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
-				if($this->reverseProxyDomain && !in_array($uploadServer, ['weibo'])){
-					$link = $this->reverseProxyDomain . '/' . $retArr['key'];
-				}else{
-				    if($retArr['code']===0){
-                        $link = $retArr['domain'] . '/' . $retArr['key'];
+                
+                if($retArr['code']===0){
+                    //处理使用默认域名
+                    // $this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
+                    if($this->reverseProxyDomain && !in_array($uploadServer, ['weibo'])){
+                        $link = $this->reverseProxyDomain . '/' . $retArr['key'];
                     }else{
-				        $link = $retArr['msg'];
+                        $link = $retArr['domain'] . '/' . $retArr['key'];
                     }
-				}
+                }else{
+                    $link = $retArr['msg'];
+                }
 				
 				// 如果数据库连接正常，则保存上传记录到数据库
 				if((new DbModel())->connection && $retArr['code']===0){
