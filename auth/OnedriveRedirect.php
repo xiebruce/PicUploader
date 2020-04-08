@@ -16,8 +16,8 @@
 	spl_autoload_register(function ($class_name) {
 		require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
 	});
-	
-	$uploader = strtolower(str_replace('Redirect.php', '', basename(__FILE__)));
+    
+    $uploader = ucfirst(str_replace('Redirect.php', '', basename(__FILE__)));
 	if(isset($_GET['code'])){
 		//获取到code之后，再用code去换取access token
 		$config = call_user_func([(new SettingController()), 'getMergeSettings']);
@@ -26,14 +26,15 @@
 		$accesstoken = (new $uploadClass($constructorParams))->getAccessToken($_GET['code']);
 		// var_dump($accesstoken);exit;
 		//跳转回原页面
-		$file = APP_PATH.'/.tmp/redirectUri';
-		is_file($file) && $redirectUri = file_get_contents($file);
-		if(isset($redirectUri) && $redirectUri){
-			@unlink($file);
-			header('Location: '. $redirectUri);
-		}else{
-			echo '跳转失败，请自行访问你的后台！';
-		}
+        session_start();
+        $redirectUri = isset($_SESSION[$uploader]['redirectUri']) ? $_SESSION[$uploader]['redirectUri'] : '';
+        if(isset($redirectUri) && $redirectUri){
+            // @unlink($file);
+            unset($_SESSION[$uploader]['redirectUri']);
+            header('Location: '. $redirectUri);
+        }else{
+            echo '跳转失败，请自行访问你的后台！';
+        }
 	}else if(isset($_GET['error']) && isset($_GET['error_description'])){
 		echo $_GET['error_description'];
 	}else{

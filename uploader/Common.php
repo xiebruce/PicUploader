@@ -229,11 +229,15 @@ class Common {
 	/**
 	 * 获取指定长度的随机字符串，字符串中包含数字及大小写字母
 	 * @param int $length
+	 * @param bool $onlyNum
 	 *
 	 * @return bool|string
 	 */
-	public function getRandomString($length = 16) {
+	public function getRandomString($length = 16, $onlyNum=false) {
 		$pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		if($onlyNum){
+		    $pool = '0123456789';
+        }
 		return substr(str_shuffle(str_repeat($pool, $length)), 0, $length);
 	}
 	

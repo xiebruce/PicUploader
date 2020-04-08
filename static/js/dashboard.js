@@ -223,6 +223,7 @@ $(document).ready(function (){
 	setTimeout(function (){
 		curTab = getCurTab(tabName);
 		curTab2 = getCurTab(tabName2);
+		//2就是第三个，因为第一个是0，而第三个是选存储云
 		if(curTab == 2){
 			$('.sub-left-bar .list .cloud').eq(curTab2).click();
 		}else{
@@ -263,7 +264,7 @@ $(document).ready(function (){
 		showSaveTips(defaultSaveTips, 2000);
 		
 		//设置tab值(用于设置云图标处于选中状态)
-		setTab(tabName, 2);
+		// setTab(tabName, 2);
 		//设置tab2值(用于设置是哪个云)
 		setTab(tabName2, $(this).index());
 		
@@ -291,7 +292,7 @@ $(document).ready(function (){
 						value = '';
 					}
 					var authentication = '';
-					if(key == 'onedrive' || key == 'googledrive' || key == 'dropbox' || key == 'imgur'){
+					if(key=='onedrive' || key=='googledrive' || key=='dropbox' || key=='imgur' || key=='flickr'){
 						let oauth = response.oauth;
 						if(oauth!=undefined){
 							if(oauth.authorized === false){
@@ -974,17 +975,19 @@ $(document).ready(function (){
 	
 	//通用设置
 	$('.cloud-storage').on('click', function (){
-		setTab(tabName, 2);
+		setTab(tabName, 1);
 		$(this).find('.sub-left-bar .list .cloud').eq(0).click();
 	});
 	
 	//点击查看历史
 	$('.left-bar .upload-history').on('click', function (){
+		//删除结尾的所有#号，否则把参数加在#号后面js会不认为它是参数(而把它认为是锚，从来无法用获取参数的方式获取到参数)
+		let url = window.location.href.replace(/(.*?)#+$/, '$1');
 		//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
 		let seperator = window.location.search.length ? '&' : '?';
-		let href = window.location.href + seperator + 'history=1';
-		if(window.location.href.indexOf('history=') > -1){
-			href = window.location.href.replace(/history=(.*?)(&.*?)*/, 'history=1');
+		let href = url + seperator + 'history=1';
+		if(url.indexOf('history=') > -1){
+			href = url.replace(/history=(.*?)(&.*?)*/, 'history=1');
 		}
 		window.location.href = href;
 	});

@@ -27,6 +27,7 @@
     }
     
     //--------------------------------------------------------------
+    session_start();
     require '../vendor/autoload.php';
     
     use uploader\UploadImgur;
@@ -39,18 +40,17 @@
         require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
     });
     
-    $uploader = strtolower(str_replace('Redirect.php', '', basename(__FILE__)));
-    
+    $uploader = ucfirst(str_replace('Redirect.php', '', basename(__FILE__)));
     if(isset($_GET['access_token'])){
         $config = call_user_func([(new SettingController()), 'getMergeSettings']);
         $constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $uploader];
         $uploadClass = 'uploader\\Upload'. $uploader;
         //保存access_token
         (new $uploadClass($constructorParams))->setAccessToken($_GET);
-        $file = APP_PATH.'/.tmp/redirectUri';
-        is_file($file) && $redirectUri = file_get_contents($file);
+        $redirectUri = isset($_SESSION[$uploader]['redirectUri']) ? $_SESSION[$uploader]['redirectUri'] : '';
         if(isset($redirectUri) && $redirectUri){
-            @unlink($file);
+            // @unlink($file);
+            unset($_SESSION[$uploader]['redirectUri']);
             header('Location: '. $redirectUri);
         }else{
             echo '跳转失败，请自行访问你的后台！';

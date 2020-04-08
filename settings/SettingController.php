@@ -62,7 +62,7 @@ class SettingController extends Controller {
 		];
 		//暂时用false
 		$authorized = false;
-		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur'])){
+		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur', 'flickr'])){
 			$config = $this->getMergeSettings();
 			$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
 			$uploader = 'uploader\\Upload' . ucfirst($key);
@@ -568,13 +568,14 @@ class SettingController extends Controller {
 	 */
 	public function getAuthUrl($data){
 		$config = $this->getMergeSettings();
-		$key = $data['key'];
+		$key = ucfirst($data['key']);
 		$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
-		$uploader = 'uploader\\Upload' . ucfirst($key);
+		$uploader = 'uploader\\Upload' . $key;
 		/** @var UploadOnedrive $uploader */
 		/** @var UploadGoogledrive $uploader */
 		$authUrl = (new $uploader($constructorParams))->getAuthorizationUrl();
-		file_put_contents(APP_PATH.'/.tmp/redirectUri', $data['uri']);
+		!session_id() && session_start();
+		$_SESSION[$key]['redirectUri'] = $data['uri'];
 		return json_encode([
 			'code' => 0,
 			'authUrl' => $authUrl,

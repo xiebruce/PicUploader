@@ -63,7 +63,7 @@
          */
         public function __construct($params)
         {
-            $ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
+            $ServerConfig = $params['config']['storageTypes'][strtolower($params['uploadServer'])];
             $this->uploadServer = ucfirst($params['uploadServer']);
             $this->clientId = $ServerConfig['clientId'];
             $this->clientSecret = $ServerConfig['clientSecret'];

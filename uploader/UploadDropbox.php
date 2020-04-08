@@ -40,7 +40,7 @@ class UploadDropbox extends Upload{
 	 */
 	public function __construct($params)
 	{
-		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
+		$ServerConfig = $params['config']['storageTypes'][strtolower($params['uploadServer'])];
 		$this->uploadServer = ucfirst($params['uploadServer']);
 		$this->appKey = $ServerConfig['appKey'];
 		$this->appSecret = $ServerConfig['appSecret'];

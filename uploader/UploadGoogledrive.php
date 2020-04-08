@@ -39,6 +39,7 @@ class UploadGoogledrive extends Upload{
  
 	const OAUTH_BASE_URL = 'https://oauth2.googleapis.com';
 	const API_BASE_URL = 'https://www.googleapis.com';
+	const DEFAULT_DOMAIN = 'https://drive.google.com';
 	
 	public $clientId;
 	public $clientSecret;
@@ -66,7 +67,7 @@ class UploadGoogledrive extends Upload{
 	 */
 	public function __construct($params)
 	{
-		$ServerConfig = $params['config']['storageTypes'][$params['uploadServer']];
+		$ServerConfig = $params['config']['storageTypes'][strtolower($params['uploadServer'])];
 		$this->uploadServer = ucfirst($params['uploadServer']);
 		$this->clientId = $ServerConfig['clientId'];
 		$this->clientSecret = $ServerConfig['clientSecret'];
@@ -84,8 +85,7 @@ class UploadGoogledrive extends Upload{
 		
 		$this->domain = $ServerConfig['domain'] ?? '';
 		
-		$this->defaultDomain = 'https://drive.google.com';
-		!$this->domain && $this->domain = $this->defaultDomain;
+		!$this->domain && $this->domain = static::DEFAULT_DOMAIN;
 		
 		if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 			//如果没有设置，使用默认的按年/月/日方式使用目录
@@ -948,7 +948,7 @@ class UploadGoogledrive extends Upload{
 			//$shareLink的格式：
 			//https://drive.google.com/uc?id=<fileId>&export=view
 			//https://drive.google.com/uc?id=<fileId>&export=download
-			$key = str_replace($this->defaultDomain . '/', '', $shareLink);
+			$key = str_replace(static::DEFAULT_DOMAIN . '/', '', $shareLink);
 			
 			$data = [
 				'code' => 0,
