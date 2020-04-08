@@ -15,12 +15,12 @@ PicUploader
 - 支持添加水印后上传(支持文字水印、图片水印、自定义水印颜色/透明度/角度/位置，支持jpg/png/bmp/webp，gif不支持水印)；
 - 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）；
 - 完全自定义上传文件名(可选变量有当前年、月、日、当前时间戳，随机字符串(可调长度))
-- 可作为MWeb的API使用，可作为PicGo、ShareX、uPic等的自定义图床使用；
+- 可作为MWeb/Typora的API使用，可作为PicGo、ShareX、uPic等的自定义图床使用；
 - 支持快捷键上传剪贴板中的图片(配合PicUploaderHelper/Alfred/WinHotKey使用)；
 - 支持Web端拖放、粘贴、或直接选择上传图片；
 - 支持Web端设置所有参数；
 - 支持上传任意格式文件(除了图片，还可以上传任意格式文件，只要你的存储端支持就行)；
-- 目前支持的图床：七牛、阿里、腾讯、华为、网易、京东、百度、又拍、青云、Ucloud、sm.ms、Imgur、Github、Gitee(码云)、微博、Nextcloud、Cloudinary、Chevereto、Minio、Aws s3、金山、个人服务器(sftp)、本地(即PicUploader所在机器)。
+- 目前支持的图床：七牛、腾讯、网易、百度、京东、阿里、又拍、sm.ms、Imgur、Ucloud、青云、Nextcloud、Github、Gitee(码云)、Cloudinary、Chevereto、Minio、Aws s3、金山、华为、DropBox、OneDrive、GoogleDrive个人服务器(sftp)、本地(即PicUploader所在机器)。
 
 ## 功能演示
 如果图片看不了请点击图片上边的文字链接单独打开即可查看。
