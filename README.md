@@ -188,7 +188,7 @@ uPic→`Preferences`→`Host`→左下角`+`号→`Custom`:
 ## 在Windows上配置
 本文档为纯文字文档，如有不懂的，请看详细文档：[在Windows上使用PicUploader](https://www.xiebruce.top/1095.html)。
 
-### 安装phpstudy并配置nginx
+### 在Windows上搭建Web后台
 安装[phpstudy](https://www.xp.cn)，按以下方法配置。
 
 进入`D:\phpstudy_pro\Extensions\Nginx1.15.11\conf\vhosts`文件夹，在里面新建一个文件名为`api.picuploader.com.conf`的配置文件，然后把以下配置粘贴进去：
