@@ -130,18 +130,18 @@ brew install pngpaste
 ```
 - 双击第三个`clipboard`图标，`type`选择`Plain Text`，框里填`{query}`，并勾选“Automatically paste to front most app”。
 
-**使用：**把鼠标光标置于任意编辑器界面上，截图→复制到剪贴板→按快捷键→右上角提示上传中→右上角提示上传完成(此时返回的链接已经自动粘贴到编辑器中)！
+**使用：** 把鼠标光标置于任意编辑器界面上，截图→复制到剪贴板→按快捷键→右上角提示上传中→右上角提示上传完成(此时返回的链接已经自动粘贴到编辑器中)！
 
 ### 作为MWeb图片上传接口
-Mweb→`Preferences(偏好设置)`→`Publishing(发布)`→`Custom(自定义)`：
-name: `PicUploader`
-API URL: `http:api.picuploader.com/index.php`
-POST File Name: `mweb`
-Response URL Path: `data/url`
+Mweb→`Preferences(偏好设置)`→`Publishing(发布)`→`Custom(自定义)`：  
+- name: `PicUploader`
+- API URL: `http:api.picuploader.com/index.php`
+- POST File Name: `mweb`
+- Response URL Path: `data/url`
 
 如果你是远程部署的，一定要[Nginx添加密码认证](https://www.xiebruce.top/634.html)，添加了认证，MWeb这里就需要添加一个Header，名称为`authorization`，值为`Basic xxxxxxx`，其中`xxxxxxx`这串值，需要你登录网页版后，在网页控制台→网络→找到任意一个链接→查看它的Request Headers，找到`authorization`就有这串值。
 
-使用：截图粘贴到MWeb(或直接拖动图片到MWeb)→点击顶部菜单栏中的`Publish`→`Upload Local Images To...`→`Copy Markdown`即可自动上传图片，等所有图片上传完成，会显示`Copied`，然后你可以`cmd+a`全选文章`cmd+v`粘贴覆盖掉原文，这时整篇文章中的图片都换成了线上链接了。
+**使用：** 截图粘贴到MWeb(或直接拖动图片到MWeb)→点击顶部菜单栏中的`Publish`→`Upload Local Images To...`→`Copy Markdown`即可自动上传图片，等所有图片上传完成，会显示`Copied`，然后你可以`cmd+a`全选文章`cmd+v`粘贴覆盖掉原文，这时整篇文章中的图片都换成了线上链接了。
 
 ### 作为Typora图片上传接口
 作为Typora图片上传接口时，必须把PicUploader安装在本地，因为Typora本身不支持上传到api。
@@ -151,7 +151,7 @@ Typora→`偏好设置`→`图像`→上传服务选`Custom Command`，自定义
 ```bash
 /usr/local/bin/php /path/to/PicUploader/index.php --type=typora
 ```
-**使用：**截图粘贴(或拖动图片)到Typora→Typora自动显示出上传图片菜单(没有显示就右击图片)→点击`上传图片`，稍等片刻，如果图片上传正常，则图片会自动被替换为返回的图片地址。
+**使用：** 截图粘贴(或拖动图片)到Typora→Typora自动显示出上传图片菜单(没有显示就右击图片)→点击`上传图片`，稍等片刻，如果图片上传正常，则图片会自动被替换为返回的图片地址。
 
 ### 作为PicGo自定义图床
 右击顶部PicGo图标→`打开详细窗口`→`插件设置`→搜索`web-uploader`→点击安装，安装好后就能在左侧图床列表看到`自定义图床`。
@@ -184,8 +184,6 @@ uPic→`Preferences`→`Host`→左下角`+`号→`Custom`:
 在`PicUploader/logs/`文件夹下有上传日志和错误日志。
 
 在Web版中点击左侧栏“逆时针旋转图标”的按钮即可查看上传历史，其中Sm.ms和Imgur由于可匿名上传，所以提供了删除功能。
-
----
 
 ## 在Windows上配置
 本文档为纯文字文档，如有不懂的，请看详细文档：[在Windows上使用PicUploader](https://www.xiebruce.top/1095.html)。
@@ -275,7 +273,7 @@ api.picuploader.com
 ### 添加右键菜单
 右击`PicUploader/accessorys/add-right-click-menu.bat`→以管理员身份运行→按提示填写最后输入`y`回车安装(注意复制路径如果开头有乱码字符请删掉)。
 
-**使用：**右击文件→点击自定义上传菜单→自动弹出黑框→黑框消失表示上传完成→去粘贴。
+**使用：** 右击文件→点击自定义上传菜单→自动弹出黑框→黑框消失表示上传完成→去粘贴。
 
 ---
 **删除右键菜单：**win+R，输入`regedit`回车，进入注册表编辑器，找到`HKEY_CLASSES_ROOT`→`*`→`shell`，在这里就能找到你添加的菜单，删掉它，再重新按前面的步骤添加即可。
@@ -293,9 +291,9 @@ api.picuploader.com
 
 记得所有路径都换成你电脑的路径，然后保存，因为我们没有勾选Windows键，所以保存时它会弹出个提示(不用看，点`Yes`就行)。
 
-**使用：**截图→复制到剪贴板→按快捷键→任务栏显示php图标(上传中)→任务栏图标消失(上传完成)→去粘贴。
+**使用：** 截图→复制到剪贴板→按快捷键→任务栏显示php图标(上传中)→任务栏图标消失(上传完成)→去粘贴。
 
-**注意：**如果是Win7，需要升级[Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)，请下载安装。
+**注意：** 如果是Win7，需要升级[Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)，请下载安装。
 
 ### 作为Typora上传图片接口
 参见：[作为Typora图片上传接口](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BAtypora%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3)
@@ -303,6 +301,11 @@ api.picuploader.com
 参见：[作为PicGo自定义图床](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BApicgo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E5%BA%8A)
 ### 作为ShareX的自定义图床
 这个有点复杂，文字可能说不太清，直接看详细文档吧：[作为ShareX的自定义图床](https://www.xiebruce.top/1095.html#ShareX)。
+
+### 查看日志和历史记录
+在`PicUploader/logs/`文件夹下有上传日志和错误日志。
+
+在Web版中点击左侧栏“逆时针旋转图标”的按钮即可查看上传历史，其中Sm.ms和Imgur由于可匿名上传，所以提供了删除功能。
 
 ### 点赞
 如果觉得PicUploader还不错，给个star鼓励鼓励我吧！
