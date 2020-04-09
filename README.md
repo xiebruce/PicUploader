@@ -248,7 +248,7 @@ api.picuploader.com
 **使用：** 右击文件→点击自定义上传菜单→自动弹出黑框→黑框消失表示上传完成→去粘贴。
 
 ---
-**删除右键菜单：**win+R，输入`regedit`回车，进入注册表编辑器，找到`HKEY_CLASSES_ROOT`→`*`→`shell`，在这里就能找到你添加的菜单，删掉它，再重新按前面的步骤添加即可。
+**删除右键菜单：** Win+R，输入`regedit`回车，进入注册表编辑器，找到`HKEY_CLASSES_ROOT`→`*`→`shell`，在这里就能找到你添加的菜单，删掉它，再重新按前面的步骤添加即可。
 
 ### 快捷键上传
 下载[WinHotKey](https://softfamous.com/winhotkey/download)，打开WinHotKey→`New Hotkey...`:
