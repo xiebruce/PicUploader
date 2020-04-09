@@ -25,7 +25,7 @@ PicUploader
 ## 功能演示
 [Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)、[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)、[Win10右击图片上传演示](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)、[Win10快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)  
 [Win7右击图片上传演示](https://img.xiebruce.top/2019/08/28/d06379b706f8cccc1e727548c1c9ef21.gif)、[Win7快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/4c7c44d6e262a5c2fcc68edda71d9f56.gif)、[Web版多种上传方式演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)、[上传任意格式文件演示](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)  
-[MWeb上传图片演示](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)、[ShareX使用演示](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)、[上传记录](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
+[MWeb上传图片演示](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)、[ShareX使用演示](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)、[查看上传记录演示](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
 
 ## 获取各图床的参数
 参见：[PicUploader: 各图床获取上传图片参数的方法](https://www.xiebruce.top/117.html)。
@@ -128,7 +128,7 @@ brew install pngpaste
 ```
 /usr/local/bin/php /path/to/personal/PicUploader/index.php --type=alfred
 ```
-- 双击第三个`clipboard`图标，`type`选择`Plain Text`，框里填`{query}`，并勾选“Automatically paste to front most app”。
+- 双击第三个`clipboard`图标，`type`选择`Plain Text`，框里填`{query}`，并勾选“Automatically paste to front most app”。  
 
 **使用：** 把鼠标光标置于任意编辑器界面上，截图→复制到剪贴板→按快捷键→右上角提示上传中→右上角提示上传完成(此时返回的链接已经自动粘贴到编辑器中)！
 
