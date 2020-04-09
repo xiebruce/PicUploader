@@ -46,7 +46,7 @@ git pull
 ### 填写配置
 把`PicUploader/config/config.php`文件复制一份，命名为`config-local.php`，然后在`config-local.php`中填写配置。
 
-### 搭建web后台
+### 在Mac上搭建web后台
 请搭建php+nginx运行环境，以下是nginx配置：
 ```nginx
 server {
@@ -194,35 +194,6 @@ uPic→`Preferences`→`Host`→左下角`+`号→`Custom`:
 进入`D:\phpstudy_pro\Extensions\Nginx1.15.11\conf\vhosts`文件夹，在里面新建一个文件名为`api.picuploader.com.conf`的配置文件，然后把以下配置粘贴进去：
 ```nginx
 server {
-    listen 80;
-    server_name api.picuploader.com;
-
-    client_header_timeout 60s;
-    client_body_timeout 60s;
-    send_timeout 60s;
-    keepalive_timeout  65s;
-    client_max_body_size 100m;
-
-    access_log logs/api.picuploader.com.error.log combined;
-    error_log logs/api.picuploader.com.error.log error;
-
-    root D:/phpstudy_pro/WWW/PicUploader;
-
-    location / {
-        index dashboard.php;
-        try_files $uri $uri/ index.php$is_args$args;
-    }
-
-    location ~ \.php$ {
-        fastcgi_pass 127.0.0.1:9000;
-        fastcgi_index index.php;
-        include fastcgi.conf;
-    }
-}
-```
-https版本(如果使Onedrive/GoogleDrive/Dropbox则必须使用https版本，https需要生成证书，见:[使用mkcert配置本地https](https://www.xiebruce.top/1121.html))：
-```nginx
-server {
     listen 443 ssl;
     server_name api.picuploader.com;
 
@@ -259,6 +230,7 @@ server {
     }
 }
 ```
+`ssl_certificate`和`ssl_certificate_key`是https证书和密钥文件，生成这两个文件请查看:[使用mkcert配置本地https](https://www.xiebruce.top/1121.html))。
 
 添加hosts文件指向(点击phpstudy的`设置`→`配置文件`→`hosst`会自动用记事本打开)：
 ```hosts
@@ -307,10 +279,14 @@ api.picuploader.com
 
 在Web版中点击左侧栏“逆时针旋转图标”的按钮即可查看上传历史，其中Sm.ms和Imgur由于可匿名上传，所以提供了删除功能。
 
-### 点赞
+## 在服务器上搭建
+服务器上搭建也是搭建一个php+nginx运行环境，nginx配置文件直接用[在Mac上搭建web后台](https://github.com/xiebruce/PicUploader#%E5%9C%A8Mac%E4%B8%8A%E6%90%AD%E5%BB%BAweb%E5%90%8E%E5%8F%B0)的就行，只不过路径要改改罢了，另外服务器上获取https证书要使用真实证书，申请https证书请查看：[https证书自动续订(renew)问题](https://www.xiebruce.top/837.html)。
+
+**注意：** 由于PicUploader没有账号系统，在服务器上搭建，需要在nginx添加认证密码，添加方法请查看：[Nginx添加密码认证](https://www.xiebruce.top/634.html)。
+## 点赞
 如果觉得PicUploader还不错，给个star鼓励鼓励我吧！
 
-### 如何支持我
+## 如何支持我
 **方法一：**
 如果本工具确实能帮助到你，不妨打赏一下，鼓励一下我继续更新并维护`PicUploader`。  
 <img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/wechat.png">
