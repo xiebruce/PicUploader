@@ -30,7 +30,9 @@ class SettingController extends Controller {
 			}
 		}
 		$this->settings = $settings;
-		$this->storageTypes = $settings['storageTypes'];
+		if(is_array($settings)) {
+			$this->storageTypes = $settings['storageTypes'];
+		}
 		$this->storagesDir = APP_PATH.'/config/.settings';
 	}
 	
