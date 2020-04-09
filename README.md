@@ -268,9 +268,9 @@ api.picuploader.com
 **注意：** 如果是Win7，需要升级[Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)，请下载安装。
 
 ### 作为Typora上传图片接口
-参见：[作为Typora图片上传接口](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BAtypora%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3)
+参见：[作为Typora图片上传接口](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BAtypora%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3)。
 ### 作为PicGo自定义图床
-参见：[作为PicGo自定义图床](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BApicgo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E5%BA%8A)
+参见：[作为PicGo自定义图床](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BApicgo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E5%BA%8A)。
 ### 作为ShareX的自定义图床
 这个有点复杂，文字可能说不太清，直接看详细文档吧：[作为ShareX的自定义图床](https://www.xiebruce.top/1095.html#ShareX)。
 
