@@ -23,15 +23,15 @@ PicUploader
 - 目前支持的图床：七牛、腾讯、网易、百度、京东、阿里、又拍、sm.ms、Imgur、Ucloud、青云、Nextcloud、Github、Gitee(码云)、Cloudinary、Chevereto、Minio、Aws s3、金山、华为、DropBox、OneDrive、GoogleDrive、个人服务器(sftp)、本地(即PicUploader所在机器)。
 
 ## 功能演示
-[Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)、[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)、[Win10右击图片上传演示](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)  
-[Win10快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)、[Win7右击图片上传演示](https://img.xiebruce.top/2019/08/28/d06379b706f8cccc1e727548c1c9ef21.gif)、[Win7快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/4c7c44d6e262a5c2fcc68edda71d9f56.gif)  
-[Web版多种上传方式演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)、[上传任意格式文件演示](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)、[MWeb上传图片演示](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)  
-[ShareX使用演示](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)、[上传记录](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
+[Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)、[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)、[Win10右击图片上传演示](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)、[Win10快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)  
+[Win7右击图片上传演示](https://img.xiebruce.top/2019/08/28/d06379b706f8cccc1e727548c1c9ef21.gif)、[Win7快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/4c7c44d6e262a5c2fcc68edda71d9f56.gif)、[Web版多种上传方式演示](https://img.xiebruce.top/2019/04/20/bc83005774cf2dca482f290eb5508c5d.mp4)、[上传任意格式文件演示](https://img.xiebruce.top/2019/04/22/402a6e4a3fa0e8502c30910fab1db810.gif)  
+[MWeb上传图片演示](https://img.xiebruce.top/2019/04/23/97a9efc1693e1ad0ebc6e81f43b385aa.mp4)、[ShareX使用演示](https://img.xiebruce.top/2019/04/29/89c6d78acb3ca7be98e17281102b2069.gif)、[上传记录](https://img.xiebruce.top/2019/05/01/90dd3550eef4991c849fde00092d0ad4.mp4)
 
 ## 获取各图床的参数
 参见：[PicUploader: 各图床获取上传图片参数的方法](https://www.xiebruce.top/117.html)。
 
 ## 在Mac上配置
+本文档为纯文字文档，如有不懂的，请看详细文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
 ### 下载
 ```bash
 git clone https://github.com/xiebruce/PicUploader.git
@@ -161,7 +161,7 @@ Typora→`偏好设置`→`图像`→上传服务选`Custom Command`，自定义
 - url: `http://你的PicUploader后台域名/index.php`
 - paramName: `picgo`
 - jsonPath: `data.url`
-- customHeader: 如果nginx使用了[Nginx添加密码认证](https://www.xiebruce.top/634.html)，则填`{"authorization":"Basic xxxxxxx"}`，否则留空，其中`xxxxxxx`如何获取请参考[作为MWeb图片上传接口](https://www.xiebruce.top)
+- customHeader: 如果nginx使用了[Nginx添加密码认证](https://www.xiebruce.top/634.html)，则填`{"authorization":"Basic xxxxxxx"}`，否则留空，其中`xxxxxxx`如何获取请参考[作为MWeb图片上传接口](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BAmweb%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3)
 - customBody: 暂时用不到，留空。
 
 设置好之后，双击顶部工具栏PicGo图标→选择默认图床→自定义Web图床，然后使用PicGo上传图片就会自动通过PicUploader的接口上传了。
@@ -178,7 +178,7 @@ uPic→`Preferences`→`Host`→左下角`+`号→`Custom`:
 如果nginx使用了[Nginx添加密码认证](https://www.xiebruce.top/634.html)，则需要添加Header，点击`Other Fields`→`Add Header Field`：
 
 - key: `authorization`
-- value: `Basic xxxxxxx`，其中`xxxxxxx`如何获取请参考[作为MWeb图片上传接口](https://www.xiebruce.top)
+- value: `Basic xxxxxxx`，其中`xxxxxxx`如何获取请参考[作为MWeb图片上传接口](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BAmweb%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3)
 
 ### 查看日志和历史记录
 在`PicUploader/logs/`文件夹下有上传日志和错误日志。
@@ -188,6 +188,9 @@ uPic→`Preferences`→`Host`→左下角`+`号→`Custom`:
 ---
 
 ## 在Windows上配置
+本文档为纯文字文档，如有不懂的，请看详细文档：[在Windows上使用PicUploader](https://www.xiebruce.top/1095.html)。
+
+### 安装phpstudy并配置nginx
 安装[phpstudy](https://www.xp.cn)，按以下方法配置。
 
 进入`D:\phpstudy_pro\Extensions\Nginx1.15.11\conf\vhosts`文件夹，在里面新建一个文件名为`api.picuploader.com.conf`的配置文件，然后把以下配置粘贴进去：
@@ -295,13 +298,11 @@ api.picuploader.com
 **注意：**如果是Win7，需要升级[Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)，请下载安装。
 
 ### 作为Typora上传图片接口
-
+参见：[作为Typora图片上传接口](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BAtypora%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E6%8E%A5%E5%8F%A3)
 ### 作为PicGo自定义图床
-
+参见：[作为PicGo自定义图床](https://github.com/xiebruce/PicUploader#%E4%BD%9C%E4%B8%BApicgo%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9B%BE%E5%BA%8A)
 ### 作为ShareX的自定义图床
 这个有点复杂，文字可能说不太清，直接看详细文档吧：[作为ShareX的自定义图床](https://www.xiebruce.top/1095.html#ShareX)。
-
-查看唯一文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
 
 ### 点赞
 如果觉得PicUploader还不错，给个star鼓励鼓励我吧！
