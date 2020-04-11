@@ -16,7 +16,7 @@ PicUploader
 - 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）；
 - 完全自定义上传文件名(可选变量有当前年、月、日、当前时间戳，随机字符串(可调长度))
 - 可作为MWeb/Typora的API使用，可作为PicGo、ShareX、uPic等的自定义图床使用；
-- 支持快捷键上传剪贴板中的图片(配合PicUploaderHelper/Alfred/WinHotKey使用)；
+- 支持快捷键上传剪贴板中的图片(配合Alfred/WinHotKey使用)；
 - 支持Web端拖放、粘贴、或直接选择上传图片；
 - 支持Web端设置所有参数；
 - 支持上传任意格式文件(除了图片，还可以上传任意格式文件，只要你的存储端支持就行)；
