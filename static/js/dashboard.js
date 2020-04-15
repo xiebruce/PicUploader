@@ -264,7 +264,7 @@ $(document).ready(function (){
 		showSaveTips(defaultSaveTips, 2000);
 		
 		//设置tab值(用于设置云图标处于选中状态)
-		// setTab(tabName, 2);
+		setTab(tabName, 2);
 		//设置tab2值(用于设置是哪个云)
 		setTab(tabName2, $(this).index());
 		
@@ -292,13 +292,14 @@ $(document).ready(function (){
 						value = '';
 					}
 					var authentication = '';
-					if(key=='onedrive' || key=='googledrive' || key=='dropbox' || key=='imgur' || key=='flickr'){
+					let oauthServers = ['onedrive', 'googledrive', 'dropbox', 'imgur', 'azure', 'flickr', ];
+					if(oauthServers.findIndex((element)=>(element==key)) > -1){
 						let oauth = response.oauth;
 						if(oauth!=undefined){
 							if(oauth.authorized === false){
 								authentication = '<input id="authorize" class="authorize" type="button" value="点击获取'+key+'授权">';
 							}else{
-								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权"><input id="authorize" class="authorize" type="button" value="重新获取'+key+'授权"><br>(注意:在已获取授权的情况下，点击"重新获取授权"，如果是OneDrive、Dropbox，你的感觉就是刷新了一下，但其实已经重新获取了，如果是GoogleDrive则会重新显示同意页面，重新获取的原因：当上传一直失败时，可以尝试重新获取一下授权，另外如果你更换了账号，也需要重新获取！)';
+								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权"><input id="authorize" class="authorize" type="button" value="重新获取'+key+'授权"><br>(注意:在已获取授权的情况下，点击"重新获取授权"，除了GoogleDrive则会重新显示同意页面，其它的，你的感觉就是刷新了一下，但其实已经重新获取了，重新获取的原因：当上传一直失败时，可以尝试重新获取一下授权，另外如果你更换了账号，也需要重新获取！)';
 							}
 						}
 					}

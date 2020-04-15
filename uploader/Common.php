@@ -274,11 +274,12 @@ class Common {
     /**
      * Format the Link
      * @param        $url
+     * @param string $mime
      * @param string $filename
      *
      * @return string
      */
-    public function formatLink($url, $filename='', $mime){
+    public function formatLink($url, $mime, $filename=''){
     	//非图片
     	if(strpos($mime, 'image')===false){
     	    switch($mime){

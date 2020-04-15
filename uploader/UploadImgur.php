@@ -80,7 +80,7 @@ class UploadImgur extends Upload{
             //不需要用code换取access_token而是这一次就直接返回了access_token
             'response_type' => 'token',
             'client_id' => $this->clientId,
-            // 'status' => '32131221', // 随机数，返回时原样返回，用于防止XSS
+            // 'state' => '32131221', // 随机数，返回时原样返回，用于防止XSS
         ];
         //http_build_query()函数能把数组变成：response_type=code&client_id=$this->clientId&……
         $queryStr = http_build_query($queryParam);
@@ -269,6 +269,7 @@ class UploadImgur extends Upload{
 	
 	/**
 	 * Upload files to Imgur.com
+     * 文档: https://apidocs.imgur.com/?version=latest#c85c9dfc-7487-4de2-9ecd-66f727cf3139
 	 * @param $key 自定义文件名(变量名用$key是因为对象存储是key=>value形式的，所以所谓文件名，其实真正的叫法是key，就像redis的key对应value一样，value自然就是图片的base64码了)，由于这里使用Imgur并没有使用access_token的方式上传(Imgur只提供网页版access_token)，所以相当于没有账号系统，相当于匿名上传，无法自定义上传文件名，所以这个$key并没有用到
 	 * @param $uploadFilePath
 	 * @param $originFilename
@@ -311,16 +312,17 @@ class UploadImgur extends Upload{
             }
 			
             $fileSize = filesize($uploadFilePath);
+			
             if($isImg && $fileSize > 10485760){
                 $useWatermark = static::$config['watermark']['useWatermark'] ?? 0;
                 $fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
-                $errMsg = 'Imgur限制最大视频体积为200M，你上传的图片'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！\n";
+                $errMsg = 'Imgur限制最大图片大小为10M，你上传的图片'.($useWatermark ? '压缩后': '').'为'.$fileSizeHuman."！\n";
                 throw new Exception($errMsg);
             }
-            //209715200B = 200MB
+            //200 * 1024 * 1024 = 209715200 Bytes
             if($isVideo && $supportedVideoFormat && $fileSize > 209715200) {
                 $fileSizeHuman = (new Common())->getFileSizeHuman($uploadFilePath);
-                $errMsg = 'Imgur限制最大图片体积为200M，你上传的视频体积为' . $fileSizeHuman
+                $errMsg = 'Imgur限制最大视频大小为200M，你上传的视频大小为' . $fileSizeHuman
                     . "！\n";
                 throw new Exception($errMsg);
             }

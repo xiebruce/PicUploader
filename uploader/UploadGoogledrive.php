@@ -113,7 +113,7 @@ class UploadGoogledrive extends Upload{
 			'scope' => 'https://www.googleapis.com/auth/drive',
 			'access_type' => 'offline',
 			'prompt' => 'consent', //美[kənˈsent] 同意,准许
-			// 'status' => '32131221', // 随机数，返回时原样返回，用于防止XSS
+			// 'state' => '32131221', // 随机数，返回时原样返回，用于防止XSS
 		];
 		//http_build_query()函数能把数组变成：response_type=code&client_id=$this->clientId&……
 		$queryStr = http_build_query($queryParam);

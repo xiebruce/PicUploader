@@ -62,7 +62,7 @@ class SettingController extends Controller {
 		];
 		//暂时用false
 		$authorized = false;
-		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur', 'flickr'])){
+		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur', 'azure', 'flickr'])){
 			$config = $this->getMergeSettings();
 			$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
 			$uploader = 'uploader\\Upload' . ucfirst($key);
