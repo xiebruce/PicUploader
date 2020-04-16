@@ -27,8 +27,6 @@ class UploadGithub extends Upload{
     public $access_token;
 	//域名
 	public $domain;
-	//api基础地址
-	public $baseUri;
 	//是否使用代理
 	public $proxy;
 	//上传目标服务器名称

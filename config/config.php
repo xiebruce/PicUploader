@@ -424,6 +424,40 @@
                 'proxy' => '',
                 // 'proxy' => 'http://127.0.0.1:1087',
             ],
+            
+            //Gitlab: https://gitlab.com 有官方，也可自建
+            'gitlab' => [
+                'name' => 'Gitlab',
+                //你的gitlab域名
+                // 'baseUri' => 'https://www.example.com',
+                'baseUri' => 'https://gitlab.com',
+                //项目id
+                'projectId' => '*****',
+                //repo由: "组名/仓库名"(当项目在组之下时)或"用户名/仓库名"组成，且repo必须与projectId对应
+                'repo' => 'group_name/repo_name',
+                //分支，默认为master(不存在的分支会自动创建)
+                'branch' => 'master',
+                //存储目录，可使用年月日点位符，如 {Y}/{m}/{d}，真正被解析出来的时候会被替换成当前的年月日(如 2019/05/10)
+                //{Y}表示当前的年(注意Y是大写)，{m}表示当前月(有前导0，即1-9月会显示成01-09)，{d}会被替换为当前日期，有前导0(即1-9日会替换为01-09)
+                //例：images/{Y}/{m}/{d}/
+                'directory' => 'images/{Y}/{m}/{d}/',
+                //提交的评论信息，可以不填
+                'message' => 'Upload from PicUploader',
+                //access_token，授权token
+                'access_token' => 'K9f******eC31u',
+                //不填则使用github默认的域名，填了则使用填的域名
+                'domain' => '',
+                //代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+                //端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
+                // 'proxy' => 'http://127.0.0.1:1087',
+                // 'directory' => date('Y/m/d/'),
+                //自定义目录格式：Photos/2019/03/31
+                // 'directory' => 'Photos/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/2019/03/31
+                // 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/Maldives
+                // 'directory' => 'Photos/Travel/Maldives',
+            ],
 		],
 		
 		/*

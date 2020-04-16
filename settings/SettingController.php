@@ -97,7 +97,7 @@ class SettingController extends Controller {
 		foreach($_POST as &$val){
 			$val = trim($val);
 		}
-		if($key=='github'){
+		if(in_array($key, ['github', 'gitee', 'gitlab'])){
 			$arr = explode('/', $_POST['repo']);
 			$_POST['repo'] = rtrim($arr[0]) . '/' . ltrim($arr[1]);
 		}
