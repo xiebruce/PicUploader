@@ -15,12 +15,12 @@ PicUploader
 - 支持添加水印后上传(支持文字水印、图片水印、自定义水印颜色/透明度/角度/位置，支持jpg/png/bmp/webp，gif不支持水印)；
 - 返回的链接可自定义（如原始链接、Markdown格式链接、可点击的Markdown格式链接、完全自定义的链接）；
 - 完全自定义上传文件名(可选变量有当前年、月、日、当前时间戳，随机字符串(可调长度))
-- 可作为MWeb/Typora的API使用，可作为PicGo、ShareX、uPic等的自定义图床使用；
+- 可作为MWeb/Typora的API使用，可作为PicGo/ShareX/uPic等的自定义图床使用；
 - 支持快捷键上传剪贴板中的图片(配合Alfred/WinHotKey使用)；
 - 支持Web端拖放、粘贴、或直接选择上传图片；
 - 支持Web端设置所有参数；
 - 支持上传任意格式文件(除了图片，还可以上传任意格式文件，只要你的存储端支持就行)；
-- 目前支持的图床：七牛、腾讯、网易、百度、京东、阿里、又拍、sm.ms、Imgur、Ucloud、青云、Nextcloud、Github、Gitee(码云)、Cloudinary、Chevereto、Minio、Aws s3、金山、华为、DropBox、OneDrive、GoogleDrive、个人服务器(sftp)、本地(即PicUploader所在机器)。
+- 目前支持的图床：七牛、腾讯、网易、百度、京东、阿里、又拍、sm.ms、Imgur、Ucloud、青云、Nextcloud、Github、Gitee(码云)、Cloudinary、Chevereto、Minio、Aws s3、金山、华为、DropBox、OneDrive、GoogleDrive、Azure、个人服务器(sftp)、本地(即PicUploader所在机器)。
 
 ## 功能演示
 [Mac右击图片上传演示](https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif)、[Mac快捷键上传截图演示](https://img.xiebruce.top/2019/04/21/9d331dd128140a2f17cdbd0bda7860ae.gif)、[Win10右击图片上传演示](https://img.xiebruce.top/2019/08/28/1a832a7a4c82a1c0aa9fcbba618b13b6.gif)、[Win10快捷键上传截图演示](https://img.xiebruce.top/2019/08/29/5a5afac8e73a522374b06663ddd74490.gif)  
