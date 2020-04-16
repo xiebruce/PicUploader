@@ -70,6 +70,14 @@ class UploadGitlab extends Upload{
         static::$config = $params['config'];
     }
     
+    /**
+     * getBranchList
+     * 文档: https://docs.gitlab.com/ee/api/branches.html#list-repository-branches
+     * @param string $branch
+     *
+     * @return array|mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getBranchList($branch=''){
         try {
             $GuzzleConfig = [
@@ -82,7 +90,6 @@ class UploadGitlab extends Upload{
             //new GuzzleHttp instance
             $client = new Client($GuzzleConfig);
             
-            //文档: https://docs.gitlab.com/ee/api/repository_files.html#create-new-file-in-repository
             $uri = 'api/v4/projects/' . $this->projectId . '/repository/branches';
             $branch && $uri = $uri . '?search=^' . $branch;
             $response = $client->request('GET', $uri, [
@@ -116,6 +123,7 @@ class UploadGitlab extends Upload{
      * @param $branch
      *
      * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function isBranchExists($branch){
         $branchList = $this->getBranchList($branch);
@@ -129,6 +137,7 @@ class UploadGitlab extends Upload{
     
     /**
      * createBranch
+     * 文档: https://docs.gitlab.com/ee/api/branches.html#create-repository-branch
      * @param $branch
      *
      * @return array|mixed
@@ -146,7 +155,6 @@ class UploadGitlab extends Upload{
             //new GuzzleHttp instance
             $client = new Client($GuzzleConfig);
             
-            //文档: https://docs.gitlab.com/ee/api/repository_files.html#create-new-file-in-repository
             $uri = 'api/v4/projects/' . $this->projectId . '/repository/branches';
             $response = $client->request('POST', $uri, [
                 'verify' => false,
@@ -184,7 +192,8 @@ class UploadGitlab extends Upload{
 	
 	/**
 	 * Upload files to Github
-	 * @param $key
+     * 文档: https://docs.gitlab.com/ee/api/repository_files.html#create-new-file-in-repository
+     * @param $key
 	 * @param $uploadFilePath
 	 *
 	 * @return array
@@ -213,7 +222,6 @@ class UploadGitlab extends Upload{
 			if($this->directory){
 				$key = $this->directory . '/' . $key;
 			}
-			//文档: https://docs.gitlab.com/ee/api/repository_files.html#create-new-file-in-repository
 			$uri = 'api/v4/projects/' . $this->projectId . '/repository/files/' . urlencode($key);
 			$response = $client->request('POST', $uri, [
 				'verify' => false,
