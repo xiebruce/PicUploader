@@ -162,55 +162,69 @@ function showLocalImages(files){
 
 /**
  * 获取当前tab值(如果没有自动添加)
- * @param tabParamName
- * @param initTab
- * @param max
+ * @param param
+ * @param defaultValue
  * @returns {number|string}
  */
-function getCurTab(tabParamName, initTab, max){
-	if(tabParamName==undefined){
-		tabParamName = 'tab';
-	}
-	if(initTab==undefined){
-		initTab = 0;
-	}
-	
-	//如果链接没有tab，则给链接添加tab，且默认值为0（即第一个tab）
-	let curTab = initTab;
-	let cur_url = window.location.href.toString();
-	//检测url中是否有：?tab=数字 或 &tab=数字
-	// let reg = /[?&]tab=(\d)+/gi;
-	let reg = new RegExp('[?&]' + tabParamName + '=(\\d+)', 'gi');
-	let match = reg.exec(cur_url);
-	// console.log(match);
-	//如果没有tab=数字，我们要添加一个上去(用pushState())
-	if(match==null || match==undefined || match[1]==null || match[1]==undefined){
-		//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
-		let seperator = window.location.search.length ? '&' : '?';
-		//seperator + tabName + '=' + curTab 举例：?tab=1 , &tab=1
-		cur_url = cur_url.replace(cur_url,cur_url + seperator + tabParamName + '=' + curTab);
-		window.history.replaceState('','',cur_url);
+function getParam(param, defaultValue){
+	let queryStr = window.location.search.toString();
+	let reg = new RegExp('.*'+param+'=([^&\n?]*)&*.*', 'gi');
+	let ret = reg.exec(queryStr);
+	let value = defaultValue;
+	if(ret!=null && ret[1]!=undefined){
+		value = ret[1];
 	}else{
-		//如果有，则直接获取数字是多少
-		curTab = match[1];
+		setParam(param, defaultValue);
 	}
-	if(max!=undefined){
-		curTab = curTab > max ? max : curTab;
-	}
-	return curTab;
+	return value;
 }
 
 /**
  * 设置当前tab值
- * @param tabParamName
- * @param curTab
+ * @param param
+ * @param value
  */
-function setTab(tabParamName, curTab){
-	let cur_url = window.location.href.toString();
-	//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
-	let reg = new RegExp('([?|&]'  + tabParamName + '=)\\d+', 'gi');
-	cur_url = cur_url.replace(reg, '$1'+curTab);
-	window.history.replaceState('', '', cur_url);
+function setParam(param, value){
+	if(typeof(value)=='string'){
+		value = value.trim();
+		value = encodeURIComponent(value);
+	}
+	//window.location.href可以获取到整个完整的url(包括"#"号锚点)
+	let curUrl = window.location.href.toString();
+	//window.location.search用于获取url中的"?a=1&b=2&b=3……",但不包括#号及其后面的, substr(1)是去掉"?"号
+	let queryStr = window.location.search.toString();
+	
+	//为了后面统一组装字符串
+	let arr = [curUrl,''];
+	//这样做是为了处理带#号的锚点
+	let queryStrEmpty = true;
+	if(queryStr!==''){
+		queryStrEmpty = false;
+		arr = curUrl.split(queryStr);
+	}else if(curUrl.indexOf('#') > -1){
+		arr = curUrl.split('#');
+	}
+	let reg = new RegExp('(.*)('+param+'=)([^&\n?]*)(&*)(.*)', 'gi');
+	let ret = reg.exec(queryStr);
+	//如果没有匹配到就添加该参数
+	if(ret==null){
+		let separater = '?';
+		//如果第一个字符是"?"号，则把分隔符换成"&"
+		if(queryStr.indexOf('?')===0){
+			separater = '&';
+		}
+		queryStr = queryStr + separater + param + '=' + value;
+	}else{
+		//如果匹配到了就替换该参数的值
+		queryStr = queryStr.replace(reg, '$1' + '$2' +value + '$4' + '$5' );
+	}
+	if(queryStrEmpty && curUrl.indexOf('#') > -1){
+		//url中有#号(#号后面的肯定是锚点名，所以#号肯定在最后，把queryStr插入到#号之前，再把之前根据#号分割成的数组连起来)
+		curUrl = arr.join(queryStr+'#');
+	}else{
+		curUrl = arr.join(queryStr);
+	}
+	window.history.replaceState('', '', curUrl);
 }
 
 //jQuery入口函数
@@ -221,8 +235,8 @@ $(document).ready(function (){
 	let curTab = 0;
 	let curTab2 = 0;
 	setTimeout(function (){
-		curTab = getCurTab(tabName);
-		curTab2 = getCurTab(tabName2);
+		curTab = getParam(tabName, 0);
+		curTab2 = getParam(tabName2, 0);
 		//2就是第三个，因为第一个是0，而第三个是选存储云
 		if(curTab == 2){
 			$('.sub-left-bar .list .cloud').eq(curTab2).click();
@@ -264,9 +278,9 @@ $(document).ready(function (){
 		showSaveTips(defaultSaveTips, 2000);
 		
 		//设置tab值(用于设置云图标处于选中状态)
-		setTab(tabName, 2);
+		setParam(tabName, 2);
 		//设置tab2值(用于设置是哪个云)
-		setTab(tabName2, $(this).index());
+		setParam(tabName2, $(this).index());
 		
 		var $this = $(this);
 		var key = $(this).data('key');
@@ -532,7 +546,7 @@ $(document).ready(function (){
 	//点击左侧栏的上传图片选项
 	$('.left-bar .upload-image').on('click', function (){
 		//设置tab值
-		setTab(tabName, 0);
+		setParam(tabName, 0);
 		$('.left-bar .icons').removeClass('active');
 		$('.sub-left-bar .list li').removeClass('active');
 		$(this).addClass('active');
@@ -695,7 +709,7 @@ $(document).ready(function (){
 	$('.general-setting').on('click', function (){
 		//设置tab值为1
 		showSaveTips(defaultSaveTips, 2000);
-		setTab(tabName, 1);
+		setParam(tabName, 1);
 		var $this = $(this);
 		$.ajax({
 			type: 'get',
@@ -976,21 +990,14 @@ $(document).ready(function (){
 	
 	//通用设置
 	$('.cloud-storage').on('click', function (){
-		setTab(tabName, 1);
+		setParam(tabName, 1);
 		$(this).find('.sub-left-bar .list .cloud').eq(0).click();
 	});
 	
 	//点击查看历史
 	$('.left-bar .upload-history').on('click', function (){
-		//删除结尾的所有#号，否则把参数加在#号后面js会不认为它是参数(而把它认为是锚，从来无法用获取参数的方式获取到参数)
-		let url = window.location.href.replace(/(.*?)#+$/, '$1');
-		//window.location.search用于获取url中的参数部分，如果原来有参数，那么就用&连接，如果没有，那就用?连接
-		let seperator = window.location.search.length ? '&' : '?';
-		let href = url + seperator + 'history=1';
-		if(url.indexOf('history=') > -1){
-			href = url.replace(/history=(.*?)(&.*?)*/, 'history=1');
-		}
-		window.location.href = href;
+		setParam('history', 1);
+		window.location.reload();
 	});
 	
 	//================== 图片放大 开始 ======================

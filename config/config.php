@@ -404,6 +404,26 @@
                 //自定义域名
                 'domain' => '',
             ],
+            
+            //Azure是微软的云服务：https://azure.microsoft.com/zh-cn/services/devops
+            'azure' => [
+                'name' => 'Azure Git',
+                'appId' => '10065A******************AD2E',
+                'appSecret' => 'eyJ0******************JSUzI1NiIs',
+                'clientSecret' => '******************',
+                //直接使用access_token，如果有这个，前面的appId,appSecert,clientSecert都不需要(但缺点是这个只有30天有效期，到期后只能手动从网页中再次获取)
+                'username' => '*****',
+                //如果没有这个accessToken, 则需要上面appId,appSecert,clientSecert三个参数，这样使用授权的方式，永远不用手动去获取
+                'accessToken' => '3ovomnw****************6lznu2heuq',
+                'organization' => '*****',
+                'project' => '****',
+                'repositoryId' => '*****',
+                //branch默认是master，如果填写其它名字，不存在会自动创建
+                'branch' => 'master',
+                'comment' => 'Upload by PicUploader',
+                'proxy' => '',
+                // 'proxy' => 'http://127.0.0.1:1087',
+            ],
 		],
 		
 		/*

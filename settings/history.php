@@ -46,18 +46,17 @@
 				width: 100px;
 			}
 			.container .upload-history-list .file-url {
-				width: 30%;
+				width: 40%;
 			}
 			.container .upload-history-list .file-size {
-				width: 8%;
+				width: 6%;
 			}
 			.container .upload-history-list .file-mime {
-				width: 15%;
+				width: 7%;
 			}
 			.container .upload-history-list .file-upload-time {
 				width: 12%;
 			}
-			
 			.container .upload-history-list .operations {
 				width: 15%;
 			}
@@ -120,6 +119,8 @@
 			}
 			.img-url-td {
 				position: relative;
+				word-wrap: break-word;
+				word-break: break-all;
 			}
 			.deleting-mask {
 				display: none;
