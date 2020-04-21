@@ -13,7 +13,7 @@ rem Initialization
 set php_path=
 set PicUploader_path=
 set start_setup=
-set btn_text=Upload by PicUploader
+set btn_text=Upload with PicUploader
 
 rem read user input
 

@@ -22,9 +22,9 @@ class SettingController extends Controller {
 			$settings = json_decode(file_get_contents(APP_PATH.'/config/.config.json'), true);
 		}else{
 			if(is_file(APP_PATH.'/config/config-local.php')){
-				$settings = require_once(APP_PATH.'/config/config-local.php');
+				$settings = require(APP_PATH.'/config/config-local.php');
 			}else if(is_file(APP_PATH.'/config/config.php')){
-				$settings = require_once(APP_PATH.'/config/config.php');
+				$settings = require(APP_PATH.'/config/config.php');
 			}else{
 				throw new \Exception('No config-local.php or config.php found in "config/" directory!');
 			}

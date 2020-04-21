@@ -21,14 +21,12 @@ class UploadGitee extends Upload{
     public $branch;
 	//文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
     public $directory;
-    //gittee commit时的-m参数指定的内容，默认：Upload by PicUploader [https://github.com/xiebruce/PicUploader]
+    //gitee commit时的-m参数指定的内容，默认：Upload by PicUploader [https://github.com/xiebruce/PicUploader]
     public $message;
     //access_token，需要有这个才有权限操作
     public $access_token;
 	//域名
 	public $domain;
-	//api基础地址
-	public $baseUri;
 	//是否使用代理
 	public $proxy;
 	//上传目标服务器名称
