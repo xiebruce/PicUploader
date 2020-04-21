@@ -41,7 +41,8 @@ class UploadUcloud extends Upload{
         $this->proxySuffix = $ServerConfig['proxySuffix'];
         $this->bucket = $ServerConfig['bucket'];
         $this->endpoint = $ServerConfig['endpoint'] ?? '';
-	    $this->domain = $ServerConfig['domain'] ?? '';
+		$this->domain = $ServerConfig['domain'] ?? '';
+		$this->imgdomain = $ServerConfig['imgdomain'] ?? '';
 	    // http://markdown-blog.ufile.ucloud.com.cn
 	    $defaultDomain = 'http://' . $this->bucket . '.' . $this->endpoint;
 	    !$this->domain && $this->domain = $defaultDomain;
@@ -93,6 +94,14 @@ class UploadUcloud extends Upload{
 			list($data, $err) = UCloud_MFinish($this->bucket, $key, $data['UploadId'], $etagList);
 			if ($err) {
 				throw new Exception('UCloud_MFinish: '.var_export($err, true));
+			}
+
+			// 根据文件类型返回不同cdn域名
+			if ($this->imgdomain) {
+					$mimetype = exif_imagetype($uploadFilePath);
+				if ($mimetype == IMAGETYPE_GIF || $mimetype == IMAGETYPE_JPEG || $mimetype == IMAGETYPE_PNG || $mimetype == IMAGETYPE_BMP) {
+					$this->domain = $this->imgdomain;
+				}
 			}
 			
 			$data = [
