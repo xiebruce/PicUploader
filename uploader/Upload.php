@@ -205,7 +205,7 @@ class Upload extends Common {
                 $params['isWeb'] && $notFormatLink = $link;
 				if(!$params['doNotFormat'] && $retArr['code']===0){
 					//按配置文件指定的格式，格式化链接
-					$link = $this->formatLink($link, $originFilename, $mimeType);
+					$link = $this->formatLink($link, $mimeType, $originFilename);
 				}
 				
 				$log = $link;

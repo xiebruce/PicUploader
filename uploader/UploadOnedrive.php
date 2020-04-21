@@ -110,7 +110,7 @@
                 'redirect_uri' => $this->redirectUri,
                 'scope' => 'offline_access Files.ReadWrite Files.Read.All Files.ReadWrite.All',
                 'response_mode' => 'query', // query, form_post
-                // 'status' => '32131221', // 随机数，返回时原样返回，用于防止XSS
+                // 'state' => '32131221', // 随机数，返回时原样返回，用于防止XSS
             ];
             //http_build_query()函数能把数组变成：response_type=code&client_id=$this->clientId&……
             $queryStr = http_build_query($queryParam);

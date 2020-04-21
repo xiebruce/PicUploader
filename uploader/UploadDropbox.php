@@ -11,12 +11,16 @@ namespace uploader;
 use Exception;
 use GuzzleHttp\Client as GuzzleClient;
 
+/*
+ * 文档： https://www.dropbox.com/developers/documentation/http/documentation
+ */
 class UploadDropbox extends Upload{
     
     const BASE_URL = 'https://dropbox.com';
     const AUTH_TOKEN_URL = 'https://api.dropboxapi.com/oauth2/token';
     const UPLOAD_URL = 'https://content.dropboxapi.com/2/files/upload';
-    const CREATE_SHARED_LINK = 'https://api.dropboxapi.com/2/sharing/create_shared_link';
+    // const CREATE_SHARED_LINK = 'https://api.dropboxapi.com/2/sharing/create_shared_link';
+    const CREATE_SHARED_LINK = 'https://api.dropboxapi.com/2/sharing/create_shared_link_with_settings';
     
 	public $appKey;
 	public $appSecret;
@@ -71,6 +75,8 @@ class UploadDropbox extends Upload{
 	
 	/**
 	 * 返回授权url
+     * 文档： https://www.dropbox.com/developers/documentation/http/documentation
+     * 注意，文档右侧的目录导航里没有oauth2.0相关的，直接从文档最开始往下看或者搜索"Authorization"就行
 	 * @return string
 	 */
 	public function getAuthorizationUrl(){
@@ -112,6 +118,9 @@ class UploadDropbox extends Upload{
 	
 	/**
 	 * 获取AccessToken
+     * 文档： https://www.dropbox.com/developers/documentation/http/documentation
+     * 注意: 文档右侧的目录导航里没有oauth2.0相关的，直接从文档最开始往下看或者搜索"/oauth2/token"往下几个就是
+     * 注意: dropbox是没有refresh_token的说法的，所以它的access_token是永久有效的(除非重新授权)
 	 * @param        $code
 	 * @param string $grant_type
 	 *
@@ -173,6 +182,8 @@ class UploadDropbox extends Upload{
 	
 	/**
 	 * Create a share link
+     * 文档: https://www.dropbox.com/developers/documentation/http/documentation#sharing-create_shared_link_with_settings
+     * 注意，create_shared_link已经弃用了，现在要用create_shared_link_with_settings
 	 * @param $path
 	 *
 	 * @return array
@@ -191,7 +202,11 @@ class UploadDropbox extends Upload{
 			],
 			'json' => [
 				'path' => $path,
-				'short_url' => false,
+				'settings' => [
+				    'requested_visibility' => 'public',
+				    'audience' => 'public',
+				    'access' => 'viewer',
+                ],
 			],
 		];
 		$response = $client->request('POST', static::CREATE_SHARED_LINK, $postData);

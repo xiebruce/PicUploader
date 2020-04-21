@@ -5,7 +5,7 @@ rem set window cols and lines
 mode con cols=85 lines=40
 
 echo -------------------------------------------------------------------------------------
-echo                      »¶Ó­Ê¹ÓÃ PicUploader ÓÒ¼ü²Ëµ¥°²×°¹¤¾ß
+echo                      ï¿½ï¿½Ó­Ê¹ï¿½ï¿½ PicUploader ï¿½Ò¼ï¿½ï¿½Ëµï¿½ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½
 echo -------------------------------------------------------------------------------------
 
 rem Initialization
@@ -13,14 +13,14 @@ rem Initialization
 set php_path=
 set PicUploader_path=
 set start_setup=
-set btn_text=Upload by PicUploader
+set btn_text=Upload with PicUploader
 
 rem read user input
 
-set /p php_path=ÇëÕ³Ìùphp.exeÂ·¾¶ : 
-set /p PicUploader_path=ÇëÕ³ÌùPicUploaderµÄindex.phpµÄÂ·¾¶: 
-set /p btn_text=ÇëÊäÈëÓÒ¼ü²Ëµ¥ÎÄ×Ö : 
-set /p start_setup=È·¶¨Òª°²×°Âð?(y/n):
+set /p php_path=ï¿½ï¿½Õ³ï¿½ï¿½php.exeÂ·ï¿½ï¿½ : 
+set /p PicUploader_path=ï¿½ï¿½Õ³ï¿½ï¿½PicUploaderï¿½ï¿½index.phpï¿½ï¿½Â·ï¿½ï¿½: 
+set /p btn_text=ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ : 
+set /p start_setup=È·ï¿½ï¿½Òªï¿½ï¿½×°ï¿½ï¿½?(y/n):
 
 :loop
 
@@ -31,7 +31,7 @@ if /i "%start_setup%" == "y" goto :start
 if /i "%start_setup%" == "N" goto :exit
 if /i "%start_setup%" == "n" goto :exit
 
-set /p start_setup=È·¶¨Òª°²×°Âð?(y/n):
+set /p start_setup=È·ï¿½ï¿½Òªï¿½ï¿½×°ï¿½ï¿½?(y/n):
 
 goto :loop
 

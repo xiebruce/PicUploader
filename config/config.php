@@ -404,6 +404,60 @@
                 //自定义域名
                 'domain' => '',
             ],
+            
+            //Azure是微软的云服务：https://azure.microsoft.com/zh-cn/services/devops
+            'azure' => [
+                'name' => 'Azure Git',
+                'appId' => '10065A******************AD2E',
+                'appSecret' => 'eyJ0******************JSUzI1NiIs',
+                'clientSecret' => '******************',
+                //直接使用access_token，如果有这个，前面的appId,appSecert,clientSecert都不需要(但缺点是这个只有30天有效期，到期后只能手动从网页中再次获取)
+                'username' => '*****',
+                //如果没有这个accessToken, 则需要上面appId,appSecert,clientSecert三个参数，这样使用授权的方式，永远不用手动去获取
+                'accessToken' => '3ovomnw****************6lznu2heuq',
+                'organization' => '*****',
+                'project' => '****',
+                'repositoryId' => '*****',
+                //branch默认是master，如果填写其它名字，不存在会自动创建
+                'branch' => 'master',
+                'comment' => 'Upload by PicUploader',
+                'proxy' => '',
+                // 'proxy' => 'http://127.0.0.1:1087',
+            ],
+            
+            //Gitlab: https://gitlab.com 有官方，也可自建
+            'gitlab' => [
+                'name' => 'Gitlab',
+                //你的gitlab域名
+                // 'baseUri' => 'https://www.example.com',
+                'baseUri' => 'https://gitlab.com',
+                //项目id
+                'projectId' => '*****',
+                //repo由: "组名/仓库名"(当项目在组之下时)或"用户名/仓库名"组成，且repo必须与projectId对应
+                'repo' => 'group_name/repo_name',
+                //分支，默认为master(不存在的分支会自动创建)
+                'branch' => 'master',
+                //存储目录，可使用年月日点位符，如 {Y}/{m}/{d}，真正被解析出来的时候会被替换成当前的年月日(如 2019/05/10)
+                //{Y}表示当前的年(注意Y是大写)，{m}表示当前月(有前导0，即1-9月会显示成01-09)，{d}会被替换为当前日期，有前导0(即1-9日会替换为01-09)
+                //例：images/{Y}/{m}/{d}/
+                'directory' => 'images/{Y}/{m}/{d}/',
+                //提交的评论信息，可以不填
+                'message' => 'Upload from PicUploader',
+                //access_token，授权token
+                'access_token' => 'K9f******eC31u',
+                //不填则使用github默认的域名，填了则使用填的域名
+                'domain' => '',
+                //代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+                //端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
+                // 'proxy' => 'http://127.0.0.1:1087',
+                // 'directory' => date('Y/m/d/'),
+                //自定义目录格式：Photos/2019/03/31
+                // 'directory' => 'Photos/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/2019/03/31
+                // 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/Maldives
+                // 'directory' => 'Photos/Travel/Maldives',
+            ],
 		],
 		
 		/*

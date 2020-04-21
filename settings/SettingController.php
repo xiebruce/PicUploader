@@ -22,9 +22,9 @@ class SettingController extends Controller {
 			$settings = json_decode(file_get_contents(APP_PATH.'/config/.config.json'), true);
 		}else{
 			if(is_file(APP_PATH.'/config/config-local.php')){
-				$settings = require_once(APP_PATH.'/config/config-local.php');
+				$settings = require(APP_PATH.'/config/config-local.php');
 			}else if(is_file(APP_PATH.'/config/config.php')){
-				$settings = require_once(APP_PATH.'/config/config.php');
+				$settings = require(APP_PATH.'/config/config.php');
 			}else{
 				throw new \Exception('No config-local.php or config.php found in "config/" directory!');
 			}
@@ -64,7 +64,7 @@ class SettingController extends Controller {
 		];
 		//暂时用false
 		$authorized = false;
-		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur', 'flickr'])){
+		if(in_array($key, ['onedrive', 'googledrive', 'dropbox', 'imgur', 'azure', 'flickr'])){
 			$config = $this->getMergeSettings();
 			$constructorParams = ['config' => $config, 'argv' => '', 'uploadServer' => $key];
 			$uploader = 'uploader\\Upload' . ucfirst($key);
@@ -99,7 +99,7 @@ class SettingController extends Controller {
 		foreach($_POST as &$val){
 			$val = trim($val);
 		}
-		if($key=='github'){
+		if(in_array($key, ['github', 'gitee', 'gitlab'])){
 			$arr = explode('/', $_POST['repo']);
 			$_POST['repo'] = rtrim($arr[0]) . '/' . ltrim($arr[1]);
 		}
