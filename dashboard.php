@@ -1,5 +1,12 @@
 <?php
+	use settings\SettingController;
+	
 	define('APP_PATH', strtr(__DIR__, '\\', '/'));
+    
+    //autoload class
+    spl_autoload_register(function ($class_name) {
+        require_once APP_PATH . '/' . str_replace('\\', '/', $class_name) . '.php';
+    });
 	
 	// 历史记录页面
 	if(isset($_GET['history']) && $_GET['history']==1){
@@ -13,7 +20,8 @@
 		$config = require APP_PATH . '/config/config.php';
 	}
 	file_put_contents(APP_PATH . '/config/.config.json', json_encode($config, JSON_UNESCAPED_UNICODE));
-	
+    //获取配置
+    $config = call_user_func([(new SettingController()), 'getMergeSettings']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
