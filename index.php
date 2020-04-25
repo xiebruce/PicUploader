@@ -138,7 +138,7 @@
 	}
 	
 	//处理在Linux中右键上传时，传过来的路径中可能有反斜杠的情况(去掉反斜杠)
-    array_walk($argv, function (&$item){
+    PHP_OS != 'WINNT' && array_walk($argv, function (&$item){
        $item = stripslashes($item);
     });
  
