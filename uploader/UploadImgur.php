@@ -302,12 +302,10 @@ class UploadImgur extends Upload{
                 }
             }
 			if(!$isImg && !$isVideo){
-                $fileExt = (new Common())->getFileExt($uploadFilePath);
-                $errMsg = 'Imgur只能上传图片和支持的视频格式，你上传的文件“'.$originFilename . '.' . $fileExt .'”不是图片也不是视频，无法上传！';
+                $errMsg = 'Imgur只能上传图片和支持的视频格式，你上传的文件“' . $originFilename . '”不是图片也不是视频，无法上传！';
                 throw new Exception($errMsg);
             }else if($isVideo && !$supportedVideoFormat){
-                $fileExt = (new Common())->getFileExt($uploadFilePath);
-                $errMsg = 'Imgur只能上传图片和支持的视频格式，你上传的文件“'.$originFilename . '.' . $fileExt .'”是视频，但Imgur不支持上传该视频格式(只支持: mp4/webm/x-matroska/quicktime/x-flv/x-msvideo/x-ms-wmv/mpeg)，无法上传！';
+                $errMsg = 'Imgur只能上传图片和支持的视频格式，你上传的文件“' . $originFilename . '”是视频，但Imgur不支持上传该视频格式(只支持: mp4/webm/x-matroska/quicktime/x-flv/x-msvideo/x-ms-wmv/mpeg)，无法上传！';
                 throw new Exception($errMsg);
             }
 			

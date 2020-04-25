@@ -41,8 +41,8 @@ class DbModel {
 				}
 			}else{
 			    //dsn标准写法：
-                //1. mysql => "mysql:host=<DATABASE_IP OR DATABASE_DOMAIN>;dbname=<DATABASE_NAME>"
-                //例如：mysql:host=localhost;dbname=history
+                //1. mysql => "mysql:host=<DATABASE_IP OR DATABASE_DOMAIN>:<PORT>;dbname=<DATABASE_NAME>"
+                //例如：mysql:host=127.0.0.1:3306;dbname=history
                 //2. sqlite => "sqlite:/path/to/<FILENAME>.db"
                 //例如：sqlite:/path/to/PicUploader.db
 				$this->connection = new PDO($database['dsn'], $database['username'], $database['password']);
@@ -54,8 +54,9 @@ class DbModel {
                         $createTable = false;
                     }
                 }
+				
 				if($createTable){
-                    $historyTableSqlFile = APP_PATH . '/settings/PicUploader.sql';
+                    $historyTableSqlFile = APP_PATH . '/settings/PicUploader-mysql.sql';
                     if(is_file($historyTableSqlFile)){
                         $historyTable = file_get_contents($historyTableSqlFile);
                         $this->connection->exec($historyTable);
@@ -90,7 +91,10 @@ class DbModel {
 	 */
 	public function query($sql){
 		$res = $this->connection->query($sql);
-		return $res->fetch(PDO::FETCH_ASSOC);
+		if($res){
+            $res = $res->fetch(PDO::FETCH_ASSOC);
+        }
+		return $res;
 	}
 
 	/**

@@ -175,10 +175,11 @@ class Common {
     /**
      * 根据文件路径获取原文件名
      * @param $filePath
+     * @param $includeExt
      *
      * @return mixed
      */
-    public function getOriginFileName($filePath){
+    public function getOriginFileName($filePath, $includeExt=true){
     	// windows
     	if(strpos($filePath, '\\')){
 		    $arr = explode('\\', $filePath);
@@ -191,7 +192,10 @@ class Common {
     		$filename = substr($filename, 1);
 	    }
     	$fileExt = $this->getFileExt($filePath);
-	    return str_ireplace('.'.$fileExt, '', $filename);
+    	if(!$includeExt && $fileExt){
+            $filename = str_ireplace('.'.$fileExt, '', $filename);
+        }
+	    return $filename;
     }
 
     /**

@@ -458,6 +458,37 @@
                 //自定义目录格式：Photos/Travel/Maldives
                 // 'directory' => 'Photos/Travel/Maldives',
             ],
+            
+            //Coding.net
+            'codingnet' => [
+                'name' => 'Coding.net',
+                //团队名：登录coding.net后，它的域名是：xxxx.coding.net形式的，其中的"xxxx"就是团队名
+                'group' => '*******',
+                //点击"我的项目"中的某个项目，在"项目概览"的右侧有一个"xxxx / yyyy"，其中"xxxx"是用户名，"yyyy"是项目名(特别注意这个用户名不要填个人设置里的姓名)
+                'username' => '*****',
+                //项目名，其实就相当于github里的仓库名
+                'project' => '******',
+                //分支，默认为master，填写不存在的分支会自动创建
+                'branch' => 'master',
+                //文件夹，表示把图片上传到仓库中的哪个文件夹下，可以为空，可以写多层文件夹，如：images/travel/Turkey
+                'directory' => '',
+                //提交的评论信息，可以不填
+                'message' => 'Upload by PicUploader',
+                //access_token，授权token
+                'access_token' => '35c02*************6638a6',
+                //不填则使用gittee默认的域名，填了则使用填的域名
+                'domain' => '',
+                //代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+                //端口从『偏好设置→HTTP→监听端口』找，留空或注释掉表示不使用代理
+                // 'proxy' => 'http://127.0.0.1:1087',
+                // 'directory' => date('Y/m/d/'),
+                //自定义目录格式：Photos/2019/03/31
+                // 'directory' => 'Photos/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/2019/03/31
+                // 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/Maldives
+                // 'directory' => 'Photos/Travel/Maldives',
+            ],
 		],
 		
 		/*

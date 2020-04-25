@@ -90,9 +90,6 @@ class UploadSmms extends Common {
 	 * @throws \ImagickException
 	 */
 	public function upload($key, $uploadFilePath, $originFilename){
-	    // $ret = $this->uploadByCurl($uploadFilePath);
-	    // var_dump($ret);
-	    // exit;
 		try{
 			$fileSize = filesize($uploadFilePath);
 			if($fileSize > 5242880){
@@ -102,8 +99,7 @@ class UploadSmms extends Common {
 				throw new Exception($errMsg);
 			}
 			if(strpos((new Common())->getMimeType($uploadFilePath), 'image')===false){
-                $fileExt = (new Common())->getFileExt($uploadFilePath);
-				$errMsg = 'Smms只能上传图片，你上传的文件“'.$originFilename . '.' . $fileExt .'”不是图片，无法上传！';
+				$errMsg = 'Smms只能上传图片，你上传的文件“'.$originFilename .'”不是图片，无法上传！';
 				throw new Exception($errMsg);
 			}
 			

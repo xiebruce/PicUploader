@@ -34,6 +34,25 @@ class Upload extends Common {
         
         static::$config['storageType'] = isset(static::$config['storageType']) ? static::$config['storageType'] : 'Smms';
     }
+    
+    /**
+     * getUrlFromHistory
+     * @param $md5
+     * @param $uploadServer
+     *
+     * @return mixed|string
+     */
+    public function getUrlFromHistory($md5, $uploadServer){
+        $res = (new HistoryController())->getByConditions([
+            'md5'=>$md5,
+            'upload_server'=>$uploadServer,
+        ]);
+        $url = '';
+        if(isset($res['url'])){
+            $url = $res['url'];
+        }
+        return $url;
+    }
 	
 	/**
 	 * Get public link
@@ -141,66 +160,74 @@ class Upload extends Common {
 			$link = '';
 			foreach($uploadServers as $uploadServer){
 				$uploadServer = strtolower(trim($uploadServer));
-				if(!in_array($uploadServer, $storageTypes)){
-					$errMsg = "Cannot find storage type `{$uploadServer}` in config file, please check the config file and try again.\n";
-					$this->writeLog($errMsg, 'StorageTypeError');
-					continue;
-				}
-				
-				$cloudType = '';
-				if(isset(static::$config['storageTypes'][$uploadServer]['type'])){
-					$cloudType = static::$config['storageTypes'][$uploadServer]['type'];
-				}
-				
-				$args = [$key, $uploadFilePath];
-                $needOriginalNameServer = ['imgur', 'smms', 'weibo', 'cloudinary', 'googledrive', 'flickr'];
-				if(in_array($uploadServer, $needOriginalNameServer)){
-					$args[] = $originFilename;
-				}
-				$constructorParams = [
-					'config' => static::$config,
-					'argv' => $this->argv,
-					'uploadServer' => $uploadServer,
-				];
-				
-				if($cloudType){
-					$className = strtolower($cloudType);
-				}else{
-					$className = $uploadServer;
-				}
-				//new 变量类名不会带上命名空间，所以自己把命名空间加上
-				$className = __NAMESPACE__.'\\Upload'.ucfirst($className);
-				
-				//这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用，缺点是无法用IDE跟踪函数
-				// $retArr = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
-				$retArr = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
-                
-                if($retArr['code']===0){
-                    //处理使用默认域名
-                    // $this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
-                    if($this->reverseProxyDomain && !in_array($uploadServer, ['weibo'])){
-                        $link = $this->reverseProxyDomain . '/' . $retArr['key'];
-                    }else{
-                        $link = $retArr['domain'] . '/' . $retArr['key'];
+                $link = $this->getUrlFromHistory(md5(file_get_contents($uploadFilePath)), $uploadServer);
+                $historyExists = false;
+                $retArr = [
+                    'code' => 0
+                ];
+				if(!$link){
+                    $historyExists = true;
+                    if(!in_array($uploadServer, $storageTypes)){
+                        $errMsg = "Cannot find storage type `{$uploadServer}` in config file, please check the config file and try again.\n";
+                        $this->writeLog($errMsg, 'StorageTypeError');
+                        continue;
                     }
-                }else{
-                    $link = $retArr['msg'];
+                    
+                    $cloudType = '';
+                    if(isset(static::$config['storageTypes'][$uploadServer]['type'])){
+                        $cloudType = static::$config['storageTypes'][$uploadServer]['type'];
+                    }
+                    
+                    $args = [$key, $uploadFilePath];
+                    $needOriginalNameServer = ['imgur', 'smms', 'weibo', 'cloudinary', 'googledrive', 'flickr'];
+                    if(in_array($uploadServer, $needOriginalNameServer)){
+                        $args[] = $originFilename;
+                    }
+                    $constructorParams = [
+                        'config' => static::$config,
+                        'argv' => $this->argv,
+                        'uploadServer' => $uploadServer,
+                    ];
+                    
+                    if($cloudType){
+                        $className = strtolower($cloudType);
+                    }else{
+                        $className = $uploadServer;
+                    }
+                    //new 变量类名不会带上命名空间，所以自己把命名空间加上
+                    $className = __NAMESPACE__.'\\Upload'.ucfirst($className);
+                    
+                    //这两种调用方法作用一样，但call_user_func_array可根据条件改变参数个数，不用再写一次upload调用，缺点是无法用IDE跟踪函数
+                    // $retArr = (new $className(static::$config, $this->argv))->upload($key, $uploadFilePath);
+                    $retArr = call_user_func_array([(new $className($constructorParams)), 'upload'], $args);
+                    
+                    if($retArr['code']===0){
+                        //处理使用默认域名
+                        // $this->reverseProxyDomain && $retArr['domain'] = $this->reverseProxyDomain;
+                        if($this->reverseProxyDomain && !in_array($uploadServer, ['weibo'])){
+                            $link = $this->reverseProxyDomain . '/' . $retArr['key'];
+                        }else{
+                            $link = $retArr['domain'] . '/' . $retArr['key'];
+                        }
+                    }else{
+                        $link = $retArr['msg'];
+                    }
+                    
+                    // 如果数据库连接正常，则保存上传记录到数据库
+                    if((new DbModel())->connection && $retArr['code']===0){
+                        $url = $retArr['domain'] . '/' . $retArr['key'];
+                        if($uploadServer == 'smms'){
+                            $url = $url . ',' . $retArr['delLink'];
+                        }
+                        if($uploadServer == 'imgur'){
+                            $url = $url . ';' . $retArr['delHash'];
+                        }
+                        $size = filesize($uploadFilePath);
+                        // $size = is_numeric($size) ? $size : 0;
+                        // $filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
+                        (new HistoryController)->Add($originFilename, $url, $size, $mimeType, md5($uploadFilePath), $uploadServer);
+                    }
                 }
-				
-				// 如果数据库连接正常，则保存上传记录到数据库
-				if((new DbModel())->connection && $retArr['code']===0){
-					$url = $retArr['domain'] . '/' . $retArr['key'];
-					if($uploadServer == 'smms'){
-						$url = $url . ',' . $retArr['delLink'];
-					}
-					if($uploadServer == 'imgur'){
-						$url = $url . ';' . $retArr['delHash'];
-					}
-					$size = filesize($uploadFilePath);
-					// $size = is_numeric($size) ? $size : 0;
-					$filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
-					(new HistoryController)->Add($filename, $url, $size, $mimeType);
-				}
                 
                 $params['isWeb'] && $notFormatLink = $link;
 				if(!$params['doNotFormat'] && $retArr['code']===0){
@@ -208,20 +235,22 @@ class Upload extends Common {
 					$link = $this->formatLink($link, $mimeType, $originFilename);
 				}
 				
-				$log = $link;
-				if($retArr['code']===0){
-                    if($uploadServer == 'smms'){
-                        $log = $link."\nDelete Link: ".$retArr['delLink'];
+				if(!$historyExists){
+                    $log = $link;
+                    if($retArr['code']===0){
+                        if($uploadServer == 'smms'){
+                            $log = $link."\nDelete Link: ".$retArr['delLink'];
+                        }
+                        if($uploadServer == 'imgur'){
+                            $log = $link."\nDelete Hash: ".$retArr['delHash'];
+                        }
                     }
-                    if($uploadServer == 'imgur'){
-                        $log = $link."\nDelete Hash: ".$retArr['delHash'];
-                    }
+                    
+                    //记录上传日志
+                    $datetime = date('Y-m-d H:i:s');
+                    $content = "File uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";
+                    $this->writeLog($content);
                 }
-				
-				//记录上传日志
-				$datetime = date('Y-m-d H:i:s');
-				$content = "File uploaded to {$uploadServer} at {$datetime} => \n{$log}\n\n---\n";
-				$this->writeLog($content);
 			}
 			//对于从剪贴板粘贴的或接口上传的，删除源文件(这个源文件实质上是上传后的那个文件，它在.tmp目录里，并不是用户电脑上的源文件)
 			$params['deleteOriginalFile'] && @unlink($filePath);
