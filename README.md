@@ -51,7 +51,7 @@ git pull
 请搭建php+nginx运行环境，以下是nginx配置：
 ```nginx
 server {
-    listen 443;
+    listen 443 ssl;
     server_name api.picuploader.com;
 
     client_header_timeout 60s;
