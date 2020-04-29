@@ -115,7 +115,7 @@ export LC_CTYPE="zh_CN.UTF-8"
 最后`cmd+s`保存→命名成`Upload with PicUploader`就完成了，可以关掉“自动操作”app了，然去Finder随便右击一个文件，是不是有个菜单叫`Upload with PicUploader`? 点击它就可以上传该文件了。
 
 ### 快捷键上传
-安装`pngpaste`
+安装`pngpaste`(很小，只有40k左右)
 ```bash
 brew install pngpaste
 ```
