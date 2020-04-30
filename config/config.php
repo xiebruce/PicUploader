@@ -126,7 +126,7 @@
 				'proxy' => '',
 				//无法自定义域名和key名，只能直接用它返回的地址（原因是无账号系统，自己定义的key无法保证全局唯一）
 				//反向代理域名(如果需要的话)
-				'domain' => 'http://img.xiebruce.top',
+				'domain' => '',
 			],
 			
 			//imgur
@@ -266,6 +266,7 @@
 				'prefix' => '/home/xiebruce',
 				//如果不存在则会自动创建，如果指定的prefix已存在，则要求登录的用户具有在prefix目录下创建目录的权限
 				'directory' => '/data',
+                //你的域名，这个必须要有，否则返回的链接会缺少域名
 				'domain' => 'https://img.xiebruce.top',
 			],
 			
@@ -280,6 +281,7 @@
 				//可使用年月日点位符，如 {Y}/{m}/{d}，真正被解析出来的时候会被替换成当前的年月日(如 2019/05/10)
 				//{Y}表示当前的年(注意Y是大写)，{m}表示当前月(有前导0，即1-9月会显示成01-09)，{d}会被替换为当前日期，有前导0(即1-9日会替换为01-09)
 				'directory' => '/images/{Y}/{m}/{d}',
+                //你的域名，这个必须要有，否则返回的链接会缺少域名
 				'domain' => 'https://img.xiebruce.top',
 			],
 			
@@ -499,7 +501,7 @@
 		'fileNameFormat' => '',
 		
 		// 反向代理域名(使用方式请查看：https://www.xiebruce.top/644.html)
-		'reverseProxyDomain' => 'https://img.xiebruce.top',
+		'reverseProxyDomain' => '',
 		
 		// 调整图片大小，以下widthGreaterThan、heightGreaterThan、sizeBiggerThan三个条件，只要有一个满足，图片即会按percentage指定的百分比压缩（只对jpg和png有效，gif暂时无法压缩）
 		'resizeOptions' => [
