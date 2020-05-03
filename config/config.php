@@ -491,6 +491,32 @@
                 //自定义目录格式：Photos/Travel/Maldives
                 // 'directory' => 'Photos/Travel/Maldives',
             ],
+            
+            //https://oss.bilnn.com/, 图速云
+            //图片存储(每张图最大4M，每小时最多100张，目前不限制存储空间)，/文件存储(每个文件最大50M，每小时最多100个，目前限制最多1G免费空间)
+            'tusu' => [
+                'name' => '图速云',
+                //请根据你创建服务，填写对应host值：https://oss.bilnn.com/api.html#envs
+                //其中免费的请添加"http://"协议，收费的请添加"https://"协议
+                //如果你在图速云添加了自定义域名，这里按道理是要填写你的自定义域名(但我未测试)
+                'host' => '',
+                //云存储名称(在"图片/内容存储列表->存储详情"里)
+                'bucket' => '',
+                //secretKey(在"图片/内容存储列表->存储详情"里)
+                'secretKey' => 'bf9*******************2108',
+                //代理地址，如：http://127.0.0.1:1087
+                'proxy' => '',
+                //无法自定义域名和key名，只能直接用它返回的地址（原因是无账号系统，自己定义的key无法保证全局唯一）
+                // 'directory' => date('Y/m/d/'),
+                //自定义目录格式：Photos/2019/03/31
+                // 'directory' => 'Photos/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/2019/03/31
+                // 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/Maldives
+                // 'directory' => 'Photos/Travel/Maldives',
+                //反向代理域名(如果需要的话)
+                'domain' => '',
+            ],
 		],
 		
 		/*
