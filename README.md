@@ -45,7 +45,12 @@ git pull
 ```
 
 ### 填写配置
+**配置文件方式**
 把`PicUploader/config/config.php`文件复制一份，命名为`config-local.php`，然后在`config-local.php`中填写配置。
+
+**Web方式**
+直接修改配置虽然可以修改配置，但最好还是配置好下边的web后台，在web页面上修改配置，有界面更方便。
+
 
 ### 在Mac上搭建web后台
 请搭建php+nginx运行环境，以下是nginx配置：
