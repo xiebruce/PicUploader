@@ -89,7 +89,6 @@ class Upload extends Common {
 			
 			$mimeType = $this->getMimeType($filePath);
 			$fileExt = $this->getFileExt($filePath);
-			//不带后缀名的原始文件名
 			$originFilename = $this->getOriginFileName($filePath);
 			
 			$fileNameFormat = isset(static::$config['fileNameFormat']) ? trim(static::$config['fileNameFormat']) : '';
