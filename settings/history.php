@@ -6,7 +6,7 @@
 		<title>上传历史记录</title>
 		<meta name="referrer" content="no-referrer" />
 		<script src="/static/js/clipboard.js"></script>
-		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="/static/js/jquery.min.js"></script>
 		<link href="/static/ImageViewer/imageviewer.css" rel="stylesheet">
 		<script src="/static/ImageViewer/imageviewer.min.js"></script>
 		<script src="/static/js/clipboard.js"></script>
