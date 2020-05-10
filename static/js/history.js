@@ -386,6 +386,8 @@ $(document).ready(function (){
 	$('.search-form').on('submit', function (){
 		let keyword = $('.search-form .search-box-input').val();
 		getHistoryList(1, keyword);
+		//搜索一定从第一页开始
+		setParam('page', 1);
 		return false;
 	});
 	
