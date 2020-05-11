@@ -32,7 +32,8 @@ PicUploader
 参见：[PicUploader: 各图床获取上传图片参数的方法](https://www.xiebruce.top/117.html)。
 
 ## 在Mac上配置
-本文档为纯文字文档，如有不懂的，请看详细文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)。
+本文档为纯文字文档，如有不懂的，请看详细文档：[PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)(如果网站进不去，先试试用手机流量能不能进，能的话就是你所在地或者所用的那个网络运营商网络对我网站所使用的cdn不通，但一天过几天或者一周两周，又会自动可以，进不了的话暂时只能使用代理工具加个pac进去了)。
+
 ### 下载
 ```bash
 git clone https://github.com/xiebruce/PicUploader.git
