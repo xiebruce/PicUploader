@@ -79,7 +79,8 @@ class HistoryController extends Controller {
 	public function getPagination($totalCount, $curPage, $pageSize){
 		// var_dump($curPage);exit;
 		$pageCount = ceil($totalCount / $pageSize);
-	    $pagination = '<span class="">共'.$pageCount.'页</span>';
+        $pagination = '<span class="">共'.$totalCount.'条, </span>';
+        $pagination .= '<span class="">共'.$pageCount.'页 </span>';
 		$pagination .= '<span class="button' . ($curPage==1 ? ' cur' : '') . '" data-page="1">首页</span>';
 		$pagination .= '<span class="button' . ($curPage==1 ? ' forbidden' : '') . '" data-page="'. ($curPage==1 ? 1 : $curPage-1) .'">上一页</span>';
 		$pagination .= '<span class="button' . ($curPage==$pageCount ? ' forbidden' : '') . '" data-page="' . ($curPage==$pageCount ? $pageCount : $curPage+1) . '">下一页</span>';
