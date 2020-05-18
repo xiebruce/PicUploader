@@ -106,6 +106,8 @@ class Upload extends Common {
 					$fileNameFormat = preg_replace($pattern2, $randomStr, $fileNameFormat);
 				}
 				//除了random规则，其它都可以用strtr()函数转换
+                $lastDotPos = strrpos($originFilename, '.');
+                $originFilenameWithoutExt = $lastDotPos ? substr($originFilename, 0, $lastDotPos) : $originFilename;
 				$newFileName = strtr($fileNameFormat, [
 					'{Y}' => date('Y'),
 					'{m}' => date('m'),
@@ -113,7 +115,7 @@ class Upload extends Common {
 					'{H}' => date('H'),
 					'{i}' => date('i'),
 					'{s}' => date('s'),
-					'{origin}' => $originFilename,
+					'{origin}' => $originFilenameWithoutExt,
 					'{timestamp}' => time(),
 				]);
 			}else{
