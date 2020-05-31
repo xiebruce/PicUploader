@@ -161,7 +161,8 @@ class Upload extends Common {
 			$link = '';
 			foreach($uploadServers as $uploadServer){
 				$uploadServer = strtolower(trim($uploadServer));
-                $link = $this->getUrlFromHistory(md5(file_get_contents($uploadFilePath)), $uploadServer);
+				$md5 = md5(file_get_contents($uploadFilePath));
+                $link = $this->getUrlFromHistory($md5, $uploadServer);
                 $historyExists = false;
                 $retArr = [
                     'code' => 0
@@ -226,7 +227,7 @@ class Upload extends Common {
                         $size = filesize($uploadFilePath);
                         // $size = is_numeric($size) ? $size : 0;
                         // $filename = $fileExt ? $originFilename . '.' . $fileExt : $originFilename;
-                        (new HistoryController)->Add($originFilename, $url, $size, $mimeType, md5($uploadFilePath), $uploadServer);
+                        (new HistoryController)->Add($originFilename, $url, $size, $mimeType, $md5, $uploadServer);
                     }
                 }
                 
