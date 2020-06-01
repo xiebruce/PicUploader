@@ -58,6 +58,8 @@ class UploadUpyun extends Upload{
         $this->argv = $params['argv'];
         static::$config = $params['config'];
     }
+    
+    // public function
 	
 	/**
 	 * Upload files to Upyun(又拍云)
@@ -73,6 +75,14 @@ class UploadUpyun extends Upload{
 			    $key = $this->directory . '/' . $key;
 		    }
 		    $serviceConfig = new Config($this->serviceName, $this->operator, $this->password);
+		    // 15728640 = 15M，如果文件大于15M，则使用并行分块上传
+            if(filesize($uploadFilePath) > 15728640){
+                /* uploadType有两个值
+                   - BLOCK : 串行分块上传
+                   - BLOCK_PARALLEL : 并行分块上传
+                */
+                $serviceConfig->uploadType = 'BLOCK_PARALLEL';
+            }
 		    $client = new Upyun($serviceConfig);
 		    $fp = fopen($uploadFilePath, 'rb');
 		    $retArr = $client->write($key, $fp);

@@ -2211,17 +2211,17 @@
     },
     {
         "name": "upyun/sdk",
-        "version": "3.3.0",
-        "version_normalized": "3.3.0.0",
+        "version": "3.4.0",
+        "version_normalized": "3.4.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/upyun/php-sdk.git",
-            "reference": "1a2dd5ae31047956c733aef0f764f3a527d30628"
+            "reference": "b4819fd941e3f19a886f8b3c5f8bffcb8279185f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/upyun/php-sdk/zipball/1a2dd5ae31047956c733aef0f764f3a527d30628",
-            "reference": "1a2dd5ae31047956c733aef0f764f3a527d30628",
+            "url": "https://api.github.com/repos/upyun/php-sdk/zipball/b4819fd941e3f19a886f8b3c5f8bffcb8279185f",
+            "reference": "b4819fd941e3f19a886f8b3c5f8bffcb8279185f",
             "shasum": ""
         },
         "require": {
@@ -2234,7 +2234,7 @@
             "phpdocumentor/phpdocumentor": "^2.9",
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2017-11-12T09:17:42+00:00",
+        "time": "2019-04-29T09:27:51+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2248,16 +2248,16 @@
         ],
         "authors": [
             {
-                "name": "totoleo",
-                "email": "totoleo@163.com"
-            },
-            {
                 "name": "lfeng",
                 "email": "bonevv@gmail.com"
             },
             {
                 "name": "lvtongda",
                 "email": "riyao.lyu@gmail.com"
+            },
+            {
+                "name": "totoleo",
+                "email": "totoleo@163.com"
             },
             {
                 "name": "sabakugaara",
