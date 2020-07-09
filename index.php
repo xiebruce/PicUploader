@@ -54,8 +54,9 @@
 	 * @var bool $isSharex
 	 * @var bool $isUpic
 	 * @var bool $isWeb
-	 */
-	$plugins = ['mweb','picgo','sharex','upic','web'];
+	 * @var bool $isUeditor
+     */
+	$plugins = ['mweb','picgo','sharex','upic','web','ueditor'];
 	foreach($plugins as $plugin) {
 		$tmp = ucfirst($plugin);
 		//用可变变量方式定义三个变量$isMweb、$isPicgo、$isSharex、$isUpic，用于下边代码判断当前是否是mweb/picgo/sharex/upic请求。
@@ -76,6 +77,7 @@
 	if(!isset($argv) || count($argv)<2){
         $argv = [];
     }
+	
 	if(isset($_FILES['file']) && $files = $_FILES['file']){
 	    $postFile = true;
 		$tmpDir = APP_PATH.'/.tmp';
@@ -156,7 +158,7 @@
 	$uploader = 'uploader\Upload';
 	// $uploader = 'uploader\UploadCoroutine';
 	//getPublickLink
-    $doDotFormat = $isMweb || $isPicgo || $isSharex || $isUpic || isset($typora) || strtolower($config['storageType'])=='onedrive';
+    $doDotFormat = $isMweb || $isPicgo || $isSharex || $isUpic || isset($typora) || strtolower($config['storageType'])=='onedrive' || $isUeditor;
 	$link = call_user_func_array([(new $uploader($argv, $config)), 'getPublickLink'], [
 		[
             'isWeb' => $isWeb,
