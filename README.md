@@ -301,4 +301,4 @@ api.picuploader.com
 <img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/alipay.png">
 
 **方法二：**
-如果你玩抖音，可以使用抖音极速版(目前只有安卓版，iPhone暂不支持)，然后填上我的邀请码：**89571647**，这样我们都能得到一定的奖励！
+如果你能看到[我网站](https://www.xiebruce.top)中的广告，麻烦帮忙点一下广告。
