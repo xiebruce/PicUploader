@@ -313,7 +313,7 @@ $(document).ready(function (){
 							if(oauth.authorized === false){
 								authentication = '<input id="authorize" class="authorize" type="button" value="点击获取'+key+'授权">';
 							}else{
-								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权"><input id="authorize" class="authorize" type="button" value="重新获取'+key+'授权"><br>(注意:在已获取授权的情况下，点击"重新获取授权"，除了GoogleDrive则会重新显示同意页面，其它的，你的感觉就是刷新了一下，但其实已经重新获取了，重新获取的原因：当上传一直失败时，可以尝试重新获取一下授权，另外如果你更换了账号，也需要重新获取！)';
+								authentication = '<input class="authorize authorized" type="button" value="已获取'+key+'授权"><input id="authorize" class="authorize" type="button" value="重新获取'+key+'授权"><br>(注意:在已获取授权的情况下，点击"重新获取授权"，除了GoogleDrive会重新显示同意页面，其它的，你的感觉就是刷新了一下，但其实已经重新获取了，重新获取的原因：当上传一直失败时，可以尝试重新获取一下授权，另外如果你更换了账号，也需要重新获取！)';
 							}
 						}
 					}

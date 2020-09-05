@@ -26,3 +26,6 @@ accessorys/PicUploaderHelper/PicUploaderHelper-start.sh
 /uploader/UploadCtyun.php
 /uploader/UploadXrcloud.php
 /uploader/UploadFlickr.php
+
+/.tags
+/.tags_sorted_by_file
