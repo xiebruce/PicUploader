@@ -1,10 +1,10 @@
-var defaultSaveTips = '可按“ctrl+s(Win)”或“cmd+s(Mac)”保存';
+let defaultSaveTips = '可按“ctrl+s(Win)”或“cmd+s(Mac)”保存';
 
 function showSaveTips (msg, expire){
 	//显示保存成功提示
 	$('.show-save-tip .show-save-tip-text').html(msg);
 	$('.show-save-tip').slideDown(function (){
-		var $this = $(this);
+		let $this = $(this);
 		setTimeout(function (){
 			$this.slideUp();
 		}, expire);
@@ -34,11 +34,11 @@ function uploadFiles(files){
 	let file = files.shift();
 	let isImg = file.type.substr(0, 5) == 'image' ? true : false;
 	
-	var firstUnuploaded = $('.drop-area .uploaded-image-container .un-uploaded:first');
+	let firstUnuploaded = $('.drop-area .uploaded-image-container .un-uploaded:first');
 	//状态由“未上传”改为“上传中...”
 	firstUnuploaded.find('.image-mask').html('上传中...');
 	
-	var formData = new FormData();
+	let formData = new FormData();
 	formData.append('web', file);
 	
 	$.ajax({
@@ -62,7 +62,7 @@ function uploadFiles(files){
 			return xhr;
 		},
 		success: function (response){
-			var data = response.data;
+			let data = response.data;
 			if(response.code=='success'){
 				//移除未上传类名及遮罩
 				firstUnuploaded.removeClass('un-uploaded').find('.image-mask').remove();
@@ -83,7 +83,7 @@ function uploadFiles(files){
 				firstUnuploaded.find('.copy-image-url').click();
 				if(isImg){
 					//真正的图片要等加载之后，再替换过去(因为这个图片是有水印的，而一开始显示的是直接从真正的源文件里读取的base64，并没有水印)
-					var imgObj = new Image();
+					let imgObj = new Image();
 					imgObj.src = data.notFormatUrl;
 					imgObj.onload = function (e){
 						//图片加载完成后，替换原先显示的图
@@ -111,7 +111,7 @@ let fileList = new Array();
 function showLocalImages(files){
 	//第一次传进来的files是对象而不是数组，所以要把它转成数组
 	if(!(files instanceof Array)){
-		var fileArr = new Array();
+		let fileArr = new Array();
 		//对象转数组
 		for(let i in files){
 			if(!isNaN(parseInt(i))){
@@ -160,73 +160,6 @@ function showLocalImages(files){
 	reader.readAsDataURL(file);
 }
 
-/**
- * 获取当前tab值(如果没有自动添加)
- * @param param
- * @param defaultValue
- * @returns {number|string}
- */
-function getParam(param, defaultValue){
-	let queryStr = window.location.search.toString();
-	let reg = new RegExp('.*'+param+'=([^&\n?]*)&*.*', 'gi');
-	let ret = reg.exec(queryStr);
-	let value = defaultValue;
-	if(ret!=null && ret[1]!=undefined){
-		value = ret[1];
-	}else{
-		setParam(param, defaultValue);
-	}
-	return value;
-}
-
-/**
- * 设置当前tab值
- * @param param
- * @param value
- */
-function setParam(param, value){
-	if(typeof(value)=='string'){
-		value = value.trim();
-		value = encodeURIComponent(value);
-	}
-	//window.location.href可以获取到整个完整的url(包括"#"号锚点)
-	let curUrl = window.location.href.toString();
-	//window.location.search用于获取url中的"?a=1&b=2&b=3……",但不包括#号及其后面的, substr(1)是去掉"?"号
-	let queryStr = window.location.search.toString();
-	
-	//为了后面统一组装字符串
-	let arr = [curUrl,''];
-	//这样做是为了处理带#号的锚点
-	let queryStrEmpty = true;
-	if(queryStr!==''){
-		queryStrEmpty = false;
-		arr = curUrl.split(queryStr);
-	}else if(curUrl.indexOf('#') > -1){
-		arr = curUrl.split('#');
-	}
-	let reg = new RegExp('(.*)('+param+'=)([^&\n?]*)(&*)(.*)', 'gi');
-	let ret = reg.exec(queryStr);
-	//如果没有匹配到就添加该参数
-	if(ret==null){
-		let separater = '?';
-		//如果第一个字符是"?"号，则把分隔符换成"&"
-		if(queryStr.indexOf('?')===0){
-			separater = '&';
-		}
-		queryStr = queryStr + separater + param + '=' + value;
-	}else{
-		//如果匹配到了就替换该参数的值
-		queryStr = queryStr.replace(reg, '$1' + '$2' +value + '$4' + '$5' );
-	}
-	if(queryStrEmpty && curUrl.indexOf('#') > -1){
-		//url中有#号(#号后面的肯定是锚点名，所以#号肯定在最后，把queryStr插入到#号之前，再把之前根据#号分割成的数组连起来)
-		curUrl = arr.join(queryStr+'#');
-	}else{
-		curUrl = arr.join(queryStr);
-	}
-	window.history.replaceState('', '', curUrl);
-}
-
 //jQuery入口函数
 $(document).ready(function (){
 	// ============================ 显示对应tab start ============================
@@ -235,8 +168,14 @@ $(document).ready(function (){
 	let curTab = 0;
 	let curTab2 = 0;
 	setTimeout(function (){
-		curTab = getParam(tabName, 0);
-		curTab2 = getParam(tabName2, 0);
+		//第二个参数为未获取到时的默认值
+		curTab = getParam(tabName, curTab);
+		curTab2 = getParam(tabName2, curTab2);
+		//另外需要设置一个history值为0，虽然这里是用不到，但是在点浏览器返回按钮的时候，
+		// 需要用到返回前的参数，而这个设置可以把返回前的参数保存到lastQueryStr变量中
+		getParam('history', 0);
+		getParam('page', 1);
+		getParam('keyword', '');
 		//2就是第三个，因为第一个是0，而第三个是选存储云
 		if(curTab == 2){
 			$('.sub-left-bar .list .cloud').eq(curTab2).click();
@@ -282,9 +221,9 @@ $(document).ready(function (){
 		//设置tab2值(用于设置是哪个云)
 		setParam(tabName2, $(this).index());
 		
-		var $this = $(this);
-		var key = $(this).data('key');
-		var cloudName = $(this).html();
+		let $this = $(this);
+		let key = $(this).data('key');
+		let cloudName = $(this).html();
 		$.ajax({
 			type: 'get',
 			url: './settings/dispatch.php?func=getStorageParams',
@@ -294,10 +233,10 @@ $(document).ready(function (){
 			dataType: 'json',
 			success:function (response){
 				if(response.code==0 || response.code==1){
-					var html = '';
-					var data = response.data;
-					var value = '';
-					for(var key2 in data){
+					let html = '';
+					let data = response.data;
+					let value = '';
+					for(let key2 in data){
 						value = response.code==0 ? data[key2] : data[key2]
 						html +=	`<div class="form-group">
 										<label>${key2}</label>
@@ -305,7 +244,7 @@ $(document).ready(function (){
 									</div>`;
 						value = '';
 					}
-					var authentication = '';
+					let authentication = '';
 					let oauthServers = ['onedrive', 'googledrive', 'dropbox', 'imgur', 'azure', 'flickr', ];
 					if(oauthServers.findIndex((element)=>(element==key)) > -1){
 						let oauth = response.oauth;
@@ -381,7 +320,7 @@ $(document).ready(function (){
 	
 	//点击选择图片水印和文字水印
 	$('.cloud-setting').on('change', '.watermark-type-label', function (){
-		var watermarkType = $(this).find('input').val();
+		let watermarkType = $(this).find('input').val();
 		if(watermarkType == 'text'){
 			$('.text-watermark').show();
 			$('.text-watermark .font-file-name').show();
@@ -417,7 +356,7 @@ $(document).ready(function (){
 		}
 		reader.readAsDataURL(file);
 		
-		var formData = new FormData();
+		let formData = new FormData();
 		formData.append('watermark', file);
 		$.ajax({
 			type: 'post',
@@ -455,7 +394,7 @@ $(document).ready(function (){
 			return false;
 		}
 		
-		var formData = new FormData();
+		let formData = new FormData();
 		formData.append('font-file', file);
 		$.ajax({
 			type: 'post',
@@ -491,9 +430,9 @@ $(document).ready(function (){
 	$('.cloud-setting').on('change', 'input[name="watermark[useWatermark]"]', function (){
 		if($(this).prop('checked')){
 			$('.watermark-type').show();
-			var watermarkTypeObj = $('input[name="watermark[type]"]:checked');
+			let watermarkTypeObj = $('input[name="watermark[type]"]:checked');
 			if(watermarkTypeObj.length){
-				var watermarkType = watermarkTypeObj.val();
+				let watermarkType = watermarkTypeObj.val();
 				if(watermarkType=='text'){
 					$('.text-watermark').show();
 					$('.text-watermark .font-file-name').show();
@@ -512,8 +451,8 @@ $(document).ready(function (){
 	});
 	
 	//处理ctrl+s / cmd+s 保存
-	var ctrlPressed = false;
-	var cmdPressed = false;
+	let ctrlPressed = false;
+	let cmdPressed = false;
 	$(document).on('keydown', function (e){
 		if(e.keyCode==17){
 			ctrlPressed = true;
@@ -523,7 +462,7 @@ $(document).ready(function (){
 		}
 		if((ctrlPressed || cmdPressed) && e.keyCode==83){
 			console.log('按了ctrl+s或cmd+s保存');
-			var method = '';
+			let method = '';
 			if($('.save-button:visible').length){
 				method = 'set-storage-params';
 			}
@@ -579,7 +518,7 @@ $(document).ready(function (){
 			}
 		});
 		
-		var dropAreaHtml = `
+		let dropAreaHtml = `
 				<div class="upload-to-folder">
 					<label>上传到</label>
 					<select name="upload-dest-dir">
@@ -616,7 +555,7 @@ $(document).ready(function (){
 			'drop': function (e){
 				e.stopPropagation();
 				e.preventDefault();
-				var dataTransfer = e.originalEvent.dataTransfer;
+				let dataTransfer = e.originalEvent.dataTransfer;
 				if(dataTransfer.files.length > 0){
 					showLocalImages(dataTransfer.files);
 				}
@@ -678,7 +617,7 @@ $(document).ready(function (){
 	})
 	
 	//点击复制图片url
-	var clipboard = new ClipboardJS('.copy-image-url');
+	let clipboard = new ClipboardJS('.copy-image-url');
 	clipboard.on('success', function(e) {
 		$(e.trigger).find('.copied').fadeIn();
 		setTimeout(function (){
@@ -710,7 +649,7 @@ $(document).ready(function (){
 		//设置tab值为1
 		showSaveTips(defaultSaveTips, 2000);
 		setParam(tabName, 1);
-		var $this = $(this);
+		let $this = $(this);
 		$.ajax({
 			type: 'get',
 			url: './settings/dispatch.php?func=get-general-settings',
@@ -723,11 +662,11 @@ $(document).ready(function (){
 				$('.sub-left-bar .list li').removeClass('active');
 				$this.addClass('active');
 				
-				var data = response.data;
-				var storageType = data.storageType;
-				var storageTypeHtml = '';
-				var checked = '';
-				for(var i in storageType){
+				let data = response.data;
+				let storageType = data.storageType;
+				let storageTypeHtml = '';
+				let checked = '';
+				for(let i in storageType){
 					checked = (storageType[i].isActive != undefined && storageType[i].isActive==1) ? ' checked' : '';
 					storageTypeHtml +=
 						`<label><input type="checkbox" name="storageType[${i}][isActive]" value="1"${checked}>${storageType[i].name}</label>
@@ -746,7 +685,7 @@ $(document).ready(function (){
 					useReverseProxyDomain = data.useReverseProxyDomain;
 				}
 				
-				var generalSettingsForm =
+				let generalSettingsForm =
 					`<div class="area">
 						<div class="form-group2-area">存储引擎</div>
 						<div class="form-group2 storage-types">
@@ -1002,7 +941,7 @@ $(document).ready(function (){
 	
 	//================== 图片放大 开始 ======================
 	//初始化图片放大插件
-	var viewer = ImageViewer({
+	let viewer = ImageViewer({
 		zoomValue:100,
 		maxZoom:500,
 		snapView:true,
@@ -1013,9 +952,44 @@ $(document).ready(function (){
 	//点击放大图片
 	$('.cloud-setting').on('click','.watermark-image, .drop-area-image', function (e){
 		e.stopPropagation();
-		var src = $(this).attr('src');
+		let src = $(this).attr('src');
 		viewer.show(src, src);
 	});
 	
 	//================== 图片放大 结束 ======================
+	
+	//浏览器点击返回/前进按钮时，会从历史记录数组里pop(出栈)最后一条历史记录(这些历史记录需要我们用js手动push进去，每次点击了什么按钮，只要改变了url，就push进去，这样方便点返回按钮的时候，可以pop出来，然后通过监听popstate事件拿到那个url，再从url中拿到参数，进而根据这些参数，用js去显示对应页面，比如返回到第几页)
+	$(window).on('popstate', function (){
+		let history = getParam('history', 0);
+		let lastHistory = getParam('history', 0, lastQueryStr);
+		
+		// 历史记录由php识别history=1加载，如果它变化了，则需要刷新页面，php才能重新决定是否显示history页面
+		// 并且由于本js文件是history.js，只会用在history页码，所以不需要考虑非history页面参数的变化
+		// 因为如果非history页码参数发生了变化，那history一定从1变0了，在history页面其它参数是不会变化的
+		if(history != lastHistory){
+			window.location.reload();
+		}
+		
+		if(history == 0){
+			let tab = getParam(tabName, 1);
+			let lastTab = getParam(tabName, 0, lastQueryStr);
+			//tab有变化，说明左侧栏中的图标需要改变选中了哪个
+			if(tab != lastTab){
+				//把lastQueryStr更新为当前的queryStr(即点了后退或前进键之后的)
+				lastQueryStr = window.location.search.toString();
+				//点击dashboard左侧某个图标
+				$('.left-bar .icons').eq(tab).click();
+			}
+			
+			let tab2 = getParam(tabName2, 0);
+			let lastTab2 = getParam(tabName2, 0, lastQueryStr);
+			//tab2有变化，说明选中的云有变化
+			if(tab2 != lastTab2){
+				//把lastQueryStr更新为当前的queryStr(即点了后退或前进键之后的)
+				lastQueryStr = window.location.search.toString();
+				//点击某个云
+				$('.cloud-storage .sub-left-bar .list .cloud').eq(tab2).click();
+			}
+		}
+	});
 });

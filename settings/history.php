@@ -10,6 +10,7 @@
 		<link href="/static/ImageViewer/imageviewer.css" rel="stylesheet">
 		<script src="/static/ImageViewer/imageviewer.min.js"></script>
 		<script src="/static/js/clipboard.js"></script>
+		<script src="/static/js/common.js"></script>
 		<script src="/static/js/history.js"></script>
 		<style>
 			html,body{

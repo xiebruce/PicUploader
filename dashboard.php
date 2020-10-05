@@ -44,6 +44,7 @@
 	
 	<link href="/static/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	
+	<script src="/static/js/common.js"></script>
 	<link href="/static/css/dashboard.css" rel="stylesheet">
 	<script src="/static/js/dashboard.js"></script>
 </head>

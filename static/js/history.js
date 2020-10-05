@@ -1,72 +1,4 @@
 /**
- * 获取当前tab值(如果没有自动添加)
- * @param param
- * @param defaultValue
- * @returns {number|string}
- */
-function getParam(param, defaultValue){
-	let queryStr = window.location.search.toString();
-	let reg = new RegExp('.*'+param+'=([^&\n?]*)&*.*', 'gi');
-	let ret = reg.exec(queryStr);
-	let value = defaultValue;
-	if(ret!=null && ret[1]!=undefined){
-		value = ret[1];
-		value = decodeURIComponent(value);
-	}else{
-		setParam(param, defaultValue);
-	}
-	return value;
-}
-
-/**
- * 设置当前tab值
- * @param param
- * @param value
- */
-function setParam(param, value){
-	if(typeof(value)=='string'){
-		value = value.trim();
-		value = encodeURIComponent(value);
-	}
-	//window.location.href可以获取到整个完整的url(包括"#"号锚点)
-	let curUrl = window.location.href.toString();
-	//window.location.search用于获取url中的"?a=1&b=2&b=3……",但不包括#号及其后面的, substr(1)是去掉"?"号
-	let queryStr = window.location.search.toString();
-	
-	//为了后面统一组装字符串
-	let arr = [curUrl,''];
-	//这样做是为了处理带#号的锚点
-	let queryStrEmpty = true;
-	if(queryStr!==''){
-		queryStrEmpty = false;
-		arr = curUrl.split(queryStr);
-	}else if(curUrl.indexOf('#') > -1){
-		arr = curUrl.split('#');
-	}
-	let reg = new RegExp('(.*)('+param+'=)([^&\n?]*)(&*)(.*)', 'gi');
-	let ret = reg.exec(queryStr);
-	//如果没有匹配到就添加该参数
-	if(ret==null){
-		let separater = '?';
-		//如果第一个字符是"?"号，则把分隔符换成"&"
-		if(queryStr.indexOf('?')===0){
-			separater = '&';
-		}
-		queryStr = queryStr + separater + param + '=' + value;
-	}else{
-		//如果匹配到了就替换该参数的值
-		queryStr = queryStr.replace(reg, '$1' + '$2' +value + '$4' + '$5' );
-	}
-	if(queryStrEmpty && curUrl.indexOf('#') > -1){
-		//url中有#号(#号后面的肯定是锚点名，所以#号肯定在最后，把queryStr插入到#号之前，再把之前根据#号分割成的数组连起来)
-		curUrl = arr.join(queryStr+'#');
-	}else{
-		curUrl = arr.join(queryStr);
-	}
-	window.history.replaceState('', '', curUrl);
-}
-
-/**
  * deleteImage
  * @param hash
  * @param obj
@@ -109,7 +41,6 @@ function deleteImage(hash, obj, engine='Imgur'){
 
 //获取一页历史记录
 function getHistoryList (page, keyword){
-	setParam('keyword', keyword);
 	$.ajax({
 		type: 'get',
 		url: './settings/dispatch.php',
@@ -307,87 +238,97 @@ $(document).ready(function (){
 		deleteItems(id);
 	});
 	
-	//进入页面时先获取一页
+	//===========进入页面时先获取一页===========
 	let curpage = getParam('page', 1);
 	let keyword = getParam('keyword', '');
 	$('.search-box-input').val(keyword);
 	getHistoryList(curpage, keyword);
 	
-	//点击上一页、下一页、首页、末页、跳转到第n页时，获取该页数据
+	//======点击上一页、下一页、首页、末页、跳转到第n页时，获取该页数据======
 	$('.upload-history-list').on('click', '.pagination .button', function (){
 		if($(this).hasClass('forbidden')){
 			return false;
 		}
-		var page = 1;
-		var $this = $(this);
+		
+		let $this = $(this);
+		let page = $this.data('page');
+		let pageNew = page;
+		//如果点击的是跳转按钮，则判断一下输入的页码是否不合理
 		if($this.hasClass('jump-to-page-button')){
-			var pageCount = $(this).data('pagecount');
-			page = $this.prev().val();
+			let pageCount = $this.data('pagecount');
+			pageNew = page = parseInt($this.prev().val());
+			if(page = undefined || page < 1){
+				pageNew = 1;
+			}
 			if(page > pageCount){
+				pageNew = pageCount;
+			}
+			if(pageNew != page){
+				//纠正page值后，重新设置回去
 				$('.jump-to-page').val(pageCount);
 			}
-		}else{
-			page = $(this).data('page');
 		}
-		setParam('page', page);
+		//把改变后的页码写入url中
+		setParam('page', pageNew);
 		let keyword = $('.search-form .search-box-input').val();
-		getHistoryList(page, keyword);
+		getHistoryList(pageNew, keyword);
 	});
 	
-	//跳转页码focus
+	//跳转页码focus状态
+	let focus = false;
 	$('.upload-history-list').on('focus', '.jump-to-page', function (){
-		$(this).attr('focus',1);
+		focus = true;
 	});
 	//跳转页码blur
 	$('.upload-history-list').on('blur', '.jump-to-page', function (){
-		$(this).attr('focus',0);
+		focus = false;
 	});
 	
 	//监听放开按键事件(有放开说明一定按了这个按钮，因为只有先按下了才能放开)
 	$(document).on('keyup', function (e){
 		//回车键
-		if(e.keyCode == 13){
-			let page = $('.jump-to-page[focus="1"]').val();
+		if(e.keyCode == 13 && focus){
+			let page = $('.jump-to-page').val();
 			let keyword = $('.search-form .search-box-input').val();
+			setParam('page', page);
 			getHistoryList(page, keyword);
 		}
 		
 		//左方向键
 		if(e.keyCode == 37){
-			let page = $('.jump-to-page').eq(0).val();
+			let page = $('.jump-to-page').val();
 			let keyword = $('.search-form .search-box-input').val();
 			if(page > 1){
+				setParam('page', page);
 				getHistoryList(page - 1, keyword);
 			}
 		}
 		
 		//右方向键
 		if(e.keyCode == 39){
-			let page = $('.jump-to-page').eq(0).val();
+			let page = $('.jump-to-page').val();
 			page = parseInt(page);
 			if(isNaN(page)){
 				page = 1;
 			}
-			let pageCount = $('.jump-to-page').eq(0).next().data('pagecount');
+			let pageCount = $('.jump-to-page').next().data('pagecount');
 			let keyword = $('.search-form .search-box-input').val();
 			if(page < pageCount){
+				setParam('page', page);
 				getHistoryList(page + 1, keyword);
 			}
 		}
 	});
 	
-	//点击查询按钮
-	$('.search-box-btn').on('click', function (){
-		let keyword = $(this).prev().val();
-		$('.search-form').submit();
-	});
-	
-	//提交搜索
+	//提交查询
+	// 不管点击了查询按钮还是按了回车，都会触发search-form的submit事件，所以
+	// 只需要监听submit事件而不用单独监听查询按钮的点击事件和监听是否按了回车
 	$('.search-form').on('submit', function (){
 		let keyword = $('.search-form .search-box-input').val();
-		getHistoryList(1, keyword);
 		//搜索一定从第一页开始
 		setParam('page', 1);
+		setParam('keyword', keyword);
+		getHistoryList(1, keyword);
 		return false;
 	});
 	
@@ -445,5 +386,43 @@ $(document).ready(function (){
 		setParam('history', 0);
 		window.location.reload();
 		return false;
+	});
+	
+	//浏览器点击返回/前进按钮时，会从历史记录数组里pop(出栈)最后一条历史记录(这些历史记录需要我们用js手动push进去，每次点击了什么按钮，只要改变了url，就push进去，这样方便点返回按钮的时候，可以pop出来，然后通过监听popstate事件拿到那个url，再从url中拿到参数，进而根据这些参数，用js去显示对应页面，比如返回到第几页)
+	$(window).on('popstate', function (){
+		let history = getParam('history', 0);
+		let lastHistory = getParam('history', 0, lastQueryStr);
+		
+		// 历史记录由php识别history=1加载，如果它变化了，则需要刷新页面，php才能重新决定是否显示history页面
+		// 并且由于本js文件是history.js，只会用在history页码，所以不需要考虑非history页面参数的变化
+		// 因为如果非history页码参数发生了变化，那history一定从1变0了，在history页面其它参数是不会变化的
+		if(history != lastHistory){
+			window.location.reload();
+		}
+		
+		if(history == 1){
+			let page = getParam('page', 0);
+			let lastPage = getParam('page', 0, lastQueryStr);
+			let keyword = getParam('keyword', 0);
+			let lastKeyword = getParam('keyword', 0, lastQueryStr);
+			
+			//页码有变化，重新获取该页
+			if(page != lastPage){
+				$('.jump-to-page').val(page);
+				//把lastQueryStr更新为当前的queryStr(即点了后退或前进键之后的)
+				lastQueryStr = window.location.search.toString();
+				getHistoryList(page, keyword);
+			}
+			
+			//查询关键词有变化，重新查询
+			//(并且页码不从1开始，因为可能就是从第3页返回第2页，你也不能强制从第1页开始)
+			if(keyword != lastKeyword){
+				//关键词有变化，设置新关键词
+				$('.search-form .search-box-input').val(keyword);
+				//把lastQueryStr更新为当前的queryStr(即点了后退或前进键之后的)
+				lastQueryStr = window.location.search.toString();
+				getHistoryList(page, keyword);
+			}
+		}
 	});
 });

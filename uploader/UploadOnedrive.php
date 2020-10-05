@@ -452,7 +452,7 @@
                         'Content-Type'  => 'application/json',
                     ],
                     'json' => [
-                        'type' => 'view', //view, edit, embed(仅个人版支持)
+                        'type' => 'embed', //view, edit, embed(embed仅个人版支持)
                         'scope' => 'anonymous',
                     ],
                 ]);
