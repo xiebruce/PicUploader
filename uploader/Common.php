@@ -126,11 +126,7 @@ class Common {
 		
 		if($type=='image'){
 		    $imageConfig = $watermarkConfig['image'];
-		    if(strpos($imageConfig['fontFile'], '/')!==false){
-			    $watermark = APP_PATH.$imageConfig['fontFile'];
-		    }else{
-			    $watermark = APP_PATH.'/static/watermark/'.$imageConfig['watermark'];
-		    }
+            $watermark = APP_PATH.$imageConfig['watermark'];
 	        $img->overlay($watermark, $watermarkConfig['image']['position'], $imageConfig['alpha'], $imageConfig['offset']['x'], $imageConfig['offset']['y']);
 	    }else if($type=='text'){
 		    $textConfig =  $watermarkConfig['text'];
