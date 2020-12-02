@@ -51,10 +51,10 @@ class UploadJianguoyun extends Upload{
         $this->baseUri = $ServerConfig['baseUri'];
         $this->proxy = $ServerConfig['proxy'] ?? '';
         $this->domain = $this->baseUri;
-        $this->DAVPath = '';
+        $this->DAVPath = '/dav/';
         
         $this->DAVSetting = [
-            'baseUri' => $this->baseUri . $this->DAVPath,
+            'baseUri' => rtrim($this->baseUri, '/') . $this->DAVPath,
             'userName' => $this->username,
             'password' => $this->password,
         ];
@@ -106,7 +106,7 @@ class UploadJianguoyun extends Upload{
      */
     public function foldersToCreate($folder){
         try {
-            //把要新建的文件夹拆分成多个要创建的路径，因为WebDAV接口不支持递归创建，比如“/2019/03/31”，要拆分成：
+            //把要新建的文件夹拆分成多个要创建的路径，因为接口不支持递归创建，比如“/2019/03/31”，要拆分成：
             /**
              * /2019
              * /2019/03
@@ -230,6 +230,61 @@ class UploadJianguoyun extends Upload{
     }
     
     /**
+     * getShareLink
+     * 文档: https://www.jianguoyun.com/p/DQTnC6QQgf3VBxjB1aID (只限团队版)
+     * @param $path
+     *
+     * @return mixed|string
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getShareLink($path){
+        try {
+            $config = [
+                //GuzzleHttp的base_uri必须斜杠结尾，
+                //具体见：https://docs.guzzlephp.org/en/stable/quickstart.html(往下滚动一点就有)
+                'base_uri' => rtrim($this->baseUri, '/') . '/nsdav/',
+            ];
+            if($this->proxy){
+                $config['proxy'] = $this->proxy;
+            }
+            $client = new GuzzleClient($config);
+            $path = '/'.$path;
+            $data = <<<EOF
+                <?xml version="1.0" encoding="utf-8"?>
+                <s:publish xmlns:s="http://ns.jianguoyun.com">
+                  <s:href>{$path}</s:href>
+                  <s:disable_download>false<s:disable_download>
+                  <s:enable_upload>false<s:enable_upload>
+                </s:publish>
+EOF;
+            
+            $uri = 'putObject';
+            $response = $client->request('POST', $uri, [
+                'auth'=>[$this->username, $this->password],
+                'body' => $data,
+            ]);
+            $string = $response->getBody()->getContents();
+            if($response->getReasonPhrase() != 'OK'){
+                throw new Exception($string);
+            }
+            
+            //把返回的xml解析为对象
+            $obj = simplexml_load_string($string);
+            var_dump($obj);exit;
+            if(!isset($obj->data->url)){
+                throw new Exception($string);
+            }
+            $shareLinkArr = (array)$obj->data->url;
+            $shareLink = $shareLinkArr[0];
+        } catch (Exception $e) {
+            var_dump($e->getMessage());exit;
+            $shareLink = '';
+            $this->writeLog(date('Y-m-d H:i:s').'(' . $this->uploadServer . ') => '.$e->getMessage() . "\n\n", 'error_log');
+        }
+        return $shareLink;
+    }
+    
+    /**
      * Upload files to JianGuoYun
      * @param $key
      * @param $uploadFilePath
@@ -257,6 +312,16 @@ class UploadJianguoyun extends Upload{
                 throw new Exception(var_export($response, true));
             }
             
+            // 获取分享链接(坚果云暂时没有该功能)
+            // https://nextcloud.xiebruce.top/s/etJdniMaE9cpWJN/preview
+            /*$shareLink = $this->getShareLink($key);
+            // $shareLink = $this->getShareLinkByCurl($key);
+            if(strpos($this->getMimeType($uploadFilePath), 'image')!==false){
+                $link = $shareLink . '/preview';
+            }else{
+                $link = $shareLink . '/download';
+            }
+            $key = str_replace($this->domain . '/', '', $link);*/
             $key = '上传成功，坚果云不支持分享，请自行到坚果云查看：https://www.jianguoyun.com';
             $this->domain = '.';
             

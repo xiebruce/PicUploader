@@ -517,6 +517,29 @@
                 //反向代理域名(如果需要的话)
                 'domain' => '',
             ],
+            
+            //坚果云 网址：https://www.jianguoyun.com
+            'jianguoyun' => [
+                'name' => '坚果云',
+                'type' => 'jianguoyun',
+                //坚果云baseUri都一样的，不用修改
+                'baseUri' => 'https://dav.jianguoyun.com',
+                //你登录坚果云的用户名
+                'username' => '你的坚果云dav账号',
+                //根据官方文档(https://help.jianguoyun.com/?p=2064)添加一个应用，就能获取这个密码
+                'password' => '你的坚果云dav密码',
+                //代理地址，如果使用shadowsocks做代理，ip填http://127.0.0.1（或直接填127.0.0.1）即可，
+                //比如：'proxy' => 'http://127.0.0.1:1087'，端口从『偏好设置→HTTP→监听端口』找，留空表示不使用代理
+                // 'proxy' => 'http://127.0.0.1:1087',
+                //指定目录后，上传的文件将会上传到指定目录中，由于nextcloud是使用WebDav协议，并非对象存储，为了保证速度，这里只允许最多指定5层目录，如：Photos/travel/Turkey，)，也可以指定按年月日存，如：
+                // 'directory' => date('Y/m/d/'),
+                //自定义目录格式：Photos/2019/03/31
+                // 'directory' =>  date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/2019/03/31
+                // 'directory' => 'Photos/Travel/' . date('Y/m/d/'),
+                //自定义目录格式：Photos/Travel/Maldives
+                // 'directory' => 'Photos/Travel/Maldives',
+            ],
 		],
 		
 		/*
