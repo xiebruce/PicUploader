@@ -248,7 +248,8 @@ class UploadGitlab extends Upload{
 			}
             //https://gitlab.com/picuploader/img_bed/-/raw/master4/images/2020/04/17/T002R300x300M000000EI9tu27e5iy_1.jpg
             //https://gitlab.com/xiebruce/img_bed/-/raw/master/Xnip2020-04-13_15-30-13.jpg
-			$key = strtolower($this->repo) . '/-/raw/' . $this->branch . '/' . $key;
+            //但实际上发现没有好个横杠也可以访问，而且issue有人反映自建的gitlab有这个横杠无法访问，所以就去掉横杠
+			$key = strtolower($this->repo) . '/raw/' . $this->branch . '/' . $key;
 			
 			$data = [
 				'code' => 0,
