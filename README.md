@@ -297,13 +297,13 @@ api.picuploader.com
 ## 如何支持我
 **方法一：**
 如果本工具确实能帮助到你，不妨打赏一下，鼓励一下我继续更新并维护`PicUploader`。  
-<img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/wechat.png">
+<img width="200" alt="微信二维码" src="https://www.xiebruce.top/wp-content/uploads/2018/09/wechat.png">
 
-<img width="200" src="https://www.xiebruce.top/wp-content/uploads/2018/09/alipay.png">
+<img width="200" alt="支付宝二维码" src="https://www.xiebruce.top/wp-content/uploads/2018/09/alipay.png">
 
 **方法二：**
 适用于iPhone用户，使用iPhone自带相机或微信扫码，你自己也可以赚钱(百分百真实)：  
-![钱咖赚钱](https://user-images.githubusercontent.com/13575500/110201515-7783f000-7e9e-11eb-9818-cc8b983e38b8.jpg)
+<img width="200" alt="钱咖赚钱" src="https://user-images.githubusercontent.com/13575500/110201515-7783f000-7e9e-11eb-9818-cc8b983e38b8.jpg">
 
 **方法三：**
 如果你能看到[我网站](https://www.xiebruce.top)中的广告，麻烦帮忙点一下广告。
