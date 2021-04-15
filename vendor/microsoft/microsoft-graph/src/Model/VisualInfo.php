@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class VisualInfo extends Entity
 {
@@ -35,7 +33,7 @@ class VisualInfo extends Entity
     public function getAttribution()
     {
         if (array_key_exists("attribution", $this->_propDict)) {
-            if (is_a($this->_propDict["attribution"], "Microsoft\Graph\Model\ImageInfo")) {
+            if (is_a($this->_propDict["attribution"], "\Microsoft\Graph\Model\ImageInfo")) {
                 return $this->_propDict["attribution"];
             } else {
                 $this->_propDict["attribution"] = new ImageInfo($this->_propDict["attribution"]);
@@ -84,6 +82,34 @@ class VisualInfo extends Entity
     public function setBackgroundColor($val)
     {
         $this->_propDict["backgroundColor"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the content
+    * Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
+    *
+    * @return string The content
+    */
+    public function getContent()
+    {
+        if (array_key_exists("content", $this->_propDict)) {
+            return $this->_propDict["content"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the content
+    * Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
+    *
+    * @param string $val The value of the content
+    *
+    * @return VisualInfo
+    */
+    public function setContent($val)
+    {
+        $this->_propDict["content"] = $val;
         return $this;
     }
     /**
@@ -140,34 +166,6 @@ class VisualInfo extends Entity
     public function setDisplayText($val)
     {
         $this->_propDict["displayText"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the content
-    * Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
-    *
-    * @return string The content
-    */
-    public function getContent()
-    {
-        if (array_key_exists("content", $this->_propDict)) {
-            return $this->_propDict["content"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the content
-    * Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI
-    *
-    * @param string $val The value of the content
-    *
-    * @return VisualInfo
-    */
-    public function setContent($val)
-    {
-        $this->_propDict["content"] = $val;
         return $this;
     }
 }

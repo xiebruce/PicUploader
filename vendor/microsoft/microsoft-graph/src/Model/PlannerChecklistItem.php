@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class PlannerChecklistItem extends Entity
 {
@@ -53,33 +51,71 @@ class PlannerChecklistItem extends Entity
         $this->_propDict["isChecked"] = $val;
         return $this;
     }
+
     /**
-    * Gets the title
-    * Title of the checklist item
+    * Gets the lastModifiedBy
+    * Read-only. User ID by which this is last modified.
     *
-    * @return string The title
+    * @return IdentitySet The lastModifiedBy
     */
-    public function getTitle()
+    public function getLastModifiedBy()
     {
-        if (array_key_exists("title", $this->_propDict)) {
-            return $this->_propDict["title"];
-        } else {
-            return null;
+        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet")) {
+                return $this->_propDict["lastModifiedBy"];
+            } else {
+                $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
+                return $this->_propDict["lastModifiedBy"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the title
-    * Title of the checklist item
+    * Sets the lastModifiedBy
+    * Read-only. User ID by which this is last modified.
     *
-    * @param string $val The value of the title
+    * @param IdentitySet $val The value to assign to the lastModifiedBy
     *
-    * @return PlannerChecklistItem
+    * @return PlannerChecklistItem The PlannerChecklistItem
     */
-    public function setTitle($val)
+    public function setLastModifiedBy($val)
     {
-        $this->_propDict["title"] = $val;
-        return $this;
+        $this->_propDict["lastModifiedBy"] = $val;
+         return $this;
+    }
+
+    /**
+    * Gets the lastModifiedDateTime
+    * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    *
+    * @return \DateTime The lastModifiedDateTime
+    */
+    public function getLastModifiedDateTime()
+    {
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+                return $this->_propDict["lastModifiedDateTime"];
+            } else {
+                $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
+                return $this->_propDict["lastModifiedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lastModifiedDateTime
+    * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    *
+    * @param \DateTime $val The value to assign to the lastModifiedDateTime
+    *
+    * @return PlannerChecklistItem The PlannerChecklistItem
+    */
+    public function setLastModifiedDateTime($val)
+    {
+        $this->_propDict["lastModifiedDateTime"] = $val;
+         return $this;
     }
     /**
     * Gets the orderHint
@@ -109,70 +145,32 @@ class PlannerChecklistItem extends Entity
         $this->_propDict["orderHint"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedBy
-    * Read-only. User ID by which this is last modified.
+    * Gets the title
+    * Title of the checklist item
     *
-    * @return IdentitySet The lastModifiedBy
+    * @return string The title
     */
-    public function getLastModifiedBy()
+    public function getTitle()
     {
-        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "Microsoft\Graph\Model\IdentitySet")) {
-                return $this->_propDict["lastModifiedBy"];
-            } else {
-                $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
-                return $this->_propDict["lastModifiedBy"];
-            }
+        if (array_key_exists("title", $this->_propDict)) {
+            return $this->_propDict["title"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
-    * Sets the lastModifiedBy
-    * Read-only. User ID by which this is last modified.
+    * Sets the title
+    * Title of the checklist item
     *
-    * @param IdentitySet $val The value to assign to the lastModifiedBy
+    * @param string $val The value of the title
     *
-    * @return PlannerChecklistItem The PlannerChecklistItem
+    * @return PlannerChecklistItem
     */
-    public function setLastModifiedBy($val)
+    public function setTitle($val)
     {
-        $this->_propDict["lastModifiedBy"] = $val;
-         return $this;
-    }
-
-    /**
-    * Gets the lastModifiedDateTime
-    * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-    *
-    * @return \DateTime The lastModifiedDateTime
-    */
-    public function getLastModifiedDateTime()
-    {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "Microsoft\Graph\Model\\DateTime")) {
-                return $this->_propDict["lastModifiedDateTime"];
-            } else {
-                $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
-                return $this->_propDict["lastModifiedDateTime"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the lastModifiedDateTime
-    * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return PlannerChecklistItem The PlannerChecklistItem
-    */
-    public function setLastModifiedDateTime($val)
-    {
-        $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        $this->_propDict["title"] = $val;
+        return $this;
     }
 }

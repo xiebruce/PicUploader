@@ -16,7 +16,7 @@ class MimeDirTest extends TestCase
     public function testParseError()
     {
         $mimeDir = new MimeDir();
-        $mimeDir->parse(fopen(__FILE__, 'a'));
+        $mimeDir->parse(fopen(__FILE__, 'a+'));
     }
 
     public function testDecodeLatin1()

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class SignInLocation extends Entity
 {
@@ -51,34 +49,6 @@ class SignInLocation extends Entity
     public function setCity($val)
     {
         $this->_propDict["city"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the state
-    * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @return string The state
-    */
-    public function getState()
-    {
-        if (array_key_exists("state", $this->_propDict)) {
-            return $this->_propDict["state"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the state
-    * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @param string $val The value of the state
-    *
-    * @return SignInLocation
-    */
-    public function setState($val)
-    {
-        $this->_propDict["state"] = $val;
         return $this;
     }
     /**
@@ -119,7 +89,7 @@ class SignInLocation extends Entity
     public function getGeoCoordinates()
     {
         if (array_key_exists("geoCoordinates", $this->_propDict)) {
-            if (is_a($this->_propDict["geoCoordinates"], "Microsoft\Graph\Model\GeoCoordinates")) {
+            if (is_a($this->_propDict["geoCoordinates"], "\Microsoft\Graph\Model\GeoCoordinates")) {
                 return $this->_propDict["geoCoordinates"];
             } else {
                 $this->_propDict["geoCoordinates"] = new GeoCoordinates($this->_propDict["geoCoordinates"]);
@@ -141,5 +111,33 @@ class SignInLocation extends Entity
     {
         $this->_propDict["geoCoordinates"] = $val;
          return $this;
+    }
+    /**
+    * Gets the state
+    * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+    *
+    * @return string The state
+    */
+    public function getState()
+    {
+        if (array_key_exists("state", $this->_propDict)) {
+            return $this->_propDict["state"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the state
+    * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+    *
+    * @param string $val The value of the state
+    *
+    * @return SignInLocation
+    */
+    public function setState($val)
+    {
+        $this->_propDict["state"] = $val;
+        return $this;
     }
 }

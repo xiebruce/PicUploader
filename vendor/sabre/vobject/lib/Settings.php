@@ -46,7 +46,7 @@ class Settings
      * specific events that recur many, many times, potentially DDOSing the
      * server.
      *
-     * The default (3500) allows creation of a dialy event that goes on for 10
+     * The default (3500) allows creation of a daily event that goes on for 10
      * years, which is hopefully long enough for most.
      *
      * Set this value to -1 to disable this control altogether.

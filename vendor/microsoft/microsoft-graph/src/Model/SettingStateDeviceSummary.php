@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,129 +18,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class SettingStateDeviceSummary extends Entity
 {
-    /**
-    * Gets the settingName
-    * Name of the setting
-    *
-    * @return string The settingName
-    */
-    public function getSettingName()
-    {
-        if (array_key_exists("settingName", $this->_propDict)) {
-            return $this->_propDict["settingName"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the settingName
-    * Name of the setting
-    *
-    * @param string $val The settingName
-    *
-    * @return SettingStateDeviceSummary
-    */
-    public function setSettingName($val)
-    {
-        $this->_propDict["settingName"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the instancePath
-    * Name of the InstancePath for the setting
-    *
-    * @return string The instancePath
-    */
-    public function getInstancePath()
-    {
-        if (array_key_exists("instancePath", $this->_propDict)) {
-            return $this->_propDict["instancePath"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the instancePath
-    * Name of the InstancePath for the setting
-    *
-    * @param string $val The instancePath
-    *
-    * @return SettingStateDeviceSummary
-    */
-    public function setInstancePath($val)
-    {
-        $this->_propDict["instancePath"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the unknownDeviceCount
-    * Device Unkown count for the setting
-    *
-    * @return int The unknownDeviceCount
-    */
-    public function getUnknownDeviceCount()
-    {
-        if (array_key_exists("unknownDeviceCount", $this->_propDict)) {
-            return $this->_propDict["unknownDeviceCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the unknownDeviceCount
-    * Device Unkown count for the setting
-    *
-    * @param int $val The unknownDeviceCount
-    *
-    * @return SettingStateDeviceSummary
-    */
-    public function setUnknownDeviceCount($val)
-    {
-        $this->_propDict["unknownDeviceCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the notApplicableDeviceCount
-    * Device Not Applicable count for the setting
-    *
-    * @return int The notApplicableDeviceCount
-    */
-    public function getNotApplicableDeviceCount()
-    {
-        if (array_key_exists("notApplicableDeviceCount", $this->_propDict)) {
-            return $this->_propDict["notApplicableDeviceCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the notApplicableDeviceCount
-    * Device Not Applicable count for the setting
-    *
-    * @param int $val The notApplicableDeviceCount
-    *
-    * @return SettingStateDeviceSummary
-    */
-    public function setNotApplicableDeviceCount($val)
-    {
-        $this->_propDict["notApplicableDeviceCount"] = intval($val);
-        return $this;
-    }
-    
     /**
     * Gets the compliantDeviceCount
     * Device Compliant count for the setting
@@ -172,60 +54,31 @@ class SettingStateDeviceSummary extends Entity
     }
     
     /**
-    * Gets the remediatedDeviceCount
-    * Device Compliant count for the setting
+    * Gets the conflictDeviceCount
+    * Device conflict error count for the setting
     *
-    * @return int The remediatedDeviceCount
+    * @return int The conflictDeviceCount
     */
-    public function getRemediatedDeviceCount()
+    public function getConflictDeviceCount()
     {
-        if (array_key_exists("remediatedDeviceCount", $this->_propDict)) {
-            return $this->_propDict["remediatedDeviceCount"];
+        if (array_key_exists("conflictDeviceCount", $this->_propDict)) {
+            return $this->_propDict["conflictDeviceCount"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the remediatedDeviceCount
-    * Device Compliant count for the setting
+    * Sets the conflictDeviceCount
+    * Device conflict error count for the setting
     *
-    * @param int $val The remediatedDeviceCount
-    *
-    * @return SettingStateDeviceSummary
-    */
-    public function setRemediatedDeviceCount($val)
-    {
-        $this->_propDict["remediatedDeviceCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the nonCompliantDeviceCount
-    * Device NonCompliant count for the setting
-    *
-    * @return int The nonCompliantDeviceCount
-    */
-    public function getNonCompliantDeviceCount()
-    {
-        if (array_key_exists("nonCompliantDeviceCount", $this->_propDict)) {
-            return $this->_propDict["nonCompliantDeviceCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the nonCompliantDeviceCount
-    * Device NonCompliant count for the setting
-    *
-    * @param int $val The nonCompliantDeviceCount
+    * @param int $val The conflictDeviceCount
     *
     * @return SettingStateDeviceSummary
     */
-    public function setNonCompliantDeviceCount($val)
+    public function setConflictDeviceCount($val)
     {
-        $this->_propDict["nonCompliantDeviceCount"] = intval($val);
+        $this->_propDict["conflictDeviceCount"] = intval($val);
         return $this;
     }
     
@@ -259,31 +112,176 @@ class SettingStateDeviceSummary extends Entity
     }
     
     /**
-    * Gets the conflictDeviceCount
-    * Device conflict error count for the setting
+    * Gets the instancePath
+    * Name of the InstancePath for the setting
     *
-    * @return int The conflictDeviceCount
+    * @return string The instancePath
     */
-    public function getConflictDeviceCount()
+    public function getInstancePath()
     {
-        if (array_key_exists("conflictDeviceCount", $this->_propDict)) {
-            return $this->_propDict["conflictDeviceCount"];
+        if (array_key_exists("instancePath", $this->_propDict)) {
+            return $this->_propDict["instancePath"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the conflictDeviceCount
-    * Device conflict error count for the setting
+    * Sets the instancePath
+    * Name of the InstancePath for the setting
     *
-    * @param int $val The conflictDeviceCount
+    * @param string $val The instancePath
     *
     * @return SettingStateDeviceSummary
     */
-    public function setConflictDeviceCount($val)
+    public function setInstancePath($val)
     {
-        $this->_propDict["conflictDeviceCount"] = intval($val);
+        $this->_propDict["instancePath"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the nonCompliantDeviceCount
+    * Device NonCompliant count for the setting
+    *
+    * @return int The nonCompliantDeviceCount
+    */
+    public function getNonCompliantDeviceCount()
+    {
+        if (array_key_exists("nonCompliantDeviceCount", $this->_propDict)) {
+            return $this->_propDict["nonCompliantDeviceCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the nonCompliantDeviceCount
+    * Device NonCompliant count for the setting
+    *
+    * @param int $val The nonCompliantDeviceCount
+    *
+    * @return SettingStateDeviceSummary
+    */
+    public function setNonCompliantDeviceCount($val)
+    {
+        $this->_propDict["nonCompliantDeviceCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the notApplicableDeviceCount
+    * Device Not Applicable count for the setting
+    *
+    * @return int The notApplicableDeviceCount
+    */
+    public function getNotApplicableDeviceCount()
+    {
+        if (array_key_exists("notApplicableDeviceCount", $this->_propDict)) {
+            return $this->_propDict["notApplicableDeviceCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the notApplicableDeviceCount
+    * Device Not Applicable count for the setting
+    *
+    * @param int $val The notApplicableDeviceCount
+    *
+    * @return SettingStateDeviceSummary
+    */
+    public function setNotApplicableDeviceCount($val)
+    {
+        $this->_propDict["notApplicableDeviceCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the remediatedDeviceCount
+    * Device Compliant count for the setting
+    *
+    * @return int The remediatedDeviceCount
+    */
+    public function getRemediatedDeviceCount()
+    {
+        if (array_key_exists("remediatedDeviceCount", $this->_propDict)) {
+            return $this->_propDict["remediatedDeviceCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the remediatedDeviceCount
+    * Device Compliant count for the setting
+    *
+    * @param int $val The remediatedDeviceCount
+    *
+    * @return SettingStateDeviceSummary
+    */
+    public function setRemediatedDeviceCount($val)
+    {
+        $this->_propDict["remediatedDeviceCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the settingName
+    * Name of the setting
+    *
+    * @return string The settingName
+    */
+    public function getSettingName()
+    {
+        if (array_key_exists("settingName", $this->_propDict)) {
+            return $this->_propDict["settingName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the settingName
+    * Name of the setting
+    *
+    * @param string $val The settingName
+    *
+    * @return SettingStateDeviceSummary
+    */
+    public function setSettingName($val)
+    {
+        $this->_propDict["settingName"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the unknownDeviceCount
+    * Device Unkown count for the setting
+    *
+    * @return int The unknownDeviceCount
+    */
+    public function getUnknownDeviceCount()
+    {
+        if (array_key_exists("unknownDeviceCount", $this->_propDict)) {
+            return $this->_propDict["unknownDeviceCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the unknownDeviceCount
+    * Device Unkown count for the setting
+    *
+    * @param int $val The unknownDeviceCount
+    *
+    * @return SettingStateDeviceSummary
+    */
+    public function setUnknownDeviceCount($val)
+    {
+        $this->_propDict["unknownDeviceCount"] = intval($val);
         return $this;
     }
     

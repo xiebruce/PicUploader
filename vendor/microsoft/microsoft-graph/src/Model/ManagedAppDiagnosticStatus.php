@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,39 +17,38 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ManagedAppDiagnosticStatus extends Entity
 {
     /**
-    * Gets the validationName
-    * The validation friendly name
+    * Gets the mitigationInstruction
+    * Instruction on how to mitigate a failed validation
     *
-    * @return string The validationName
+    * @return string The mitigationInstruction
     */
-    public function getValidationName()
+    public function getMitigationInstruction()
     {
-        if (array_key_exists("validationName", $this->_propDict)) {
-            return $this->_propDict["validationName"];
+        if (array_key_exists("mitigationInstruction", $this->_propDict)) {
+            return $this->_propDict["mitigationInstruction"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the validationName
-    * The validation friendly name
+    * Sets the mitigationInstruction
+    * Instruction on how to mitigate a failed validation
     *
-    * @param string $val The value of the validationName
+    * @param string $val The value of the mitigationInstruction
     *
     * @return ManagedAppDiagnosticStatus
     */
-    public function setValidationName($val)
+    public function setMitigationInstruction($val)
     {
-        $this->_propDict["validationName"] = $val;
+        $this->_propDict["mitigationInstruction"] = $val;
         return $this;
     }
     /**
@@ -82,31 +80,31 @@ class ManagedAppDiagnosticStatus extends Entity
         return $this;
     }
     /**
-    * Gets the mitigationInstruction
-    * Instruction on how to mitigate a failed validation
+    * Gets the validationName
+    * The validation friendly name
     *
-    * @return string The mitigationInstruction
+    * @return string The validationName
     */
-    public function getMitigationInstruction()
+    public function getValidationName()
     {
-        if (array_key_exists("mitigationInstruction", $this->_propDict)) {
-            return $this->_propDict["mitigationInstruction"];
+        if (array_key_exists("validationName", $this->_propDict)) {
+            return $this->_propDict["validationName"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the mitigationInstruction
-    * Instruction on how to mitigate a failed validation
+    * Sets the validationName
+    * The validation friendly name
     *
-    * @param string $val The value of the mitigationInstruction
+    * @param string $val The value of the validationName
     *
     * @return ManagedAppDiagnosticStatus
     */
-    public function setMitigationInstruction($val)
+    public function setValidationName($val)
     {
-        $this->_propDict["mitigationInstruction"] = $val;
+        $this->_propDict["validationName"] = $val;
         return $this;
     }
 }

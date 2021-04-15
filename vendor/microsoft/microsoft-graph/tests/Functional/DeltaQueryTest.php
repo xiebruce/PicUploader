@@ -8,7 +8,7 @@ class DeltaQueryTest extends TestCase
     private $_client;
     private $graphTestBase;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->graphTestBase = new GraphTestBase();
         $this->_client = $this->graphTestBase->graphClient;

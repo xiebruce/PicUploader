@@ -7,7 +7,7 @@ class MailTest extends TestCase
 {
     private $_client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $graphTestBase = new GraphTestBase();
         $this->_client = $graphTestBase->graphClient;
@@ -42,7 +42,7 @@ class MailTest extends TestCase
     */
     public function testSendMail()
     {
-        $message = $this->createEmail("Sent from the SendMail test");
+        $message = $this->createEmail("Sent from the SendMail test - Técnica");
 
         $body = array("message" => $message);
 
@@ -50,7 +50,9 @@ class MailTest extends TestCase
                       ->attachBody($body)
                       ->execute();
 
-        $mailFolderMessages = $this->_client->createRequest("GET", "/me/mailFolders/sentItems/messages?\$filter=subject eq '\$message->getSubject()'")
+        $subject = $message->getSubject();
+
+        $mailFolderMessages = $this->_client->createRequest("GET", "/me/mailFolders/sentItems/messages?\$filter=subject eq '$subject'")
                                             ->setReturnType(Model\Message::class)
                                             ->execute();
         $this->assertNotNull($mailFolderMessages);

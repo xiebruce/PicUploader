@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DriveItem extends BaseItem
 {
@@ -35,7 +33,7 @@ class DriveItem extends BaseItem
     public function getAudio()
     {
         if (array_key_exists("audio", $this->_propDict)) {
-            if (is_a($this->_propDict["audio"], "Microsoft\Graph\Model\Audio")) {
+            if (is_a($this->_propDict["audio"], "\Microsoft\Graph\Model\Audio")) {
                 return $this->_propDict["audio"];
             } else {
                 $this->_propDict["audio"] = new Audio($this->_propDict["audio"]);
@@ -130,7 +128,7 @@ class DriveItem extends BaseItem
     public function getDeleted()
     {
         if (array_key_exists("deleted", $this->_propDict)) {
-            if (is_a($this->_propDict["deleted"], "Microsoft\Graph\Model\Deleted")) {
+            if (is_a($this->_propDict["deleted"], "\Microsoft\Graph\Model\Deleted")) {
                 return $this->_propDict["deleted"];
             } else {
                 $this->_propDict["deleted"] = new Deleted($this->_propDict["deleted"]);
@@ -163,7 +161,7 @@ class DriveItem extends BaseItem
     public function getFile()
     {
         if (array_key_exists("file", $this->_propDict)) {
-            if (is_a($this->_propDict["file"], "Microsoft\Graph\Model\File")) {
+            if (is_a($this->_propDict["file"], "\Microsoft\Graph\Model\File")) {
                 return $this->_propDict["file"];
             } else {
                 $this->_propDict["file"] = new File($this->_propDict["file"]);
@@ -196,7 +194,7 @@ class DriveItem extends BaseItem
     public function getFileSystemInfo()
     {
         if (array_key_exists("fileSystemInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["fileSystemInfo"], "Microsoft\Graph\Model\FileSystemInfo")) {
+            if (is_a($this->_propDict["fileSystemInfo"], "\Microsoft\Graph\Model\FileSystemInfo")) {
                 return $this->_propDict["fileSystemInfo"];
             } else {
                 $this->_propDict["fileSystemInfo"] = new FileSystemInfo($this->_propDict["fileSystemInfo"]);
@@ -229,7 +227,7 @@ class DriveItem extends BaseItem
     public function getFolder()
     {
         if (array_key_exists("folder", $this->_propDict)) {
-            if (is_a($this->_propDict["folder"], "Microsoft\Graph\Model\Folder")) {
+            if (is_a($this->_propDict["folder"], "\Microsoft\Graph\Model\Folder")) {
                 return $this->_propDict["folder"];
             } else {
                 $this->_propDict["folder"] = new Folder($this->_propDict["folder"]);
@@ -262,7 +260,7 @@ class DriveItem extends BaseItem
     public function getImage()
     {
         if (array_key_exists("image", $this->_propDict)) {
-            if (is_a($this->_propDict["image"], "Microsoft\Graph\Model\Image")) {
+            if (is_a($this->_propDict["image"], "\Microsoft\Graph\Model\Image")) {
                 return $this->_propDict["image"];
             } else {
                 $this->_propDict["image"] = new Image($this->_propDict["image"]);
@@ -295,7 +293,7 @@ class DriveItem extends BaseItem
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
-            if (is_a($this->_propDict["location"], "Microsoft\Graph\Model\GeoCoordinates")) {
+            if (is_a($this->_propDict["location"], "\Microsoft\Graph\Model\GeoCoordinates")) {
                 return $this->_propDict["location"];
             } else {
                 $this->_propDict["location"] = new GeoCoordinates($this->_propDict["location"]);
@@ -328,7 +326,7 @@ class DriveItem extends BaseItem
     public function getPackage()
     {
         if (array_key_exists("package", $this->_propDict)) {
-            if (is_a($this->_propDict["package"], "Microsoft\Graph\Model\Package")) {
+            if (is_a($this->_propDict["package"], "\Microsoft\Graph\Model\Package")) {
                 return $this->_propDict["package"];
             } else {
                 $this->_propDict["package"] = new Package($this->_propDict["package"]);
@@ -353,6 +351,39 @@ class DriveItem extends BaseItem
     }
     
     /**
+    * Gets the pendingOperations
+    * If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+    *
+    * @return PendingOperations The pendingOperations
+    */
+    public function getPendingOperations()
+    {
+        if (array_key_exists("pendingOperations", $this->_propDict)) {
+            if (is_a($this->_propDict["pendingOperations"], "\Microsoft\Graph\Model\PendingOperations")) {
+                return $this->_propDict["pendingOperations"];
+            } else {
+                $this->_propDict["pendingOperations"] = new PendingOperations($this->_propDict["pendingOperations"]);
+                return $this->_propDict["pendingOperations"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the pendingOperations
+    * If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+    *
+    * @param PendingOperations $val The pendingOperations
+    *
+    * @return DriveItem
+    */
+    public function setPendingOperations($val)
+    {
+        $this->_propDict["pendingOperations"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the photo
     * Photo metadata, if the item is a photo. Read-only.
     *
@@ -361,7 +392,7 @@ class DriveItem extends BaseItem
     public function getPhoto()
     {
         if (array_key_exists("photo", $this->_propDict)) {
-            if (is_a($this->_propDict["photo"], "Microsoft\Graph\Model\Photo")) {
+            if (is_a($this->_propDict["photo"], "\Microsoft\Graph\Model\Photo")) {
                 return $this->_propDict["photo"];
             } else {
                 $this->_propDict["photo"] = new Photo($this->_propDict["photo"]);
@@ -394,7 +425,7 @@ class DriveItem extends BaseItem
     public function getPublication()
     {
         if (array_key_exists("publication", $this->_propDict)) {
-            if (is_a($this->_propDict["publication"], "Microsoft\Graph\Model\PublicationFacet")) {
+            if (is_a($this->_propDict["publication"], "\Microsoft\Graph\Model\PublicationFacet")) {
                 return $this->_propDict["publication"];
             } else {
                 $this->_propDict["publication"] = new PublicationFacet($this->_propDict["publication"]);
@@ -427,7 +458,7 @@ class DriveItem extends BaseItem
     public function getRemoteItem()
     {
         if (array_key_exists("remoteItem", $this->_propDict)) {
-            if (is_a($this->_propDict["remoteItem"], "Microsoft\Graph\Model\RemoteItem")) {
+            if (is_a($this->_propDict["remoteItem"], "\Microsoft\Graph\Model\RemoteItem")) {
                 return $this->_propDict["remoteItem"];
             } else {
                 $this->_propDict["remoteItem"] = new RemoteItem($this->_propDict["remoteItem"]);
@@ -460,7 +491,7 @@ class DriveItem extends BaseItem
     public function getRoot()
     {
         if (array_key_exists("root", $this->_propDict)) {
-            if (is_a($this->_propDict["root"], "Microsoft\Graph\Model\Root")) {
+            if (is_a($this->_propDict["root"], "\Microsoft\Graph\Model\Root")) {
                 return $this->_propDict["root"];
             } else {
                 $this->_propDict["root"] = new Root($this->_propDict["root"]);
@@ -493,7 +524,7 @@ class DriveItem extends BaseItem
     public function getSearchResult()
     {
         if (array_key_exists("searchResult", $this->_propDict)) {
-            if (is_a($this->_propDict["searchResult"], "Microsoft\Graph\Model\SearchResult")) {
+            if (is_a($this->_propDict["searchResult"], "\Microsoft\Graph\Model\SearchResult")) {
                 return $this->_propDict["searchResult"];
             } else {
                 $this->_propDict["searchResult"] = new SearchResult($this->_propDict["searchResult"]);
@@ -526,7 +557,7 @@ class DriveItem extends BaseItem
     public function getShared()
     {
         if (array_key_exists("shared", $this->_propDict)) {
-            if (is_a($this->_propDict["shared"], "Microsoft\Graph\Model\Shared")) {
+            if (is_a($this->_propDict["shared"], "\Microsoft\Graph\Model\Shared")) {
                 return $this->_propDict["shared"];
             } else {
                 $this->_propDict["shared"] = new Shared($this->_propDict["shared"]);
@@ -559,7 +590,7 @@ class DriveItem extends BaseItem
     public function getSharepointIds()
     {
         if (array_key_exists("sharepointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharepointIds"], "Microsoft\Graph\Model\SharepointIds")) {
+            if (is_a($this->_propDict["sharepointIds"], "\Microsoft\Graph\Model\SharepointIds")) {
                 return $this->_propDict["sharepointIds"];
             } else {
                 $this->_propDict["sharepointIds"] = new SharepointIds($this->_propDict["sharepointIds"]);
@@ -621,7 +652,7 @@ class DriveItem extends BaseItem
     public function getSpecialFolder()
     {
         if (array_key_exists("specialFolder", $this->_propDict)) {
-            if (is_a($this->_propDict["specialFolder"], "Microsoft\Graph\Model\SpecialFolder")) {
+            if (is_a($this->_propDict["specialFolder"], "\Microsoft\Graph\Model\SpecialFolder")) {
                 return $this->_propDict["specialFolder"];
             } else {
                 $this->_propDict["specialFolder"] = new SpecialFolder($this->_propDict["specialFolder"]);
@@ -654,7 +685,7 @@ class DriveItem extends BaseItem
     public function getVideo()
     {
         if (array_key_exists("video", $this->_propDict)) {
-            if (is_a($this->_propDict["video"], "Microsoft\Graph\Model\Video")) {
+            if (is_a($this->_propDict["video"], "\Microsoft\Graph\Model\Video")) {
                 return $this->_propDict["video"];
             } else {
                 $this->_propDict["video"] = new Video($this->_propDict["video"]);
@@ -716,7 +747,7 @@ class DriveItem extends BaseItem
     public function getWorkbook()
     {
         if (array_key_exists("workbook", $this->_propDict)) {
-            if (is_a($this->_propDict["workbook"], "Microsoft\Graph\Model\Workbook")) {
+            if (is_a($this->_propDict["workbook"], "\Microsoft\Graph\Model\Workbook")) {
                 return $this->_propDict["workbook"];
             } else {
                 $this->_propDict["workbook"] = new Workbook($this->_propDict["workbook"]);
@@ -749,7 +780,7 @@ class DriveItem extends BaseItem
     public function getAnalytics()
     {
         if (array_key_exists("analytics", $this->_propDict)) {
-            if (is_a($this->_propDict["analytics"], "Microsoft\Graph\Model\ItemAnalytics")) {
+            if (is_a($this->_propDict["analytics"], "\Microsoft\Graph\Model\ItemAnalytics")) {
                 return $this->_propDict["analytics"];
             } else {
                 $this->_propDict["analytics"] = new ItemAnalytics($this->_propDict["analytics"]);
@@ -812,7 +843,7 @@ class DriveItem extends BaseItem
     public function getListItem()
     {
         if (array_key_exists("listItem", $this->_propDict)) {
-            if (is_a($this->_propDict["listItem"], "Microsoft\Graph\Model\ListItem")) {
+            if (is_a($this->_propDict["listItem"], "\Microsoft\Graph\Model\ListItem")) {
                 return $this->_propDict["listItem"];
             } else {
                 $this->_propDict["listItem"] = new ListItem($this->_propDict["listItem"]);

@@ -15,7 +15,7 @@ namespace Sabre\VObject;
 trait PHPUnitAssertions
 {
     /**
-     * This method tests wether two vcards or icalendar objects are
+     * This method tests whether two vcards or icalendar objects are
      * semantically identical.
      *
      * It supports objects being supplied as strings, streams or
@@ -34,8 +34,7 @@ trait PHPUnitAssertions
      */
     public function assertVObjectEqualsVObject($expected, $actual, $message = '')
     {
-        $self = $this;
-        $getObj = function ($input) use ($self) {
+        $getObj = function ($input) {
             if (is_resource($input)) {
                 $input = stream_get_contents($input);
             }

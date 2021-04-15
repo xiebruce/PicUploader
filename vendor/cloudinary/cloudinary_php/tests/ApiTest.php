@@ -25,9 +25,19 @@ namespace Cloudinary {
         protected static $api_test_4;
         protected static $api_test_5;
 
+        private static $backup_1_public_id;
+        private static $backup_2_public_id;
+        private static $backup_3_public_id;
+        private static $backup_1_resource_first;
+        private static $backup_1_resource_second;
+        private static $backup_2_resource;
+        private static $backup_3_resource;
+
         protected static $api_test_transformation = "api_test_transformation";
         protected static $api_test_transformation_2 = "api_test_transformation2";
         protected static $api_test_transformation_3 = "api_test_transformation3";
+
+        protected static $api_test_metadata_field = UNIQUE_TEST_METADATA_FIELD;
 
         protected static $crop_transformation = array('crop' => 'crop', 'width' => 100);
         protected static $crop_transformation_str = 'c_crop,w_100';
@@ -43,8 +53,6 @@ namespace Cloudinary {
         protected static $streaming_profile_1;
         protected static $streaming_profile_2;
 
-
-
         const URL_QUERY_REGEX = "\??(\w+=\w*&?)*";
 
         /** @var  \Cloudinary\Api $api */
@@ -58,18 +66,25 @@ namespace Cloudinary {
 
             Curl::$instance = new Curl();
 
+            $api = new Cloudinary\Api();
+
             self::$api_test_tag = UNIQUE_TEST_TAG;
 
-            self::$api_test = "api_test" . SUFFIX;
-            self::$api_test_2 = "api_test2" . SUFFIX;
-            self::$api_test_3 = "api_test,3" . SUFFIX;
-            self::$api_test_4 = "api_test4" . SUFFIX;
-            self::$api_test_5 = "api_test5" . SUFFIX;
+            self::$api_test = API_TEST_PREFIX . SUFFIX;
+            self::$api_test_2 = API_TEST_PREFIX . "2" . SUFFIX;
+            self::$api_test_3 = API_TEST_PREFIX . ",3" . SUFFIX;
+            self::$api_test_4 = API_TEST_PREFIX . "4" . SUFFIX;
+            self::$api_test_5 = API_TEST_PREFIX . "5" . SUFFIX;
 
-            self::$api_test_transformation = "api_test_transformation" . SUFFIX;
-            self::$api_test_transformation_2 = "api_test_transformation2" . SUFFIX;
-            self::$api_test_transformation_3 = "api_test_transformation3" . SUFFIX;
+            self::$api_test_transformation = API_TEST_PREFIX . "_transformation" . SUFFIX;
+            self::$api_test_transformation_2 = API_TEST_PREFIX . "_transformation2" . SUFFIX;
+            self::$api_test_transformation_3 = API_TEST_PREFIX . "_transformation3" . SUFFIX;
 
+            self::$backup_1_public_id = API_TEST_PREFIX . "_resources_backup_public_id_1_" . SUFFIX;
+            self::$backup_2_public_id = API_TEST_PREFIX . "_resources_backup_public_id_2_" . SUFFIX;
+            self::$backup_3_public_id = API_TEST_PREFIX . "_resources_backup_public_id_3_" . SUFFIX;
+
+            self::create_metadata_field($api);
             self::upload_sample_resources();
 
             self::$transformations = array(self::$crop_transformation, self::$scale_transformation);
@@ -85,7 +100,7 @@ namespace Cloudinary {
             self::$streaming_profile_2 = self::$api_test . "_streaming_profile_2";
         }
 
-        public function tearDown()
+        protected function tearDown()
         {
             Curl::$instance = new Curl();
         }
@@ -101,8 +116,8 @@ namespace Cloudinary {
             self::delete_resources($api);
             self::delete_transformations($api);
             self::delete_streaming_profiles($api);
+            self::delete_metadata_field($api);
         }
-
 
         /**
          * Delete all test related resources
@@ -158,6 +173,43 @@ namespace Cloudinary {
                 }
             }
         }
+
+        /**
+         * Delete the metadata field created for test purposes
+         *
+         * @param \Cloudinary\Api $api
+         */
+        protected static function delete_metadata_field($api)
+        {
+            $metadata_field = self::$api_test_metadata_field;
+            try {
+                $api->delete_metadata_field($metadata_field);
+            } catch (Exception $e) {
+                error_log("Failed to delete the metadata field. Reason for failure: " . $e->getMessage());
+            }
+        }
+
+        /**
+         * Create a single mandatory metadata field with a default value.
+         * It should run before upload_sample_resources() and is required for some metadata tests.
+         *
+         * @param \Cloudinary\Api $api
+         *
+         * @throws Api\GeneralError
+         */
+        protected static function create_metadata_field($api)
+        {
+            $api->add_metadata_field(
+                array(
+                    "external_id" => self::$api_test_metadata_field,
+                    "label" => self::$api_test_metadata_field,
+                    "type" => "string",
+                    "mandatory" => "true",
+                    "default_value" => UNIQUE_TEST_METADATA_FIELD_DEFAULT_VALUE
+                )
+            );
+        }
+
         /**
          * Upload sample resources. These resources need to be present for some of the tests to work.
          */
@@ -168,7 +220,7 @@ namespace Cloudinary {
                 array(
                     "public_id" => self::$api_test,
                     "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),
-                    "context" => "key=value",
+                    "context" => TEST_CONTEXT,
                     "eager" => array("transformation" => self::$crop_transformation),
                 )
             );
@@ -177,8 +229,42 @@ namespace Cloudinary {
                 array(
                     "public_id" => self::$api_test_2,
                     "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),
-                    "context" => "key=value",
+                    "context" => TEST_CONTEXT,
                     "eager" => array("transformation" => self::$scale_transformation),
+                )
+            );
+            self::$backup_1_resource_first = Uploader::upload(
+                TEST_IMG,
+                array(
+                    "public_id" => self::$backup_1_public_id,
+                    "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),
+                    "backup" => true
+                )
+            );
+            self::$backup_1_resource_second = Uploader::upload(
+                TEST_IMG,
+                array(
+                    "public_id" => self::$backup_1_public_id,
+                    "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),
+                    "backup" => true,
+                    "transformation" => array('angle' => 0),
+                )
+            );
+            self::$backup_2_resource = Uploader::upload(
+                TEST_IMG,
+                array(
+                    "public_id" => self::$backup_2_public_id,
+                    "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),
+                    "backup" => true,
+                )
+            );
+            self::$backup_3_resource = Uploader::upload(
+                TEST_IMG,
+                array(
+                    "public_id" => self::$backup_3_public_id,
+                    "tags" => array(TEST_TAG, UNIQUE_TEST_TAG),
+                    "backup" => true,
+                    "transformation" => array('angle' => 0),
                 )
             );
         }
@@ -387,6 +473,16 @@ namespace Cloudinary {
             $resource = $this->api->resource(self::$api_test, ["quality_analysis" => true]);
             $this->assertArrayHasKey("quality_analysis", $resource);
             $this->assertInternalType("double", $resource["quality_analysis"]["focus"]);
+        }
+
+        /**
+         * Gets resource backups
+         */
+        public function test_resource_backup()
+        {
+            $resource = $this->api->resource(self::$api_test, ['versions' => true]);
+
+            $this->assertGreaterThanOrEqual(1, $resource['versions']);
         }
 
         /**
@@ -811,14 +907,28 @@ namespace Cloudinary {
         }
 
         /**
-         * Should allow listing resource_types
+         * Should return account usage details
          *
          * @throws Api\GeneralError
          */
         public function test18_usage()
         {
             $result = $this->api->usage();
-            $this->assertNotEquals($result["last_updated"], null);
+            self::assertUsageResult($result);
+        }
+
+        /**
+         * Should return usage values for a specific date
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_usage_by_date()
+        {
+            $result = $this->api->usage(array('date' => date('d-m-Y', strtotime("-1 days"))));
+            self::assertUsageResult($result);
+            //verify the structure of the response is that of a single day.
+            $this->assertArrayNotHasKey('limit', $result['bandwidth']);
+            $this->assertArrayNotHasKey('used_percent', $result['bandwidth']);
         }
 
         /**
@@ -985,12 +1095,20 @@ namespace Cloudinary {
         public function test28_create_upload_presets()
         {
             Curl::mockApi($this);
-            $this->api->create_upload_preset(array("name" => TEST_PRESET_NAME, "folder" => "folder", "live" => true));
+            $this->api->create_upload_preset(
+                array(
+                    "name" => TEST_PRESET_NAME,
+                    "folder" => "folder",
+                    "live" => true,
+                    "eval" => TEST_EVAL_STR
+                )
+            );
             assertUrl($this, "/upload_presets");
             assertPost($this);
             assertParam($this, "name", TEST_PRESET_NAME);
             assertParam($this, "folder", "folder");
             assertParam($this, "live", 1);
+            assertParam($this, "eval", TEST_EVAL_STR);
         }
 
         /**
@@ -1042,7 +1160,13 @@ namespace Cloudinary {
             Curl::mockApi($this);
             $this->api->update_upload_preset(
                 TEST_PRESET_NAME,
-                array("colors" => true, "unsigned" => true, "disallow_public_id" => true, "live" => true)
+                array(
+                    "colors" => true,
+                    "unsigned" => true,
+                    "disallow_public_id" => true,
+                    "live" => true,
+                    "eval" => TEST_EVAL_STR
+                )
             );
             assertPut($this);
             assertUrl($this, "/upload_presets/" . TEST_PRESET_NAME);
@@ -1050,6 +1174,7 @@ namespace Cloudinary {
             assertParam($this, "unsigned", 1);
             assertParam($this, "disallow_public_id", 1);
             assertParam($this, "live", 1);
+            assertParam($this, "eval", TEST_EVAL_STR);
         }
 
         /**
@@ -1170,7 +1295,12 @@ namespace Cloudinary {
             $this->api->restore(array("api_test_restore"));
             assertPost($this);
             assertUrl($this, "/resources/image/upload/restore");
-            assertParam($this, "public_ids[0]", "api_test_restore");
+            assertEncodedRequestFields(
+                $this,
+                [
+                    'public_ids' => ['api_test_restore']
+                ]
+            );
         }
 
         /**
@@ -1408,6 +1538,226 @@ namespace Cloudinary {
             foreach ($tags as $index => $tag) {
                 $this->api->resources_by_tag($tag);
                 assertUrl($this, "/resources/image/tags/" . $expected_tags[$index]);
+            }
+        }
+
+        /**
+         * Get accessibility analysis of an an uploaded image
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_resource_accessibility_analysis()
+        {
+            $resource = $this->api->resource(self::$api_test, ["accessibility_analysis" => true]);
+
+            $this->assertArrayHasKey('accessibility_analysis', $resource);
+        }
+
+        /**
+         * Should allow the user to pass accessibility_analysis in the create_upload_preset function.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_create_upload_preset_with_accessibility_analysis()
+        {
+            Curl::mockApi($this);
+
+            $this->api->create_upload_preset(array('accessibility_analysis' => true));
+
+            assertParam($this, 'accessibility_analysis', 1);
+        }
+
+        /**
+         * Should allow the user to pass accessibility_analysis in the resource function.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_accessibility_analysis_resource()
+        {
+            Curl::mockApi($this);
+
+            $this->api->resource(self::$api_test, ['accessibility_analysis' => true]);
+
+            assertParam($this, 'accessibility_analysis', 1);
+        }
+
+        /**
+         * Should allow the user to pass metadata in the resources API.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_structured_metadata_in_resources()
+        {
+            $result = $this->api->resources(["prefix" => API_TEST_PREFIX, "type" => "upload", "metadata" => true]);
+
+            foreach($result['resources'] as $resource) {
+                $this->assertArrayHasKey('metadata', $resource);
+            }
+
+            $result = $this->api->resources(["prefix" => API_TEST_PREFIX, "type" => "upload", "metadata" => false]);
+
+            foreach($result['resources'] as $resource) {
+                $this->assertArrayNotHasKey('metadata', $resource);
+            }
+        }
+
+        /**
+         * Should allow the user to pass metadata in the resources_by_tag API.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_structured_metadata_in_resources_by_tag()
+        {
+            $result = $this->api->resources_by_tag(self::$api_test_tag, ["metadata" => true]);
+
+            foreach($result['resources'] as $resource){
+                $this->assertArrayHasKey('metadata', $resource);
+            }
+
+            $result = $this->api->resources_by_tag(self::$api_test_tag, ["metadata" => false]);
+
+            foreach($result['resources'] as $resource){
+                $this->assertArrayNotHasKey('metadata', $resource);
+            }
+        }
+
+        /**
+         * Should allow the user to pass metadata in the resources_by_context API.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_structured_metadata_in_resources_by_context()
+        {
+            $result = $this->api->resources_by_context(TEST_CONTEXT, ["metadata" => true]);
+
+            foreach($result['resources'] as $resource){
+                $this->assertArrayHasKey('metadata', $resource);
+            }
+
+            $result = $this->api->resources_by_context(TEST_CONTEXT, ["metadata" => false]);
+
+            foreach($result['resources'] as $resource){
+                $this->assertArrayNotHasKey('metadata', $resource);
+            }
+        }
+
+        /**
+         * Should allow the user to pass metadata in the resources_by_moderation API.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_structured_metadata_in_resources_by_moderation()
+        {
+            $result = $this->api->resources_by_moderation("manual", "approved", ["metadata" => true]);
+
+            foreach ($result['resources'] as $resource) {
+                $this->assertArrayHasKey('metadata', $resource);
+            }
+
+            $result = $this->api->resources_by_moderation("manual", "approved", ["metadata" => false]);
+
+            foreach ($result['resources'] as $resource) {
+                $this->assertArrayNotHasKey('metadata', $resource);
+            }
+        }
+
+        /**
+         * Restore different versions of a deleted asset.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_restore_deleted_resource_different_versions()
+        {
+            $delete_result = $this->api->delete_resources([self::$backup_1_public_id]);
+
+            self::assertEquals('deleted', $delete_result['deleted'][self::$backup_1_public_id]);
+            self::assertEquals('deleted', $delete_result['deleted'][self::$backup_1_public_id]);
+            self::assertNotEquals(self::$backup_1_resource_first['bytes'], self::$backup_1_resource_second['bytes']);
+
+            $resource = $this->api->resource(self::$backup_1_public_id, ['versions' => true]);
+
+            $restore_first_result = $this->api->restore(
+                [
+                    self::$backup_1_public_id
+                ],
+                [
+                    'versions' => [$resource['versions'][0]['version_id']]
+                ]
+            );
+            $restore_second_result = $this->api->restore(
+                [
+                    self::$backup_1_public_id
+                ],
+                [
+                    'versions' => [$resource['versions'][1]['version_id']]
+                ]
+            );
+
+            $this->assertEquals(
+                $restore_first_result[self::$backup_1_public_id]['bytes'],
+                self::$backup_1_resource_first['bytes']
+            );
+            $this->assertEquals(
+                $restore_second_result[self::$backup_1_public_id]['bytes'],
+                self::$backup_1_resource_second['bytes']
+            );
+        }
+
+        /**
+         * Restore two different deleted assets.
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_restore_different_deleted_resources()
+        {
+            $delete_result = $this->api->delete_resources([self::$backup_2_public_id, self::$backup_3_public_id]);
+
+            self::assertEquals('deleted', $delete_result['deleted'][self::$backup_2_public_id]);
+            self::assertEquals('deleted', $delete_result['deleted'][self::$backup_3_public_id]);
+
+            $second_resource = $this->api->resource(self::$backup_2_public_id, ['versions' => true]);
+            $third_resource = $this->api->resource(self::$backup_3_public_id, ['versions' => true]);
+
+            $restoreResult = $this->api->restore(
+                [
+                    self::$backup_2_public_id,
+                    self::$backup_3_public_id
+                ],
+                [
+                    'versions' => [
+                        $second_resource['versions'][0]['version_id'],
+                        $third_resource['versions'][0]['version_id']
+                    ]
+                ]
+            );
+
+            $this->assertEquals($restoreResult[self::$backup_2_public_id]['bytes'], self::$backup_2_resource['bytes']);
+            $this->assertEquals($restoreResult[self::$backup_3_public_id]['bytes'], self::$backup_3_resource['bytes']);
+        }
+
+        /**
+         * Asserts a valid usage api response.
+         *
+         * @param Api\Response $result returned from a usage api request.
+         */
+
+        private static function assertUsageResult($result)
+        {
+            self::assertNotEmpty($result);
+            $keys = array(
+                'plan',
+                'last_updated',
+                'transformations',
+                'objects',
+                'bandwidth',
+                'storage',
+                'requests',
+                'resources',
+                'derived_resources',
+                'media_limits'
+            );
+            foreach ($keys as $key) {
+                self::assertArrayHasKey($key, $result);
             }
         }
     }

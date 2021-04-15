@@ -44,18 +44,17 @@ class GraphTest extends TestCase
         $graph->setBaseUrl('url2');
 
         $request = $graph->createRequest("GET", "/me");
-        $requestUrl = $this->readAttribute($request, 'baseUrl');
-        $this->assertEquals('url2', $requestUrl);
+        $this->assertEquals('url2', $request->getBaseUrl());
     }
 
     public function testBetaRequest()
     {
         $graph = new Graph();
         $graph->setAccessToken('abc')
-              ->setApiVersion('/beta');
+              ->setApiVersion('beta');
         $request = $graph->createRequest("GET", "/me");
 
-        $this->assertEquals('/beta', $this->readAttribute($request, 'apiVersion'));
+        $this->assertEquals('beta', $request->getApiVersion());
     }
 
     public function testMultipleGraphObjects()
@@ -65,12 +64,12 @@ class GraphTest extends TestCase
 
         $graph->setAccessToken('abc');
         $graph2->setAccessToken('abc');
-        $graph2->setApiVersion('/beta');
+        $graph2->setApiVersion('beta');
 
         $request = $graph->createRequest("GET", "/me");
         $request2 = $graph2->createRequest("GET", "/me");
 
-        $this->assertEquals(GraphConstants::API_VERSION, $this->readAttribute($request, 'apiVersion'));
-        $this->assertEquals('/beta', $this->readAttribute($request2, 'apiVersion'));
+        $this->assertEquals(GraphConstants::API_VERSION, $request->getApiVersion());
+        $this->assertEquals('beta', $request2->getApiVersion());
     }
 }

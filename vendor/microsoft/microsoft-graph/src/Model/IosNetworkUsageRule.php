@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,45 +17,39 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosNetworkUsageRule extends Entity
 {
-
     /**
-    * Gets the managedApps
-    * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+    * Gets the cellularDataBlocked
+    * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
     *
-    * @return AppListItem The managedApps
+    * @return bool The cellularDataBlocked
     */
-    public function getManagedApps()
+    public function getCellularDataBlocked()
     {
-        if (array_key_exists("managedApps", $this->_propDict)) {
-            if (is_a($this->_propDict["managedApps"], "Microsoft\Graph\Model\AppListItem")) {
-                return $this->_propDict["managedApps"];
-            } else {
-                $this->_propDict["managedApps"] = new AppListItem($this->_propDict["managedApps"]);
-                return $this->_propDict["managedApps"];
-            }
+        if (array_key_exists("cellularDataBlocked", $this->_propDict)) {
+            return $this->_propDict["cellularDataBlocked"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
-    * Sets the managedApps
-    * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+    * Sets the cellularDataBlocked
+    * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
     *
-    * @param AppListItem $val The value to assign to the managedApps
+    * @param bool $val The value of the cellularDataBlocked
     *
-    * @return IosNetworkUsageRule The IosNetworkUsageRule
+    * @return IosNetworkUsageRule
     */
-    public function setManagedApps($val)
+    public function setCellularDataBlocked($val)
     {
-        $this->_propDict["managedApps"] = $val;
-         return $this;
+        $this->_propDict["cellularDataBlocked"] = $val;
+        return $this;
     }
     /**
     * Gets the cellularDataBlockWhenRoaming
@@ -86,32 +79,37 @@ class IosNetworkUsageRule extends Entity
         $this->_propDict["cellularDataBlockWhenRoaming"] = $val;
         return $this;
     }
+
     /**
-    * Gets the cellularDataBlocked
-    * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
+    * Gets the managedApps
+    * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
     *
-    * @return bool The cellularDataBlocked
+    * @return AppListItem The managedApps
     */
-    public function getCellularDataBlocked()
+    public function getManagedApps()
     {
-        if (array_key_exists("cellularDataBlocked", $this->_propDict)) {
-            return $this->_propDict["cellularDataBlocked"];
-        } else {
-            return null;
+        if (array_key_exists("managedApps", $this->_propDict)) {
+            if (is_a($this->_propDict["managedApps"], "\Microsoft\Graph\Model\AppListItem")) {
+                return $this->_propDict["managedApps"];
+            } else {
+                $this->_propDict["managedApps"] = new AppListItem($this->_propDict["managedApps"]);
+                return $this->_propDict["managedApps"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the cellularDataBlocked
-    * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
+    * Sets the managedApps
+    * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
     *
-    * @param bool $val The value of the cellularDataBlocked
+    * @param AppListItem $val The value to assign to the managedApps
     *
-    * @return IosNetworkUsageRule
+    * @return IosNetworkUsageRule The IosNetworkUsageRule
     */
-    public function setCellularDataBlocked($val)
+    public function setManagedApps($val)
     {
-        $this->_propDict["cellularDataBlocked"] = $val;
-        return $this;
+        $this->_propDict["managedApps"] = $val;
+         return $this;
     }
 }

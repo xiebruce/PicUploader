@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosHomeScreenFolder extends IosHomeScreenItem
 {
@@ -37,14 +35,14 @@ class IosHomeScreenFolder extends IosHomeScreenItem
 
     /**
     * Gets the pages
-    * Pages of Home Screen Layout Icons which must be Application Type. This collection can contain a maximum of 500 elements.
+    * Pages of Home Screen Layout Icons which must be applications or web clips. This collection can contain a maximum of 500 elements.
     *
     * @return IosHomeScreenFolderPage The pages
     */
     public function getPages()
     {
         if (array_key_exists("pages", $this->_propDict)) {
-            if (is_a($this->_propDict["pages"], "Microsoft\Graph\Model\IosHomeScreenFolderPage")) {
+            if (is_a($this->_propDict["pages"], "\Microsoft\Graph\Model\IosHomeScreenFolderPage")) {
                 return $this->_propDict["pages"];
             } else {
                 $this->_propDict["pages"] = new IosHomeScreenFolderPage($this->_propDict["pages"]);
@@ -56,7 +54,7 @@ class IosHomeScreenFolder extends IosHomeScreenItem
 
     /**
     * Sets the pages
-    * Pages of Home Screen Layout Icons which must be Application Type. This collection can contain a maximum of 500 elements.
+    * Pages of Home Screen Layout Icons which must be applications or web clips. This collection can contain a maximum of 500 elements.
     *
     * @param IosHomeScreenFolderPage $val The value to assign to the pages
     *

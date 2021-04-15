@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class WindowsInformationProtectionIPRangeCollection extends Entity
 {
@@ -56,14 +54,14 @@ class WindowsInformationProtectionIPRangeCollection extends Entity
 
     /**
     * Gets the ranges
-    * Collection of Internet protocol address ranges
+    * Collection of ip ranges
     *
     * @return IpRange The ranges
     */
     public function getRanges()
     {
         if (array_key_exists("ranges", $this->_propDict)) {
-            if (is_a($this->_propDict["ranges"], "Microsoft\Graph\Model\IpRange")) {
+            if (is_a($this->_propDict["ranges"], "\Microsoft\Graph\Model\IpRange")) {
                 return $this->_propDict["ranges"];
             } else {
                 $this->_propDict["ranges"] = new IpRange($this->_propDict["ranges"]);
@@ -75,7 +73,7 @@ class WindowsInformationProtectionIPRangeCollection extends Entity
 
     /**
     * Sets the ranges
-    * Collection of Internet protocol address ranges
+    * Collection of ip ranges
     *
     * @param IpRange $val The value to assign to the ranges
     *

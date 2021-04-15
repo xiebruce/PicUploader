@@ -48,7 +48,7 @@ class HelpersTest extends TestCase
         }
     }
 
-    public function setUp()
+    protected function setUp()
     {
         Curl::$instance = new Curl();
     }
@@ -102,5 +102,44 @@ class HelpersTest extends TestCase
 
         $this->assertTrue(is_array($actual_breakpoints));
         $this->assertGreaterThan(0, count($actual_breakpoints));
+    }
+
+    /**
+     * Should return a true for addons that need to be tested or false otherwise.
+     */
+    public function test_should_test_add_on()
+    {
+        $cld_test_addons = getenv('CLD_TEST_ADDONS');
+
+        putenv('CLD_TEST_ADDONS');
+
+        $this->assertFalse(AddOn::should_test_add_on(AddOn::WEBPURIFY));
+
+        putenv('CLD_TEST_ADDONS=all');
+
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::WEBPURIFY));
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::JPEGMINI));
+
+        putenv('CLD_TEST_ADDONS=webpurify');
+
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::WEBPURIFY));
+
+        putenv('CLD_TEST_ADDONS=webpurify,aspose');
+
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::WEBPURIFY));
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::ASPOSE));
+        $this->assertFalse(AddOn::should_test_add_on(AddOn::AZURE));
+
+        putenv('CLD_TEST_ADDONS=WeBPuRiFY,aSPoSe');
+
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::WEBPURIFY));
+        $this->assertTrue(AddOn::should_test_add_on(AddOn::ASPOSE));
+        $this->assertFalse(AddOn::should_test_add_on(AddOn::AZURE));
+
+        if ($cld_test_addons !== false) {
+            putenv('CLD_TEST_ADDONS=' . $cld_test_addons);
+        } else {
+            putenv('CLD_TEST_ADDONS');
+        }
     }
 }

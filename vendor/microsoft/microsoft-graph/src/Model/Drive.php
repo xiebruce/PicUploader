@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Drive extends BaseItem
 {
@@ -64,7 +62,7 @@ class Drive extends BaseItem
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
-            if (is_a($this->_propDict["owner"], "Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["owner"], "\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["owner"];
             } else {
                 $this->_propDict["owner"] = new IdentitySet($this->_propDict["owner"]);
@@ -97,7 +95,7 @@ class Drive extends BaseItem
     public function getQuota()
     {
         if (array_key_exists("quota", $this->_propDict)) {
-            if (is_a($this->_propDict["quota"], "Microsoft\Graph\Model\Quota")) {
+            if (is_a($this->_propDict["quota"], "\Microsoft\Graph\Model\Quota")) {
                 return $this->_propDict["quota"];
             } else {
                 $this->_propDict["quota"] = new Quota($this->_propDict["quota"]);
@@ -129,7 +127,7 @@ class Drive extends BaseItem
     public function getSharePointIds()
     {
         if (array_key_exists("sharePointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharePointIds"], "Microsoft\Graph\Model\SharepointIds")) {
+            if (is_a($this->_propDict["sharePointIds"], "\Microsoft\Graph\Model\SharepointIds")) {
                 return $this->_propDict["sharePointIds"];
             } else {
                 $this->_propDict["sharePointIds"] = new SharepointIds($this->_propDict["sharePointIds"]);
@@ -161,7 +159,7 @@ class Drive extends BaseItem
     public function getSystem()
     {
         if (array_key_exists("system", $this->_propDict)) {
-            if (is_a($this->_propDict["system"], "Microsoft\Graph\Model\SystemFacet")) {
+            if (is_a($this->_propDict["system"], "\Microsoft\Graph\Model\SystemFacet")) {
                 return $this->_propDict["system"];
             } else {
                 $this->_propDict["system"] = new SystemFacet($this->_propDict["system"]);
@@ -182,6 +180,36 @@ class Drive extends BaseItem
     public function setSystem($val)
     {
         $this->_propDict["system"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the following
+    * The list of items the user is following. Only in OneDrive for Business.
+     *
+     * @return array The following
+     */
+    public function getFollowing()
+    {
+        if (array_key_exists("following", $this->_propDict)) {
+           return $this->_propDict["following"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the following
+    * The list of items the user is following. Only in OneDrive for Business.
+    *
+    * @param DriveItem $val The following
+    *
+    * @return Drive
+    */
+    public function setFollowing($val)
+    {
+		$this->_propDict["following"] = $val;
         return $this;
     }
     
@@ -224,7 +252,7 @@ class Drive extends BaseItem
     public function getList()
     {
         if (array_key_exists("list", $this->_propDict)) {
-            if (is_a($this->_propDict["list"], "Microsoft\Graph\Model\List")) {
+            if (is_a($this->_propDict["list"], "\Microsoft\Graph\Model\GraphList")) {
                 return $this->_propDict["list"];
             } else {
                 $this->_propDict["list"] = new GraphList($this->_propDict["list"]);
@@ -257,7 +285,7 @@ class Drive extends BaseItem
     public function getRoot()
     {
         if (array_key_exists("root", $this->_propDict)) {
-            if (is_a($this->_propDict["root"], "Microsoft\Graph\Model\DriveItem")) {
+            if (is_a($this->_propDict["root"], "\Microsoft\Graph\Model\DriveItem")) {
                 return $this->_propDict["root"];
             } else {
                 $this->_propDict["root"] = new DriveItem($this->_propDict["root"]);

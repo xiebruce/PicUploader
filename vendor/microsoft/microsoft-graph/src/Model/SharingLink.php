@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class SharingLink extends Entity
 {
@@ -35,7 +33,7 @@ class SharingLink extends Entity
     public function getApplication()
     {
         if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "Microsoft\Graph\Model\Identity")) {
+            if (is_a($this->_propDict["application"], "\Microsoft\Graph\Model\Identity")) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new Identity($this->_propDict["application"]);
@@ -57,6 +55,34 @@ class SharingLink extends Entity
     {
         $this->_propDict["application"] = $val;
          return $this;
+    }
+    /**
+    * Gets the preventsDownload
+    * If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
+    *
+    * @return bool The preventsDownload
+    */
+    public function getPreventsDownload()
+    {
+        if (array_key_exists("preventsDownload", $this->_propDict)) {
+            return $this->_propDict["preventsDownload"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the preventsDownload
+    * If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
+    *
+    * @param bool $val The value of the preventsDownload
+    *
+    * @return SharingLink
+    */
+    public function setPreventsDownload($val)
+    {
+        $this->_propDict["preventsDownload"] = $val;
+        return $this;
     }
     /**
     * Gets the scope
@@ -112,6 +138,34 @@ class SharingLink extends Entity
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the webHtml
+    * For embed links, this property contains the HTML code for an &amp;lt;iframe&amp;gt; element that will embed the item in a webpage.
+    *
+    * @return string The webHtml
+    */
+    public function getWebHtml()
+    {
+        if (array_key_exists("webHtml", $this->_propDict)) {
+            return $this->_propDict["webHtml"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the webHtml
+    * For embed links, this property contains the HTML code for an &amp;lt;iframe&amp;gt; element that will embed the item in a webpage.
+    *
+    * @param string $val The value of the webHtml
+    *
+    * @return SharingLink
+    */
+    public function setWebHtml($val)
+    {
+        $this->_propDict["webHtml"] = $val;
         return $this;
     }
     /**

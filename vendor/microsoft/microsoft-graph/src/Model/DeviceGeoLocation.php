@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,102 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceGeoLocation extends Entity
 {
-
-    /**
-    * Gets the lastCollectedDateTime
-    * Time at which location was recorded, relative to UTC
-    *
-    * @return \DateTime The lastCollectedDateTime
-    */
-    public function getLastCollectedDateTime()
-    {
-        if (array_key_exists("lastCollectedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCollectedDateTime"], "Microsoft\Graph\Model\\DateTime")) {
-                return $this->_propDict["lastCollectedDateTime"];
-            } else {
-                $this->_propDict["lastCollectedDateTime"] = new \DateTime($this->_propDict["lastCollectedDateTime"]);
-                return $this->_propDict["lastCollectedDateTime"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the lastCollectedDateTime
-    * Time at which location was recorded, relative to UTC
-    *
-    * @param \DateTime $val The value to assign to the lastCollectedDateTime
-    *
-    * @return DeviceGeoLocation The DeviceGeoLocation
-    */
-    public function setLastCollectedDateTime($val)
-    {
-        $this->_propDict["lastCollectedDateTime"] = $val;
-         return $this;
-    }
-    /**
-    * Gets the longitude
-    * Longitude coordinate of the device's location
-    *
-    * @return float The longitude
-    */
-    public function getLongitude()
-    {
-        if (array_key_exists("longitude", $this->_propDict)) {
-            return $this->_propDict["longitude"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the longitude
-    * Longitude coordinate of the device's location
-    *
-    * @param float $val The value of the longitude
-    *
-    * @return DeviceGeoLocation
-    */
-    public function setLongitude($val)
-    {
-        $this->_propDict["longitude"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the latitude
-    * Latitude coordinate of the device's location
-    *
-    * @return float The latitude
-    */
-    public function getLatitude()
-    {
-        if (array_key_exists("latitude", $this->_propDict)) {
-            return $this->_propDict["latitude"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the latitude
-    * Latitude coordinate of the device's location
-    *
-    * @param float $val The value of the latitude
-    *
-    * @return DeviceGeoLocation
-    */
-    public function setLatitude($val)
-    {
-        $this->_propDict["latitude"] = $val;
-        return $this;
-    }
     /**
     * Gets the altitude
     * Altitude, given in meters above sea level
@@ -140,62 +49,6 @@ class DeviceGeoLocation extends Entity
     public function setAltitude($val)
     {
         $this->_propDict["altitude"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the horizontalAccuracy
-    * Accuracy of longitude and latitude in meters
-    *
-    * @return float The horizontalAccuracy
-    */
-    public function getHorizontalAccuracy()
-    {
-        if (array_key_exists("horizontalAccuracy", $this->_propDict)) {
-            return $this->_propDict["horizontalAccuracy"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the horizontalAccuracy
-    * Accuracy of longitude and latitude in meters
-    *
-    * @param float $val The value of the horizontalAccuracy
-    *
-    * @return DeviceGeoLocation
-    */
-    public function setHorizontalAccuracy($val)
-    {
-        $this->_propDict["horizontalAccuracy"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the verticalAccuracy
-    * Accuracy of altitude in meters
-    *
-    * @return float The verticalAccuracy
-    */
-    public function getVerticalAccuracy()
-    {
-        if (array_key_exists("verticalAccuracy", $this->_propDict)) {
-            return $this->_propDict["verticalAccuracy"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the verticalAccuracy
-    * Accuracy of altitude in meters
-    *
-    * @param float $val The value of the verticalAccuracy
-    *
-    * @return DeviceGeoLocation
-    */
-    public function setVerticalAccuracy($val)
-    {
-        $this->_propDict["verticalAccuracy"] = $val;
         return $this;
     }
     /**
@@ -227,6 +80,123 @@ class DeviceGeoLocation extends Entity
         return $this;
     }
     /**
+    * Gets the horizontalAccuracy
+    * Accuracy of longitude and latitude in meters
+    *
+    * @return float The horizontalAccuracy
+    */
+    public function getHorizontalAccuracy()
+    {
+        if (array_key_exists("horizontalAccuracy", $this->_propDict)) {
+            return $this->_propDict["horizontalAccuracy"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the horizontalAccuracy
+    * Accuracy of longitude and latitude in meters
+    *
+    * @param float $val The value of the horizontalAccuracy
+    *
+    * @return DeviceGeoLocation
+    */
+    public function setHorizontalAccuracy($val)
+    {
+        $this->_propDict["horizontalAccuracy"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the lastCollectedDateTime
+    * Time at which location was recorded, relative to UTC
+    *
+    * @return \DateTime The lastCollectedDateTime
+    */
+    public function getLastCollectedDateTime()
+    {
+        if (array_key_exists("lastCollectedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastCollectedDateTime"], "\DateTime")) {
+                return $this->_propDict["lastCollectedDateTime"];
+            } else {
+                $this->_propDict["lastCollectedDateTime"] = new \DateTime($this->_propDict["lastCollectedDateTime"]);
+                return $this->_propDict["lastCollectedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lastCollectedDateTime
+    * Time at which location was recorded, relative to UTC
+    *
+    * @param \DateTime $val The value to assign to the lastCollectedDateTime
+    *
+    * @return DeviceGeoLocation The DeviceGeoLocation
+    */
+    public function setLastCollectedDateTime($val)
+    {
+        $this->_propDict["lastCollectedDateTime"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the latitude
+    * Latitude coordinate of the device's location
+    *
+    * @return float The latitude
+    */
+    public function getLatitude()
+    {
+        if (array_key_exists("latitude", $this->_propDict)) {
+            return $this->_propDict["latitude"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the latitude
+    * Latitude coordinate of the device's location
+    *
+    * @param float $val The value of the latitude
+    *
+    * @return DeviceGeoLocation
+    */
+    public function setLatitude($val)
+    {
+        $this->_propDict["latitude"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the longitude
+    * Longitude coordinate of the device's location
+    *
+    * @return float The longitude
+    */
+    public function getLongitude()
+    {
+        if (array_key_exists("longitude", $this->_propDict)) {
+            return $this->_propDict["longitude"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the longitude
+    * Longitude coordinate of the device's location
+    *
+    * @param float $val The value of the longitude
+    *
+    * @return DeviceGeoLocation
+    */
+    public function setLongitude($val)
+    {
+        $this->_propDict["longitude"] = $val;
+        return $this;
+    }
+    /**
     * Gets the speed
     * Speed the device is traveling in meters per second
     *
@@ -252,6 +222,34 @@ class DeviceGeoLocation extends Entity
     public function setSpeed($val)
     {
         $this->_propDict["speed"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the verticalAccuracy
+    * Accuracy of altitude in meters
+    *
+    * @return float The verticalAccuracy
+    */
+    public function getVerticalAccuracy()
+    {
+        if (array_key_exists("verticalAccuracy", $this->_propDict)) {
+            return $this->_propDict["verticalAccuracy"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the verticalAccuracy
+    * Accuracy of altitude in meters
+    *
+    * @param float $val The value of the verticalAccuracy
+    *
+    * @return DeviceGeoLocation
+    */
+    public function setVerticalAccuracy($val)
+    {
+        $this->_propDict["verticalAccuracy"] = $val;
         return $this;
     }
 }

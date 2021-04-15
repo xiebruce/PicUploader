@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OnPremisesConditionalAccessSettings extends Entity
 {
@@ -56,35 +54,6 @@ class OnPremisesConditionalAccessSettings extends Entity
     }
     
     /**
-    * Gets the includedGroups
-    * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-    *
-    * @return string The includedGroups
-    */
-    public function getIncludedGroups()
-    {
-        if (array_key_exists("includedGroups", $this->_propDict)) {
-            return $this->_propDict["includedGroups"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the includedGroups
-    * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-    *
-    * @param string $val The includedGroups
-    *
-    * @return OnPremisesConditionalAccessSettings
-    */
-    public function setIncludedGroups($val)
-    {
-        $this->_propDict["includedGroups"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the excludedGroups
     * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
     *
@@ -110,6 +79,35 @@ class OnPremisesConditionalAccessSettings extends Entity
     public function setExcludedGroups($val)
     {
         $this->_propDict["excludedGroups"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the includedGroups
+    * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+    *
+    * @return string The includedGroups
+    */
+    public function getIncludedGroups()
+    {
+        if (array_key_exists("includedGroups", $this->_propDict)) {
+            return $this->_propDict["includedGroups"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the includedGroups
+    * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+    *
+    * @param string $val The includedGroups
+    *
+    * @return OnPremisesConditionalAccessSettings
+    */
+    public function setIncludedGroups($val)
+    {
+        $this->_propDict["includedGroups"] = $val;
         return $this;
     }
     

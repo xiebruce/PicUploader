@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,39 +18,42 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosCustomConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the payloadName
-    * Name that is displayed to the user.
+    * Gets the payload
+    * Payload. (UTF8 encoded byte array)
     *
-    * @return string The payloadName
+    * @return \GuzzleHttp\Psr7\Stream The payload
     */
-    public function getPayloadName()
+    public function getPayload()
     {
-        if (array_key_exists("payloadName", $this->_propDict)) {
-            return $this->_propDict["payloadName"];
-        } else {
-            return null;
+        if (array_key_exists("payload", $this->_propDict)) {
+            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream")) {
+                return $this->_propDict["payload"];
+            } else {
+                $this->_propDict["payload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["payload"]);
+                return $this->_propDict["payload"];
+            }
         }
+        return null;
     }
     
     /**
-    * Sets the payloadName
-    * Name that is displayed to the user.
+    * Sets the payload
+    * Payload. (UTF8 encoded byte array)
     *
-    * @param string $val The payloadName
+    * @param \GuzzleHttp\Psr7\Stream $val The payload
     *
     * @return IosCustomConfiguration
     */
-    public function setPayloadName($val)
+    public function setPayload($val)
     {
-        $this->_propDict["payloadName"] = $val;
+        $this->_propDict["payload"] = $val;
         return $this;
     }
     
@@ -85,35 +87,31 @@ class IosCustomConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the payload
-    * Payload. (UTF8 encoded byte array)
+    * Gets the payloadName
+    * Name that is displayed to the user.
     *
-    * @return \GuzzleHttp\Psr7\Stream The payload
+    * @return string The payloadName
     */
-    public function getPayload()
+    public function getPayloadName()
     {
-        if (array_key_exists("payload", $this->_propDict)) {
-            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream")) {
-                return $this->_propDict["payload"];
-            } else {
-                $this->_propDict["payload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["payload"]);
-                return $this->_propDict["payload"];
-            }
+        if (array_key_exists("payloadName", $this->_propDict)) {
+            return $this->_propDict["payloadName"];
+        } else {
+            return null;
         }
-        return null;
     }
     
     /**
-    * Sets the payload
-    * Payload. (UTF8 encoded byte array)
+    * Sets the payloadName
+    * Name that is displayed to the user.
     *
-    * @param \GuzzleHttp\Psr7\Stream $val The payload
+    * @param string $val The payloadName
     *
     * @return IosCustomConfiguration
     */
-    public function setPayload($val)
+    public function setPayloadName($val)
     {
-        $this->_propDict["payload"] = $val;
+        $this->_propDict["payloadName"] = $val;
         return $this;
     }
     

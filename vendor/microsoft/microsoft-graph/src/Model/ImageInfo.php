@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,65 +17,38 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ImageInfo extends Entity
 {
     /**
-    * Gets the iconUrl
-    * Optional; URI that points to an icon which represents the application used to generate the activity
+    * Gets the addImageQuery
+    * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
     *
-    * @return string The iconUrl
+    * @return bool The addImageQuery
     */
-    public function getIconUrl()
+    public function getAddImageQuery()
     {
-        if (array_key_exists("iconUrl", $this->_propDict)) {
-            return $this->_propDict["iconUrl"];
+        if (array_key_exists("addImageQuery", $this->_propDict)) {
+            return $this->_propDict["addImageQuery"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the iconUrl
-    * Optional; URI that points to an icon which represents the application used to generate the activity
+    * Sets the addImageQuery
+    * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
     *
-    * @param string $val The value of the iconUrl
-    *
-    * @return ImageInfo
-    */
-    public function setIconUrl($val)
-    {
-        $this->_propDict["iconUrl"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the alternativeText
-    *
-    * @return string The alternativeText
-    */
-    public function getAlternativeText()
-    {
-        if (array_key_exists("alternativeText", $this->_propDict)) {
-            return $this->_propDict["alternativeText"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the alternativeText
-    *
-    * @param string $val The value of the alternativeText
+    * @param bool $val The value of the addImageQuery
     *
     * @return ImageInfo
     */
-    public function setAlternativeText($val)
+    public function setAddImageQuery($val)
     {
-        $this->_propDict["alternativeText"] = $val;
+        $this->_propDict["addImageQuery"] = $val;
         return $this;
     }
     /**
@@ -108,31 +80,57 @@ class ImageInfo extends Entity
         return $this;
     }
     /**
-    * Gets the addImageQuery
-    * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
+    * Gets the alternativeText
     *
-    * @return bool The addImageQuery
+    * @return string The alternativeText
     */
-    public function getAddImageQuery()
+    public function getAlternativeText()
     {
-        if (array_key_exists("addImageQuery", $this->_propDict)) {
-            return $this->_propDict["addImageQuery"];
+        if (array_key_exists("alternativeText", $this->_propDict)) {
+            return $this->_propDict["alternativeText"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the addImageQuery
-    * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
+    * Sets the alternativeText
     *
-    * @param bool $val The value of the addImageQuery
+    * @param string $val The value of the alternativeText
     *
     * @return ImageInfo
     */
-    public function setAddImageQuery($val)
+    public function setAlternativeText($val)
     {
-        $this->_propDict["addImageQuery"] = $val;
+        $this->_propDict["alternativeText"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the iconUrl
+    * Optional; URI that points to an icon which represents the application used to generate the activity
+    *
+    * @return string The iconUrl
+    */
+    public function getIconUrl()
+    {
+        if (array_key_exists("iconUrl", $this->_propDict)) {
+            return $this->_propDict["iconUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the iconUrl
+    * Optional; URI that points to an icon which represents the application used to generate the activity
+    *
+    * @param string $val The value of the iconUrl
+    *
+    * @return ImageInfo
+    */
+    public function setIconUrl($val)
+    {
+        $this->_propDict["iconUrl"] = $val;
         return $this;
     }
 }

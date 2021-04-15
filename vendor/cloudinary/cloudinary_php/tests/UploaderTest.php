@@ -2,12 +2,17 @@
 
 namespace Cloudinary {
 
+    require_once('TestHelper.php');
+
     use Cloudinary;
+    use Cloudinary\Api\GeneralError;
+    use Cloudinary\Api\NotFound;
     use Cloudinary\Cache\Adapter\KeyValueCacheAdapter;
     use Cloudinary\Cache\ResponsiveBreakpointsCache;
     use Cloudinary\Test\Cache\Storage\DummyCacheStorage;
     use Exception;
     use PHPUnit\Framework\TestCase;
+    use PHPUnit_Framework_Constraint_IsType as IsType;
 
     /**
      * Class UploaderTest
@@ -23,8 +28,33 @@ namespace Cloudinary {
         protected static $rbp_values = [206, 50];
         protected static $rbp_params;
 
+        private static $metadata_field_unique_external_id;
+        private static $metadata_field_value;
+        private static $metadata_fields;
+
         public static function setUpBeforeClass()
         {
+            Cloudinary::reset_config();
+
+            self::$metadata_field_unique_external_id = 'metadata_field_external_id_' . UNIQUE_TEST_ID;
+            self::$metadata_field_value = 'metadata_field_value_' . UNIQUE_TEST_ID;
+            self::$metadata_fields = [
+                self::$metadata_field_unique_external_id => self::$metadata_field_value
+            ];
+
+            try {
+                (new Cloudinary\Api())->add_metadata_field([
+                    'external_id' => self::$metadata_field_unique_external_id,
+                    'label' => self::$metadata_field_unique_external_id,
+                    'type' => 'string'
+                ]);
+            } catch (GeneralError $e) {
+                self::fail(
+                    'Exception thrown while adding metadata field in UploaderTest::setUpBeforeClass() - ' .
+                    $e->getMessage()
+                );
+            }
+
             Curl::$instance = new Curl();
 
             self::$rbp_params = [
@@ -51,20 +81,23 @@ namespace Cloudinary {
             ];
         }
 
-        public function setUp()
+        protected function setUp()
         {
             \Cloudinary::reset_config();
             if (!Cloudinary::config_get("api_secret")) {
                 $this->markTestSkipped('Please setup environment for Upload test to run');
             }
-            $this->url_prefix = Cloudinary::config_get("upload_prefix", "https://api.cloudinary.com");
+            $this->url_prefix = Cloudinary::config_get("upload_prefix", Cloudinary::DEFAULT_UPLOAD_PREFIX);
         }
 
-        public function tearDown()
+        protected function tearDown()
         {
             Curl::$instance = new Curl();
         }
 
+        /**
+         * @throws GeneralError
+         */
         public static function tearDownAfterClass()
         {
             if (!Cloudinary::config_get("api_secret")) {
@@ -72,6 +105,12 @@ namespace Cloudinary {
             }
 
             $api = new Cloudinary\Api();
+
+            try {
+                $api->delete_metadata_field(self::$metadata_field_unique_external_id);
+            } catch (NotFound $e) {
+                printf("The metadata field '%s' could not be deleted.\n", self::$metadata_field_unique_external_id);
+            }
 
             self::delete_resources($api);
         }
@@ -566,7 +605,7 @@ TAG
 
         /**
          * @expectedException \Cloudinary\Error
-         * @expectedExceptionMessage Detection is invalid
+         * @expectedExceptionMessage Detection invalid model 'illegal'
          */
         public function test_detection()
         {
@@ -855,6 +894,129 @@ TAG
             }
 
             $this->assertEquals(2, count($response["image_infos"]));
+        }
+
+        /**
+         * Upload should supported `metadata` parameter
+         */
+        public function test_upload_with_metadata()
+        {
+            $result = Uploader::upload(
+                TEST_IMG,
+                [
+                    'tags' => array(TEST_TAG, UNIQUE_TEST_TAG),
+                    'metadata' => self::$metadata_fields
+                ]
+            );
+            $this->assertEquals(self::$metadata_field_value, $result['metadata'][self::$metadata_field_unique_external_id]);
+        }
+
+        /**
+         * Explicit should supported `metadata` parameter
+         */
+        public function test_explicit_with_metadata()
+        {
+            $resource = Uploader::upload(TEST_IMG, [
+                "tags" => [TEST_TAG, UNIQUE_TEST_TAG],
+            ]);
+            $result = Uploader::explicit(
+                $resource['public_id'],
+                [
+                    'type' => 'upload',
+                    'metadata' => self::$metadata_fields
+                ]
+            );
+            $this->assertEquals(self::$metadata_field_value, $result['metadata'][self::$metadata_field_unique_external_id]);
+        }
+
+        /**
+         * Editing metadata of an existing resource
+         *
+         * @throws Error
+         */
+        public function test_uploader_update_metadata()
+        {
+            $resource = Uploader::upload(TEST_IMG, [
+                'tags' => [TEST_TAG, UNIQUE_TEST_TAG]
+            ]);
+            $result = Uploader::update_metadata(self::$metadata_fields, $resource['public_id']);
+            $this->assertCount(1, $result['public_ids']);
+            $this->assertContains($resource['public_id'], $result['public_ids']);
+        }
+
+        /**
+         * Editing metadata of multiple existing resources
+         *
+         * @throws Error
+         */
+        public function test_uploader_update_metadata_on_multiple_resources()
+        {
+            $resource1 = Uploader::upload(TEST_IMG, [
+                'tags' => [TEST_TAG, UNIQUE_TEST_TAG]
+            ]);
+            $resource2 = Uploader::upload(TEST_IMG, [
+                'tags' => [TEST_TAG, UNIQUE_TEST_TAG]
+            ]);
+            $result = Uploader::update_metadata(
+                self::$metadata_fields,
+                [
+                    $resource1['public_id'],
+                    $resource2['public_id']
+                ]
+            );
+            $this->assertCount(2, $result['public_ids']);
+            $this->assertContains($resource1['public_id'], $result['public_ids']);
+            $this->assertContains($resource2['public_id'], $result['public_ids']);
+        }
+
+        /**
+         * Get the accessibility analysis of an uploaded image
+         */
+        public function test_accessibility_analysis()
+        {
+            $result = Uploader::upload(TEST_IMG, ["accessibility_analysis" => true, "tags" => [TEST_TAG, UNIQUE_TEST_TAG]]);
+
+            $this->assertArrayHasKey('accessibility_analysis', $result);
+
+            $explicitRes = Uploader::explicit($result["public_id"], ["accessibility_analysis" => true, "type" => "upload"]);
+
+            $this->assertArrayHasKey("accessibility_analysis", $explicitRes);
+        }
+
+        /**
+         * Add eval parameter to an uploaded asset
+         */
+        public function test_eval_upload_parameter()
+        {
+            $result = Uploader::upload(TEST_IMG, ['eval' => TEST_EVAL_STR, 'tags' => [TEST_TAG, UNIQUE_TEST_TAG]]);
+
+            $this->assertEquals(TEST_IMG_WIDTH, $result['context']['custom']['width']);
+            $this->assertInternalType(IsType::TYPE_ARRAY, $result['quality_analysis']);
+            $this->assertInternalType(IsType::TYPE_NUMERIC, $result['quality_analysis']['focus']);
+        }
+
+        /**
+         * Should support accessibility analysis in upload.
+         */
+        public function test_accessibility_analysis_upload()
+        {
+            Curl::mockUpload($this);
+
+            Uploader::upload(TEST_IMG, ['accessibility_analysis' => true]);
+
+            assertParam($this, 'accessibility_analysis', 1);
+        }
+
+        /**
+         * Should support accessibility analysis in explicit.
+         */
+        public function test_accessibility_analysis_explicit()
+        {
+            Curl::mockUpload($this);
+
+            Uploader::explicit('cloudinary', ['accessibility_analysis' => true]);
+
+            assertParam($this, 'accessibility_analysis', 1);
         }
     }
 }

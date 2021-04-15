@@ -28,7 +28,7 @@ class ResponsiveBreakpointsCacheTest extends TestCase
         Curl::$instance = new Curl();
     }
 
-    public function setUp()
+    protected function setUp()
     {
         $this->cache = ResponsiveBreakpointsCache::instance();
         $this->cache->setCacheAdapter(new KeyValueCacheAdapter(new DummyCacheStorage()));

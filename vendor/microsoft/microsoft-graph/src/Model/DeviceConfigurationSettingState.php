@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,124 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceConfigurationSettingState extends Entity
 {
+    /**
+    * Gets the currentValue
+    * Current value of setting on device
+    *
+    * @return string The currentValue
+    */
+    public function getCurrentValue()
+    {
+        if (array_key_exists("currentValue", $this->_propDict)) {
+            return $this->_propDict["currentValue"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the currentValue
+    * Current value of setting on device
+    *
+    * @param string $val The value of the currentValue
+    *
+    * @return DeviceConfigurationSettingState
+    */
+    public function setCurrentValue($val)
+    {
+        $this->_propDict["currentValue"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the errorCode
+    * Error code for the setting
+    *
+    * @return int The errorCode
+    */
+    public function getErrorCode()
+    {
+        if (array_key_exists("errorCode", $this->_propDict)) {
+            return $this->_propDict["errorCode"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the errorCode
+    * Error code for the setting
+    *
+    * @param int $val The value of the errorCode
+    *
+    * @return DeviceConfigurationSettingState
+    */
+    public function setErrorCode($val)
+    {
+        $this->_propDict["errorCode"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the errorDescription
+    * Error description
+    *
+    * @return string The errorDescription
+    */
+    public function getErrorDescription()
+    {
+        if (array_key_exists("errorDescription", $this->_propDict)) {
+            return $this->_propDict["errorDescription"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the errorDescription
+    * Error description
+    *
+    * @param string $val The value of the errorDescription
+    *
+    * @return DeviceConfigurationSettingState
+    */
+    public function setErrorDescription($val)
+    {
+        $this->_propDict["errorDescription"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the instanceDisplayName
+    * Name of setting instance that is being reported.
+    *
+    * @return string The instanceDisplayName
+    */
+    public function getInstanceDisplayName()
+    {
+        if (array_key_exists("instanceDisplayName", $this->_propDict)) {
+            return $this->_propDict["instanceDisplayName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the instanceDisplayName
+    * Name of setting instance that is being reported.
+    *
+    * @param string $val The value of the instanceDisplayName
+    *
+    * @return DeviceConfigurationSettingState
+    */
+    public function setInstanceDisplayName($val)
+    {
+        $this->_propDict["instanceDisplayName"] = $val;
+        return $this;
+    }
     /**
     * Gets the setting
     * The setting that is being reported
@@ -81,33 +191,38 @@ class DeviceConfigurationSettingState extends Entity
         $this->_propDict["settingName"] = $val;
         return $this;
     }
+
     /**
-    * Gets the instanceDisplayName
-    * Name of setting instance that is being reported.
+    * Gets the sources
+    * Contributing policies
     *
-    * @return string The instanceDisplayName
+    * @return SettingSource The sources
     */
-    public function getInstanceDisplayName()
+    public function getSources()
     {
-        if (array_key_exists("instanceDisplayName", $this->_propDict)) {
-            return $this->_propDict["instanceDisplayName"];
-        } else {
-            return null;
+        if (array_key_exists("sources", $this->_propDict)) {
+            if (is_a($this->_propDict["sources"], "\Microsoft\Graph\Model\SettingSource")) {
+                return $this->_propDict["sources"];
+            } else {
+                $this->_propDict["sources"] = new SettingSource($this->_propDict["sources"]);
+                return $this->_propDict["sources"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the instanceDisplayName
-    * Name of setting instance that is being reported.
+    * Sets the sources
+    * Contributing policies
     *
-    * @param string $val The value of the instanceDisplayName
+    * @param SettingSource $val The value to assign to the sources
     *
-    * @return DeviceConfigurationSettingState
+    * @return DeviceConfigurationSettingState The DeviceConfigurationSettingState
     */
-    public function setInstanceDisplayName($val)
+    public function setSources($val)
     {
-        $this->_propDict["instanceDisplayName"] = $val;
-        return $this;
+        $this->_propDict["sources"] = $val;
+         return $this;
     }
 
     /**
@@ -119,7 +234,7 @@ class DeviceConfigurationSettingState extends Entity
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "Microsoft\Graph\Model\ComplianceStatus")) {
+            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\ComplianceStatus")) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ComplianceStatus($this->_propDict["state"]);
@@ -143,59 +258,31 @@ class DeviceConfigurationSettingState extends Entity
          return $this;
     }
     /**
-    * Gets the errorCode
-    * Error code for the setting
+    * Gets the userEmail
+    * UserEmail
     *
-    * @return int The errorCode
+    * @return string The userEmail
     */
-    public function getErrorCode()
+    public function getUserEmail()
     {
-        if (array_key_exists("errorCode", $this->_propDict)) {
-            return $this->_propDict["errorCode"];
+        if (array_key_exists("userEmail", $this->_propDict)) {
+            return $this->_propDict["userEmail"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the errorCode
-    * Error code for the setting
+    * Sets the userEmail
+    * UserEmail
     *
-    * @param int $val The value of the errorCode
-    *
-    * @return DeviceConfigurationSettingState
-    */
-    public function setErrorCode($val)
-    {
-        $this->_propDict["errorCode"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the errorDescription
-    * Error description
-    *
-    * @return string The errorDescription
-    */
-    public function getErrorDescription()
-    {
-        if (array_key_exists("errorDescription", $this->_propDict)) {
-            return $this->_propDict["errorDescription"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the errorDescription
-    * Error description
-    *
-    * @param string $val The value of the errorDescription
+    * @param string $val The value of the userEmail
     *
     * @return DeviceConfigurationSettingState
     */
-    public function setErrorDescription($val)
+    public function setUserEmail($val)
     {
-        $this->_propDict["errorDescription"] = $val;
+        $this->_propDict["userEmail"] = $val;
         return $this;
     }
     /**
@@ -255,34 +342,6 @@ class DeviceConfigurationSettingState extends Entity
         return $this;
     }
     /**
-    * Gets the userEmail
-    * UserEmail
-    *
-    * @return string The userEmail
-    */
-    public function getUserEmail()
-    {
-        if (array_key_exists("userEmail", $this->_propDict)) {
-            return $this->_propDict["userEmail"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the userEmail
-    * UserEmail
-    *
-    * @param string $val The value of the userEmail
-    *
-    * @return DeviceConfigurationSettingState
-    */
-    public function setUserEmail($val)
-    {
-        $this->_propDict["userEmail"] = $val;
-        return $this;
-    }
-    /**
     * Gets the userPrincipalName
     * UserPrincipalName.
     *
@@ -308,67 +367,6 @@ class DeviceConfigurationSettingState extends Entity
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
-        return $this;
-    }
-
-    /**
-    * Gets the sources
-    * Contributing policies
-    *
-    * @return SettingSource The sources
-    */
-    public function getSources()
-    {
-        if (array_key_exists("sources", $this->_propDict)) {
-            if (is_a($this->_propDict["sources"], "Microsoft\Graph\Model\SettingSource")) {
-                return $this->_propDict["sources"];
-            } else {
-                $this->_propDict["sources"] = new SettingSource($this->_propDict["sources"]);
-                return $this->_propDict["sources"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the sources
-    * Contributing policies
-    *
-    * @param SettingSource $val The value to assign to the sources
-    *
-    * @return DeviceConfigurationSettingState The DeviceConfigurationSettingState
-    */
-    public function setSources($val)
-    {
-        $this->_propDict["sources"] = $val;
-         return $this;
-    }
-    /**
-    * Gets the currentValue
-    * Current value of setting on device
-    *
-    * @return string The currentValue
-    */
-    public function getCurrentValue()
-    {
-        if (array_key_exists("currentValue", $this->_propDict)) {
-            return $this->_propDict["currentValue"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the currentValue
-    * Current value of setting on device
-    *
-    * @param string $val The value of the currentValue
-    *
-    * @return DeviceConfigurationSettingState
-    */
-    public function setCurrentValue($val)
-    {
-        $this->_propDict["currentValue"] = $val;
         return $this;
     }
 }

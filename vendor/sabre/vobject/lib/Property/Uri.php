@@ -72,7 +72,7 @@ class Uri extends Text
     {
         // Normally we don't need to do any type of unescaping for these
         // properties, however.. we've noticed that Google Contacts
-        // specifically escapes the colon (:) with a blackslash. While I have
+        // specifically escapes the colon (:) with a backslash. While I have
         // no clue why they thought that was a good idea, I'm unescaping it
         // anyway.
         //

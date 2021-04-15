@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,43 +18,38 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class UserActivity extends Entity
 {
     /**
-    * Gets the visualElements
-    * Required. The object containing information to render the activity in the UX.
+    * Gets the activationUrl
+    * Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
     *
-    * @return VisualInfo The visualElements
+    * @return string The activationUrl
     */
-    public function getVisualElements()
+    public function getActivationUrl()
     {
-        if (array_key_exists("visualElements", $this->_propDict)) {
-            if (is_a($this->_propDict["visualElements"], "Microsoft\Graph\Model\VisualInfo")) {
-                return $this->_propDict["visualElements"];
-            } else {
-                $this->_propDict["visualElements"] = new VisualInfo($this->_propDict["visualElements"]);
-                return $this->_propDict["visualElements"];
-            }
+        if (array_key_exists("activationUrl", $this->_propDict)) {
+            return $this->_propDict["activationUrl"];
+        } else {
+            return null;
         }
-        return null;
     }
     
     /**
-    * Sets the visualElements
-    * Required. The object containing information to render the activity in the UX.
+    * Sets the activationUrl
+    * Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
     *
-    * @param VisualInfo $val The visualElements
+    * @param string $val The activationUrl
     *
     * @return UserActivity
     */
-    public function setVisualElements($val)
+    public function setActivationUrl($val)
     {
-        $this->_propDict["visualElements"] = $val;
+        $this->_propDict["activationUrl"] = $val;
         return $this;
     }
     
@@ -85,35 +79,6 @@ class UserActivity extends Entity
     public function setActivitySourceHost($val)
     {
         $this->_propDict["activitySourceHost"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the activationUrl
-    * Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
-    *
-    * @return string The activationUrl
-    */
-    public function getActivationUrl()
-    {
-        if (array_key_exists("activationUrl", $this->_propDict)) {
-            return $this->_propDict["activationUrl"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the activationUrl
-    * Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.
-    *
-    * @param string $val The activationUrl
-    *
-    * @return UserActivity
-    */
-    public function setActivationUrl($val)
-    {
-        $this->_propDict["activationUrl"] = $val;
         return $this;
     }
     
@@ -172,6 +137,35 @@ class UserActivity extends Entity
     public function setAppDisplayName($val)
     {
         $this->_propDict["appDisplayName"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the contentInfo
+    * Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
+    *
+    * @return string The contentInfo
+    */
+    public function getContentInfo()
+    {
+        if (array_key_exists("contentInfo", $this->_propDict)) {
+            return $this->_propDict["contentInfo"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the contentInfo
+    * Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
+    *
+    * @param string $val The contentInfo
+    *
+    * @return UserActivity
+    */
+    public function setContentInfo($val)
+    {
+        $this->_propDict["contentInfo"] = $val;
         return $this;
     }
     
@@ -333,6 +327,39 @@ class UserActivity extends Entity
     }
     
     /**
+    * Gets the status
+    * Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+    *
+    * @return Status The status
+    */
+    public function getStatus()
+    {
+        if (array_key_exists("status", $this->_propDict)) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\Status")) {
+                return $this->_propDict["status"];
+            } else {
+                $this->_propDict["status"] = new Status($this->_propDict["status"]);
+                return $this->_propDict["status"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the status
+    * Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+    *
+    * @param Status $val The status
+    *
+    * @return UserActivity
+    */
+    public function setStatus($val)
+    {
+        $this->_propDict["status"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the userTimezone
     * Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.
     *
@@ -362,64 +389,35 @@ class UserActivity extends Entity
     }
     
     /**
-    * Gets the contentInfo
-    * Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
+    * Gets the visualElements
+    * Required. The object containing information to render the activity in the UX.
     *
-    * @return string The contentInfo
+    * @return VisualInfo The visualElements
     */
-    public function getContentInfo()
+    public function getVisualElements()
     {
-        if (array_key_exists("contentInfo", $this->_propDict)) {
-            return $this->_propDict["contentInfo"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the contentInfo
-    * Optional. A custom piece of data - JSON-LD extensible description of content according to schema.org syntax.
-    *
-    * @param string $val The contentInfo
-    *
-    * @return UserActivity
-    */
-    public function setContentInfo($val)
-    {
-        $this->_propDict["contentInfo"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the status
-    * Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
-    *
-    * @return Status The status
-    */
-    public function getStatus()
-    {
-        if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "Microsoft\Graph\Model\Status")) {
-                return $this->_propDict["status"];
+        if (array_key_exists("visualElements", $this->_propDict)) {
+            if (is_a($this->_propDict["visualElements"], "\Microsoft\Graph\Model\VisualInfo")) {
+                return $this->_propDict["visualElements"];
             } else {
-                $this->_propDict["status"] = new Status($this->_propDict["status"]);
-                return $this->_propDict["status"];
+                $this->_propDict["visualElements"] = new VisualInfo($this->_propDict["visualElements"]);
+                return $this->_propDict["visualElements"];
             }
         }
         return null;
     }
     
     /**
-    * Sets the status
-    * Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.
+    * Sets the visualElements
+    * Required. The object containing information to render the activity in the UX.
     *
-    * @param Status $val The status
+    * @param VisualInfo $val The visualElements
     *
     * @return UserActivity
     */
-    public function setStatus($val)
+    public function setVisualElements($val)
     {
-        $this->_propDict["status"] = $val;
+        $this->_propDict["visualElements"] = $val;
         return $this;
     }
     

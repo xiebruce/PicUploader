@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,40 +18,39 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Planner extends Entity
 {
 
      /** 
-     * Gets the tasks
-    * Read-only. Nullable. Returns a collection of the specified tasks
+     * Gets the buckets
+    * Read-only. Nullable. Returns a collection of the specified buckets
      *
-     * @return array The tasks
+     * @return array The buckets
      */
-    public function getTasks()
+    public function getBuckets()
     {
-        if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
+        if (array_key_exists("buckets", $this->_propDict)) {
+           return $this->_propDict["buckets"];
         } else {
             return null;
         }
     }
     
     /** 
-    * Sets the tasks
-    * Read-only. Nullable. Returns a collection of the specified tasks
+    * Sets the buckets
+    * Read-only. Nullable. Returns a collection of the specified buckets
     *
-    * @param PlannerTask $val The tasks
+    * @param PlannerBucket $val The buckets
     *
     * @return Planner
     */
-    public function setTasks($val)
+    public function setBuckets($val)
     {
-		$this->_propDict["tasks"] = $val;
+		$this->_propDict["buckets"] = $val;
         return $this;
     }
     
@@ -88,31 +86,31 @@ class Planner extends Entity
     
 
      /** 
-     * Gets the buckets
-    * Read-only. Nullable. Returns a collection of the specified buckets
+     * Gets the tasks
+    * Read-only. Nullable. Returns a collection of the specified tasks
      *
-     * @return array The buckets
+     * @return array The tasks
      */
-    public function getBuckets()
+    public function getTasks()
     {
-        if (array_key_exists("buckets", $this->_propDict)) {
-           return $this->_propDict["buckets"];
+        if (array_key_exists("tasks", $this->_propDict)) {
+           return $this->_propDict["tasks"];
         } else {
             return null;
         }
     }
     
     /** 
-    * Sets the buckets
-    * Read-only. Nullable. Returns a collection of the specified buckets
+    * Sets the tasks
+    * Read-only. Nullable. Returns a collection of the specified tasks
     *
-    * @param PlannerBucket $val The buckets
+    * @param PlannerTask $val The tasks
     *
     * @return Planner
     */
-    public function setBuckets($val)
+    public function setTasks($val)
     {
-		$this->_propDict["buckets"] = $val;
+		$this->_propDict["tasks"] = $val;
         return $this;
     }
     

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,16 +18,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Device extends DirectoryObject
 {
     /**
     * Gets the accountEnabled
-    * true if the account is enabled; otherwise, false. Required.
+    * true if the account is enabled; otherwise, false. default is true.
     *
     * @return bool The accountEnabled
     */
@@ -43,7 +41,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the accountEnabled
-    * true if the account is enabled; otherwise, false. Required.
+    * true if the account is enabled; otherwise, false. default is true.
     *
     * @param bool $val The accountEnabled
     *
@@ -87,7 +85,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the approximateLastSignInDateTime
-    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @return \DateTime The approximateLastSignInDateTime
     */
@@ -106,7 +104,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the approximateLastSignInDateTime
-    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @param \DateTime $val The approximateLastSignInDateTime
     *
@@ -120,7 +118,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the complianceExpirationDateTime
-    * The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @return \DateTime The complianceExpirationDateTime
     */
@@ -139,7 +137,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the complianceExpirationDateTime
-    * The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @param \DateTime $val The complianceExpirationDateTime
     *
@@ -153,7 +151,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the deviceId
-    * Unique identifier set by Azure Device Registration Service at the time of registration.
+    * Identifier set by Azure Device Registration Service at the time of registration.
     *
     * @return string The deviceId
     */
@@ -168,7 +166,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the deviceId
-    * Unique identifier set by Azure Device Registration Service at the time of registration.
+    * Identifier set by Azure Device Registration Service at the time of registration.
     *
     * @param string $val The deviceId
     *
@@ -182,7 +180,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the deviceMetadata
-    * For interal use only. Set to null.
+    * For internal use only. Set to null.
     *
     * @return string The deviceMetadata
     */
@@ -197,7 +195,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the deviceMetadata
-    * For interal use only. Set to null.
+    * For internal use only. Set to null.
     *
     * @param string $val The deviceMetadata
     *
@@ -211,7 +209,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the deviceVersion
-    * For interal use only.
+    * For internal use only.
     *
     * @return int The deviceVersion
     */
@@ -226,7 +224,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the deviceVersion
-    * For interal use only.
+    * For internal use only.
     *
     * @param int $val The deviceVersion
     *
@@ -326,8 +324,37 @@ class Device extends DirectoryObject
     }
     
     /**
+    * Gets the mdmAppId
+    * Application identifier used to register device into MDM. Read-only. Supports $filter.
+    *
+    * @return string The mdmAppId
+    */
+    public function getMdmAppId()
+    {
+        if (array_key_exists("mdmAppId", $this->_propDict)) {
+            return $this->_propDict["mdmAppId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the mdmAppId
+    * Application identifier used to register device into MDM. Read-only. Supports $filter.
+    *
+    * @param string $val The mdmAppId
+    *
+    * @return Device
+    */
+    public function setMdmAppId($val)
+    {
+        $this->_propDict["mdmAppId"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the onPremisesLastSyncDateTime
-    * The last time at which the object was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' Read-only.
+    * The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only.
     *
     * @return \DateTime The onPremisesLastSyncDateTime
     */
@@ -346,7 +373,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the onPremisesLastSyncDateTime
-    * The last time at which the object was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' Read-only.
+    * The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only.
     *
     * @param \DateTime $val The onPremisesLastSyncDateTime
     *
@@ -418,7 +445,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the operatingSystemVersion
-    * The version of the operating system on the device. Required.
+    * Operating system version of the device. Required.
     *
     * @return string The operatingSystemVersion
     */
@@ -433,7 +460,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the operatingSystemVersion
-    * The version of the operating system on the device. Required.
+    * Operating system version of the device. Required.
     *
     * @param string $val The operatingSystemVersion
     *
@@ -447,7 +474,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the physicalIds
-    * For interal use only. Not nullable.
+    * For internal use only. Not nullable.
     *
     * @return string The physicalIds
     */
@@ -462,7 +489,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the physicalIds
-    * For interal use only. Not nullable.
+    * For internal use only. Not nullable.
     *
     * @param string $val The physicalIds
     *
@@ -476,7 +503,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the profileType
-    * The profile type of the device. Possible values:RegisteredDevice (default)SecureVMPrinterSharedIoT
+    * The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT.
     *
     * @return string The profileType
     */
@@ -491,7 +518,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the profileType
-    * The profile type of the device. Possible values:RegisteredDevice (default)SecureVMPrinterSharedIoT
+    * The profile type of the device. Possible values: RegisteredDevice (default), SecureVM, Printer, Shared, IoT.
     *
     * @param string $val The profileType
     *
@@ -534,7 +561,7 @@ class Device extends DirectoryObject
     
     /**
     * Gets the trustType
-    * Type of trust for the joined device. Read-only. Possible values: Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device management in Azure Active Directory
+    * Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
     *
     * @return string The trustType
     */
@@ -549,7 +576,7 @@ class Device extends DirectoryObject
     
     /**
     * Sets the trustType
-    * Type of trust for the joined device. Read-only. Possible values: Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device management in Azure Active Directory
+    * Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
     *
     * @param string $val The trustType
     *

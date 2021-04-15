@@ -2,12 +2,14 @@
 use PHPUnit\Framework\TestCase;
 use Microsoft\Graph\Test\GraphTestBase;
 use Microsoft\Graph\Model;
+use Beta\Microsoft\Graph\Model\User as BetaUser;
+use Beta\Microsoft\Graph\Model as BetaModel;
 
 class UserTest extends TestCase
 {
     private $_client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $graphTestBase = new GraphTestBase();
         $this->_client = $graphTestBase->graphClient;
@@ -46,6 +48,18 @@ class UserTest extends TestCase
     				          ->setReturnType(Model\User::class)
     				          ->execute();
     	$this->assertNotNull($user->getUserPrincipalName());
+	}
+	
+	/**
+    * @group functional
+    */
+    public function testBetaGetUser()
+    {
+		$user = $this->_client->setApiVersion("beta")
+							  ->createRequest("GET", "/me")
+    				          ->setReturnType(BetaUser::class)
+    				          ->execute();
+    	$this->assertNotNull($user->getUserPrincipalName());
     }
 
     /**
@@ -55,6 +69,18 @@ class UserTest extends TestCase
     {
     	$manager = $this->_client->createRequest("GET", "/me/manager")
     				             ->setReturnType(Model\User::class)
+    				             ->execute();
+    	$this->assertNotNull($manager->getDisplayName());
+	}
+	
+	/**
+    * @group functional
+    */
+    public function testBetaGetManager()
+    {
+		$manager = $this->_client->setApiVersion("beta")
+								 ->createRequest("GET", "/me/manager")
+    				             ->setReturnType(BetaModel\User::class)
     				             ->execute();
     	$this->assertNotNull($manager->getDisplayName());
     }

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,16 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DateTimeTimeZone extends Entity
 {
     /**
     * Gets the dateTime
-    * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
+    * A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
     *
     * @return string The dateTime
     */
@@ -42,7 +40,7 @@ class DateTimeTimeZone extends Entity
 
     /**
     * Sets the dateTime
-    * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
+    * A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
     *
     * @param string $val The value of the dateTime
     *
@@ -55,7 +53,7 @@ class DateTimeTimeZone extends Entity
     }
     /**
     * Gets the timeZone
-    * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
+    * Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
     *
     * @return string The timeZone
     */
@@ -70,7 +68,7 @@ class DateTimeTimeZone extends Entity
 
     /**
     * Sets the timeZone
-    * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
+    * Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
     *
     * @param string $val The value of the timeZone
     *

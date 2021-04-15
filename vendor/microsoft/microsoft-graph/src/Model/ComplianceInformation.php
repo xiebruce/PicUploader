@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ComplianceInformation extends Entity
 {
@@ -35,7 +33,7 @@ class ComplianceInformation extends Entity
     public function getCertificationControls()
     {
         if (array_key_exists("certificationControls", $this->_propDict)) {
-            if (is_a($this->_propDict["certificationControls"], "Microsoft\Graph\Model\CertificationControl")) {
+            if (is_a($this->_propDict["certificationControls"], "\Microsoft\Graph\Model\CertificationControl")) {
                 return $this->_propDict["certificationControls"];
             } else {
                 $this->_propDict["certificationControls"] = new CertificationControl($this->_propDict["certificationControls"]);

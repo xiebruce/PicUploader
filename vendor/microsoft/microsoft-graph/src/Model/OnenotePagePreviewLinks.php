@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OnenotePagePreviewLinks extends Entity
 {
@@ -34,7 +32,7 @@ class OnenotePagePreviewLinks extends Entity
     public function getPreviewImageUrl()
     {
         if (array_key_exists("previewImageUrl", $this->_propDict)) {
-            if (is_a($this->_propDict["previewImageUrl"], "Microsoft\Graph\Model\ExternalLink")) {
+            if (is_a($this->_propDict["previewImageUrl"], "\Microsoft\Graph\Model\ExternalLink")) {
                 return $this->_propDict["previewImageUrl"];
             } else {
                 $this->_propDict["previewImageUrl"] = new ExternalLink($this->_propDict["previewImageUrl"]);

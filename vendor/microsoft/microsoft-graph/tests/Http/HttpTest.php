@@ -14,7 +14,7 @@ class HttpTest extends TestCase
     public $getRequest;
     public $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $mock = new MockHandler([
             new Response(200, ['foo' => 'bar']),
@@ -26,7 +26,7 @@ class HttpTest extends TestCase
         $handler->push($history);
         $this->client = new Client(['handler' => $handler]);
 
-        $this->getRequest = new GraphRequest("GET", "/endpoint", "token", "baseUrl", "/version");
+        $this->getRequest = new GraphRequest("GET", "/endpoint", "token", "baseUrl", "version");
     }
 
     public function testGet()
@@ -39,7 +39,7 @@ class HttpTest extends TestCase
 
     public function testPost()
     {
-        $request = new GraphRequest("POST", "/endpoint", "token", "baseUrl", "/version");
+        $request = new GraphRequest("POST", "/endpoint", "token", "baseUrl", "version");
         $response = $request->execute($this->client);
         $code = $response->getStatus();
 
@@ -48,7 +48,7 @@ class HttpTest extends TestCase
 
     public function testPut()
     {
-        $request = new GraphRequest("PUT", "/endpoint", "token", "baseUrl", "/version");
+        $request = new GraphRequest("PUT", "/endpoint", "token", "baseUrl", "version");
         $response = $request->execute($this->client);
         $code = $response->getStatus();
 
@@ -57,7 +57,7 @@ class HttpTest extends TestCase
 
     public function testPatch()
     {
-        $request = new GraphRequest("PATCH", "/endpoint", "token", "baseUrl", "/version");
+        $request = new GraphRequest("PATCH", "/endpoint", "token", "baseUrl", "version");
         $response = $request->execute($this->client);
         $code = $response->getStatus();
 
@@ -66,7 +66,7 @@ class HttpTest extends TestCase
 
     public function testUpdate()
     {
-        $request = new GraphRequest("UPDATE", "/endpoint", "token", "baseUrl", "/version");
+        $request = new GraphRequest("UPDATE", "/endpoint", "token", "baseUrl", "version");
         $response = $request->execute($this->client);
         $code = $response->getStatus();
 
@@ -75,7 +75,7 @@ class HttpTest extends TestCase
 
     public function testDelete()
     {
-        $request = new GraphRequest("DELETE", "/endpoint", "token", "baseUrl", "/version");
+        $request = new GraphRequest("DELETE", "/endpoint", "token", "baseUrl", "version");
         $response = $request->execute($this->client);
         $code = $response->getStatus();
 
@@ -84,7 +84,7 @@ class HttpTest extends TestCase
 
     public function testInvalidVerb()
     {
-        $this->expectException(GuzzleHttp\Exception\ClientException::class);
+        $this->expectException(GraphException::class);
 
         $mock = new MockHandler([
             new Response(400, ['foo' => 'bar'])
@@ -93,7 +93,7 @@ class HttpTest extends TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler]);
 
-        $request = new GraphRequest("OBLITERATE", "/endpoint", "token", "baseUrl", "/version");
+        $request = new GraphRequest("OBLITERATE", "/endpoint", "token", "baseUrl", "version");
         $response = $request->execute($client);
         $code = $response->getStatus();
 

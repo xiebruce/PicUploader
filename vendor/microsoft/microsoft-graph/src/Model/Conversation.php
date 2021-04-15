@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,42 +18,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Conversation extends Entity
 {
-    /**
-    * Gets the topic
-    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
-    *
-    * @return string The topic
-    */
-    public function getTopic()
-    {
-        if (array_key_exists("topic", $this->_propDict)) {
-            return $this->_propDict["topic"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the topic
-    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
-    *
-    * @param string $val The topic
-    *
-    * @return Conversation
-    */
-    public function setTopic($val)
-    {
-        $this->_propDict["topic"] = $val;
-        return $this;
-    }
-    
     /**
     * Gets the hasAttachments
     * Indicates whether any of the posts within this Conversation has at least one attachment.
@@ -86,7 +55,7 @@ class Conversation extends Entity
     
     /**
     * Gets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime The lastDeliveredDateTime
     */
@@ -105,7 +74,7 @@ class Conversation extends Entity
     
     /**
     * Sets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The lastDeliveredDateTime
     *
@@ -114,35 +83,6 @@ class Conversation extends Entity
     public function setLastDeliveredDateTime($val)
     {
         $this->_propDict["lastDeliveredDateTime"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the uniqueSenders
-    * All the users that sent a message to this Conversation.
-    *
-    * @return string The uniqueSenders
-    */
-    public function getUniqueSenders()
-    {
-        if (array_key_exists("uniqueSenders", $this->_propDict)) {
-            return $this->_propDict["uniqueSenders"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the uniqueSenders
-    * All the users that sent a message to this Conversation.
-    *
-    * @param string $val The uniqueSenders
-    *
-    * @return Conversation
-    */
-    public function setUniqueSenders($val)
-    {
-        $this->_propDict["uniqueSenders"] = $val;
         return $this;
     }
     
@@ -172,6 +112,64 @@ class Conversation extends Entity
     public function setPreview($val)
     {
         $this->_propDict["preview"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the topic
+    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+    *
+    * @return string The topic
+    */
+    public function getTopic()
+    {
+        if (array_key_exists("topic", $this->_propDict)) {
+            return $this->_propDict["topic"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the topic
+    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+    *
+    * @param string $val The topic
+    *
+    * @return Conversation
+    */
+    public function setTopic($val)
+    {
+        $this->_propDict["topic"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the uniqueSenders
+    * All the users that sent a message to this Conversation.
+    *
+    * @return string The uniqueSenders
+    */
+    public function getUniqueSenders()
+    {
+        if (array_key_exists("uniqueSenders", $this->_propDict)) {
+            return $this->_propDict["uniqueSenders"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the uniqueSenders
+    * All the users that sent a message to this Conversation.
+    *
+    * @param string $val The uniqueSenders
+    *
+    * @return Conversation
+    */
+    public function setUniqueSenders($val)
+    {
+        $this->_propDict["uniqueSenders"] = $val;
         return $this;
     }
     

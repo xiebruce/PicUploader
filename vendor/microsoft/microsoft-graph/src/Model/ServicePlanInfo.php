@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,68 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ServicePlanInfo extends Entity
 {
+    /**
+    * Gets the appliesTo
+    * The object the service plan can be assigned to. Possible values:'User' - service plan can be assigned to individual users.'Company' - service plan can be assigned to the entire tenant.
+    *
+    * @return string The appliesTo
+    */
+    public function getAppliesTo()
+    {
+        if (array_key_exists("appliesTo", $this->_propDict)) {
+            return $this->_propDict["appliesTo"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the appliesTo
+    * The object the service plan can be assigned to. Possible values:'User' - service plan can be assigned to individual users.'Company' - service plan can be assigned to the entire tenant.
+    *
+    * @param string $val The value of the appliesTo
+    *
+    * @return ServicePlanInfo
+    */
+    public function setAppliesTo($val)
+    {
+        $this->_propDict["appliesTo"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the provisioningStatus
+    * The provisioning status of the service plan. Possible values:'Success' - Service is fully provisioned.'Disabled' - Service has been disabled.'PendingInput' - Service is not yet provisioned; awaiting service confirmation.'PendingActivation' - Service is provisioned but requires explicit activation by administrator (for example, Intune_O365 service plan).'PendingProvisioning' - Microsoft has added a new service to the product SKU and it has not been activated in the tenant, yet.
+    *
+    * @return string The provisioningStatus
+    */
+    public function getProvisioningStatus()
+    {
+        if (array_key_exists("provisioningStatus", $this->_propDict)) {
+            return $this->_propDict["provisioningStatus"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the provisioningStatus
+    * The provisioning status of the service plan. Possible values:'Success' - Service is fully provisioned.'Disabled' - Service has been disabled.'PendingInput' - Service is not yet provisioned; awaiting service confirmation.'PendingActivation' - Service is provisioned but requires explicit activation by administrator (for example, Intune_O365 service plan).'PendingProvisioning' - Microsoft has added a new service to the product SKU and it has not been activated in the tenant, yet.
+    *
+    * @param string $val The value of the provisioningStatus
+    *
+    * @return ServicePlanInfo
+    */
+    public function setProvisioningStatus($val)
+    {
+        $this->_propDict["provisioningStatus"] = $val;
+        return $this;
+    }
     /**
     * Gets the servicePlanId
     * The unique identifier of the service plan.
@@ -79,62 +133,6 @@ class ServicePlanInfo extends Entity
     public function setServicePlanName($val)
     {
         $this->_propDict["servicePlanName"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the provisioningStatus
-    * The provisioning status of the service plan. Possible values:'Success' - Service is fully provisioned.'Disabled' - Service has been disabled.'PendingInput' - Service is not yet provisioned; awaiting service confirmation.'PendingActivation' - Service is provisioned but requires explicit activation by administrator (for example, Intune_O365 service plan)'PendingProvisioning' - Microsoft has added a new service to the product SKU and it has not been activated in the tenant, yet.
-    *
-    * @return string The provisioningStatus
-    */
-    public function getProvisioningStatus()
-    {
-        if (array_key_exists("provisioningStatus", $this->_propDict)) {
-            return $this->_propDict["provisioningStatus"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the provisioningStatus
-    * The provisioning status of the service plan. Possible values:'Success' - Service is fully provisioned.'Disabled' - Service has been disabled.'PendingInput' - Service is not yet provisioned; awaiting service confirmation.'PendingActivation' - Service is provisioned but requires explicit activation by administrator (for example, Intune_O365 service plan)'PendingProvisioning' - Microsoft has added a new service to the product SKU and it has not been activated in the tenant, yet.
-    *
-    * @param string $val The value of the provisioningStatus
-    *
-    * @return ServicePlanInfo
-    */
-    public function setProvisioningStatus($val)
-    {
-        $this->_propDict["provisioningStatus"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the appliesTo
-    * The object the service plan can be assigned to. Possible values:'User' - service plan can be assigned to individual users.'Company' - service plan can be assigned to the entire tenant.
-    *
-    * @return string The appliesTo
-    */
-    public function getAppliesTo()
-    {
-        if (array_key_exists("appliesTo", $this->_propDict)) {
-            return $this->_propDict["appliesTo"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the appliesTo
-    * The object the service plan can be assigned to. Possible values:'User' - service plan can be assigned to individual users.'Company' - service plan can be assigned to the entire tenant.
-    *
-    * @param string $val The value of the appliesTo
-    *
-    * @return ServicePlanInfo
-    */
-    public function setAppliesTo($val)
-    {
-        $this->_propDict["appliesTo"] = $val;
         return $this;
     }
 }

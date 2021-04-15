@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class NetworkConnection extends Entity
 {
@@ -110,6 +108,34 @@ class NetworkConnection extends Entity
         return $this;
     }
     /**
+    * Gets the destinationLocation
+    * Location (by IP address mapping) associated with the destination of a network connection.
+    *
+    * @return string The destinationLocation
+    */
+    public function getDestinationLocation()
+    {
+        if (array_key_exists("destinationLocation", $this->_propDict)) {
+            return $this->_propDict["destinationLocation"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the destinationLocation
+    * Location (by IP address mapping) associated with the destination of a network connection.
+    *
+    * @param string $val The value of the destinationLocation
+    *
+    * @return NetworkConnection
+    */
+    public function setDestinationLocation($val)
+    {
+        $this->_propDict["destinationLocation"] = $val;
+        return $this;
+    }
+    /**
     * Gets the destinationPort
     * Destination port (of the network connection).
     *
@@ -175,7 +201,7 @@ class NetworkConnection extends Entity
     public function getDirection()
     {
         if (array_key_exists("direction", $this->_propDict)) {
-            if (is_a($this->_propDict["direction"], "Microsoft\Graph\Model\ConnectionDirection")) {
+            if (is_a($this->_propDict["direction"], "\Microsoft\Graph\Model\ConnectionDirection")) {
                 return $this->_propDict["direction"];
             } else {
                 $this->_propDict["direction"] = new ConnectionDirection($this->_propDict["direction"]);
@@ -201,14 +227,14 @@ class NetworkConnection extends Entity
 
     /**
     * Gets the domainRegisteredDateTime
-    * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+    * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime The domainRegisteredDateTime
     */
     public function getDomainRegisteredDateTime()
     {
         if (array_key_exists("domainRegisteredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["domainRegisteredDateTime"], "Microsoft\Graph\Model\\DateTime")) {
+            if (is_a($this->_propDict["domainRegisteredDateTime"], "\DateTime")) {
                 return $this->_propDict["domainRegisteredDateTime"];
             } else {
                 $this->_propDict["domainRegisteredDateTime"] = new \DateTime($this->_propDict["domainRegisteredDateTime"]);
@@ -220,7 +246,7 @@ class NetworkConnection extends Entity
 
     /**
     * Sets the domainRegisteredDateTime
-    * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+    * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The value to assign to the domainRegisteredDateTime
     *
@@ -381,7 +407,7 @@ class NetworkConnection extends Entity
     public function getProtocol()
     {
         if (array_key_exists("protocol", $this->_propDict)) {
-            if (is_a($this->_propDict["protocol"], "Microsoft\Graph\Model\SecurityNetworkProtocol")) {
+            if (is_a($this->_propDict["protocol"], "\Microsoft\Graph\Model\SecurityNetworkProtocol")) {
                 return $this->_propDict["protocol"];
             } else {
                 $this->_propDict["protocol"] = new SecurityNetworkProtocol($this->_propDict["protocol"]);
@@ -461,6 +487,34 @@ class NetworkConnection extends Entity
         return $this;
     }
     /**
+    * Gets the sourceLocation
+    * Location (by IP address mapping) associated with the source of a network connection.
+    *
+    * @return string The sourceLocation
+    */
+    public function getSourceLocation()
+    {
+        if (array_key_exists("sourceLocation", $this->_propDict)) {
+            return $this->_propDict["sourceLocation"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sourceLocation
+    * Location (by IP address mapping) associated with the source of a network connection.
+    *
+    * @param string $val The value of the sourceLocation
+    *
+    * @return NetworkConnection
+    */
+    public function setSourceLocation($val)
+    {
+        $this->_propDict["sourceLocation"] = $val;
+        return $this;
+    }
+    /**
     * Gets the sourcePort
     * Source (i.e. origin) IP port (of the network connection).
     *
@@ -498,7 +552,7 @@ class NetworkConnection extends Entity
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "Microsoft\Graph\Model\ConnectionStatus")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ConnectionStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ConnectionStatus($this->_propDict["status"]);

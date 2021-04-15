@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class InvitedUserMessageInfo extends Entity
 {
@@ -35,7 +33,7 @@ class InvitedUserMessageInfo extends Entity
     public function getCcRecipients()
     {
         if (array_key_exists("ccRecipients", $this->_propDict)) {
-            if (is_a($this->_propDict["ccRecipients"], "Microsoft\Graph\Model\Recipient")) {
+            if (is_a($this->_propDict["ccRecipients"], "\Microsoft\Graph\Model\Recipient")) {
                 return $this->_propDict["ccRecipients"];
             } else {
                 $this->_propDict["ccRecipients"] = new Recipient($this->_propDict["ccRecipients"]);
@@ -57,34 +55,6 @@ class InvitedUserMessageInfo extends Entity
     {
         $this->_propDict["ccRecipients"] = $val;
          return $this;
-    }
-    /**
-    * Gets the messageLanguage
-    * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
-    *
-    * @return string The messageLanguage
-    */
-    public function getMessageLanguage()
-    {
-        if (array_key_exists("messageLanguage", $this->_propDict)) {
-            return $this->_propDict["messageLanguage"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the messageLanguage
-    * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
-    *
-    * @param string $val The value of the messageLanguage
-    *
-    * @return InvitedUserMessageInfo
-    */
-    public function setMessageLanguage($val)
-    {
-        $this->_propDict["messageLanguage"] = $val;
-        return $this;
     }
     /**
     * Gets the customizedMessageBody
@@ -112,6 +82,34 @@ class InvitedUserMessageInfo extends Entity
     public function setCustomizedMessageBody($val)
     {
         $this->_propDict["customizedMessageBody"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the messageLanguage
+    * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
+    *
+    * @return string The messageLanguage
+    */
+    public function getMessageLanguage()
+    {
+        if (array_key_exists("messageLanguage", $this->_propDict)) {
+            return $this->_propDict["messageLanguage"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the messageLanguage
+    * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
+    *
+    * @param string $val The value of the messageLanguage
+    *
+    * @return InvitedUserMessageInfo
+    */
+    public function setMessageLanguage($val)
+    {
+        $this->_propDict["messageLanguage"] = $val;
         return $this;
     }
 }

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,39 +18,67 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Windows81CompliancePolicy extends DeviceCompliancePolicy
 {
     /**
-    * Gets the passwordRequired
-    * Require a password to unlock Windows device.
+    * Gets the osMaximumVersion
+    * Maximum Windows 8.1 version.
     *
-    * @return bool The passwordRequired
+    * @return string The osMaximumVersion
     */
-    public function getPasswordRequired()
+    public function getOsMaximumVersion()
     {
-        if (array_key_exists("passwordRequired", $this->_propDict)) {
-            return $this->_propDict["passwordRequired"];
+        if (array_key_exists("osMaximumVersion", $this->_propDict)) {
+            return $this->_propDict["osMaximumVersion"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the passwordRequired
-    * Require a password to unlock Windows device.
+    * Sets the osMaximumVersion
+    * Maximum Windows 8.1 version.
     *
-    * @param bool $val The passwordRequired
+    * @param string $val The osMaximumVersion
     *
     * @return Windows81CompliancePolicy
     */
-    public function setPasswordRequired($val)
+    public function setOsMaximumVersion($val)
     {
-        $this->_propDict["passwordRequired"] = boolval($val);
+        $this->_propDict["osMaximumVersion"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the osMinimumVersion
+    * Minimum Windows 8.1 version.
+    *
+    * @return string The osMinimumVersion
+    */
+    public function getOsMinimumVersion()
+    {
+        if (array_key_exists("osMinimumVersion", $this->_propDict)) {
+            return $this->_propDict["osMinimumVersion"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the osMinimumVersion
+    * Minimum Windows 8.1 version.
+    *
+    * @param string $val The osMinimumVersion
+    *
+    * @return Windows81CompliancePolicy
+    */
+    public function setOsMinimumVersion($val)
+    {
+        $this->_propDict["osMinimumVersion"] = $val;
         return $this;
     }
     
@@ -114,6 +141,35 @@ class Windows81CompliancePolicy extends DeviceCompliancePolicy
     }
     
     /**
+    * Gets the passwordMinimumCharacterSetCount
+    * The number of character sets required in the password.
+    *
+    * @return int The passwordMinimumCharacterSetCount
+    */
+    public function getPasswordMinimumCharacterSetCount()
+    {
+        if (array_key_exists("passwordMinimumCharacterSetCount", $this->_propDict)) {
+            return $this->_propDict["passwordMinimumCharacterSetCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the passwordMinimumCharacterSetCount
+    * The number of character sets required in the password.
+    *
+    * @param int $val The passwordMinimumCharacterSetCount
+    *
+    * @return Windows81CompliancePolicy
+    */
+    public function setPasswordMinimumCharacterSetCount($val)
+    {
+        $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the passwordMinimumLength
     * The minimum password length.
     *
@@ -172,68 +228,6 @@ class Windows81CompliancePolicy extends DeviceCompliancePolicy
     }
     
     /**
-    * Gets the passwordMinimumCharacterSetCount
-    * The number of character sets required in the password.
-    *
-    * @return int The passwordMinimumCharacterSetCount
-    */
-    public function getPasswordMinimumCharacterSetCount()
-    {
-        if (array_key_exists("passwordMinimumCharacterSetCount", $this->_propDict)) {
-            return $this->_propDict["passwordMinimumCharacterSetCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the passwordMinimumCharacterSetCount
-    * The number of character sets required in the password.
-    *
-    * @param int $val The passwordMinimumCharacterSetCount
-    *
-    * @return Windows81CompliancePolicy
-    */
-    public function setPasswordMinimumCharacterSetCount($val)
-    {
-        $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the passwordRequiredType
-    * The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
-    *
-    * @return RequiredPasswordType The passwordRequiredType
-    */
-    public function getPasswordRequiredType()
-    {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "Microsoft\Graph\Model\RequiredPasswordType")) {
-                return $this->_propDict["passwordRequiredType"];
-            } else {
-                $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
-                return $this->_propDict["passwordRequiredType"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the passwordRequiredType
-    * The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
-    *
-    * @param RequiredPasswordType $val The passwordRequiredType
-    *
-    * @return Windows81CompliancePolicy
-    */
-    public function setPasswordRequiredType($val)
-    {
-        $this->_propDict["passwordRequiredType"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the passwordPreviousPasswordBlockCount
     * The number of previous passwords to prevent re-use of. Valid values 0 to 24
     *
@@ -263,60 +257,64 @@ class Windows81CompliancePolicy extends DeviceCompliancePolicy
     }
     
     /**
-    * Gets the osMinimumVersion
-    * Minimum Windows 8.1 version.
+    * Gets the passwordRequired
+    * Require a password to unlock Windows device.
     *
-    * @return string The osMinimumVersion
+    * @return bool The passwordRequired
     */
-    public function getOsMinimumVersion()
+    public function getPasswordRequired()
     {
-        if (array_key_exists("osMinimumVersion", $this->_propDict)) {
-            return $this->_propDict["osMinimumVersion"];
+        if (array_key_exists("passwordRequired", $this->_propDict)) {
+            return $this->_propDict["passwordRequired"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the osMinimumVersion
-    * Minimum Windows 8.1 version.
+    * Sets the passwordRequired
+    * Require a password to unlock Windows device.
     *
-    * @param string $val The osMinimumVersion
+    * @param bool $val The passwordRequired
     *
     * @return Windows81CompliancePolicy
     */
-    public function setOsMinimumVersion($val)
+    public function setPasswordRequired($val)
     {
-        $this->_propDict["osMinimumVersion"] = $val;
+        $this->_propDict["passwordRequired"] = boolval($val);
         return $this;
     }
     
     /**
-    * Gets the osMaximumVersion
-    * Maximum Windows 8.1 version.
+    * Gets the passwordRequiredType
+    * The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
     *
-    * @return string The osMaximumVersion
+    * @return RequiredPasswordType The passwordRequiredType
     */
-    public function getOsMaximumVersion()
+    public function getPasswordRequiredType()
     {
-        if (array_key_exists("osMaximumVersion", $this->_propDict)) {
-            return $this->_propDict["osMaximumVersion"];
-        } else {
-            return null;
+        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Microsoft\Graph\Model\RequiredPasswordType")) {
+                return $this->_propDict["passwordRequiredType"];
+            } else {
+                $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
+                return $this->_propDict["passwordRequiredType"];
+            }
         }
+        return null;
     }
     
     /**
-    * Sets the osMaximumVersion
-    * Maximum Windows 8.1 version.
+    * Sets the passwordRequiredType
+    * The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
     *
-    * @param string $val The osMaximumVersion
+    * @param RequiredPasswordType $val The passwordRequiredType
     *
     * @return Windows81CompliancePolicy
     */
-    public function setOsMaximumVersion($val)
+    public function setPasswordRequiredType($val)
     {
-        $this->_propDict["osMaximumVersion"] = $val;
+        $this->_propDict["passwordRequiredType"] = $val;
         return $this;
     }
     

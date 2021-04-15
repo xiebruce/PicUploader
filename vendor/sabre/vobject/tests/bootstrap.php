@@ -14,8 +14,6 @@ foreach ($try as $path) {
     }
 }
 
-$autoLoader->addPsr4('Sabre\\VObject\\', __DIR__.'/VObject');
-
 if (!defined('SABRE_TEMPDIR')) {
     define('SABRE_TEMPDIR', __DIR__.'/temp/');
 }

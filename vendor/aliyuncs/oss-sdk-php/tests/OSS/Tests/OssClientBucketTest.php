@@ -10,6 +10,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . 'TestOssClientBase.php';
 
 class OssClientBucketTest extends TestOssClientBase
 {
+    private $standardBucket;
     private $iaBucket;
     private $archiveBucket;
 
@@ -51,11 +52,11 @@ class OssClientBucketTest extends TestOssClientBase
         $this->assertTrue($this->ossClient->doesBucketExist($this->bucket));
         $this->assertFalse($this->ossClient->doesBucketExist($this->bucket . '-notexist'));
         
-        $this->assertEquals($this->ossClient->getBucketLocation($this->bucket), 'oss-us-west-1');
+        $this->assertEquals($this->ossClient->getBucketLocation($this->bucket), Common::getRegion());
         
         $res = $this->ossClient->getBucketMeta($this->bucket);
         $this->assertEquals('200', $res['info']['http_code']);
-        $this->assertEquals('oss-us-west-1', $res['x-oss-bucket-region']);
+        $this->assertEquals(Common::getRegion(), $res['x-oss-bucket-region']);
     }
 
     public function  testCreateBucketWithStorageType()
@@ -80,12 +81,31 @@ class OssClientBucketTest extends TestOssClientBase
         $this->assertEquals($result, 'testcontent');
     }
 
+    public function  testCreateBucketWithInvalidStorageType()
+    {
+        try {
+            $options = array(
+                OssClient::OSS_STORAGE => 'unknown'
+            );
+            $this->ossClient->createBucket('bucket-name', OssClient::OSS_ACL_TYPE_PRIVATE, $options);
+            $this->assertTrue(false);
+        } catch (OssException $e) {
+            $this->assertTrue(true);
+            if (strpos($e, "storage name is invalid") == false)
+            {
+                $this->assertTrue(false);
+            }
+        }
+    }
+
     public function setUp()
     {
         parent::setUp();
 
         $this->iaBucket = 'ia-' . $this->bucket;
         $this->archiveBucket = 'archive-' . $this->bucket;
+        $this->standardBucket = 'standard-' . $this->bucket;
+
         $options = array(
             OssClient::OSS_STORAGE => OssClient::OSS_STORAGE_IA
         );
@@ -97,6 +117,12 @@ class OssClientBucketTest extends TestOssClientBase
         );
 
         $this->ossClient->createBucket($this->archiveBucket, OssClient::OSS_ACL_TYPE_PRIVATE, $options);
+
+        $options = array(
+            OssClient::OSS_STORAGE => OssClient::OSS_STORAGE_STANDARD
+        );
+
+        $this->ossClient->createBucket($this->standardBucket, OssClient::OSS_ACL_TYPE_PRIVATE, $options);
     }
 
     public function tearDown()
@@ -109,5 +135,6 @@ class OssClientBucketTest extends TestOssClientBase
         $this->ossClient->deleteObject($this->archiveBucket, $object);
         $this->ossClient->deleteBucket($this->iaBucket);
         $this->ossClient->deleteBucket($this->archiveBucket);
+        $this->ossClient->deleteBucket($this->standardBucket);
     }
 }

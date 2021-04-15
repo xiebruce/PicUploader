@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,16 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Hashes extends Entity
 {
     /**
     * Gets the crc32Hash
-    * The CRC32 value of the file in little endian (if available). Read-only.
+    * The CRC32 value of the file (if available). Read-only.
     *
     * @return string The crc32Hash
     */
@@ -42,7 +40,7 @@ class Hashes extends Entity
 
     /**
     * Sets the crc32Hash
-    * The CRC32 value of the file in little endian (if available). Read-only.
+    * The CRC32 value of the file (if available). Read-only.
     *
     * @param string $val The value of the crc32Hash
     *
@@ -107,6 +105,34 @@ class Hashes extends Entity
     public function setSha1Hash($val)
     {
         $this->_propDict["sha1Hash"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the sha256Hash
+    * SHA256 hash for the contents of the file (if available). Read-only.
+    *
+    * @return string The sha256Hash
+    */
+    public function getSha256Hash()
+    {
+        if (array_key_exists("sha256Hash", $this->_propDict)) {
+            return $this->_propDict["sha256Hash"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sha256Hash
+    * SHA256 hash for the contents of the file (if available). Read-only.
+    *
+    * @param string $val The value of the sha256Hash
+    *
+    * @return Hashes
+    */
+    public function setSha256Hash($val)
+    {
+        $this->_propDict["sha256Hash"] = $val;
         return $this;
     }
 }

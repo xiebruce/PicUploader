@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,13 +18,41 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceInstallState extends Entity
 {
+    /**
+    * Gets the deviceId
+    * Device Id.
+    *
+    * @return string The deviceId
+    */
+    public function getDeviceId()
+    {
+        if (array_key_exists("deviceId", $this->_propDict)) {
+            return $this->_propDict["deviceId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the deviceId
+    * Device Id.
+    *
+    * @param string $val The deviceId
+    *
+    * @return DeviceInstallState
+    */
+    public function setDeviceId($val)
+    {
+        $this->_propDict["deviceId"] = $val;
+        return $this;
+    }
+    
     /**
     * Gets the deviceName
     * Device name.
@@ -56,31 +83,64 @@ class DeviceInstallState extends Entity
     }
     
     /**
-    * Gets the deviceId
-    * Device Id.
+    * Gets the errorCode
+    * The error code for install failures.
     *
-    * @return string The deviceId
+    * @return string The errorCode
     */
-    public function getDeviceId()
+    public function getErrorCode()
     {
-        if (array_key_exists("deviceId", $this->_propDict)) {
-            return $this->_propDict["deviceId"];
+        if (array_key_exists("errorCode", $this->_propDict)) {
+            return $this->_propDict["errorCode"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the deviceId
-    * Device Id.
+    * Sets the errorCode
+    * The error code for install failures.
     *
-    * @param string $val The deviceId
+    * @param string $val The errorCode
     *
     * @return DeviceInstallState
     */
-    public function setDeviceId($val)
+    public function setErrorCode($val)
     {
-        $this->_propDict["deviceId"] = $val;
+        $this->_propDict["errorCode"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the installState
+    * The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+    *
+    * @return InstallState The installState
+    */
+    public function getInstallState()
+    {
+        if (array_key_exists("installState", $this->_propDict)) {
+            if (is_a($this->_propDict["installState"], "\Microsoft\Graph\Model\InstallState")) {
+                return $this->_propDict["installState"];
+            } else {
+                $this->_propDict["installState"] = new InstallState($this->_propDict["installState"]);
+                return $this->_propDict["installState"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the installState
+    * The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+    *
+    * @param InstallState $val The installState
+    *
+    * @return DeviceInstallState
+    */
+    public function setInstallState($val)
+    {
+        $this->_propDict["installState"] = $val;
         return $this;
     }
     
@@ -118,64 +178,31 @@ class DeviceInstallState extends Entity
     }
     
     /**
-    * Gets the installState
-    * The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
+    * Gets the osDescription
+    * OS Description.
     *
-    * @return InstallState The installState
+    * @return string The osDescription
     */
-    public function getInstallState()
+    public function getOsDescription()
     {
-        if (array_key_exists("installState", $this->_propDict)) {
-            if (is_a($this->_propDict["installState"], "Microsoft\Graph\Model\InstallState")) {
-                return $this->_propDict["installState"];
-            } else {
-                $this->_propDict["installState"] = new InstallState($this->_propDict["installState"]);
-                return $this->_propDict["installState"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the installState
-    * The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.
-    *
-    * @param InstallState $val The installState
-    *
-    * @return DeviceInstallState
-    */
-    public function setInstallState($val)
-    {
-        $this->_propDict["installState"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the errorCode
-    * The error code for install failures.
-    *
-    * @return string The errorCode
-    */
-    public function getErrorCode()
-    {
-        if (array_key_exists("errorCode", $this->_propDict)) {
-            return $this->_propDict["errorCode"];
+        if (array_key_exists("osDescription", $this->_propDict)) {
+            return $this->_propDict["osDescription"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the errorCode
-    * The error code for install failures.
+    * Sets the osDescription
+    * OS Description.
     *
-    * @param string $val The errorCode
+    * @param string $val The osDescription
     *
     * @return DeviceInstallState
     */
-    public function setErrorCode($val)
+    public function setOsDescription($val)
     {
-        $this->_propDict["errorCode"] = $val;
+        $this->_propDict["osDescription"] = $val;
         return $this;
     }
     
@@ -205,35 +232,6 @@ class DeviceInstallState extends Entity
     public function setOsVersion($val)
     {
         $this->_propDict["osVersion"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the osDescription
-    * OS Description.
-    *
-    * @return string The osDescription
-    */
-    public function getOsDescription()
-    {
-        if (array_key_exists("osDescription", $this->_propDict)) {
-            return $this->_propDict["osDescription"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the osDescription
-    * OS Description.
-    *
-    * @param string $val The osDescription
-    *
-    * @return DeviceInstallState
-    */
-    public function setOsDescription($val)
-    {
-        $this->_propDict["osDescription"] = $val;
         return $this;
     }
     

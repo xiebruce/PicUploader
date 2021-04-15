@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Workbook extends Entity
 {
@@ -34,7 +32,7 @@ class Workbook extends Entity
     public function getApplication()
     {
         if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "Microsoft\Graph\Model\WorkbookApplication")) {
+            if (is_a($this->_propDict["application"], "\Microsoft\Graph\Model\WorkbookApplication")) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new WorkbookApplication($this->_propDict["application"]);
@@ -54,6 +52,65 @@ class Workbook extends Entity
     public function setApplication($val)
     {
         $this->_propDict["application"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the comments
+     *
+     * @return array The comments
+     */
+    public function getComments()
+    {
+        if (array_key_exists("comments", $this->_propDict)) {
+           return $this->_propDict["comments"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the comments
+    *
+    * @param WorkbookComment $val The comments
+    *
+    * @return Workbook
+    */
+    public function setComments($val)
+    {
+		$this->_propDict["comments"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the functions
+    *
+    * @return WorkbookFunctions The functions
+    */
+    public function getFunctions()
+    {
+        if (array_key_exists("functions", $this->_propDict)) {
+            if (is_a($this->_propDict["functions"], "\Microsoft\Graph\Model\WorkbookFunctions")) {
+                return $this->_propDict["functions"];
+            } else {
+                $this->_propDict["functions"] = new WorkbookFunctions($this->_propDict["functions"]);
+                return $this->_propDict["functions"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the functions
+    *
+    * @param WorkbookFunctions $val The functions
+    *
+    * @return Workbook
+    */
+    public function setFunctions($val)
+    {
+        $this->_propDict["functions"] = $val;
         return $this;
     }
     
@@ -84,6 +141,36 @@ class Workbook extends Entity
     public function setNames($val)
     {
 		$this->_propDict["names"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the operations
+    * The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+     *
+     * @return array The operations
+     */
+    public function getOperations()
+    {
+        if (array_key_exists("operations", $this->_propDict)) {
+           return $this->_propDict["operations"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the operations
+    * The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+    *
+    * @param WorkbookOperation $val The operations
+    *
+    * @return Workbook
+    */
+    public function setOperations($val)
+    {
+		$this->_propDict["operations"] = $val;
         return $this;
     }
     
@@ -144,65 +231,6 @@ class Workbook extends Entity
     public function setWorksheets($val)
     {
 		$this->_propDict["worksheets"] = $val;
-        return $this;
-    }
-    
-
-     /** 
-     * Gets the comments
-     *
-     * @return array The comments
-     */
-    public function getComments()
-    {
-        if (array_key_exists("comments", $this->_propDict)) {
-           return $this->_propDict["comments"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the comments
-    *
-    * @param WorkbookComment $val The comments
-    *
-    * @return Workbook
-    */
-    public function setComments($val)
-    {
-		$this->_propDict["comments"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the functions
-    *
-    * @return WorkbookFunctions The functions
-    */
-    public function getFunctions()
-    {
-        if (array_key_exists("functions", $this->_propDict)) {
-            if (is_a($this->_propDict["functions"], "Microsoft\Graph\Model\WorkbookFunctions")) {
-                return $this->_propDict["functions"];
-            } else {
-                $this->_propDict["functions"] = new WorkbookFunctions($this->_propDict["functions"]);
-                return $this->_propDict["functions"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the functions
-    *
-    * @param WorkbookFunctions $val The functions
-    *
-    * @return Workbook
-    */
-    public function setFunctions($val)
-    {
-        $this->_propDict["functions"] = $val;
         return $this;
     }
     

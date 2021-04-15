@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class AttendeeAvailability extends Entity
 {
@@ -35,7 +33,7 @@ class AttendeeAvailability extends Entity
     public function getAttendee()
     {
         if (array_key_exists("attendee", $this->_propDict)) {
-            if (is_a($this->_propDict["attendee"], "Microsoft\Graph\Model\AttendeeBase")) {
+            if (is_a($this->_propDict["attendee"], "\Microsoft\Graph\Model\AttendeeBase")) {
                 return $this->_propDict["attendee"];
             } else {
                 $this->_propDict["attendee"] = new AttendeeBase($this->_propDict["attendee"]);
@@ -61,14 +59,14 @@ class AttendeeAvailability extends Entity
 
     /**
     * Gets the availability
-    * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+    * The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
     *
     * @return FreeBusyStatus The availability
     */
     public function getAvailability()
     {
         if (array_key_exists("availability", $this->_propDict)) {
-            if (is_a($this->_propDict["availability"], "Microsoft\Graph\Model\FreeBusyStatus")) {
+            if (is_a($this->_propDict["availability"], "\Microsoft\Graph\Model\FreeBusyStatus")) {
                 return $this->_propDict["availability"];
             } else {
                 $this->_propDict["availability"] = new FreeBusyStatus($this->_propDict["availability"]);
@@ -80,7 +78,7 @@ class AttendeeAvailability extends Entity
 
     /**
     * Sets the availability
-    * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+    * The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
     *
     * @param FreeBusyStatus $val The value to assign to the availability
     *

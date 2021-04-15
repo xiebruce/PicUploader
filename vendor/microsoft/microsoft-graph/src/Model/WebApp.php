@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,16 +18,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class WebApp extends MobileApp
 {
     /**
     * Gets the appUrl
-    * The web app URL.
+    * The web app URL. This property cannot be PATCHed.
     *
     * @return string The appUrl
     */
@@ -43,7 +41,7 @@ class WebApp extends MobileApp
     
     /**
     * Sets the appUrl
-    * The web app URL.
+    * The web app URL. This property cannot be PATCHed.
     *
     * @param string $val The appUrl
     *

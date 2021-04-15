@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,16 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class KeyValue extends Entity
 {
     /**
     * Gets the key
-    * Key for the key-value pair.
+    * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
     *
     * @return string The key
     */
@@ -42,7 +40,7 @@ class KeyValue extends Entity
 
     /**
     * Sets the key
-    * Key for the key-value pair.
+    * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
     *
     * @param string $val The value of the key
     *
@@ -55,7 +53,7 @@ class KeyValue extends Entity
     }
     /**
     * Gets the value
-    * Value for the key-value pair.
+    * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
     *
     * @return string The value
     */
@@ -70,7 +68,7 @@ class KeyValue extends Entity
 
     /**
     * Sets the value
-    * Value for the key-value pair.
+    * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
     *
     * @param string $val The value of the value
     *

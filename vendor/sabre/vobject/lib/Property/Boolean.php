@@ -8,7 +8,7 @@ use
 /**
  * Boolean property.
  *
- * This object represents BOOLEAN values. These are always the case-insenstive
+ * This object represents BOOLEAN values. These are always the case-insensitive
  * string TRUE or FALSE.
  *
  * Automatic conversion to PHP's true and false are done.

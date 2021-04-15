@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,16 +17,43 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class SignInStatus extends Entity
 {
     /**
+    * Gets the additionalDetails
+    * Provides additional details on the sign-in activity
+    *
+    * @return string The additionalDetails
+    */
+    public function getAdditionalDetails()
+    {
+        if (array_key_exists("additionalDetails", $this->_propDict)) {
+            return $this->_propDict["additionalDetails"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the additionalDetails
+    * Provides additional details on the sign-in activity
+    *
+    * @param string $val The value of the additionalDetails
+    *
+    * @return SignInStatus
+    */
+    public function setAdditionalDetails($val)
+    {
+        $this->_propDict["additionalDetails"] = $val;
+        return $this;
+    }
+    /**
     * Gets the errorCode
-    * Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
+    * Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
     *
     * @return int The errorCode
     */
@@ -42,7 +68,7 @@ class SignInStatus extends Entity
 
     /**
     * Sets the errorCode
-    * Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
+    * Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
     *
     * @param int $val The value of the errorCode
     *
@@ -79,34 +105,6 @@ class SignInStatus extends Entity
     public function setFailureReason($val)
     {
         $this->_propDict["failureReason"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the additionalDetails
-    * Provides additional details on the sign-in activity
-    *
-    * @return string The additionalDetails
-    */
-    public function getAdditionalDetails()
-    {
-        if (array_key_exists("additionalDetails", $this->_propDict)) {
-            return $this->_propDict["additionalDetails"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the additionalDetails
-    * Provides additional details on the sign-in activity
-    *
-    * @param string $val The value of the additionalDetails
-    *
-    * @return SignInStatus
-    */
-    public function setAdditionalDetails($val)
-    {
-        $this->_propDict["additionalDetails"] = $val;
         return $this;
     }
 }

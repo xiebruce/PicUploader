@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,39 +18,38 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class UserInstallStateSummary extends Entity
 {
     /**
-    * Gets the userName
-    * User name.
+    * Gets the failedDeviceCount
+    * Failed Device Count.
     *
-    * @return string The userName
+    * @return int The failedDeviceCount
     */
-    public function getUserName()
+    public function getFailedDeviceCount()
     {
-        if (array_key_exists("userName", $this->_propDict)) {
-            return $this->_propDict["userName"];
+        if (array_key_exists("failedDeviceCount", $this->_propDict)) {
+            return $this->_propDict["failedDeviceCount"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the userName
-    * User name.
+    * Sets the failedDeviceCount
+    * Failed Device Count.
     *
-    * @param string $val The userName
+    * @param int $val The failedDeviceCount
     *
     * @return UserInstallStateSummary
     */
-    public function setUserName($val)
+    public function setFailedDeviceCount($val)
     {
-        $this->_propDict["userName"] = $val;
+        $this->_propDict["failedDeviceCount"] = intval($val);
         return $this;
     }
     
@@ -85,35 +83,6 @@ class UserInstallStateSummary extends Entity
     }
     
     /**
-    * Gets the failedDeviceCount
-    * Failed Device Count.
-    *
-    * @return int The failedDeviceCount
-    */
-    public function getFailedDeviceCount()
-    {
-        if (array_key_exists("failedDeviceCount", $this->_propDict)) {
-            return $this->_propDict["failedDeviceCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the failedDeviceCount
-    * Failed Device Count.
-    *
-    * @param int $val The failedDeviceCount
-    *
-    * @return UserInstallStateSummary
-    */
-    public function setFailedDeviceCount($val)
-    {
-        $this->_propDict["failedDeviceCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the notInstalledDeviceCount
     * Not installed device count.
     *
@@ -139,6 +108,35 @@ class UserInstallStateSummary extends Entity
     public function setNotInstalledDeviceCount($val)
     {
         $this->_propDict["notInstalledDeviceCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the userName
+    * User name.
+    *
+    * @return string The userName
+    */
+    public function getUserName()
+    {
+        if (array_key_exists("userName", $this->_propDict)) {
+            return $this->_propDict["userName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the userName
+    * User name.
+    *
+    * @param string $val The userName
+    *
+    * @return UserInstallStateSummary
+    */
+    public function setUserName($val)
+    {
+        $this->_propDict["userName"] = $val;
         return $this;
     }
     

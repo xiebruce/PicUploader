@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,68 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ConfigurationManagerClientEnabledFeatures extends Entity
 {
+    /**
+    * Gets the compliancePolicy
+    * Whether compliance policy is managed by Intune
+    *
+    * @return bool The compliancePolicy
+    */
+    public function getCompliancePolicy()
+    {
+        if (array_key_exists("compliancePolicy", $this->_propDict)) {
+            return $this->_propDict["compliancePolicy"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the compliancePolicy
+    * Whether compliance policy is managed by Intune
+    *
+    * @param bool $val The value of the compliancePolicy
+    *
+    * @return ConfigurationManagerClientEnabledFeatures
+    */
+    public function setCompliancePolicy($val)
+    {
+        $this->_propDict["compliancePolicy"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the deviceConfiguration
+    * Whether device configuration is managed by Intune
+    *
+    * @return bool The deviceConfiguration
+    */
+    public function getDeviceConfiguration()
+    {
+        if (array_key_exists("deviceConfiguration", $this->_propDict)) {
+            return $this->_propDict["deviceConfiguration"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceConfiguration
+    * Whether device configuration is managed by Intune
+    *
+    * @param bool $val The value of the deviceConfiguration
+    *
+    * @return ConfigurationManagerClientEnabledFeatures
+    */
+    public function setDeviceConfiguration($val)
+    {
+        $this->_propDict["deviceConfiguration"] = $val;
+        return $this;
+    }
     /**
     * Gets the inventory
     * Whether inventory is managed by Intune
@@ -107,62 +161,6 @@ class ConfigurationManagerClientEnabledFeatures extends Entity
     public function setResourceAccess($val)
     {
         $this->_propDict["resourceAccess"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the deviceConfiguration
-    * Whether device configuration is managed by Intune
-    *
-    * @return bool The deviceConfiguration
-    */
-    public function getDeviceConfiguration()
-    {
-        if (array_key_exists("deviceConfiguration", $this->_propDict)) {
-            return $this->_propDict["deviceConfiguration"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the deviceConfiguration
-    * Whether device configuration is managed by Intune
-    *
-    * @param bool $val The value of the deviceConfiguration
-    *
-    * @return ConfigurationManagerClientEnabledFeatures
-    */
-    public function setDeviceConfiguration($val)
-    {
-        $this->_propDict["deviceConfiguration"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the compliancePolicy
-    * Whether compliance policy is managed by Intune
-    *
-    * @return bool The compliancePolicy
-    */
-    public function getCompliancePolicy()
-    {
-        if (array_key_exists("compliancePolicy", $this->_propDict)) {
-            return $this->_propDict["compliancePolicy"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the compliancePolicy
-    * Whether compliance policy is managed by Intune
-    *
-    * @param bool $val The value of the compliancePolicy
-    *
-    * @return ConfigurationManagerClientEnabledFeatures
-    */
-    public function setCompliancePolicy($val)
-    {
-        $this->_propDict["compliancePolicy"] = $val;
         return $this;
     }
     /**

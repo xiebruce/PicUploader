@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,44 +18,16 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OfficeGraphInsights extends Entity
 {
 
      /** 
-     * Gets the trending
-     *
-     * @return array The trending
-     */
-    public function getTrending()
-    {
-        if (array_key_exists("trending", $this->_propDict)) {
-           return $this->_propDict["trending"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the trending
-    *
-    * @param Trending $val The trending
-    *
-    * @return OfficeGraphInsights
-    */
-    public function setTrending($val)
-    {
-		$this->_propDict["trending"] = $val;
-        return $this;
-    }
-    
-
-     /** 
      * Gets the shared
+    * Access this property from the derived type itemInsights.
      *
      * @return array The shared
      */
@@ -71,6 +42,7 @@ class OfficeGraphInsights extends Entity
     
     /** 
     * Sets the shared
+    * Access this property from the derived type itemInsights.
     *
     * @param SharedInsight $val The shared
     *
@@ -84,7 +56,38 @@ class OfficeGraphInsights extends Entity
     
 
      /** 
+     * Gets the trending
+    * Access this property from the derived type itemInsights.
+     *
+     * @return array The trending
+     */
+    public function getTrending()
+    {
+        if (array_key_exists("trending", $this->_propDict)) {
+           return $this->_propDict["trending"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the trending
+    * Access this property from the derived type itemInsights.
+    *
+    * @param Trending $val The trending
+    *
+    * @return OfficeGraphInsights
+    */
+    public function setTrending($val)
+    {
+		$this->_propDict["trending"] = $val;
+        return $this;
+    }
+    
+
+     /** 
      * Gets the used
+    * Access this property from the derived type itemInsights.
      *
      * @return array The used
      */
@@ -99,6 +102,7 @@ class OfficeGraphInsights extends Entity
     
     /** 
     * Sets the used
+    * Access this property from the derived type itemInsights.
     *
     * @param UsedInsight $val The used
     *

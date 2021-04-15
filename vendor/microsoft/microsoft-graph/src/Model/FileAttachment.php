@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,13 +18,45 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class FileAttachment extends Attachment
 {
+    /**
+    * Gets the contentBytes
+    * The base64-encoded contents of the file.
+    *
+    * @return \GuzzleHttp\Psr7\Stream The contentBytes
+    */
+    public function getContentBytes()
+    {
+        if (array_key_exists("contentBytes", $this->_propDict)) {
+            if (is_a($this->_propDict["contentBytes"], "\GuzzleHttp\Psr7\Stream")) {
+                return $this->_propDict["contentBytes"];
+            } else {
+                $this->_propDict["contentBytes"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["contentBytes"]);
+                return $this->_propDict["contentBytes"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the contentBytes
+    * The base64-encoded contents of the file.
+    *
+    * @param \GuzzleHttp\Psr7\Stream $val The contentBytes
+    *
+    * @return FileAttachment
+    */
+    public function setContentBytes($val)
+    {
+        $this->_propDict["contentBytes"] = $val;
+        return $this;
+    }
+    
     /**
     * Gets the contentId
     * The ID of the attachment in the Exchange store.
@@ -81,39 +112,6 @@ class FileAttachment extends Attachment
     public function setContentLocation($val)
     {
         $this->_propDict["contentLocation"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the contentBytes
-    * The base64-encoded contents of the file.
-    *
-    * @return \GuzzleHttp\Psr7\Stream The contentBytes
-    */
-    public function getContentBytes()
-    {
-        if (array_key_exists("contentBytes", $this->_propDict)) {
-            if (is_a($this->_propDict["contentBytes"], "\GuzzleHttp\Psr7\Stream")) {
-                return $this->_propDict["contentBytes"];
-            } else {
-                $this->_propDict["contentBytes"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["contentBytes"]);
-                return $this->_propDict["contentBytes"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the contentBytes
-    * The base64-encoded contents of the file.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The contentBytes
-    *
-    * @return FileAttachment
-    */
-    public function setContentBytes($val)
-    {
-        $this->_propDict["contentBytes"] = $val;
         return $this;
     }
     

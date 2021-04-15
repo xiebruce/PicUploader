@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -21,16 +20,16 @@ use Microsoft\Graph\Core\Enum;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class CategoryColor extends Enum
 {
     /**
     * The Enum CategoryColor
     */
+    const NONE = "none";
     const PRESET0 = "preset0";
     const PRESET1 = "preset1";
     const PRESET2 = "preset2";
@@ -56,5 +55,4 @@ class CategoryColor extends Enum
     const PRESET22 = "preset22";
     const PRESET23 = "preset23";
     const PRESET24 = "preset24";
-    const NONE = "none";
 }

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,69 +18,39 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ConversationThread extends Entity
 {
 
      /** 
-     * Gets the toRecipients
-    * The To: recipients for the thread.
+     * Gets the ccRecipients
+    * The Cc: recipients for the thread.
      *
-     * @return array The toRecipients
+     * @return array The ccRecipients
      */
-    public function getToRecipients()
+    public function getCcRecipients()
     {
-        if (array_key_exists("toRecipients", $this->_propDict)) {
-           return $this->_propDict["toRecipients"];
+        if (array_key_exists("ccRecipients", $this->_propDict)) {
+           return $this->_propDict["ccRecipients"];
         } else {
             return null;
         }
     }
     
     /** 
-    * Sets the toRecipients
-    * The To: recipients for the thread.
+    * Sets the ccRecipients
+    * The Cc: recipients for the thread.
     *
-    * @param Recipient $val The toRecipients
-    *
-    * @return ConversationThread
-    */
-    public function setToRecipients($val)
-    {
-		$this->_propDict["toRecipients"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the topic
-    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
-    *
-    * @return string The topic
-    */
-    public function getTopic()
-    {
-        if (array_key_exists("topic", $this->_propDict)) {
-            return $this->_propDict["topic"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the topic
-    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
-    *
-    * @param string $val The topic
+    * @param Recipient $val The ccRecipients
     *
     * @return ConversationThread
     */
-    public function setTopic($val)
+    public function setCcRecipients($val)
     {
-        $this->_propDict["topic"] = $val;
+		$this->_propDict["ccRecipients"] = $val;
         return $this;
     }
     
@@ -115,8 +84,37 @@ class ConversationThread extends Entity
     }
     
     /**
+    * Gets the isLocked
+    * Indicates if the thread is locked.
+    *
+    * @return bool The isLocked
+    */
+    public function getIsLocked()
+    {
+        if (array_key_exists("isLocked", $this->_propDict)) {
+            return $this->_propDict["isLocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the isLocked
+    * Indicates if the thread is locked.
+    *
+    * @param bool $val The isLocked
+    *
+    * @return ConversationThread
+    */
+    public function setIsLocked($val)
+    {
+        $this->_propDict["isLocked"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime The lastDeliveredDateTime
     */
@@ -135,7 +133,7 @@ class ConversationThread extends Entity
     
     /**
     * Sets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The lastDeliveredDateTime
     *
@@ -144,6 +142,94 @@ class ConversationThread extends Entity
     public function setLastDeliveredDateTime($val)
     {
         $this->_propDict["lastDeliveredDateTime"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the preview
+    * A short summary from the body of the latest post in this conversation.
+    *
+    * @return string The preview
+    */
+    public function getPreview()
+    {
+        if (array_key_exists("preview", $this->_propDict)) {
+            return $this->_propDict["preview"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the preview
+    * A short summary from the body of the latest post in this conversation.
+    *
+    * @param string $val The preview
+    *
+    * @return ConversationThread
+    */
+    public function setPreview($val)
+    {
+        $this->_propDict["preview"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the topic
+    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+    *
+    * @return string The topic
+    */
+    public function getTopic()
+    {
+        if (array_key_exists("topic", $this->_propDict)) {
+            return $this->_propDict["topic"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the topic
+    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+    *
+    * @param string $val The topic
+    *
+    * @return ConversationThread
+    */
+    public function setTopic($val)
+    {
+        $this->_propDict["topic"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the toRecipients
+    * The To: recipients for the thread.
+     *
+     * @return array The toRecipients
+     */
+    public function getToRecipients()
+    {
+        if (array_key_exists("toRecipients", $this->_propDict)) {
+           return $this->_propDict["toRecipients"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the toRecipients
+    * The To: recipients for the thread.
+    *
+    * @param Recipient $val The toRecipients
+    *
+    * @return ConversationThread
+    */
+    public function setToRecipients($val)
+    {
+		$this->_propDict["toRecipients"] = $val;
         return $this;
     }
     
@@ -173,94 +259,6 @@ class ConversationThread extends Entity
     public function setUniqueSenders($val)
     {
         $this->_propDict["uniqueSenders"] = $val;
-        return $this;
-    }
-    
-
-     /** 
-     * Gets the ccRecipients
-    * The Cc: recipients for the thread.
-     *
-     * @return array The ccRecipients
-     */
-    public function getCcRecipients()
-    {
-        if (array_key_exists("ccRecipients", $this->_propDict)) {
-           return $this->_propDict["ccRecipients"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the ccRecipients
-    * The Cc: recipients for the thread.
-    *
-    * @param Recipient $val The ccRecipients
-    *
-    * @return ConversationThread
-    */
-    public function setCcRecipients($val)
-    {
-		$this->_propDict["ccRecipients"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the preview
-    * A short summary from the body of the latest post in this converstaion.
-    *
-    * @return string The preview
-    */
-    public function getPreview()
-    {
-        if (array_key_exists("preview", $this->_propDict)) {
-            return $this->_propDict["preview"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the preview
-    * A short summary from the body of the latest post in this converstaion.
-    *
-    * @param string $val The preview
-    *
-    * @return ConversationThread
-    */
-    public function setPreview($val)
-    {
-        $this->_propDict["preview"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the isLocked
-    * Indicates if the thread is locked.
-    *
-    * @return bool The isLocked
-    */
-    public function getIsLocked()
-    {
-        if (array_key_exists("isLocked", $this->_propDict)) {
-            return $this->_propDict["isLocked"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the isLocked
-    * Indicates if the thread is locked.
-    *
-    * @param bool $val The isLocked
-    *
-    * @return ConversationThread
-    */
-    public function setIsLocked($val)
-    {
-        $this->_propDict["isLocked"] = boolval($val);
         return $this;
     }
     

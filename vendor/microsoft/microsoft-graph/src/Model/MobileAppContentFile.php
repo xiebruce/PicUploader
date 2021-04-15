@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class MobileAppContentFile extends Entity
 {
@@ -56,31 +54,35 @@ class MobileAppContentFile extends Entity
     }
     
     /**
-    * Gets the isCommitted
-    * A value indicating whether the file is committed.
+    * Gets the azureStorageUriExpirationDateTime
+    * The time the Azure storage Uri expires.
     *
-    * @return bool The isCommitted
+    * @return \DateTime The azureStorageUriExpirationDateTime
     */
-    public function getIsCommitted()
+    public function getAzureStorageUriExpirationDateTime()
     {
-        if (array_key_exists("isCommitted", $this->_propDict)) {
-            return $this->_propDict["isCommitted"];
-        } else {
-            return null;
+        if (array_key_exists("azureStorageUriExpirationDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["azureStorageUriExpirationDateTime"], "\DateTime")) {
+                return $this->_propDict["azureStorageUriExpirationDateTime"];
+            } else {
+                $this->_propDict["azureStorageUriExpirationDateTime"] = new \DateTime($this->_propDict["azureStorageUriExpirationDateTime"]);
+                return $this->_propDict["azureStorageUriExpirationDateTime"];
+            }
         }
+        return null;
     }
     
     /**
-    * Sets the isCommitted
-    * A value indicating whether the file is committed.
+    * Sets the azureStorageUriExpirationDateTime
+    * The time the Azure storage Uri expires.
     *
-    * @param bool $val The isCommitted
+    * @param \DateTime $val The azureStorageUriExpirationDateTime
     *
     * @return MobileAppContentFile
     */
-    public function setIsCommitted($val)
+    public function setAzureStorageUriExpirationDateTime($val)
     {
-        $this->_propDict["isCommitted"] = boolval($val);
+        $this->_propDict["azureStorageUriExpirationDateTime"] = $val;
         return $this;
     }
     
@@ -114,6 +116,68 @@ class MobileAppContentFile extends Entity
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the isCommitted
+    * A value indicating whether the file is committed.
+    *
+    * @return bool The isCommitted
+    */
+    public function getIsCommitted()
+    {
+        if (array_key_exists("isCommitted", $this->_propDict)) {
+            return $this->_propDict["isCommitted"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the isCommitted
+    * A value indicating whether the file is committed.
+    *
+    * @param bool $val The isCommitted
+    *
+    * @return MobileAppContentFile
+    */
+    public function setIsCommitted($val)
+    {
+        $this->_propDict["isCommitted"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the manifest
+    * The manifest information.
+    *
+    * @return \GuzzleHttp\Psr7\Stream The manifest
+    */
+    public function getManifest()
+    {
+        if (array_key_exists("manifest", $this->_propDict)) {
+            if (is_a($this->_propDict["manifest"], "\GuzzleHttp\Psr7\Stream")) {
+                return $this->_propDict["manifest"];
+            } else {
+                $this->_propDict["manifest"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["manifest"]);
+                return $this->_propDict["manifest"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the manifest
+    * The manifest information.
+    *
+    * @param \GuzzleHttp\Psr7\Stream $val The manifest
+    *
+    * @return MobileAppContentFile
+    */
+    public function setManifest($val)
+    {
+        $this->_propDict["manifest"] = $val;
         return $this;
     }
     
@@ -205,72 +269,6 @@ class MobileAppContentFile extends Entity
     }
     
     /**
-    * Gets the azureStorageUriExpirationDateTime
-    * The time the Azure storage Uri expires.
-    *
-    * @return \DateTime The azureStorageUriExpirationDateTime
-    */
-    public function getAzureStorageUriExpirationDateTime()
-    {
-        if (array_key_exists("azureStorageUriExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["azureStorageUriExpirationDateTime"], "\DateTime")) {
-                return $this->_propDict["azureStorageUriExpirationDateTime"];
-            } else {
-                $this->_propDict["azureStorageUriExpirationDateTime"] = new \DateTime($this->_propDict["azureStorageUriExpirationDateTime"]);
-                return $this->_propDict["azureStorageUriExpirationDateTime"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the azureStorageUriExpirationDateTime
-    * The time the Azure storage Uri expires.
-    *
-    * @param \DateTime $val The azureStorageUriExpirationDateTime
-    *
-    * @return MobileAppContentFile
-    */
-    public function setAzureStorageUriExpirationDateTime($val)
-    {
-        $this->_propDict["azureStorageUriExpirationDateTime"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the manifest
-    * The manifest information.
-    *
-    * @return \GuzzleHttp\Psr7\Stream The manifest
-    */
-    public function getManifest()
-    {
-        if (array_key_exists("manifest", $this->_propDict)) {
-            if (is_a($this->_propDict["manifest"], "\GuzzleHttp\Psr7\Stream")) {
-                return $this->_propDict["manifest"];
-            } else {
-                $this->_propDict["manifest"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["manifest"]);
-                return $this->_propDict["manifest"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the manifest
-    * The manifest information.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The manifest
-    *
-    * @return MobileAppContentFile
-    */
-    public function setManifest($val)
-    {
-        $this->_propDict["manifest"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the uploadState
     * The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
     *
@@ -279,7 +277,7 @@ class MobileAppContentFile extends Entity
     public function getUploadState()
     {
         if (array_key_exists("uploadState", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadState"], "Microsoft\Graph\Model\MobileAppContentFileUploadState")) {
+            if (is_a($this->_propDict["uploadState"], "\Microsoft\Graph\Model\MobileAppContentFileUploadState")) {
                 return $this->_propDict["uploadState"];
             } else {
                 $this->_propDict["uploadState"] = new MobileAppContentFileUploadState($this->_propDict["uploadState"]);

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,46 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ItemBody extends Entity
 {
-
-    /**
-    * Gets the contentType
-    * The type of the content. Possible values are text and HTML.
-    *
-    * @return BodyType The contentType
-    */
-    public function getContentType()
-    {
-        if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "Microsoft\Graph\Model\BodyType")) {
-                return $this->_propDict["contentType"];
-            } else {
-                $this->_propDict["contentType"] = new BodyType($this->_propDict["contentType"]);
-                return $this->_propDict["contentType"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the contentType
-    * The type of the content. Possible values are text and HTML.
-    *
-    * @param BodyType $val The value to assign to the contentType
-    *
-    * @return ItemBody The ItemBody
-    */
-    public function setContentType($val)
-    {
-        $this->_propDict["contentType"] = $val;
-         return $this;
-    }
     /**
     * Gets the content
     * The content of the item.
@@ -85,5 +50,38 @@ class ItemBody extends Entity
     {
         $this->_propDict["content"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the contentType
+    * The type of the content. Possible values are text and html.
+    *
+    * @return BodyType The contentType
+    */
+    public function getContentType()
+    {
+        if (array_key_exists("contentType", $this->_propDict)) {
+            if (is_a($this->_propDict["contentType"], "\Microsoft\Graph\Model\BodyType")) {
+                return $this->_propDict["contentType"];
+            } else {
+                $this->_propDict["contentType"] = new BodyType($this->_propDict["contentType"]);
+                return $this->_propDict["contentType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the contentType
+    * The type of the content. Possible values are text and html.
+    *
+    * @param BodyType $val The value to assign to the contentType
+    *
+    * @return ItemBody The ItemBody
+    */
+    public function setContentType($val)
+    {
+        $this->_propDict["contentType"] = $val;
+         return $this;
     }
 }

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class SchemaExtension extends Entity
 {
@@ -56,31 +54,31 @@ class SchemaExtension extends Entity
     }
     
     /**
-    * Gets the targetTypes
-    * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
+    * Gets the owner
+    * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed.
     *
-    * @return string The targetTypes
+    * @return string The owner
     */
-    public function getTargetTypes()
+    public function getOwner()
     {
-        if (array_key_exists("targetTypes", $this->_propDict)) {
-            return $this->_propDict["targetTypes"];
+        if (array_key_exists("owner", $this->_propDict)) {
+            return $this->_propDict["owner"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the targetTypes
-    * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
+    * Sets the owner
+    * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed.
     *
-    * @param string $val The targetTypes
+    * @param string $val The owner
     *
     * @return SchemaExtension
     */
-    public function setTargetTypes($val)
+    public function setOwner($val)
     {
-        $this->_propDict["targetTypes"] = $val;
+        $this->_propDict["owner"] = $val;
         return $this;
     }
     
@@ -144,31 +142,31 @@ class SchemaExtension extends Entity
     }
     
     /**
-    * Gets the owner
-    * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. Once set, this property is read-only and cannot be changed.
+    * Gets the targetTypes
+    * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
     *
-    * @return string The owner
+    * @return string The targetTypes
     */
-    public function getOwner()
+    public function getTargetTypes()
     {
-        if (array_key_exists("owner", $this->_propDict)) {
-            return $this->_propDict["owner"];
+        if (array_key_exists("targetTypes", $this->_propDict)) {
+            return $this->_propDict["targetTypes"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the owner
-    * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. Once set, this property is read-only and cannot be changed.
+    * Sets the targetTypes
+    * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
     *
-    * @param string $val The owner
+    * @param string $val The targetTypes
     *
     * @return SchemaExtension
     */
-    public function setOwner($val)
+    public function setTargetTypes($val)
     {
-        $this->_propDict["owner"] = $val;
+        $this->_propDict["targetTypes"] = $val;
         return $this;
     }
     

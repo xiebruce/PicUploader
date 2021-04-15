@@ -12,6 +12,8 @@ QUOTE=
 
 NEW_VERSION=
 
+UPDATE_ONLY=false
+
 function echo_err
 {
     echo "$@" 1>&2;
@@ -22,6 +24,7 @@ function usage
       echo "Usage: $0 [parameters]"
       echo "      -v | --version <version>"
       echo "      -d | --dry-run print the commands without executing them"
+      echo "      -u | --update-only only update the version"
       echo "      -h | --help print this information and exit"
       echo
       echo "For example: $0 -v 1.2.3"
@@ -48,6 +51,11 @@ function process_arguments
                 echo "Dry Run"
                 echo ""
                 ;;
+            -u | --update-only )
+                UPDATE_ONLY=true
+                echo "Only update version"
+                echo ""
+                ;;
             -h | --help )
                 usage; return 0
                 ;;
@@ -67,7 +75,7 @@ function pushd
 # Intentionally make popd silent
 function popd
 {
-    command popd "$@" > /dev/null
+    command popd > /dev/null
 }
 
 # Check if one version is less than or equal than other
@@ -103,6 +111,10 @@ function verify_dependencies
         return 1
     fi
 
+    if [ "${UPDATE_ONLY}" = true ]; then
+      return 0;
+    fi
+
     if [[ -z "$(type -t git-changelog)" ]]
     then
         echo_err "git-extras packages is not installed."
@@ -122,7 +134,7 @@ function safe_replace
 
     grep -q "${old}" "${file}" || { echo_err "${old} was not found in ${file}"; return 1; }
 
-    ${CMD_PREFIX} sed -E -i '.bak' "${QUOTE}s/${old}/${new}/${QUOTE}" "${file}"
+    ${CMD_PREFIX} sed -i.bak -e "${QUOTE}s/${old}/${new}/${QUOTE}" -- "${file}"  && rm -- "${file}.bak"
 }
 
 function update_version
@@ -161,6 +173,11 @@ function update_version
                   src/Cloudinary.php\
                   || return 1
 
+    if [ "${UPDATE_ONLY}" = true ]; then
+      popd;
+      return 0;
+    fi
+
     ${CMD_PREFIX} git changelog -t ${NEW_VERSION} || true
 
     echo ""
@@ -192,6 +209,6 @@ function update_version
     popd
 }
 
+process_arguments "$@"
 verify_dependencies
-process_arguments $*
 update_version

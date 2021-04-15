@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,16 +18,14 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DriveItemVersion extends BaseItemVersion
 {
     /**
     * Gets the content
-    * The content stream for this version of the item.
     *
     * @return \GuzzleHttp\Psr7\Stream The content
     */
@@ -47,7 +44,6 @@ class DriveItemVersion extends BaseItemVersion
     
     /**
     * Sets the content
-    * The content stream for this version of the item.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The content
     *

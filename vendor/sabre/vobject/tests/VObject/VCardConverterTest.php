@@ -518,4 +518,34 @@ VCF;
 
         $this->assertEquals($expected, str_replace("\r", '', $vcard));
     }
+
+    public function testPhoneNumberValueTypeGetsRemoved()
+    {
+        $input = <<<VCF
+BEGIN:VCARD
+VERSION:3.0
+UID:foo
+FN:John Doe
+TEL;TYPE=HOME;VALUE=PHONE-NUMBER:+1234
+END:VCARD
+
+VCF;
+
+        $output = <<<VCF
+BEGIN:VCARD
+VERSION:4.0
+UID:foo
+FN:John Doe
+TEL;TYPE=HOME:+1234
+END:VCARD
+VCF;
+
+        $vcard = Reader::read($input);
+        $vcard = $vcard->convert(Document::VCARD40);
+
+        $this->assertVObjectEqualsVObject(
+            $output,
+            $vcard
+        );
+    }
 }

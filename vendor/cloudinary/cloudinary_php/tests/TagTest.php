@@ -56,7 +56,7 @@ class TagTest extends TestCase
         Curl::$instance = new Curl();
     }
 
-    public function setUp()
+    protected function setUp()
     {
         Cloudinary::reset_config();
         Cloudinary::config(
@@ -1094,7 +1094,7 @@ class TagTest extends TestCase
             "data-form-data='{\&quot;timestamp\&quot;:\d+,\&quot;signature\&quot;:\&quot;\w+\&quot;," .
             "\&quot;api_key\&quot;:\&quot;a\&quot;}' " .
             "data-max-chunk-size='5000000' " .
-            "data-url='http[^']+\/v1_1\/test123\/auto\/upload_chunked' " .
+            "data-url='http[^']+\/v1_1\/test123\/auto\/upload' " .
             "name='file' type='file'\/>/";
         $this->assertRegExp(
             $pattern,

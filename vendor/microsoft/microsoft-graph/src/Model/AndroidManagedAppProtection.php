@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,39 +18,96 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class AndroidManagedAppProtection extends TargetedManagedAppProtection
 {
     /**
-    * Gets the screenCaptureBlocked
-    * Indicates whether a managed user can take screen captures of managed apps
+    * Gets the customBrowserDisplayName
+    * Friendly name of the preferred custom browser to open weblink on Android.
     *
-    * @return bool The screenCaptureBlocked
+    * @return string The customBrowserDisplayName
     */
-    public function getScreenCaptureBlocked()
+    public function getCustomBrowserDisplayName()
     {
-        if (array_key_exists("screenCaptureBlocked", $this->_propDict)) {
-            return $this->_propDict["screenCaptureBlocked"];
+        if (array_key_exists("customBrowserDisplayName", $this->_propDict)) {
+            return $this->_propDict["customBrowserDisplayName"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the screenCaptureBlocked
-    * Indicates whether a managed user can take screen captures of managed apps
+    * Sets the customBrowserDisplayName
+    * Friendly name of the preferred custom browser to open weblink on Android.
     *
-    * @param bool $val The screenCaptureBlocked
+    * @param string $val The customBrowserDisplayName
     *
     * @return AndroidManagedAppProtection
     */
-    public function setScreenCaptureBlocked($val)
+    public function setCustomBrowserDisplayName($val)
     {
-        $this->_propDict["screenCaptureBlocked"] = boolval($val);
+        $this->_propDict["customBrowserDisplayName"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the customBrowserPackageId
+    * Unique identifier of a custom browser to open weblink on Android.
+    *
+    * @return string The customBrowserPackageId
+    */
+    public function getCustomBrowserPackageId()
+    {
+        if (array_key_exists("customBrowserPackageId", $this->_propDict)) {
+            return $this->_propDict["customBrowserPackageId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the customBrowserPackageId
+    * Unique identifier of a custom browser to open weblink on Android.
+    *
+    * @param string $val The customBrowserPackageId
+    *
+    * @return AndroidManagedAppProtection
+    */
+    public function setCustomBrowserPackageId($val)
+    {
+        $this->_propDict["customBrowserPackageId"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the deployedAppCount
+    * Count of apps to which the current policy is deployed.
+    *
+    * @return int The deployedAppCount
+    */
+    public function getDeployedAppCount()
+    {
+        if (array_key_exists("deployedAppCount", $this->_propDict)) {
+            return $this->_propDict["deployedAppCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the deployedAppCount
+    * Count of apps to which the current policy is deployed.
+    *
+    * @param int $val The deployedAppCount
+    *
+    * @return AndroidManagedAppProtection
+    */
+    public function setDeployedAppCount($val)
+    {
+        $this->_propDict["deployedAppCount"] = intval($val);
         return $this;
     }
     
@@ -114,35 +170,6 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     }
     
     /**
-    * Gets the deployedAppCount
-    * Count of apps to which the current policy is deployed.
-    *
-    * @return int The deployedAppCount
-    */
-    public function getDeployedAppCount()
-    {
-        if (array_key_exists("deployedAppCount", $this->_propDict)) {
-            return $this->_propDict["deployedAppCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the deployedAppCount
-    * Count of apps to which the current policy is deployed.
-    *
-    * @param int $val The deployedAppCount
-    *
-    * @return AndroidManagedAppProtection
-    */
-    public function setDeployedAppCount($val)
-    {
-        $this->_propDict["deployedAppCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the minimumRequiredPatchVersion
     * Define the oldest required Android security patch level a user can have to gain secure access to the app.
     *
@@ -200,6 +227,35 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
         return $this;
     }
     
+    /**
+    * Gets the screenCaptureBlocked
+    * Indicates whether a managed user can take screen captures of managed apps
+    *
+    * @return bool The screenCaptureBlocked
+    */
+    public function getScreenCaptureBlocked()
+    {
+        if (array_key_exists("screenCaptureBlocked", $this->_propDict)) {
+            return $this->_propDict["screenCaptureBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the screenCaptureBlocked
+    * Indicates whether a managed user can take screen captures of managed apps
+    *
+    * @param bool $val The screenCaptureBlocked
+    *
+    * @return AndroidManagedAppProtection
+    */
+    public function setScreenCaptureBlocked($val)
+    {
+        $this->_propDict["screenCaptureBlocked"] = boolval($val);
+        return $this;
+    }
+    
 
      /** 
      * Gets the apps
@@ -239,7 +295,7 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     public function getDeploymentSummary()
     {
         if (array_key_exists("deploymentSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentSummary"], "Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
+            if (is_a($this->_propDict["deploymentSummary"], "\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
                 return $this->_propDict["deploymentSummary"];
             } else {
                 $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);

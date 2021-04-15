@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -21,31 +20,31 @@ use Microsoft\Graph\Core\Enum;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosUpdatesInstallStatus extends Enum
 {
     /**
     * The Enum IosUpdatesInstallStatus
     */
+    const DEVICE_OS_HIGHER_THAN_DESIRED_OS_VERSION = "deviceOsHigherThanDesiredOsVersion";
+    const SHARED_DEVICE_USER_LOGGED_IN_ERROR = "sharedDeviceUserLoggedInError";
+    const NOT_SUPPORTED_OPERATION = "notSupportedOperation";
+    const INSTALL_FAILED = "installFailed";
+    const INSTALL_PHONE_CALL_IN_PROGRESS = "installPhoneCallInProgress";
+    const INSTALL_INSUFFICIENT_POWER = "installInsufficientPower";
+    const INSTALL_INSUFFICIENT_SPACE = "installInsufficientSpace";
+    const INSTALLING = "installing";
+    const DOWNLOAD_INSUFFICIENT_NETWORK = "downloadInsufficientNetwork";
+    const DOWNLOAD_INSUFFICIENT_POWER = "downloadInsufficientPower";
+    const DOWNLOAD_INSUFFICIENT_SPACE = "downloadInsufficientSpace";
+    const DOWNLOAD_REQUIRES_COMPUTER = "downloadRequiresComputer";
+    const DOWNLOAD_FAILED = "downloadFailed";
+    const DOWNLOADING = "downloading";
     const SUCCESS = "success";
     const AVAILABLE = "available";
     const IDLE = "idle";
     const UNKNOWN = "unknown";
-    const DOWNLOADING = "downloading";
-    const DOWNLOAD_FAILED = "downloadFailed";
-    const DOWNLOAD_REQUIRES_COMPUTER = "downloadRequiresComputer";
-    const DOWNLOAD_INSUFFICIENT_SPACE = "downloadInsufficientSpace";
-    const DOWNLOAD_INSUFFICIENT_POWER = "downloadInsufficientPower";
-    const DOWNLOAD_INSUFFICIENT_NETWORK = "downloadInsufficientNetwork";
-    const INSTALLING = "installing";
-    const INSTALL_INSUFFICIENT_SPACE = "installInsufficientSpace";
-    const INSTALL_INSUFFICIENT_POWER = "installInsufficientPower";
-    const INSTALL_PHONE_CALL_IN_PROGRESS = "installPhoneCallInProgress";
-    const INSTALL_FAILED = "installFailed";
-    const NOT_SUPPORTED_OPERATION = "notSupportedOperation";
-    const SHARED_DEVICE_USER_LOGGED_IN_ERROR = "sharedDeviceUserLoggedInError";
 }

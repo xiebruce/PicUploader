@@ -2,17 +2,26 @@
 
 namespace Cloudinary {
 
+    use PHPUnit\Framework\TestCase;
+    const LOGO_SIZE = 3381;
     const RAW_FILE = "tests/docx.docx";
     const TEST_IMG = "tests/logo.png";
+    const TEST_IMG_WIDTH = 241;
     const TEST_ICO = "tests/favicon.ico";
-    const TEST_PRESET_NAME = 'test_preset';
-    const LOGO_SIZE = 3381;
+    const TEST_PRESET_NAME = "test_preset";
+    const TEST_CONTEXT = "key=value";
+    const API_TEST_PREFIX = "api_test";
     define("SUFFIX", getenv("TRAVIS_JOB_ID") ?: rand(11111, 99999));
+    define('TEST_EVAL_STR', 'if (resource_info["width"] < 450) { upload_options["quality_analysis"] = true }; ' .
+        'upload_options["context"] = "width=" + resource_info["width"]');
     define('TEST_TAG', 'cloudinary_php');
+    define('TEST_METADATA_FIELD','metadata_test_field');
     define('UNIQUE_TEST_TAG', TEST_TAG . "_" . SUFFIX);
     define('UNIQUE_TEST_ID', UNIQUE_TEST_TAG);
     define('UNIQUE_TEST_SPRITE_TAG', UNIQUE_TEST_TAG . "_sprite");
     define('UNIQUE_TEST_FOLDER', UNIQUE_TEST_TAG . "_folder");
+    define('UNIQUE_TEST_METADATA_FIELD', TEST_METADATA_FIELD . "_" . SUFFIX);
+    define('UNIQUE_TEST_METADATA_FIELD_DEFAULT_VALUE', TEST_METADATA_FIELD . "_" . SUFFIX . "_default_value");
 
     /**
      * Class Curl
@@ -266,5 +275,154 @@ END;
             $names[] = strtolower(trim($chunks[0]));
         }
         $test->assertContains(strtolower($header), $names, $message);
+    }
+
+    /**
+     * Reports an error if the $haystack array does not contain the $needle array.
+     *
+     * @param TestCase $test
+     * @param array $haystack
+     * @param array $needle
+     * @param string $message
+     */
+    function assertArrayContainsArray($test, $haystack, $needle, $message = '')
+    {
+        $message = empty($message) ? 'The $haystack array does not contain the $needle array' : $message;
+        $result = array_filter($haystack, function ($item) use ($needle) {
+            return $item == $needle;
+        });
+
+        $test->assertGreaterThanOrEqual(1, count($result), $message);
+    }
+
+    /**
+     * Asserts that request fields are correctly encoded into the HTTP request
+     *
+     * @param TestCase $test
+     * @param array    $fields
+     * @param string   $message
+     */
+    function assertEncodedRequestFields(TestCase $test, $fields = array(), $message = '')
+    {
+        assertJson(
+            $test,
+            json_encode($fields),
+            Curl::$instance->fields(),
+            empty($message) ? 'Should correctly encode JSON into the HTTP request' : $message
+        );
+    }
+
+    /**
+     * Trait RetryTrait
+     * @package Cloudinary
+     */
+    trait RetryTrait
+    {
+        public function runBare()
+        {
+            $e = null;
+
+            $numberOfRetires = $this->getNumberOfRetries();
+            if (false === is_numeric($numberOfRetires)) {
+                throw new \LogicException(sprintf(
+                    'The $numberOfRetires must be a number but got "%s"',
+                    var_export($numberOfRetires, true)
+                ));
+            }
+            $numberOfRetires = (int)$numberOfRetires;
+            if ($numberOfRetires <= 0) {
+                throw new \LogicException(sprintf(
+                    'The $numberOfRetires must be a positive number greater than 0 but got "%s".',
+                    $numberOfRetires
+                ));
+            }
+
+            for ($i = 0; $i < $numberOfRetires; ++$i) {
+                try {
+                    parent::runBare();
+
+                    return;
+                } catch (\PHPUnit_Framework_IncompleteTestError $e) {
+                    throw $e;
+                } catch (\PHPUnit_Framework_SkippedTestError $e) {
+                    throw $e;
+                } catch (\Exception $e) {
+                    // last one thrown below
+                }
+            }
+
+            if ($e) {
+                throw $e;
+            }
+        }
+
+        /**
+         * @return int
+         */
+        private function getNumberOfRetries()
+        {
+            $annotations = $this->getAnnotations();
+
+            if (isset($annotations['method']['retry'][0])) {
+                return $annotations['method']['retry'][0];
+            }
+
+            if (isset($annotations['class']['retry'][0])) {
+                return $annotations['class']['retry'][0];
+            }
+
+            return 1;
+        }
+    }
+
+    class AddOn
+    {
+        const ALL                         = 'all';                       // Test all addons.
+        const ASPOSE                      = 'aspose';                    // Aspose document conversion.
+        const AZURE                       = 'azure';                     // Microsoft azure video indexer.
+        const BG_REMOVAL                  = 'bgremoval';                 // Cloudinary AI background removal.
+        const FACIAL_ATTRIBUTES_DETECTION = 'facialattributesdetection'; // Advanced facial attributes detection.
+        const GOOGLE                      = 'google';                    // Google AI video moderation, google AI
+                                                                         // video transcription, google auto tagging,
+                                                                         // google automatic video tagging,
+                                                                         // google translation.
+        const IMAGGA                      = 'imagga';                    // Imagga auto tagging, crop and scale.
+        const JPEGMINI                    = 'jpegmini';                  // JPEGmini image optimization.
+        const LIGHTROOM                   = 'lightroom';                 // Adobe photoshop lightroom (BETA).
+        const METADEFENDER                = 'metadefender';              // MetaDefender anti-malware protection.
+        const NEURAL_ARTWORK              = 'neuralartwork';             // Neural artwork style transfer.
+        const OBJECT_AWARE_CROPPING       = 'objectawarecropping';       // Cloudinary object-aware cropping.
+        const OCR                         = 'ocr';                       // OCR text detection and extraction.
+        const PIXELZ                      = 'pixelz';                    // Remove the background.
+        const REKOGNITION                 = 'rekognition';               // Amazon rekognition AI moderation,
+                                                                         // amazon rekognition auto tagging,
+                                                                         // amazon rekognition celebrity detection.
+        const URL2PNG                     = 'url2png';                   // URL2PNG website screenshots.
+        const VIESUS                      = 'viesus';                    // VIESUS automatic image enhancement.
+        const WEBPURIFY                   = 'webpurify';                 // WebPurify image moderation.
+
+        /**
+         * Should a certain add on be tested.
+         *
+         * @param string $add_on
+         *
+         * @return bool
+         */
+        public static function should_test_add_on($add_on)
+        {
+            $cld_test_add_ons = strtolower(getenv('CLD_TEST_ADDONS'));
+            if ($cld_test_add_ons === self::ALL) {
+                return true;
+            }
+
+            return in_array(
+                strtolower($add_on),
+                array_map(
+                    'trim',
+                    explode(',', $cld_test_add_ons)
+                ),
+                false
+            );
+        }
     }
 }

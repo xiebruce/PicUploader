@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,15 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class AlertHistoryState extends Entity
 {
     /**
     * Gets the appId
+    * The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
     *
     * @return string The appId
     */
@@ -41,6 +40,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the appId
+    * The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
     *
     * @param string $val The value of the appId
     *
@@ -53,6 +53,7 @@ class AlertHistoryState extends Entity
     }
     /**
     * Gets the assignedTo
+    * UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
     *
     * @return string The assignedTo
     */
@@ -67,6 +68,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the assignedTo
+    * UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
     *
     * @param string $val The value of the assignedTo
     *
@@ -79,6 +81,7 @@ class AlertHistoryState extends Entity
     }
     /**
     * Gets the comments
+    * Comment entered by signed-in user.
     *
     * @return string The comments
     */
@@ -93,6 +96,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the comments
+    * Comment entered by signed-in user.
     *
     * @param string $val The value of the comments
     *
@@ -106,13 +110,14 @@ class AlertHistoryState extends Entity
 
     /**
     * Gets the feedback
+    * Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
     *
     * @return AlertFeedback The feedback
     */
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "Microsoft\Graph\Model\AlertFeedback")) {
+            if (is_a($this->_propDict["feedback"], "\Microsoft\Graph\Model\AlertFeedback")) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new AlertFeedback($this->_propDict["feedback"]);
@@ -124,6 +129,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the feedback
+    * Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
     *
     * @param AlertFeedback $val The value to assign to the feedback
     *
@@ -137,13 +143,14 @@ class AlertHistoryState extends Entity
 
     /**
     * Gets the status
+    * Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
     *
     * @return AlertStatus The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "Microsoft\Graph\Model\AlertStatus")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\AlertStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AlertStatus($this->_propDict["status"]);
@@ -155,6 +162,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the status
+    * Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
     *
     * @param AlertStatus $val The value to assign to the status
     *
@@ -168,13 +176,14 @@ class AlertHistoryState extends Entity
 
     /**
     * Gets the updatedDateTime
+    * Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime The updatedDateTime
     */
     public function getUpdatedDateTime()
     {
         if (array_key_exists("updatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["updatedDateTime"], "Microsoft\Graph\Model\\DateTime")) {
+            if (is_a($this->_propDict["updatedDateTime"], "\DateTime")) {
                 return $this->_propDict["updatedDateTime"];
             } else {
                 $this->_propDict["updatedDateTime"] = new \DateTime($this->_propDict["updatedDateTime"]);
@@ -186,6 +195,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the updatedDateTime
+    * Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The value to assign to the updatedDateTime
     *
@@ -198,6 +208,7 @@ class AlertHistoryState extends Entity
     }
     /**
     * Gets the user
+    * UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
     *
     * @return string The user
     */
@@ -212,6 +223,7 @@ class AlertHistoryState extends Entity
 
     /**
     * Sets the user
+    * UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
     *
     * @param string $val The value of the user
     *

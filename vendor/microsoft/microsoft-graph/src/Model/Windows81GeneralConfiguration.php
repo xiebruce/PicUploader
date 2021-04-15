@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Windows81GeneralConfiguration extends DeviceConfiguration
 {
@@ -317,35 +315,6 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the browserRequireSmartScreen
-    * Indicates whether or not to require the user to use the smart screen filter.
-    *
-    * @return bool The browserRequireSmartScreen
-    */
-    public function getBrowserRequireSmartScreen()
-    {
-        if (array_key_exists("browserRequireSmartScreen", $this->_propDict)) {
-            return $this->_propDict["browserRequireSmartScreen"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the browserRequireSmartScreen
-    * Indicates whether or not to require the user to use the smart screen filter.
-    *
-    * @param bool $val The browserRequireSmartScreen
-    *
-    * @return Windows81GeneralConfiguration
-    */
-    public function setBrowserRequireSmartScreen($val)
-    {
-        $this->_propDict["browserRequireSmartScreen"] = boolval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the browserEnterpriseModeSiteListLocation
     * The enterprise mode site list location. Could be a local file, local network or http location.
     *
@@ -383,7 +352,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     public function getBrowserInternetSecurityLevel()
     {
         if (array_key_exists("browserInternetSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["browserInternetSecurityLevel"], "Microsoft\Graph\Model\InternetSiteSecurityLevel")) {
+            if (is_a($this->_propDict["browserInternetSecurityLevel"], "\Microsoft\Graph\Model\InternetSiteSecurityLevel")) {
                 return $this->_propDict["browserInternetSecurityLevel"];
             } else {
                 $this->_propDict["browserInternetSecurityLevel"] = new InternetSiteSecurityLevel($this->_propDict["browserInternetSecurityLevel"]);
@@ -416,7 +385,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     public function getBrowserIntranetSecurityLevel()
     {
         if (array_key_exists("browserIntranetSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["browserIntranetSecurityLevel"], "Microsoft\Graph\Model\SiteSecurityLevel")) {
+            if (is_a($this->_propDict["browserIntranetSecurityLevel"], "\Microsoft\Graph\Model\SiteSecurityLevel")) {
                 return $this->_propDict["browserIntranetSecurityLevel"];
             } else {
                 $this->_propDict["browserIntranetSecurityLevel"] = new SiteSecurityLevel($this->_propDict["browserIntranetSecurityLevel"]);
@@ -466,35 +435,6 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     public function setBrowserLoggingReportLocation($val)
     {
         $this->_propDict["browserLoggingReportLocation"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the browserRequireHighSecurityForRestrictedSites
-    * Indicates whether or not to require high security for restricted sites.
-    *
-    * @return bool The browserRequireHighSecurityForRestrictedSites
-    */
-    public function getBrowserRequireHighSecurityForRestrictedSites()
-    {
-        if (array_key_exists("browserRequireHighSecurityForRestrictedSites", $this->_propDict)) {
-            return $this->_propDict["browserRequireHighSecurityForRestrictedSites"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the browserRequireHighSecurityForRestrictedSites
-    * Indicates whether or not to require high security for restricted sites.
-    *
-    * @param bool $val The browserRequireHighSecurityForRestrictedSites
-    *
-    * @return Windows81GeneralConfiguration
-    */
-    public function setBrowserRequireHighSecurityForRestrictedSites($val)
-    {
-        $this->_propDict["browserRequireHighSecurityForRestrictedSites"] = boolval($val);
         return $this;
     }
     
@@ -557,6 +497,64 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the browserRequireHighSecurityForRestrictedSites
+    * Indicates whether or not to require high security for restricted sites.
+    *
+    * @return bool The browserRequireHighSecurityForRestrictedSites
+    */
+    public function getBrowserRequireHighSecurityForRestrictedSites()
+    {
+        if (array_key_exists("browserRequireHighSecurityForRestrictedSites", $this->_propDict)) {
+            return $this->_propDict["browserRequireHighSecurityForRestrictedSites"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the browserRequireHighSecurityForRestrictedSites
+    * Indicates whether or not to require high security for restricted sites.
+    *
+    * @param bool $val The browserRequireHighSecurityForRestrictedSites
+    *
+    * @return Windows81GeneralConfiguration
+    */
+    public function setBrowserRequireHighSecurityForRestrictedSites($val)
+    {
+        $this->_propDict["browserRequireHighSecurityForRestrictedSites"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the browserRequireSmartScreen
+    * Indicates whether or not to require the user to use the smart screen filter.
+    *
+    * @return bool The browserRequireSmartScreen
+    */
+    public function getBrowserRequireSmartScreen()
+    {
+        if (array_key_exists("browserRequireSmartScreen", $this->_propDict)) {
+            return $this->_propDict["browserRequireSmartScreen"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the browserRequireSmartScreen
+    * Indicates whether or not to require the user to use the smart screen filter.
+    *
+    * @param bool $val The browserRequireSmartScreen
+    *
+    * @return Windows81GeneralConfiguration
+    */
+    public function setBrowserRequireSmartScreen($val)
+    {
+        $this->_propDict["browserRequireSmartScreen"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the browserTrustedSitesSecurityLevel
     * The trusted sites security level. Possible values are: userDefined, low, mediumLow, medium, mediumHigh, high.
     *
@@ -565,7 +563,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     public function getBrowserTrustedSitesSecurityLevel()
     {
         if (array_key_exists("browserTrustedSitesSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["browserTrustedSitesSecurityLevel"], "Microsoft\Graph\Model\SiteSecurityLevel")) {
+            if (is_a($this->_propDict["browserTrustedSitesSecurityLevel"], "\Microsoft\Graph\Model\SiteSecurityLevel")) {
                 return $this->_propDict["browserTrustedSitesSecurityLevel"];
             } else {
                 $this->_propDict["browserTrustedSitesSecurityLevel"] = new SiteSecurityLevel($this->_propDict["browserTrustedSitesSecurityLevel"]);
@@ -706,6 +704,35 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the passwordMinimumCharacterSetCount
+    * The number of character sets required in the password.
+    *
+    * @return int The passwordMinimumCharacterSetCount
+    */
+    public function getPasswordMinimumCharacterSetCount()
+    {
+        if (array_key_exists("passwordMinimumCharacterSetCount", $this->_propDict)) {
+            return $this->_propDict["passwordMinimumCharacterSetCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the passwordMinimumCharacterSetCount
+    * The number of character sets required in the password.
+    *
+    * @param int $val The passwordMinimumCharacterSetCount
+    *
+    * @return Windows81GeneralConfiguration
+    */
+    public function setPasswordMinimumCharacterSetCount($val)
+    {
+        $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the passwordMinimumLength
     * The minimum password length.
     *
@@ -764,35 +791,6 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the passwordMinimumCharacterSetCount
-    * The number of character sets required in the password.
-    *
-    * @return int The passwordMinimumCharacterSetCount
-    */
-    public function getPasswordMinimumCharacterSetCount()
-    {
-        if (array_key_exists("passwordMinimumCharacterSetCount", $this->_propDict)) {
-            return $this->_propDict["passwordMinimumCharacterSetCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the passwordMinimumCharacterSetCount
-    * The number of character sets required in the password.
-    *
-    * @param int $val The passwordMinimumCharacterSetCount
-    *
-    * @return Windows81GeneralConfiguration
-    */
-    public function setPasswordMinimumCharacterSetCount($val)
-    {
-        $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the passwordPreviousPasswordBlockCount
     * The number of previous passwords to prevent re-use of. Valid values 0 to 24
     *
@@ -830,7 +828,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     public function getPasswordRequiredType()
     {
         if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "Microsoft\Graph\Model\RequiredPasswordType")) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Microsoft\Graph\Model\RequiredPasswordType")) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -950,7 +948,7 @@ class Windows81GeneralConfiguration extends DeviceConfiguration
     public function getUserAccountControlSettings()
     {
         if (array_key_exists("userAccountControlSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccountControlSettings"], "Microsoft\Graph\Model\WindowsUserAccountControlSettings")) {
+            if (is_a($this->_propDict["userAccountControlSettings"], "\Microsoft\Graph\Model\WindowsUserAccountControlSettings")) {
                 return $this->_propDict["userAccountControlSettings"];
             } else {
                 $this->_propDict["userAccountControlSettings"] = new WindowsUserAccountControlSettings($this->_propDict["userAccountControlSettings"]);

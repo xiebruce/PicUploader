@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,40 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class EducationTeacher extends Entity
 {
+    /**
+    * Gets the externalId
+    * Id of the Teacher in external source system.
+    *
+    * @return string The externalId
+    */
+    public function getExternalId()
+    {
+        if (array_key_exists("externalId", $this->_propDict)) {
+            return $this->_propDict["externalId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the externalId
+    * Id of the Teacher in external source system.
+    *
+    * @param string $val The value of the externalId
+    *
+    * @return EducationTeacher
+    */
+    public function setExternalId($val)
+    {
+        $this->_propDict["externalId"] = $val;
+        return $this;
+    }
     /**
     * Gets the teacherNumber
     * Teacher number.
@@ -51,34 +77,6 @@ class EducationTeacher extends Entity
     public function setTeacherNumber($val)
     {
         $this->_propDict["teacherNumber"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the externalId
-    * ID of the teacher in the source system.
-    *
-    * @return string The externalId
-    */
-    public function getExternalId()
-    {
-        if (array_key_exists("externalId", $this->_propDict)) {
-            return $this->_propDict["externalId"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the externalId
-    * ID of the teacher in the source system.
-    *
-    * @param string $val The value of the externalId
-    *
-    * @return EducationTeacher
-    */
-    public function setExternalId($val)
-    {
-        $this->_propDict["externalId"] = $val;
         return $this;
     }
 }

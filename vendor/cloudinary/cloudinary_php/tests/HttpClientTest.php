@@ -45,7 +45,7 @@ class HttpClientTest extends TestCase
         }
     }
 
-    public function setUp()
+    protected function setUp()
     {
         $this->httpClient = new HttpClient();
     }

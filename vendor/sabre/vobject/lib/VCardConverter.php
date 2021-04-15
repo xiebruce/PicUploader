@@ -83,6 +83,9 @@ class VCardConverter
         if (!$valueType) {
             $valueType = $property->getValueType();
         }
+        if (Document::VCARD30 !== $targetVersion && 'PHONE-NUMBER' === $valueType) {
+            $valueType = null;
+        }
         $newProperty = $output->createProperty(
             $property->name,
             $property->getParts(),
@@ -227,7 +230,7 @@ class VCardConverter
 
         // Lastly, we need to see if there's a need for a VALUE parameter.
         //
-        // We can do that by instantating a empty property with that name, and
+        // We can do that by instantiating a empty property with that name, and
         // seeing if the default valueType is identical to the current one.
         $tempProperty = $output->createProperty($newProperty->name);
         if ($tempProperty->getValueType() !== $newProperty->getValueType()) {

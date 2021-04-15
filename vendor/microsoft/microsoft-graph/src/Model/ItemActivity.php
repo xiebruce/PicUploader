@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ItemActivity extends Entity
 {
@@ -35,7 +33,7 @@ class ItemActivity extends Entity
     public function getAccess()
     {
         if (array_key_exists("access", $this->_propDict)) {
-            if (is_a($this->_propDict["access"], "Microsoft\Graph\Model\AccessAction")) {
+            if (is_a($this->_propDict["access"], "\Microsoft\Graph\Model\AccessAction")) {
                 return $this->_propDict["access"];
             } else {
                 $this->_propDict["access"] = new AccessAction($this->_propDict["access"]);
@@ -101,7 +99,7 @@ class ItemActivity extends Entity
     public function getActor()
     {
         if (array_key_exists("actor", $this->_propDict)) {
-            if (is_a($this->_propDict["actor"], "Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["actor"], "\Microsoft\Graph\Model\IdentitySet")) {
                 return $this->_propDict["actor"];
             } else {
                 $this->_propDict["actor"] = new IdentitySet($this->_propDict["actor"]);
@@ -134,7 +132,7 @@ class ItemActivity extends Entity
     public function getDriveItem()
     {
         if (array_key_exists("driveItem", $this->_propDict)) {
-            if (is_a($this->_propDict["driveItem"], "Microsoft\Graph\Model\DriveItem")) {
+            if (is_a($this->_propDict["driveItem"], "\Microsoft\Graph\Model\DriveItem")) {
                 return $this->_propDict["driveItem"];
             } else {
                 $this->_propDict["driveItem"] = new DriveItem($this->_propDict["driveItem"]);

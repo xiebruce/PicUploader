@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,39 +17,38 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class WindowsInformationProtectionApp extends Entity
 {
     /**
-    * Gets the displayName
-    * App display name.
+    * Gets the denied
+    * If true, app is denied protection or exemption.
     *
-    * @return string The displayName
+    * @return bool The denied
     */
-    public function getDisplayName()
+    public function getDenied()
     {
-        if (array_key_exists("displayName", $this->_propDict)) {
-            return $this->_propDict["displayName"];
+        if (array_key_exists("denied", $this->_propDict)) {
+            return $this->_propDict["denied"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the displayName
-    * App display name.
+    * Sets the denied
+    * If true, app is denied protection or exemption.
     *
-    * @param string $val The value of the displayName
+    * @param bool $val The value of the denied
     *
     * @return WindowsInformationProtectionApp
     */
-    public function setDisplayName($val)
+    public function setDenied($val)
     {
-        $this->_propDict["displayName"] = $val;
+        $this->_propDict["denied"] = $val;
         return $this;
     }
     /**
@@ -82,31 +80,31 @@ class WindowsInformationProtectionApp extends Entity
         return $this;
     }
     /**
-    * Gets the publisherName
-    * The publisher name
+    * Gets the displayName
+    * App display name.
     *
-    * @return string The publisherName
+    * @return string The displayName
     */
-    public function getPublisherName()
+    public function getDisplayName()
     {
-        if (array_key_exists("publisherName", $this->_propDict)) {
-            return $this->_propDict["publisherName"];
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the publisherName
-    * The publisher name
+    * Sets the displayName
+    * App display name.
     *
-    * @param string $val The value of the publisherName
+    * @param string $val The value of the displayName
     *
     * @return WindowsInformationProtectionApp
     */
-    public function setPublisherName($val)
+    public function setDisplayName($val)
     {
-        $this->_propDict["publisherName"] = $val;
+        $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
@@ -138,31 +136,31 @@ class WindowsInformationProtectionApp extends Entity
         return $this;
     }
     /**
-    * Gets the denied
-    * If true, app is denied protection or exemption.
+    * Gets the publisherName
+    * The publisher name
     *
-    * @return bool The denied
+    * @return string The publisherName
     */
-    public function getDenied()
+    public function getPublisherName()
     {
-        if (array_key_exists("denied", $this->_propDict)) {
-            return $this->_propDict["denied"];
+        if (array_key_exists("publisherName", $this->_propDict)) {
+            return $this->_propDict["publisherName"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the denied
-    * If true, app is denied protection or exemption.
+    * Sets the publisherName
+    * The publisher name
     *
-    * @param bool $val The value of the denied
+    * @param string $val The value of the publisherName
     *
     * @return WindowsInformationProtectionApp
     */
-    public function setDenied($val)
+    public function setPublisherName($val)
     {
-        $this->_propDict["denied"] = $val;
+        $this->_propDict["publisherName"] = $val;
         return $this;
     }
 }

@@ -10,7 +10,7 @@ class OnenoteTest extends TestCase
     private $_testSection;
     private $_testPage;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $graphTestBase = new GraphTestBase();
         $this->_client = $graphTestBase->graphClient;

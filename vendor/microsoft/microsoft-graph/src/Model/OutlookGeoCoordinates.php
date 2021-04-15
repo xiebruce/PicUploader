@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,69 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OutlookGeoCoordinates extends Entity
 {
-    /**
-    * Gets the latitude
-    * The latitude of the location.
-    *
-    * @return float The latitude
-    */
-    public function getLatitude()
-    {
-        if (array_key_exists("latitude", $this->_propDict)) {
-            return $this->_propDict["latitude"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the latitude
-    * The latitude of the location.
-    *
-    * @param float $val The value of the latitude
-    *
-    * @return OutlookGeoCoordinates
-    */
-    public function setLatitude($val)
-    {
-        $this->_propDict["latitude"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the longitude
-    * The longitude of the location.
-    *
-    * @return float The longitude
-    */
-    public function getLongitude()
-    {
-        if (array_key_exists("longitude", $this->_propDict)) {
-            return $this->_propDict["longitude"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the longitude
-    * The longitude of the location.
-    *
-    * @param float $val The value of the longitude
-    *
-    * @return OutlookGeoCoordinates
-    */
-    public function setLongitude($val)
-    {
-        $this->_propDict["longitude"] = $val;
-        return $this;
-    }
     /**
     * Gets the accuracy
     * The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -163,6 +105,62 @@ class OutlookGeoCoordinates extends Entity
     public function setAltitudeAccuracy($val)
     {
         $this->_propDict["altitudeAccuracy"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the latitude
+    * The latitude of the location.
+    *
+    * @return float The latitude
+    */
+    public function getLatitude()
+    {
+        if (array_key_exists("latitude", $this->_propDict)) {
+            return $this->_propDict["latitude"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the latitude
+    * The latitude of the location.
+    *
+    * @param float $val The value of the latitude
+    *
+    * @return OutlookGeoCoordinates
+    */
+    public function setLatitude($val)
+    {
+        $this->_propDict["latitude"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the longitude
+    * The longitude of the location.
+    *
+    * @return float The longitude
+    */
+    public function getLongitude()
+    {
+        if (array_key_exists("longitude", $this->_propDict)) {
+            return $this->_propDict["longitude"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the longitude
+    * The longitude of the location.
+    *
+    * @param float $val The value of the longitude
+    *
+    * @return OutlookGeoCoordinates
+    */
+    public function setLongitude($val)
+    {
+        $this->_propDict["longitude"] = $val;
         return $this;
     }
 }

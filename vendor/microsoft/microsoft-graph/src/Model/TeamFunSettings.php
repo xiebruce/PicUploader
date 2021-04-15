@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,40 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class TeamFunSettings extends Entity
 {
+    /**
+    * Gets the allowCustomMemes
+    * If set to true, enables users to include custom memes.
+    *
+    * @return bool The allowCustomMemes
+    */
+    public function getAllowCustomMemes()
+    {
+        if (array_key_exists("allowCustomMemes", $this->_propDict)) {
+            return $this->_propDict["allowCustomMemes"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowCustomMemes
+    * If set to true, enables users to include custom memes.
+    *
+    * @param bool $val The value of the allowCustomMemes
+    *
+    * @return TeamFunSettings
+    */
+    public function setAllowCustomMemes($val)
+    {
+        $this->_propDict["allowCustomMemes"] = $val;
+        return $this;
+    }
     /**
     * Gets the allowGiphy
     * If set to true, enables Giphy use.
@@ -52,39 +78,6 @@ class TeamFunSettings extends Entity
     {
         $this->_propDict["allowGiphy"] = $val;
         return $this;
-    }
-
-    /**
-    * Gets the giphyContentRating
-    * Giphy content rating. Possible values are: moderate, strict.
-    *
-    * @return GiphyRatingType The giphyContentRating
-    */
-    public function getGiphyContentRating()
-    {
-        if (array_key_exists("giphyContentRating", $this->_propDict)) {
-            if (is_a($this->_propDict["giphyContentRating"], "Microsoft\Graph\Model\GiphyRatingType")) {
-                return $this->_propDict["giphyContentRating"];
-            } else {
-                $this->_propDict["giphyContentRating"] = new GiphyRatingType($this->_propDict["giphyContentRating"]);
-                return $this->_propDict["giphyContentRating"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the giphyContentRating
-    * Giphy content rating. Possible values are: moderate, strict.
-    *
-    * @param GiphyRatingType $val The value to assign to the giphyContentRating
-    *
-    * @return TeamFunSettings The TeamFunSettings
-    */
-    public function setGiphyContentRating($val)
-    {
-        $this->_propDict["giphyContentRating"] = $val;
-         return $this;
     }
     /**
     * Gets the allowStickersAndMemes
@@ -114,32 +107,37 @@ class TeamFunSettings extends Entity
         $this->_propDict["allowStickersAndMemes"] = $val;
         return $this;
     }
+
     /**
-    * Gets the allowCustomMemes
-    * If set to true, enables users to include custom memes.
+    * Gets the giphyContentRating
+    * Giphy content rating. Possible values are: moderate, strict.
     *
-    * @return bool The allowCustomMemes
+    * @return GiphyRatingType The giphyContentRating
     */
-    public function getAllowCustomMemes()
+    public function getGiphyContentRating()
     {
-        if (array_key_exists("allowCustomMemes", $this->_propDict)) {
-            return $this->_propDict["allowCustomMemes"];
-        } else {
-            return null;
+        if (array_key_exists("giphyContentRating", $this->_propDict)) {
+            if (is_a($this->_propDict["giphyContentRating"], "\Microsoft\Graph\Model\GiphyRatingType")) {
+                return $this->_propDict["giphyContentRating"];
+            } else {
+                $this->_propDict["giphyContentRating"] = new GiphyRatingType($this->_propDict["giphyContentRating"]);
+                return $this->_propDict["giphyContentRating"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the allowCustomMemes
-    * If set to true, enables users to include custom memes.
+    * Sets the giphyContentRating
+    * Giphy content rating. Possible values are: moderate, strict.
     *
-    * @param bool $val The value of the allowCustomMemes
+    * @param GiphyRatingType $val The value to assign to the giphyContentRating
     *
-    * @return TeamFunSettings
+    * @return TeamFunSettings The TeamFunSettings
     */
-    public function setAllowCustomMemes($val)
+    public function setGiphyContentRating($val)
     {
-        $this->_propDict["allowCustomMemes"] = $val;
-        return $this;
+        $this->_propDict["giphyContentRating"] = $val;
+         return $this;
     }
 }

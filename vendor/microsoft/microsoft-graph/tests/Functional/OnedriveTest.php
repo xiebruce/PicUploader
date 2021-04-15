@@ -7,7 +7,7 @@ class OnedriveTest extends TestCase
 {
     private $_client;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $graphTestBase = new GraphTestBase();
         $this->_client = $graphTestBase->graphClient;

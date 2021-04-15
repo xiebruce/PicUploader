@@ -1,17 +1,17 @@
-<?php 
+<?php
 /**
-* Copyright (c) Microsoft Corporation.  All Rights Reserved.  
-* Licensed under the MIT License.  See License in the project root 
+* Copyright (c) Microsoft Corporation.  All Rights Reserved.
+* Licensed under the MIT License.  See License in the project root
 * for license information.
-* 
+*
 * HttpResponse File
 * PHP version 7
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright 2016 Microsoft Corporation
+* @copyright 2020 Microsoft Corporation
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 0.1.0
+* @version   GIT: 1.13.0
 * @link      https://graph.microsoft.io/
 */
 
@@ -37,7 +37,7 @@ class GraphResponse
     */
     private $_body;
     /**
-    * The body of the response, 
+    * The body of the response,
     * decoded into an array
     *
     * @var array(string)
@@ -100,7 +100,7 @@ class GraphResponse
     /**
     * Get the undecoded body of the HTTP response
     *
-    * @return array The undecoded body
+    * @return string The undecoded body
     */
     public function getRawBody()
     {
@@ -141,21 +141,19 @@ class GraphResponse
 
         //If more than one object is returned
         if (array_key_exists('value', $result)) {
-            $objArray = array();
             $values = $result['value'];
 
             //Check that this is an object array instead of a value called "value"
-            if ($values && is_array($values)) {
+            if (is_array($values)) {
+                $objArray = array();
                 foreach ($values as $obj) {
                     $objArray[] = new $class($obj);
                 }
-            } else {
-                return new $class($result);
+                return $objArray;
             }
-            return $objArray;
-        } else {
-            return new $class($result);
         }
+
+        return new $class($result);
     }
 
     /**

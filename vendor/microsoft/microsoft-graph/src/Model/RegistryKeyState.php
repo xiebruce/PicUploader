@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class RegistryKeyState extends Entity
 {
@@ -35,7 +33,7 @@ class RegistryKeyState extends Entity
     public function getHive()
     {
         if (array_key_exists("hive", $this->_propDict)) {
-            if (is_a($this->_propDict["hive"], "Microsoft\Graph\Model\RegistryHive")) {
+            if (is_a($this->_propDict["hive"], "\Microsoft\Graph\Model\RegistryHive")) {
                 return $this->_propDict["hive"];
             } else {
                 $this->_propDict["hive"] = new RegistryHive($this->_propDict["hive"]);
@@ -180,7 +178,7 @@ class RegistryKeyState extends Entity
     public function getOperation()
     {
         if (array_key_exists("operation", $this->_propDict)) {
-            if (is_a($this->_propDict["operation"], "Microsoft\Graph\Model\RegistryOperation")) {
+            if (is_a($this->_propDict["operation"], "\Microsoft\Graph\Model\RegistryOperation")) {
                 return $this->_propDict["operation"];
             } else {
                 $this->_propDict["operation"] = new RegistryOperation($this->_propDict["operation"]);
@@ -297,7 +295,7 @@ class RegistryKeyState extends Entity
     public function getValueType()
     {
         if (array_key_exists("valueType", $this->_propDict)) {
-            if (is_a($this->_propDict["valueType"], "Microsoft\Graph\Model\RegistryValueType")) {
+            if (is_a($this->_propDict["valueType"], "\Microsoft\Graph\Model\RegistryValueType")) {
                 return $this->_propDict["valueType"];
             } else {
                 $this->_propDict["valueType"] = new RegistryValueType($this->_propDict["valueType"]);

@@ -14,25 +14,25 @@ class JsonTest extends TestCase
             [
                 [
                     'version',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     '4.0',
                 ],
                 [
                     'prodid',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     '-//Sabre//Sabre VObject '.VObject\Version::VERSION.'//EN',
                 ],
                 [
                     'uid',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     'foo',
                 ],
                 [
                     'bday',
-                    new \StdClass(),
+                    new \stdClass(),
                     'date-and-or-time',
                     '1985-04-07',
                 ],
@@ -46,25 +46,25 @@ class JsonTest extends TestCase
                 ],
                 [
                     'bday',
-                    new \StdClass(),
+                    new \stdClass(),
                     'date-time',
                     '1979-12-25T02:00:00',
                 ],
                 [
                     'rev',
-                    new \StdClass(),
+                    new \stdClass(),
                     'timestamp',
                     '1995-10-31T22:27:10Z',
                 ],
                 [
                     'lang',
-                    new \StdClass(),
+                    new \stdClass(),
                     'language-tag',
                     'nl',
                 ],
                 [
                     'n',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     ['Last', 'First', 'Middle', '', ''],
                 ],
@@ -86,7 +86,7 @@ class JsonTest extends TestCase
                 ],
                 [
                     'adr',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                         [
                             '',
@@ -101,55 +101,55 @@ class JsonTest extends TestCase
 
                 [
                     'x-truncated',
-                    new \StdClass(),
+                    new \stdClass(),
                     'date',
                     '--12-25',
                 ],
                 [
                     'x-time-local',
-                    new \StdClass(),
+                    new \stdClass(),
                     'time',
                     '12:30:00',
                 ],
                 [
                     'x-time-utc',
-                    new \StdClass(),
+                    new \stdClass(),
                     'time',
                     '12:30:00Z',
                 ],
                 [
                     'x-time-offset',
-                    new \StdClass(),
+                    new \stdClass(),
                     'time',
                     '12:30:00-08:00',
                 ],
                 [
                     'x-time-reduced',
-                    new \StdClass(),
+                    new \stdClass(),
                     'time',
                     '23',
                 ],
                 [
                     'x-time-truncated',
-                    new \StdClass(),
+                    new \stdClass(),
                     'time',
                     '--30',
                 ],
                 [
                     'x-karma-points',
-                    new \StdClass(),
+                    new \stdClass(),
                     'integer',
                     42,
                 ],
                 [
                     'x-grade',
-                    new \StdClass(),
+                    new \stdClass(),
                     'float',
                     1.3,
                 ],
                 [
                     'tz',
-                    new \StdClass(),
+                    new \stdClass(),
                     'utc-offset',
                     '-05:00',
                 ],
@@ -203,19 +203,19 @@ VCF;
             [
                 [
                     'version',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     '2.0',
                 ],
                 [
                     'prodid',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     '-//Sabre//Sabre VObject '.VObject\Version::VERSION.'//EN',
                 ],
                 [
                     'calscale',
-                    new \StdClass(),
+                    new \stdClass(),
                     'text',
                     'GREGORIAN',
                 ],
@@ -224,25 +224,25 @@ VCF;
                 ['vevent',
                     [
                         [
-                            'uid', new \StdClass(), 'text', 'foo',
+                            'uid', new \stdClass(), 'text', 'foo',
                         ],
                         [
-                            'dtstart', new \StdClass(), 'date', '2013-05-26',
+                            'dtstart', new \stdClass(), 'date', '2013-05-26',
                         ],
                         [
-                            'duration', new \StdClass(), 'duration', 'P1D',
+                            'duration', new \stdClass(), 'duration', 'P1D',
                         ],
                         [
-                            'categories', new \StdClass(), 'text', 'home', 'testing',
+                            'categories', new \stdClass(), 'text', 'home', 'testing',
                         ],
                         [
-                            'created', new \StdClass(), 'date-time', '2013-05-26T18:10:00Z',
+                            'created', new \stdClass(), 'date-time', '2013-05-26T18:10:00Z',
                         ],
                         [
-                            'attach', new \StdClass(), 'binary', base64_encode('attachment'),
+                            'attach', new \stdClass(), 'binary', base64_encode('attachment'),
                         ],
                         [
-                            'attendee', new \StdClass(), 'cal-address', 'mailto:armin@example.org',
+                            'attendee', new \stdClass(), 'cal-address', 'mailto:armin@example.org',
                         ],
                         [
                             'attendee',
@@ -254,41 +254,41 @@ VCF;
                             'mailto:dominik@example.org',
                         ],
                         [
-                            'geo', new \StdClass(), 'float', [51.96668, 7.61876],
+                            'geo', new \stdClass(), 'float', [51.96668, 7.61876],
                         ],
                         [
-                            'sequence', new \StdClass(), 'integer', 5,
+                            'sequence', new \stdClass(), 'integer', 5,
                         ],
                         [
-                            'freebusy', new \StdClass(), 'period',  ['2013-05-26T21:02:13', 'PT1H'], ['2013-06-26T12:00:00', '2013-06-26T13:00:00'],
+                            'freebusy', new \stdClass(), 'period',  ['2013-05-26T21:02:13', 'PT1H'], ['2013-06-26T12:00:00', '2013-06-26T13:00:00'],
                         ],
                         [
-                            'url', new \StdClass(), 'uri', 'http://example.org/',
+                            'url', new \stdClass(), 'uri', 'http://example.org/',
                         ],
                         [
-                            'tzoffsetfrom', new \StdClass(), 'utc-offset', '+05:00',
+                            'tzoffsetfrom', new \stdClass(), 'utc-offset', '+05:00',
                         ],
                         [
-                            'rrule', new \StdClass(), 'recur', [
+                            'rrule', new \stdClass(), 'recur', [
                                 'freq' => 'WEEKLY',
                                 'byday' => ['MO', 'TU'],
                             ],
                         ],
                         [
-                            'x-bool', new \StdClass(), 'boolean', true,
+                            'x-bool', new \stdClass(), 'boolean', true,
                         ],
                         [
-                            'x-time', new \StdClass(), 'time', '08:00:00',
+                            'x-time', new \stdClass(), 'time', '08:00:00',
                         ],
                         [
                             'request-status',
-                            new \StdClass(),
+                            new \stdClass(),
                             'text',
                             ['2.0', 'Success'],
                         ],
                         [
                             'request-status',
-                            new \StdClass(),
+                            new \stdClass(),
                             'text',
                             ['3.7', 'Invalid Calendar User', 'ATTENDEE:mailto:jsmith@example.org'],
                         ],
@@ -297,7 +297,7 @@ VCF;
                         ['valarm',
                             [
                                 [
-                                    'action', new \StdClass(), 'text', 'DISPLAY',
+                                    'action', new \stdClass(), 'text', 'DISPLAY',
                                 ],
                             ],
                             [],
@@ -358,7 +358,7 @@ VCF;
             'vcard',
             [
                 [
-                    'FN', new \StdClass(), 'text', 'foo',
+                    'FN', new \stdClass(), 'text', 'foo',
                 ],
             ],
         ];
@@ -381,7 +381,7 @@ VCF;
             'vlist',
             [
                 [
-                    'FN', new \StdClass(), 'text', 'foo',
+                    'FN', new \stdClass(), 'text', 'foo',
                 ],
             ],
         ];

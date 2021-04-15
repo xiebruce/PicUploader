@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase
 {
@@ -52,35 +50,6 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     public function setAssetTagTemplate($val)
     {
         $this->_propDict["assetTagTemplate"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the lockScreenFootnote
-    * A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
-    *
-    * @return string The lockScreenFootnote
-    */
-    public function getLockScreenFootnote()
-    {
-        if (array_key_exists("lockScreenFootnote", $this->_propDict)) {
-            return $this->_propDict["lockScreenFootnote"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the lockScreenFootnote
-    * A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
-    *
-    * @param string $val The lockScreenFootnote
-    *
-    * @return IosDeviceFeaturesConfiguration
-    */
-    public function setLockScreenFootnote($val)
-    {
-        $this->_propDict["lockScreenFootnote"] = $val;
         return $this;
     }
     
@@ -141,6 +110,35 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     public function setHomeScreenPages($val)
     {
 		$this->_propDict["homeScreenPages"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the lockScreenFootnote
+    * A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
+    *
+    * @return string The lockScreenFootnote
+    */
+    public function getLockScreenFootnote()
+    {
+        if (array_key_exists("lockScreenFootnote", $this->_propDict)) {
+            return $this->_propDict["lockScreenFootnote"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the lockScreenFootnote
+    * A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
+    *
+    * @param string $val The lockScreenFootnote
+    *
+    * @return IosDeviceFeaturesConfiguration
+    */
+    public function setLockScreenFootnote($val)
+    {
+        $this->_propDict["lockScreenFootnote"] = $val;
         return $this;
     }
     

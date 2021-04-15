@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,16 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ModifiedProperty extends Entity
 {
     /**
     * Gets the displayName
-    * Indicates the property name of the target attribute that was changed.
+    * Name of property that was modified.
     *
     * @return string The displayName
     */
@@ -42,7 +40,7 @@ class ModifiedProperty extends Entity
 
     /**
     * Sets the displayName
-    * Indicates the property name of the target attribute that was changed.
+    * Name of property that was modified.
     *
     * @param string $val The value of the displayName
     *
@@ -54,36 +52,8 @@ class ModifiedProperty extends Entity
         return $this;
     }
     /**
-    * Gets the oldValue
-    * Indicates the previous value (before the update) for the property.
-    *
-    * @return string The oldValue
-    */
-    public function getOldValue()
-    {
-        if (array_key_exists("oldValue", $this->_propDict)) {
-            return $this->_propDict["oldValue"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the oldValue
-    * Indicates the previous value (before the update) for the property.
-    *
-    * @param string $val The value of the oldValue
-    *
-    * @return ModifiedProperty
-    */
-    public function setOldValue($val)
-    {
-        $this->_propDict["oldValue"] = $val;
-        return $this;
-    }
-    /**
     * Gets the newValue
-    * Indicates the updated value for the propery.
+    * New property value.
     *
     * @return string The newValue
     */
@@ -98,7 +68,7 @@ class ModifiedProperty extends Entity
 
     /**
     * Sets the newValue
-    * Indicates the updated value for the propery.
+    * New property value.
     *
     * @param string $val The value of the newValue
     *
@@ -107,6 +77,34 @@ class ModifiedProperty extends Entity
     public function setNewValue($val)
     {
         $this->_propDict["newValue"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the oldValue
+    * Old property value.
+    *
+    * @return string The oldValue
+    */
+    public function getOldValue()
+    {
+        if (array_key_exists("oldValue", $this->_propDict)) {
+            return $this->_propDict["oldValue"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the oldValue
+    * Old property value.
+    *
+    * @param string $val The value of the oldValue
+    *
+    * @return ModifiedProperty
+    */
+    public function setOldValue($val)
+    {
+        $this->_propDict["oldValue"] = $val;
         return $this;
     }
 }

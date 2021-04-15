@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,15 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Diagnostic extends Entity
 {
     /**
     * Gets the message
+    * The message describing the condition that triggered the error or warning.
     *
     * @return string The message
     */
@@ -41,6 +40,7 @@ class Diagnostic extends Entity
 
     /**
     * Sets the message
+    * The message describing the condition that triggered the error or warning.
     *
     * @param string $val The value of the message
     *
@@ -53,6 +53,7 @@ class Diagnostic extends Entity
     }
     /**
     * Gets the url
+    * The link to the documentation for this issue.
     *
     * @return string The url
     */
@@ -67,6 +68,7 @@ class Diagnostic extends Entity
 
     /**
     * Sets the url
+    * The link to the documentation for this issue.
     *
     * @param string $val The value of the url
     *

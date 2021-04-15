@@ -1,3 +1,74 @@
+1.20.0 / 2021-01-13
+==================
+
+New functionality and features
+------------------------------
+
+  * Add `download_backedup_asset` helper method
+  * Add support for `metadata` parameter in `resources` Admin API
+
+Other Changes
+-------------
+
+  * Add test helper to determine whether to test an addon
+  * Update bug_report.md
+  * Extract default upload prefix to a constant
+  * Change test for `eval` upload parameter
+
+1.19.0 / 2020-10-29
+==================
+
+New functionality and features
+------------------------------
+  * Add method `Cloudinary::download_folder`
+  
+Other Changes
+-------------
+
+  * Fix `upload_large` endpoint
+  * Improve PHPUnit fixtures
+  * Add accessibility analysis tests
+
+1.18.0 / 2020-09-07
+==================
+
+New functionality and features
+------------------------------
+
+  * Add support for `date` in `usage` Admin API
+  * Add support for `eval` API parameter
+  
+Other Changes
+-------------
+
+  * Fix `@see` link for `usage` Admin API
+  * Fix assignment of value into previously undefined array
+  * Fix detection integration test
+  * Add pull request template
+  * Integrate with sub-account test service
+  * Add support of retries in unit tests
+
+
+1.17.0 / 2020-06-07
+===================
+
+New functionality and features
+------------------------------
+
+  * Add structured metadata administration to Admin API
+  * Add support for 32 char SHA-256 URL signatures
+  * Add SHA-256 signature support
+  * Add `accessibility_analysis` parameter support
+  * Add support of PHP 7.4
+
+Other Changes
+-------------
+
+  * Remove redundant dependencies check in `update_version` script
+  * Fix `update_version` script linux compatibility
+  * Add `update-only` flag to `update_version` script
+  * Fix legacy autoloader on Linux
+  * Update issue templates
 
 1.16.0 / 2019-11-28
 ===================

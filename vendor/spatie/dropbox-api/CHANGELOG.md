@@ -2,6 +2,41 @@
 
 All notable changes to `dropbox-api` will be documented in this file
 
+## 1.17.1 - 2021-03-01
+
+- allow graham-campbell/guzzle-factory v5 (#79)
+
+## 1.17.0 - 2020-12-08
+
+- `TokenProvider` interface for accesstokens (#76)
+
+## 1.16.1 - 2020-11-27
+
+- allow PHP 8
+
+## 1.16.0 - 2020-09-25
+- allow the Client to work with Dropbox business accounts
+
+## 1.15.0 - 2020-07-09
+
+- allow Guzzle 7 (#70)
+
+## 1.14.0 - 2020-05-11
+
+- add support for app authentication and no authentication
+
+## 1.13.0 - 2020-05-03
+
+- added `downloadZip` (#66)
+
+## 1.12.0 - 2020-02-04
+
+- add `search` method
+
+## 1.11.1 - 2019-12-12
+
+- make compatible with PHP 7.4
+
 ## 1.11.0 - 2019-07-04
 
 - add `$response` to `BadRequest`

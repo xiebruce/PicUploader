@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,40 +17,44 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DomainState extends Entity
 {
+
     /**
-    * Gets the status
-    * Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
+    * Gets the lastActionDateTime
+    * Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
     *
-    * @return string The status
+    * @return \DateTime The lastActionDateTime
     */
-    public function getStatus()
+    public function getLastActionDateTime()
     {
-        if (array_key_exists("status", $this->_propDict)) {
-            return $this->_propDict["status"];
-        } else {
-            return null;
+        if (array_key_exists("lastActionDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime")) {
+                return $this->_propDict["lastActionDateTime"];
+            } else {
+                $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
+                return $this->_propDict["lastActionDateTime"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the status
-    * Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
+    * Sets the lastActionDateTime
+    * Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
     *
-    * @param string $val The value of the status
+    * @param \DateTime $val The value to assign to the lastActionDateTime
     *
-    * @return DomainState
+    * @return DomainState The DomainState
     */
-    public function setStatus($val)
+    public function setLastActionDateTime($val)
     {
-        $this->_propDict["status"] = $val;
-        return $this;
+        $this->_propDict["lastActionDateTime"] = $val;
+         return $this;
     }
     /**
     * Gets the operation
@@ -81,37 +84,32 @@ class DomainState extends Entity
         $this->_propDict["operation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastActionDateTime
-    * Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
+    * Gets the status
+    * Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
     *
-    * @return \DateTime The lastActionDateTime
+    * @return string The status
     */
-    public function getLastActionDateTime()
+    public function getStatus()
     {
-        if (array_key_exists("lastActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActionDateTime"], "Microsoft\Graph\Model\\DateTime")) {
-                return $this->_propDict["lastActionDateTime"];
-            } else {
-                $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
-                return $this->_propDict["lastActionDateTime"];
-            }
+        if (array_key_exists("status", $this->_propDict)) {
+            return $this->_propDict["status"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
-    * Sets the lastActionDateTime
-    * Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
+    * Sets the status
+    * Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
     *
-    * @param \DateTime $val The value to assign to the lastActionDateTime
+    * @param string $val The value of the status
     *
-    * @return DomainState The DomainState
+    * @return DomainState
     */
-    public function setLastActionDateTime($val)
+    public function setStatus($val)
     {
-        $this->_propDict["lastActionDateTime"] = $val;
-         return $this;
+        $this->_propDict["status"] = $val;
+        return $this;
     }
 }

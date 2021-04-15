@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,41 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class PhysicalAddress extends Entity
 {
-    /**
-    * Gets the street
-    * The street.
-    *
-    * @return string The street
-    */
-    public function getStreet()
-    {
-        if (array_key_exists("street", $this->_propDict)) {
-            return $this->_propDict["street"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the street
-    * The street.
-    *
-    * @param string $val The value of the street
-    *
-    * @return PhysicalAddress
-    */
-    public function setStreet($val)
-    {
-        $this->_propDict["street"] = $val;
-        return $this;
-    }
     /**
     * Gets the city
     * The city.
@@ -79,34 +49,6 @@ class PhysicalAddress extends Entity
     public function setCity($val)
     {
         $this->_propDict["city"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the state
-    * The state.
-    *
-    * @return string The state
-    */
-    public function getState()
-    {
-        if (array_key_exists("state", $this->_propDict)) {
-            return $this->_propDict["state"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the state
-    * The state.
-    *
-    * @param string $val The value of the state
-    *
-    * @return PhysicalAddress
-    */
-    public function setState($val)
-    {
-        $this->_propDict["state"] = $val;
         return $this;
     }
     /**
@@ -163,6 +105,62 @@ class PhysicalAddress extends Entity
     public function setPostalCode($val)
     {
         $this->_propDict["postalCode"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the state
+    * The state.
+    *
+    * @return string The state
+    */
+    public function getState()
+    {
+        if (array_key_exists("state", $this->_propDict)) {
+            return $this->_propDict["state"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the state
+    * The state.
+    *
+    * @param string $val The value of the state
+    *
+    * @return PhysicalAddress
+    */
+    public function setState($val)
+    {
+        $this->_propDict["state"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the street
+    * The street.
+    *
+    * @return string The street
+    */
+    public function getStreet()
+    {
+        if (array_key_exists("street", $this->_propDict)) {
+            return $this->_propDict["street"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the street
+    * The street.
+    *
+    * @param string $val The value of the street
+    *
+    * @return PhysicalAddress
+    */
+    public function setStreet($val)
+    {
+        $this->_propDict["street"] = $val;
         return $this;
     }
 }

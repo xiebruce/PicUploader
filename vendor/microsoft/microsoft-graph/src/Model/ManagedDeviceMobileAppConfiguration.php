@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,42 +18,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ManagedDeviceMobileAppConfiguration extends Entity
 {
-    /**
-    * Gets the targetedMobileApps
-    * the associated app.
-    *
-    * @return string The targetedMobileApps
-    */
-    public function getTargetedMobileApps()
-    {
-        if (array_key_exists("targetedMobileApps", $this->_propDict)) {
-            return $this->_propDict["targetedMobileApps"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the targetedMobileApps
-    * the associated app.
-    *
-    * @param string $val The targetedMobileApps
-    *
-    * @return ManagedDeviceMobileAppConfiguration
-    */
-    public function setTargetedMobileApps($val)
-    {
-        $this->_propDict["targetedMobileApps"] = $val;
-        return $this;
-    }
-    
     /**
     * Gets the createdDateTime
     * DateTime the object was created.
@@ -118,6 +87,35 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     }
     
     /**
+    * Gets the displayName
+    * Admin provided name of the device configuration.
+    *
+    * @return string The displayName
+    */
+    public function getDisplayName()
+    {
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the displayName
+    * Admin provided name of the device configuration.
+    *
+    * @param string $val The displayName
+    *
+    * @return ManagedDeviceMobileAppConfiguration
+    */
+    public function setDisplayName($val)
+    {
+        $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the lastModifiedDateTime
     * DateTime the object was last modified.
     *
@@ -151,31 +149,31 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     }
     
     /**
-    * Gets the displayName
-    * Admin provided name of the device configuration.
+    * Gets the targetedMobileApps
+    * the associated app.
     *
-    * @return string The displayName
+    * @return string The targetedMobileApps
     */
-    public function getDisplayName()
+    public function getTargetedMobileApps()
     {
-        if (array_key_exists("displayName", $this->_propDict)) {
-            return $this->_propDict["displayName"];
+        if (array_key_exists("targetedMobileApps", $this->_propDict)) {
+            return $this->_propDict["targetedMobileApps"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the displayName
-    * Admin provided name of the device configuration.
+    * Sets the targetedMobileApps
+    * the associated app.
     *
-    * @param string $val The displayName
+    * @param string $val The targetedMobileApps
     *
     * @return ManagedDeviceMobileAppConfiguration
     */
-    public function setDisplayName($val)
+    public function setTargetedMobileApps($val)
     {
-        $this->_propDict["displayName"] = $val;
+        $this->_propDict["targetedMobileApps"] = $val;
         return $this;
     }
     
@@ -268,6 +266,39 @@ class ManagedDeviceMobileAppConfiguration extends Entity
         return $this;
     }
     
+    /**
+    * Gets the deviceStatusSummary
+    * App configuration device status summary.
+    *
+    * @return ManagedDeviceMobileAppConfigurationDeviceSummary The deviceStatusSummary
+    */
+    public function getDeviceStatusSummary()
+    {
+        if (array_key_exists("deviceStatusSummary", $this->_propDict)) {
+            if (is_a($this->_propDict["deviceStatusSummary"], "\Microsoft\Graph\Model\ManagedDeviceMobileAppConfigurationDeviceSummary")) {
+                return $this->_propDict["deviceStatusSummary"];
+            } else {
+                $this->_propDict["deviceStatusSummary"] = new ManagedDeviceMobileAppConfigurationDeviceSummary($this->_propDict["deviceStatusSummary"]);
+                return $this->_propDict["deviceStatusSummary"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the deviceStatusSummary
+    * App configuration device status summary.
+    *
+    * @param ManagedDeviceMobileAppConfigurationDeviceSummary $val The deviceStatusSummary
+    *
+    * @return ManagedDeviceMobileAppConfiguration
+    */
+    public function setDeviceStatusSummary($val)
+    {
+        $this->_propDict["deviceStatusSummary"] = $val;
+        return $this;
+    }
+    
 
      /** 
      * Gets the userStatuses
@@ -299,39 +330,6 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     }
     
     /**
-    * Gets the deviceStatusSummary
-    * App configuration device status summary.
-    *
-    * @return ManagedDeviceMobileAppConfigurationDeviceSummary The deviceStatusSummary
-    */
-    public function getDeviceStatusSummary()
-    {
-        if (array_key_exists("deviceStatusSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceStatusSummary"], "Microsoft\Graph\Model\ManagedDeviceMobileAppConfigurationDeviceSummary")) {
-                return $this->_propDict["deviceStatusSummary"];
-            } else {
-                $this->_propDict["deviceStatusSummary"] = new ManagedDeviceMobileAppConfigurationDeviceSummary($this->_propDict["deviceStatusSummary"]);
-                return $this->_propDict["deviceStatusSummary"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the deviceStatusSummary
-    * App configuration device status summary.
-    *
-    * @param ManagedDeviceMobileAppConfigurationDeviceSummary $val The deviceStatusSummary
-    *
-    * @return ManagedDeviceMobileAppConfiguration
-    */
-    public function setDeviceStatusSummary($val)
-    {
-        $this->_propDict["deviceStatusSummary"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the userStatusSummary
     * App configuration user status summary.
     *
@@ -340,7 +338,7 @@ class ManagedDeviceMobileAppConfiguration extends Entity
     public function getUserStatusSummary()
     {
         if (array_key_exists("userStatusSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["userStatusSummary"], "Microsoft\Graph\Model\ManagedDeviceMobileAppConfigurationUserSummary")) {
+            if (is_a($this->_propDict["userStatusSummary"], "\Microsoft\Graph\Model\ManagedDeviceMobileAppConfigurationUserSummary")) {
                 return $this->_propDict["userStatusSummary"];
             } else {
                 $this->_propDict["userStatusSummary"] = new ManagedDeviceMobileAppConfigurationUserSummary($this->_propDict["userStatusSummary"]);

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
 {
@@ -171,6 +169,39 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
         return $this;
     }
     
+    /**
+    * Gets the compliantAppListType
+    * List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+    *
+    * @return AppListType The compliantAppListType
+    */
+    public function getCompliantAppListType()
+    {
+        if (array_key_exists("compliantAppListType", $this->_propDict)) {
+            if (is_a($this->_propDict["compliantAppListType"], "\Microsoft\Graph\Model\AppListType")) {
+                return $this->_propDict["compliantAppListType"];
+            } else {
+                $this->_propDict["compliantAppListType"] = new AppListType($this->_propDict["compliantAppListType"]);
+                return $this->_propDict["compliantAppListType"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the compliantAppListType
+    * List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
+    *
+    * @param AppListType $val The compliantAppListType
+    *
+    * @return WindowsPhone81GeneralConfiguration
+    */
+    public function setCompliantAppListType($val)
+    {
+        $this->_propDict["compliantAppListType"] = $val;
+        return $this;
+    }
+    
 
      /** 
      * Gets the compliantAppsList
@@ -198,39 +229,6 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     public function setCompliantAppsList($val)
     {
 		$this->_propDict["compliantAppsList"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the compliantAppListType
-    * List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
-    *
-    * @return AppListType The compliantAppListType
-    */
-    public function getCompliantAppListType()
-    {
-        if (array_key_exists("compliantAppListType", $this->_propDict)) {
-            if (is_a($this->_propDict["compliantAppListType"], "Microsoft\Graph\Model\AppListType")) {
-                return $this->_propDict["compliantAppListType"];
-            } else {
-                $this->_propDict["compliantAppListType"] = new AppListType($this->_propDict["compliantAppListType"]);
-                return $this->_propDict["compliantAppListType"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the compliantAppListType
-    * List that is in the AppComplianceList. Possible values are: none, appsInListCompliant, appsNotInListCompliant.
-    *
-    * @param AppListType $val The compliantAppListType
-    *
-    * @return WindowsPhone81GeneralConfiguration
-    */
-    public function setCompliantAppListType($val)
-    {
-        $this->_propDict["compliantAppListType"] = $val;
         return $this;
     }
     
@@ -438,6 +436,35 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the passwordMinimumCharacterSetCount
+    * Number of character sets a password must contain.
+    *
+    * @return int The passwordMinimumCharacterSetCount
+    */
+    public function getPasswordMinimumCharacterSetCount()
+    {
+        if (array_key_exists("passwordMinimumCharacterSetCount", $this->_propDict)) {
+            return $this->_propDict["passwordMinimumCharacterSetCount"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the passwordMinimumCharacterSetCount
+    * Number of character sets a password must contain.
+    *
+    * @param int $val The passwordMinimumCharacterSetCount
+    *
+    * @return WindowsPhone81GeneralConfiguration
+    */
+    public function setPasswordMinimumCharacterSetCount($val)
+    {
+        $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the passwordMinimumLength
     * Minimum length of passwords.
     *
@@ -496,35 +523,6 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the passwordMinimumCharacterSetCount
-    * Number of character sets a password must contain.
-    *
-    * @return int The passwordMinimumCharacterSetCount
-    */
-    public function getPasswordMinimumCharacterSetCount()
-    {
-        if (array_key_exists("passwordMinimumCharacterSetCount", $this->_propDict)) {
-            return $this->_propDict["passwordMinimumCharacterSetCount"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the passwordMinimumCharacterSetCount
-    * Number of character sets a password must contain.
-    *
-    * @param int $val The passwordMinimumCharacterSetCount
-    *
-    * @return WindowsPhone81GeneralConfiguration
-    */
-    public function setPasswordMinimumCharacterSetCount($val)
-    {
-        $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the passwordPreviousPasswordBlockCount
     * Number of previous passwords to block. Valid values 0 to 24
     *
@@ -554,68 +552,6 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the passwordSignInFailureCountBeforeFactoryReset
-    * Number of sign in failures allowed before factory reset.
-    *
-    * @return int The passwordSignInFailureCountBeforeFactoryReset
-    */
-    public function getPasswordSignInFailureCountBeforeFactoryReset()
-    {
-        if (array_key_exists("passwordSignInFailureCountBeforeFactoryReset", $this->_propDict)) {
-            return $this->_propDict["passwordSignInFailureCountBeforeFactoryReset"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the passwordSignInFailureCountBeforeFactoryReset
-    * Number of sign in failures allowed before factory reset.
-    *
-    * @param int $val The passwordSignInFailureCountBeforeFactoryReset
-    *
-    * @return WindowsPhone81GeneralConfiguration
-    */
-    public function setPasswordSignInFailureCountBeforeFactoryReset($val)
-    {
-        $this->_propDict["passwordSignInFailureCountBeforeFactoryReset"] = intval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the passwordRequiredType
-    * Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric.
-    *
-    * @return RequiredPasswordType The passwordRequiredType
-    */
-    public function getPasswordRequiredType()
-    {
-        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "Microsoft\Graph\Model\RequiredPasswordType")) {
-                return $this->_propDict["passwordRequiredType"];
-            } else {
-                $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
-                return $this->_propDict["passwordRequiredType"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the passwordRequiredType
-    * Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric.
-    *
-    * @param RequiredPasswordType $val The passwordRequiredType
-    *
-    * @return WindowsPhone81GeneralConfiguration
-    */
-    public function setPasswordRequiredType($val)
-    {
-        $this->_propDict["passwordRequiredType"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the passwordRequired
     * Indicates whether or not to require a password.
     *
@@ -641,6 +577,68 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     public function setPasswordRequired($val)
     {
         $this->_propDict["passwordRequired"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the passwordRequiredType
+    * Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+    *
+    * @return RequiredPasswordType The passwordRequiredType
+    */
+    public function getPasswordRequiredType()
+    {
+        if (array_key_exists("passwordRequiredType", $this->_propDict)) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Microsoft\Graph\Model\RequiredPasswordType")) {
+                return $this->_propDict["passwordRequiredType"];
+            } else {
+                $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
+                return $this->_propDict["passwordRequiredType"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the passwordRequiredType
+    * Password type that is required. Possible values are: deviceDefault, alphanumeric, numeric.
+    *
+    * @param RequiredPasswordType $val The passwordRequiredType
+    *
+    * @return WindowsPhone81GeneralConfiguration
+    */
+    public function setPasswordRequiredType($val)
+    {
+        $this->_propDict["passwordRequiredType"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the passwordSignInFailureCountBeforeFactoryReset
+    * Number of sign in failures allowed before factory reset.
+    *
+    * @return int The passwordSignInFailureCountBeforeFactoryReset
+    */
+    public function getPasswordSignInFailureCountBeforeFactoryReset()
+    {
+        if (array_key_exists("passwordSignInFailureCountBeforeFactoryReset", $this->_propDict)) {
+            return $this->_propDict["passwordSignInFailureCountBeforeFactoryReset"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the passwordSignInFailureCountBeforeFactoryReset
+    * Number of sign in failures allowed before factory reset.
+    *
+    * @param int $val The passwordSignInFailureCountBeforeFactoryReset
+    *
+    * @return WindowsPhone81GeneralConfiguration
+    */
+    public function setPasswordSignInFailureCountBeforeFactoryReset($val)
+    {
+        $this->_propDict["passwordSignInFailureCountBeforeFactoryReset"] = intval($val);
         return $this;
     }
     
@@ -761,35 +759,6 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the wifiBlocked
-    * Indicates whether or not to block Wi-Fi.
-    *
-    * @return bool The wifiBlocked
-    */
-    public function getWifiBlocked()
-    {
-        if (array_key_exists("wifiBlocked", $this->_propDict)) {
-            return $this->_propDict["wifiBlocked"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the wifiBlocked
-    * Indicates whether or not to block Wi-Fi.
-    *
-    * @param bool $val The wifiBlocked
-    *
-    * @return WindowsPhone81GeneralConfiguration
-    */
-    public function setWifiBlocked($val)
-    {
-        $this->_propDict["wifiBlocked"] = boolval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the wifiBlockAutomaticConnectHotspots
     * Indicates whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
     *
@@ -815,6 +784,35 @@ class WindowsPhone81GeneralConfiguration extends DeviceConfiguration
     public function setWifiBlockAutomaticConnectHotspots($val)
     {
         $this->_propDict["wifiBlockAutomaticConnectHotspots"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the wifiBlocked
+    * Indicates whether or not to block Wi-Fi.
+    *
+    * @return bool The wifiBlocked
+    */
+    public function getWifiBlocked()
+    {
+        if (array_key_exists("wifiBlocked", $this->_propDict)) {
+            return $this->_propDict["wifiBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the wifiBlocked
+    * Indicates whether or not to block Wi-Fi.
+    *
+    * @param bool $val The wifiBlocked
+    *
+    * @return WindowsPhone81GeneralConfiguration
+    */
+    public function setWifiBlocked($val)
+    {
+        $this->_propDict["wifiBlocked"] = boolval($val);
         return $this;
     }
     

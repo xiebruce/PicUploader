@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,43 +18,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class PlannerUser extends Entity
 {
-
-     /** 
-     * Gets the tasks
-    * Read-only. Nullable. Returns the plannerPlans shared with the user.
-     *
-     * @return array The tasks
-     */
-    public function getTasks()
-    {
-        if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the tasks
-    * Read-only. Nullable. Returns the plannerPlans shared with the user.
-    *
-    * @param PlannerTask $val The tasks
-    *
-    * @return PlannerUser
-    */
-    public function setTasks($val)
-    {
-		$this->_propDict["tasks"] = $val;
-        return $this;
-    }
-    
 
      /** 
      * Gets the plans
@@ -83,6 +51,36 @@ class PlannerUser extends Entity
     public function setPlans($val)
     {
 		$this->_propDict["plans"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the tasks
+    * Read-only. Nullable. Returns the plannerTasks assigned to the user.
+     *
+     * @return array The tasks
+     */
+    public function getTasks()
+    {
+        if (array_key_exists("tasks", $this->_propDict)) {
+           return $this->_propDict["tasks"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the tasks
+    * Read-only. Nullable. Returns the plannerTasks assigned to the user.
+    *
+    * @param PlannerTask $val The tasks
+    *
+    * @return PlannerUser
+    */
+    public function setTasks($val)
+    {
+		$this->_propDict["tasks"] = $val;
         return $this;
     }
     

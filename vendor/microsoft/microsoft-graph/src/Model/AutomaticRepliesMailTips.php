@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class AutomaticRepliesMailTips extends Entity
 {
@@ -63,7 +61,7 @@ class AutomaticRepliesMailTips extends Entity
     public function getMessageLanguage()
     {
         if (array_key_exists("messageLanguage", $this->_propDict)) {
-            if (is_a($this->_propDict["messageLanguage"], "Microsoft\Graph\Model\LocaleInfo")) {
+            if (is_a($this->_propDict["messageLanguage"], "\Microsoft\Graph\Model\LocaleInfo")) {
                 return $this->_propDict["messageLanguage"];
             } else {
                 $this->_propDict["messageLanguage"] = new LocaleInfo($this->_propDict["messageLanguage"]);
@@ -88,39 +86,6 @@ class AutomaticRepliesMailTips extends Entity
     }
 
     /**
-    * Gets the scheduledStartTime
-    * The date and time that automatic replies are set to begin.
-    *
-    * @return DateTimeTimeZone The scheduledStartTime
-    */
-    public function getScheduledStartTime()
-    {
-        if (array_key_exists("scheduledStartTime", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduledStartTime"], "Microsoft\Graph\Model\DateTimeTimeZone")) {
-                return $this->_propDict["scheduledStartTime"];
-            } else {
-                $this->_propDict["scheduledStartTime"] = new DateTimeTimeZone($this->_propDict["scheduledStartTime"]);
-                return $this->_propDict["scheduledStartTime"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the scheduledStartTime
-    * The date and time that automatic replies are set to begin.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the scheduledStartTime
-    *
-    * @return AutomaticRepliesMailTips The AutomaticRepliesMailTips
-    */
-    public function setScheduledStartTime($val)
-    {
-        $this->_propDict["scheduledStartTime"] = $val;
-         return $this;
-    }
-
-    /**
     * Gets the scheduledEndTime
     * The date and time that automatic replies are set to end.
     *
@@ -129,7 +94,7 @@ class AutomaticRepliesMailTips extends Entity
     public function getScheduledEndTime()
     {
         if (array_key_exists("scheduledEndTime", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduledEndTime"], "Microsoft\Graph\Model\DateTimeTimeZone")) {
+            if (is_a($this->_propDict["scheduledEndTime"], "\Microsoft\Graph\Model\DateTimeTimeZone")) {
                 return $this->_propDict["scheduledEndTime"];
             } else {
                 $this->_propDict["scheduledEndTime"] = new DateTimeTimeZone($this->_propDict["scheduledEndTime"]);
@@ -150,6 +115,39 @@ class AutomaticRepliesMailTips extends Entity
     public function setScheduledEndTime($val)
     {
         $this->_propDict["scheduledEndTime"] = $val;
+         return $this;
+    }
+
+    /**
+    * Gets the scheduledStartTime
+    * The date and time that automatic replies are set to begin.
+    *
+    * @return DateTimeTimeZone The scheduledStartTime
+    */
+    public function getScheduledStartTime()
+    {
+        if (array_key_exists("scheduledStartTime", $this->_propDict)) {
+            if (is_a($this->_propDict["scheduledStartTime"], "\Microsoft\Graph\Model\DateTimeTimeZone")) {
+                return $this->_propDict["scheduledStartTime"];
+            } else {
+                $this->_propDict["scheduledStartTime"] = new DateTimeTimeZone($this->_propDict["scheduledStartTime"]);
+                return $this->_propDict["scheduledStartTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the scheduledStartTime
+    * The date and time that automatic replies are set to begin.
+    *
+    * @param DateTimeTimeZone $val The value to assign to the scheduledStartTime
+    *
+    * @return AutomaticRepliesMailTips The AutomaticRepliesMailTips
+    */
+    public function setScheduledStartTime($val)
+    {
+        $this->_propDict["scheduledStartTime"] = $val;
          return $this;
     }
 }

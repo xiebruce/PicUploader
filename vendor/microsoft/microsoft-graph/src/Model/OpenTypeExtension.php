@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,16 +18,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OpenTypeExtension extends Extension
 {
     /**
     * Gets the extensionName
-    * A unique text identifier for an open type open extension. Required.
+    * A unique text identifier for an open type data extension. Required.
     *
     * @return string The extensionName
     */
@@ -43,7 +41,7 @@ class OpenTypeExtension extends Extension
     
     /**
     * Sets the extensionName
-    * A unique text identifier for an open type open extension. Required.
+    * A unique text identifier for an open type data extension. Required.
     *
     * @param string $val The extensionName
     *

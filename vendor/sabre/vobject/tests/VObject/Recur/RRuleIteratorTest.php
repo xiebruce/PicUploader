@@ -897,6 +897,20 @@ class RRuleIteratorTest extends TestCase
         );
     }
 
+    public function testNeverEnding()
+    {
+        $this->parse(
+            'FREQ=MONTHLY;BYDAY=2TU;BYSETPOS=2',
+            '2015-01-01 00:15:00',
+            [
+                '2015-01-01 00:15:00',
+            ],
+            null,
+            'UTC',
+            true
+        );
+    }
+
     /**
      * @expectedException \Sabre\VObject\InvalidDataException
      */
@@ -934,7 +948,7 @@ class RRuleIteratorTest extends TestCase
         );
     }
 
-    public function parse($rule, $start, $expected, $fastForward = null, $tz = 'UTC')
+    public function parse($rule, $start, $expected, $fastForward = null, $tz = 'UTC', $runTillTheEnd = false)
     {
         $dt = new DateTime($start, new DateTimeZone($tz));
         $parser = new RRuleIterator($rule, $dt);
@@ -948,7 +962,7 @@ class RRuleIteratorTest extends TestCase
             $item = $parser->current();
             $result[] = $item->format('Y-m-d H:i:s');
 
-            if ($parser->isInfinite() && count($result) >= count($expected)) {
+            if (!$runTillTheEnd && $parser->isInfinite() && count($result) >= count($expected)) {
                 break;
             }
             $parser->next();

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,67 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class LicenseAssignmentState extends Entity
 {
     /**
-    * Gets the skuId
-    *
-    * @return string The skuId
-    */
-    public function getSkuId()
-    {
-        if (array_key_exists("skuId", $this->_propDict)) {
-            return $this->_propDict["skuId"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the skuId
-    *
-    * @param string $val The value of the skuId
-    *
-    * @return LicenseAssignmentState
-    */
-    public function setSkuId($val)
-    {
-        $this->_propDict["skuId"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the disabledPlans
-    *
-    * @return string The disabledPlans
-    */
-    public function getDisabledPlans()
-    {
-        if (array_key_exists("disabledPlans", $this->_propDict)) {
-            return $this->_propDict["disabledPlans"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the disabledPlans
-    *
-    * @param string $val The value of the disabledPlans
-    *
-    * @return LicenseAssignmentState
-    */
-    public function setDisabledPlans($val)
-    {
-        $this->_propDict["disabledPlans"] = $val;
-        return $this;
-    }
-    /**
     * Gets the assignedByGroup
+    * The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
     *
     * @return string The assignedByGroup
     */
@@ -93,6 +40,7 @@ class LicenseAssignmentState extends Entity
 
     /**
     * Sets the assignedByGroup
+    * The id of the group that assigns this license. If the assignment is a direct-assigned license, this field will be Null. Read-Only.
     *
     * @param string $val The value of the assignedByGroup
     *
@@ -104,33 +52,36 @@ class LicenseAssignmentState extends Entity
         return $this;
     }
     /**
-    * Gets the state
+    * Gets the disabledPlans
+    * The service plans that are disabled in this assignment. Read-Only.
     *
-    * @return string The state
+    * @return string The disabledPlans
     */
-    public function getState()
+    public function getDisabledPlans()
     {
-        if (array_key_exists("state", $this->_propDict)) {
-            return $this->_propDict["state"];
+        if (array_key_exists("disabledPlans", $this->_propDict)) {
+            return $this->_propDict["disabledPlans"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the state
+    * Sets the disabledPlans
+    * The service plans that are disabled in this assignment. Read-Only.
     *
-    * @param string $val The value of the state
+    * @param string $val The value of the disabledPlans
     *
     * @return LicenseAssignmentState
     */
-    public function setState($val)
+    public function setDisabledPlans($val)
     {
-        $this->_propDict["state"] = $val;
+        $this->_propDict["disabledPlans"] = $val;
         return $this;
     }
     /**
     * Gets the error
+    * License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. Possible values: CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Others. For more information on how to identify and resolve license assignment errors see here.
     *
     * @return string The error
     */
@@ -145,6 +96,7 @@ class LicenseAssignmentState extends Entity
 
     /**
     * Sets the error
+    * License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. Possible values: CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Others. For more information on how to identify and resolve license assignment errors see here.
     *
     * @param string $val The value of the error
     *
@@ -153,6 +105,62 @@ class LicenseAssignmentState extends Entity
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the skuId
+    * The unique identifier for the SKU. Read-Only.
+    *
+    * @return string The skuId
+    */
+    public function getSkuId()
+    {
+        if (array_key_exists("skuId", $this->_propDict)) {
+            return $this->_propDict["skuId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the skuId
+    * The unique identifier for the SKU. Read-Only.
+    *
+    * @param string $val The value of the skuId
+    *
+    * @return LicenseAssignmentState
+    */
+    public function setSkuId($val)
+    {
+        $this->_propDict["skuId"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the state
+    * Indicate the current state of this assignment. Read-Only. Possible values: Active, ActiveWithError, Disabled and Error.
+    *
+    * @return string The state
+    */
+    public function getState()
+    {
+        if (array_key_exists("state", $this->_propDict)) {
+            return $this->_propDict["state"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the state
+    * Indicate the current state of this assignment. Read-Only. Possible values: Active, ActiveWithError, Disabled and Error.
+    *
+    * @param string $val The value of the state
+    *
+    * @return LicenseAssignmentState
+    */
+    public function setState($val)
+    {
+        $this->_propDict["state"] = $val;
         return $this;
     }
 }

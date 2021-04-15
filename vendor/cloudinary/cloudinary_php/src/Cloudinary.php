@@ -1,7 +1,5 @@
 <?php
 
-use Cloudinary\HttpClient;
-
 class Cloudinary
 {
     const CF_SHARED_CDN = "d3jpl91pxevbkh.cloudfront.net";
@@ -11,8 +9,14 @@ class Cloudinary
     const BLANK = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
     const RANGE_VALUE_RE = '/^(?P<value>(\d+\.)?\d+)(?P<modifier>[%pP])?$/';
     const RANGE_RE = '/^(\d+\.)?\d+[%pP]?\.\.(\d+\.)?\d+[%pP]?$/';
+    const ALGO_SHA1 = 'sha1';
+    const ALGO_SHA256 = 'sha256';
+    const SHORT_URL_SIGNATURE_LENGTH = 8;
+    const LONG_URL_SIGNATURE_LENGTH = 32;
 
-    const VERSION = "1.16.0";
+    const DEFAULT_UPLOAD_PREFIX = 'https://api.cloudinary.com';
+
+    const VERSION = "1.20.0";
 
     /**
      * @internal
@@ -25,6 +29,7 @@ class Cloudinary
         'cloud_name',
         'cname',
         'format',
+        'long_url_signature',
         'private_cdn',
         'resource_type',
         'secure',
@@ -1146,6 +1151,16 @@ class Cloudinary
         $api_secret = Cloudinary::option_consume($options, "api_secret", Cloudinary::config_get("api_secret"));
         $url_suffix = Cloudinary::option_consume($options, "url_suffix", Cloudinary::config_get("url_suffix"));
         $use_root_path = Cloudinary::option_consume($options, "use_root_path", Cloudinary::config_get("use_root_path"));
+        $long_url_signature = Cloudinary::option_consume(
+            $options,
+            "long_url_signature",
+            Cloudinary::config_get("long_url_signature")
+        );
+        $signature_algorithm = Cloudinary::option_consume(
+            $options,
+            "signature_algorithm",
+            self::config_get("signature_algorithm", self::ALGO_SHA1)
+        );
         $auth_token = Cloudinary::option_consume($options, "auth_token");
         if (is_array($auth_token)) {
             $auth_token = array_merge(self::config_get("auth_token", array()), $auth_token);
@@ -1183,8 +1198,12 @@ class Cloudinary
         $signature = null;
         if ($sign_url && !$auth_token) {
             $to_sign = implode("/", array_filter(array($transformation, $source_to_sign)));
-            $signature = self::base64url_encode(sha1($to_sign . $api_secret, true));
-            $signature = 's--' . substr($signature, 0, 8) . '--';
+
+            $algorithm = $long_url_signature ? self::ALGO_SHA256 : $signature_algorithm; // Long signature forces SHA256
+            $signature_len = $long_url_signature ? self::LONG_URL_SIGNATURE_LENGTH : self::SHORT_URL_SIGNATURE_LENGTH;
+
+            $hash = hash($algorithm, $to_sign . $api_secret, true);
+            $signature = 's--' . substr(self::base64url_encode($hash), 0, $signature_len) . '--';
         }
 
         $prefix = Cloudinary::unsigned_download_url_prefix(
@@ -1420,7 +1439,7 @@ class Cloudinary
         $cloudinary = Cloudinary::option_get(
             $options,
             "upload_prefix",
-            Cloudinary::config_get("upload_prefix", "https://api.cloudinary.com")
+            Cloudinary::config_get("upload_prefix", self::DEFAULT_UPLOAD_PREFIX)
         );
         $cloud_name = Cloudinary::option_get($options, "cloud_name", Cloudinary::config_get("cloud_name"));
         if (!$cloud_name) {
@@ -1535,6 +1554,42 @@ class Cloudinary
     }
 
     /**
+     * Creates and returns a URL that when invoked creates an archive of a folder.
+     *
+     * @param string $folder_path Full path (from the root) of the folder to download.
+     * @param array  $options     Additional options.
+     *
+     * @return string Url for downloading an archive of a folder
+     */
+    public static function download_folder($folder_path, $options = array())
+    {
+        $options['prefixes']      = $folder_path;
+        $options['resource_type'] = Cloudinary::option_get($options, 'resource_type', 'all');
+
+        return self::download_archive_url($options);
+    }
+
+    /**
+     * The returned url allows downloading the backedup asset based on the the asset ID and the version ID.
+     *
+     * @param string $asset_id   The asset ID of the asset.
+     * @param string $version_id The version ID of the asset.
+     *
+     * @return string The signed URL for downloading backup version of the asset.
+     */
+    public static function download_backedup_asset($asset_id, $version_id)
+    {
+        $options['asset_id']      = $asset_id;
+        $options['version_id']    = $version_id;
+        $options['resource_type'] = 'download_backup';
+
+        $params = self::build_archive_params($options);
+        $params = self::sign_request($params, $options);
+
+        return self::cloudinary_api_url(null, $options) . '?' . http_build_query($params);
+    }
+
+    /**
      *  Generate an authorization token.
      *  Options:
      *      string key - the secret key required to sign the token
@@ -1569,6 +1624,7 @@ class Cloudinary
     {
         $params = array(
             "allow_missing" => \Cloudinary::option_get($options, "allow_missing"),
+            "asset_id" => \Cloudinary::option_get($options, "asset_id"),
             "async" => \Cloudinary::option_get($options, "async"),
             "expires_at" => \Cloudinary::option_get($options, "expires_at"),
             "flatten_folders" => \Cloudinary::option_get($options, "flatten_folders"),
@@ -1591,6 +1647,7 @@ class Cloudinary
             "transformations" => \Cloudinary::build_eager(\Cloudinary::option_get($options, "transformations")),
             "type" => \Cloudinary::option_get($options, "type"),
             "use_original_filename" => \Cloudinary::option_get($options, "use_original_filename"),
+            "version_id" => \Cloudinary::option_get($options, "version_id"),
         );
         array_walk(
             $params,
@@ -1676,6 +1733,12 @@ class Cloudinary
             throw new \InvalidArgumentException("Must supply api_secret");
         }
 
+        $signature_algorithm = Cloudinary::option_get(
+            $options,
+            "signature_algorithm",
+            self::config_get("signature_algorithm", self::ALGO_SHA1)
+        );
+
         # Remove blank parameters
         $params = array_filter(
             $params,
@@ -1684,13 +1747,13 @@ class Cloudinary
             }
         );
 
-        $params["signature"] = Cloudinary::api_sign_request($params, $api_secret);
+        $params["signature"] = self::api_sign_request($params, $api_secret, $signature_algorithm);
         $params["api_key"] = $api_key;
 
         return $params;
     }
 
-    public static function api_sign_request($params_to_sign, $api_secret)
+    public static function api_sign_request($params_to_sign, $api_secret, $algorithm = self::ALGO_SHA1)
     {
         $params = array();
         foreach ($params_to_sign as $param => $value) {
@@ -1709,7 +1772,7 @@ class Cloudinary
             return $key . "=" . $value;
         };
         $to_sign = implode("&", array_map($join_pair, array_keys($params), array_values($params)));
-        return sha1($to_sign . $api_secret);
+        return hash($algorithm, $to_sign . $api_secret);
     }
 
     public static function html_attrs($options, $only = null)

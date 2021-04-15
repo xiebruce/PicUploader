@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class EducationRoot extends Entity
 {
@@ -53,6 +51,39 @@ class EducationRoot extends Entity
     public function setClasses($val)
     {
 		$this->_propDict["classes"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the me
+    * Read-only. Nullable.
+    *
+    * @return EducationUser The me
+    */
+    public function getMe()
+    {
+        if (array_key_exists("me", $this->_propDict)) {
+            if (is_a($this->_propDict["me"], "\Microsoft\Graph\Model\EducationUser")) {
+                return $this->_propDict["me"];
+            } else {
+                $this->_propDict["me"] = new EducationUser($this->_propDict["me"]);
+                return $this->_propDict["me"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the me
+    * Read-only. Nullable.
+    *
+    * @param EducationUser $val The me
+    *
+    * @return EducationRoot
+    */
+    public function setMe($val)
+    {
+        $this->_propDict["me"] = $val;
         return $this;
     }
     
@@ -113,39 +144,6 @@ class EducationRoot extends Entity
     public function setUsers($val)
     {
 		$this->_propDict["users"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the me
-    * Read-only. Nullable.
-    *
-    * @return EducationUser The me
-    */
-    public function getMe()
-    {
-        if (array_key_exists("me", $this->_propDict)) {
-            if (is_a($this->_propDict["me"], "Microsoft\Graph\Model\EducationUser")) {
-                return $this->_propDict["me"];
-            } else {
-                $this->_propDict["me"] = new EducationUser($this->_propDict["me"]);
-                return $this->_propDict["me"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the me
-    * Read-only. Nullable.
-    *
-    * @param EducationUser $val The me
-    *
-    * @return EducationRoot
-    */
-    public function setMe($val)
-    {
-        $this->_propDict["me"] = $val;
         return $this;
     }
     

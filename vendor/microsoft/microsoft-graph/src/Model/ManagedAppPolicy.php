@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,39 +18,42 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ManagedAppPolicy extends Entity
 {
     /**
-    * Gets the displayName
-    * Policy display name.
+    * Gets the createdDateTime
+    * The date and time the policy was created.
     *
-    * @return string The displayName
+    * @return \DateTime The createdDateTime
     */
-    public function getDisplayName()
+    public function getCreatedDateTime()
     {
-        if (array_key_exists("displayName", $this->_propDict)) {
-            return $this->_propDict["displayName"];
-        } else {
-            return null;
+        if (array_key_exists("createdDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+                return $this->_propDict["createdDateTime"];
+            } else {
+                $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
+                return $this->_propDict["createdDateTime"];
+            }
         }
+        return null;
     }
     
     /**
-    * Sets the displayName
-    * Policy display name.
+    * Sets the createdDateTime
+    * The date and time the policy was created.
     *
-    * @param string $val The displayName
+    * @param \DateTime $val The createdDateTime
     *
     * @return ManagedAppPolicy
     */
-    public function setDisplayName($val)
+    public function setCreatedDateTime($val)
     {
-        $this->_propDict["displayName"] = $val;
+        $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
     
@@ -85,35 +87,31 @@ class ManagedAppPolicy extends Entity
     }
     
     /**
-    * Gets the createdDateTime
-    * The date and time the policy was created.
+    * Gets the displayName
+    * Policy display name.
     *
-    * @return \DateTime The createdDateTime
+    * @return string The displayName
     */
-    public function getCreatedDateTime()
+    public function getDisplayName()
     {
-        if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
-                return $this->_propDict["createdDateTime"];
-            } else {
-                $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
-                return $this->_propDict["createdDateTime"];
-            }
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
         }
-        return null;
     }
     
     /**
-    * Sets the createdDateTime
-    * The date and time the policy was created.
+    * Sets the displayName
+    * Policy display name.
     *
-    * @param \DateTime $val The createdDateTime
+    * @param string $val The displayName
     *
     * @return ManagedAppPolicy
     */
-    public function setCreatedDateTime($val)
+    public function setDisplayName($val)
     {
-        $this->_propDict["createdDateTime"] = $val;
+        $this->_propDict["displayName"] = $val;
         return $this;
     }
     

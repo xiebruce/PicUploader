@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CloudinaryFieldTest extends TestCase
 {
-    public function setUp()
+    protected function setUp()
     {
         Cloudinary::config(array(
             "cloud_name" => "test123",

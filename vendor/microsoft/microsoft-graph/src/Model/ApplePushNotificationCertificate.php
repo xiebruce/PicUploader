@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ApplePushNotificationCertificate extends Entity
 {
@@ -56,64 +54,31 @@ class ApplePushNotificationCertificate extends Entity
     }
     
     /**
-    * Gets the topicIdentifier
-    * Topic Id.
+    * Gets the certificate
+    * Not yet documented
     *
-    * @return string The topicIdentifier
+    * @return string The certificate
     */
-    public function getTopicIdentifier()
+    public function getCertificate()
     {
-        if (array_key_exists("topicIdentifier", $this->_propDict)) {
-            return $this->_propDict["topicIdentifier"];
+        if (array_key_exists("certificate", $this->_propDict)) {
+            return $this->_propDict["certificate"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the topicIdentifier
-    * Topic Id.
+    * Sets the certificate
+    * Not yet documented
     *
-    * @param string $val The topicIdentifier
-    *
-    * @return ApplePushNotificationCertificate
-    */
-    public function setTopicIdentifier($val)
-    {
-        $this->_propDict["topicIdentifier"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the lastModifiedDateTime
-    * Last modified date and time for Apple push notification certificate.
-    *
-    * @return \DateTime The lastModifiedDateTime
-    */
-    public function getLastModifiedDateTime()
-    {
-        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
-                return $this->_propDict["lastModifiedDateTime"];
-            } else {
-                $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
-                return $this->_propDict["lastModifiedDateTime"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the lastModifiedDateTime
-    * Last modified date and time for Apple push notification certificate.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
+    * @param string $val The certificate
     *
     * @return ApplePushNotificationCertificate
     */
-    public function setLastModifiedDateTime($val)
+    public function setCertificate($val)
     {
-        $this->_propDict["lastModifiedDateTime"] = $val;
+        $this->_propDict["certificate"] = $val;
         return $this;
     }
     
@@ -151,31 +116,64 @@ class ApplePushNotificationCertificate extends Entity
     }
     
     /**
-    * Gets the certificate
-    * Not yet documented
+    * Gets the lastModifiedDateTime
+    * Last modified date and time for Apple push notification certificate.
     *
-    * @return string The certificate
+    * @return \DateTime The lastModifiedDateTime
     */
-    public function getCertificate()
+    public function getLastModifiedDateTime()
     {
-        if (array_key_exists("certificate", $this->_propDict)) {
-            return $this->_propDict["certificate"];
+        if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+                return $this->_propDict["lastModifiedDateTime"];
+            } else {
+                $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
+                return $this->_propDict["lastModifiedDateTime"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the lastModifiedDateTime
+    * Last modified date and time for Apple push notification certificate.
+    *
+    * @param \DateTime $val The lastModifiedDateTime
+    *
+    * @return ApplePushNotificationCertificate
+    */
+    public function setLastModifiedDateTime($val)
+    {
+        $this->_propDict["lastModifiedDateTime"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the topicIdentifier
+    * Topic Id.
+    *
+    * @return string The topicIdentifier
+    */
+    public function getTopicIdentifier()
+    {
+        if (array_key_exists("topicIdentifier", $this->_propDict)) {
+            return $this->_propDict["topicIdentifier"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the certificate
-    * Not yet documented
+    * Sets the topicIdentifier
+    * Topic Id.
     *
-    * @param string $val The certificate
+    * @param string $val The topicIdentifier
     *
     * @return ApplePushNotificationCertificate
     */
-    public function setCertificate($val)
+    public function setTopicIdentifier($val)
     {
-        $this->_propDict["certificate"] = $val;
+        $this->_propDict["topicIdentifier"] = $val;
         return $this;
     }
     

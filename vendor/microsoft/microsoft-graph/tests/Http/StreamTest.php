@@ -15,7 +15,7 @@ class StreamTest extends TestCase
     private $body;
     private $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->root = vfsStream::setup('testDir');
 
@@ -41,7 +41,7 @@ class StreamTest extends TestCase
         $this->root->addChild($file);
         $file->setContent('data');
 
-        $request = new GraphRequest("GET", "/me", "token", "url", "/v1.0");
+        $request = new GraphRequest("GET", "/me", "token", "url", "v1.0");
         $request->upload($file->url(), $this->client);
 
         $this->assertEquals($this->container[0]['request']->getBody()->getContents(), $file->getContent());
@@ -54,13 +54,13 @@ class StreamTest extends TestCase
         $file = new VfsStreamFile('foo.txt', 0000);
         $this->root->addChild($file);
 
-        $request = new GraphRequest("GET", "/me", "token", "url", "/v1.0");
+        $request = new GraphRequest("GET", "/me", "token", "url", "v1.0");
         $request->upload($file->url(), $this->client);
     }
 
     public function testDownload()
     {
-        $request = new GraphRequest("GET", "/me", "token", "url", "/v1.0");
+        $request = new GraphRequest("GET", "/me", "token", "url", "v1.0");
         $file = new VfsStreamFile('foo.txt');
         $this->root->addChild($file);
 
@@ -77,7 +77,7 @@ class StreamTest extends TestCase
             $file = new VfsStreamFile('foo.txt', 0000);
             $this->root->addChild($file);
 
-            $request = new GraphRequest("GET", "/me", "token", "url", "/v1.0");
+            $request = new GraphRequest("GET", "/me", "token", "url", "v1.0");
             $request->download($file->url(), $this->client);
         } finally {
             restore_error_handler();
@@ -86,10 +86,10 @@ class StreamTest extends TestCase
 
     public function testSetReturnStream()
     {
-        $request = new GraphRequest("GET", "/me", "token", "url", "/v1.0");
+        $request = new GraphRequest("GET", "/me", "token", "url", "v1.0");
         $request->setReturnType(GuzzleHttp\Psr7\Stream::class);
 
-        $this->assertAttributeEquals(true, 'returnsStream', $request);
+        $this->assertTrue($request->getReturnsStream());
 
         $response = $request->execute($this->client);
         $this->assertInstanceOf(GuzzleHttp\Psr7\Stream::class, $response);

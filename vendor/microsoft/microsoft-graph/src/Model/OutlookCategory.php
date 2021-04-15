@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,13 +18,45 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OutlookCategory extends Entity
 {
+    /**
+    * Gets the color
+    * A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
+    *
+    * @return CategoryColor The color
+    */
+    public function getColor()
+    {
+        if (array_key_exists("color", $this->_propDict)) {
+            if (is_a($this->_propDict["color"], "\Microsoft\Graph\Model\CategoryColor")) {
+                return $this->_propDict["color"];
+            } else {
+                $this->_propDict["color"] = new CategoryColor($this->_propDict["color"]);
+                return $this->_propDict["color"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the color
+    * A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
+    *
+    * @param CategoryColor $val The color
+    *
+    * @return OutlookCategory
+    */
+    public function setColor($val)
+    {
+        $this->_propDict["color"] = $val;
+        return $this;
+    }
+    
     /**
     * Gets the displayName
     * A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.
@@ -52,39 +83,6 @@ class OutlookCategory extends Entity
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the color
-    * A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
-    *
-    * @return CategoryColor The color
-    */
-    public function getColor()
-    {
-        if (array_key_exists("color", $this->_propDict)) {
-            if (is_a($this->_propDict["color"], "Microsoft\Graph\Model\CategoryColor")) {
-                return $this->_propDict["color"];
-            } else {
-                $this->_propDict["color"] = new CategoryColor($this->_propDict["color"]);
-                return $this->_propDict["color"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the color
-    * A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.
-    *
-    * @param CategoryColor $val The color
-    *
-    * @return OutlookCategory
-    */
-    public function setColor($val)
-    {
-        $this->_propDict["color"] = $val;
         return $this;
     }
     

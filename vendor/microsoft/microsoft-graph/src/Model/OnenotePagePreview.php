@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,43 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OnenotePagePreview extends Entity
 {
+
+    /**
+    * Gets the links
+    *
+    * @return OnenotePagePreviewLinks The links
+    */
+    public function getLinks()
+    {
+        if (array_key_exists("links", $this->_propDict)) {
+            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\OnenotePagePreviewLinks")) {
+                return $this->_propDict["links"];
+            } else {
+                $this->_propDict["links"] = new OnenotePagePreviewLinks($this->_propDict["links"]);
+                return $this->_propDict["links"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the links
+    *
+    * @param OnenotePagePreviewLinks $val The value to assign to the links
+    *
+    * @return OnenotePagePreview The OnenotePagePreview
+    */
+    public function setLinks($val)
+    {
+        $this->_propDict["links"] = $val;
+         return $this;
+    }
     /**
     * Gets the previewText
     *
@@ -50,36 +79,5 @@ class OnenotePagePreview extends Entity
     {
         $this->_propDict["previewText"] = $val;
         return $this;
-    }
-
-    /**
-    * Gets the links
-    *
-    * @return OnenotePagePreviewLinks The links
-    */
-    public function getLinks()
-    {
-        if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "Microsoft\Graph\Model\OnenotePagePreviewLinks")) {
-                return $this->_propDict["links"];
-            } else {
-                $this->_propDict["links"] = new OnenotePagePreviewLinks($this->_propDict["links"]);
-                return $this->_propDict["links"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the links
-    *
-    * @param OnenotePagePreviewLinks $val The value to assign to the links
-    *
-    * @return OnenotePagePreview The OnenotePagePreview
-    */
-    public function setLinks($val)
-    {
-        $this->_propDict["links"] = $val;
-         return $this;
     }
 }

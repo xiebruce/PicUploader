@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosHomeScreenPage extends Entity
 {
@@ -56,14 +54,14 @@ class IosHomeScreenPage extends Entity
 
     /**
     * Gets the icons
-    * A list of apps and folders to appear on a page. This collection can contain a maximum of 500 elements.
+    * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
     *
     * @return IosHomeScreenItem The icons
     */
     public function getIcons()
     {
         if (array_key_exists("icons", $this->_propDict)) {
-            if (is_a($this->_propDict["icons"], "Microsoft\Graph\Model\IosHomeScreenItem")) {
+            if (is_a($this->_propDict["icons"], "\Microsoft\Graph\Model\IosHomeScreenItem")) {
                 return $this->_propDict["icons"];
             } else {
                 $this->_propDict["icons"] = new IosHomeScreenItem($this->_propDict["icons"]);
@@ -75,7 +73,7 @@ class IosHomeScreenPage extends Entity
 
     /**
     * Sets the icons
-    * A list of apps and folders to appear on a page. This collection can contain a maximum of 500 elements.
+    * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
     *
     * @param IosHomeScreenItem $val The value to assign to the icons
     *

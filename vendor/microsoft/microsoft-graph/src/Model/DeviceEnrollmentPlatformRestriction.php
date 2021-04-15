@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,67 +17,38 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceEnrollmentPlatformRestriction extends Entity
 {
     /**
-    * Gets the platformBlocked
-    * Block the platform from enrolling
+    * Gets the osMaximumVersion
+    * Max OS version supported
     *
-    * @return bool The platformBlocked
+    * @return string The osMaximumVersion
     */
-    public function getPlatformBlocked()
+    public function getOsMaximumVersion()
     {
-        if (array_key_exists("platformBlocked", $this->_propDict)) {
-            return $this->_propDict["platformBlocked"];
+        if (array_key_exists("osMaximumVersion", $this->_propDict)) {
+            return $this->_propDict["osMaximumVersion"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the platformBlocked
-    * Block the platform from enrolling
+    * Sets the osMaximumVersion
+    * Max OS version supported
     *
-    * @param bool $val The value of the platformBlocked
-    *
-    * @return DeviceEnrollmentPlatformRestriction
-    */
-    public function setPlatformBlocked($val)
-    {
-        $this->_propDict["platformBlocked"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the personalDeviceEnrollmentBlocked
-    * Block personally owned devices from enrolling
-    *
-    * @return bool The personalDeviceEnrollmentBlocked
-    */
-    public function getPersonalDeviceEnrollmentBlocked()
-    {
-        if (array_key_exists("personalDeviceEnrollmentBlocked", $this->_propDict)) {
-            return $this->_propDict["personalDeviceEnrollmentBlocked"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the personalDeviceEnrollmentBlocked
-    * Block personally owned devices from enrolling
-    *
-    * @param bool $val The value of the personalDeviceEnrollmentBlocked
+    * @param string $val The value of the osMaximumVersion
     *
     * @return DeviceEnrollmentPlatformRestriction
     */
-    public function setPersonalDeviceEnrollmentBlocked($val)
+    public function setOsMaximumVersion($val)
     {
-        $this->_propDict["personalDeviceEnrollmentBlocked"] = $val;
+        $this->_propDict["osMaximumVersion"] = $val;
         return $this;
     }
     /**
@@ -110,31 +80,59 @@ class DeviceEnrollmentPlatformRestriction extends Entity
         return $this;
     }
     /**
-    * Gets the osMaximumVersion
-    * Max OS version supported
+    * Gets the personalDeviceEnrollmentBlocked
+    * Block personally owned devices from enrolling
     *
-    * @return string The osMaximumVersion
+    * @return bool The personalDeviceEnrollmentBlocked
     */
-    public function getOsMaximumVersion()
+    public function getPersonalDeviceEnrollmentBlocked()
     {
-        if (array_key_exists("osMaximumVersion", $this->_propDict)) {
-            return $this->_propDict["osMaximumVersion"];
+        if (array_key_exists("personalDeviceEnrollmentBlocked", $this->_propDict)) {
+            return $this->_propDict["personalDeviceEnrollmentBlocked"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the osMaximumVersion
-    * Max OS version supported
+    * Sets the personalDeviceEnrollmentBlocked
+    * Block personally owned devices from enrolling
     *
-    * @param string $val The value of the osMaximumVersion
+    * @param bool $val The value of the personalDeviceEnrollmentBlocked
     *
     * @return DeviceEnrollmentPlatformRestriction
     */
-    public function setOsMaximumVersion($val)
+    public function setPersonalDeviceEnrollmentBlocked($val)
     {
-        $this->_propDict["osMaximumVersion"] = $val;
+        $this->_propDict["personalDeviceEnrollmentBlocked"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the platformBlocked
+    * Block the platform from enrolling
+    *
+    * @return bool The platformBlocked
+    */
+    public function getPlatformBlocked()
+    {
+        if (array_key_exists("platformBlocked", $this->_propDict)) {
+            return $this->_propDict["platformBlocked"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the platformBlocked
+    * Block the platform from enrolling
+    *
+    * @param bool $val The value of the platformBlocked
+    *
+    * @return DeviceEnrollmentPlatformRestriction
+    */
+    public function setPlatformBlocked($val)
+    {
+        $this->_propDict["platformBlocked"] = $val;
         return $this;
     }
 }

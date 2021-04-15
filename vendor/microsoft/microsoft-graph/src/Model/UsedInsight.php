@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,22 +18,22 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class UsedInsight extends Entity
 {
     /**
     * Gets the lastUsed
+    * Information about when the item was last viewed or modified by the user. Read only.
     *
     * @return UsageDetails The lastUsed
     */
     public function getLastUsed()
     {
         if (array_key_exists("lastUsed", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUsed"], "Microsoft\Graph\Model\UsageDetails")) {
+            if (is_a($this->_propDict["lastUsed"], "\Microsoft\Graph\Model\UsageDetails")) {
                 return $this->_propDict["lastUsed"];
             } else {
                 $this->_propDict["lastUsed"] = new UsageDetails($this->_propDict["lastUsed"]);
@@ -46,6 +45,7 @@ class UsedInsight extends Entity
     
     /**
     * Sets the lastUsed
+    * Information about when the item was last viewed or modified by the user. Read only.
     *
     * @param UsageDetails $val The lastUsed
     *
@@ -58,45 +58,15 @@ class UsedInsight extends Entity
     }
     
     /**
-    * Gets the resourceVisualization
-    *
-    * @return ResourceVisualization The resourceVisualization
-    */
-    public function getResourceVisualization()
-    {
-        if (array_key_exists("resourceVisualization", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceVisualization"], "Microsoft\Graph\Model\ResourceVisualization")) {
-                return $this->_propDict["resourceVisualization"];
-            } else {
-                $this->_propDict["resourceVisualization"] = new ResourceVisualization($this->_propDict["resourceVisualization"]);
-                return $this->_propDict["resourceVisualization"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the resourceVisualization
-    *
-    * @param ResourceVisualization $val The resourceVisualization
-    *
-    * @return UsedInsight
-    */
-    public function setResourceVisualization($val)
-    {
-        $this->_propDict["resourceVisualization"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the resourceReference
+    * Reference properties of the used document, such as the url and type of the document. Read-only
     *
     * @return ResourceReference The resourceReference
     */
     public function getResourceReference()
     {
         if (array_key_exists("resourceReference", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceReference"], "Microsoft\Graph\Model\ResourceReference")) {
+            if (is_a($this->_propDict["resourceReference"], "\Microsoft\Graph\Model\ResourceReference")) {
                 return $this->_propDict["resourceReference"];
             } else {
                 $this->_propDict["resourceReference"] = new ResourceReference($this->_propDict["resourceReference"]);
@@ -108,6 +78,7 @@ class UsedInsight extends Entity
     
     /**
     * Sets the resourceReference
+    * Reference properties of the used document, such as the url and type of the document. Read-only
     *
     * @param ResourceReference $val The resourceReference
     *
@@ -120,14 +91,48 @@ class UsedInsight extends Entity
     }
     
     /**
+    * Gets the resourceVisualization
+    * Properties that you can use to visualize the document in your experience. Read-only
+    *
+    * @return ResourceVisualization The resourceVisualization
+    */
+    public function getResourceVisualization()
+    {
+        if (array_key_exists("resourceVisualization", $this->_propDict)) {
+            if (is_a($this->_propDict["resourceVisualization"], "\Microsoft\Graph\Model\ResourceVisualization")) {
+                return $this->_propDict["resourceVisualization"];
+            } else {
+                $this->_propDict["resourceVisualization"] = new ResourceVisualization($this->_propDict["resourceVisualization"]);
+                return $this->_propDict["resourceVisualization"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the resourceVisualization
+    * Properties that you can use to visualize the document in your experience. Read-only
+    *
+    * @param ResourceVisualization $val The resourceVisualization
+    *
+    * @return UsedInsight
+    */
+    public function setResourceVisualization($val)
+    {
+        $this->_propDict["resourceVisualization"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the resource
+    * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
     *
     * @return Entity The resource
     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "Microsoft\Graph\Model\Entity")) {
+            if (is_a($this->_propDict["resource"], "\Microsoft\Graph\Model\Entity")) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new Entity($this->_propDict["resource"]);
@@ -139,6 +144,7 @@ class UsedInsight extends Entity
     
     /**
     * Sets the resource
+    * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
     *
     * @param Entity $val The resource
     *

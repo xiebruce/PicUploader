@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Invitation extends Entity
 {
@@ -56,37 +54,8 @@ class Invitation extends Entity
     }
     
     /**
-    * Gets the invitedUserType
-    * The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.
-    *
-    * @return string The invitedUserType
-    */
-    public function getInvitedUserType()
-    {
-        if (array_key_exists("invitedUserType", $this->_propDict)) {
-            return $this->_propDict["invitedUserType"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the invitedUserType
-    * The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.
-    *
-    * @param string $val The invitedUserType
-    *
-    * @return Invitation
-    */
-    public function setInvitedUserType($val)
-    {
-        $this->_propDict["invitedUserType"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the invitedUserEmailAddress
-    * The email address of the user being invited. Required.
+    * The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&amp;)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
     *
     * @return string The invitedUserEmailAddress
     */
@@ -101,7 +70,7 @@ class Invitation extends Entity
     
     /**
     * Sets the invitedUserEmailAddress
-    * The email address of the user being invited. Required.
+    * The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&amp;)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
     *
     * @param string $val The invitedUserEmailAddress
     *
@@ -122,7 +91,7 @@ class Invitation extends Entity
     public function getInvitedUserMessageInfo()
     {
         if (array_key_exists("invitedUserMessageInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["invitedUserMessageInfo"], "Microsoft\Graph\Model\InvitedUserMessageInfo")) {
+            if (is_a($this->_propDict["invitedUserMessageInfo"], "\Microsoft\Graph\Model\InvitedUserMessageInfo")) {
                 return $this->_propDict["invitedUserMessageInfo"];
             } else {
                 $this->_propDict["invitedUserMessageInfo"] = new InvitedUserMessageInfo($this->_propDict["invitedUserMessageInfo"]);
@@ -147,31 +116,60 @@ class Invitation extends Entity
     }
     
     /**
-    * Gets the sendInvitationMessage
-    * Indicates whether an email should be sent to the user being invited or not. The default is false.
+    * Gets the invitedUserType
+    * The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator.
     *
-    * @return bool The sendInvitationMessage
+    * @return string The invitedUserType
     */
-    public function getSendInvitationMessage()
+    public function getInvitedUserType()
     {
-        if (array_key_exists("sendInvitationMessage", $this->_propDict)) {
-            return $this->_propDict["sendInvitationMessage"];
+        if (array_key_exists("invitedUserType", $this->_propDict)) {
+            return $this->_propDict["invitedUserType"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the sendInvitationMessage
-    * Indicates whether an email should be sent to the user being invited or not. The default is false.
+    * Sets the invitedUserType
+    * The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator.
     *
-    * @param bool $val The sendInvitationMessage
+    * @param string $val The invitedUserType
     *
     * @return Invitation
     */
-    public function setSendInvitationMessage($val)
+    public function setInvitedUserType($val)
     {
-        $this->_propDict["sendInvitationMessage"] = boolval($val);
+        $this->_propDict["invitedUserType"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the inviteRedeemUrl
+    * The URL the user can use to redeem their invitation. Read-only.
+    *
+    * @return string The inviteRedeemUrl
+    */
+    public function getInviteRedeemUrl()
+    {
+        if (array_key_exists("inviteRedeemUrl", $this->_propDict)) {
+            return $this->_propDict["inviteRedeemUrl"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the inviteRedeemUrl
+    * The URL the user can use to redeem their invitation. Read-only.
+    *
+    * @param string $val The inviteRedeemUrl
+    *
+    * @return Invitation
+    */
+    public function setInviteRedeemUrl($val)
+    {
+        $this->_propDict["inviteRedeemUrl"] = $val;
         return $this;
     }
     
@@ -205,31 +203,31 @@ class Invitation extends Entity
     }
     
     /**
-    * Gets the inviteRedeemUrl
-    * The URL user can use to redeem his invitation. Read-Only
+    * Gets the sendInvitationMessage
+    * Indicates whether an email should be sent to the user being invited or not. The default is false.
     *
-    * @return string The inviteRedeemUrl
+    * @return bool The sendInvitationMessage
     */
-    public function getInviteRedeemUrl()
+    public function getSendInvitationMessage()
     {
-        if (array_key_exists("inviteRedeemUrl", $this->_propDict)) {
-            return $this->_propDict["inviteRedeemUrl"];
+        if (array_key_exists("sendInvitationMessage", $this->_propDict)) {
+            return $this->_propDict["sendInvitationMessage"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the inviteRedeemUrl
-    * The URL user can use to redeem his invitation. Read-Only
+    * Sets the sendInvitationMessage
+    * Indicates whether an email should be sent to the user being invited or not. The default is false.
     *
-    * @param string $val The inviteRedeemUrl
+    * @param bool $val The sendInvitationMessage
     *
     * @return Invitation
     */
-    public function setInviteRedeemUrl($val)
+    public function setSendInvitationMessage($val)
     {
-        $this->_propDict["inviteRedeemUrl"] = $val;
+        $this->_propDict["sendInvitationMessage"] = boolval($val);
         return $this;
     }
     
@@ -271,7 +269,7 @@ class Invitation extends Entity
     public function getInvitedUser()
     {
         if (array_key_exists("invitedUser", $this->_propDict)) {
-            if (is_a($this->_propDict["invitedUser"], "Microsoft\Graph\Model\User")) {
+            if (is_a($this->_propDict["invitedUser"], "\Microsoft\Graph\Model\User")) {
                 return $this->_propDict["invitedUser"];
             } else {
                 $this->_propDict["invitedUser"] = new User($this->_propDict["invitedUser"]);

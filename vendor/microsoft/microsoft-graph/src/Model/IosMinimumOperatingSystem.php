@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,69 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosMinimumOperatingSystem extends Entity
 {
-    /**
-    * Gets the v8_0
-    * Version 8.0 or later.
-    *
-    * @return bool The v8_0
-    */
-    public function getV8_0()
-    {
-        if (array_key_exists("v80", $this->_propDict)) {
-            return $this->_propDict["v80"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the v8_0
-    * Version 8.0 or later.
-    *
-    * @param bool $val The value of the v8_0
-    *
-    * @return IosMinimumOperatingSystem
-    */
-    public function setV8_0($val)
-    {
-        $this->_propDict["v80"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the v9_0
-    * Version 9.0 or later.
-    *
-    * @return bool The v9_0
-    */
-    public function getV9_0()
-    {
-        if (array_key_exists("v90", $this->_propDict)) {
-            return $this->_propDict["v90"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the v9_0
-    * Version 9.0 or later.
-    *
-    * @param bool $val The value of the v9_0
-    *
-    * @return IosMinimumOperatingSystem
-    */
-    public function setV9_0($val)
-    {
-        $this->_propDict["v90"] = $val;
-        return $this;
-    }
     /**
     * Gets the v10_0
     * Version 10.0 or later.
@@ -191,6 +133,62 @@ class IosMinimumOperatingSystem extends Entity
     public function setV13_0($val)
     {
         $this->_propDict["v130"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the v8_0
+    * Version 8.0 or later.
+    *
+    * @return bool The v8_0
+    */
+    public function getV8_0()
+    {
+        if (array_key_exists("v80", $this->_propDict)) {
+            return $this->_propDict["v80"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v8_0
+    * Version 8.0 or later.
+    *
+    * @param bool $val The value of the v8_0
+    *
+    * @return IosMinimumOperatingSystem
+    */
+    public function setV8_0($val)
+    {
+        $this->_propDict["v80"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the v9_0
+    * Version 9.0 or later.
+    *
+    * @return bool The v9_0
+    */
+    public function getV9_0()
+    {
+        if (array_key_exists("v90", $this->_propDict)) {
+            return $this->_propDict["v90"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v9_0
+    * Version 9.0 or later.
+    *
+    * @param bool $val The value of the v9_0
+    *
+    * @return IosMinimumOperatingSystem
+    */
+    public function setV9_0($val)
+    {
+        $this->_propDict["v90"] = $val;
         return $this;
     }
 }

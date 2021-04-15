@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,42 +18,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ResourceOperation extends Entity
 {
-    /**
-    * Gets the resourceName
-    * Name of the Resource this operation is performed on.
-    *
-    * @return string The resourceName
-    */
-    public function getResourceName()
-    {
-        if (array_key_exists("resourceName", $this->_propDict)) {
-            return $this->_propDict["resourceName"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the resourceName
-    * Name of the Resource this operation is performed on.
-    *
-    * @param string $val The resourceName
-    *
-    * @return ResourceOperation
-    */
-    public function setResourceName($val)
-    {
-        $this->_propDict["resourceName"] = $val;
-        return $this;
-    }
-    
     /**
     * Gets the actionName
     * Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
@@ -110,6 +79,35 @@ class ResourceOperation extends Entity
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the resourceName
+    * Name of the Resource this operation is performed on.
+    *
+    * @return string The resourceName
+    */
+    public function getResourceName()
+    {
+        if (array_key_exists("resourceName", $this->_propDict)) {
+            return $this->_propDict["resourceName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the resourceName
+    * Name of the Resource this operation is performed on.
+    *
+    * @param string $val The resourceName
+    *
+    * @return ResourceOperation
+    */
+    public function setResourceName($val)
+    {
+        $this->_propDict["resourceName"] = $val;
         return $this;
     }
     

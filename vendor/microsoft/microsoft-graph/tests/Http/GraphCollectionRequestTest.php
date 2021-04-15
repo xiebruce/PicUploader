@@ -9,9 +9,9 @@ class GraphCollectionRequestTest extends TestCase
     private $client;
     private $reflectedRequestUrlHandler;
 
-    public function setUp()
+    public function setUp(): void
     {
-        $this->collectionRequest = new GraphCollectionRequest("GET", "/endpoint", "token", "url", "/version");
+        $this->collectionRequest = new GraphCollectionRequest("GET", "/endpoint", "token", "url", "version");
         $this->collectionRequest->setReturnType(Model\User::class);
         $this->collectionRequest->setPageSize(2);
 
@@ -31,7 +31,7 @@ class GraphCollectionRequestTest extends TestCase
 
     public function testHitEndOfCollection()
     {
-        $this->expectException(PHPUnit_Framework_Error::class);
+        $this->expectError();
 
         //First page
         $this->collectionRequest->setPageCallInfo();
@@ -64,11 +64,11 @@ class GraphCollectionRequestTest extends TestCase
 
         $requestUrl = $this->reflectedRequestUrlHandler->invokeArgs($this->collectionRequest, array());
 
-        $this->assertEquals($requestUrl, '/version/endpoint');
+        $this->assertEquals($requestUrl, 'version/endpoint');
 
         $this->collectionRequest->setPageCallInfo();
 
         $requestUrl = $this->reflectedRequestUrlHandler->invokeArgs($this->collectionRequest, array());
-        $this->assertEquals('/version/endpoint?$top=2', $requestUrl);
+        $this->assertEquals('version/endpoint?$top=2', $requestUrl);
     }
 }

@@ -336,7 +336,7 @@ class VCalendar extends VObject\Document
 
         foreach ($recurringEvents as $events) {
             try {
-                $it = new EventIterator($events, $timeZone);
+                $it = new EventIterator($events, null, $timeZone);
             } catch (NoInstancesException $e) {
                 // This event is recurring, but it doesn't have a single
                 // instance. We are skipping this event from the output

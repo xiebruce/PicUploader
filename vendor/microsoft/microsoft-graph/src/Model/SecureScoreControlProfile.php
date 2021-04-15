@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class SecureScoreControlProfile extends Entity
 {
@@ -116,6 +114,7 @@ class SecureScoreControlProfile extends Entity
 
      /** 
      * Gets the complianceInformation
+    * The collection of compliance information associated with secure score control
      *
      * @return array The complianceInformation
      */
@@ -130,6 +129,7 @@ class SecureScoreControlProfile extends Entity
     
     /** 
     * Sets the complianceInformation
+    * The collection of compliance information associated with secure score control
     *
     * @param ComplianceInformation $val The complianceInformation
     *
@@ -143,7 +143,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Gets the controlCategory
-    * Control action category (Identity, Data, Device, Apps, Infrastructure).
+    * Control action category (Account, Data, Device, Apps, Infrastructure).
     *
     * @return string The controlCategory
     */
@@ -158,7 +158,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Sets the controlCategory
-    * Control action category (Identity, Data, Device, Apps, Infrastructure).
+    * Control action category (Account, Data, Device, Apps, Infrastructure).
     *
     * @param string $val The controlCategory
     *
@@ -173,6 +173,7 @@ class SecureScoreControlProfile extends Entity
 
      /** 
      * Gets the controlStateUpdates
+    * Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
      *
      * @return array The controlStateUpdates
      */
@@ -187,6 +188,7 @@ class SecureScoreControlProfile extends Entity
     
     /** 
     * Sets the controlStateUpdates
+    * Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
     *
     * @param SecureScoreControlStateUpdate $val The controlStateUpdates
     *
@@ -291,7 +293,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Gets the maxScore
-    * max attainable score for the control.
+    * Current obtained max score on specified date.
     *
     * @return float The maxScore
     */
@@ -306,7 +308,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Sets the maxScore
-    * max attainable score for the control.
+    * Current obtained max score on specified date.
     *
     * @param float $val The maxScore
     *
@@ -436,7 +438,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Gets the threats
-    * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,
+    * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
     *
     * @return string The threats
     */
@@ -451,7 +453,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Sets the threats
-    * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,
+    * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
     *
     * @param string $val The threats
     *
@@ -465,6 +467,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Gets the tier
+    * Control tier (Core, Defense in Depth, Advanced.)
     *
     * @return string The tier
     */
@@ -479,6 +482,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Sets the tier
+    * Control tier (Core, Defense in Depth, Advanced.)
     *
     * @param string $val The tier
     *
@@ -521,6 +525,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Gets the userImpact
+    * User impact of implementing control (low, moderate, high).
     *
     * @return string The userImpact
     */
@@ -535,6 +540,7 @@ class SecureScoreControlProfile extends Entity
     
     /**
     * Sets the userImpact
+    * User impact of implementing control (low, moderate, high).
     *
     * @param string $val The userImpact
     *
@@ -554,7 +560,7 @@ class SecureScoreControlProfile extends Entity
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "Microsoft\Graph\Model\SecurityVendorInformation")) {
+            if (is_a($this->_propDict["vendorInformation"], "\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

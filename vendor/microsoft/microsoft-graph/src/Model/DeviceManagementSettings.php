@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,16 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceManagementSettings extends Entity
 {
     /**
     * Gets the deviceComplianceCheckinThresholdDays
-    * The number of days a device is allowed to go without checking in to remain compliant. Valid values 0 to 120
+    * The number of days a device is allowed to go without checking in to remain compliant.
     *
     * @return int The deviceComplianceCheckinThresholdDays
     */
@@ -42,7 +40,7 @@ class DeviceManagementSettings extends Entity
 
     /**
     * Sets the deviceComplianceCheckinThresholdDays
-    * The number of days a device is allowed to go without checking in to remain compliant. Valid values 0 to 120
+    * The number of days a device is allowed to go without checking in to remain compliant.
     *
     * @param int $val The value of the deviceComplianceCheckinThresholdDays
     *

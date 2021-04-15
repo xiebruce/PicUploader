@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,40 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class MeetingTimeSuggestionsResult extends Entity
 {
+    /**
+    * Gets the emptySuggestionsReason
+    * A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
+    *
+    * @return string The emptySuggestionsReason
+    */
+    public function getEmptySuggestionsReason()
+    {
+        if (array_key_exists("emptySuggestionsReason", $this->_propDict)) {
+            return $this->_propDict["emptySuggestionsReason"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the emptySuggestionsReason
+    * A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
+    *
+    * @param string $val The value of the emptySuggestionsReason
+    *
+    * @return MeetingTimeSuggestionsResult
+    */
+    public function setEmptySuggestionsReason($val)
+    {
+        $this->_propDict["emptySuggestionsReason"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the meetingTimeSuggestions
@@ -35,7 +61,7 @@ class MeetingTimeSuggestionsResult extends Entity
     public function getMeetingTimeSuggestions()
     {
         if (array_key_exists("meetingTimeSuggestions", $this->_propDict)) {
-            if (is_a($this->_propDict["meetingTimeSuggestions"], "Microsoft\Graph\Model\MeetingTimeSuggestion")) {
+            if (is_a($this->_propDict["meetingTimeSuggestions"], "\Microsoft\Graph\Model\MeetingTimeSuggestion")) {
                 return $this->_propDict["meetingTimeSuggestions"];
             } else {
                 $this->_propDict["meetingTimeSuggestions"] = new MeetingTimeSuggestion($this->_propDict["meetingTimeSuggestions"]);
@@ -57,33 +83,5 @@ class MeetingTimeSuggestionsResult extends Entity
     {
         $this->_propDict["meetingTimeSuggestions"] = $val;
          return $this;
-    }
-    /**
-    * Gets the emptySuggestionsReason
-    * A reason for not returning any meeting suggestions. The possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
-    *
-    * @return string The emptySuggestionsReason
-    */
-    public function getEmptySuggestionsReason()
-    {
-        if (array_key_exists("emptySuggestionsReason", $this->_propDict)) {
-            return $this->_propDict["emptySuggestionsReason"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the emptySuggestionsReason
-    * A reason for not returning any meeting suggestions. The possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
-    *
-    * @param string $val The value of the emptySuggestionsReason
-    *
-    * @return MeetingTimeSuggestionsResult
-    */
-    public function setEmptySuggestionsReason($val)
-    {
-        $this->_propDict["emptySuggestionsReason"] = $val;
-        return $this;
     }
 }

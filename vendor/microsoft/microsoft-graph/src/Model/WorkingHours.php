@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class WorkingHours extends Entity
 {
@@ -35,7 +33,7 @@ class WorkingHours extends Entity
     public function getDaysOfWeek()
     {
         if (array_key_exists("daysOfWeek", $this->_propDict)) {
-            if (is_a($this->_propDict["daysOfWeek"], "Microsoft\Graph\Model\DayOfWeek")) {
+            if (is_a($this->_propDict["daysOfWeek"], "\Microsoft\Graph\Model\DayOfWeek")) {
                 return $this->_propDict["daysOfWeek"];
             } else {
                 $this->_propDict["daysOfWeek"] = new DayOfWeek($this->_propDict["daysOfWeek"]);
@@ -60,39 +58,6 @@ class WorkingHours extends Entity
     }
 
     /**
-    * Gets the startTime
-    * The time of the day that the user starts working.
-    *
-    * @return TimeOfDay The startTime
-    */
-    public function getStartTime()
-    {
-        if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "Microsoft\Graph\Model\TimeOfDay")) {
-                return $this->_propDict["startTime"];
-            } else {
-                $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);
-                return $this->_propDict["startTime"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the startTime
-    * The time of the day that the user starts working.
-    *
-    * @param TimeOfDay $val The value to assign to the startTime
-    *
-    * @return WorkingHours The WorkingHours
-    */
-    public function setStartTime($val)
-    {
-        $this->_propDict["startTime"] = $val;
-         return $this;
-    }
-
-    /**
     * Gets the endTime
     * The time of the day that the user stops working.
     *
@@ -101,7 +66,7 @@ class WorkingHours extends Entity
     public function getEndTime()
     {
         if (array_key_exists("endTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endTime"], "Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["endTime"], "\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["endTime"];
             } else {
                 $this->_propDict["endTime"] = new TimeOfDay($this->_propDict["endTime"]);
@@ -126,6 +91,39 @@ class WorkingHours extends Entity
     }
 
     /**
+    * Gets the startTime
+    * The time of the day that the user starts working.
+    *
+    * @return TimeOfDay The startTime
+    */
+    public function getStartTime()
+    {
+        if (array_key_exists("startTime", $this->_propDict)) {
+            if (is_a($this->_propDict["startTime"], "\Microsoft\Graph\Model\TimeOfDay")) {
+                return $this->_propDict["startTime"];
+            } else {
+                $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);
+                return $this->_propDict["startTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the startTime
+    * The time of the day that the user starts working.
+    *
+    * @param TimeOfDay $val The value to assign to the startTime
+    *
+    * @return WorkingHours The WorkingHours
+    */
+    public function setStartTime($val)
+    {
+        $this->_propDict["startTime"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the timeZone
     * The time zone to which the working hours apply.
     *
@@ -134,7 +132,7 @@ class WorkingHours extends Entity
     public function getTimeZone()
     {
         if (array_key_exists("timeZone", $this->_propDict)) {
-            if (is_a($this->_propDict["timeZone"], "Microsoft\Graph\Model\TimeZoneBase")) {
+            if (is_a($this->_propDict["timeZone"], "\Microsoft\Graph\Model\TimeZoneBase")) {
                 return $this->_propDict["timeZone"];
             } else {
                 $this->_propDict["timeZone"] = new TimeZoneBase($this->_propDict["timeZone"]);

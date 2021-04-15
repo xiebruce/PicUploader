@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceCompliancePolicy extends Entity
 {
@@ -89,6 +87,35 @@ class DeviceCompliancePolicy extends Entity
     }
     
     /**
+    * Gets the displayName
+    * Admin provided name of the device configuration.
+    *
+    * @return string The displayName
+    */
+    public function getDisplayName()
+    {
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the displayName
+    * Admin provided name of the device configuration.
+    *
+    * @param string $val The displayName
+    *
+    * @return DeviceCompliancePolicy
+    */
+    public function setDisplayName($val)
+    {
+        $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the lastModifiedDateTime
     * DateTime the object was last modified.
     *
@@ -118,35 +145,6 @@ class DeviceCompliancePolicy extends Entity
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the displayName
-    * Admin provided name of the device configuration.
-    *
-    * @return string The displayName
-    */
-    public function getDisplayName()
-    {
-        if (array_key_exists("displayName", $this->_propDict)) {
-            return $this->_propDict["displayName"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the displayName
-    * Admin provided name of the device configuration.
-    *
-    * @param string $val The displayName
-    *
-    * @return DeviceCompliancePolicy
-    */
-    public function setDisplayName($val)
-    {
-        $this->_propDict["displayName"] = $val;
         return $this;
     }
     
@@ -181,157 +179,31 @@ class DeviceCompliancePolicy extends Entity
     
 
      /** 
-     * Gets the scheduledActionsForRule
-    * The list of scheduled action for this rule
+     * Gets the assignments
+    * The collection of assignments for this compliance policy.
      *
-     * @return array The scheduledActionsForRule
+     * @return array The assignments
      */
-    public function getScheduledActionsForRule()
+    public function getAssignments()
     {
-        if (array_key_exists("scheduledActionsForRule", $this->_propDict)) {
-           return $this->_propDict["scheduledActionsForRule"];
+        if (array_key_exists("assignments", $this->_propDict)) {
+           return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
     
     /** 
-    * Sets the scheduledActionsForRule
-    * The list of scheduled action for this rule
+    * Sets the assignments
+    * The collection of assignments for this compliance policy.
     *
-    * @param DeviceComplianceScheduledActionForRule $val The scheduledActionsForRule
-    *
-    * @return DeviceCompliancePolicy
-    */
-    public function setScheduledActionsForRule($val)
-    {
-		$this->_propDict["scheduledActionsForRule"] = $val;
-        return $this;
-    }
-    
-
-     /** 
-     * Gets the deviceStatuses
-    * List of DeviceComplianceDeviceStatus.
-     *
-     * @return array The deviceStatuses
-     */
-    public function getDeviceStatuses()
-    {
-        if (array_key_exists("deviceStatuses", $this->_propDict)) {
-           return $this->_propDict["deviceStatuses"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the deviceStatuses
-    * List of DeviceComplianceDeviceStatus.
-    *
-    * @param DeviceComplianceDeviceStatus $val The deviceStatuses
+    * @param DeviceCompliancePolicyAssignment $val The assignments
     *
     * @return DeviceCompliancePolicy
     */
-    public function setDeviceStatuses($val)
+    public function setAssignments($val)
     {
-		$this->_propDict["deviceStatuses"] = $val;
-        return $this;
-    }
-    
-
-     /** 
-     * Gets the userStatuses
-    * List of DeviceComplianceUserStatus.
-     *
-     * @return array The userStatuses
-     */
-    public function getUserStatuses()
-    {
-        if (array_key_exists("userStatuses", $this->_propDict)) {
-           return $this->_propDict["userStatuses"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the userStatuses
-    * List of DeviceComplianceUserStatus.
-    *
-    * @param DeviceComplianceUserStatus $val The userStatuses
-    *
-    * @return DeviceCompliancePolicy
-    */
-    public function setUserStatuses($val)
-    {
-		$this->_propDict["userStatuses"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the deviceStatusOverview
-    * Device compliance devices status overview
-    *
-    * @return DeviceComplianceDeviceOverview The deviceStatusOverview
-    */
-    public function getDeviceStatusOverview()
-    {
-        if (array_key_exists("deviceStatusOverview", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceStatusOverview"], "Microsoft\Graph\Model\DeviceComplianceDeviceOverview")) {
-                return $this->_propDict["deviceStatusOverview"];
-            } else {
-                $this->_propDict["deviceStatusOverview"] = new DeviceComplianceDeviceOverview($this->_propDict["deviceStatusOverview"]);
-                return $this->_propDict["deviceStatusOverview"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the deviceStatusOverview
-    * Device compliance devices status overview
-    *
-    * @param DeviceComplianceDeviceOverview $val The deviceStatusOverview
-    *
-    * @return DeviceCompliancePolicy
-    */
-    public function setDeviceStatusOverview($val)
-    {
-        $this->_propDict["deviceStatusOverview"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the userStatusOverview
-    * Device compliance users status overview
-    *
-    * @return DeviceComplianceUserOverview The userStatusOverview
-    */
-    public function getUserStatusOverview()
-    {
-        if (array_key_exists("userStatusOverview", $this->_propDict)) {
-            if (is_a($this->_propDict["userStatusOverview"], "Microsoft\Graph\Model\DeviceComplianceUserOverview")) {
-                return $this->_propDict["userStatusOverview"];
-            } else {
-                $this->_propDict["userStatusOverview"] = new DeviceComplianceUserOverview($this->_propDict["userStatusOverview"]);
-                return $this->_propDict["userStatusOverview"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the userStatusOverview
-    * Device compliance users status overview
-    *
-    * @param DeviceComplianceUserOverview $val The userStatusOverview
-    *
-    * @return DeviceCompliancePolicy
-    */
-    public function setUserStatusOverview($val)
-    {
-        $this->_propDict["userStatusOverview"] = $val;
+		$this->_propDict["assignments"] = $val;
         return $this;
     }
     
@@ -367,31 +239,157 @@ class DeviceCompliancePolicy extends Entity
     
 
      /** 
-     * Gets the assignments
-    * The collection of assignments for this compliance policy.
+     * Gets the deviceStatuses
+    * List of DeviceComplianceDeviceStatus.
      *
-     * @return array The assignments
+     * @return array The deviceStatuses
      */
-    public function getAssignments()
+    public function getDeviceStatuses()
     {
-        if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+        if (array_key_exists("deviceStatuses", $this->_propDict)) {
+           return $this->_propDict["deviceStatuses"];
         } else {
             return null;
         }
     }
     
     /** 
-    * Sets the assignments
-    * The collection of assignments for this compliance policy.
+    * Sets the deviceStatuses
+    * List of DeviceComplianceDeviceStatus.
     *
-    * @param DeviceCompliancePolicyAssignment $val The assignments
+    * @param DeviceComplianceDeviceStatus $val The deviceStatuses
     *
     * @return DeviceCompliancePolicy
     */
-    public function setAssignments($val)
+    public function setDeviceStatuses($val)
     {
-		$this->_propDict["assignments"] = $val;
+		$this->_propDict["deviceStatuses"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the deviceStatusOverview
+    * Device compliance devices status overview
+    *
+    * @return DeviceComplianceDeviceOverview The deviceStatusOverview
+    */
+    public function getDeviceStatusOverview()
+    {
+        if (array_key_exists("deviceStatusOverview", $this->_propDict)) {
+            if (is_a($this->_propDict["deviceStatusOverview"], "\Microsoft\Graph\Model\DeviceComplianceDeviceOverview")) {
+                return $this->_propDict["deviceStatusOverview"];
+            } else {
+                $this->_propDict["deviceStatusOverview"] = new DeviceComplianceDeviceOverview($this->_propDict["deviceStatusOverview"]);
+                return $this->_propDict["deviceStatusOverview"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the deviceStatusOverview
+    * Device compliance devices status overview
+    *
+    * @param DeviceComplianceDeviceOverview $val The deviceStatusOverview
+    *
+    * @return DeviceCompliancePolicy
+    */
+    public function setDeviceStatusOverview($val)
+    {
+        $this->_propDict["deviceStatusOverview"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the scheduledActionsForRule
+    * The list of scheduled action for this rule
+     *
+     * @return array The scheduledActionsForRule
+     */
+    public function getScheduledActionsForRule()
+    {
+        if (array_key_exists("scheduledActionsForRule", $this->_propDict)) {
+           return $this->_propDict["scheduledActionsForRule"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the scheduledActionsForRule
+    * The list of scheduled action for this rule
+    *
+    * @param DeviceComplianceScheduledActionForRule $val The scheduledActionsForRule
+    *
+    * @return DeviceCompliancePolicy
+    */
+    public function setScheduledActionsForRule($val)
+    {
+		$this->_propDict["scheduledActionsForRule"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the userStatuses
+    * List of DeviceComplianceUserStatus.
+     *
+     * @return array The userStatuses
+     */
+    public function getUserStatuses()
+    {
+        if (array_key_exists("userStatuses", $this->_propDict)) {
+           return $this->_propDict["userStatuses"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the userStatuses
+    * List of DeviceComplianceUserStatus.
+    *
+    * @param DeviceComplianceUserStatus $val The userStatuses
+    *
+    * @return DeviceCompliancePolicy
+    */
+    public function setUserStatuses($val)
+    {
+		$this->_propDict["userStatuses"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the userStatusOverview
+    * Device compliance users status overview
+    *
+    * @return DeviceComplianceUserOverview The userStatusOverview
+    */
+    public function getUserStatusOverview()
+    {
+        if (array_key_exists("userStatusOverview", $this->_propDict)) {
+            if (is_a($this->_propDict["userStatusOverview"], "\Microsoft\Graph\Model\DeviceComplianceUserOverview")) {
+                return $this->_propDict["userStatusOverview"];
+            } else {
+                $this->_propDict["userStatusOverview"] = new DeviceComplianceUserOverview($this->_propDict["userStatusOverview"]);
+                return $this->_propDict["userStatusOverview"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the userStatusOverview
+    * Device compliance users status overview
+    *
+    * @param DeviceComplianceUserOverview $val The userStatusOverview
+    *
+    * @return DeviceCompliancePolicy
+    */
+    public function setUserStatusOverview($val)
+    {
+        $this->_propDict["userStatusOverview"] = $val;
         return $this;
     }
     

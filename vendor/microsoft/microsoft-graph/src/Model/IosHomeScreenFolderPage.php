@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,13 +17,45 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosHomeScreenFolderPage extends Entity
 {
+
+    /**
+    * Gets the apps
+    * A list of apps and web clips to appear on a page within a folder. This collection can contain a maximum of 500 elements.
+    *
+    * @return IosHomeScreenApp The apps
+    */
+    public function getApps()
+    {
+        if (array_key_exists("apps", $this->_propDict)) {
+            if (is_a($this->_propDict["apps"], "\Microsoft\Graph\Model\IosHomeScreenApp")) {
+                return $this->_propDict["apps"];
+            } else {
+                $this->_propDict["apps"] = new IosHomeScreenApp($this->_propDict["apps"]);
+                return $this->_propDict["apps"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the apps
+    * A list of apps and web clips to appear on a page within a folder. This collection can contain a maximum of 500 elements.
+    *
+    * @param IosHomeScreenApp $val The value to assign to the apps
+    *
+    * @return IosHomeScreenFolderPage The IosHomeScreenFolderPage
+    */
+    public function setApps($val)
+    {
+        $this->_propDict["apps"] = $val;
+         return $this;
+    }
     /**
     * Gets the displayName
     * Name of the folder page
@@ -52,38 +83,5 @@ class IosHomeScreenFolderPage extends Entity
     {
         $this->_propDict["displayName"] = $val;
         return $this;
-    }
-
-    /**
-    * Gets the apps
-    * A list of apps to appear on a page within a folder. This collection can contain a maximum of 500 elements.
-    *
-    * @return IosHomeScreenApp The apps
-    */
-    public function getApps()
-    {
-        if (array_key_exists("apps", $this->_propDict)) {
-            if (is_a($this->_propDict["apps"], "Microsoft\Graph\Model\IosHomeScreenApp")) {
-                return $this->_propDict["apps"];
-            } else {
-                $this->_propDict["apps"] = new IosHomeScreenApp($this->_propDict["apps"]);
-                return $this->_propDict["apps"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the apps
-    * A list of apps to appear on a page within a folder. This collection can contain a maximum of 500 elements.
-    *
-    * @param IosHomeScreenApp $val The value to assign to the apps
-    *
-    * @return IosHomeScreenFolderPage The IosHomeScreenFolderPage
-    */
-    public function setApps($val)
-    {
-        $this->_propDict["apps"] = $val;
-         return $this;
     }
 }

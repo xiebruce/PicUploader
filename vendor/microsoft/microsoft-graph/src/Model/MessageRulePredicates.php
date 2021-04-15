@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,69 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class MessageRulePredicates extends Entity
 {
-    /**
-    * Gets the categories
-    * Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.
-    *
-    * @return string The categories
-    */
-    public function getCategories()
-    {
-        if (array_key_exists("categories", $this->_propDict)) {
-            return $this->_propDict["categories"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the categories
-    * Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.
-    *
-    * @param string $val The value of the categories
-    *
-    * @return MessageRulePredicates
-    */
-    public function setCategories($val)
-    {
-        $this->_propDict["categories"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the subjectContains
-    * Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.
-    *
-    * @return string The subjectContains
-    */
-    public function getSubjectContains()
-    {
-        if (array_key_exists("subjectContains", $this->_propDict)) {
-            return $this->_propDict["subjectContains"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the subjectContains
-    * Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.
-    *
-    * @param string $val The value of the subjectContains
-    *
-    * @return MessageRulePredicates
-    */
-    public function setSubjectContains($val)
-    {
-        $this->_propDict["subjectContains"] = $val;
-        return $this;
-    }
     /**
     * Gets the bodyContains
     * Represents the strings that should appear in the body of an incoming message in order for the condition or exception to apply.
@@ -138,59 +80,92 @@ class MessageRulePredicates extends Entity
         return $this;
     }
     /**
-    * Gets the senderContains
-    * Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.
+    * Gets the categories
+    * Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.
     *
-    * @return string The senderContains
+    * @return string The categories
     */
-    public function getSenderContains()
+    public function getCategories()
     {
-        if (array_key_exists("senderContains", $this->_propDict)) {
-            return $this->_propDict["senderContains"];
+        if (array_key_exists("categories", $this->_propDict)) {
+            return $this->_propDict["categories"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the senderContains
-    * Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.
+    * Sets the categories
+    * Represents the categories that an incoming message should be labeled with in order for the condition or exception to apply.
     *
-    * @param string $val The value of the senderContains
+    * @param string $val The value of the categories
     *
     * @return MessageRulePredicates
     */
-    public function setSenderContains($val)
+    public function setCategories($val)
     {
-        $this->_propDict["senderContains"] = $val;
+        $this->_propDict["categories"] = $val;
         return $this;
     }
+
     /**
-    * Gets the recipientContains
-    * Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.
+    * Gets the fromAddresses
+    * Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
     *
-    * @return string The recipientContains
+    * @return Recipient The fromAddresses
     */
-    public function getRecipientContains()
+    public function getFromAddresses()
     {
-        if (array_key_exists("recipientContains", $this->_propDict)) {
-            return $this->_propDict["recipientContains"];
+        if (array_key_exists("fromAddresses", $this->_propDict)) {
+            if (is_a($this->_propDict["fromAddresses"], "\Microsoft\Graph\Model\Recipient")) {
+                return $this->_propDict["fromAddresses"];
+            } else {
+                $this->_propDict["fromAddresses"] = new Recipient($this->_propDict["fromAddresses"]);
+                return $this->_propDict["fromAddresses"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the fromAddresses
+    * Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
+    *
+    * @param Recipient $val The value to assign to the fromAddresses
+    *
+    * @return MessageRulePredicates The MessageRulePredicates
+    */
+    public function setFromAddresses($val)
+    {
+        $this->_propDict["fromAddresses"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the hasAttachments
+    * Indicates whether an incoming message must have attachments in order for the condition or exception to apply.
+    *
+    * @return bool The hasAttachments
+    */
+    public function getHasAttachments()
+    {
+        if (array_key_exists("hasAttachments", $this->_propDict)) {
+            return $this->_propDict["hasAttachments"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the recipientContains
-    * Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.
+    * Sets the hasAttachments
+    * Indicates whether an incoming message must have attachments in order for the condition or exception to apply.
     *
-    * @param string $val The value of the recipientContains
+    * @param bool $val The value of the hasAttachments
     *
     * @return MessageRulePredicates
     */
-    public function setRecipientContains($val)
+    public function setHasAttachments($val)
     {
-        $this->_propDict["recipientContains"] = $val;
+        $this->_propDict["hasAttachments"] = $val;
         return $this;
     }
     /**
@@ -223,39 +198,6 @@ class MessageRulePredicates extends Entity
     }
 
     /**
-    * Gets the messageActionFlag
-    * Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
-    *
-    * @return MessageActionFlag The messageActionFlag
-    */
-    public function getMessageActionFlag()
-    {
-        if (array_key_exists("messageActionFlag", $this->_propDict)) {
-            if (is_a($this->_propDict["messageActionFlag"], "Microsoft\Graph\Model\MessageActionFlag")) {
-                return $this->_propDict["messageActionFlag"];
-            } else {
-                $this->_propDict["messageActionFlag"] = new MessageActionFlag($this->_propDict["messageActionFlag"]);
-                return $this->_propDict["messageActionFlag"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the messageActionFlag
-    * Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
-    *
-    * @param MessageActionFlag $val The value to assign to the messageActionFlag
-    *
-    * @return MessageRulePredicates The MessageRulePredicates
-    */
-    public function setMessageActionFlag($val)
-    {
-        $this->_propDict["messageActionFlag"] = $val;
-         return $this;
-    }
-
-    /**
     * Gets the importance
     * The importance that is stamped on an incoming message in order for the condition or exception to apply: low, normal, high.
     *
@@ -264,7 +206,7 @@ class MessageRulePredicates extends Entity
     public function getImportance()
     {
         if (array_key_exists("importance", $this->_propDict)) {
-            if (is_a($this->_propDict["importance"], "Microsoft\Graph\Model\Importance")) {
+            if (is_a($this->_propDict["importance"], "\Microsoft\Graph\Model\Importance")) {
                 return $this->_propDict["importance"];
             } else {
                 $this->_propDict["importance"] = new Importance($this->_propDict["importance"]);
@@ -286,273 +228,6 @@ class MessageRulePredicates extends Entity
     {
         $this->_propDict["importance"] = $val;
          return $this;
-    }
-
-    /**
-    * Gets the sensitivity
-    * Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
-    *
-    * @return Sensitivity The sensitivity
-    */
-    public function getSensitivity()
-    {
-        if (array_key_exists("sensitivity", $this->_propDict)) {
-            if (is_a($this->_propDict["sensitivity"], "Microsoft\Graph\Model\Sensitivity")) {
-                return $this->_propDict["sensitivity"];
-            } else {
-                $this->_propDict["sensitivity"] = new Sensitivity($this->_propDict["sensitivity"]);
-                return $this->_propDict["sensitivity"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the sensitivity
-    * Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
-    *
-    * @param Sensitivity $val The value to assign to the sensitivity
-    *
-    * @return MessageRulePredicates The MessageRulePredicates
-    */
-    public function setSensitivity($val)
-    {
-        $this->_propDict["sensitivity"] = $val;
-         return $this;
-    }
-
-    /**
-    * Gets the fromAddresses
-    * Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
-    *
-    * @return Recipient The fromAddresses
-    */
-    public function getFromAddresses()
-    {
-        if (array_key_exists("fromAddresses", $this->_propDict)) {
-            if (is_a($this->_propDict["fromAddresses"], "Microsoft\Graph\Model\Recipient")) {
-                return $this->_propDict["fromAddresses"];
-            } else {
-                $this->_propDict["fromAddresses"] = new Recipient($this->_propDict["fromAddresses"]);
-                return $this->_propDict["fromAddresses"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the fromAddresses
-    * Represents the specific sender email addresses of an incoming message in order for the condition or exception to apply.
-    *
-    * @param Recipient $val The value to assign to the fromAddresses
-    *
-    * @return MessageRulePredicates The MessageRulePredicates
-    */
-    public function setFromAddresses($val)
-    {
-        $this->_propDict["fromAddresses"] = $val;
-         return $this;
-    }
-
-    /**
-    * Gets the sentToAddresses
-    * Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.
-    *
-    * @return Recipient The sentToAddresses
-    */
-    public function getSentToAddresses()
-    {
-        if (array_key_exists("sentToAddresses", $this->_propDict)) {
-            if (is_a($this->_propDict["sentToAddresses"], "Microsoft\Graph\Model\Recipient")) {
-                return $this->_propDict["sentToAddresses"];
-            } else {
-                $this->_propDict["sentToAddresses"] = new Recipient($this->_propDict["sentToAddresses"]);
-                return $this->_propDict["sentToAddresses"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the sentToAddresses
-    * Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.
-    *
-    * @param Recipient $val The value to assign to the sentToAddresses
-    *
-    * @return MessageRulePredicates The MessageRulePredicates
-    */
-    public function setSentToAddresses($val)
-    {
-        $this->_propDict["sentToAddresses"] = $val;
-         return $this;
-    }
-    /**
-    * Gets the sentToMe
-    * Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.
-    *
-    * @return bool The sentToMe
-    */
-    public function getSentToMe()
-    {
-        if (array_key_exists("sentToMe", $this->_propDict)) {
-            return $this->_propDict["sentToMe"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the sentToMe
-    * Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.
-    *
-    * @param bool $val The value of the sentToMe
-    *
-    * @return MessageRulePredicates
-    */
-    public function setSentToMe($val)
-    {
-        $this->_propDict["sentToMe"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the sentOnlyToMe
-    * Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.
-    *
-    * @return bool The sentOnlyToMe
-    */
-    public function getSentOnlyToMe()
-    {
-        if (array_key_exists("sentOnlyToMe", $this->_propDict)) {
-            return $this->_propDict["sentOnlyToMe"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the sentOnlyToMe
-    * Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.
-    *
-    * @param bool $val The value of the sentOnlyToMe
-    *
-    * @return MessageRulePredicates
-    */
-    public function setSentOnlyToMe($val)
-    {
-        $this->_propDict["sentOnlyToMe"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the sentCcMe
-    * Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.
-    *
-    * @return bool The sentCcMe
-    */
-    public function getSentCcMe()
-    {
-        if (array_key_exists("sentCcMe", $this->_propDict)) {
-            return $this->_propDict["sentCcMe"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the sentCcMe
-    * Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.
-    *
-    * @param bool $val The value of the sentCcMe
-    *
-    * @return MessageRulePredicates
-    */
-    public function setSentCcMe($val)
-    {
-        $this->_propDict["sentCcMe"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the sentToOrCcMe
-    * Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.
-    *
-    * @return bool The sentToOrCcMe
-    */
-    public function getSentToOrCcMe()
-    {
-        if (array_key_exists("sentToOrCcMe", $this->_propDict)) {
-            return $this->_propDict["sentToOrCcMe"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the sentToOrCcMe
-    * Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.
-    *
-    * @param bool $val The value of the sentToOrCcMe
-    *
-    * @return MessageRulePredicates
-    */
-    public function setSentToOrCcMe($val)
-    {
-        $this->_propDict["sentToOrCcMe"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the notSentToMe
-    * Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.
-    *
-    * @return bool The notSentToMe
-    */
-    public function getNotSentToMe()
-    {
-        if (array_key_exists("notSentToMe", $this->_propDict)) {
-            return $this->_propDict["notSentToMe"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the notSentToMe
-    * Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.
-    *
-    * @param bool $val The value of the notSentToMe
-    *
-    * @return MessageRulePredicates
-    */
-    public function setNotSentToMe($val)
-    {
-        $this->_propDict["notSentToMe"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the hasAttachments
-    * Indicates whether an incoming message must have attachments in order for the condition or exception to apply.
-    *
-    * @return bool The hasAttachments
-    */
-    public function getHasAttachments()
-    {
-        if (array_key_exists("hasAttachments", $this->_propDict)) {
-            return $this->_propDict["hasAttachments"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the hasAttachments
-    * Indicates whether an incoming message must have attachments in order for the condition or exception to apply.
-    *
-    * @param bool $val The value of the hasAttachments
-    *
-    * @return MessageRulePredicates
-    */
-    public function setHasAttachments($val)
-    {
-        $this->_propDict["hasAttachments"] = $val;
-        return $this;
     }
     /**
     * Gets the isApprovalRequest
@@ -864,6 +539,329 @@ class MessageRulePredicates extends Entity
     }
 
     /**
+    * Gets the messageActionFlag
+    * Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
+    *
+    * @return MessageActionFlag The messageActionFlag
+    */
+    public function getMessageActionFlag()
+    {
+        if (array_key_exists("messageActionFlag", $this->_propDict)) {
+            if (is_a($this->_propDict["messageActionFlag"], "\Microsoft\Graph\Model\MessageActionFlag")) {
+                return $this->_propDict["messageActionFlag"];
+            } else {
+                $this->_propDict["messageActionFlag"] = new MessageActionFlag($this->_propDict["messageActionFlag"]);
+                return $this->_propDict["messageActionFlag"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the messageActionFlag
+    * Represents the flag-for-action value that appears on an incoming message in order for the condition or exception to apply. The possible values are: any, call, doNotForward, followUp, fyi, forward, noResponseNecessary, read, reply, replyToAll, review.
+    *
+    * @param MessageActionFlag $val The value to assign to the messageActionFlag
+    *
+    * @return MessageRulePredicates The MessageRulePredicates
+    */
+    public function setMessageActionFlag($val)
+    {
+        $this->_propDict["messageActionFlag"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the notSentToMe
+    * Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.
+    *
+    * @return bool The notSentToMe
+    */
+    public function getNotSentToMe()
+    {
+        if (array_key_exists("notSentToMe", $this->_propDict)) {
+            return $this->_propDict["notSentToMe"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the notSentToMe
+    * Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.
+    *
+    * @param bool $val The value of the notSentToMe
+    *
+    * @return MessageRulePredicates
+    */
+    public function setNotSentToMe($val)
+    {
+        $this->_propDict["notSentToMe"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the recipientContains
+    * Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.
+    *
+    * @return string The recipientContains
+    */
+    public function getRecipientContains()
+    {
+        if (array_key_exists("recipientContains", $this->_propDict)) {
+            return $this->_propDict["recipientContains"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the recipientContains
+    * Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.
+    *
+    * @param string $val The value of the recipientContains
+    *
+    * @return MessageRulePredicates
+    */
+    public function setRecipientContains($val)
+    {
+        $this->_propDict["recipientContains"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the senderContains
+    * Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.
+    *
+    * @return string The senderContains
+    */
+    public function getSenderContains()
+    {
+        if (array_key_exists("senderContains", $this->_propDict)) {
+            return $this->_propDict["senderContains"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the senderContains
+    * Represents the strings that appear in the from property of an incoming message in order for the condition or exception to apply.
+    *
+    * @param string $val The value of the senderContains
+    *
+    * @return MessageRulePredicates
+    */
+    public function setSenderContains($val)
+    {
+        $this->_propDict["senderContains"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the sensitivity
+    * Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
+    *
+    * @return Sensitivity The sensitivity
+    */
+    public function getSensitivity()
+    {
+        if (array_key_exists("sensitivity", $this->_propDict)) {
+            if (is_a($this->_propDict["sensitivity"], "\Microsoft\Graph\Model\Sensitivity")) {
+                return $this->_propDict["sensitivity"];
+            } else {
+                $this->_propDict["sensitivity"] = new Sensitivity($this->_propDict["sensitivity"]);
+                return $this->_propDict["sensitivity"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the sensitivity
+    * Represents the sensitivity level that must be stamped on an incoming message in order for the condition or exception to apply. The possible values are: normal, personal, private, confidential.
+    *
+    * @param Sensitivity $val The value to assign to the sensitivity
+    *
+    * @return MessageRulePredicates The MessageRulePredicates
+    */
+    public function setSensitivity($val)
+    {
+        $this->_propDict["sensitivity"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the sentCcMe
+    * Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.
+    *
+    * @return bool The sentCcMe
+    */
+    public function getSentCcMe()
+    {
+        if (array_key_exists("sentCcMe", $this->_propDict)) {
+            return $this->_propDict["sentCcMe"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sentCcMe
+    * Indicates whether the owner of the mailbox must be in the ccRecipients property of an incoming message in order for the condition or exception to apply.
+    *
+    * @param bool $val The value of the sentCcMe
+    *
+    * @return MessageRulePredicates
+    */
+    public function setSentCcMe($val)
+    {
+        $this->_propDict["sentCcMe"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the sentOnlyToMe
+    * Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.
+    *
+    * @return bool The sentOnlyToMe
+    */
+    public function getSentOnlyToMe()
+    {
+        if (array_key_exists("sentOnlyToMe", $this->_propDict)) {
+            return $this->_propDict["sentOnlyToMe"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sentOnlyToMe
+    * Indicates whether the owner of the mailbox must be the only recipient in an incoming message in order for the condition or exception to apply.
+    *
+    * @param bool $val The value of the sentOnlyToMe
+    *
+    * @return MessageRulePredicates
+    */
+    public function setSentOnlyToMe($val)
+    {
+        $this->_propDict["sentOnlyToMe"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the sentToAddresses
+    * Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.
+    *
+    * @return Recipient The sentToAddresses
+    */
+    public function getSentToAddresses()
+    {
+        if (array_key_exists("sentToAddresses", $this->_propDict)) {
+            if (is_a($this->_propDict["sentToAddresses"], "\Microsoft\Graph\Model\Recipient")) {
+                return $this->_propDict["sentToAddresses"];
+            } else {
+                $this->_propDict["sentToAddresses"] = new Recipient($this->_propDict["sentToAddresses"]);
+                return $this->_propDict["sentToAddresses"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the sentToAddresses
+    * Represents the email addresses that an incoming message must have been sent to in order for the condition or exception to apply.
+    *
+    * @param Recipient $val The value to assign to the sentToAddresses
+    *
+    * @return MessageRulePredicates The MessageRulePredicates
+    */
+    public function setSentToAddresses($val)
+    {
+        $this->_propDict["sentToAddresses"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the sentToMe
+    * Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.
+    *
+    * @return bool The sentToMe
+    */
+    public function getSentToMe()
+    {
+        if (array_key_exists("sentToMe", $this->_propDict)) {
+            return $this->_propDict["sentToMe"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sentToMe
+    * Indicates whether the owner of the mailbox must be in the toRecipients property of an incoming message in order for the condition or exception to apply.
+    *
+    * @param bool $val The value of the sentToMe
+    *
+    * @return MessageRulePredicates
+    */
+    public function setSentToMe($val)
+    {
+        $this->_propDict["sentToMe"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the sentToOrCcMe
+    * Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.
+    *
+    * @return bool The sentToOrCcMe
+    */
+    public function getSentToOrCcMe()
+    {
+        if (array_key_exists("sentToOrCcMe", $this->_propDict)) {
+            return $this->_propDict["sentToOrCcMe"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sentToOrCcMe
+    * Indicates whether the owner of the mailbox must be in either a toRecipients or ccRecipients property of an incoming message in order for the condition or exception to apply.
+    *
+    * @param bool $val The value of the sentToOrCcMe
+    *
+    * @return MessageRulePredicates
+    */
+    public function setSentToOrCcMe($val)
+    {
+        $this->_propDict["sentToOrCcMe"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the subjectContains
+    * Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.
+    *
+    * @return string The subjectContains
+    */
+    public function getSubjectContains()
+    {
+        if (array_key_exists("subjectContains", $this->_propDict)) {
+            return $this->_propDict["subjectContains"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the subjectContains
+    * Represents the strings that appear in the subject of an incoming message in order for the condition or exception to apply.
+    *
+    * @param string $val The value of the subjectContains
+    *
+    * @return MessageRulePredicates
+    */
+    public function setSubjectContains($val)
+    {
+        $this->_propDict["subjectContains"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the withinSizeRange
     * Represents the minimum and maximum sizes (in kilobytes) that an incoming message must fall in between in order for the condition or exception to apply.
     *
@@ -872,7 +870,7 @@ class MessageRulePredicates extends Entity
     public function getWithinSizeRange()
     {
         if (array_key_exists("withinSizeRange", $this->_propDict)) {
-            if (is_a($this->_propDict["withinSizeRange"], "Microsoft\Graph\Model\SizeRange")) {
+            if (is_a($this->_propDict["withinSizeRange"], "\Microsoft\Graph\Model\SizeRange")) {
                 return $this->_propDict["withinSizeRange"];
             } else {
                 $this->_propDict["withinSizeRange"] = new SizeRange($this->_propDict["withinSizeRange"]);

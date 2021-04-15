@@ -31,3 +31,5 @@ accessorys/PicUploaderHelper/PicUploaderHelper-start.sh
 /.tags_sorted_by_file
 
 /dashboard2.php
+/static/js/dashboard2.js
+/static/js/vue.js

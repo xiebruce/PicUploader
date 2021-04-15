@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ScoredEmailAddress extends Entity
 {
@@ -51,6 +49,32 @@ class ScoredEmailAddress extends Entity
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the itemId
+    *
+    * @return string The itemId
+    */
+    public function getItemId()
+    {
+        if (array_key_exists("itemId", $this->_propDict)) {
+            return $this->_propDict["itemId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the itemId
+    *
+    * @param string $val The value of the itemId
+    *
+    * @return ScoredEmailAddress
+    */
+    public function setItemId($val)
+    {
+        $this->_propDict["itemId"] = $val;
         return $this;
     }
     /**
@@ -90,7 +114,7 @@ class ScoredEmailAddress extends Entity
     public function getSelectionLikelihood()
     {
         if (array_key_exists("selectionLikelihood", $this->_propDict)) {
-            if (is_a($this->_propDict["selectionLikelihood"], "Microsoft\Graph\Model\SelectionLikelihoodInfo")) {
+            if (is_a($this->_propDict["selectionLikelihood"], "\Microsoft\Graph\Model\SelectionLikelihoodInfo")) {
                 return $this->_propDict["selectionLikelihood"];
             } else {
                 $this->_propDict["selectionLikelihood"] = new SelectionLikelihoodInfo($this->_propDict["selectionLikelihood"]);
@@ -111,31 +135,5 @@ class ScoredEmailAddress extends Entity
     {
         $this->_propDict["selectionLikelihood"] = $val;
          return $this;
-    }
-    /**
-    * Gets the itemId
-    *
-    * @return string The itemId
-    */
-    public function getItemId()
-    {
-        if (array_key_exists("itemId", $this->_propDict)) {
-            return $this->_propDict["itemId"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the itemId
-    *
-    * @param string $val The value of the itemId
-    *
-    * @return ScoredEmailAddress
-    */
-    public function setItemId($val)
-    {
-        $this->_propDict["itemId"] = $val;
-        return $this;
     }
 }

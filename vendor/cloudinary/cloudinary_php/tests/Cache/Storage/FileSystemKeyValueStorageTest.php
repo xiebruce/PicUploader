@@ -26,7 +26,7 @@ class FileSystemKeyValueStorageTest extends TestCase
     private $key2 = "test_key_2";
     private $value2= "test_value_2";
 
-    public function setUp()
+    protected function setUp()
     {
         $this->rootPath = sys_get_temp_dir() . DIRECTORY_SEPARATOR . uniqid(UNIQUE_TEST_ID . '_');
         mkdir($this->rootPath);
@@ -34,7 +34,7 @@ class FileSystemKeyValueStorageTest extends TestCase
         $this->storage = new FileSystemKeyValueStorage($this->rootPath);
     }
 
-    public function tearDown()
+    protected function tearDown()
     {
         self::rmTree($this->rootPath);
     }

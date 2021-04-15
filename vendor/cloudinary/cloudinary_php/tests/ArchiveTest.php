@@ -16,7 +16,7 @@ namespace Cloudinary {
             Curl::$instance = new Curl();
         }
 
-        public function setUp()
+        protected function setUp()
         {
             $this->tag = "archive_test_" . SUFFIX;
             $this->tags = array($this->tag, TEST_TAG, UNIQUE_TEST_TAG);
@@ -29,7 +29,7 @@ namespace Cloudinary {
             Uploader::upload("tests/logo.png", array("tags" => $this->tags, "width" => 10, "crop" => "scale"));
         }
 
-        public function tearDown()
+        protected function tearDown()
         {
             Curl::$instance = new Curl();
             $api = new \Cloudinary\Api();
@@ -83,6 +83,46 @@ namespace Cloudinary {
             $zip->open($file);
             $this->assertEquals(2, $zip->numFiles);
             unlink($file);
+        }
+
+        /**
+         * Checks URLs for downloading a folder as an archive file.
+         */
+        public function test_download_folder()
+        {
+            // should return url with resource_type image.
+            $download_folder_url = \Cloudinary::download_folder('samples/', ['resource_type' => 'image']);
+            $this->assertContains('image', $download_folder_url);
+
+            // should return valid url.
+            $download_folder_url = \Cloudinary::download_folder('folder/');
+            $this->assertContains('generate_archive', $download_folder_url);
+
+            // should flatten folder.
+            $download_folder_url = \Cloudinary::download_folder('folder/', ['flatten_folders' => true]);
+            $this->assertContains('flatten_folders', $download_folder_url);
+
+            // should expire_at folder.
+            $download_folder_url = \Cloudinary::download_folder('folder/', ['expires_at' => time() + 60]);
+            $this->assertContains('expires_at', $download_folder_url);
+
+            // should use original file_name of folder.
+            $download_folder_url = \Cloudinary::download_folder('folder/', ['use_original_filename' => true]);
+            $this->assertContains('use_original_filename', $download_folder_url);
+        }
+
+        /**
+         * Generate a url with asset and version id
+         */
+        public function test_download_backedup_asset()
+        {
+            $url = \Cloudinary::download_backedup_asset(
+                'b71b23d9c89a81a254b88a91a9dad8cd',
+                '0e493356d8a40b856c4863c026891a4e'
+            );
+
+            self::assertContains('asset_id', $url);
+            self::assertContains('version_id', $url);
         }
 
         public function test_create_archive_multiple_resource_types()

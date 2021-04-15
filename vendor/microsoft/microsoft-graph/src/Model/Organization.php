@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Organization extends DirectoryObject
 {
@@ -58,7 +56,7 @@ class Organization extends DirectoryObject
     
     /**
     * Gets the businessPhones
-    * Telephone number for the organization. NOTE: Although this is a string collection, only one number can be set for this property.
+    * Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
     *
     * @return string The businessPhones
     */
@@ -73,7 +71,7 @@ class Organization extends DirectoryObject
     
     /**
     * Sets the businessPhones
-    * Telephone number for the organization. NOTE: Although this is a string collection, only one number can be set for this property.
+    * Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
     *
     * @param string $val The businessPhones
     *
@@ -174,7 +172,7 @@ class Organization extends DirectoryObject
     
     /**
     * Gets the createdDateTime
-    * Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @return \DateTime The createdDateTime
     */
@@ -193,7 +191,7 @@ class Organization extends DirectoryObject
     
     /**
     * Sets the createdDateTime
-    * Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -265,7 +263,7 @@ class Organization extends DirectoryObject
     
     /**
     * Gets the onPremisesLastSyncDateTime
-    * The time and date at which the tenant was last synced with the on-premise directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * The time and date at which the tenant was last synced with the on-premise directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime The onPremisesLastSyncDateTime
     */
@@ -284,7 +282,7 @@ class Organization extends DirectoryObject
     
     /**
     * Sets the onPremisesLastSyncDateTime
-    * The time and date at which the tenant was last synced with the on-premise directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
+    * The time and date at which the tenant was last synced with the on-premise directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The onPremisesLastSyncDateTime
     *
@@ -298,7 +296,7 @@ class Organization extends DirectoryObject
     
     /**
     * Gets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default).
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
     *
     * @return bool The onPremisesSyncEnabled
     */
@@ -313,7 +311,7 @@ class Organization extends DirectoryObject
     
     /**
     * Sets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default).
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
     *
     * @param bool $val The onPremisesSyncEnabled
     *
@@ -356,7 +354,7 @@ class Organization extends DirectoryObject
     
     /**
     * Gets the preferredLanguage
-    * The preferred language for the organization. Should follow ISO 639-1 Code; for example 'en'.
+    * The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
     *
     * @return string The preferredLanguage
     */
@@ -371,7 +369,7 @@ class Organization extends DirectoryObject
     
     /**
     * Sets the preferredLanguage
-    * The preferred language for the organization. Should follow ISO 639-1 Code; for example 'en'.
+    * The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
     *
     * @param string $val The preferredLanguage
     *
@@ -392,7 +390,7 @@ class Organization extends DirectoryObject
     public function getPrivacyProfile()
     {
         if (array_key_exists("privacyProfile", $this->_propDict)) {
-            if (is_a($this->_propDict["privacyProfile"], "Microsoft\Graph\Model\PrivacyProfile")) {
+            if (is_a($this->_propDict["privacyProfile"], "\Microsoft\Graph\Model\PrivacyProfile")) {
                 return $this->_propDict["privacyProfile"];
             } else {
                 $this->_propDict["privacyProfile"] = new PrivacyProfile($this->_propDict["privacyProfile"]);
@@ -587,6 +585,33 @@ class Organization extends DirectoryObject
         return $this;
     }
     
+    /**
+    * Gets the tenantType
+    *
+    * @return string The tenantType
+    */
+    public function getTenantType()
+    {
+        if (array_key_exists("tenantType", $this->_propDict)) {
+            return $this->_propDict["tenantType"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the tenantType
+    *
+    * @param string $val The tenantType
+    *
+    * @return Organization
+    */
+    public function setTenantType($val)
+    {
+        $this->_propDict["tenantType"] = $val;
+        return $this;
+    }
+    
 
      /** 
      * Gets the verifiedDomains
@@ -626,7 +651,7 @@ class Organization extends DirectoryObject
     public function getMobileDeviceManagementAuthority()
     {
         if (array_key_exists("mobileDeviceManagementAuthority", $this->_propDict)) {
-            if (is_a($this->_propDict["mobileDeviceManagementAuthority"], "Microsoft\Graph\Model\MdmAuthority")) {
+            if (is_a($this->_propDict["mobileDeviceManagementAuthority"], "\Microsoft\Graph\Model\MdmAuthority")) {
                 return $this->_propDict["mobileDeviceManagementAuthority"];
             } else {
                 $this->_propDict["mobileDeviceManagementAuthority"] = new MdmAuthority($this->_propDict["mobileDeviceManagementAuthority"]);
@@ -650,10 +675,71 @@ class Organization extends DirectoryObject
         return $this;
     }
     
+    /**
+    * Gets the branding
+    *
+    * @return OrganizationalBranding The branding
+    */
+    public function getBranding()
+    {
+        if (array_key_exists("branding", $this->_propDict)) {
+            if (is_a($this->_propDict["branding"], "\Microsoft\Graph\Model\OrganizationalBranding")) {
+                return $this->_propDict["branding"];
+            } else {
+                $this->_propDict["branding"] = new OrganizationalBranding($this->_propDict["branding"]);
+                return $this->_propDict["branding"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the branding
+    *
+    * @param OrganizationalBranding $val The branding
+    *
+    * @return Organization
+    */
+    public function setBranding($val)
+    {
+        $this->_propDict["branding"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the certificateBasedAuthConfiguration
+    * Navigation property to manage  certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     *
+     * @return array The certificateBasedAuthConfiguration
+     */
+    public function getCertificateBasedAuthConfiguration()
+    {
+        if (array_key_exists("certificateBasedAuthConfiguration", $this->_propDict)) {
+           return $this->_propDict["certificateBasedAuthConfiguration"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the certificateBasedAuthConfiguration
+    * Navigation property to manage  certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+    *
+    * @param CertificateBasedAuthConfiguration $val The certificateBasedAuthConfiguration
+    *
+    * @return Organization
+    */
+    public function setCertificateBasedAuthConfiguration($val)
+    {
+		$this->_propDict["certificateBasedAuthConfiguration"] = $val;
+        return $this;
+    }
+    
 
      /** 
      * Gets the extensions
-    * The collection of open extensions defined for the organization. Read-only. Nullable.
+    * The collection of open extensions defined for the organization resource. Nullable.
      *
      * @return array The extensions
      */
@@ -668,7 +754,7 @@ class Organization extends DirectoryObject
     
     /** 
     * Sets the extensions
-    * The collection of open extensions defined for the organization. Read-only. Nullable.
+    * The collection of open extensions defined for the organization resource. Nullable.
     *
     * @param Extension $val The extensions
     *

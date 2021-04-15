@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,13 +18,74 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ManagedAppRegistration extends Entity
 {
+    /**
+    * Gets the appIdentifier
+    * The app package Identifier
+    *
+    * @return MobileAppIdentifier The appIdentifier
+    */
+    public function getAppIdentifier()
+    {
+        if (array_key_exists("appIdentifier", $this->_propDict)) {
+            if (is_a($this->_propDict["appIdentifier"], "\Microsoft\Graph\Model\MobileAppIdentifier")) {
+                return $this->_propDict["appIdentifier"];
+            } else {
+                $this->_propDict["appIdentifier"] = new MobileAppIdentifier($this->_propDict["appIdentifier"]);
+                return $this->_propDict["appIdentifier"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the appIdentifier
+    * The app package Identifier
+    *
+    * @param MobileAppIdentifier $val The appIdentifier
+    *
+    * @return ManagedAppRegistration
+    */
+    public function setAppIdentifier($val)
+    {
+        $this->_propDict["appIdentifier"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the applicationVersion
+    * App version
+    *
+    * @return string The applicationVersion
+    */
+    public function getApplicationVersion()
+    {
+        if (array_key_exists("applicationVersion", $this->_propDict)) {
+            return $this->_propDict["applicationVersion"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the applicationVersion
+    * App version
+    *
+    * @param string $val The applicationVersion
+    *
+    * @return ManagedAppRegistration
+    */
+    public function setApplicationVersion($val)
+    {
+        $this->_propDict["applicationVersion"] = $val;
+        return $this;
+    }
+    
     /**
     * Gets the createdDateTime
     * Date and time of creation
@@ -60,6 +120,123 @@ class ManagedAppRegistration extends Entity
     }
     
     /**
+    * Gets the deviceName
+    * Host device name
+    *
+    * @return string The deviceName
+    */
+    public function getDeviceName()
+    {
+        if (array_key_exists("deviceName", $this->_propDict)) {
+            return $this->_propDict["deviceName"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the deviceName
+    * Host device name
+    *
+    * @param string $val The deviceName
+    *
+    * @return ManagedAppRegistration
+    */
+    public function setDeviceName($val)
+    {
+        $this->_propDict["deviceName"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the deviceTag
+    * App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
+    *
+    * @return string The deviceTag
+    */
+    public function getDeviceTag()
+    {
+        if (array_key_exists("deviceTag", $this->_propDict)) {
+            return $this->_propDict["deviceTag"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the deviceTag
+    * App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
+    *
+    * @param string $val The deviceTag
+    *
+    * @return ManagedAppRegistration
+    */
+    public function setDeviceTag($val)
+    {
+        $this->_propDict["deviceTag"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the deviceType
+    * Host device type
+    *
+    * @return string The deviceType
+    */
+    public function getDeviceType()
+    {
+        if (array_key_exists("deviceType", $this->_propDict)) {
+            return $this->_propDict["deviceType"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the deviceType
+    * Host device type
+    *
+    * @param string $val The deviceType
+    *
+    * @return ManagedAppRegistration
+    */
+    public function setDeviceType($val)
+    {
+        $this->_propDict["deviceType"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the flaggedReasons
+    * Zero or more reasons an app registration is flagged. E.g. app running on rooted device
+     *
+     * @return array The flaggedReasons
+     */
+    public function getFlaggedReasons()
+    {
+        if (array_key_exists("flaggedReasons", $this->_propDict)) {
+           return $this->_propDict["flaggedReasons"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the flaggedReasons
+    * Zero or more reasons an app registration is flagged. E.g. app running on rooted device
+    *
+    * @param ManagedAppFlaggedReason $val The flaggedReasons
+    *
+    * @return ManagedAppRegistration
+    */
+    public function setFlaggedReasons($val)
+    {
+		$this->_propDict["flaggedReasons"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the lastSyncDateTime
     * Date and time of last the app synced with management service.
     *
@@ -89,35 +266,6 @@ class ManagedAppRegistration extends Entity
     public function setLastSyncDateTime($val)
     {
         $this->_propDict["lastSyncDateTime"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the applicationVersion
-    * App version
-    *
-    * @return string The applicationVersion
-    */
-    public function getApplicationVersion()
-    {
-        if (array_key_exists("applicationVersion", $this->_propDict)) {
-            return $this->_propDict["applicationVersion"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the applicationVersion
-    * App version
-    *
-    * @param string $val The applicationVersion
-    *
-    * @return ManagedAppRegistration
-    */
-    public function setApplicationVersion($val)
-    {
-        $this->_propDict["applicationVersion"] = $val;
         return $this;
     }
     
@@ -180,123 +328,6 @@ class ManagedAppRegistration extends Entity
     }
     
     /**
-    * Gets the deviceType
-    * Host device type
-    *
-    * @return string The deviceType
-    */
-    public function getDeviceType()
-    {
-        if (array_key_exists("deviceType", $this->_propDict)) {
-            return $this->_propDict["deviceType"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the deviceType
-    * Host device type
-    *
-    * @param string $val The deviceType
-    *
-    * @return ManagedAppRegistration
-    */
-    public function setDeviceType($val)
-    {
-        $this->_propDict["deviceType"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the deviceTag
-    * App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
-    *
-    * @return string The deviceTag
-    */
-    public function getDeviceTag()
-    {
-        if (array_key_exists("deviceTag", $this->_propDict)) {
-            return $this->_propDict["deviceTag"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the deviceTag
-    * App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
-    *
-    * @param string $val The deviceTag
-    *
-    * @return ManagedAppRegistration
-    */
-    public function setDeviceTag($val)
-    {
-        $this->_propDict["deviceTag"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the deviceName
-    * Host device name
-    *
-    * @return string The deviceName
-    */
-    public function getDeviceName()
-    {
-        if (array_key_exists("deviceName", $this->_propDict)) {
-            return $this->_propDict["deviceName"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the deviceName
-    * Host device name
-    *
-    * @param string $val The deviceName
-    *
-    * @return ManagedAppRegistration
-    */
-    public function setDeviceName($val)
-    {
-        $this->_propDict["deviceName"] = $val;
-        return $this;
-    }
-    
-
-     /** 
-     * Gets the flaggedReasons
-    * Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-     *
-     * @return array The flaggedReasons
-     */
-    public function getFlaggedReasons()
-    {
-        if (array_key_exists("flaggedReasons", $this->_propDict)) {
-           return $this->_propDict["flaggedReasons"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the flaggedReasons
-    * Zero or more reasons an app registration is flagged. E.g. app running on rooted device
-    *
-    * @param ManagedAppFlaggedReason $val The flaggedReasons
-    *
-    * @return ManagedAppRegistration
-    */
-    public function setFlaggedReasons($val)
-    {
-		$this->_propDict["flaggedReasons"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the userId
     * The user Id to who this app registration belongs.
     *
@@ -322,39 +353,6 @@ class ManagedAppRegistration extends Entity
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the appIdentifier
-    * The app package Identifier
-    *
-    * @return MobileAppIdentifier The appIdentifier
-    */
-    public function getAppIdentifier()
-    {
-        if (array_key_exists("appIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["appIdentifier"], "Microsoft\Graph\Model\MobileAppIdentifier")) {
-                return $this->_propDict["appIdentifier"];
-            } else {
-                $this->_propDict["appIdentifier"] = new MobileAppIdentifier($this->_propDict["appIdentifier"]);
-                return $this->_propDict["appIdentifier"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the appIdentifier
-    * The app package Identifier
-    *
-    * @param MobileAppIdentifier $val The appIdentifier
-    *
-    * @return ManagedAppRegistration
-    */
-    public function setAppIdentifier($val)
-    {
-        $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
     

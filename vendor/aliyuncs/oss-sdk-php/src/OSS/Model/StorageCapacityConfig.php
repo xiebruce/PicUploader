@@ -2,6 +2,8 @@
 
 namespace OSS\Model;
 
+use OSS\Core\OssException;
+
 /**
  * Class StorageCapacityConfig
  *
@@ -29,7 +31,7 @@ class StorageCapacityConfig implements XmlConfig
     }
 
     /**
-     * 把StorageCapacityConfig序列化成xml
+     * Serialize StorageCapacityConfig into xml
      *
      * @return string
      */

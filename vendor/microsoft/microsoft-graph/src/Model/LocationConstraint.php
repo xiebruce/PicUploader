@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,46 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class LocationConstraint extends Entity
 {
-
-    /**
-    * Gets the locations
-    * Constraint information for one or more locations that the client requests for the meeting.
-    *
-    * @return LocationConstraintItem The locations
-    */
-    public function getLocations()
-    {
-        if (array_key_exists("locations", $this->_propDict)) {
-            if (is_a($this->_propDict["locations"], "Microsoft\Graph\Model\LocationConstraintItem")) {
-                return $this->_propDict["locations"];
-            } else {
-                $this->_propDict["locations"] = new LocationConstraintItem($this->_propDict["locations"]);
-                return $this->_propDict["locations"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the locations
-    * Constraint information for one or more locations that the client requests for the meeting.
-    *
-    * @param LocationConstraintItem $val The value to assign to the locations
-    *
-    * @return LocationConstraint The LocationConstraint
-    */
-    public function setLocations($val)
-    {
-        $this->_propDict["locations"] = $val;
-         return $this;
-    }
     /**
     * Gets the isRequired
     * The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations.
@@ -85,6 +50,39 @@ class LocationConstraint extends Entity
     {
         $this->_propDict["isRequired"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the locations
+    * Constraint information for one or more locations that the client requests for the meeting.
+    *
+    * @return LocationConstraintItem The locations
+    */
+    public function getLocations()
+    {
+        if (array_key_exists("locations", $this->_propDict)) {
+            if (is_a($this->_propDict["locations"], "\Microsoft\Graph\Model\LocationConstraintItem")) {
+                return $this->_propDict["locations"];
+            } else {
+                $this->_propDict["locations"] = new LocationConstraintItem($this->_propDict["locations"]);
+                return $this->_propDict["locations"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the locations
+    * Constraint information for one or more locations that the client requests for the meeting.
+    *
+    * @param LocationConstraintItem $val The value to assign to the locations
+    *
+    * @return LocationConstraint The LocationConstraint
+    */
+    public function setLocations($val)
+    {
+        $this->_propDict["locations"] = $val;
+         return $this;
     }
     /**
     * Gets the suggestLocation

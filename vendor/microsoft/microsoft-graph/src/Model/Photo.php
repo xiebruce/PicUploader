@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Photo extends Entity
 {
@@ -221,17 +219,45 @@ class Photo extends Entity
         $this->_propDict["iso"] = $val;
         return $this;
     }
+    /**
+    * Gets the orientation
+    * The orientation value from the camera. Writable on OneDrive Personal.
+    *
+    * @return int The orientation
+    */
+    public function getOrientation()
+    {
+        if (array_key_exists("orientation", $this->_propDict)) {
+            return $this->_propDict["orientation"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the orientation
+    * The orientation value from the camera. Writable on OneDrive Personal.
+    *
+    * @param int $val The value of the orientation
+    *
+    * @return Photo
+    */
+    public function setOrientation($val)
+    {
+        $this->_propDict["orientation"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the takenDateTime
-    * Represents the date and time the photo was taken. Read-only.
+    * The date and time the photo was taken in UTC time. Read-only.
     *
     * @return \DateTime The takenDateTime
     */
     public function getTakenDateTime()
     {
         if (array_key_exists("takenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["takenDateTime"], "Microsoft\Graph\Model\\DateTime")) {
+            if (is_a($this->_propDict["takenDateTime"], "\DateTime")) {
                 return $this->_propDict["takenDateTime"];
             } else {
                 $this->_propDict["takenDateTime"] = new \DateTime($this->_propDict["takenDateTime"]);
@@ -243,7 +269,7 @@ class Photo extends Entity
 
     /**
     * Sets the takenDateTime
-    * Represents the date and time the photo was taken. Read-only.
+    * The date and time the photo was taken in UTC time. Read-only.
     *
     * @param \DateTime $val The value to assign to the takenDateTime
     *

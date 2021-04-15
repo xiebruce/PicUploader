@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,46 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ManagedAppPolicyDeploymentSummaryPerApp extends Entity
 {
-
-    /**
-    * Gets the mobileAppIdentifier
-    * Deployment of an app.
-    *
-    * @return MobileAppIdentifier The mobileAppIdentifier
-    */
-    public function getMobileAppIdentifier()
-    {
-        if (array_key_exists("mobileAppIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["mobileAppIdentifier"], "Microsoft\Graph\Model\MobileAppIdentifier")) {
-                return $this->_propDict["mobileAppIdentifier"];
-            } else {
-                $this->_propDict["mobileAppIdentifier"] = new MobileAppIdentifier($this->_propDict["mobileAppIdentifier"]);
-                return $this->_propDict["mobileAppIdentifier"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the mobileAppIdentifier
-    * Deployment of an app.
-    *
-    * @param MobileAppIdentifier $val The value to assign to the mobileAppIdentifier
-    *
-    * @return ManagedAppPolicyDeploymentSummaryPerApp The ManagedAppPolicyDeploymentSummaryPerApp
-    */
-    public function setMobileAppIdentifier($val)
-    {
-        $this->_propDict["mobileAppIdentifier"] = $val;
-         return $this;
-    }
     /**
     * Gets the configurationAppliedUserCount
     * Number of users the policy is applied.
@@ -85,5 +50,38 @@ class ManagedAppPolicyDeploymentSummaryPerApp extends Entity
     {
         $this->_propDict["configurationAppliedUserCount"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the mobileAppIdentifier
+    * Deployment of an app.
+    *
+    * @return MobileAppIdentifier The mobileAppIdentifier
+    */
+    public function getMobileAppIdentifier()
+    {
+        if (array_key_exists("mobileAppIdentifier", $this->_propDict)) {
+            if (is_a($this->_propDict["mobileAppIdentifier"], "\Microsoft\Graph\Model\MobileAppIdentifier")) {
+                return $this->_propDict["mobileAppIdentifier"];
+            } else {
+                $this->_propDict["mobileAppIdentifier"] = new MobileAppIdentifier($this->_propDict["mobileAppIdentifier"]);
+                return $this->_propDict["mobileAppIdentifier"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the mobileAppIdentifier
+    * Deployment of an app.
+    *
+    * @param MobileAppIdentifier $val The value to assign to the mobileAppIdentifier
+    *
+    * @return ManagedAppPolicyDeploymentSummaryPerApp The ManagedAppPolicyDeploymentSummaryPerApp
+    */
+    public function setMobileAppIdentifier($val)
+    {
+        $this->_propDict["mobileAppIdentifier"] = $val;
+         return $this;
     }
 }

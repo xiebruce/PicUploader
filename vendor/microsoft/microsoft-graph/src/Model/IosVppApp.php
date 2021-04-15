@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,68 +18,133 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class IosVppApp extends MobileApp
 {
     /**
-    * Gets the usedLicenseCount
-    * The number of VPP licenses in use.
+    * Gets the applicableDeviceType
+    * The applicable iOS Device Type.
     *
-    * @return int The usedLicenseCount
+    * @return IosDeviceType The applicableDeviceType
     */
-    public function getUsedLicenseCount()
+    public function getApplicableDeviceType()
     {
-        if (array_key_exists("usedLicenseCount", $this->_propDict)) {
-            return $this->_propDict["usedLicenseCount"];
-        } else {
-            return null;
+        if (array_key_exists("applicableDeviceType", $this->_propDict)) {
+            if (is_a($this->_propDict["applicableDeviceType"], "\Microsoft\Graph\Model\IosDeviceType")) {
+                return $this->_propDict["applicableDeviceType"];
+            } else {
+                $this->_propDict["applicableDeviceType"] = new IosDeviceType($this->_propDict["applicableDeviceType"]);
+                return $this->_propDict["applicableDeviceType"];
+            }
         }
+        return null;
     }
     
     /**
-    * Sets the usedLicenseCount
-    * The number of VPP licenses in use.
+    * Sets the applicableDeviceType
+    * The applicable iOS Device Type.
     *
-    * @param int $val The usedLicenseCount
+    * @param IosDeviceType $val The applicableDeviceType
     *
     * @return IosVppApp
     */
-    public function setUsedLicenseCount($val)
+    public function setApplicableDeviceType($val)
     {
-        $this->_propDict["usedLicenseCount"] = intval($val);
+        $this->_propDict["applicableDeviceType"] = $val;
         return $this;
     }
     
     /**
-    * Gets the totalLicenseCount
-    * The total number of VPP licenses.
+    * Gets the appStoreUrl
+    * The store URL.
     *
-    * @return int The totalLicenseCount
+    * @return string The appStoreUrl
     */
-    public function getTotalLicenseCount()
+    public function getAppStoreUrl()
     {
-        if (array_key_exists("totalLicenseCount", $this->_propDict)) {
-            return $this->_propDict["totalLicenseCount"];
+        if (array_key_exists("appStoreUrl", $this->_propDict)) {
+            return $this->_propDict["appStoreUrl"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the totalLicenseCount
-    * The total number of VPP licenses.
+    * Sets the appStoreUrl
+    * The store URL.
     *
-    * @param int $val The totalLicenseCount
+    * @param string $val The appStoreUrl
     *
     * @return IosVppApp
     */
-    public function setTotalLicenseCount($val)
+    public function setAppStoreUrl($val)
     {
-        $this->_propDict["totalLicenseCount"] = intval($val);
+        $this->_propDict["appStoreUrl"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the bundleId
+    * The Identity Name.
+    *
+    * @return string The bundleId
+    */
+    public function getBundleId()
+    {
+        if (array_key_exists("bundleId", $this->_propDict)) {
+            return $this->_propDict["bundleId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the bundleId
+    * The Identity Name.
+    *
+    * @param string $val The bundleId
+    *
+    * @return IosVppApp
+    */
+    public function setBundleId($val)
+    {
+        $this->_propDict["bundleId"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the licensingType
+    * The supported License Type.
+    *
+    * @return VppLicensingType The licensingType
+    */
+    public function getLicensingType()
+    {
+        if (array_key_exists("licensingType", $this->_propDict)) {
+            if (is_a($this->_propDict["licensingType"], "\Microsoft\Graph\Model\VppLicensingType")) {
+                return $this->_propDict["licensingType"];
+            } else {
+                $this->_propDict["licensingType"] = new VppLicensingType($this->_propDict["licensingType"]);
+                return $this->_propDict["licensingType"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the licensingType
+    * The supported License Type.
+    *
+    * @param VppLicensingType $val The licensingType
+    *
+    * @return IosVppApp
+    */
+    public function setLicensingType($val)
+    {
+        $this->_propDict["licensingType"] = $val;
         return $this;
     }
     
@@ -118,126 +182,60 @@ class IosVppApp extends MobileApp
     }
     
     /**
-    * Gets the appStoreUrl
-    * The store URL.
+    * Gets the totalLicenseCount
+    * The total number of VPP licenses.
     *
-    * @return string The appStoreUrl
+    * @return int The totalLicenseCount
     */
-    public function getAppStoreUrl()
+    public function getTotalLicenseCount()
     {
-        if (array_key_exists("appStoreUrl", $this->_propDict)) {
-            return $this->_propDict["appStoreUrl"];
+        if (array_key_exists("totalLicenseCount", $this->_propDict)) {
+            return $this->_propDict["totalLicenseCount"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the appStoreUrl
-    * The store URL.
+    * Sets the totalLicenseCount
+    * The total number of VPP licenses.
     *
-    * @param string $val The appStoreUrl
+    * @param int $val The totalLicenseCount
     *
     * @return IosVppApp
     */
-    public function setAppStoreUrl($val)
+    public function setTotalLicenseCount($val)
     {
-        $this->_propDict["appStoreUrl"] = $val;
+        $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
     
     /**
-    * Gets the licensingType
-    * The supported License Type.
+    * Gets the usedLicenseCount
+    * The number of VPP licenses in use.
     *
-    * @return VppLicensingType The licensingType
+    * @return int The usedLicenseCount
     */
-    public function getLicensingType()
+    public function getUsedLicenseCount()
     {
-        if (array_key_exists("licensingType", $this->_propDict)) {
-            if (is_a($this->_propDict["licensingType"], "Microsoft\Graph\Model\VppLicensingType")) {
-                return $this->_propDict["licensingType"];
-            } else {
-                $this->_propDict["licensingType"] = new VppLicensingType($this->_propDict["licensingType"]);
-                return $this->_propDict["licensingType"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the licensingType
-    * The supported License Type.
-    *
-    * @param VppLicensingType $val The licensingType
-    *
-    * @return IosVppApp
-    */
-    public function setLicensingType($val)
-    {
-        $this->_propDict["licensingType"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the applicableDeviceType
-    * The applicable iOS Device Type.
-    *
-    * @return IosDeviceType The applicableDeviceType
-    */
-    public function getApplicableDeviceType()
-    {
-        if (array_key_exists("applicableDeviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableDeviceType"], "Microsoft\Graph\Model\IosDeviceType")) {
-                return $this->_propDict["applicableDeviceType"];
-            } else {
-                $this->_propDict["applicableDeviceType"] = new IosDeviceType($this->_propDict["applicableDeviceType"]);
-                return $this->_propDict["applicableDeviceType"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the applicableDeviceType
-    * The applicable iOS Device Type.
-    *
-    * @param IosDeviceType $val The applicableDeviceType
-    *
-    * @return IosVppApp
-    */
-    public function setApplicableDeviceType($val)
-    {
-        $this->_propDict["applicableDeviceType"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the vppTokenOrganizationName
-    * The organization associated with the Apple Volume Purchase Program Token
-    *
-    * @return string The vppTokenOrganizationName
-    */
-    public function getVppTokenOrganizationName()
-    {
-        if (array_key_exists("vppTokenOrganizationName", $this->_propDict)) {
-            return $this->_propDict["vppTokenOrganizationName"];
+        if (array_key_exists("usedLicenseCount", $this->_propDict)) {
+            return $this->_propDict["usedLicenseCount"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the vppTokenOrganizationName
-    * The organization associated with the Apple Volume Purchase Program Token
+    * Sets the usedLicenseCount
+    * The number of VPP licenses in use.
     *
-    * @param string $val The vppTokenOrganizationName
+    * @param int $val The usedLicenseCount
     *
     * @return IosVppApp
     */
-    public function setVppTokenOrganizationName($val)
+    public function setUsedLicenseCount($val)
     {
-        $this->_propDict["vppTokenOrganizationName"] = $val;
+        $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
     
@@ -250,7 +248,7 @@ class IosVppApp extends MobileApp
     public function getVppTokenAccountType()
     {
         if (array_key_exists("vppTokenAccountType", $this->_propDict)) {
-            if (is_a($this->_propDict["vppTokenAccountType"], "Microsoft\Graph\Model\VppTokenAccountType")) {
+            if (is_a($this->_propDict["vppTokenAccountType"], "\Microsoft\Graph\Model\VppTokenAccountType")) {
                 return $this->_propDict["vppTokenAccountType"];
             } else {
                 $this->_propDict["vppTokenAccountType"] = new VppTokenAccountType($this->_propDict["vppTokenAccountType"]);
@@ -304,31 +302,31 @@ class IosVppApp extends MobileApp
     }
     
     /**
-    * Gets the bundleId
-    * The Identity Name.
+    * Gets the vppTokenOrganizationName
+    * The organization associated with the Apple Volume Purchase Program Token
     *
-    * @return string The bundleId
+    * @return string The vppTokenOrganizationName
     */
-    public function getBundleId()
+    public function getVppTokenOrganizationName()
     {
-        if (array_key_exists("bundleId", $this->_propDict)) {
-            return $this->_propDict["bundleId"];
+        if (array_key_exists("vppTokenOrganizationName", $this->_propDict)) {
+            return $this->_propDict["vppTokenOrganizationName"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the bundleId
-    * The Identity Name.
+    * Sets the vppTokenOrganizationName
+    * The organization associated with the Apple Volume Purchase Program Token
     *
-    * @param string $val The bundleId
+    * @param string $val The vppTokenOrganizationName
     *
     * @return IosVppApp
     */
-    public function setBundleId($val)
+    public function setVppTokenOrganizationName($val)
     {
-        $this->_propDict["bundleId"] = $val;
+        $this->_propDict["vppTokenOrganizationName"] = $val;
         return $this;
     }
     

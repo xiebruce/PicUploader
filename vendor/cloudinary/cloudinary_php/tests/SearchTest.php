@@ -13,6 +13,8 @@ namespace Cloudinary {
 
     class SearchTest extends TestCase
     {
+        use RetryTrait;
+
         public $search;
 
         public static function setUpBeforeClass()
@@ -38,7 +40,7 @@ namespace Cloudinary {
             sleep(3);
         }
 
-        public function setUp()
+        protected function setUp()
         {
             \Cloudinary::reset_config();
             if (!\Cloudinary::config_get("api_secret")) {
@@ -47,7 +49,7 @@ namespace Cloudinary {
             $this->search = new Search();
         }
 
-        public function tearDown()
+        protected function tearDown()
         {
             Curl::$instance = new Curl();
         }
@@ -117,6 +119,9 @@ namespace Cloudinary {
             $this->assertEquals($query, array("with_field" => ["context", "tags"]));
         }
 
+        /**
+         * @retry 3
+         */
         public function test_should_return_all_images_tagged()
         {
 
@@ -124,6 +129,9 @@ namespace Cloudinary {
             $this->assertEquals(count($results['resources']), 3);
         }
 
+        /**
+         * @retry 3
+         */
         public function test_should_return_resource()
         {
             $results = $this->search->expression("public_id:" . UNIQUE_TEST_TAG . "_1")->execute();
@@ -146,22 +154,19 @@ namespace Cloudinary {
                 ->with_field("image_metadata")
                 ->execute();
 
-            assertJson(
+            assertEncodedRequestFields(
                 $this,
-                json_encode(
-                    array(
-                        "sort_by" => array(
-                            array("created_at" => "asc"),
-                            array("updated_at" => "desc"),
-                        ),
+                array(
+                    "sort_by" => array(
+                        array("created_at" => "asc"),
+                        array("updated_at" => "desc"),
+                    ),
                     "aggregate" => array("format", "resource_type"),
                     "with_field" => array("tags", "image_metadata"),
                     "expression" => "format:jpg",
                     "max_results" => 10,
-                    "next_cursor" => "abcd",
-                    )
-                ),
-                Curl::$instance->fields(), "Should correctly encode JSON into the HTTP request"
+                    "next_cursor" => "abcd"
+                )
             );
 
             assertJson(

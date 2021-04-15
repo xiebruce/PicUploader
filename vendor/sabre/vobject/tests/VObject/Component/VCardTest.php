@@ -204,7 +204,7 @@ END:VCARD
 VCF;
         $this->assertValidate(
             $vcard,
-            VCARD::PROFILE_CARDDAV,
+            VCard::PROFILE_CARDDAV,
             3,
             'vCards on CardDAV servers MUST have a UID property.'
         );
@@ -236,7 +236,7 @@ END:VCARD
 VCF;
         $this->assertValidate(
             $vcard,
-            VCARD::REPAIR,
+            VCard::REPAIR,
             1,
             'Adding a UID to a vCard property is recommended.'
         );
@@ -253,7 +253,7 @@ END:VCARD
 VCF;
         $this->assertValidate(
             $vcard,
-            VCARD::PROFILE_CARDDAV,
+            VCard::PROFILE_CARDDAV,
             3,
             'CardDAV servers are not allowed to accept vCard 2.1.'
         );

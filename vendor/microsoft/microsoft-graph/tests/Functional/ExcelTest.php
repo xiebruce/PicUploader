@@ -9,7 +9,7 @@ class ExcelTest extends TestCase
     private $_client;
     private $_fileId;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $graphTestBase = new GraphTestBase();
         $this->_client = $graphTestBase->graphClient;
@@ -18,7 +18,7 @@ class ExcelTest extends TestCase
         $this->uploadTestFileContent($this->_fileId);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->deleteTestFile($this->_fileId);
     }

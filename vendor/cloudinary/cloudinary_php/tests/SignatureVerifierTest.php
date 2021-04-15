@@ -38,7 +38,7 @@ class SignatureVerifierTest extends TestCase
         self::$mockedNow = null;
     }
 
-    public function setUp()
+    protected function setUp()
     {
         \Cloudinary::reset_config();
 
@@ -47,7 +47,7 @@ class SignatureVerifierTest extends TestCase
         \Cloudinary::config(['api_secret' => self::API_SECRET]);
     }
 
-    public function tearDown()
+    protected function tearDown()
     {
         \Cloudinary::reset_config();
     }

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,41 +17,15 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ResourceReference extends Entity
 {
     /**
-    * Gets the webUrl
-    *
-    * @return string The webUrl
-    */
-    public function getWebUrl()
-    {
-        if (array_key_exists("webUrl", $this->_propDict)) {
-            return $this->_propDict["webUrl"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the webUrl
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return ResourceReference
-    */
-    public function setWebUrl($val)
-    {
-        $this->_propDict["webUrl"] = $val;
-        return $this;
-    }
-    /**
     * Gets the id
+    * The item's unique identifier.
     *
     * @return string The id
     */
@@ -67,6 +40,7 @@ class ResourceReference extends Entity
 
     /**
     * Sets the id
+    * The item's unique identifier.
     *
     * @param string $val The value of the id
     *
@@ -79,6 +53,7 @@ class ResourceReference extends Entity
     }
     /**
     * Gets the type
+    * A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
     *
     * @return string The type
     */
@@ -93,6 +68,7 @@ class ResourceReference extends Entity
 
     /**
     * Sets the type
+    * A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
     *
     * @param string $val The value of the type
     *
@@ -101,6 +77,34 @@ class ResourceReference extends Entity
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the webUrl
+    * A URL leading to the referenced item.
+    *
+    * @return string The webUrl
+    */
+    public function getWebUrl()
+    {
+        if (array_key_exists("webUrl", $this->_propDict)) {
+            return $this->_propDict["webUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the webUrl
+    * A URL leading to the referenced item.
+    *
+    * @param string $val The value of the webUrl
+    *
+    * @return ResourceReference
+    */
+    public function setWebUrl($val)
+    {
+        $this->_propDict["webUrl"] = $val;
         return $this;
     }
 }

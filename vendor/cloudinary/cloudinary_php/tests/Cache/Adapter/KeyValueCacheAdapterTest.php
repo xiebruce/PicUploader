@@ -24,7 +24,7 @@ class KeyValueCacheAdapterTest extends TestCase
     private $value2 = [101, 201, 301, 398];
 
 
-    public function setUp()
+    protected function setUp()
     {
         $this->storage = new DummyCacheStorage();
         $this->adapter = new KeyValueCacheAdapter($this->storage);

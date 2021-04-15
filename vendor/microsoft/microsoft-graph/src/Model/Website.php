@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,46 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Website extends Entity
 {
-
-    /**
-    * Gets the type
-    * The possible values are: other, home, work, blog, profile.
-    *
-    * @return WebsiteType The type
-    */
-    public function getType()
-    {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "Microsoft\Graph\Model\WebsiteType")) {
-                return $this->_propDict["type"];
-            } else {
-                $this->_propDict["type"] = new WebsiteType($this->_propDict["type"]);
-                return $this->_propDict["type"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the type
-    * The possible values are: other, home, work, blog, profile.
-    *
-    * @param WebsiteType $val The value to assign to the type
-    *
-    * @return Website The Website
-    */
-    public function setType($val)
-    {
-        $this->_propDict["type"] = $val;
-         return $this;
-    }
     /**
     * Gets the address
     * The URL of the website.
@@ -113,5 +78,38 @@ class Website extends Entity
     {
         $this->_propDict["displayName"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the type
+    * Possible values are: other, home, work, blog, profile.
+    *
+    * @return WebsiteType The type
+    */
+    public function getType()
+    {
+        if (array_key_exists("type", $this->_propDict)) {
+            if (is_a($this->_propDict["type"], "\Microsoft\Graph\Model\WebsiteType")) {
+                return $this->_propDict["type"];
+            } else {
+                $this->_propDict["type"] = new WebsiteType($this->_propDict["type"]);
+                return $this->_propDict["type"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the type
+    * Possible values are: other, home, work, blog, profile.
+    *
+    * @param WebsiteType $val The value to assign to the type
+    *
+    * @return Website The Website
+    */
+    public function setType($val)
+    {
+        $this->_propDict["type"] = $val;
+         return $this;
     }
 }

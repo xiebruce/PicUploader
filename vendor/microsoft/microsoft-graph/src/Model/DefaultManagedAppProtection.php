@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DefaultManagedAppProtection extends ManagedAppProtection
 {
@@ -35,7 +33,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function getAppDataEncryptionType()
     {
         if (array_key_exists("appDataEncryptionType", $this->_propDict)) {
-            if (is_a($this->_propDict["appDataEncryptionType"], "Microsoft\Graph\Model\ManagedAppDataEncryptionType")) {
+            if (is_a($this->_propDict["appDataEncryptionType"], "\Microsoft\Graph\Model\ManagedAppDataEncryptionType")) {
                 return $this->_propDict["appDataEncryptionType"];
             } else {
                 $this->_propDict["appDataEncryptionType"] = new ManagedAppDataEncryptionType($this->_propDict["appDataEncryptionType"]);
@@ -56,122 +54,6 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function setAppDataEncryptionType($val)
     {
         $this->_propDict["appDataEncryptionType"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the screenCaptureBlocked
-    * Indicates whether screen capture is blocked. (Android only)
-    *
-    * @return bool The screenCaptureBlocked
-    */
-    public function getScreenCaptureBlocked()
-    {
-        if (array_key_exists("screenCaptureBlocked", $this->_propDict)) {
-            return $this->_propDict["screenCaptureBlocked"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the screenCaptureBlocked
-    * Indicates whether screen capture is blocked. (Android only)
-    *
-    * @param bool $val The screenCaptureBlocked
-    *
-    * @return DefaultManagedAppProtection
-    */
-    public function setScreenCaptureBlocked($val)
-    {
-        $this->_propDict["screenCaptureBlocked"] = boolval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the encryptAppData
-    * Indicates whether managed-app data should be encrypted. (Android only)
-    *
-    * @return bool The encryptAppData
-    */
-    public function getEncryptAppData()
-    {
-        if (array_key_exists("encryptAppData", $this->_propDict)) {
-            return $this->_propDict["encryptAppData"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the encryptAppData
-    * Indicates whether managed-app data should be encrypted. (Android only)
-    *
-    * @param bool $val The encryptAppData
-    *
-    * @return DefaultManagedAppProtection
-    */
-    public function setEncryptAppData($val)
-    {
-        $this->_propDict["encryptAppData"] = boolval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the disableAppEncryptionIfDeviceEncryptionIsEnabled
-    * When this setting is enabled, app level encryption is disabled if device level encryption is enabled. (Android only)
-    *
-    * @return bool The disableAppEncryptionIfDeviceEncryptionIsEnabled
-    */
-    public function getDisableAppEncryptionIfDeviceEncryptionIsEnabled()
-    {
-        if (array_key_exists("disableAppEncryptionIfDeviceEncryptionIsEnabled", $this->_propDict)) {
-            return $this->_propDict["disableAppEncryptionIfDeviceEncryptionIsEnabled"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the disableAppEncryptionIfDeviceEncryptionIsEnabled
-    * When this setting is enabled, app level encryption is disabled if device level encryption is enabled. (Android only)
-    *
-    * @param bool $val The disableAppEncryptionIfDeviceEncryptionIsEnabled
-    *
-    * @return DefaultManagedAppProtection
-    */
-    public function setDisableAppEncryptionIfDeviceEncryptionIsEnabled($val)
-    {
-        $this->_propDict["disableAppEncryptionIfDeviceEncryptionIsEnabled"] = boolval($val);
-        return $this;
-    }
-    
-    /**
-    * Gets the minimumRequiredSdkVersion
-    * Versions less than the specified version will block the managed app from accessing company data. (iOS Only)
-    *
-    * @return string The minimumRequiredSdkVersion
-    */
-    public function getMinimumRequiredSdkVersion()
-    {
-        if (array_key_exists("minimumRequiredSdkVersion", $this->_propDict)) {
-            return $this->_propDict["minimumRequiredSdkVersion"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the minimumRequiredSdkVersion
-    * Versions less than the specified version will block the managed app from accessing company data. (iOS Only)
-    *
-    * @param string $val The minimumRequiredSdkVersion
-    *
-    * @return DefaultManagedAppProtection
-    */
-    public function setMinimumRequiredSdkVersion($val)
-    {
-        $this->_propDict["minimumRequiredSdkVersion"] = $val;
         return $this;
     }
     
@@ -235,6 +117,93 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     }
     
     /**
+    * Gets the disableAppEncryptionIfDeviceEncryptionIsEnabled
+    * When this setting is enabled, app level encryption is disabled if device level encryption is enabled. (Android only)
+    *
+    * @return bool The disableAppEncryptionIfDeviceEncryptionIsEnabled
+    */
+    public function getDisableAppEncryptionIfDeviceEncryptionIsEnabled()
+    {
+        if (array_key_exists("disableAppEncryptionIfDeviceEncryptionIsEnabled", $this->_propDict)) {
+            return $this->_propDict["disableAppEncryptionIfDeviceEncryptionIsEnabled"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the disableAppEncryptionIfDeviceEncryptionIsEnabled
+    * When this setting is enabled, app level encryption is disabled if device level encryption is enabled. (Android only)
+    *
+    * @param bool $val The disableAppEncryptionIfDeviceEncryptionIsEnabled
+    *
+    * @return DefaultManagedAppProtection
+    */
+    public function setDisableAppEncryptionIfDeviceEncryptionIsEnabled($val)
+    {
+        $this->_propDict["disableAppEncryptionIfDeviceEncryptionIsEnabled"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the encryptAppData
+    * Indicates whether managed-app data should be encrypted. (Android only)
+    *
+    * @return bool The encryptAppData
+    */
+    public function getEncryptAppData()
+    {
+        if (array_key_exists("encryptAppData", $this->_propDict)) {
+            return $this->_propDict["encryptAppData"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the encryptAppData
+    * Indicates whether managed-app data should be encrypted. (Android only)
+    *
+    * @param bool $val The encryptAppData
+    *
+    * @return DefaultManagedAppProtection
+    */
+    public function setEncryptAppData($val)
+    {
+        $this->_propDict["encryptAppData"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the faceIdBlocked
+    * Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
+    *
+    * @return bool The faceIdBlocked
+    */
+    public function getFaceIdBlocked()
+    {
+        if (array_key_exists("faceIdBlocked", $this->_propDict)) {
+            return $this->_propDict["faceIdBlocked"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the faceIdBlocked
+    * Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
+    *
+    * @param bool $val The faceIdBlocked
+    *
+    * @return DefaultManagedAppProtection
+    */
+    public function setFaceIdBlocked($val)
+    {
+        $this->_propDict["faceIdBlocked"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the minimumRequiredPatchVersion
     * Define the oldest required Android security patch level a user can have to gain secure access to the app. (Android only)
     *
@@ -260,6 +229,35 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function setMinimumRequiredPatchVersion($val)
     {
         $this->_propDict["minimumRequiredPatchVersion"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the minimumRequiredSdkVersion
+    * Versions less than the specified version will block the managed app from accessing company data. (iOS Only)
+    *
+    * @return string The minimumRequiredSdkVersion
+    */
+    public function getMinimumRequiredSdkVersion()
+    {
+        if (array_key_exists("minimumRequiredSdkVersion", $this->_propDict)) {
+            return $this->_propDict["minimumRequiredSdkVersion"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the minimumRequiredSdkVersion
+    * Versions less than the specified version will block the managed app from accessing company data. (iOS Only)
+    *
+    * @param string $val The minimumRequiredSdkVersion
+    *
+    * @return DefaultManagedAppProtection
+    */
+    public function setMinimumRequiredSdkVersion($val)
+    {
+        $this->_propDict["minimumRequiredSdkVersion"] = $val;
         return $this;
     }
     
@@ -293,31 +291,31 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     }
     
     /**
-    * Gets the faceIdBlocked
-    * Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
+    * Gets the screenCaptureBlocked
+    * Indicates whether screen capture is blocked. (Android only)
     *
-    * @return bool The faceIdBlocked
+    * @return bool The screenCaptureBlocked
     */
-    public function getFaceIdBlocked()
+    public function getScreenCaptureBlocked()
     {
-        if (array_key_exists("faceIdBlocked", $this->_propDict)) {
-            return $this->_propDict["faceIdBlocked"];
+        if (array_key_exists("screenCaptureBlocked", $this->_propDict)) {
+            return $this->_propDict["screenCaptureBlocked"];
         } else {
             return null;
         }
     }
     
     /**
-    * Sets the faceIdBlocked
-    * Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. (iOS Only)
+    * Sets the screenCaptureBlocked
+    * Indicates whether screen capture is blocked. (Android only)
     *
-    * @param bool $val The faceIdBlocked
+    * @param bool $val The screenCaptureBlocked
     *
     * @return DefaultManagedAppProtection
     */
-    public function setFaceIdBlocked($val)
+    public function setScreenCaptureBlocked($val)
     {
-        $this->_propDict["faceIdBlocked"] = boolval($val);
+        $this->_propDict["screenCaptureBlocked"] = boolval($val);
         return $this;
     }
     
@@ -360,7 +358,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function getDeploymentSummary()
     {
         if (array_key_exists("deploymentSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentSummary"], "Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
+            if (is_a($this->_propDict["deploymentSummary"], "\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
                 return $this->_propDict["deploymentSummary"];
             } else {
                 $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);

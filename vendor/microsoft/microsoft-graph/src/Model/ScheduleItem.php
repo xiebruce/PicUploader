@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,46 +17,12 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ScheduleItem extends Entity
 {
-
-    /**
-    * Gets the start
-    * The date, time, and time zone that the corresponding event starts.
-    *
-    * @return DateTimeTimeZone The start
-    */
-    public function getStart()
-    {
-        if (array_key_exists("start", $this->_propDict)) {
-            if (is_a($this->_propDict["start"], "Microsoft\Graph\Model\DateTimeTimeZone")) {
-                return $this->_propDict["start"];
-            } else {
-                $this->_propDict["start"] = new DateTimeTimeZone($this->_propDict["start"]);
-                return $this->_propDict["start"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the start
-    * The date, time, and time zone that the corresponding event starts.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the start
-    *
-    * @return ScheduleItem The ScheduleItem
-    */
-    public function setStart($val)
-    {
-        $this->_propDict["start"] = $val;
-         return $this;
-    }
 
     /**
     * Gets the end
@@ -68,7 +33,7 @@ class ScheduleItem extends Entity
     public function getEnd()
     {
         if (array_key_exists("end", $this->_propDict)) {
-            if (is_a($this->_propDict["end"], "Microsoft\Graph\Model\DateTimeTimeZone")) {
+            if (is_a($this->_propDict["end"], "\Microsoft\Graph\Model\DateTimeTimeZone")) {
                 return $this->_propDict["end"];
             } else {
                 $this->_propDict["end"] = new DateTimeTimeZone($this->_propDict["end"]);
@@ -119,6 +84,67 @@ class ScheduleItem extends Entity
         $this->_propDict["isPrivate"] = $val;
         return $this;
     }
+    /**
+    * Gets the location
+    * The location where the corresponding event is held or attended from. Optional.
+    *
+    * @return string The location
+    */
+    public function getLocation()
+    {
+        if (array_key_exists("location", $this->_propDict)) {
+            return $this->_propDict["location"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the location
+    * The location where the corresponding event is held or attended from. Optional.
+    *
+    * @param string $val The value of the location
+    *
+    * @return ScheduleItem
+    */
+    public function setLocation($val)
+    {
+        $this->_propDict["location"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the start
+    * The date, time, and time zone that the corresponding event starts.
+    *
+    * @return DateTimeTimeZone The start
+    */
+    public function getStart()
+    {
+        if (array_key_exists("start", $this->_propDict)) {
+            if (is_a($this->_propDict["start"], "\Microsoft\Graph\Model\DateTimeTimeZone")) {
+                return $this->_propDict["start"];
+            } else {
+                $this->_propDict["start"] = new DateTimeTimeZone($this->_propDict["start"]);
+                return $this->_propDict["start"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the start
+    * The date, time, and time zone that the corresponding event starts.
+    *
+    * @param DateTimeTimeZone $val The value to assign to the start
+    *
+    * @return ScheduleItem The ScheduleItem
+    */
+    public function setStart($val)
+    {
+        $this->_propDict["start"] = $val;
+         return $this;
+    }
 
     /**
     * Gets the status
@@ -129,7 +155,7 @@ class ScheduleItem extends Entity
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "Microsoft\Graph\Model\FreeBusyStatus")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\FreeBusyStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new FreeBusyStatus($this->_propDict["status"]);
@@ -178,34 +204,6 @@ class ScheduleItem extends Entity
     public function setSubject($val)
     {
         $this->_propDict["subject"] = $val;
-        return $this;
-    }
-    /**
-    * Gets the location
-    * The location where the corresponding event is held or attended from. Optional.
-    *
-    * @return string The location
-    */
-    public function getLocation()
-    {
-        if (array_key_exists("location", $this->_propDict)) {
-            return $this->_propDict["location"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the location
-    * The location where the corresponding event is held or attended from. Optional.
-    *
-    * @param string $val The value of the location
-    *
-    * @return ScheduleItem
-    */
-    public function setLocation($val)
-    {
-        $this->_propDict["location"] = $val;
         return $this;
     }
 }

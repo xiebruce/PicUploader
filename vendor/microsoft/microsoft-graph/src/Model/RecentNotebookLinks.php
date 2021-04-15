@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,24 +17,23 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class RecentNotebookLinks extends Entity
 {
 
     /**
     * Gets the oneNoteClientUrl
-    * Opens the notebook in the OneNote native client if it's installed.
+    * Opens the notebook in the OneNote client, if it's installed.
     *
     * @return ExternalLink The oneNoteClientUrl
     */
     public function getOneNoteClientUrl()
     {
         if (array_key_exists("oneNoteClientUrl", $this->_propDict)) {
-            if (is_a($this->_propDict["oneNoteClientUrl"], "Microsoft\Graph\Model\ExternalLink")) {
+            if (is_a($this->_propDict["oneNoteClientUrl"], "\Microsoft\Graph\Model\ExternalLink")) {
                 return $this->_propDict["oneNoteClientUrl"];
             } else {
                 $this->_propDict["oneNoteClientUrl"] = new ExternalLink($this->_propDict["oneNoteClientUrl"]);
@@ -47,7 +45,7 @@ class RecentNotebookLinks extends Entity
 
     /**
     * Sets the oneNoteClientUrl
-    * Opens the notebook in the OneNote native client if it's installed.
+    * Opens the notebook in the OneNote client, if it's installed.
     *
     * @param ExternalLink $val The value to assign to the oneNoteClientUrl
     *
@@ -68,7 +66,7 @@ class RecentNotebookLinks extends Entity
     public function getOneNoteWebUrl()
     {
         if (array_key_exists("oneNoteWebUrl", $this->_propDict)) {
-            if (is_a($this->_propDict["oneNoteWebUrl"], "Microsoft\Graph\Model\ExternalLink")) {
+            if (is_a($this->_propDict["oneNoteWebUrl"], "\Microsoft\Graph\Model\ExternalLink")) {
                 return $this->_propDict["oneNoteWebUrl"];
             } else {
                 $this->_propDict["oneNoteWebUrl"] = new ExternalLink($this->_propDict["oneNoteWebUrl"]);

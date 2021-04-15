@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,10 +17,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class WorkbookSortField extends Entity
 {
@@ -83,7 +81,7 @@ class WorkbookSortField extends Entity
     }
     /**
     * Gets the dataOption
-    * Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
+    * Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
     *
     * @return string The dataOption
     */
@@ -98,7 +96,7 @@ class WorkbookSortField extends Entity
 
     /**
     * Sets the dataOption
-    * Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
+    * Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
     *
     * @param string $val The value of the dataOption
     *
@@ -119,7 +117,7 @@ class WorkbookSortField extends Entity
     public function getIcon()
     {
         if (array_key_exists("icon", $this->_propDict)) {
-            if (is_a($this->_propDict["icon"], "Microsoft\Graph\Model\WorkbookIcon")) {
+            if (is_a($this->_propDict["icon"], "\Microsoft\Graph\Model\WorkbookIcon")) {
                 return $this->_propDict["icon"];
             } else {
                 $this->_propDict["icon"] = new WorkbookIcon($this->_propDict["icon"]);
@@ -172,7 +170,7 @@ class WorkbookSortField extends Entity
     }
     /**
     * Gets the sortOn
-    * Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
+    * Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
     *
     * @return string The sortOn
     */
@@ -187,7 +185,7 @@ class WorkbookSortField extends Entity
 
     /**
     * Sets the sortOn
-    * Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
+    * Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
     *
     * @param string $val The value of the sortOn
     *

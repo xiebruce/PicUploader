@@ -19,6 +19,7 @@ namespace Cloudinary {
                 "access_control" => \Cloudinary::encode_array_to_json(
                     \Cloudinary::option_get($options, "access_control")
                 ),
+                "accessibility_analysis" => \Cloudinary::option_get($options, "accessibility_analysis"),
                 "allowed_formats" => \Cloudinary::encode_array(\Cloudinary::option_get($options, "allowed_formats")),
                 "async" => \Cloudinary::option_get($options, "async"),
                 "auto_tagging" => \Cloudinary::option_get($options, "auto_tagging"),
@@ -37,6 +38,7 @@ namespace Cloudinary {
                 "eager" => Uploader::build_eager(\Cloudinary::option_get($options, "eager")),
                 "eager_async" => \Cloudinary::option_get($options, "eager_async"),
                 "eager_notification_url" => \Cloudinary::option_get($options, "eager_notification_url"),
+                "eval" => \Cloudinary::option_get($options, "eval"),
                 "exif" => \Cloudinary::option_get($options, "exif"),
                 "face_coordinates" => \Cloudinary::encode_double_array(
                     \Cloudinary::option_get($options, "face_coordinates")
@@ -172,7 +174,7 @@ namespace Cloudinary {
             $params = Uploader::build_upload_params($options);
             $full_options = array_merge(array("resource_type" => "raw"), $options);
 
-            return Uploader::call_cacheable_api("upload_chunked", $params, $full_options, $file);
+            return Uploader::call_cacheable_api("upload", $params, $full_options, $file);
         }
 
         public static function destroy($public_id, $options = array())

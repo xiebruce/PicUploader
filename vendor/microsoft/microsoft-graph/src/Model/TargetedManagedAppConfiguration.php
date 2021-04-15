@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class TargetedManagedAppConfiguration extends ManagedAppConfiguration
 {
@@ -114,39 +112,6 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
         return $this;
     }
     
-    /**
-    * Gets the deploymentSummary
-    * Navigation property to deployment summary of the configuration.
-    *
-    * @return ManagedAppPolicyDeploymentSummary The deploymentSummary
-    */
-    public function getDeploymentSummary()
-    {
-        if (array_key_exists("deploymentSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentSummary"], "Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
-                return $this->_propDict["deploymentSummary"];
-            } else {
-                $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);
-                return $this->_propDict["deploymentSummary"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the deploymentSummary
-    * Navigation property to deployment summary of the configuration.
-    *
-    * @param ManagedAppPolicyDeploymentSummary $val The deploymentSummary
-    *
-    * @return TargetedManagedAppConfiguration
-    */
-    public function setDeploymentSummary($val)
-    {
-        $this->_propDict["deploymentSummary"] = $val;
-        return $this;
-    }
-    
 
      /** 
      * Gets the assignments
@@ -174,6 +139,39 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
     public function setAssignments($val)
     {
 		$this->_propDict["assignments"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the deploymentSummary
+    * Navigation property to deployment summary of the configuration.
+    *
+    * @return ManagedAppPolicyDeploymentSummary The deploymentSummary
+    */
+    public function getDeploymentSummary()
+    {
+        if (array_key_exists("deploymentSummary", $this->_propDict)) {
+            if (is_a($this->_propDict["deploymentSummary"], "\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
+                return $this->_propDict["deploymentSummary"];
+            } else {
+                $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);
+                return $this->_propDict["deploymentSummary"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the deploymentSummary
+    * Navigation property to deployment summary of the configuration.
+    *
+    * @param ManagedAppPolicyDeploymentSummary $val The deploymentSummary
+    *
+    * @return TargetedManagedAppConfiguration
+    */
+    public function setDeploymentSummary($val)
+    {
+        $this->_propDict["deploymentSummary"] = $val;
         return $this;
     }
     

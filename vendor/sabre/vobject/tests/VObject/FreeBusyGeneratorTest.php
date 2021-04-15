@@ -30,7 +30,7 @@ class FreeBusyGeneratorTest extends TestCase
         $gen = new FreeBusyGenerator(
             new \DateTime('2012-01-01'),
             new \DateTime('2012-12-31'),
-            new \StdClass()
+            new \stdClass()
         );
     }
 

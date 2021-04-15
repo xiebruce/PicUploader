@@ -182,7 +182,7 @@ class StreamWrapper
             $params['ContentType'] = $type;
         }
 
-        $this->clearCacheKey("s3://{$params['Bucket']}/{$params['Key']}");
+        $this->clearCacheKey("{$this->protocol}://{$params['Bucket']}/{$params['Key']}");
         return $this->boolCall(function () use ($params) {
             return (bool) $this->getClient()->putObject($params);
         });
@@ -953,6 +953,6 @@ class StreamWrapper
     {
         $size = $this->body->getSize();
 
-        return $size !== null ? $size : $this->size;
+        return !empty($size) ? $size : $this->size;
     }
 }

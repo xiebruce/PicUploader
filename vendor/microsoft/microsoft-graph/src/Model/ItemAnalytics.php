@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,13 +18,43 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class ItemAnalytics extends Entity
 {
+    /**
+    * Gets the allTime
+    *
+    * @return ItemActivityStat The allTime
+    */
+    public function getAllTime()
+    {
+        if (array_key_exists("allTime", $this->_propDict)) {
+            if (is_a($this->_propDict["allTime"], "\Microsoft\Graph\Model\ItemActivityStat")) {
+                return $this->_propDict["allTime"];
+            } else {
+                $this->_propDict["allTime"] = new ItemActivityStat($this->_propDict["allTime"]);
+                return $this->_propDict["allTime"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the allTime
+    *
+    * @param ItemActivityStat $val The allTime
+    *
+    * @return ItemAnalytics
+    */
+    public function setAllTime($val)
+    {
+        $this->_propDict["allTime"] = $val;
+        return $this;
+    }
+    
 
      /** 
      * Gets the itemActivityStats
@@ -55,37 +84,6 @@ class ItemAnalytics extends Entity
     }
     
     /**
-    * Gets the allTime
-    *
-    * @return ItemActivityStat The allTime
-    */
-    public function getAllTime()
-    {
-        if (array_key_exists("allTime", $this->_propDict)) {
-            if (is_a($this->_propDict["allTime"], "Microsoft\Graph\Model\ItemActivityStat")) {
-                return $this->_propDict["allTime"];
-            } else {
-                $this->_propDict["allTime"] = new ItemActivityStat($this->_propDict["allTime"]);
-                return $this->_propDict["allTime"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the allTime
-    *
-    * @param ItemActivityStat $val The allTime
-    *
-    * @return ItemAnalytics
-    */
-    public function setAllTime($val)
-    {
-        $this->_propDict["allTime"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the lastSevenDays
     *
     * @return ItemActivityStat The lastSevenDays
@@ -93,7 +91,7 @@ class ItemAnalytics extends Entity
     public function getLastSevenDays()
     {
         if (array_key_exists("lastSevenDays", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSevenDays"], "Microsoft\Graph\Model\ItemActivityStat")) {
+            if (is_a($this->_propDict["lastSevenDays"], "\Microsoft\Graph\Model\ItemActivityStat")) {
                 return $this->_propDict["lastSevenDays"];
             } else {
                 $this->_propDict["lastSevenDays"] = new ItemActivityStat($this->_propDict["lastSevenDays"]);

@@ -10,7 +10,6 @@ class TestHelper {
         try {
             $cosClient = new Client(array('region' => getenv('COS_REGION'),
                         'credentials'=> array(
-                        'appId' => getenv('COS_APPID'),
                         'secretId'    => getenv('COS_KEY'),
                         'secretKey' => getenv('COS_SECRET'))));
             $result = $cosClient->listObjects(array('Bucket' => $bucket));
@@ -23,7 +22,7 @@ class TestHelper {
             while(True){
                 $result = $cosClient->ListMultipartUploads(
                     array('Bucket' => $bucket));
-                if (count($result['Uploads']) == 0){
+                if ($result['Uploads'] == []) {
                     break;
                 }
                 foreach ($result['Uploads'] as $upload) {

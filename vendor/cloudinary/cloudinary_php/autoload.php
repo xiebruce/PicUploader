@@ -32,6 +32,7 @@ function cloudinary_autoloader($class_name)
     if (substr($class_file, 0, strlen($ns_prefix)) == $ns_prefix) {
         $class_file = substr($class_file, strlen($ns_prefix));
     }
+    $class_file = str_replace('\\', DIRECTORY_SEPARATOR, $class_file);
 
     require_once $classes_dir . $class_file;
 

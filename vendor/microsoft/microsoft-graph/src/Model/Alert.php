@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Alert extends Entity
 {
@@ -52,6 +50,34 @@ class Alert extends Entity
     public function setActivityGroupName($val)
     {
         $this->_propDict["activityGroupName"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the alertDetections
+     *
+     * @return array The alertDetections
+     */
+    public function getAlertDetections()
+    {
+        if (array_key_exists("alertDetections", $this->_propDict)) {
+           return $this->_propDict["alertDetections"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the alertDetections
+    *
+    * @param AlertDetection $val The alertDetections
+    *
+    * @return Alert
+    */
+    public function setAlertDetections($val)
+    {
+		$this->_propDict["alertDetections"] = $val;
         return $this;
     }
     
@@ -173,7 +199,7 @@ class Alert extends Entity
     
     /**
     * Gets the closedDateTime
-    * Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' (supports update).
+    * Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z (supports update).
     *
     * @return \DateTime The closedDateTime
     */
@@ -192,7 +218,7 @@ class Alert extends Entity
     
     /**
     * Sets the closedDateTime
-    * Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' (supports update).
+    * Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z (supports update).
     *
     * @param \DateTime $val The closedDateTime
     *
@@ -294,7 +320,7 @@ class Alert extends Entity
     
     /**
     * Gets the createdDateTime
-    * Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.
+    * Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
     *
     * @return \DateTime The createdDateTime
     */
@@ -313,7 +339,7 @@ class Alert extends Entity
     
     /**
     * Sets the createdDateTime
-    * Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.
+    * Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -385,7 +411,7 @@ class Alert extends Entity
     
     /**
     * Gets the eventDateTime
-    * Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.
+    * Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
     *
     * @return \DateTime The eventDateTime
     */
@@ -404,7 +430,7 @@ class Alert extends Entity
     
     /**
     * Sets the eventDateTime
-    * Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.
+    * Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
     *
     * @param \DateTime $val The eventDateTime
     *
@@ -425,7 +451,7 @@ class Alert extends Entity
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "Microsoft\Graph\Model\AlertFeedback")) {
+            if (is_a($this->_propDict["feedback"], "\Microsoft\Graph\Model\AlertFeedback")) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new AlertFeedback($this->_propDict["feedback"]);
@@ -482,6 +508,7 @@ class Alert extends Entity
 
      /** 
      * Gets the historyStates
+    * A collection of alertHistoryStates comprising an audit log of all updates made to an alert.
      *
      * @return array The historyStates
      */
@@ -496,6 +523,7 @@ class Alert extends Entity
     
     /** 
     * Sets the historyStates
+    * A collection of alertHistoryStates comprising an audit log of all updates made to an alert.
     *
     * @param AlertHistoryState $val The historyStates
     *
@@ -538,8 +566,96 @@ class Alert extends Entity
     }
     
     /**
+    * Gets the incidentIds
+    * IDs of incidents related to current alert.
+    *
+    * @return string The incidentIds
+    */
+    public function getIncidentIds()
+    {
+        if (array_key_exists("incidentIds", $this->_propDict)) {
+            return $this->_propDict["incidentIds"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the incidentIds
+    * IDs of incidents related to current alert.
+    *
+    * @param string $val The incidentIds
+    *
+    * @return Alert
+    */
+    public function setIncidentIds($val)
+    {
+        $this->_propDict["incidentIds"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the investigationSecurityStates
+     *
+     * @return array The investigationSecurityStates
+     */
+    public function getInvestigationSecurityStates()
+    {
+        if (array_key_exists("investigationSecurityStates", $this->_propDict)) {
+           return $this->_propDict["investigationSecurityStates"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the investigationSecurityStates
+    *
+    * @param InvestigationSecurityState $val The investigationSecurityStates
+    *
+    * @return Alert
+    */
+    public function setInvestigationSecurityStates($val)
+    {
+		$this->_propDict["investigationSecurityStates"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the lastEventDateTime
+    *
+    * @return \DateTime The lastEventDateTime
+    */
+    public function getLastEventDateTime()
+    {
+        if (array_key_exists("lastEventDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastEventDateTime"], "\DateTime")) {
+                return $this->_propDict["lastEventDateTime"];
+            } else {
+                $this->_propDict["lastEventDateTime"] = new \DateTime($this->_propDict["lastEventDateTime"]);
+                return $this->_propDict["lastEventDateTime"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the lastEventDateTime
+    *
+    * @param \DateTime $val The lastEventDateTime
+    *
+    * @return Alert
+    */
+    public function setLastEventDateTime($val)
+    {
+        $this->_propDict["lastEventDateTime"] = $val;
+        return $this;
+    }
+    
+    /**
     * Gets the lastModifiedDateTime
-    * Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    * Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime The lastModifiedDateTime
     */
@@ -558,7 +674,7 @@ class Alert extends Entity
     
     /**
     * Sets the lastModifiedDateTime
-    * Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    * Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -597,6 +713,34 @@ class Alert extends Entity
     public function setMalwareStates($val)
     {
 		$this->_propDict["malwareStates"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the messageSecurityStates
+     *
+     * @return array The messageSecurityStates
+     */
+    public function getMessageSecurityStates()
+    {
+        if (array_key_exists("messageSecurityStates", $this->_propDict)) {
+           return $this->_propDict["messageSecurityStates"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the messageSecurityStates
+    *
+    * @param MessageSecurityState $val The messageSecurityStates
+    *
+    * @return Alert
+    */
+    public function setMessageSecurityStates($val)
+    {
+		$this->_propDict["messageSecurityStates"] = $val;
         return $this;
     }
     
@@ -719,6 +863,36 @@ class Alert extends Entity
         return $this;
     }
     
+
+     /** 
+     * Gets the securityResources
+    * Resources related to current alert. For example, for some alerts this can have the Azure Resource value.
+     *
+     * @return array The securityResources
+     */
+    public function getSecurityResources()
+    {
+        if (array_key_exists("securityResources", $this->_propDict)) {
+           return $this->_propDict["securityResources"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the securityResources
+    * Resources related to current alert. For example, for some alerts this can have the Azure Resource value.
+    *
+    * @param SecurityResource $val The securityResources
+    *
+    * @return Alert
+    */
+    public function setSecurityResources($val)
+    {
+		$this->_propDict["securityResources"] = $val;
+        return $this;
+    }
+    
     /**
     * Gets the severity
     * Alert severity - set by vendor/provider. Possible values are: unknown, informational, low, medium, high. Required.
@@ -728,7 +902,7 @@ class Alert extends Entity
     public function getSeverity()
     {
         if (array_key_exists("severity", $this->_propDict)) {
-            if (is_a($this->_propDict["severity"], "Microsoft\Graph\Model\AlertSeverity")) {
+            if (is_a($this->_propDict["severity"], "\Microsoft\Graph\Model\AlertSeverity")) {
                 return $this->_propDict["severity"];
             } else {
                 $this->_propDict["severity"] = new AlertSeverity($this->_propDict["severity"]);
@@ -790,7 +964,7 @@ class Alert extends Entity
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "Microsoft\Graph\Model\AlertStatus")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\AlertStatus")) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AlertStatus($this->_propDict["status"]);
@@ -904,6 +1078,34 @@ class Alert extends Entity
     
 
      /** 
+     * Gets the uriClickSecurityStates
+     *
+     * @return array The uriClickSecurityStates
+     */
+    public function getUriClickSecurityStates()
+    {
+        if (array_key_exists("uriClickSecurityStates", $this->_propDict)) {
+           return $this->_propDict["uriClickSecurityStates"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the uriClickSecurityStates
+    *
+    * @param UriClickSecurityState $val The uriClickSecurityStates
+    *
+    * @return Alert
+    */
+    public function setUriClickSecurityStates($val)
+    {
+		$this->_propDict["uriClickSecurityStates"] = $val;
+        return $this;
+    }
+    
+
+     /** 
      * Gets the userStates
     * Security-related stateful information generated by the provider about the user accounts related to this alert.
      *
@@ -941,7 +1143,7 @@ class Alert extends Entity
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "Microsoft\Graph\Model\SecurityVendorInformation")) {
+            if (is_a($this->_propDict["vendorInformation"], "\Microsoft\Graph\Model\SecurityVendorInformation")) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);

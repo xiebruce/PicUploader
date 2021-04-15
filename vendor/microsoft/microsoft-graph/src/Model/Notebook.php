@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Notebook extends OnenoteEntityHierarchyModel
 {
@@ -56,39 +54,6 @@ class Notebook extends OnenoteEntityHierarchyModel
     }
     
     /**
-    * Gets the userRole
-    * Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
-    *
-    * @return OnenoteUserRole The userRole
-    */
-    public function getUserRole()
-    {
-        if (array_key_exists("userRole", $this->_propDict)) {
-            if (is_a($this->_propDict["userRole"], "Microsoft\Graph\Model\OnenoteUserRole")) {
-                return $this->_propDict["userRole"];
-            } else {
-                $this->_propDict["userRole"] = new OnenoteUserRole($this->_propDict["userRole"]);
-                return $this->_propDict["userRole"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the userRole
-    * Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
-    *
-    * @param OnenoteUserRole $val The userRole
-    *
-    * @return Notebook
-    */
-    public function setUserRole($val)
-    {
-        $this->_propDict["userRole"] = $val;
-        return $this;
-    }
-    
-    /**
     * Gets the isShared
     * Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only.
     *
@@ -118,31 +83,35 @@ class Notebook extends OnenoteEntityHierarchyModel
     }
     
     /**
-    * Gets the sectionsUrl
-    * The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.
+    * Gets the links
+    * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
     *
-    * @return string The sectionsUrl
+    * @return NotebookLinks The links
     */
-    public function getSectionsUrl()
+    public function getLinks()
     {
-        if (array_key_exists("sectionsUrl", $this->_propDict)) {
-            return $this->_propDict["sectionsUrl"];
-        } else {
-            return null;
+        if (array_key_exists("links", $this->_propDict)) {
+            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\NotebookLinks")) {
+                return $this->_propDict["links"];
+            } else {
+                $this->_propDict["links"] = new NotebookLinks($this->_propDict["links"]);
+                return $this->_propDict["links"];
+            }
         }
+        return null;
     }
     
     /**
-    * Sets the sectionsUrl
-    * The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.
+    * Sets the links
+    * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
     *
-    * @param string $val The sectionsUrl
+    * @param NotebookLinks $val The links
     *
     * @return Notebook
     */
-    public function setSectionsUrl($val)
+    public function setLinks($val)
     {
-        $this->_propDict["sectionsUrl"] = $val;
+        $this->_propDict["links"] = $val;
         return $this;
     }
     
@@ -176,65 +145,64 @@ class Notebook extends OnenoteEntityHierarchyModel
     }
     
     /**
-    * Gets the links
-    * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
+    * Gets the sectionsUrl
+    * The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.
     *
-    * @return NotebookLinks The links
+    * @return string The sectionsUrl
     */
-    public function getLinks()
+    public function getSectionsUrl()
     {
-        if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "Microsoft\Graph\Model\NotebookLinks")) {
-                return $this->_propDict["links"];
+        if (array_key_exists("sectionsUrl", $this->_propDict)) {
+            return $this->_propDict["sectionsUrl"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the sectionsUrl
+    * The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.
+    *
+    * @param string $val The sectionsUrl
+    *
+    * @return Notebook
+    */
+    public function setSectionsUrl($val)
+    {
+        $this->_propDict["sectionsUrl"] = $val;
+        return $this;
+    }
+    
+    /**
+    * Gets the userRole
+    * Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
+    *
+    * @return OnenoteUserRole The userRole
+    */
+    public function getUserRole()
+    {
+        if (array_key_exists("userRole", $this->_propDict)) {
+            if (is_a($this->_propDict["userRole"], "\Microsoft\Graph\Model\OnenoteUserRole")) {
+                return $this->_propDict["userRole"];
             } else {
-                $this->_propDict["links"] = new NotebookLinks($this->_propDict["links"]);
-                return $this->_propDict["links"];
+                $this->_propDict["userRole"] = new OnenoteUserRole($this->_propDict["userRole"]);
+                return $this->_propDict["userRole"];
             }
         }
         return null;
     }
     
     /**
-    * Sets the links
-    * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
+    * Sets the userRole
+    * Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.
     *
-    * @param NotebookLinks $val The links
-    *
-    * @return Notebook
-    */
-    public function setLinks($val)
-    {
-        $this->_propDict["links"] = $val;
-        return $this;
-    }
-    
-
-     /** 
-     * Gets the sections
-    * The sections in the notebook. Read-only. Nullable.
-     *
-     * @return array The sections
-     */
-    public function getSections()
-    {
-        if (array_key_exists("sections", $this->_propDict)) {
-           return $this->_propDict["sections"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the sections
-    * The sections in the notebook. Read-only. Nullable.
-    *
-    * @param OnenoteSection $val The sections
+    * @param OnenoteUserRole $val The userRole
     *
     * @return Notebook
     */
-    public function setSections($val)
+    public function setUserRole($val)
     {
-		$this->_propDict["sections"] = $val;
+        $this->_propDict["userRole"] = $val;
         return $this;
     }
     
@@ -265,6 +233,36 @@ class Notebook extends OnenoteEntityHierarchyModel
     public function setSectionGroups($val)
     {
 		$this->_propDict["sectionGroups"] = $val;
+        return $this;
+    }
+    
+
+     /** 
+     * Gets the sections
+    * The sections in the notebook. Read-only. Nullable.
+     *
+     * @return array The sections
+     */
+    public function getSections()
+    {
+        if (array_key_exists("sections", $this->_propDict)) {
+           return $this->_propDict["sections"];
+        } else {
+            return null;
+        }
+    }
+    
+    /** 
+    * Sets the sections
+    * The sections in the notebook. Read-only. Nullable.
+    *
+    * @param OnenoteSection $val The sections
+    *
+    * @return Notebook
+    */
+    public function setSections($val)
+    {
+		$this->_propDict["sections"] = $val;
         return $this;
     }
     

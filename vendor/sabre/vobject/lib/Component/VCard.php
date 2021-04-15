@@ -57,6 +57,7 @@ class VCard extends VObject\Document
         'FLOAT' => 'Sabre\\VObject\\Property\\FloatValue',
         'INTEGER' => 'Sabre\\VObject\\Property\\IntegerValue',
         'LANGUAGE-TAG' => 'Sabre\\VObject\\Property\\VCard\\LanguageTag',
+        'PHONE-NUMBER' => 'Sabre\\VObject\\Property\\VCard\\PhoneNumber', // vCard 3.0 only
         'TIMESTAMP' => 'Sabre\\VObject\\Property\\VCard\\TimeStamp',
         'TEXT' => 'Sabre\\VObject\\Property\\Text',
         'TIME' => 'Sabre\\VObject\\Property\\Time',

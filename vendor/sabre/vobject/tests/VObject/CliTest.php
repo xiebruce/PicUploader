@@ -11,6 +11,9 @@ use PHPUnit\Framework\TestCase;
  */
 class CliTest extends TestCase
 {
+    /** @var CliMock */
+    private $cli;
+
     public function setUp()
     {
         $this->cli = new CliMock();

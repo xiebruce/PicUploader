@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,24 +17,23 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class OnenotePatchContentCommand extends Entity
 {
 
     /**
     * Gets the action
-    * The action to perform on the target element. The possible values are: replace, append, delete, insert, or prepend.
+    * The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
     *
     * @return OnenotePatchActionType The action
     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "Microsoft\Graph\Model\OnenotePatchActionType")) {
+            if (is_a($this->_propDict["action"], "\Microsoft\Graph\Model\OnenotePatchActionType")) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new OnenotePatchActionType($this->_propDict["action"]);
@@ -47,7 +45,7 @@ class OnenotePatchContentCommand extends Entity
 
     /**
     * Sets the action
-    * The action to perform on the target element. The possible values are: replace, append, delete, insert, or prepend.
+    * The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
     *
     * @param OnenotePatchActionType $val The value to assign to the action
     *
@@ -57,34 +55,6 @@ class OnenotePatchContentCommand extends Entity
     {
         $this->_propDict["action"] = $val;
          return $this;
-    }
-    /**
-    * Gets the target
-    * The element to update. Must be the #&amp;lt;data-id&amp;gt; or the generated &amp;lt;id&amp;gt; of the element, or the body or title keyword.
-    *
-    * @return string The target
-    */
-    public function getTarget()
-    {
-        if (array_key_exists("target", $this->_propDict)) {
-            return $this->_propDict["target"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the target
-    * The element to update. Must be the #&amp;lt;data-id&amp;gt; or the generated &amp;lt;id&amp;gt; of the element, or the body or title keyword.
-    *
-    * @param string $val The value of the target
-    *
-    * @return OnenotePatchContentCommand
-    */
-    public function setTarget($val)
-    {
-        $this->_propDict["target"] = $val;
-        return $this;
     }
     /**
     * Gets the content
@@ -117,14 +87,14 @@ class OnenotePatchContentCommand extends Entity
 
     /**
     * Gets the position
-    * The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.
+    * The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.
     *
     * @return OnenotePatchInsertPosition The position
     */
     public function getPosition()
     {
         if (array_key_exists("position", $this->_propDict)) {
-            if (is_a($this->_propDict["position"], "Microsoft\Graph\Model\OnenotePatchInsertPosition")) {
+            if (is_a($this->_propDict["position"], "\Microsoft\Graph\Model\OnenotePatchInsertPosition")) {
                 return $this->_propDict["position"];
             } else {
                 $this->_propDict["position"] = new OnenotePatchInsertPosition($this->_propDict["position"]);
@@ -136,7 +106,7 @@ class OnenotePatchContentCommand extends Entity
 
     /**
     * Sets the position
-    * The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.
+    * The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.
     *
     * @param OnenotePatchInsertPosition $val The value to assign to the position
     *
@@ -146,5 +116,33 @@ class OnenotePatchContentCommand extends Entity
     {
         $this->_propDict["position"] = $val;
          return $this;
+    }
+    /**
+    * Gets the target
+    * The element to update. Must be the #&amp;lt;data-id&amp;gt; or the generated {id} of the element, or the body or title keyword.
+    *
+    * @return string The target
+    */
+    public function getTarget()
+    {
+        if (array_key_exists("target", $this->_propDict)) {
+            return $this->_propDict["target"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the target
+    * The element to update. Must be the #&amp;lt;data-id&amp;gt; or the generated {id} of the element, or the body or title keyword.
+    *
+    * @param string $val The value of the target
+    *
+    * @return OnenotePatchContentCommand
+    */
+    public function setTarget($val)
+    {
+        $this->_propDict["target"] = $val;
+        return $this;
     }
 }

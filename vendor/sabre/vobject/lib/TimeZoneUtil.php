@@ -139,7 +139,7 @@ class TimeZoneUtil
             // PHP has a bug that logs PHP warnings even it shouldn't:
             // https://bugs.php.net/bug.php?id=67881
             //
-            // That's why we're checking if we'll be able to successfull instantiate
+            // That's why we're checking if we'll be able to successfully instantiate
             // \DateTimeZone() before doing so. Otherwise we could simply instantiate
             // and catch the exception.
             $tzIdentifiers = \DateTimeZone::listIdentifiers();

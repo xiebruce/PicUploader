@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 /**
@@ -18,45 +17,37 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Phone extends Entity
 {
-
     /**
-    * Gets the type
-    * The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+    * Gets the language
     *
-    * @return PhoneType The type
+    * @return string The language
     */
-    public function getType()
+    public function getLanguage()
     {
-        if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "Microsoft\Graph\Model\PhoneType")) {
-                return $this->_propDict["type"];
-            } else {
-                $this->_propDict["type"] = new PhoneType($this->_propDict["type"]);
-                return $this->_propDict["type"];
-            }
+        if (array_key_exists("language", $this->_propDict)) {
+            return $this->_propDict["language"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
-    * Sets the type
-    * The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+    * Sets the language
     *
-    * @param PhoneType $val The value to assign to the type
+    * @param string $val The value of the language
     *
-    * @return Phone The Phone
+    * @return Phone
     */
-    public function setType($val)
+    public function setLanguage($val)
     {
-        $this->_propDict["type"] = $val;
-         return $this;
+        $this->_propDict["language"] = $val;
+        return $this;
     }
     /**
     * Gets the number
@@ -112,30 +103,37 @@ class Phone extends Entity
         $this->_propDict["region"] = $val;
         return $this;
     }
+
     /**
-    * Gets the language
+    * Gets the type
+    * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
     *
-    * @return string The language
+    * @return PhoneType The type
     */
-    public function getLanguage()
+    public function getType()
     {
-        if (array_key_exists("language", $this->_propDict)) {
-            return $this->_propDict["language"];
-        } else {
-            return null;
+        if (array_key_exists("type", $this->_propDict)) {
+            if (is_a($this->_propDict["type"], "\Microsoft\Graph\Model\PhoneType")) {
+                return $this->_propDict["type"];
+            } else {
+                $this->_propDict["type"] = new PhoneType($this->_propDict["type"]);
+                return $this->_propDict["type"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the language
+    * Sets the type
+    * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
     *
-    * @param string $val The value of the language
+    * @param PhoneType $val The value to assign to the type
     *
-    * @return Phone
+    * @return Phone The Phone
     */
-    public function setLanguage($val)
+    public function setType($val)
     {
-        $this->_propDict["language"] = $val;
-        return $this;
+        $this->_propDict["type"] = $val;
+         return $this;
     }
 }

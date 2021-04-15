@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,13 +18,41 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class DeviceManagementTroubleshootingEvent extends Entity
 {
+    /**
+    * Gets the correlationId
+    * Id used for tracing the failure in the service.
+    *
+    * @return string The correlationId
+    */
+    public function getCorrelationId()
+    {
+        if (array_key_exists("correlationId", $this->_propDict)) {
+            return $this->_propDict["correlationId"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the correlationId
+    * Id used for tracing the failure in the service.
+    *
+    * @param string $val The correlationId
+    *
+    * @return DeviceManagementTroubleshootingEvent
+    */
+    public function setCorrelationId($val)
+    {
+        $this->_propDict["correlationId"] = $val;
+        return $this;
+    }
+    
     /**
     * Gets the eventDateTime
     * Time when the event occurred .
@@ -56,35 +83,6 @@ class DeviceManagementTroubleshootingEvent extends Entity
     public function setEventDateTime($val)
     {
         $this->_propDict["eventDateTime"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the correlationId
-    * Id used for tracing the failure in the service.
-    *
-    * @return string The correlationId
-    */
-    public function getCorrelationId()
-    {
-        if (array_key_exists("correlationId", $this->_propDict)) {
-            return $this->_propDict["correlationId"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the correlationId
-    * Id used for tracing the failure in the service.
-    *
-    * @param string $val The correlationId
-    *
-    * @return DeviceManagementTroubleshootingEvent
-    */
-    public function setCorrelationId($val)
-    {
-        $this->_propDict["correlationId"] = $val;
         return $this;
     }
     

@@ -7,10 +7,9 @@
 *
 * @category  Library
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   GIT: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 namespace Microsoft\Graph\Model;
 
@@ -19,10 +18,9 @@ namespace Microsoft\Graph\Model;
 *
 * @category  Model
 * @package   Microsoft.Graph
-* @copyright © Microsoft Corporation. All rights reserved.
+* @copyright (c) Microsoft Corporation. All rights reserved.
 * @license   https://opensource.org/licenses/MIT MIT License
-* @version   Release: 1.4.0
-* @link      https://graph.microsoft.io/
+* @link      https://graph.microsoft.com
 */
 class Windows10TeamGeneralConfiguration extends DeviceConfiguration
 {
@@ -209,7 +207,7 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration
     public function getMaintenanceWindowStartTime()
     {
         if (array_key_exists("maintenanceWindowStartTime", $this->_propDict)) {
-            if (is_a($this->_propDict["maintenanceWindowStartTime"], "Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["maintenanceWindowStartTime"], "\Microsoft\Graph\Model\TimeOfDay")) {
                 return $this->_propDict["maintenanceWindowStartTime"];
             } else {
                 $this->_propDict["maintenanceWindowStartTime"] = new TimeOfDay($this->_propDict["maintenanceWindowStartTime"]);
@@ -230,39 +228,6 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration
     public function setMaintenanceWindowStartTime($val)
     {
         $this->_propDict["maintenanceWindowStartTime"] = $val;
-        return $this;
-    }
-    
-    /**
-    * Gets the miracastChannel
-    * The channel. Possible values are: userDefined, one, two, three, four, five, six, seven, eight, nine, ten, eleven, thirtySix, forty, fortyFour, fortyEight, oneHundredFortyNine, oneHundredFiftyThree, oneHundredFiftySeven, oneHundredSixtyOne, oneHundredSixtyFive.
-    *
-    * @return MiracastChannel The miracastChannel
-    */
-    public function getMiracastChannel()
-    {
-        if (array_key_exists("miracastChannel", $this->_propDict)) {
-            if (is_a($this->_propDict["miracastChannel"], "Microsoft\Graph\Model\MiracastChannel")) {
-                return $this->_propDict["miracastChannel"];
-            } else {
-                $this->_propDict["miracastChannel"] = new MiracastChannel($this->_propDict["miracastChannel"]);
-                return $this->_propDict["miracastChannel"];
-            }
-        }
-        return null;
-    }
-    
-    /**
-    * Sets the miracastChannel
-    * The channel. Possible values are: userDefined, one, two, three, four, five, six, seven, eight, nine, ten, eleven, thirtySix, forty, fortyFour, fortyEight, oneHundredFortyNine, oneHundredFiftyThree, oneHundredFiftySeven, oneHundredSixtyOne, oneHundredSixtyFive.
-    *
-    * @param MiracastChannel $val The miracastChannel
-    *
-    * @return Windows10TeamGeneralConfiguration
-    */
-    public function setMiracastChannel($val)
-    {
-        $this->_propDict["miracastChannel"] = $val;
         return $this;
     }
     
@@ -292,6 +257,39 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration
     public function setMiracastBlocked($val)
     {
         $this->_propDict["miracastBlocked"] = boolval($val);
+        return $this;
+    }
+    
+    /**
+    * Gets the miracastChannel
+    * The channel. Possible values are: userDefined, one, two, three, four, five, six, seven, eight, nine, ten, eleven, thirtySix, forty, fortyFour, fortyEight, oneHundredFortyNine, oneHundredFiftyThree, oneHundredFiftySeven, oneHundredSixtyOne, oneHundredSixtyFive.
+    *
+    * @return MiracastChannel The miracastChannel
+    */
+    public function getMiracastChannel()
+    {
+        if (array_key_exists("miracastChannel", $this->_propDict)) {
+            if (is_a($this->_propDict["miracastChannel"], "\Microsoft\Graph\Model\MiracastChannel")) {
+                return $this->_propDict["miracastChannel"];
+            } else {
+                $this->_propDict["miracastChannel"] = new MiracastChannel($this->_propDict["miracastChannel"]);
+                return $this->_propDict["miracastChannel"];
+            }
+        }
+        return null;
+    }
+    
+    /**
+    * Sets the miracastChannel
+    * The channel. Possible values are: userDefined, one, two, three, four, five, six, seven, eight, nine, ten, eleven, thirtySix, forty, fortyFour, fortyEight, oneHundredFortyNine, oneHundredFiftyThree, oneHundredFiftySeven, oneHundredSixtyOne, oneHundredSixtyFive.
+    *
+    * @param MiracastChannel $val The miracastChannel
+    *
+    * @return Windows10TeamGeneralConfiguration
+    */
+    public function setMiracastChannel($val)
+    {
+        $this->_propDict["miracastChannel"] = $val;
         return $this;
     }
     
@@ -528,35 +526,6 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration
     }
     
     /**
-    * Gets the welcomeScreenBlockAutomaticWakeUp
-    * Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room.
-    *
-    * @return bool The welcomeScreenBlockAutomaticWakeUp
-    */
-    public function getWelcomeScreenBlockAutomaticWakeUp()
-    {
-        if (array_key_exists("welcomeScreenBlockAutomaticWakeUp", $this->_propDict)) {
-            return $this->_propDict["welcomeScreenBlockAutomaticWakeUp"];
-        } else {
-            return null;
-        }
-    }
-    
-    /**
-    * Sets the welcomeScreenBlockAutomaticWakeUp
-    * Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room.
-    *
-    * @param bool $val The welcomeScreenBlockAutomaticWakeUp
-    *
-    * @return Windows10TeamGeneralConfiguration
-    */
-    public function setWelcomeScreenBlockAutomaticWakeUp($val)
-    {
-        $this->_propDict["welcomeScreenBlockAutomaticWakeUp"] = boolval($val);
-        return $this;
-    }
-    
-    /**
     * Gets the welcomeScreenBackgroundImageUrl
     * The welcome screen background image URL. The URL must use the HTTPS protocol and return a PNG image.
     *
@@ -586,6 +555,35 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration
     }
     
     /**
+    * Gets the welcomeScreenBlockAutomaticWakeUp
+    * Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room.
+    *
+    * @return bool The welcomeScreenBlockAutomaticWakeUp
+    */
+    public function getWelcomeScreenBlockAutomaticWakeUp()
+    {
+        if (array_key_exists("welcomeScreenBlockAutomaticWakeUp", $this->_propDict)) {
+            return $this->_propDict["welcomeScreenBlockAutomaticWakeUp"];
+        } else {
+            return null;
+        }
+    }
+    
+    /**
+    * Sets the welcomeScreenBlockAutomaticWakeUp
+    * Indicates whether or not to Block the welcome screen from waking up automatically when someone enters the room.
+    *
+    * @param bool $val The welcomeScreenBlockAutomaticWakeUp
+    *
+    * @return Windows10TeamGeneralConfiguration
+    */
+    public function setWelcomeScreenBlockAutomaticWakeUp($val)
+    {
+        $this->_propDict["welcomeScreenBlockAutomaticWakeUp"] = boolval($val);
+        return $this;
+    }
+    
+    /**
     * Gets the welcomeScreenMeetingInformation
     * The welcome screen meeting information shown. Possible values are: userDefined, showOrganizerAndTimeOnly, showOrganizerAndTimeAndSubject.
     *
@@ -594,7 +592,7 @@ class Windows10TeamGeneralConfiguration extends DeviceConfiguration
     public function getWelcomeScreenMeetingInformation()
     {
         if (array_key_exists("welcomeScreenMeetingInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["welcomeScreenMeetingInformation"], "Microsoft\Graph\Model\WelcomeScreenMeetingInformation")) {
+            if (is_a($this->_propDict["welcomeScreenMeetingInformation"], "\Microsoft\Graph\Model\WelcomeScreenMeetingInformation")) {
                 return $this->_propDict["welcomeScreenMeetingInformation"];
             } else {
                 $this->_propDict["welcomeScreenMeetingInformation"] = new WelcomeScreenMeetingInformation($this->_propDict["welcomeScreenMeetingInformation"]);

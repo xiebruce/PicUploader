@@ -6,9 +6,6 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Pool;
 
 class Copy {
-    /**
-     * const var: part size from 1MB to 5GB, and max parts of 10000 are allowed for each upload.
-     */
     const MIN_PART_SIZE = 1048576;
     const MAX_PART_SIZE = 5368709120;
     const DEFAULT_PART_SIZE = 52428800;
@@ -79,7 +76,7 @@ class Copy {
                     'CopySource'=> $copySourcePath,
                     'CopySourceRange' => 'bytes='.((string)$offset).'-'.(string)($offset+$partSize - 1),
                 );
-                if(!isset($parts[$partNumber])) {
+                if(!isset($this->parts[$partNumber])) {
                     $command = $this->client->getCommand('uploadPartCopy', $params);
                     $request = $this->client->commandToRequestTransformer($command);
                     $this->commandList[$index] = $command;
@@ -103,14 +100,14 @@ class Copy {
             },
            
             'rejected' => function ($reason, $index) { 
+                $index = $index += 1;
                 $retry = 2;
                 for ($i = 1; $i <= $retry; $i++) {
-                    $index = $index += 1;
                     try {
-                        $rt =$this->client->execute($commandList[$index]);
+                        $rt =$this->client->execute($this->commandList[$index]);
                         $part = array('PartNumber' => $index, 'ETag' => $rt['ETag']);
                         $this->parts[$index] = $part;
-                    } catch(Exception $e) {
+                    } catch(\Exception $e) {
                         if ($i == $retry) {
                             throw($e);
                         }
