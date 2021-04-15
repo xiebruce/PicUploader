@@ -126,7 +126,7 @@ class Ks3Client{
 			throw $ex;
 		return $result;
 	}
-	private function invoke($method,$args=array(),$holder,$location=NULL){
+	private function invoke($method,$args=array(),$holder=NULL,$location=NULL){
 		$api = API::$API[$method];
 		if(!$api){
 			throw new Ks3ClientException($method." Not Found API");
