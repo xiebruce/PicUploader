@@ -163,12 +163,12 @@ class Upload extends Common {
 				$uploadServer = strtolower(trim($uploadServer));
 				$md5 = md5(file_get_contents($uploadFilePath));
                 $link = $this->getUrlFromHistory($md5, $uploadServer);
-                $historyExists = false;
+                $newHistory = false;
                 $retArr = [
                     'code' => 0
                 ];
 				if(!$link){
-                    $historyExists = true;
+                    $newHistory = true;
                     if(!in_array($uploadServer, $storageTypes)){
                         $errMsg = "Cannot find storage type `{$uploadServer}` in config file, please check the config file and try again.\n";
                         $this->writeLog($errMsg, 'StorageTypeError');
@@ -237,7 +237,7 @@ class Upload extends Common {
 					$link = $this->formatLink($link, $mimeType, $originFilename);
 				}
 				
-				if(!$historyExists){
+				if($newHistory){
                     $log = $link;
                     if($retArr['code']===0){
                         if($uploadServer == 'smms'){

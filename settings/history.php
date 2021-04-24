@@ -62,7 +62,7 @@
 				width: 15%;
 			}
 			.container .upload-history-list .button {
-				padding: 2px 6px;
+				padding: 2px 8px;
 				margin: 5px 0;
 				display: inline-block;
 				font-size: 16px;
@@ -70,8 +70,9 @@
 				cursor: pointer;
 				background: #4182cc;
 				color: #ffffff;
-				height: 24px;
 				line-height: 24px;
+				outline: none;
+				border: none;
 			}
 			.container .upload-history-list .pagination .button {
 				margin: 5px 2px;
@@ -156,7 +157,7 @@
 						<td colspan="8">
 							<form class="search-form">
 								<input type="text" class="search-box-input" placeholder="请输入原始文件名/url/时间">
-								<span class="button search-box-btn">查询</span>
+								<button class="button search-box-btn">查询</button>
 							</form>
 						</td>
 					</tr>
