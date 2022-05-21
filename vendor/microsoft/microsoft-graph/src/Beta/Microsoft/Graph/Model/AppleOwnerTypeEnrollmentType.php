@@ -28,12 +28,12 @@ class AppleOwnerTypeEnrollmentType extends Entity
     * Gets the enrollmentType
     * The enrollment type. Possible values are: unknown, device, user.
     *
-    * @return AppleUserInitiatedEnrollmentType The enrollmentType
+    * @return AppleUserInitiatedEnrollmentType|null The enrollmentType
     */
     public function getEnrollmentType()
     {
         if (array_key_exists("enrollmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentType"], "\Beta\Microsoft\Graph\Model\AppleUserInitiatedEnrollmentType")) {
+            if (is_a($this->_propDict["enrollmentType"], "\Beta\Microsoft\Graph\Model\AppleUserInitiatedEnrollmentType") || is_null($this->_propDict["enrollmentType"])) {
                 return $this->_propDict["enrollmentType"];
             } else {
                 $this->_propDict["enrollmentType"] = new AppleUserInitiatedEnrollmentType($this->_propDict["enrollmentType"]);
@@ -61,12 +61,12 @@ class AppleOwnerTypeEnrollmentType extends Entity
     * Gets the ownerType
     * The owner type. Possible values are: unknown, company, personal.
     *
-    * @return ManagedDeviceOwnerType The ownerType
+    * @return ManagedDeviceOwnerType|null The ownerType
     */
     public function getOwnerType()
     {
         if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType")) {
+            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType") || is_null($this->_propDict["ownerType"])) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new ManagedDeviceOwnerType($this->_propDict["ownerType"]);

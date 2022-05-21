@@ -26,7 +26,7 @@ class UserAccount extends Entity
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -53,12 +53,12 @@ class UserAccount extends Entity
     /**
     * Gets the lastSeenDateTime
     *
-    * @return \DateTime The lastSeenDateTime
+    * @return \DateTime|null The lastSeenDateTime
     */
     public function getLastSeenDateTime()
     {
         if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -83,7 +83,7 @@ class UserAccount extends Entity
     /**
     * Gets the riskScore
     *
-    * @return string The riskScore
+    * @return string|null The riskScore
     */
     public function getRiskScore()
     {
@@ -109,7 +109,7 @@ class UserAccount extends Entity
     /**
     * Gets the service
     *
-    * @return string The service
+    * @return string|null The service
     */
     public function getService()
     {
@@ -135,7 +135,7 @@ class UserAccount extends Entity
     /**
     * Gets the signinName
     *
-    * @return string The signinName
+    * @return string|null The signinName
     */
     public function getSigninName()
     {
@@ -162,12 +162,12 @@ class UserAccount extends Entity
     /**
     * Gets the status
     *
-    * @return AccountStatus The status
+    * @return AccountStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AccountStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AccountStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AccountStatus($this->_propDict["status"]);

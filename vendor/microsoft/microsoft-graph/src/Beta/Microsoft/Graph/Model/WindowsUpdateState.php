@@ -28,7 +28,7 @@ class WindowsUpdateState extends Entity
     * Gets the deviceDisplayName
     * Device display name.
     *
-    * @return string The deviceDisplayName
+    * @return string|null The deviceDisplayName
     */
     public function getDeviceDisplayName()
     {
@@ -38,7 +38,7 @@ class WindowsUpdateState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceDisplayName
     * Device display name.
@@ -52,12 +52,12 @@ class WindowsUpdateState extends Entity
         $this->_propDict["deviceDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceId
     * The id of the device.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -67,7 +67,7 @@ class WindowsUpdateState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * The id of the device.
@@ -81,12 +81,12 @@ class WindowsUpdateState extends Entity
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the featureUpdateVersion
     * The current feature update version of the device.
     *
-    * @return string The featureUpdateVersion
+    * @return string|null The featureUpdateVersion
     */
     public function getFeatureUpdateVersion()
     {
@@ -96,7 +96,7 @@ class WindowsUpdateState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the featureUpdateVersion
     * The current feature update version of the device.
@@ -110,17 +110,17 @@ class WindowsUpdateState extends Entity
         $this->_propDict["featureUpdateVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastScanDateTime
     * The date time that the Windows Update Agent did a successful scan.
     *
-    * @return \DateTime The lastScanDateTime
+    * @return \DateTime|null The lastScanDateTime
     */
     public function getLastScanDateTime()
     {
         if (array_key_exists("lastScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastScanDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastScanDateTime"], "\DateTime") || is_null($this->_propDict["lastScanDateTime"])) {
                 return $this->_propDict["lastScanDateTime"];
             } else {
                 $this->_propDict["lastScanDateTime"] = new \DateTime($this->_propDict["lastScanDateTime"]);
@@ -129,7 +129,7 @@ class WindowsUpdateState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastScanDateTime
     * The date time that the Windows Update Agent did a successful scan.
@@ -143,17 +143,17 @@ class WindowsUpdateState extends Entity
         $this->_propDict["lastScanDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSyncDateTime
     * Last date time that the device sync with with Microsoft Intune.
     *
-    * @return \DateTime The lastSyncDateTime
+    * @return \DateTime|null The lastSyncDateTime
     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -162,7 +162,7 @@ class WindowsUpdateState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSyncDateTime
     * Last date time that the device sync with with Microsoft Intune.
@@ -176,12 +176,12 @@ class WindowsUpdateState extends Entity
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the qualityUpdateVersion
     * The Quality Update Version of the device.
     *
-    * @return string The qualityUpdateVersion
+    * @return string|null The qualityUpdateVersion
     */
     public function getQualityUpdateVersion()
     {
@@ -191,7 +191,7 @@ class WindowsUpdateState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the qualityUpdateVersion
     * The Quality Update Version of the device.
@@ -205,17 +205,17 @@ class WindowsUpdateState extends Entity
         $this->_propDict["qualityUpdateVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * Windows udpate status. Possible values are: upToDate, pendingInstallation, pendingReboot, failed.
     *
-    * @return WindowsUpdateStatus The status
+    * @return WindowsUpdateStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WindowsUpdateStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WindowsUpdateStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new WindowsUpdateStatus($this->_propDict["status"]);
@@ -224,7 +224,7 @@ class WindowsUpdateState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * Windows udpate status. Possible values are: upToDate, pendingInstallation, pendingReboot, failed.
@@ -238,12 +238,12 @@ class WindowsUpdateState extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * The id of the user.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -253,7 +253,7 @@ class WindowsUpdateState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * The id of the user.
@@ -267,12 +267,12 @@ class WindowsUpdateState extends Entity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * User principal name.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -282,7 +282,7 @@ class WindowsUpdateState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * User principal name.
@@ -296,5 +296,5 @@ class WindowsUpdateState extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

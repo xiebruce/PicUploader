@@ -27,12 +27,12 @@ class EvaluateLabelJobResponse extends JobResponseBase
     /**
     * Gets the result
     *
-    * @return EvaluateLabelJobResultGroup The result
+    * @return EvaluateLabelJobResultGroup|null The result
     */
     public function getResult()
     {
         if (array_key_exists("result", $this->_propDict)) {
-            if (is_a($this->_propDict["result"], "\Beta\Microsoft\Graph\Model\EvaluateLabelJobResultGroup")) {
+            if (is_a($this->_propDict["result"], "\Beta\Microsoft\Graph\Model\EvaluateLabelJobResultGroup") || is_null($this->_propDict["result"])) {
                 return $this->_propDict["result"];
             } else {
                 $this->_propDict["result"] = new EvaluateLabelJobResultGroup($this->_propDict["result"]);
@@ -41,7 +41,7 @@ class EvaluateLabelJobResponse extends JobResponseBase
         }
         return null;
     }
-    
+
     /**
     * Sets the result
     *
@@ -54,5 +54,5 @@ class EvaluateLabelJobResponse extends JobResponseBase
         $this->_propDict["result"] = $val;
         return $this;
     }
-    
+
 }

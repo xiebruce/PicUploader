@@ -28,12 +28,12 @@ class OpenShift extends ChangeTrackedEntity
     * Gets the draftOpenShift
     * An unpublished open shift.
     *
-    * @return OpenShiftItem The draftOpenShift
+    * @return OpenShiftItem|null The draftOpenShift
     */
     public function getDraftOpenShift()
     {
         if (array_key_exists("draftOpenShift", $this->_propDict)) {
-            if (is_a($this->_propDict["draftOpenShift"], "\Microsoft\Graph\Model\OpenShiftItem")) {
+            if (is_a($this->_propDict["draftOpenShift"], "\Microsoft\Graph\Model\OpenShiftItem") || is_null($this->_propDict["draftOpenShift"])) {
                 return $this->_propDict["draftOpenShift"];
             } else {
                 $this->_propDict["draftOpenShift"] = new OpenShiftItem($this->_propDict["draftOpenShift"]);
@@ -42,7 +42,7 @@ class OpenShift extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the draftOpenShift
     * An unpublished open shift.
@@ -56,12 +56,12 @@ class OpenShift extends ChangeTrackedEntity
         $this->_propDict["draftOpenShift"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the schedulingGroupId
     * ID for the scheduling group that the open shift belongs to.
     *
-    * @return string The schedulingGroupId
+    * @return string|null The schedulingGroupId
     */
     public function getSchedulingGroupId()
     {
@@ -71,7 +71,7 @@ class OpenShift extends ChangeTrackedEntity
             return null;
         }
     }
-    
+
     /**
     * Sets the schedulingGroupId
     * ID for the scheduling group that the open shift belongs to.
@@ -85,17 +85,17 @@ class OpenShift extends ChangeTrackedEntity
         $this->_propDict["schedulingGroupId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharedOpenShift
     * A published open shift.
     *
-    * @return OpenShiftItem The sharedOpenShift
+    * @return OpenShiftItem|null The sharedOpenShift
     */
     public function getSharedOpenShift()
     {
         if (array_key_exists("sharedOpenShift", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedOpenShift"], "\Microsoft\Graph\Model\OpenShiftItem")) {
+            if (is_a($this->_propDict["sharedOpenShift"], "\Microsoft\Graph\Model\OpenShiftItem") || is_null($this->_propDict["sharedOpenShift"])) {
                 return $this->_propDict["sharedOpenShift"];
             } else {
                 $this->_propDict["sharedOpenShift"] = new OpenShiftItem($this->_propDict["sharedOpenShift"]);
@@ -104,7 +104,7 @@ class OpenShift extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the sharedOpenShift
     * A published open shift.
@@ -118,5 +118,5 @@ class OpenShift extends ChangeTrackedEntity
         $this->_propDict["sharedOpenShift"] = $val;
         return $this;
     }
-    
+
 }

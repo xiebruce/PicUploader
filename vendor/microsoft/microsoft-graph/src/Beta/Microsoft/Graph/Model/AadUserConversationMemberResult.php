@@ -27,7 +27,7 @@ class AadUserConversationMemberResult extends ActionResultPart
     * Gets the userId
     * The user object ID of the Azure AD user that was being added as part of the bulk operation.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {

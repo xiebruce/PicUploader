@@ -25,7 +25,9 @@ $destBucket = $bucket;
 $srcKey = $key;
 $destKey = $key . "_copy";
 
-$err = $bucketManager->copy($srcBucket, $srcKey, $destBucket, $destKey, true);
-if ($err) {
-    print_r($err);
+list($ret, $err) = $bucketManager->copy($srcBucket, $srcKey, $destBucket, $destKey, true);
+if ($err != null) {
+    var_dump($err);
+} else {
+    var_dump($ret);
 }

@@ -28,10 +28,10 @@ class Financials implements \JsonSerializable
     * The array of properties available
     * to the model
     *
-    * @var array(string => string)
+    * @var array $_propDict
     */
     protected $_propDict;
-    
+
     /**
     * Construct a new Financials
     *
@@ -39,7 +39,10 @@ class Financials implements \JsonSerializable
     */
     function __construct($propDict = array())
     {
-		$this->_propDict = $propDict;
+        if (!is_array($propDict)) {
+           $propDict = array();
+        }
+        $this->_propDict = $propDict;
     }
 
     /**
@@ -51,12 +54,12 @@ class Financials implements \JsonSerializable
     {
         return $this->_propDict;
     }
-    
 
-     /** 
+
+     /**
      * Gets the companies
      *
-     * @return array The companies
+     * @return array|null The companies
      */
     public function getCompanies()
     {
@@ -66,46 +69,49 @@ class Financials implements \JsonSerializable
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the companies
     *
-    * @param Company $val The companies
+    * @param Company[] $val The companies
     *
     * @return Financials
     */
     public function setCompanies($val)
     {
-		$this->_propDict["companies"] = $val;
+        $this->_propDict["companies"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
-    
+
     /**
     * Sets the ODataType
     *
-    * @param string The ODataType
+    * @param string $val The ODataType
     *
-    * @return Entity
+    * @return Financials
     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-    
+
     /**
     * Serializes the object by property array
-	* Manually serialize DateTime into RFC3339 format
+    * Manually serialize DateTime into RFC3339 format
     *
     * @return array The list of properties
     */
@@ -117,6 +123,8 @@ class Financials implements \JsonSerializable
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
             } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_a($val, "\Entity")) {
+                $serializableProperties[$property] = $val->jsonSerialize();
             }
         }
         return $serializableProperties;

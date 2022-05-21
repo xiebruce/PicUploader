@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue
 {
 
-     /** 
+     /**
      * Gets the values
     * A list of pairs for the associated presentation.
      *
-     * @return array The values
+     * @return array|null The values
      */
     public function getValues()
     {
@@ -39,19 +39,19 @@ class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the values
     * A list of pairs for the associated presentation.
     *
-    * @param KeyValuePair $val The values
+    * @param KeyValuePair[] $val The values
     *
     * @return GroupPolicyPresentationValueList
     */
     public function setValues($val)
     {
-		$this->_propDict["values"] = $val;
+        $this->_propDict["values"] = $val;
         return $this;
     }
-    
+
 }

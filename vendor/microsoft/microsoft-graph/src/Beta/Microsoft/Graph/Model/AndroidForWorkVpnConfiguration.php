@@ -28,12 +28,12 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
     * Gets the authenticationMethod
     * Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
     *
-    * @return VpnAuthenticationMethod The authenticationMethod
+    * @return VpnAuthenticationMethod|null The authenticationMethod
     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod")) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new VpnAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -42,7 +42,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the authenticationMethod
     * Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
@@ -56,12 +56,12 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the connectionName
     * Connection name displayed to the user.
     *
-    * @return string The connectionName
+    * @return string|null The connectionName
     */
     public function getConnectionName()
     {
@@ -71,7 +71,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectionName
     * Connection name displayed to the user.
@@ -85,17 +85,17 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["connectionName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the connectionType
     * Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix.
     *
-    * @return AndroidForWorkVpnConnectionType The connectionType
+    * @return AndroidForWorkVpnConnectionType|null The connectionType
     */
     public function getConnectionType()
     {
         if (array_key_exists("connectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkVpnConnectionType")) {
+            if (is_a($this->_propDict["connectionType"], "\Beta\Microsoft\Graph\Model\AndroidForWorkVpnConnectionType") || is_null($this->_propDict["connectionType"])) {
                 return $this->_propDict["connectionType"];
             } else {
                 $this->_propDict["connectionType"] = new AndroidForWorkVpnConnectionType($this->_propDict["connectionType"]);
@@ -104,7 +104,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the connectionType
     * Connection type. Possible values are: ciscoAnyConnect, pulseSecure, f5EdgeClient, dellSonicWallMobileConnect, checkPointCapsuleVpn, citrix.
@@ -118,13 +118,13 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["connectionType"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
      *
-     * @return array The customData
+     * @return array|null The customData
      */
     public function getCustomData()
     {
@@ -134,27 +134,27 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the customData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValue $val The customData
+    * @param KeyValue[] $val The customData
     *
     * @return AndroidForWorkVpnConfiguration
     */
     public function setCustomData($val)
     {
-		$this->_propDict["customData"] = $val;
+        $this->_propDict["customData"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customKeyValueData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
      *
-     * @return array The customKeyValueData
+     * @return array|null The customKeyValueData
      */
     public function getCustomKeyValueData()
     {
@@ -164,26 +164,26 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the customKeyValueData
     * Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
     *
-    * @param KeyValuePair $val The customKeyValueData
+    * @param KeyValuePair[] $val The customKeyValueData
     *
     * @return AndroidForWorkVpnConfiguration
     */
     public function setCustomKeyValueData($val)
     {
-		$this->_propDict["customKeyValueData"] = $val;
+        $this->_propDict["customKeyValueData"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fingerprint
     * Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
     *
-    * @return string The fingerprint
+    * @return string|null The fingerprint
     */
     public function getFingerprint()
     {
@@ -193,7 +193,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the fingerprint
     * Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
@@ -207,12 +207,12 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["fingerprint"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the realm
     * Realm when connection type is set to Pulse Secure.
     *
-    * @return string The realm
+    * @return string|null The realm
     */
     public function getRealm()
     {
@@ -222,7 +222,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the realm
     * Realm when connection type is set to Pulse Secure.
@@ -236,12 +236,12 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["realm"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the role
     * Role when connection type is set to Pulse Secure.
     *
-    * @return string The role
+    * @return string|null The role
     */
     public function getRole()
     {
@@ -251,7 +251,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the role
     * Role when connection type is set to Pulse Secure.
@@ -265,13 +265,13 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["role"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
      *
-     * @return array The servers
+     * @return array|null The servers
      */
     public function getServers()
     {
@@ -281,31 +281,31 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the servers
     * List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
     *
-    * @param VpnServer $val The servers
+    * @param VpnServer[] $val The servers
     *
     * @return AndroidForWorkVpnConfiguration
     */
     public function setServers($val)
     {
-		$this->_propDict["servers"] = $val;
+        $this->_propDict["servers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityCertificate
     * Identity certificate for client authentication when authentication method is certificate.
     *
-    * @return AndroidForWorkCertificateProfileBase The identityCertificate
+    * @return AndroidForWorkCertificateProfileBase|null The identityCertificate
     */
     public function getIdentityCertificate()
     {
         if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase")) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new AndroidForWorkCertificateProfileBase($this->_propDict["identityCertificate"]);
@@ -314,7 +314,7 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the identityCertificate
     * Identity certificate for client authentication when authentication method is certificate.
@@ -328,5 +328,5 @@ class AndroidForWorkVpnConfiguration extends DeviceConfiguration
         $this->_propDict["identityCertificate"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,12 +27,12 @@ class ProvisioningStatusInfo extends Entity
     /**
     * Gets the errorInformation
     *
-    * @return ProvisioningErrorInfo The errorInformation
+    * @return ProvisioningErrorInfo|null The errorInformation
     */
     public function getErrorInformation()
     {
         if (array_key_exists("errorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["errorInformation"], "\Microsoft\Graph\Model\ProvisioningErrorInfo")) {
+            if (is_a($this->_propDict["errorInformation"], "\Microsoft\Graph\Model\ProvisioningErrorInfo") || is_null($this->_propDict["errorInformation"])) {
                 return $this->_propDict["errorInformation"];
             } else {
                 $this->_propDict["errorInformation"] = new ProvisioningErrorInfo($this->_propDict["errorInformation"]);
@@ -57,13 +57,14 @@ class ProvisioningStatusInfo extends Entity
 
     /**
     * Gets the status
+    * Possible values are: success, warning, failure, skipped, unknownFutureValue.
     *
-    * @return ProvisioningResult The status
+    * @return ProvisioningResult|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ProvisioningResult")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ProvisioningResult") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ProvisioningResult($this->_propDict["status"]);
@@ -75,6 +76,7 @@ class ProvisioningStatusInfo extends Entity
 
     /**
     * Sets the status
+    * Possible values are: success, warning, failure, skipped, unknownFutureValue.
     *
     * @param ProvisioningResult $val The value to assign to the status
     *

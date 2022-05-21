@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class OutlookUser extends Entity
 {
 
-     /** 
+     /**
      * Gets the masterCategories
     * A list of categories defined for the user.
      *
-     * @return array The masterCategories
+     * @return array|null The masterCategories
      */
     public function getMasterCategories()
     {
@@ -39,26 +39,26 @@ class OutlookUser extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the masterCategories
     * A list of categories defined for the user.
     *
-    * @param OutlookCategory $val The masterCategories
+    * @param OutlookCategory[] $val The masterCategories
     *
     * @return OutlookUser
     */
     public function setMasterCategories($val)
     {
-		$this->_propDict["masterCategories"] = $val;
+        $this->_propDict["masterCategories"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taskFolders
      *
-     * @return array The taskFolders
+     * @return array|null The taskFolders
      */
     public function getTaskFolders()
     {
@@ -68,25 +68,25 @@ class OutlookUser extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the taskFolders
     *
-    * @param OutlookTaskFolder $val The taskFolders
+    * @param OutlookTaskFolder[] $val The taskFolders
     *
     * @return OutlookUser
     */
     public function setTaskFolders($val)
     {
-		$this->_propDict["taskFolders"] = $val;
+        $this->_propDict["taskFolders"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taskGroups
      *
-     * @return array The taskGroups
+     * @return array|null The taskGroups
      */
     public function getTaskGroups()
     {
@@ -96,25 +96,25 @@ class OutlookUser extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the taskGroups
     *
-    * @param OutlookTaskGroup $val The taskGroups
+    * @param OutlookTaskGroup[] $val The taskGroups
     *
     * @return OutlookUser
     */
     public function setTaskGroups($val)
     {
-		$this->_propDict["taskGroups"] = $val;
+        $this->_propDict["taskGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tasks
      *
-     * @return array The tasks
+     * @return array|null The tasks
      */
     public function getTasks()
     {
@@ -124,18 +124,18 @@ class OutlookUser extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the tasks
     *
-    * @param OutlookTask $val The tasks
+    * @param OutlookTask[] $val The tasks
     *
     * @return OutlookUser
     */
     public function setTasks($val)
     {
-		$this->_propDict["tasks"] = $val;
+        $this->_propDict["tasks"] = $val;
         return $this;
     }
-    
+
 }

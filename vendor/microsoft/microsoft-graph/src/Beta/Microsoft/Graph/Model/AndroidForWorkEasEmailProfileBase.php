@@ -28,12 +28,12 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
     * Gets the authenticationMethod
     * Authentication method for Exchange ActiveSync. Possible values are: usernameAndPassword, certificate, derivedCredential.
     *
-    * @return EasAuthenticationMethod The authenticationMethod
+    * @return EasAuthenticationMethod|null The authenticationMethod
     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\EasAuthenticationMethod")) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\EasAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new EasAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -42,7 +42,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the authenticationMethod
     * Authentication method for Exchange ActiveSync. Possible values are: usernameAndPassword, certificate, derivedCredential.
@@ -56,17 +56,17 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the durationOfEmailToSync
     * Duration of time email should be synced to. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
     *
-    * @return EmailSyncDuration The durationOfEmailToSync
+    * @return EmailSyncDuration|null The durationOfEmailToSync
     */
     public function getDurationOfEmailToSync()
     {
         if (array_key_exists("durationOfEmailToSync", $this->_propDict)) {
-            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration")) {
+            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration") || is_null($this->_propDict["durationOfEmailToSync"])) {
                 return $this->_propDict["durationOfEmailToSync"];
             } else {
                 $this->_propDict["durationOfEmailToSync"] = new EmailSyncDuration($this->_propDict["durationOfEmailToSync"]);
@@ -75,7 +75,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the durationOfEmailToSync
     * Duration of time email should be synced to. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
@@ -89,17 +89,17 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["durationOfEmailToSync"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the emailAddressSource
     * Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
     *
-    * @return UserEmailSource The emailAddressSource
+    * @return UserEmailSource|null The emailAddressSource
     */
     public function getEmailAddressSource()
     {
         if (array_key_exists("emailAddressSource", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource")) {
+            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource") || is_null($this->_propDict["emailAddressSource"])) {
                 return $this->_propDict["emailAddressSource"];
             } else {
                 $this->_propDict["emailAddressSource"] = new UserEmailSource($this->_propDict["emailAddressSource"]);
@@ -108,7 +108,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the emailAddressSource
     * Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
@@ -122,12 +122,12 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["emailAddressSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the hostName
     * Exchange location (URL) that the mail app connects to.
     *
-    * @return string The hostName
+    * @return string|null The hostName
     */
     public function getHostName()
     {
@@ -137,7 +137,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the hostName
     * Exchange location (URL) that the mail app connects to.
@@ -151,12 +151,12 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["hostName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the requireSsl
     * Indicates whether or not to use SSL.
     *
-    * @return bool The requireSsl
+    * @return bool|null The requireSsl
     */
     public function getRequireSsl()
     {
@@ -166,7 +166,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the requireSsl
     * Indicates whether or not to use SSL.
@@ -180,17 +180,17 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["requireSsl"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the usernameSource
     * Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: username, userPrincipalName, samAccountName, primarySmtpAddress.
     *
-    * @return AndroidUsernameSource The usernameSource
+    * @return AndroidUsernameSource|null The usernameSource
     */
     public function getUsernameSource()
     {
         if (array_key_exists("usernameSource", $this->_propDict)) {
-            if (is_a($this->_propDict["usernameSource"], "\Beta\Microsoft\Graph\Model\AndroidUsernameSource")) {
+            if (is_a($this->_propDict["usernameSource"], "\Beta\Microsoft\Graph\Model\AndroidUsernameSource") || is_null($this->_propDict["usernameSource"])) {
                 return $this->_propDict["usernameSource"];
             } else {
                 $this->_propDict["usernameSource"] = new AndroidUsernameSource($this->_propDict["usernameSource"]);
@@ -199,7 +199,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the usernameSource
     * Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: username, userPrincipalName, samAccountName, primarySmtpAddress.
@@ -213,17 +213,17 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["usernameSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityCertificate
     * Identity certificate.
     *
-    * @return AndroidForWorkCertificateProfileBase The identityCertificate
+    * @return AndroidForWorkCertificateProfileBase|null The identityCertificate
     */
     public function getIdentityCertificate()
     {
         if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase")) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new AndroidForWorkCertificateProfileBase($this->_propDict["identityCertificate"]);
@@ -232,7 +232,7 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the identityCertificate
     * Identity certificate.
@@ -246,5 +246,5 @@ class AndroidForWorkEasEmailProfileBase extends DeviceConfiguration
         $this->_propDict["identityCertificate"] = $val;
         return $this;
     }
-    
+
 }

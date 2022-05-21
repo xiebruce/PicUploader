@@ -28,12 +28,12 @@ class MetadataAction extends InformationProtectionAction
     * Gets the metadataToAdd
     * A collection of key value pairs that should be added to the file.
     *
-    * @return KeyValuePair The metadataToAdd
+    * @return KeyValuePair|null The metadataToAdd
     */
     public function getMetadataToAdd()
     {
         if (array_key_exists("metadataToAdd", $this->_propDict)) {
-            if (is_a($this->_propDict["metadataToAdd"], "\Beta\Microsoft\Graph\Model\KeyValuePair")) {
+            if (is_a($this->_propDict["metadataToAdd"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["metadataToAdd"])) {
                 return $this->_propDict["metadataToAdd"];
             } else {
                 $this->_propDict["metadataToAdd"] = new KeyValuePair($this->_propDict["metadataToAdd"]);
@@ -60,7 +60,7 @@ class MetadataAction extends InformationProtectionAction
     * Gets the metadataToRemove
     * A collection of strings that indicate which keys to remove from the file metadata.
     *
-    * @return string The metadataToRemove
+    * @return string|null The metadataToRemove
     */
     public function getMetadataToRemove()
     {

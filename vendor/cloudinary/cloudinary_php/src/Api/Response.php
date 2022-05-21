@@ -11,16 +11,20 @@ class Response extends \ArrayObject
     /**
      * Response constructor.
      *
-     * @param \stdClass $response   Response from HTTP request to Cloudinary server
-     * @see Api::execute()          For response definition
+     * @param \stdClass $response Response from HTTP request to Cloudinary server
      *
      * @throws GeneralError
+     * @see Api::execute()          For response definition
+     *
      */
     public function __construct($response)
     {
         parent::__construct(\Cloudinary\Api::parse_json_response($response));
-        $this->rate_limit_reset_at = strtotime($response->headers["X-FeatureRateLimit-Reset"]);
-        $this->rate_limit_allowed = intval($response->headers["X-FeatureRateLimit-Limit"]);
-        $this->rate_limit_remaining = intval($response->headers["X-FeatureRateLimit-Remaining"]);
+        // According to RFC 2616, header names are case-insensitive.
+        $headers = array_change_key_case($response->headers, CASE_LOWER);
+
+        $this->rate_limit_reset_at  = strtotime(\Cloudinary::option_get($headers, "x-featureratelimit-reset"));
+        $this->rate_limit_allowed   = (int)\Cloudinary::option_get($headers, "x-featureratelimit-limit");
+        $this->rate_limit_remaining = (int)\Cloudinary::option_get($headers, "x-featureratelimit-remaining");
     }
 }

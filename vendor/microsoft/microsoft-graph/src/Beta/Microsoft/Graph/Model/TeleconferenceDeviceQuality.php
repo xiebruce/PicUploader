@@ -27,7 +27,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the callChainId
     * A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
     *
-    * @return string The callChainId
+    * @return string|null The callChainId
     */
     public function getCallChainId()
     {
@@ -55,7 +55,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the cloudServiceDeploymentEnvironment
     * A geo-region where the service is deployed, such as ProdNoam.
     *
-    * @return string The cloudServiceDeploymentEnvironment
+    * @return string|null The cloudServiceDeploymentEnvironment
     */
     public function getCloudServiceDeploymentEnvironment()
     {
@@ -83,7 +83,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the cloudServiceDeploymentId
     * A unique deployment identifier assigned by Azure.
     *
-    * @return string The cloudServiceDeploymentId
+    * @return string|null The cloudServiceDeploymentId
     */
     public function getCloudServiceDeploymentId()
     {
@@ -111,7 +111,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the cloudServiceInstanceName
     * The Azure deployed cloud service instance name, such as FrontEnd_IN_3.
     *
-    * @return string The cloudServiceInstanceName
+    * @return string|null The cloudServiceInstanceName
     */
     public function getCloudServiceInstanceName()
     {
@@ -139,7 +139,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the cloudServiceName
     * The Azure deployed cloud service name, such as contoso.cloudapp.net.
     *
-    * @return string The cloudServiceName
+    * @return string|null The cloudServiceName
     */
     public function getCloudServiceName()
     {
@@ -167,7 +167,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the deviceDescription
     * Any additional description, such as VTC Bldg 30/21.
     *
-    * @return string The deviceDescription
+    * @return string|null The deviceDescription
     */
     public function getDeviceDescription()
     {
@@ -195,7 +195,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the deviceName
     * The user media agent name, such as Cisco SX80.
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -223,7 +223,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the mediaLegId
     * A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
     *
-    * @return string The mediaLegId
+    * @return string|null The mediaLegId
     */
     public function getMediaLegId()
     {
@@ -252,12 +252,12 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the mediaQualityList
     * The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality.
     *
-    * @return TeleconferenceDeviceMediaQuality The mediaQualityList
+    * @return TeleconferenceDeviceMediaQuality|null The mediaQualityList
     */
     public function getMediaQualityList()
     {
         if (array_key_exists("mediaQualityList", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaQualityList"], "\Beta\Microsoft\Graph\Model\TeleconferenceDeviceMediaQuality")) {
+            if (is_a($this->_propDict["mediaQualityList"], "\Beta\Microsoft\Graph\Model\TeleconferenceDeviceMediaQuality") || is_null($this->_propDict["mediaQualityList"])) {
                 return $this->_propDict["mediaQualityList"];
             } else {
                 $this->_propDict["mediaQualityList"] = new TeleconferenceDeviceMediaQuality($this->_propDict["mediaQualityList"]);
@@ -284,7 +284,7 @@ class TeleconferenceDeviceQuality extends Entity
     * Gets the participantId
     * A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
     *
-    * @return string The participantId
+    * @return string|null The participantId
     */
     public function getParticipantId()
     {

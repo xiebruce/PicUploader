@@ -26,9 +26,11 @@ class DeliveryOptimizationMaxCacheSizeAbsolute extends DeliveryOptimizationMaxCa
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deliveryOptimizationMaxCacheSizeAbsolute");
     }
 
@@ -36,7 +38,7 @@ class DeliveryOptimizationMaxCacheSizeAbsolute extends DeliveryOptimizationMaxCa
     * Gets the maximumCacheSizeInGigabytes
     * The value 0 (zero) means "unlimited" cache. Delivery Optimization will clear the cache when the device is running low on disk space. Valid values 0 to 4294967295
     *
-    * @return int The maximumCacheSizeInGigabytes
+    * @return int|null The maximumCacheSizeInGigabytes
     */
     public function getMaximumCacheSizeInGigabytes()
     {

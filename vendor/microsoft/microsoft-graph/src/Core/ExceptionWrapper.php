@@ -18,7 +18,6 @@
 namespace Microsoft\Graph\Core;
 
 use GuzzleHttp\Exception\BadResponseException;
-use Microsoft\Graph\Exception\GraphException;
 
 /**
  * Class ExceptionWrapper
@@ -35,12 +34,44 @@ class ExceptionWrapper
      * Adds response body to the exception message.
      *
      * @param BadResponseException $ex
-     * @return GraphException containing HTTP response from Graph API
-     * 
+     * @return BadResponseException containing HTTP response from Graph API
      */
     public static function wrapGuzzleBadResponseException(BadResponseException $ex)
     {
-        $errMsg = "Received {$ex->getResponse()->getStatusCode()} for call to {$ex->getRequest()->getUri()}\nAPI response: {$ex->getResponse()->getBody()->getContents()}";
-        return new GraphException($errMsg);
+        $response = $ex->getResponse();
+
+        // Safety check for Guzzle < 7.0
+        if (!$response) {
+            return $ex;
+        }
+
+        /** @see \GuzzleHttp\Exception\RequestException::create() */
+        if (preg_match('/^(.+: `.+ .+` resulted in a `.+ .+` response):\n/U', $ex->getMessage(), $match)) {
+            $message = $match[1];
+
+            $body = $response->getBody();
+
+            if (!$body->isSeekable() || !$body->isReadable()) {
+                return $ex;
+            }
+
+            $summary = $body->getContents();
+            $body->rewind();
+
+            if ($summary !== '') {
+                $message .= ":\n{$summary}\n";
+
+                //return new $ex($message, $ex->getRequest(), $ex->getResponse(), $ex, $ex->getHandlerContext());
+                // Better: modify internal message inside original exception object (preserves the stack trace)
+                (new class() extends \Exception {
+                    public static function overwriteProtectedMessage(\Exception $ex, $message)
+                    {
+                        $ex->message = $message;
+                    }
+                })::overwriteProtectedMessage($ex, $message);
+            }
+        }
+
+        return $ex;
     }
-} 
+}

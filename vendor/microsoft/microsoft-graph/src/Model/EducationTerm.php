@@ -27,7 +27,7 @@ class EducationTerm extends Entity
     * Gets the displayName
     * Display name of the term.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -56,12 +56,12 @@ class EducationTerm extends Entity
     * Gets the endDate
     * End of the term.
     *
-    * @return \DateTime The endDate
+    * @return \DateTime|null The endDate
     */
     public function getEndDate()
     {
         if (array_key_exists("endDate", $this->_propDict)) {
-            if (is_a($this->_propDict["endDate"], "\DateTime")) {
+            if (is_a($this->_propDict["endDate"], "\DateTime") || is_null($this->_propDict["endDate"])) {
                 return $this->_propDict["endDate"];
             } else {
                 $this->_propDict["endDate"] = new \DateTime($this->_propDict["endDate"]);
@@ -88,7 +88,7 @@ class EducationTerm extends Entity
     * Gets the externalId
     * ID of term in the syncing system.
     *
-    * @return string The externalId
+    * @return string|null The externalId
     */
     public function getExternalId()
     {
@@ -117,12 +117,12 @@ class EducationTerm extends Entity
     * Gets the startDate
     * Start of the term.
     *
-    * @return \DateTime The startDate
+    * @return \DateTime|null The startDate
     */
     public function getStartDate()
     {
         if (array_key_exists("startDate", $this->_propDict)) {
-            if (is_a($this->_propDict["startDate"], "\DateTime")) {
+            if (is_a($this->_propDict["startDate"], "\DateTime") || is_null($this->_propDict["startDate"])) {
                 return $this->_propDict["startDate"];
             } else {
                 $this->_propDict["startDate"] = new \DateTime($this->_propDict["startDate"]);

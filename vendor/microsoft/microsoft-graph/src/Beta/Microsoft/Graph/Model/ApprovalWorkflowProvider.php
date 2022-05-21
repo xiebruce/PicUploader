@@ -27,7 +27,7 @@ class ApprovalWorkflowProvider extends Entity
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -37,7 +37,7 @@ class ApprovalWorkflowProvider extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -50,12 +50,12 @@ class ApprovalWorkflowProvider extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the businessFlows
      *
-     * @return array The businessFlows
+     * @return array|null The businessFlows
      */
     public function getBusinessFlows()
     {
@@ -65,25 +65,25 @@ class ApprovalWorkflowProvider extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the businessFlows
     *
-    * @param BusinessFlow $val The businessFlows
+    * @param BusinessFlow[] $val The businessFlows
     *
     * @return ApprovalWorkflowProvider
     */
     public function setBusinessFlows($val)
     {
-		$this->_propDict["businessFlows"] = $val;
+        $this->_propDict["businessFlows"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the businessFlowsWithRequestsAwaitingMyDecision
      *
-     * @return array The businessFlowsWithRequestsAwaitingMyDecision
+     * @return array|null The businessFlowsWithRequestsAwaitingMyDecision
      */
     public function getBusinessFlowsWithRequestsAwaitingMyDecision()
     {
@@ -93,25 +93,25 @@ class ApprovalWorkflowProvider extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the businessFlowsWithRequestsAwaitingMyDecision
     *
-    * @param BusinessFlow $val The businessFlowsWithRequestsAwaitingMyDecision
+    * @param BusinessFlow[] $val The businessFlowsWithRequestsAwaitingMyDecision
     *
     * @return ApprovalWorkflowProvider
     */
     public function setBusinessFlowsWithRequestsAwaitingMyDecision($val)
     {
-		$this->_propDict["businessFlowsWithRequestsAwaitingMyDecision"] = $val;
+        $this->_propDict["businessFlowsWithRequestsAwaitingMyDecision"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the policyTemplates
      *
-     * @return array The policyTemplates
+     * @return array|null The policyTemplates
      */
     public function getPolicyTemplates()
     {
@@ -121,18 +121,18 @@ class ApprovalWorkflowProvider extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the policyTemplates
     *
-    * @param GovernancePolicyTemplate $val The policyTemplates
+    * @param GovernancePolicyTemplate[] $val The policyTemplates
     *
     * @return ApprovalWorkflowProvider
     */
     public function setPolicyTemplates($val)
     {
-		$this->_propDict["policyTemplates"] = $val;
+        $this->_propDict["policyTemplates"] = $val;
         return $this;
     }
-    
+
 }

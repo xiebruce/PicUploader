@@ -27,7 +27,7 @@ class DeviceHealthScriptParameter extends Entity
     * Gets the applyDefaultValueWhenNotAssigned
     * Whether Apply DefaultValue When Not Assigned
     *
-    * @return bool The applyDefaultValueWhenNotAssigned
+    * @return bool|null The applyDefaultValueWhenNotAssigned
     */
     public function getApplyDefaultValueWhenNotAssigned()
     {
@@ -55,7 +55,7 @@ class DeviceHealthScriptParameter extends Entity
     * Gets the description
     * The description of the param
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -83,7 +83,7 @@ class DeviceHealthScriptParameter extends Entity
     * Gets the isRequired
     * Whether the param is required
     *
-    * @return bool The isRequired
+    * @return bool|null The isRequired
     */
     public function getIsRequired()
     {
@@ -111,7 +111,7 @@ class DeviceHealthScriptParameter extends Entity
     * Gets the name
     * The name of the param
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

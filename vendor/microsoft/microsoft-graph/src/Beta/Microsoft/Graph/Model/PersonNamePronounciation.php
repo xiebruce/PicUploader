@@ -26,7 +26,7 @@ class PersonNamePronounciation extends Entity
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -52,7 +52,7 @@ class PersonNamePronounciation extends Entity
     /**
     * Gets the first
     *
-    * @return string The first
+    * @return string|null The first
     */
     public function getFirst()
     {
@@ -78,7 +78,7 @@ class PersonNamePronounciation extends Entity
     /**
     * Gets the last
     *
-    * @return string The last
+    * @return string|null The last
     */
     public function getLast()
     {
@@ -104,7 +104,7 @@ class PersonNamePronounciation extends Entity
     /**
     * Gets the maiden
     *
-    * @return string The maiden
+    * @return string|null The maiden
     */
     public function getMaiden()
     {
@@ -130,7 +130,7 @@ class PersonNamePronounciation extends Entity
     /**
     * Gets the middle
     *
-    * @return string The middle
+    * @return string|null The middle
     */
     public function getMiddle()
     {

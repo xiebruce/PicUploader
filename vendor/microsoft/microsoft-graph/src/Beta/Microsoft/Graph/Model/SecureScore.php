@@ -28,7 +28,7 @@ class SecureScore extends Entity
     * Gets the activeUserCount
     * Active user count of the given tenant.
     *
-    * @return int The activeUserCount
+    * @return int|null The activeUserCount
     */
     public function getActiveUserCount()
     {
@@ -38,7 +38,7 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activeUserCount
     * Active user count of the given tenant.
@@ -52,13 +52,13 @@ class SecureScore extends Entity
         $this->_propDict["activeUserCount"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the averageComparativeScores
     * Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.
      *
-     * @return array The averageComparativeScores
+     * @return array|null The averageComparativeScores
      */
     public function getAverageComparativeScores()
     {
@@ -68,26 +68,26 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the averageComparativeScores
     * Average score by different scopes (for example, average by industry, average by seating) and control category (Identity, Data, Device, Apps, Infrastructure) within the scope.
     *
-    * @param AverageComparativeScore $val The averageComparativeScores
+    * @param AverageComparativeScore[] $val The averageComparativeScores
     *
     * @return SecureScore
     */
     public function setAverageComparativeScores($val)
     {
-		$this->_propDict["averageComparativeScores"] = $val;
+        $this->_propDict["averageComparativeScores"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureTenantId
     * GUID string for tenant ID.
     *
-    * @return string The azureTenantId
+    * @return string|null The azureTenantId
     */
     public function getAzureTenantId()
     {
@@ -97,7 +97,7 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureTenantId
     * GUID string for tenant ID.
@@ -111,13 +111,13 @@ class SecureScore extends Entity
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the controlScores
     * Contains tenant scores for a set of controls.
      *
-     * @return array The controlScores
+     * @return array|null The controlScores
      */
     public function getControlScores()
     {
@@ -127,31 +127,31 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the controlScores
     * Contains tenant scores for a set of controls.
     *
-    * @param ControlScore $val The controlScores
+    * @param ControlScore[] $val The controlScores
     *
     * @return SecureScore
     */
     public function setControlScores($val)
     {
-		$this->_propDict["controlScores"] = $val;
+        $this->_propDict["controlScores"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The date when the entity is created.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -160,7 +160,7 @@ class SecureScore extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The date when the entity is created.
@@ -174,12 +174,12 @@ class SecureScore extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the currentScore
     * Tenant current attained score on specified date.
     *
-    * @return float The currentScore
+    * @return float|null The currentScore
     */
     public function getCurrentScore()
     {
@@ -189,7 +189,7 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the currentScore
     * Tenant current attained score on specified date.
@@ -200,15 +200,15 @@ class SecureScore extends Entity
     */
     public function setCurrentScore($val)
     {
-        $this->_propDict["currentScore"] = $val;
+        $this->_propDict["currentScore"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enabledServices
     * Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
     *
-    * @return string The enabledServices
+    * @return string|null The enabledServices
     */
     public function getEnabledServices()
     {
@@ -218,7 +218,7 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the enabledServices
     * Microsoft-provided services for the tenant (for example, Exchange online, Skype, Sharepoint).
@@ -232,12 +232,12 @@ class SecureScore extends Entity
         $this->_propDict["enabledServices"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the licensedUserCount
     * Licensed user count of the given tenant.
     *
-    * @return int The licensedUserCount
+    * @return int|null The licensedUserCount
     */
     public function getLicensedUserCount()
     {
@@ -247,7 +247,7 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the licensedUserCount
     * Licensed user count of the given tenant.
@@ -261,12 +261,12 @@ class SecureScore extends Entity
         $this->_propDict["licensedUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the maxScore
     * Tenant maximum possible score on specified date.
     *
-    * @return float The maxScore
+    * @return float|null The maxScore
     */
     public function getMaxScore()
     {
@@ -276,7 +276,7 @@ class SecureScore extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the maxScore
     * Tenant maximum possible score on specified date.
@@ -287,20 +287,20 @@ class SecureScore extends Entity
     */
     public function setMaxScore($val)
     {
-        $this->_propDict["maxScore"] = $val;
+        $this->_propDict["maxScore"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the vendorInformation
     * Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
     *
-    * @return SecurityVendorInformation The vendorInformation
+    * @return SecurityVendorInformation|null The vendorInformation
     */
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation")) {
+            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);
@@ -309,7 +309,7 @@ class SecureScore extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the vendorInformation
     * Complex type containing details about the security product/service vendor, provider, and subprovider (for example, vendor=Microsoft; provider=SecureScore). Required.
@@ -323,5 +323,5 @@ class SecureScore extends Entity
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-    
+
 }

@@ -26,9 +26,11 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.credentialSingleSignOnExtension");
     }
 
@@ -37,12 +39,12 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension
     * Gets the configurations
     * Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
     *
-    * @return KeyTypedValuePair The configurations
+    * @return KeyTypedValuePair|null The configurations
     */
     public function getConfigurations()
     {
         if (array_key_exists("configurations", $this->_propDict)) {
-            if (is_a($this->_propDict["configurations"], "\Beta\Microsoft\Graph\Model\KeyTypedValuePair")) {
+            if (is_a($this->_propDict["configurations"], "\Beta\Microsoft\Graph\Model\KeyTypedValuePair") || is_null($this->_propDict["configurations"])) {
                 return $this->_propDict["configurations"];
             } else {
                 $this->_propDict["configurations"] = new KeyTypedValuePair($this->_propDict["configurations"]);
@@ -69,7 +71,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension
     * Gets the domains
     * Gets or sets a list of hosts or domain names for which the app extension performs SSO.
     *
-    * @return string The domains
+    * @return string|null The domains
     */
     public function getDomains()
     {
@@ -97,7 +99,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension
     * Gets the extensionIdentifier
     * Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
     *
-    * @return string The extensionIdentifier
+    * @return string|null The extensionIdentifier
     */
     public function getExtensionIdentifier()
     {
@@ -125,7 +127,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension
     * Gets the realm
     * Gets or sets the case-sensitive realm name for this profile.
     *
-    * @return string The realm
+    * @return string|null The realm
     */
     public function getRealm()
     {
@@ -153,7 +155,7 @@ class CredentialSingleSignOnExtension extends SingleSignOnExtension
     * Gets the teamIdentifier
     * Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
     *
-    * @return string The teamIdentifier
+    * @return string|null The teamIdentifier
     */
     public function getTeamIdentifier()
     {

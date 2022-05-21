@@ -20,7 +20,7 @@ class StreamTest extends TestCase
         $this->root = vfsStream::setup('testDir');
 
         $this->body = json_encode(array('body' => 'content'));
-        $stream = GuzzleHttp\Psr7\stream_for('content');
+        $stream = GuzzleHttp\Psr7\Utils::streamFor('content');
 
         $mock = new GuzzleHttp\Handler\MockHandler([
             new GuzzleHttp\Psr7\Response(200, ['foo' => 'bar'], $this->body),

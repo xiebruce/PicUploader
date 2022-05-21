@@ -27,7 +27,7 @@ class SearchQueryString extends Entity
     * Gets the query
     * Contains the actual search terms of the request.
     *
-    * @return string The query
+    * @return string|null The query
     */
     public function getQuery()
     {

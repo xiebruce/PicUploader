@@ -28,7 +28,7 @@ class EBookInstallSummary extends Entity
     * Gets the failedDeviceCount
     * Number of Devices that have failed to install this book.
     *
-    * @return int The failedDeviceCount
+    * @return int|null The failedDeviceCount
     */
     public function getFailedDeviceCount()
     {
@@ -38,7 +38,7 @@ class EBookInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedDeviceCount
     * Number of Devices that have failed to install this book.
@@ -52,12 +52,12 @@ class EBookInstallSummary extends Entity
         $this->_propDict["failedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the failedUserCount
     * Number of Users that have 1 or more device that failed to install this book.
     *
-    * @return int The failedUserCount
+    * @return int|null The failedUserCount
     */
     public function getFailedUserCount()
     {
@@ -67,7 +67,7 @@ class EBookInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedUserCount
     * Number of Users that have 1 or more device that failed to install this book.
@@ -81,12 +81,12 @@ class EBookInstallSummary extends Entity
         $this->_propDict["failedUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the installedDeviceCount
     * Number of Devices that have successfully installed this book.
     *
-    * @return int The installedDeviceCount
+    * @return int|null The installedDeviceCount
     */
     public function getInstalledDeviceCount()
     {
@@ -96,7 +96,7 @@ class EBookInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedDeviceCount
     * Number of Devices that have successfully installed this book.
@@ -110,12 +110,12 @@ class EBookInstallSummary extends Entity
         $this->_propDict["installedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the installedUserCount
     * Number of Users whose devices have all succeeded to install this book.
     *
-    * @return int The installedUserCount
+    * @return int|null The installedUserCount
     */
     public function getInstalledUserCount()
     {
@@ -125,7 +125,7 @@ class EBookInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedUserCount
     * Number of Users whose devices have all succeeded to install this book.
@@ -139,12 +139,12 @@ class EBookInstallSummary extends Entity
         $this->_propDict["installedUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notInstalledDeviceCount
     * Number of Devices that does not have this book installed.
     *
-    * @return int The notInstalledDeviceCount
+    * @return int|null The notInstalledDeviceCount
     */
     public function getNotInstalledDeviceCount()
     {
@@ -154,7 +154,7 @@ class EBookInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notInstalledDeviceCount
     * Number of Devices that does not have this book installed.
@@ -168,12 +168,12 @@ class EBookInstallSummary extends Entity
         $this->_propDict["notInstalledDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notInstalledUserCount
     * Number of Users that did not install this book.
     *
-    * @return int The notInstalledUserCount
+    * @return int|null The notInstalledUserCount
     */
     public function getNotInstalledUserCount()
     {
@@ -183,7 +183,7 @@ class EBookInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notInstalledUserCount
     * Number of Users that did not install this book.
@@ -197,5 +197,5 @@ class EBookInstallSummary extends Entity
         $this->_propDict["notInstalledUserCount"] = intval($val);
         return $this;
     }
-    
+
 }

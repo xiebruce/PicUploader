@@ -28,7 +28,7 @@ class TermsAndConditionsGroupAssignment extends Entity
     * Gets the targetGroupId
     * Unique identifier of a group that the T&amp;C policy is assigned to.
     *
-    * @return string The targetGroupId
+    * @return string|null The targetGroupId
     */
     public function getTargetGroupId()
     {
@@ -38,7 +38,7 @@ class TermsAndConditionsGroupAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetGroupId
     * Unique identifier of a group that the T&amp;C policy is assigned to.
@@ -52,17 +52,17 @@ class TermsAndConditionsGroupAssignment extends Entity
         $this->_propDict["targetGroupId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the termsAndConditions
     * Navigation link to the terms and conditions that are assigned.
     *
-    * @return TermsAndConditions The termsAndConditions
+    * @return TermsAndConditions|null The termsAndConditions
     */
     public function getTermsAndConditions()
     {
         if (array_key_exists("termsAndConditions", $this->_propDict)) {
-            if (is_a($this->_propDict["termsAndConditions"], "\Beta\Microsoft\Graph\Model\TermsAndConditions")) {
+            if (is_a($this->_propDict["termsAndConditions"], "\Beta\Microsoft\Graph\Model\TermsAndConditions") || is_null($this->_propDict["termsAndConditions"])) {
                 return $this->_propDict["termsAndConditions"];
             } else {
                 $this->_propDict["termsAndConditions"] = new TermsAndConditions($this->_propDict["termsAndConditions"]);
@@ -71,7 +71,7 @@ class TermsAndConditionsGroupAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the termsAndConditions
     * Navigation link to the terms and conditions that are assigned.
@@ -85,5 +85,5 @@ class TermsAndConditionsGroupAssignment extends Entity
         $this->_propDict["termsAndConditions"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class RemoteItem extends Entity
     * Gets the createdBy
     * Identity of the user, device, and application which created the item. Read-only.
     *
-    * @return IdentitySet The createdBy
+    * @return IdentitySet|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -61,12 +61,12 @@ class RemoteItem extends Entity
     * Gets the createdDateTime
     * Date and time of item creation. Read-only.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -94,12 +94,12 @@ class RemoteItem extends Entity
     * Gets the file
     * Indicates that the remote item is a file. Read-only.
     *
-    * @return File The file
+    * @return File|null The file
     */
     public function getFile()
     {
         if (array_key_exists("file", $this->_propDict)) {
-            if (is_a($this->_propDict["file"], "\Microsoft\Graph\Model\File")) {
+            if (is_a($this->_propDict["file"], "\Microsoft\Graph\Model\File") || is_null($this->_propDict["file"])) {
                 return $this->_propDict["file"];
             } else {
                 $this->_propDict["file"] = new File($this->_propDict["file"]);
@@ -127,12 +127,12 @@ class RemoteItem extends Entity
     * Gets the fileSystemInfo
     * Information about the remote item from the local file system. Read-only.
     *
-    * @return FileSystemInfo The fileSystemInfo
+    * @return FileSystemInfo|null The fileSystemInfo
     */
     public function getFileSystemInfo()
     {
         if (array_key_exists("fileSystemInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["fileSystemInfo"], "\Microsoft\Graph\Model\FileSystemInfo")) {
+            if (is_a($this->_propDict["fileSystemInfo"], "\Microsoft\Graph\Model\FileSystemInfo") || is_null($this->_propDict["fileSystemInfo"])) {
                 return $this->_propDict["fileSystemInfo"];
             } else {
                 $this->_propDict["fileSystemInfo"] = new FileSystemInfo($this->_propDict["fileSystemInfo"]);
@@ -160,12 +160,12 @@ class RemoteItem extends Entity
     * Gets the folder
     * Indicates that the remote item is a folder. Read-only.
     *
-    * @return Folder The folder
+    * @return Folder|null The folder
     */
     public function getFolder()
     {
         if (array_key_exists("folder", $this->_propDict)) {
-            if (is_a($this->_propDict["folder"], "\Microsoft\Graph\Model\Folder")) {
+            if (is_a($this->_propDict["folder"], "\Microsoft\Graph\Model\Folder") || is_null($this->_propDict["folder"])) {
                 return $this->_propDict["folder"];
             } else {
                 $this->_propDict["folder"] = new Folder($this->_propDict["folder"]);
@@ -192,7 +192,7 @@ class RemoteItem extends Entity
     * Gets the id
     * Unique identifier for the remote item in its drive. Read-only.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -221,12 +221,12 @@ class RemoteItem extends Entity
     * Gets the image
     * Image metadata, if the item is an image. Read-only.
     *
-    * @return Image The image
+    * @return Image|null The image
     */
     public function getImage()
     {
         if (array_key_exists("image", $this->_propDict)) {
-            if (is_a($this->_propDict["image"], "\Microsoft\Graph\Model\Image")) {
+            if (is_a($this->_propDict["image"], "\Microsoft\Graph\Model\Image") || is_null($this->_propDict["image"])) {
                 return $this->_propDict["image"];
             } else {
                 $this->_propDict["image"] = new Image($this->_propDict["image"]);
@@ -254,12 +254,12 @@ class RemoteItem extends Entity
     * Gets the lastModifiedBy
     * Identity of the user, device, and application which last modified the item. Read-only.
     *
-    * @return IdentitySet The lastModifiedBy
+    * @return IdentitySet|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -287,12 +287,12 @@ class RemoteItem extends Entity
     * Gets the lastModifiedDateTime
     * Date and time the item was last modified. Read-only.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -319,7 +319,7 @@ class RemoteItem extends Entity
     * Gets the name
     * Optional. Filename of the remote item. Read-only.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -348,12 +348,12 @@ class RemoteItem extends Entity
     * Gets the package
     * If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
     *
-    * @return Package The package
+    * @return Package|null The package
     */
     public function getPackage()
     {
         if (array_key_exists("package", $this->_propDict)) {
-            if (is_a($this->_propDict["package"], "\Microsoft\Graph\Model\Package")) {
+            if (is_a($this->_propDict["package"], "\Microsoft\Graph\Model\Package") || is_null($this->_propDict["package"])) {
                 return $this->_propDict["package"];
             } else {
                 $this->_propDict["package"] = new Package($this->_propDict["package"]);
@@ -381,12 +381,12 @@ class RemoteItem extends Entity
     * Gets the parentReference
     * Properties of the parent of the remote item. Read-only.
     *
-    * @return ItemReference The parentReference
+    * @return ItemReference|null The parentReference
     */
     public function getParentReference()
     {
         if (array_key_exists("parentReference", $this->_propDict)) {
-            if (is_a($this->_propDict["parentReference"], "\Microsoft\Graph\Model\ItemReference")) {
+            if (is_a($this->_propDict["parentReference"], "\Microsoft\Graph\Model\ItemReference") || is_null($this->_propDict["parentReference"])) {
                 return $this->_propDict["parentReference"];
             } else {
                 $this->_propDict["parentReference"] = new ItemReference($this->_propDict["parentReference"]);
@@ -414,12 +414,12 @@ class RemoteItem extends Entity
     * Gets the shared
     * Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.
     *
-    * @return Shared The shared
+    * @return Shared|null The shared
     */
     public function getShared()
     {
         if (array_key_exists("shared", $this->_propDict)) {
-            if (is_a($this->_propDict["shared"], "\Microsoft\Graph\Model\Shared")) {
+            if (is_a($this->_propDict["shared"], "\Microsoft\Graph\Model\Shared") || is_null($this->_propDict["shared"])) {
                 return $this->_propDict["shared"];
             } else {
                 $this->_propDict["shared"] = new Shared($this->_propDict["shared"]);
@@ -447,12 +447,12 @@ class RemoteItem extends Entity
     * Gets the sharepointIds
     * Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.
     *
-    * @return SharepointIds The sharepointIds
+    * @return SharepointIds|null The sharepointIds
     */
     public function getSharepointIds()
     {
         if (array_key_exists("sharepointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharepointIds"], "\Microsoft\Graph\Model\SharepointIds")) {
+            if (is_a($this->_propDict["sharepointIds"], "\Microsoft\Graph\Model\SharepointIds") || is_null($this->_propDict["sharepointIds"])) {
                 return $this->_propDict["sharepointIds"];
             } else {
                 $this->_propDict["sharepointIds"] = new SharepointIds($this->_propDict["sharepointIds"]);
@@ -479,7 +479,7 @@ class RemoteItem extends Entity
     * Gets the size
     * Size of the remote item. Read-only.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {
@@ -508,12 +508,12 @@ class RemoteItem extends Entity
     * Gets the specialFolder
     * If the current item is also available as a special folder, this facet is returned. Read-only.
     *
-    * @return SpecialFolder The specialFolder
+    * @return SpecialFolder|null The specialFolder
     */
     public function getSpecialFolder()
     {
         if (array_key_exists("specialFolder", $this->_propDict)) {
-            if (is_a($this->_propDict["specialFolder"], "\Microsoft\Graph\Model\SpecialFolder")) {
+            if (is_a($this->_propDict["specialFolder"], "\Microsoft\Graph\Model\SpecialFolder") || is_null($this->_propDict["specialFolder"])) {
                 return $this->_propDict["specialFolder"];
             } else {
                 $this->_propDict["specialFolder"] = new SpecialFolder($this->_propDict["specialFolder"]);
@@ -541,12 +541,12 @@ class RemoteItem extends Entity
     * Gets the video
     * Video metadata, if the item is a video. Read-only.
     *
-    * @return Video The video
+    * @return Video|null The video
     */
     public function getVideo()
     {
         if (array_key_exists("video", $this->_propDict)) {
-            if (is_a($this->_propDict["video"], "\Microsoft\Graph\Model\Video")) {
+            if (is_a($this->_propDict["video"], "\Microsoft\Graph\Model\Video") || is_null($this->_propDict["video"])) {
                 return $this->_propDict["video"];
             } else {
                 $this->_propDict["video"] = new Video($this->_propDict["video"]);
@@ -573,7 +573,7 @@ class RemoteItem extends Entity
     * Gets the webDavUrl
     * DAV compatible URL for the item.
     *
-    * @return string The webDavUrl
+    * @return string|null The webDavUrl
     */
     public function getWebDavUrl()
     {
@@ -601,7 +601,7 @@ class RemoteItem extends Entity
     * Gets the webUrl
     * URL that displays the resource in the browser. Read-only.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {

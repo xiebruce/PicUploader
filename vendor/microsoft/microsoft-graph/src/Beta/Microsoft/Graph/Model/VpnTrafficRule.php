@@ -27,7 +27,7 @@ class VpnTrafficRule extends Entity
     * Gets the appId
     * App identifier, if this traffic rule is triggered by an app.
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -56,12 +56,12 @@ class VpnTrafficRule extends Entity
     * Gets the appType
     * App type, if this traffic rule is triggered by an app. Possible values are: none, desktop, universal.
     *
-    * @return VpnTrafficRuleAppType The appType
+    * @return VpnTrafficRuleAppType|null The appType
     */
     public function getAppType()
     {
         if (array_key_exists("appType", $this->_propDict)) {
-            if (is_a($this->_propDict["appType"], "\Beta\Microsoft\Graph\Model\VpnTrafficRuleAppType")) {
+            if (is_a($this->_propDict["appType"], "\Beta\Microsoft\Graph\Model\VpnTrafficRuleAppType") || is_null($this->_propDict["appType"])) {
                 return $this->_propDict["appType"];
             } else {
                 $this->_propDict["appType"] = new VpnTrafficRuleAppType($this->_propDict["appType"]);
@@ -88,7 +88,7 @@ class VpnTrafficRule extends Entity
     * Gets the claims
     * Claims associated with this traffic rule.
     *
-    * @return string The claims
+    * @return string|null The claims
     */
     public function getClaims()
     {
@@ -117,12 +117,12 @@ class VpnTrafficRule extends Entity
     * Gets the localAddressRanges
     * Local address range. This collection can contain a maximum of 500 elements.
     *
-    * @return IPv4Range The localAddressRanges
+    * @return IPv4Range|null The localAddressRanges
     */
     public function getLocalAddressRanges()
     {
         if (array_key_exists("localAddressRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["localAddressRanges"], "\Beta\Microsoft\Graph\Model\IPv4Range")) {
+            if (is_a($this->_propDict["localAddressRanges"], "\Beta\Microsoft\Graph\Model\IPv4Range") || is_null($this->_propDict["localAddressRanges"])) {
                 return $this->_propDict["localAddressRanges"];
             } else {
                 $this->_propDict["localAddressRanges"] = new IPv4Range($this->_propDict["localAddressRanges"]);
@@ -150,12 +150,12 @@ class VpnTrafficRule extends Entity
     * Gets the localPortRanges
     * Local port range can be set only when protocol is either TCP or UDP (6 or 17). This collection can contain a maximum of 500 elements.
     *
-    * @return NumberRange The localPortRanges
+    * @return NumberRange|null The localPortRanges
     */
     public function getLocalPortRanges()
     {
         if (array_key_exists("localPortRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["localPortRanges"], "\Beta\Microsoft\Graph\Model\NumberRange")) {
+            if (is_a($this->_propDict["localPortRanges"], "\Beta\Microsoft\Graph\Model\NumberRange") || is_null($this->_propDict["localPortRanges"])) {
                 return $this->_propDict["localPortRanges"];
             } else {
                 $this->_propDict["localPortRanges"] = new NumberRange($this->_propDict["localPortRanges"]);
@@ -182,7 +182,7 @@ class VpnTrafficRule extends Entity
     * Gets the name
     * Name.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -210,7 +210,7 @@ class VpnTrafficRule extends Entity
     * Gets the protocols
     * Protocols (0-255). Valid values 0 to 255
     *
-    * @return int The protocols
+    * @return int|null The protocols
     */
     public function getProtocols()
     {
@@ -239,12 +239,12 @@ class VpnTrafficRule extends Entity
     * Gets the remoteAddressRanges
     * Remote address range. This collection can contain a maximum of 500 elements.
     *
-    * @return IPv4Range The remoteAddressRanges
+    * @return IPv4Range|null The remoteAddressRanges
     */
     public function getRemoteAddressRanges()
     {
         if (array_key_exists("remoteAddressRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["remoteAddressRanges"], "\Beta\Microsoft\Graph\Model\IPv4Range")) {
+            if (is_a($this->_propDict["remoteAddressRanges"], "\Beta\Microsoft\Graph\Model\IPv4Range") || is_null($this->_propDict["remoteAddressRanges"])) {
                 return $this->_propDict["remoteAddressRanges"];
             } else {
                 $this->_propDict["remoteAddressRanges"] = new IPv4Range($this->_propDict["remoteAddressRanges"]);
@@ -272,12 +272,12 @@ class VpnTrafficRule extends Entity
     * Gets the remotePortRanges
     * Remote port range can be set only when protocol is either TCP or UDP (6 or 17). This collection can contain a maximum of 500 elements.
     *
-    * @return NumberRange The remotePortRanges
+    * @return NumberRange|null The remotePortRanges
     */
     public function getRemotePortRanges()
     {
         if (array_key_exists("remotePortRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["remotePortRanges"], "\Beta\Microsoft\Graph\Model\NumberRange")) {
+            if (is_a($this->_propDict["remotePortRanges"], "\Beta\Microsoft\Graph\Model\NumberRange") || is_null($this->_propDict["remotePortRanges"])) {
                 return $this->_propDict["remotePortRanges"];
             } else {
                 $this->_propDict["remotePortRanges"] = new NumberRange($this->_propDict["remotePortRanges"]);
@@ -305,12 +305,12 @@ class VpnTrafficRule extends Entity
     * Gets the routingPolicyType
     * When app triggered, indicates whether to enable split tunneling along this route. Possible values are: none, splitTunnel, forceTunnel.
     *
-    * @return VpnTrafficRuleRoutingPolicyType The routingPolicyType
+    * @return VpnTrafficRuleRoutingPolicyType|null The routingPolicyType
     */
     public function getRoutingPolicyType()
     {
         if (array_key_exists("routingPolicyType", $this->_propDict)) {
-            if (is_a($this->_propDict["routingPolicyType"], "\Beta\Microsoft\Graph\Model\VpnTrafficRuleRoutingPolicyType")) {
+            if (is_a($this->_propDict["routingPolicyType"], "\Beta\Microsoft\Graph\Model\VpnTrafficRuleRoutingPolicyType") || is_null($this->_propDict["routingPolicyType"])) {
                 return $this->_propDict["routingPolicyType"];
             } else {
                 $this->_propDict["routingPolicyType"] = new VpnTrafficRuleRoutingPolicyType($this->_propDict["routingPolicyType"]);

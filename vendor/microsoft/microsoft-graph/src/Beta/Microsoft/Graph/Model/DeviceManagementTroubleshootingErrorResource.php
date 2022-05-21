@@ -27,7 +27,7 @@ class DeviceManagementTroubleshootingErrorResource extends Entity
     * Gets the link
     * The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
     *
-    * @return string The link
+    * @return string|null The link
     */
     public function getLink()
     {
@@ -55,7 +55,7 @@ class DeviceManagementTroubleshootingErrorResource extends Entity
     * Gets the text
     * Not yet documented
     *
-    * @return string The text
+    * @return string|null The text
     */
     public function getText()
     {

@@ -27,12 +27,12 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
     /**
     * Gets the classificationAttributes
     *
-    * @return ClassificationAttribute The classificationAttributes
+    * @return ClassificationAttribute|null The classificationAttributes
     */
     public function getClassificationAttributes()
     {
         if (array_key_exists("classificationAttributes", $this->_propDict)) {
-            if (is_a($this->_propDict["classificationAttributes"], "\Beta\Microsoft\Graph\Model\ClassificationAttribute")) {
+            if (is_a($this->_propDict["classificationAttributes"], "\Beta\Microsoft\Graph\Model\ClassificationAttribute") || is_null($this->_propDict["classificationAttributes"])) {
                 return $this->_propDict["classificationAttributes"];
             } else {
                 $this->_propDict["classificationAttributes"] = new ClassificationAttribute($this->_propDict["classificationAttributes"]);
@@ -58,12 +58,12 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
     /**
     * Gets the classificationMethod
     *
-    * @return ClassificationMethod The classificationMethod
+    * @return ClassificationMethod|null The classificationMethod
     */
     public function getClassificationMethod()
     {
         if (array_key_exists("classificationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["classificationMethod"], "\Beta\Microsoft\Graph\Model\ClassificationMethod")) {
+            if (is_a($this->_propDict["classificationMethod"], "\Beta\Microsoft\Graph\Model\ClassificationMethod") || is_null($this->_propDict["classificationMethod"])) {
                 return $this->_propDict["classificationMethod"];
             } else {
                 $this->_propDict["classificationMethod"] = new ClassificationMethod($this->_propDict["classificationMethod"]);
@@ -89,12 +89,12 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
     /**
     * Gets the matches
     *
-    * @return SensitiveContentLocation The matches
+    * @return SensitiveContentLocation|null The matches
     */
     public function getMatches()
     {
         if (array_key_exists("matches", $this->_propDict)) {
-            if (is_a($this->_propDict["matches"], "\Beta\Microsoft\Graph\Model\SensitiveContentLocation")) {
+            if (is_a($this->_propDict["matches"], "\Beta\Microsoft\Graph\Model\SensitiveContentLocation") || is_null($this->_propDict["matches"])) {
                 return $this->_propDict["matches"];
             } else {
                 $this->_propDict["matches"] = new SensitiveContentLocation($this->_propDict["matches"]);
@@ -120,12 +120,12 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
     /**
     * Gets the scope
     *
-    * @return SensitiveTypeScope The scope
+    * @return SensitiveTypeScope|null The scope
     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\SensitiveTypeScope")) {
+            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\SensitiveTypeScope") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new SensitiveTypeScope($this->_propDict["scope"]);
@@ -151,12 +151,12 @@ class DetectedSensitiveContent extends DetectedSensitiveContentBase
     /**
     * Gets the sensitiveTypeSource
     *
-    * @return SensitiveTypeSource The sensitiveTypeSource
+    * @return SensitiveTypeSource|null The sensitiveTypeSource
     */
     public function getSensitiveTypeSource()
     {
         if (array_key_exists("sensitiveTypeSource", $this->_propDict)) {
-            if (is_a($this->_propDict["sensitiveTypeSource"], "\Beta\Microsoft\Graph\Model\SensitiveTypeSource")) {
+            if (is_a($this->_propDict["sensitiveTypeSource"], "\Beta\Microsoft\Graph\Model\SensitiveTypeSource") || is_null($this->_propDict["sensitiveTypeSource"])) {
                 return $this->_propDict["sensitiveTypeSource"];
             } else {
                 $this->_propDict["sensitiveTypeSource"] = new SensitiveTypeSource($this->_propDict["sensitiveTypeSource"]);

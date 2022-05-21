@@ -28,7 +28,7 @@ class AccessPackageResourceRoleScope extends Entity
     * Gets the createdBy
     * Read-only.
     *
-    * @return string The createdBy
+    * @return string|null The createdBy
     */
     public function getCreatedBy()
     {
@@ -38,7 +38,7 @@ class AccessPackageResourceRoleScope extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the createdBy
     * Read-only.
@@ -52,17 +52,17 @@ class AccessPackageResourceRoleScope extends Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -71,7 +71,7 @@ class AccessPackageResourceRoleScope extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -85,12 +85,12 @@ class AccessPackageResourceRoleScope extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the modifiedBy
     * Read-only.
     *
-    * @return string The modifiedBy
+    * @return string|null The modifiedBy
     */
     public function getModifiedBy()
     {
@@ -100,7 +100,7 @@ class AccessPackageResourceRoleScope extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the modifiedBy
     * Read-only.
@@ -114,17 +114,17 @@ class AccessPackageResourceRoleScope extends Entity
         $this->_propDict["modifiedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the modifiedDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The modifiedDateTime
+    * @return \DateTime|null The modifiedDateTime
     */
     public function getModifiedDateTime()
     {
         if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -133,7 +133,7 @@ class AccessPackageResourceRoleScope extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the modifiedDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -147,17 +147,17 @@ class AccessPackageResourceRoleScope extends Entity
         $this->_propDict["modifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageResourceRole
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
     *
-    * @return AccessPackageResourceRole The accessPackageResourceRole
+    * @return AccessPackageResourceRole|null The accessPackageResourceRole
     */
     public function getAccessPackageResourceRole()
     {
         if (array_key_exists("accessPackageResourceRole", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole")) {
+            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole") || is_null($this->_propDict["accessPackageResourceRole"])) {
                 return $this->_propDict["accessPackageResourceRole"];
             } else {
                 $this->_propDict["accessPackageResourceRole"] = new AccessPackageResourceRole($this->_propDict["accessPackageResourceRole"]);
@@ -166,10 +166,10 @@ class AccessPackageResourceRoleScope extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageResourceRole
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $expand.
     *
     * @param AccessPackageResourceRole $val The accessPackageResourceRole
     *
@@ -180,17 +180,17 @@ class AccessPackageResourceRoleScope extends Entity
         $this->_propDict["accessPackageResourceRole"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageResourceScope
     * Read-only. Nullable.
     *
-    * @return AccessPackageResourceScope The accessPackageResourceScope
+    * @return AccessPackageResourceScope|null The accessPackageResourceScope
     */
     public function getAccessPackageResourceScope()
     {
         if (array_key_exists("accessPackageResourceScope", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope")) {
+            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope") || is_null($this->_propDict["accessPackageResourceScope"])) {
                 return $this->_propDict["accessPackageResourceScope"];
             } else {
                 $this->_propDict["accessPackageResourceScope"] = new AccessPackageResourceScope($this->_propDict["accessPackageResourceScope"]);
@@ -199,7 +199,7 @@ class AccessPackageResourceRoleScope extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageResourceScope
     * Read-only. Nullable.
@@ -213,5 +213,5 @@ class AccessPackageResourceRoleScope extends Entity
         $this->_propDict["accessPackageResourceScope"] = $val;
         return $this;
     }
-    
+
 }

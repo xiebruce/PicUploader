@@ -28,12 +28,12 @@ class FilterGroup extends Entity
     * Gets the clauses
     * Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
     *
-    * @return FilterClause The clauses
+    * @return FilterClause|null The clauses
     */
     public function getClauses()
     {
         if (array_key_exists("clauses", $this->_propDict)) {
-            if (is_a($this->_propDict["clauses"], "\Beta\Microsoft\Graph\Model\FilterClause")) {
+            if (is_a($this->_propDict["clauses"], "\Beta\Microsoft\Graph\Model\FilterClause") || is_null($this->_propDict["clauses"])) {
                 return $this->_propDict["clauses"];
             } else {
                 $this->_propDict["clauses"] = new FilterClause($this->_propDict["clauses"]);
@@ -60,7 +60,7 @@ class FilterGroup extends Entity
     * Gets the name
     * Human-readable name of the filter group.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

@@ -28,12 +28,12 @@ class ShiftItem extends ScheduleEntity
     * Gets the activities
     * An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
     *
-    * @return ShiftActivity The activities
+    * @return ShiftActivity|null The activities
     */
     public function getActivities()
     {
         if (array_key_exists("activities", $this->_propDict)) {
-            if (is_a($this->_propDict["activities"], "\Microsoft\Graph\Model\ShiftActivity")) {
+            if (is_a($this->_propDict["activities"], "\Microsoft\Graph\Model\ShiftActivity") || is_null($this->_propDict["activities"])) {
                 return $this->_propDict["activities"];
             } else {
                 $this->_propDict["activities"] = new ShiftActivity($this->_propDict["activities"]);
@@ -60,7 +60,7 @@ class ShiftItem extends ScheduleEntity
     * Gets the displayName
     * The shift label of the shiftItem.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -88,7 +88,7 @@ class ShiftItem extends ScheduleEntity
     * Gets the notes
     * The shift notes for the shiftItem.
     *
-    * @return string The notes
+    * @return string|null The notes
     */
     public function getNotes()
     {

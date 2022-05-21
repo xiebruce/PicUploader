@@ -27,7 +27,7 @@ class MacOSAssociatedDomainsItem extends Entity
     * Gets the applicationIdentifier
     * The application identifier of the app to associate domains with.
     *
-    * @return string The applicationIdentifier
+    * @return string|null The applicationIdentifier
     */
     public function getApplicationIdentifier()
     {
@@ -55,7 +55,7 @@ class MacOSAssociatedDomainsItem extends Entity
     * Gets the directDownloadsEnabled
     * Determines whether data should be downloaded directly or via a CDN.
     *
-    * @return bool The directDownloadsEnabled
+    * @return bool|null The directDownloadsEnabled
     */
     public function getDirectDownloadsEnabled()
     {
@@ -83,7 +83,7 @@ class MacOSAssociatedDomainsItem extends Entity
     * Gets the domains
     * The list of domains to associate.
     *
-    * @return string The domains
+    * @return string|null The domains
     */
     public function getDomains()
     {

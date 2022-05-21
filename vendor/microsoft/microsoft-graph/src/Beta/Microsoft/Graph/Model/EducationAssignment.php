@@ -28,12 +28,12 @@ class EducationAssignment extends Entity
     * Gets the addedStudentAction
     * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
     *
-    * @return EducationAddedStudentAction The addedStudentAction
+    * @return EducationAddedStudentAction|null The addedStudentAction
     */
     public function getAddedStudentAction()
     {
         if (array_key_exists("addedStudentAction", $this->_propDict)) {
-            if (is_a($this->_propDict["addedStudentAction"], "\Beta\Microsoft\Graph\Model\EducationAddedStudentAction")) {
+            if (is_a($this->_propDict["addedStudentAction"], "\Beta\Microsoft\Graph\Model\EducationAddedStudentAction") || is_null($this->_propDict["addedStudentAction"])) {
                 return $this->_propDict["addedStudentAction"];
             } else {
                 $this->_propDict["addedStudentAction"] = new EducationAddedStudentAction($this->_propDict["addedStudentAction"]);
@@ -42,7 +42,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the addedStudentAction
     * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
@@ -56,12 +56,45 @@ class EducationAssignment extends Entity
         $this->_propDict["addedStudentAction"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the addToCalendarAction
+    * Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
+    *
+    * @return EducationAddToCalendarOptions|null The addToCalendarAction
+    */
+    public function getAddToCalendarAction()
+    {
+        if (array_key_exists("addToCalendarAction", $this->_propDict)) {
+            if (is_a($this->_propDict["addToCalendarAction"], "\Beta\Microsoft\Graph\Model\EducationAddToCalendarOptions") || is_null($this->_propDict["addToCalendarAction"])) {
+                return $this->_propDict["addToCalendarAction"];
+            } else {
+                $this->_propDict["addToCalendarAction"] = new EducationAddToCalendarOptions($this->_propDict["addToCalendarAction"]);
+                return $this->_propDict["addToCalendarAction"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the addToCalendarAction
+    * Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.
+    *
+    * @param EducationAddToCalendarOptions $val The addToCalendarAction
+    *
+    * @return EducationAssignment
+    */
+    public function setAddToCalendarAction($val)
+    {
+        $this->_propDict["addToCalendarAction"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the allowLateSubmissions
     * Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
     *
-    * @return bool The allowLateSubmissions
+    * @return bool|null The allowLateSubmissions
     */
     public function getAllowLateSubmissions()
     {
@@ -71,7 +104,7 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the allowLateSubmissions
     * Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
@@ -85,12 +118,12 @@ class EducationAssignment extends Entity
         $this->_propDict["allowLateSubmissions"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the allowStudentsToAddResourcesToSubmission
     * Identifies whether students can add their own resources to a submission or if they can only modify resources added by the teacher.
     *
-    * @return bool The allowStudentsToAddResourcesToSubmission
+    * @return bool|null The allowStudentsToAddResourcesToSubmission
     */
     public function getAllowStudentsToAddResourcesToSubmission()
     {
@@ -100,7 +133,7 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the allowStudentsToAddResourcesToSubmission
     * Identifies whether students can add their own resources to a submission or if they can only modify resources added by the teacher.
@@ -114,17 +147,17 @@ class EducationAssignment extends Entity
         $this->_propDict["allowStudentsToAddResourcesToSubmission"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the assignDateTime
     * The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The assignDateTime
+    * @return \DateTime|null The assignDateTime
     */
     public function getAssignDateTime()
     {
         if (array_key_exists("assignDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["assignDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["assignDateTime"], "\DateTime") || is_null($this->_propDict["assignDateTime"])) {
                 return $this->_propDict["assignDateTime"];
             } else {
                 $this->_propDict["assignDateTime"] = new \DateTime($this->_propDict["assignDateTime"]);
@@ -133,7 +166,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the assignDateTime
     * The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -147,17 +180,17 @@ class EducationAssignment extends Entity
         $this->_propDict["assignDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the assignedDateTime
     * The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The assignedDateTime
+    * @return \DateTime|null The assignedDateTime
     */
     public function getAssignedDateTime()
     {
         if (array_key_exists("assignedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["assignedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["assignedDateTime"], "\DateTime") || is_null($this->_propDict["assignedDateTime"])) {
                 return $this->_propDict["assignedDateTime"];
             } else {
                 $this->_propDict["assignedDateTime"] = new \DateTime($this->_propDict["assignedDateTime"]);
@@ -166,7 +199,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the assignedDateTime
     * The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -180,17 +213,17 @@ class EducationAssignment extends Entity
         $this->_propDict["assignedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the assignTo
     * Which users, or whole class should receive a submission object once the assignment is published.
     *
-    * @return EducationAssignmentRecipient The assignTo
+    * @return EducationAssignmentRecipient|null The assignTo
     */
     public function getAssignTo()
     {
         if (array_key_exists("assignTo", $this->_propDict)) {
-            if (is_a($this->_propDict["assignTo"], "\Beta\Microsoft\Graph\Model\EducationAssignmentRecipient")) {
+            if (is_a($this->_propDict["assignTo"], "\Beta\Microsoft\Graph\Model\EducationAssignmentRecipient") || is_null($this->_propDict["assignTo"])) {
                 return $this->_propDict["assignTo"];
             } else {
                 $this->_propDict["assignTo"] = new EducationAssignmentRecipient($this->_propDict["assignTo"]);
@@ -199,7 +232,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the assignTo
     * Which users, or whole class should receive a submission object once the assignment is published.
@@ -213,12 +246,12 @@ class EducationAssignment extends Entity
         $this->_propDict["assignTo"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the classId
     * Class which this assignment belongs.
     *
-    * @return string The classId
+    * @return string|null The classId
     */
     public function getClassId()
     {
@@ -228,7 +261,7 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the classId
     * Class which this assignment belongs.
@@ -242,17 +275,17 @@ class EducationAssignment extends Entity
         $this->_propDict["classId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the closeDateTime
     * Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The closeDateTime
+    * @return \DateTime|null The closeDateTime
     */
     public function getCloseDateTime()
     {
         if (array_key_exists("closeDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["closeDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["closeDateTime"], "\DateTime") || is_null($this->_propDict["closeDateTime"])) {
                 return $this->_propDict["closeDateTime"];
             } else {
                 $this->_propDict["closeDateTime"] = new \DateTime($this->_propDict["closeDateTime"]);
@@ -261,7 +294,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the closeDateTime
     * Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -275,17 +308,17 @@ class EducationAssignment extends Entity
         $this->_propDict["closeDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdBy
     * Who created the assignment.
     *
-    * @return IdentitySet The createdBy
+    * @return IdentitySet|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -294,7 +327,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdBy
     * Who created the assignment.
@@ -308,17 +341,17 @@ class EducationAssignment extends Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -327,7 +360,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -341,12 +374,12 @@ class EducationAssignment extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Name of the assignment.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -356,7 +389,7 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Name of the assignment.
@@ -370,17 +403,17 @@ class EducationAssignment extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dueDateTime
     * Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The dueDateTime
+    * @return \DateTime|null The dueDateTime
     */
     public function getDueDateTime()
     {
         if (array_key_exists("dueDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dueDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["dueDateTime"], "\DateTime") || is_null($this->_propDict["dueDateTime"])) {
                 return $this->_propDict["dueDateTime"];
             } else {
                 $this->_propDict["dueDateTime"] = new \DateTime($this->_propDict["dueDateTime"]);
@@ -389,7 +422,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the dueDateTime
     * Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -403,17 +436,17 @@ class EducationAssignment extends Entity
         $this->_propDict["dueDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the grading
     * How the assignment will be graded.
     *
-    * @return EducationAssignmentGradeType The grading
+    * @return EducationAssignmentGradeType|null The grading
     */
     public function getGrading()
     {
         if (array_key_exists("grading", $this->_propDict)) {
-            if (is_a($this->_propDict["grading"], "\Beta\Microsoft\Graph\Model\EducationAssignmentGradeType")) {
+            if (is_a($this->_propDict["grading"], "\Beta\Microsoft\Graph\Model\EducationAssignmentGradeType") || is_null($this->_propDict["grading"])) {
                 return $this->_propDict["grading"];
             } else {
                 $this->_propDict["grading"] = new EducationAssignmentGradeType($this->_propDict["grading"]);
@@ -422,7 +455,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the grading
     * How the assignment will be graded.
@@ -436,17 +469,17 @@ class EducationAssignment extends Entity
         $this->_propDict["grading"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the instructions
     * Instructions for the assignment.  This along with the display name tell the student what to do.
     *
-    * @return EducationItemBody The instructions
+    * @return EducationItemBody|null The instructions
     */
     public function getInstructions()
     {
         if (array_key_exists("instructions", $this->_propDict)) {
-            if (is_a($this->_propDict["instructions"], "\Beta\Microsoft\Graph\Model\EducationItemBody")) {
+            if (is_a($this->_propDict["instructions"], "\Beta\Microsoft\Graph\Model\EducationItemBody") || is_null($this->_propDict["instructions"])) {
                 return $this->_propDict["instructions"];
             } else {
                 $this->_propDict["instructions"] = new EducationItemBody($this->_propDict["instructions"]);
@@ -455,7 +488,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the instructions
     * Instructions for the assignment.  This along with the display name tell the student what to do.
@@ -469,17 +502,17 @@ class EducationAssignment extends Entity
         $this->_propDict["instructions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedBy
     * Who last modified the assignment.
     *
-    * @return IdentitySet The lastModifiedBy
+    * @return IdentitySet|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -488,7 +521,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedBy
     * Who last modified the assignment.
@@ -502,17 +535,17 @@ class EducationAssignment extends Entity
         $this->_propDict["lastModifiedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -521,7 +554,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -535,12 +568,12 @@ class EducationAssignment extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the notificationChannelUrl
     * Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
     *
-    * @return string The notificationChannelUrl
+    * @return string|null The notificationChannelUrl
     */
     public function getNotificationChannelUrl()
     {
@@ -550,7 +583,7 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notificationChannelUrl
     * Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
@@ -564,17 +597,46 @@ class EducationAssignment extends Entity
         $this->_propDict["notificationChannelUrl"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the resourcesFolderUrl
+    * Folder URL where all the file resources for this assignment are stored.
+    *
+    * @return string|null The resourcesFolderUrl
+    */
+    public function getResourcesFolderUrl()
+    {
+        if (array_key_exists("resourcesFolderUrl", $this->_propDict)) {
+            return $this->_propDict["resourcesFolderUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the resourcesFolderUrl
+    * Folder URL where all the file resources for this assignment are stored.
+    *
+    * @param string $val The resourcesFolderUrl
+    *
+    * @return EducationAssignment
+    */
+    public function setResourcesFolderUrl($val)
+    {
+        $this->_propDict["resourcesFolderUrl"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the status
     * Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
     *
-    * @return EducationAssignmentStatus The status
+    * @return EducationAssignmentStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\EducationAssignmentStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\EducationAssignmentStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new EducationAssignmentStatus($this->_propDict["status"]);
@@ -583,7 +645,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
@@ -597,13 +659,42 @@ class EducationAssignment extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
 
-     /** 
+    /**
+    * Gets the webUrl
+    * The deep link URL for the given assignment.
+    *
+    * @return string|null The webUrl
+    */
+    public function getWebUrl()
+    {
+        if (array_key_exists("webUrl", $this->_propDict)) {
+            return $this->_propDict["webUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the webUrl
+    * The deep link URL for the given assignment.
+    *
+    * @param string $val The webUrl
+    *
+    * @return EducationAssignment
+    */
+    public function setWebUrl($val)
+    {
+        $this->_propDict["webUrl"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the categories
     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
      *
-     * @return array The categories
+     * @return array|null The categories
      */
     public function getCategories()
     {
@@ -613,27 +704,27 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the categories
     * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
     *
-    * @param EducationCategory $val The categories
+    * @param EducationCategory[] $val The categories
     *
     * @return EducationAssignment
     */
     public function setCategories($val)
     {
-		$this->_propDict["categories"] = $val;
+        $this->_propDict["categories"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the resources
     * Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
      *
-     * @return array The resources
+     * @return array|null The resources
      */
     public function getResources()
     {
@@ -643,31 +734,31 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the resources
     * Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.
     *
-    * @param EducationAssignmentResource $val The resources
+    * @param EducationAssignmentResource[] $val The resources
     *
     * @return EducationAssignment
     */
     public function setResources($val)
     {
-		$this->_propDict["resources"] = $val;
+        $this->_propDict["resources"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the rubric
     * When set, the grading rubric attached to this assignment.
     *
-    * @return EducationRubric The rubric
+    * @return EducationRubric|null The rubric
     */
     public function getRubric()
     {
         if (array_key_exists("rubric", $this->_propDict)) {
-            if (is_a($this->_propDict["rubric"], "\Beta\Microsoft\Graph\Model\EducationRubric")) {
+            if (is_a($this->_propDict["rubric"], "\Beta\Microsoft\Graph\Model\EducationRubric") || is_null($this->_propDict["rubric"])) {
                 return $this->_propDict["rubric"];
             } else {
                 $this->_propDict["rubric"] = new EducationRubric($this->_propDict["rubric"]);
@@ -676,7 +767,7 @@ class EducationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the rubric
     * When set, the grading rubric attached to this assignment.
@@ -690,13 +781,13 @@ class EducationAssignment extends Entity
         $this->_propDict["rubric"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the submissions
     * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      *
-     * @return array The submissions
+     * @return array|null The submissions
      */
     public function getSubmissions()
     {
@@ -706,19 +797,19 @@ class EducationAssignment extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the submissions
     * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
     *
-    * @param EducationSubmission $val The submissions
+    * @param EducationSubmission[] $val The submissions
     *
     * @return EducationAssignment
     */
     public function setSubmissions($val)
     {
-		$this->_propDict["submissions"] = $val;
+        $this->_propDict["submissions"] = $val;
         return $this;
     }
-    
+
 }

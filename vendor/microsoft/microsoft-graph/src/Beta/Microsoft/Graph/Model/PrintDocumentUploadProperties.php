@@ -27,7 +27,7 @@ class PrintDocumentUploadProperties extends Entity
     * Gets the contentType
     * The document's content (MIME) type.
     *
-    * @return string The contentType
+    * @return string|null The contentType
     */
     public function getContentType()
     {
@@ -55,7 +55,7 @@ class PrintDocumentUploadProperties extends Entity
     * Gets the documentName
     * The document's name.
     *
-    * @return string The documentName
+    * @return string|null The documentName
     */
     public function getDocumentName()
     {
@@ -83,7 +83,7 @@ class PrintDocumentUploadProperties extends Entity
     * Gets the size
     * The document's size in bytes.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {

@@ -28,7 +28,7 @@ class ExtensionProperty extends DirectoryObject
     * Gets the appDisplayName
     * Display name of the application object on which this extension property is defined. Read-only.
     *
-    * @return string The appDisplayName
+    * @return string|null The appDisplayName
     */
     public function getAppDisplayName()
     {
@@ -38,7 +38,7 @@ class ExtensionProperty extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the appDisplayName
     * Display name of the application object on which this extension property is defined. Read-only.
@@ -52,12 +52,12 @@ class ExtensionProperty extends DirectoryObject
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dataType
     * Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
     *
-    * @return string The dataType
+    * @return string|null The dataType
     */
     public function getDataType()
     {
@@ -67,7 +67,7 @@ class ExtensionProperty extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the dataType
     * Specifies the data type of the value the extension property can hold. Following values are supported. Not nullable. Binary - 256 bytes maximumBooleanDateTime - Must be specified in ISO 8601 format. Will be stored in UTC.Integer - 32-bit value.LargeInteger - 64-bit value.String - 256 characters maximum
@@ -81,12 +81,12 @@ class ExtensionProperty extends DirectoryObject
         $this->_propDict["dataType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isSyncedFromOnPremises
-    * Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.
+    * Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only.
     *
-    * @return bool The isSyncedFromOnPremises
+    * @return bool|null The isSyncedFromOnPremises
     */
     public function getIsSyncedFromOnPremises()
     {
@@ -96,10 +96,10 @@ class ExtensionProperty extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the isSyncedFromOnPremises
-    * Indicates if this extension property was sycned from onpremises directory using Azure AD Connect. Read-only.
+    * Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only.
     *
     * @param bool $val The isSyncedFromOnPremises
     *
@@ -110,12 +110,12 @@ class ExtensionProperty extends DirectoryObject
         $this->_propDict["isSyncedFromOnPremises"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the name
     * Name of the extension property. Not nullable.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -125,7 +125,7 @@ class ExtensionProperty extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * Name of the extension property. Not nullable.
@@ -139,12 +139,12 @@ class ExtensionProperty extends DirectoryObject
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetObjects
     * Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
     *
-    * @return string The targetObjects
+    * @return string|null The targetObjects
     */
     public function getTargetObjects()
     {
@@ -154,7 +154,7 @@ class ExtensionProperty extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the targetObjects
     * Following values are supported. Not nullable. UserGroupOrganizationDeviceApplication
@@ -168,5 +168,5 @@ class ExtensionProperty extends DirectoryObject
         $this->_propDict["targetObjects"] = $val;
         return $this;
     }
-    
+
 }

@@ -33,4 +33,6 @@ class OnboardingStatus extends Enum
     const INPROGRESS = "inprogress";
     const ONBOARDED = "onboarded";
     const FAILED = "failed";
+    const OFFBOARDING = "offboarding";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

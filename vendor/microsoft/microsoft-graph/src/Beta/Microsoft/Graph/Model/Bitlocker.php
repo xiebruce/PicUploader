@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class Bitlocker extends Entity
 {
 
-     /** 
+     /**
      * Gets the recoveryKeys
     * The recovery keys associated with the bitlocker entity.
      *
-     * @return array The recoveryKeys
+     * @return array|null The recoveryKeys
      */
     public function getRecoveryKeys()
     {
@@ -39,19 +39,19 @@ class Bitlocker extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the recoveryKeys
     * The recovery keys associated with the bitlocker entity.
     *
-    * @param BitlockerRecoveryKey $val The recoveryKeys
+    * @param BitlockerRecoveryKey[] $val The recoveryKeys
     *
     * @return Bitlocker
     */
     public function setRecoveryKeys($val)
     {
-		$this->_propDict["recoveryKeys"] = $val;
+        $this->_propDict["recoveryKeys"] = $val;
         return $this;
     }
-    
+
 }

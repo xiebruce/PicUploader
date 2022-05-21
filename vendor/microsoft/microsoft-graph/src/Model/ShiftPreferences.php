@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class ShiftPreferences extends ChangeTrackedEntity
 {
 
-     /** 
+     /**
      * Gets the availability
     * Availability of the user to be scheduled for work and its recurrence pattern.
      *
-     * @return array The availability
+     * @return array|null The availability
      */
     public function getAvailability()
     {
@@ -39,19 +39,19 @@ class ShiftPreferences extends ChangeTrackedEntity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the availability
     * Availability of the user to be scheduled for work and its recurrence pattern.
     *
-    * @param ShiftAvailability $val The availability
+    * @param ShiftAvailability[] $val The availability
     *
     * @return ShiftPreferences
     */
     public function setAvailability($val)
     {
-		$this->_propDict["availability"] = $val;
+        $this->_propDict["availability"] = $val;
         return $this;
     }
-    
+
 }

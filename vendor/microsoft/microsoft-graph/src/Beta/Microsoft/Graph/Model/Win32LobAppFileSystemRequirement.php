@@ -26,9 +26,11 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppFileSystemRequirement");
     }
 
@@ -36,7 +38,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement
     * Gets the check32BitOn64System
     * A value indicating whether this file or folder is for checking 32-bit app on 64-bit system
     *
-    * @return bool The check32BitOn64System
+    * @return bool|null The check32BitOn64System
     */
     public function getCheck32BitOn64System()
     {
@@ -65,12 +67,12 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement
     * Gets the detectionType
     * The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
     *
-    * @return Win32LobAppFileSystemDetectionType The detectionType
+    * @return Win32LobAppFileSystemDetectionType|null The detectionType
     */
     public function getDetectionType()
     {
         if (array_key_exists("detectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppFileSystemDetectionType")) {
+            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppFileSystemDetectionType") || is_null($this->_propDict["detectionType"])) {
                 return $this->_propDict["detectionType"];
             } else {
                 $this->_propDict["detectionType"] = new Win32LobAppFileSystemDetectionType($this->_propDict["detectionType"]);
@@ -97,7 +99,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement
     * Gets the fileOrFolderName
     * The file or folder name to detect Win32 Line of Business (LoB) app
     *
-    * @return string The fileOrFolderName
+    * @return string|null The fileOrFolderName
     */
     public function getFileOrFolderName()
     {
@@ -125,7 +127,7 @@ class Win32LobAppFileSystemRequirement extends Win32LobAppRequirement
     * Gets the path
     * The file or folder path to detect Win32 Line of Business (LoB) app
     *
-    * @return string The path
+    * @return string|null The path
     */
     public function getPath()
     {

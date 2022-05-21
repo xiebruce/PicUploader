@@ -26,7 +26,7 @@ class ContentProperties extends Entity
     /**
     * Gets the extensions
     *
-    * @return string The extensions
+    * @return string|null The extensions
     */
     public function getExtensions()
     {
@@ -52,7 +52,7 @@ class ContentProperties extends Entity
     /**
     * Gets the lastModifiedBy
     *
-    * @return string The lastModifiedBy
+    * @return string|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
@@ -79,12 +79,12 @@ class ContentProperties extends Entity
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -110,12 +110,12 @@ class ContentProperties extends Entity
     /**
     * Gets the metadata
     *
-    * @return ContentMetadata The metadata
+    * @return ContentMetadata|null The metadata
     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\ContentMetadata")) {
+            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\ContentMetadata") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new ContentMetadata($this->_propDict["metadata"]);

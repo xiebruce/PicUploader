@@ -27,7 +27,7 @@ class PrintJobConfiguration extends Entity
     * Gets the collate
     * Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
     *
-    * @return bool The collate
+    * @return bool|null The collate
     */
     public function getCollate()
     {
@@ -56,12 +56,12 @@ class PrintJobConfiguration extends Entity
     * Gets the colorMode
     * The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
     *
-    * @return PrintColorMode The colorMode
+    * @return PrintColorMode|null The colorMode
     */
     public function getColorMode()
     {
         if (array_key_exists("colorMode", $this->_propDict)) {
-            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode")) {
+            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode") || is_null($this->_propDict["colorMode"])) {
                 return $this->_propDict["colorMode"];
             } else {
                 $this->_propDict["colorMode"] = new PrintColorMode($this->_propDict["colorMode"]);
@@ -88,7 +88,7 @@ class PrintJobConfiguration extends Entity
     * Gets the copies
     * The number of copies that should be printed. Read-only.
     *
-    * @return int The copies
+    * @return int|null The copies
     */
     public function getCopies()
     {
@@ -116,7 +116,7 @@ class PrintJobConfiguration extends Entity
     * Gets the dpi
     * The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.
     *
-    * @return int The dpi
+    * @return int|null The dpi
     */
     public function getDpi()
     {
@@ -145,12 +145,12 @@ class PrintJobConfiguration extends Entity
     * Gets the duplexMode
     * The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
     *
-    * @return PrintDuplexMode The duplexMode
+    * @return PrintDuplexMode|null The duplexMode
     */
     public function getDuplexMode()
     {
         if (array_key_exists("duplexMode", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode")) {
+            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode") || is_null($this->_propDict["duplexMode"])) {
                 return $this->_propDict["duplexMode"];
             } else {
                 $this->_propDict["duplexMode"] = new PrintDuplexMode($this->_propDict["duplexMode"]);
@@ -178,12 +178,12 @@ class PrintJobConfiguration extends Entity
     * Gets the feedOrientation
     * The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
     *
-    * @return PrinterFeedOrientation The feedOrientation
+    * @return PrinterFeedOrientation|null The feedOrientation
     */
     public function getFeedOrientation()
     {
         if (array_key_exists("feedOrientation", $this->_propDict)) {
-            if (is_a($this->_propDict["feedOrientation"], "\Beta\Microsoft\Graph\Model\PrinterFeedOrientation")) {
+            if (is_a($this->_propDict["feedOrientation"], "\Beta\Microsoft\Graph\Model\PrinterFeedOrientation") || is_null($this->_propDict["feedOrientation"])) {
                 return $this->_propDict["feedOrientation"];
             } else {
                 $this->_propDict["feedOrientation"] = new PrinterFeedOrientation($this->_propDict["feedOrientation"]);
@@ -211,12 +211,12 @@ class PrintJobConfiguration extends Entity
     * Gets the finishings
     * Finishing processes to use when printing.
     *
-    * @return PrintFinishing The finishings
+    * @return PrintFinishing|null The finishings
     */
     public function getFinishings()
     {
         if (array_key_exists("finishings", $this->_propDict)) {
-            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing")) {
+            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing") || is_null($this->_propDict["finishings"])) {
                 return $this->_propDict["finishings"];
             } else {
                 $this->_propDict["finishings"] = new PrintFinishing($this->_propDict["finishings"]);
@@ -242,7 +242,7 @@ class PrintJobConfiguration extends Entity
     /**
     * Gets the fitPdfToPage
     *
-    * @return bool The fitPdfToPage
+    * @return bool|null The fitPdfToPage
     */
     public function getFitPdfToPage()
     {
@@ -269,7 +269,7 @@ class PrintJobConfiguration extends Entity
     * Gets the inputBin
     * The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.
     *
-    * @return string The inputBin
+    * @return string|null The inputBin
     */
     public function getInputBin()
     {
@@ -298,12 +298,12 @@ class PrintJobConfiguration extends Entity
     * Gets the margin
     * The margin settings to use when printing.
     *
-    * @return PrintMargin The margin
+    * @return PrintMargin|null The margin
     */
     public function getMargin()
     {
         if (array_key_exists("margin", $this->_propDict)) {
-            if (is_a($this->_propDict["margin"], "\Beta\Microsoft\Graph\Model\PrintMargin")) {
+            if (is_a($this->_propDict["margin"], "\Beta\Microsoft\Graph\Model\PrintMargin") || is_null($this->_propDict["margin"])) {
                 return $this->_propDict["margin"];
             } else {
                 $this->_propDict["margin"] = new PrintMargin($this->_propDict["margin"]);
@@ -328,9 +328,9 @@ class PrintJobConfiguration extends Entity
     }
     /**
     * Gets the mediaSize
-    * The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes, along with any custom sizes supported by the associated printer.
+    * The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
     *
-    * @return string The mediaSize
+    * @return string|null The mediaSize
     */
     public function getMediaSize()
     {
@@ -343,7 +343,7 @@ class PrintJobConfiguration extends Entity
 
     /**
     * Sets the mediaSize
-    * The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes, along with any custom sizes supported by the associated printer.
+    * The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
     *
     * @param string $val The value of the mediaSize
     *
@@ -356,9 +356,9 @@ class PrintJobConfiguration extends Entity
     }
     /**
     * Gets the mediaType
-    * The default media (such as paper) type to print the document on. Valid values are described in the following table.
+    * The default media (such as paper) type to print the document on.
     *
-    * @return string The mediaType
+    * @return string|null The mediaType
     */
     public function getMediaType()
     {
@@ -371,7 +371,7 @@ class PrintJobConfiguration extends Entity
 
     /**
     * Sets the mediaType
-    * The default media (such as paper) type to print the document on. Valid values are described in the following table.
+    * The default media (such as paper) type to print the document on.
     *
     * @param string $val The value of the mediaType
     *
@@ -387,12 +387,12 @@ class PrintJobConfiguration extends Entity
     * Gets the multipageLayout
     * The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
     *
-    * @return PrintMultipageLayout The multipageLayout
+    * @return PrintMultipageLayout|null The multipageLayout
     */
     public function getMultipageLayout()
     {
         if (array_key_exists("multipageLayout", $this->_propDict)) {
-            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout")) {
+            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout") || is_null($this->_propDict["multipageLayout"])) {
                 return $this->_propDict["multipageLayout"];
             } else {
                 $this->_propDict["multipageLayout"] = new PrintMultipageLayout($this->_propDict["multipageLayout"]);
@@ -420,12 +420,12 @@ class PrintJobConfiguration extends Entity
     * Gets the orientation
     * The orientation setting the printer should use when printing the job. Valid values are described in the following table.
     *
-    * @return PrintOrientation The orientation
+    * @return PrintOrientation|null The orientation
     */
     public function getOrientation()
     {
         if (array_key_exists("orientation", $this->_propDict)) {
-            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation")) {
+            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation") || is_null($this->_propDict["orientation"])) {
                 return $this->_propDict["orientation"];
             } else {
                 $this->_propDict["orientation"] = new PrintOrientation($this->_propDict["orientation"]);
@@ -452,7 +452,7 @@ class PrintJobConfiguration extends Entity
     * Gets the outputBin
     * The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
     *
-    * @return string The outputBin
+    * @return string|null The outputBin
     */
     public function getOutputBin()
     {
@@ -481,12 +481,12 @@ class PrintJobConfiguration extends Entity
     * Gets the pageRanges
     * The page ranges to print. Read-only.
     *
-    * @return IntegerRange The pageRanges
+    * @return IntegerRange|null The pageRanges
     */
     public function getPageRanges()
     {
         if (array_key_exists("pageRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["pageRanges"], "\Beta\Microsoft\Graph\Model\IntegerRange")) {
+            if (is_a($this->_propDict["pageRanges"], "\Beta\Microsoft\Graph\Model\IntegerRange") || is_null($this->_propDict["pageRanges"])) {
                 return $this->_propDict["pageRanges"];
             } else {
                 $this->_propDict["pageRanges"] = new IntegerRange($this->_propDict["pageRanges"]);
@@ -513,7 +513,7 @@ class PrintJobConfiguration extends Entity
     * Gets the pagesPerSheet
     * The number of document pages to print on each sheet.
     *
-    * @return int The pagesPerSheet
+    * @return int|null The pagesPerSheet
     */
     public function getPagesPerSheet()
     {
@@ -542,12 +542,12 @@ class PrintJobConfiguration extends Entity
     * Gets the quality
     * The print quality to use when printing the job. Valid values are described in the table below. Read-only.
     *
-    * @return PrintQuality The quality
+    * @return PrintQuality|null The quality
     */
     public function getQuality()
     {
         if (array_key_exists("quality", $this->_propDict)) {
-            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
+            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["quality"])) {
                 return $this->_propDict["quality"];
             } else {
                 $this->_propDict["quality"] = new PrintQuality($this->_propDict["quality"]);
@@ -575,12 +575,12 @@ class PrintJobConfiguration extends Entity
     * Gets the scaling
     * Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
     *
-    * @return PrintScaling The scaling
+    * @return PrintScaling|null The scaling
     */
     public function getScaling()
     {
         if (array_key_exists("scaling", $this->_propDict)) {
-            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling")) {
+            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling") || is_null($this->_propDict["scaling"])) {
                 return $this->_propDict["scaling"];
             } else {
                 $this->_propDict["scaling"] = new PrintScaling($this->_propDict["scaling"]);

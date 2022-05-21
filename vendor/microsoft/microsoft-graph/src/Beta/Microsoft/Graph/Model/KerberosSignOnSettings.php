@@ -27,7 +27,7 @@ class KerberosSignOnSettings extends Entity
     * Gets the kerberosServicePrincipalName
     * The Internal Application SPN of the application server. This SPN needs to be in the list of services to which the connector can present delegated credentials.
     *
-    * @return string The kerberosServicePrincipalName
+    * @return string|null The kerberosServicePrincipalName
     */
     public function getKerberosServicePrincipalName()
     {
@@ -56,12 +56,12 @@ class KerberosSignOnSettings extends Entity
     * Gets the kerberosSignOnMappingAttributeType
     * The Delegated Login Identity for the connector to use on behalf of your users. For more information, see Working with different on-premises and cloud identities . Possible values are: userPrincipalName, onPremisesUserPrincipalName, userPrincipalUsername, onPremisesUserPrincipalUsername, onPremisesSAMAccountName.
     *
-    * @return KerberosSignOnMappingAttributeType The kerberosSignOnMappingAttributeType
+    * @return KerberosSignOnMappingAttributeType|null The kerberosSignOnMappingAttributeType
     */
     public function getKerberosSignOnMappingAttributeType()
     {
         if (array_key_exists("kerberosSignOnMappingAttributeType", $this->_propDict)) {
-            if (is_a($this->_propDict["kerberosSignOnMappingAttributeType"], "\Beta\Microsoft\Graph\Model\KerberosSignOnMappingAttributeType")) {
+            if (is_a($this->_propDict["kerberosSignOnMappingAttributeType"], "\Beta\Microsoft\Graph\Model\KerberosSignOnMappingAttributeType") || is_null($this->_propDict["kerberosSignOnMappingAttributeType"])) {
                 return $this->_propDict["kerberosSignOnMappingAttributeType"];
             } else {
                 $this->_propDict["kerberosSignOnMappingAttributeType"] = new KerberosSignOnMappingAttributeType($this->_propDict["kerberosSignOnMappingAttributeType"]);

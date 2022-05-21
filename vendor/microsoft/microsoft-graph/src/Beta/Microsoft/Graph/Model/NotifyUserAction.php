@@ -27,12 +27,12 @@ class NotifyUserAction extends DlpActionInfo
     /**
     * Gets the actionLastModifiedDateTime
     *
-    * @return \DateTime The actionLastModifiedDateTime
+    * @return \DateTime|null The actionLastModifiedDateTime
     */
     public function getActionLastModifiedDateTime()
     {
         if (array_key_exists("actionLastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["actionLastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["actionLastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["actionLastModifiedDateTime"])) {
                 return $this->_propDict["actionLastModifiedDateTime"];
             } else {
                 $this->_propDict["actionLastModifiedDateTime"] = new \DateTime($this->_propDict["actionLastModifiedDateTime"]);
@@ -57,7 +57,7 @@ class NotifyUserAction extends DlpActionInfo
     /**
     * Gets the emailText
     *
-    * @return string The emailText
+    * @return string|null The emailText
     */
     public function getEmailText()
     {
@@ -84,12 +84,12 @@ class NotifyUserAction extends DlpActionInfo
     /**
     * Gets the overrideOption
     *
-    * @return OverrideOption The overrideOption
+    * @return OverrideOption|null The overrideOption
     */
     public function getOverrideOption()
     {
         if (array_key_exists("overrideOption", $this->_propDict)) {
-            if (is_a($this->_propDict["overrideOption"], "\Beta\Microsoft\Graph\Model\OverrideOption")) {
+            if (is_a($this->_propDict["overrideOption"], "\Beta\Microsoft\Graph\Model\OverrideOption") || is_null($this->_propDict["overrideOption"])) {
                 return $this->_propDict["overrideOption"];
             } else {
                 $this->_propDict["overrideOption"] = new OverrideOption($this->_propDict["overrideOption"]);
@@ -114,7 +114,7 @@ class NotifyUserAction extends DlpActionInfo
     /**
     * Gets the policyTip
     *
-    * @return string The policyTip
+    * @return string|null The policyTip
     */
     public function getPolicyTip()
     {
@@ -140,7 +140,7 @@ class NotifyUserAction extends DlpActionInfo
     /**
     * Gets the recipients
     *
-    * @return string The recipients
+    * @return string|null The recipients
     */
     public function getRecipients()
     {

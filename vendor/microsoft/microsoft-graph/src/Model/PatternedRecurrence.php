@@ -26,14 +26,14 @@ class PatternedRecurrence extends Entity
 
     /**
     * Gets the pattern
-    * The frequency of an event.
+    * The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
     *
-    * @return RecurrencePattern The pattern
+    * @return RecurrencePattern|null The pattern
     */
     public function getPattern()
     {
         if (array_key_exists("pattern", $this->_propDict)) {
-            if (is_a($this->_propDict["pattern"], "\Microsoft\Graph\Model\RecurrencePattern")) {
+            if (is_a($this->_propDict["pattern"], "\Microsoft\Graph\Model\RecurrencePattern") || is_null($this->_propDict["pattern"])) {
                 return $this->_propDict["pattern"];
             } else {
                 $this->_propDict["pattern"] = new RecurrencePattern($this->_propDict["pattern"]);
@@ -45,7 +45,7 @@ class PatternedRecurrence extends Entity
 
     /**
     * Sets the pattern
-    * The frequency of an event.
+    * The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
     *
     * @param RecurrencePattern $val The value to assign to the pattern
     *
@@ -61,12 +61,12 @@ class PatternedRecurrence extends Entity
     * Gets the range
     * The duration of an event.
     *
-    * @return RecurrenceRange The range
+    * @return RecurrenceRange|null The range
     */
     public function getRange()
     {
         if (array_key_exists("range", $this->_propDict)) {
-            if (is_a($this->_propDict["range"], "\Microsoft\Graph\Model\RecurrenceRange")) {
+            if (is_a($this->_propDict["range"], "\Microsoft\Graph\Model\RecurrenceRange") || is_null($this->_propDict["range"])) {
                 return $this->_propDict["range"];
             } else {
                 $this->_propDict["range"] = new RecurrenceRange($this->_propDict["range"]);

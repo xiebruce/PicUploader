@@ -28,12 +28,12 @@ class StatusBase extends Entity
     * Gets the status
     * Possible values are: success, warning, failure, skipped, unknownFutureValue.
     *
-    * @return ProvisioningResult The status
+    * @return ProvisioningResult|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ProvisioningResult")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ProvisioningResult") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ProvisioningResult($this->_propDict["status"]);

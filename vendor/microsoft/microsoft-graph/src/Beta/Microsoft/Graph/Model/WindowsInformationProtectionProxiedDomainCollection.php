@@ -27,7 +27,7 @@ class WindowsInformationProtectionProxiedDomainCollection extends Entity
     * Gets the displayName
     * Display name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -56,12 +56,12 @@ class WindowsInformationProtectionProxiedDomainCollection extends Entity
     * Gets the proxiedDomains
     * Collection of proxied domains
     *
-    * @return ProxiedDomain The proxiedDomains
+    * @return ProxiedDomain|null The proxiedDomains
     */
     public function getProxiedDomains()
     {
         if (array_key_exists("proxiedDomains", $this->_propDict)) {
-            if (is_a($this->_propDict["proxiedDomains"], "\Beta\Microsoft\Graph\Model\ProxiedDomain")) {
+            if (is_a($this->_propDict["proxiedDomains"], "\Beta\Microsoft\Graph\Model\ProxiedDomain") || is_null($this->_propDict["proxiedDomains"])) {
                 return $this->_propDict["proxiedDomains"];
             } else {
                 $this->_propDict["proxiedDomains"] = new ProxiedDomain($this->_propDict["proxiedDomains"]);

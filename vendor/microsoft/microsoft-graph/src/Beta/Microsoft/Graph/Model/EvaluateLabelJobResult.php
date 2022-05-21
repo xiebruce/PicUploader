@@ -27,12 +27,12 @@ class EvaluateLabelJobResult extends Entity
     /**
     * Gets the responsiblePolicy
     *
-    * @return ResponsiblePolicy The responsiblePolicy
+    * @return ResponsiblePolicy|null The responsiblePolicy
     */
     public function getResponsiblePolicy()
     {
         if (array_key_exists("responsiblePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["responsiblePolicy"], "\Beta\Microsoft\Graph\Model\ResponsiblePolicy")) {
+            if (is_a($this->_propDict["responsiblePolicy"], "\Beta\Microsoft\Graph\Model\ResponsiblePolicy") || is_null($this->_propDict["responsiblePolicy"])) {
                 return $this->_propDict["responsiblePolicy"];
             } else {
                 $this->_propDict["responsiblePolicy"] = new ResponsiblePolicy($this->_propDict["responsiblePolicy"]);
@@ -58,12 +58,12 @@ class EvaluateLabelJobResult extends Entity
     /**
     * Gets the responsibleSensitiveTypes
     *
-    * @return ResponsibleSensitiveType The responsibleSensitiveTypes
+    * @return ResponsibleSensitiveType|null The responsibleSensitiveTypes
     */
     public function getResponsibleSensitiveTypes()
     {
         if (array_key_exists("responsibleSensitiveTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["responsibleSensitiveTypes"], "\Beta\Microsoft\Graph\Model\ResponsibleSensitiveType")) {
+            if (is_a($this->_propDict["responsibleSensitiveTypes"], "\Beta\Microsoft\Graph\Model\ResponsibleSensitiveType") || is_null($this->_propDict["responsibleSensitiveTypes"])) {
                 return $this->_propDict["responsibleSensitiveTypes"];
             } else {
                 $this->_propDict["responsibleSensitiveTypes"] = new ResponsibleSensitiveType($this->_propDict["responsibleSensitiveTypes"]);
@@ -89,12 +89,12 @@ class EvaluateLabelJobResult extends Entity
     /**
     * Gets the sensitivityLabel
     *
-    * @return MatchingLabel The sensitivityLabel
+    * @return MatchingLabel|null The sensitivityLabel
     */
     public function getSensitivityLabel()
     {
         if (array_key_exists("sensitivityLabel", $this->_propDict)) {
-            if (is_a($this->_propDict["sensitivityLabel"], "\Beta\Microsoft\Graph\Model\MatchingLabel")) {
+            if (is_a($this->_propDict["sensitivityLabel"], "\Beta\Microsoft\Graph\Model\MatchingLabel") || is_null($this->_propDict["sensitivityLabel"])) {
                 return $this->_propDict["sensitivityLabel"];
             } else {
                 $this->_propDict["sensitivityLabel"] = new MatchingLabel($this->_propDict["sensitivityLabel"]);

@@ -28,12 +28,12 @@ class PrinterDefaults extends Entity
     * Gets the colorMode
     * The default color mode to use when printing the document. Valid values are described in the following table.
     *
-    * @return PrintColorMode The colorMode
+    * @return PrintColorMode|null The colorMode
     */
     public function getColorMode()
     {
         if (array_key_exists("colorMode", $this->_propDict)) {
-            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode")) {
+            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode") || is_null($this->_propDict["colorMode"])) {
                 return $this->_propDict["colorMode"];
             } else {
                 $this->_propDict["colorMode"] = new PrintColorMode($this->_propDict["colorMode"]);
@@ -60,7 +60,7 @@ class PrinterDefaults extends Entity
     * Gets the contentType
     * The default content (MIME) type to use when processing documents.
     *
-    * @return string The contentType
+    * @return string|null The contentType
     */
     public function getContentType()
     {
@@ -88,7 +88,7 @@ class PrinterDefaults extends Entity
     * Gets the copiesPerJob
     * The default number of copies printed per job.
     *
-    * @return int The copiesPerJob
+    * @return int|null The copiesPerJob
     */
     public function getCopiesPerJob()
     {
@@ -115,7 +115,7 @@ class PrinterDefaults extends Entity
     /**
     * Gets the documentMimeType
     *
-    * @return string The documentMimeType
+    * @return string|null The documentMimeType
     */
     public function getDocumentMimeType()
     {
@@ -142,7 +142,7 @@ class PrinterDefaults extends Entity
     * Gets the dpi
     * The default resolution in DPI to use when printing the job.
     *
-    * @return int The dpi
+    * @return int|null The dpi
     */
     public function getDpi()
     {
@@ -170,12 +170,12 @@ class PrinterDefaults extends Entity
     /**
     * Gets the duplexConfiguration
     *
-    * @return PrintDuplexConfiguration The duplexConfiguration
+    * @return PrintDuplexConfiguration|null The duplexConfiguration
     */
     public function getDuplexConfiguration()
     {
         if (array_key_exists("duplexConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexConfiguration"], "\Beta\Microsoft\Graph\Model\PrintDuplexConfiguration")) {
+            if (is_a($this->_propDict["duplexConfiguration"], "\Beta\Microsoft\Graph\Model\PrintDuplexConfiguration") || is_null($this->_propDict["duplexConfiguration"])) {
                 return $this->_propDict["duplexConfiguration"];
             } else {
                 $this->_propDict["duplexConfiguration"] = new PrintDuplexConfiguration($this->_propDict["duplexConfiguration"]);
@@ -202,12 +202,12 @@ class PrinterDefaults extends Entity
     * Gets the duplexMode
     * The default duplex (double-sided) configuration to use when printing a document. Valid values are described in the following table.
     *
-    * @return PrintDuplexMode The duplexMode
+    * @return PrintDuplexMode|null The duplexMode
     */
     public function getDuplexMode()
     {
         if (array_key_exists("duplexMode", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode")) {
+            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode") || is_null($this->_propDict["duplexMode"])) {
                 return $this->_propDict["duplexMode"];
             } else {
                 $this->_propDict["duplexMode"] = new PrintDuplexMode($this->_propDict["duplexMode"]);
@@ -235,12 +235,12 @@ class PrinterDefaults extends Entity
     * Gets the finishings
     * The default set of finishings to apply to print jobs. Valid values are described in the following table.
     *
-    * @return PrintFinishing The finishings
+    * @return PrintFinishing|null The finishings
     */
     public function getFinishings()
     {
         if (array_key_exists("finishings", $this->_propDict)) {
-            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing")) {
+            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing") || is_null($this->_propDict["finishings"])) {
                 return $this->_propDict["finishings"];
             } else {
                 $this->_propDict["finishings"] = new PrintFinishing($this->_propDict["finishings"]);
@@ -267,7 +267,7 @@ class PrinterDefaults extends Entity
     * Gets the fitPdfToPage
     * The default fitPdfToPage setting. True to fit each page of a PDF document to a physical sheet of media; false to let the printer decide how to lay out impressions.
     *
-    * @return bool The fitPdfToPage
+    * @return bool|null The fitPdfToPage
     */
     public function getFitPdfToPage()
     {
@@ -295,7 +295,7 @@ class PrinterDefaults extends Entity
     * Gets the inputBin
     * The default input bin that serves as the paper source.
     *
-    * @return string The inputBin
+    * @return string|null The inputBin
     */
     public function getInputBin()
     {
@@ -323,7 +323,7 @@ class PrinterDefaults extends Entity
     * Gets the mediaColor
     * The default media (such as paper) color to print the document on.
     *
-    * @return string The mediaColor
+    * @return string|null The mediaColor
     */
     public function getMediaColor()
     {
@@ -349,9 +349,9 @@ class PrinterDefaults extends Entity
     }
     /**
     * Gets the mediaSize
-    * The default media size to use. Supports standard size names for ISO and ANSI media sizes, along with any custom sizes supported by the associated printer.
+    * The default media size to use. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
     *
-    * @return string The mediaSize
+    * @return string|null The mediaSize
     */
     public function getMediaSize()
     {
@@ -364,7 +364,7 @@ class PrinterDefaults extends Entity
 
     /**
     * Sets the mediaSize
-    * The default media size to use. Supports standard size names for ISO and ANSI media sizes, along with any custom sizes supported by the associated printer.
+    * The default media size to use. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
     *
     * @param string $val The value of the mediaSize
     *
@@ -377,9 +377,9 @@ class PrinterDefaults extends Entity
     }
     /**
     * Gets the mediaType
-    * The default media (such as paper) type to print the document on. Valid values are described in the following table.
+    * The default media (such as paper) type to print the document on.
     *
-    * @return string The mediaType
+    * @return string|null The mediaType
     */
     public function getMediaType()
     {
@@ -392,7 +392,7 @@ class PrinterDefaults extends Entity
 
     /**
     * Sets the mediaType
-    * The default media (such as paper) type to print the document on. Valid values are described in the following table.
+    * The default media (such as paper) type to print the document on.
     *
     * @param string $val The value of the mediaType
     *
@@ -408,12 +408,12 @@ class PrinterDefaults extends Entity
     * Gets the multipageLayout
     * The default direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
     *
-    * @return PrintMultipageLayout The multipageLayout
+    * @return PrintMultipageLayout|null The multipageLayout
     */
     public function getMultipageLayout()
     {
         if (array_key_exists("multipageLayout", $this->_propDict)) {
-            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout")) {
+            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout") || is_null($this->_propDict["multipageLayout"])) {
                 return $this->_propDict["multipageLayout"];
             } else {
                 $this->_propDict["multipageLayout"] = new PrintMultipageLayout($this->_propDict["multipageLayout"]);
@@ -441,12 +441,12 @@ class PrinterDefaults extends Entity
     * Gets the orientation
     * The default orientation to use when printing the document. Valid values are described in the following table.
     *
-    * @return PrintOrientation The orientation
+    * @return PrintOrientation|null The orientation
     */
     public function getOrientation()
     {
         if (array_key_exists("orientation", $this->_propDict)) {
-            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation")) {
+            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation") || is_null($this->_propDict["orientation"])) {
                 return $this->_propDict["orientation"];
             } else {
                 $this->_propDict["orientation"] = new PrintOrientation($this->_propDict["orientation"]);
@@ -473,7 +473,7 @@ class PrinterDefaults extends Entity
     * Gets the outputBin
     * The default output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
     *
-    * @return string The outputBin
+    * @return string|null The outputBin
     */
     public function getOutputBin()
     {
@@ -501,7 +501,7 @@ class PrinterDefaults extends Entity
     * Gets the pagesPerSheet
     * The default number of document pages to print on each sheet.
     *
-    * @return int The pagesPerSheet
+    * @return int|null The pagesPerSheet
     */
     public function getPagesPerSheet()
     {
@@ -528,7 +528,7 @@ class PrinterDefaults extends Entity
     /**
     * Gets the pdfFitToPage
     *
-    * @return bool The pdfFitToPage
+    * @return bool|null The pdfFitToPage
     */
     public function getPdfFitToPage()
     {
@@ -555,12 +555,12 @@ class PrinterDefaults extends Entity
     /**
     * Gets the presentationDirection
     *
-    * @return PrintPresentationDirection The presentationDirection
+    * @return PrintPresentationDirection|null The presentationDirection
     */
     public function getPresentationDirection()
     {
         if (array_key_exists("presentationDirection", $this->_propDict)) {
-            if (is_a($this->_propDict["presentationDirection"], "\Beta\Microsoft\Graph\Model\PrintPresentationDirection")) {
+            if (is_a($this->_propDict["presentationDirection"], "\Beta\Microsoft\Graph\Model\PrintPresentationDirection") || is_null($this->_propDict["presentationDirection"])) {
                 return $this->_propDict["presentationDirection"];
             } else {
                 $this->_propDict["presentationDirection"] = new PrintPresentationDirection($this->_propDict["presentationDirection"]);
@@ -586,12 +586,12 @@ class PrinterDefaults extends Entity
     /**
     * Gets the printColorConfiguration
     *
-    * @return PrintColorConfiguration The printColorConfiguration
+    * @return PrintColorConfiguration|null The printColorConfiguration
     */
     public function getPrintColorConfiguration()
     {
         if (array_key_exists("printColorConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["printColorConfiguration"], "\Beta\Microsoft\Graph\Model\PrintColorConfiguration")) {
+            if (is_a($this->_propDict["printColorConfiguration"], "\Beta\Microsoft\Graph\Model\PrintColorConfiguration") || is_null($this->_propDict["printColorConfiguration"])) {
                 return $this->_propDict["printColorConfiguration"];
             } else {
                 $this->_propDict["printColorConfiguration"] = new PrintColorConfiguration($this->_propDict["printColorConfiguration"]);
@@ -617,12 +617,12 @@ class PrinterDefaults extends Entity
     /**
     * Gets the printQuality
     *
-    * @return PrintQuality The printQuality
+    * @return PrintQuality|null The printQuality
     */
     public function getPrintQuality()
     {
         if (array_key_exists("printQuality", $this->_propDict)) {
-            if (is_a($this->_propDict["printQuality"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
+            if (is_a($this->_propDict["printQuality"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["printQuality"])) {
                 return $this->_propDict["printQuality"];
             } else {
                 $this->_propDict["printQuality"] = new PrintQuality($this->_propDict["printQuality"]);
@@ -649,12 +649,12 @@ class PrinterDefaults extends Entity
     * Gets the quality
     * The default quality to use when printing the document. Valid values are described in the following table.
     *
-    * @return PrintQuality The quality
+    * @return PrintQuality|null The quality
     */
     public function getQuality()
     {
         if (array_key_exists("quality", $this->_propDict)) {
-            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
+            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["quality"])) {
                 return $this->_propDict["quality"];
             } else {
                 $this->_propDict["quality"] = new PrintQuality($this->_propDict["quality"]);
@@ -682,12 +682,12 @@ class PrinterDefaults extends Entity
     * Gets the scaling
     * Specifies how the printer scales the document data to fit the requested media. Valid values are described in the following table.
     *
-    * @return PrintScaling The scaling
+    * @return PrintScaling|null The scaling
     */
     public function getScaling()
     {
         if (array_key_exists("scaling", $this->_propDict)) {
-            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling")) {
+            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling") || is_null($this->_propDict["scaling"])) {
                 return $this->_propDict["scaling"];
             } else {
                 $this->_propDict["scaling"] = new PrintScaling($this->_propDict["scaling"]);

@@ -27,7 +27,7 @@ class PublicationFacet extends Entity
     * Gets the level
     * The state of publication for this document. Either published or checkout. Read-only.
     *
-    * @return string The level
+    * @return string|null The level
     */
     public function getLevel()
     {
@@ -55,7 +55,7 @@ class PublicationFacet extends Entity
     * Gets the versionId
     * The unique identifier for the version that is visible to the current caller. Read-only.
     *
-    * @return string The versionId
+    * @return string|null The versionId
     */
     public function getVersionId()
     {

@@ -21,13 +21,17 @@ $name = 'demo';   // 生命周期规则名称
 $prefix = 'test'; // 规则策略中的前缀
 $delete_after_days = 80; // 用户新创建的文件将在该设定时间之后自动删除
 $to_line_after_days = 70; // 用户新创建的文件将在该设定的时间之后自动转为低频存储
+$to_archive_after_days = 72; // 用户新创建的文件将在该设定的时间之后自动转为归档存储
+$to_deep_archive_after_days = 74; // 用户新创建的文件将在该设定的时间之后自动转为深度归档存储
 
 list($ret, $err) = $bucketManager->bucketLifecycleRule(
     $bucket,
     $name,
     $prefix,
     $delete_after_days,
-    $to_line_after_days
+    $to_line_after_days,
+    $to_archive_after_days,
+    $to_deep_archive_after_days
 );
 if ($err != null) {
     var_dump($err);

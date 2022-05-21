@@ -28,7 +28,7 @@ class LocalizedNotificationMessage extends Entity
     * Gets the isDefault
     * Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message.
     *
-    * @return bool The isDefault
+    * @return bool|null The isDefault
     */
     public function getIsDefault()
     {
@@ -38,7 +38,7 @@ class LocalizedNotificationMessage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDefault
     * Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message.
@@ -52,17 +52,17 @@ class LocalizedNotificationMessage extends Entity
         $this->_propDict["isDefault"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * DateTime the object was last modified.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -71,7 +71,7 @@ class LocalizedNotificationMessage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * DateTime the object was last modified.
@@ -85,12 +85,12 @@ class LocalizedNotificationMessage extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the locale
     * The Locale for which this message is destined.
     *
-    * @return string The locale
+    * @return string|null The locale
     */
     public function getLocale()
     {
@@ -100,7 +100,7 @@ class LocalizedNotificationMessage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the locale
     * The Locale for which this message is destined.
@@ -114,12 +114,12 @@ class LocalizedNotificationMessage extends Entity
         $this->_propDict["locale"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the messageTemplate
     * The Message Template content.
     *
-    * @return string The messageTemplate
+    * @return string|null The messageTemplate
     */
     public function getMessageTemplate()
     {
@@ -129,7 +129,7 @@ class LocalizedNotificationMessage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the messageTemplate
     * The Message Template content.
@@ -143,12 +143,12 @@ class LocalizedNotificationMessage extends Entity
         $this->_propDict["messageTemplate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subject
     * The Message Template Subject.
     *
-    * @return string The subject
+    * @return string|null The subject
     */
     public function getSubject()
     {
@@ -158,7 +158,7 @@ class LocalizedNotificationMessage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the subject
     * The Message Template Subject.
@@ -172,5 +172,5 @@ class LocalizedNotificationMessage extends Entity
         $this->_propDict["subject"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class ScopedRoleMembership extends Entity
     * Gets the administrativeUnitId
     * Unique identifier for the administrative unit that the directory role is scoped to
     *
-    * @return string The administrativeUnitId
+    * @return string|null The administrativeUnitId
     */
     public function getAdministrativeUnitId()
     {
@@ -38,7 +38,7 @@ class ScopedRoleMembership extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the administrativeUnitId
     * Unique identifier for the administrative unit that the directory role is scoped to
@@ -52,12 +52,12 @@ class ScopedRoleMembership extends Entity
         $this->_propDict["administrativeUnitId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleId
     * Unique identifier for the directory role that the member is in.
     *
-    * @return string The roleId
+    * @return string|null The roleId
     */
     public function getRoleId()
     {
@@ -67,7 +67,7 @@ class ScopedRoleMembership extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleId
     * Unique identifier for the directory role that the member is in.
@@ -81,17 +81,17 @@ class ScopedRoleMembership extends Entity
         $this->_propDict["roleId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleMemberInfo
     * Role member identity information. Represents the user that is a member of this scoped-role.
     *
-    * @return Identity The roleMemberInfo
+    * @return Identity|null The roleMemberInfo
     */
     public function getRoleMemberInfo()
     {
         if (array_key_exists("roleMemberInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["roleMemberInfo"], "\Beta\Microsoft\Graph\Model\Identity")) {
+            if (is_a($this->_propDict["roleMemberInfo"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["roleMemberInfo"])) {
                 return $this->_propDict["roleMemberInfo"];
             } else {
                 $this->_propDict["roleMemberInfo"] = new Identity($this->_propDict["roleMemberInfo"]);
@@ -100,7 +100,7 @@ class ScopedRoleMembership extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the roleMemberInfo
     * Role member identity information. Represents the user that is a member of this scoped-role.
@@ -114,5 +114,5 @@ class ScopedRoleMembership extends Entity
         $this->_propDict["roleMemberInfo"] = $val;
         return $this;
     }
-    
+
 }

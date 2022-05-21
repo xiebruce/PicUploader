@@ -27,7 +27,7 @@ class ContentTypeOrder extends Entity
     * Gets the default
     * Whether this is the default Content Type
     *
-    * @return bool The default
+    * @return bool|null The default
     */
     public function getDefault()
     {
@@ -55,7 +55,7 @@ class ContentTypeOrder extends Entity
     * Gets the position
     * Specifies the position in which the Content Type appears in the selection UI.
     *
-    * @return int The position
+    * @return int|null The position
     */
     public function getPosition()
     {

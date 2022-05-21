@@ -27,7 +27,7 @@ class PasswordSingleSignOnField extends Entity
     * Gets the customizedLabel
     * Title/label override for customization.
     *
-    * @return string The customizedLabel
+    * @return string|null The customizedLabel
     */
     public function getCustomizedLabel()
     {
@@ -55,7 +55,7 @@ class PasswordSingleSignOnField extends Entity
     * Gets the defaultLabel
     * Label that would be used if no customizedLabel is provided. Read only.
     *
-    * @return string The defaultLabel
+    * @return string|null The defaultLabel
     */
     public function getDefaultLabel()
     {
@@ -83,7 +83,7 @@ class PasswordSingleSignOnField extends Entity
     * Gets the fieldId
     * Id used to identity the field type. This is an internal id and possible values are param_1, param_2, param_userName, param_password.
     *
-    * @return string The fieldId
+    * @return string|null The fieldId
     */
     public function getFieldId()
     {
@@ -111,7 +111,7 @@ class PasswordSingleSignOnField extends Entity
     * Gets the type
     * Type of the credential. The values can be text, password.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {

@@ -27,7 +27,7 @@ class SearchBucket extends Entity
     * Gets the aggregationFilterToken
     * A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example.
     *
-    * @return string The aggregationFilterToken
+    * @return string|null The aggregationFilterToken
     */
     public function getAggregationFilterToken()
     {
@@ -55,7 +55,7 @@ class SearchBucket extends Entity
     * Gets the count
     * The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.
     *
-    * @return int The count
+    * @return int|null The count
     */
     public function getCount()
     {
@@ -83,7 +83,7 @@ class SearchBucket extends Entity
     * Gets the key
     * The discrete value of the field that an aggregation was computed on.
     *
-    * @return string The key
+    * @return string|null The key
     */
     public function getKey()
     {

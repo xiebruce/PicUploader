@@ -27,7 +27,7 @@ class ConnectedOrganizationMembers extends UserSet
     * Gets the description
     * The name of the connected organization. Read only.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -55,7 +55,7 @@ class ConnectedOrganizationMembers extends UserSet
     * Gets the id
     * The ID of the connected organization in entitlement management.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {

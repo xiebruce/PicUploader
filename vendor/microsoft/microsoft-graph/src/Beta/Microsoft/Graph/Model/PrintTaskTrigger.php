@@ -28,12 +28,12 @@ class PrintTaskTrigger extends Entity
     * Gets the event
     * The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table.
     *
-    * @return PrintEvent The event
+    * @return PrintEvent|null The event
     */
     public function getEvent()
     {
         if (array_key_exists("event", $this->_propDict)) {
-            if (is_a($this->_propDict["event"], "\Beta\Microsoft\Graph\Model\PrintEvent")) {
+            if (is_a($this->_propDict["event"], "\Beta\Microsoft\Graph\Model\PrintEvent") || is_null($this->_propDict["event"])) {
                 return $this->_propDict["event"];
             } else {
                 $this->_propDict["event"] = new PrintEvent($this->_propDict["event"]);
@@ -42,7 +42,7 @@ class PrintTaskTrigger extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the event
     * The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table.
@@ -56,17 +56,17 @@ class PrintTaskTrigger extends Entity
         $this->_propDict["event"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the definition
     * An abstract definition that will be used to create a printTask when triggered by a print event. Read-only.
     *
-    * @return PrintTaskDefinition The definition
+    * @return PrintTaskDefinition|null The definition
     */
     public function getDefinition()
     {
         if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\PrintTaskDefinition")) {
+            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\PrintTaskDefinition") || is_null($this->_propDict["definition"])) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new PrintTaskDefinition($this->_propDict["definition"]);
@@ -75,7 +75,7 @@ class PrintTaskTrigger extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the definition
     * An abstract definition that will be used to create a printTask when triggered by a print event. Read-only.
@@ -89,5 +89,5 @@ class PrintTaskTrigger extends Entity
         $this->_propDict["definition"] = $val;
         return $this;
     }
-    
+
 }

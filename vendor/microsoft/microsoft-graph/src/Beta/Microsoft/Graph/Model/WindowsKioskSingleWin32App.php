@@ -28,12 +28,12 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration
     * Gets the win32App
     * This is the win32 app that will be available to launch use while in Kiosk Mode
     *
-    * @return WindowsKioskWin32App The win32App
+    * @return WindowsKioskWin32App|null The win32App
     */
     public function getWin32App()
     {
         if (array_key_exists("win32App", $this->_propDict)) {
-            if (is_a($this->_propDict["win32App"], "\Beta\Microsoft\Graph\Model\WindowsKioskWin32App")) {
+            if (is_a($this->_propDict["win32App"], "\Beta\Microsoft\Graph\Model\WindowsKioskWin32App") || is_null($this->_propDict["win32App"])) {
                 return $this->_propDict["win32App"];
             } else {
                 $this->_propDict["win32App"] = new WindowsKioskWin32App($this->_propDict["win32App"]);

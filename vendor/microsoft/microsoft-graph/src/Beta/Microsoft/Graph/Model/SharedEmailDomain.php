@@ -27,7 +27,7 @@ class SharedEmailDomain extends Entity
     /**
     * Gets the provisioningStatus
     *
-    * @return string The provisioningStatus
+    * @return string|null The provisioningStatus
     */
     public function getProvisioningStatus()
     {
@@ -37,7 +37,7 @@ class SharedEmailDomain extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the provisioningStatus
     *
@@ -50,5 +50,5 @@ class SharedEmailDomain extends Entity
         $this->_propDict["provisioningStatus"] = $val;
         return $this;
     }
-    
+
 }

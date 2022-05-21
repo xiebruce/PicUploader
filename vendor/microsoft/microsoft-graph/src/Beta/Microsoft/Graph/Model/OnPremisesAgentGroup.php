@@ -28,7 +28,7 @@ class OnPremisesAgentGroup extends Entity
     * Gets the displayName
     * Display name of the onPremisesAgentGroup.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class OnPremisesAgentGroup extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Display name of the onPremisesAgentGroup.
@@ -52,12 +52,12 @@ class OnPremisesAgentGroup extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isDefault
     * Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system.
     *
-    * @return bool The isDefault
+    * @return bool|null The isDefault
     */
     public function getIsDefault()
     {
@@ -67,7 +67,7 @@ class OnPremisesAgentGroup extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDefault
     * Indicates if the onPremisesAgentGroup is the default agent group. Only a single agent group can be the default onPremisesAgentGroup and is set by the system.
@@ -81,17 +81,17 @@ class OnPremisesAgentGroup extends Entity
         $this->_propDict["isDefault"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the publishingType
     * Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
     *
-    * @return OnPremisesPublishingType The publishingType
+    * @return OnPremisesPublishingType|null The publishingType
     */
     public function getPublishingType()
     {
         if (array_key_exists("publishingType", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingType"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingType")) {
+            if (is_a($this->_propDict["publishingType"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingType") || is_null($this->_propDict["publishingType"])) {
                 return $this->_propDict["publishingType"];
             } else {
                 $this->_propDict["publishingType"] = new OnPremisesPublishingType($this->_propDict["publishingType"]);
@@ -100,7 +100,7 @@ class OnPremisesAgentGroup extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the publishingType
     * Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
@@ -114,13 +114,13 @@ class OnPremisesAgentGroup extends Entity
         $this->_propDict["publishingType"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agents
     * List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
      *
-     * @return array The agents
+     * @return array|null The agents
      */
     public function getAgents()
     {
@@ -130,27 +130,27 @@ class OnPremisesAgentGroup extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the agents
     * List of onPremisesAgent that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
     *
-    * @param OnPremisesAgent $val The agents
+    * @param OnPremisesAgent[] $val The agents
     *
     * @return OnPremisesAgentGroup
     */
     public function setAgents($val)
     {
-		$this->_propDict["agents"] = $val;
+        $this->_propDict["agents"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the publishedResources
     * List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
      *
-     * @return array The publishedResources
+     * @return array|null The publishedResources
      */
     public function getPublishedResources()
     {
@@ -160,19 +160,19 @@ class OnPremisesAgentGroup extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the publishedResources
     * List of publishedResource that are assigned to an onPremisesAgentGroup. Read-only. Nullable.
     *
-    * @param PublishedResource $val The publishedResources
+    * @param PublishedResource[] $val The publishedResources
     *
     * @return OnPremisesAgentGroup
     */
     public function setPublishedResources($val)
     {
-		$this->_propDict["publishedResources"] = $val;
+        $this->_propDict["publishedResources"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class EducationalActivityDetail extends Entity
     * Gets the abbreviation
     * Shortened name of the degree or program (example: PhD, MBA)
     *
-    * @return string The abbreviation
+    * @return string|null The abbreviation
     */
     public function getAbbreviation()
     {
@@ -55,7 +55,7 @@ class EducationalActivityDetail extends Entity
     * Gets the activities
     * Extracurricular activities undertaken alongside the program.
     *
-    * @return string The activities
+    * @return string|null The activities
     */
     public function getActivities()
     {
@@ -83,7 +83,7 @@ class EducationalActivityDetail extends Entity
     * Gets the awards
     * Any awards or honors associated with the program.
     *
-    * @return string The awards
+    * @return string|null The awards
     */
     public function getAwards()
     {
@@ -111,7 +111,7 @@ class EducationalActivityDetail extends Entity
     * Gets the description
     * Short description of the program provided by the user.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -139,7 +139,7 @@ class EducationalActivityDetail extends Entity
     * Gets the displayName
     * Long-form name of the program that the user has provided.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -167,7 +167,7 @@ class EducationalActivityDetail extends Entity
     * Gets the fieldsOfStudy
     * Majors and minors associated with the program. (if applicable)
     *
-    * @return string The fieldsOfStudy
+    * @return string|null The fieldsOfStudy
     */
     public function getFieldsOfStudy()
     {
@@ -195,7 +195,7 @@ class EducationalActivityDetail extends Entity
     * Gets the grade
     * The final grade, class, GPA or score.
     *
-    * @return string The grade
+    * @return string|null The grade
     */
     public function getGrade()
     {
@@ -223,7 +223,7 @@ class EducationalActivityDetail extends Entity
     * Gets the notes
     * Additional notes the user has provided.
     *
-    * @return string The notes
+    * @return string|null The notes
     */
     public function getNotes()
     {
@@ -251,7 +251,7 @@ class EducationalActivityDetail extends Entity
     * Gets the webUrl
     * Link to the degree or program page.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {

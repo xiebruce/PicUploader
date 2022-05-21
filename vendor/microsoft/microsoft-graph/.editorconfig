@@ -7,7 +7,7 @@ root = true
 # There MUST NOT be trailing whitespace at the end of non-blank lines.
 [*]
 charset = utf-8
-end_of_line = crlf
+end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 

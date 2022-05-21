@@ -27,7 +27,7 @@ class WindowsKioskLocalGroup extends WindowsKioskUser
     * Gets the groupName
     * The name of the local group that will be locked to this kiosk configuration
     *
-    * @return string The groupName
+    * @return string|null The groupName
     */
     public function getGroupName()
     {

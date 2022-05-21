@@ -27,7 +27,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder extends Entity
     * Gets the folderIdentifier
     * Unique identifier for the folder
     *
-    * @return string The folderIdentifier
+    * @return string|null The folderIdentifier
     */
     public function getFolderIdentifier()
     {
@@ -55,7 +55,7 @@ class AndroidDeviceOwnerKioskModeManagedFolder extends Entity
     * Gets the folderName
     * Display name for the folder
     *
-    * @return string The folderName
+    * @return string|null The folderName
     */
     public function getFolderName()
     {
@@ -84,12 +84,12 @@ class AndroidDeviceOwnerKioskModeManagedFolder extends Entity
     * Gets the items
     * Items to be added to managed folder. This collection can contain a maximum of 500 elements.
     *
-    * @return AndroidDeviceOwnerKioskModeFolderItem The items
+    * @return AndroidDeviceOwnerKioskModeFolderItem|null The items
     */
     public function getItems()
     {
         if (array_key_exists("items", $this->_propDict)) {
-            if (is_a($this->_propDict["items"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeFolderItem")) {
+            if (is_a($this->_propDict["items"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeFolderItem") || is_null($this->_propDict["items"])) {
                 return $this->_propDict["items"];
             } else {
                 $this->_propDict["items"] = new AndroidDeviceOwnerKioskModeFolderItem($this->_propDict["items"]);

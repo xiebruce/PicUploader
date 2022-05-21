@@ -27,7 +27,7 @@ class TargetResource extends Entity
     * Gets the displayName
     * Indicates the visible name defined for the resource. Typically specified when the resource is created.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -56,12 +56,12 @@ class TargetResource extends Entity
     * Gets the groupType
     * When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
     *
-    * @return GroupType The groupType
+    * @return GroupType|null The groupType
     */
     public function getGroupType()
     {
         if (array_key_exists("groupType", $this->_propDict)) {
-            if (is_a($this->_propDict["groupType"], "\Beta\Microsoft\Graph\Model\GroupType")) {
+            if (is_a($this->_propDict["groupType"], "\Beta\Microsoft\Graph\Model\GroupType") || is_null($this->_propDict["groupType"])) {
                 return $this->_propDict["groupType"];
             } else {
                 $this->_propDict["groupType"] = new GroupType($this->_propDict["groupType"]);
@@ -88,7 +88,7 @@ class TargetResource extends Entity
     * Gets the id
     * Indicates the unique ID of the resource.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -117,12 +117,12 @@ class TargetResource extends Entity
     * Gets the modifiedProperties
     * Indicates name, old value and new value of each attribute that changed. Property values depend on the operation type.
     *
-    * @return ModifiedProperty The modifiedProperties
+    * @return ModifiedProperty|null The modifiedProperties
     */
     public function getModifiedProperties()
     {
         if (array_key_exists("modifiedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedProperties"], "\Beta\Microsoft\Graph\Model\ModifiedProperty")) {
+            if (is_a($this->_propDict["modifiedProperties"], "\Beta\Microsoft\Graph\Model\ModifiedProperty") || is_null($this->_propDict["modifiedProperties"])) {
                 return $this->_propDict["modifiedProperties"];
             } else {
                 $this->_propDict["modifiedProperties"] = new ModifiedProperty($this->_propDict["modifiedProperties"]);
@@ -149,7 +149,7 @@ class TargetResource extends Entity
     * Gets the type
     * Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -177,7 +177,7 @@ class TargetResource extends Entity
     * Gets the userPrincipalName
     * When type is set to User, this includes the user name that initiated the action; null for other types.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

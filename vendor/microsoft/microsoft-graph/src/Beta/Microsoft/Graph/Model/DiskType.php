@@ -29,7 +29,8 @@ class DiskType extends Enum
     /**
     * The Enum DiskType
     */
-    const UNKOWN = "unkown";
+    const UNKNOWN = "unknown";
     const HDD = "hdd";
     const SSD = "ssd";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

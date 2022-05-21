@@ -153,7 +153,7 @@ class DropboxClient
 
         $options = [];
         if ($response instanceof DropboxResponseToFile) {
-            $options['sink'] = $response->getFilePath();
+            $options['sink'] = $response->getSteamOrFilePath();
         }
 
         //Send the Request to the Server through the HTTP Client
@@ -218,7 +218,7 @@ class DropboxClient
             $this->buildAuthHeader($request->getAccessToken()),
             $this->buildContentTypeHeader($request->getContentType()),
             $request->getHeaders()
-            );
+        );
 
         //Return the URL, Headers and Request Body
         return [$url, $headers, $requestBody];

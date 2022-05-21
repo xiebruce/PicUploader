@@ -28,7 +28,7 @@ class UserAppInstallStatus extends Entity
     * Gets the failedDeviceCount
     * Failed Device Count.
     *
-    * @return int The failedDeviceCount
+    * @return int|null The failedDeviceCount
     */
     public function getFailedDeviceCount()
     {
@@ -38,7 +38,7 @@ class UserAppInstallStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedDeviceCount
     * Failed Device Count.
@@ -52,12 +52,12 @@ class UserAppInstallStatus extends Entity
         $this->_propDict["failedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the installedDeviceCount
     * Installed Device Count.
     *
-    * @return int The installedDeviceCount
+    * @return int|null The installedDeviceCount
     */
     public function getInstalledDeviceCount()
     {
@@ -67,7 +67,7 @@ class UserAppInstallStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedDeviceCount
     * Installed Device Count.
@@ -81,12 +81,12 @@ class UserAppInstallStatus extends Entity
         $this->_propDict["installedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notInstalledDeviceCount
     * Not installed device count.
     *
-    * @return int The notInstalledDeviceCount
+    * @return int|null The notInstalledDeviceCount
     */
     public function getNotInstalledDeviceCount()
     {
@@ -96,7 +96,7 @@ class UserAppInstallStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notInstalledDeviceCount
     * Not installed device count.
@@ -110,12 +110,12 @@ class UserAppInstallStatus extends Entity
         $this->_propDict["notInstalledDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userName
     * User name.
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {
@@ -125,7 +125,7 @@ class UserAppInstallStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userName
     * User name.
@@ -139,12 +139,12 @@ class UserAppInstallStatus extends Entity
         $this->_propDict["userName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * User Principal Name.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -154,7 +154,7 @@ class UserAppInstallStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * User Principal Name.
@@ -168,17 +168,17 @@ class UserAppInstallStatus extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the app
     * The navigation link to the mobile app.
     *
-    * @return MobileApp The app
+    * @return MobileApp|null The app
     */
     public function getApp()
     {
         if (array_key_exists("app", $this->_propDict)) {
-            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\MobileApp")) {
+            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\MobileApp") || is_null($this->_propDict["app"])) {
                 return $this->_propDict["app"];
             } else {
                 $this->_propDict["app"] = new MobileApp($this->_propDict["app"]);
@@ -187,7 +187,7 @@ class UserAppInstallStatus extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the app
     * The navigation link to the mobile app.
@@ -201,13 +201,13 @@ class UserAppInstallStatus extends Entity
         $this->_propDict["app"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceStatuses
     * The install state of the app on devices.
      *
-     * @return array The deviceStatuses
+     * @return array|null The deviceStatuses
      */
     public function getDeviceStatuses()
     {
@@ -217,19 +217,19 @@ class UserAppInstallStatus extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the deviceStatuses
     * The install state of the app on devices.
     *
-    * @param MobileAppInstallStatus $val The deviceStatuses
+    * @param MobileAppInstallStatus[] $val The deviceStatuses
     *
     * @return UserAppInstallStatus
     */
     public function setDeviceStatuses($val)
     {
-		$this->_propDict["deviceStatuses"] = $val;
+        $this->_propDict["deviceStatuses"] = $val;
         return $this;
     }
-    
+
 }

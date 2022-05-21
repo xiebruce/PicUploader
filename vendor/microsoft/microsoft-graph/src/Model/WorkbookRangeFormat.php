@@ -28,7 +28,7 @@ class WorkbookRangeFormat extends Entity
     * Gets the columnWidth
     * Gets or sets the width of all colums within the range. If the column widths are not uniform, null will be returned.
     *
-    * @return float The columnWidth
+    * @return float|null The columnWidth
     */
     public function getColumnWidth()
     {
@@ -38,7 +38,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the columnWidth
     * Gets or sets the width of all colums within the range. If the column widths are not uniform, null will be returned.
@@ -49,15 +49,15 @@ class WorkbookRangeFormat extends Entity
     */
     public function setColumnWidth($val)
     {
-        $this->_propDict["columnWidth"] = $val;
+        $this->_propDict["columnWidth"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the horizontalAlignment
     * Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
     *
-    * @return string The horizontalAlignment
+    * @return string|null The horizontalAlignment
     */
     public function getHorizontalAlignment()
     {
@@ -67,7 +67,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the horizontalAlignment
     * Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
@@ -81,12 +81,12 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["horizontalAlignment"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the rowHeight
     * Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned.
     *
-    * @return float The rowHeight
+    * @return float|null The rowHeight
     */
     public function getRowHeight()
     {
@@ -96,7 +96,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the rowHeight
     * Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned.
@@ -107,15 +107,15 @@ class WorkbookRangeFormat extends Entity
     */
     public function setRowHeight($val)
     {
-        $this->_propDict["rowHeight"] = $val;
+        $this->_propDict["rowHeight"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the verticalAlignment
     * Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.
     *
-    * @return string The verticalAlignment
+    * @return string|null The verticalAlignment
     */
     public function getVerticalAlignment()
     {
@@ -125,7 +125,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the verticalAlignment
     * Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.
@@ -139,12 +139,12 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["verticalAlignment"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the wrapText
     * Indicates if Excel wraps the text in the object. A null value indicates that the entire range doesn't have uniform wrap setting
     *
-    * @return bool The wrapText
+    * @return bool|null The wrapText
     */
     public function getWrapText()
     {
@@ -154,7 +154,7 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the wrapText
     * Indicates if Excel wraps the text in the object. A null value indicates that the entire range doesn't have uniform wrap setting
@@ -168,13 +168,13 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["wrapText"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the borders
     * Collection of border objects that apply to the overall range selected Read-only.
      *
-     * @return array The borders
+     * @return array|null The borders
      */
     public function getBorders()
     {
@@ -184,31 +184,31 @@ class WorkbookRangeFormat extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the borders
     * Collection of border objects that apply to the overall range selected Read-only.
     *
-    * @param WorkbookRangeBorder $val The borders
+    * @param WorkbookRangeBorder[] $val The borders
     *
     * @return WorkbookRangeFormat
     */
     public function setBorders($val)
     {
-		$this->_propDict["borders"] = $val;
+        $this->_propDict["borders"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fill
     * Returns the fill object defined on the overall range. Read-only.
     *
-    * @return WorkbookRangeFill The fill
+    * @return WorkbookRangeFill|null The fill
     */
     public function getFill()
     {
         if (array_key_exists("fill", $this->_propDict)) {
-            if (is_a($this->_propDict["fill"], "\Microsoft\Graph\Model\WorkbookRangeFill")) {
+            if (is_a($this->_propDict["fill"], "\Microsoft\Graph\Model\WorkbookRangeFill") || is_null($this->_propDict["fill"])) {
                 return $this->_propDict["fill"];
             } else {
                 $this->_propDict["fill"] = new WorkbookRangeFill($this->_propDict["fill"]);
@@ -217,7 +217,7 @@ class WorkbookRangeFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the fill
     * Returns the fill object defined on the overall range. Read-only.
@@ -231,17 +231,17 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["fill"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the font
     * Returns the font object defined on the overall range selected Read-only.
     *
-    * @return WorkbookRangeFont The font
+    * @return WorkbookRangeFont|null The font
     */
     public function getFont()
     {
         if (array_key_exists("font", $this->_propDict)) {
-            if (is_a($this->_propDict["font"], "\Microsoft\Graph\Model\WorkbookRangeFont")) {
+            if (is_a($this->_propDict["font"], "\Microsoft\Graph\Model\WorkbookRangeFont") || is_null($this->_propDict["font"])) {
                 return $this->_propDict["font"];
             } else {
                 $this->_propDict["font"] = new WorkbookRangeFont($this->_propDict["font"]);
@@ -250,7 +250,7 @@ class WorkbookRangeFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the font
     * Returns the font object defined on the overall range selected Read-only.
@@ -264,17 +264,17 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["font"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the protection
     * Returns the format protection object for a range. Read-only.
     *
-    * @return WorkbookFormatProtection The protection
+    * @return WorkbookFormatProtection|null The protection
     */
     public function getProtection()
     {
         if (array_key_exists("protection", $this->_propDict)) {
-            if (is_a($this->_propDict["protection"], "\Microsoft\Graph\Model\WorkbookFormatProtection")) {
+            if (is_a($this->_propDict["protection"], "\Microsoft\Graph\Model\WorkbookFormatProtection") || is_null($this->_propDict["protection"])) {
                 return $this->_propDict["protection"];
             } else {
                 $this->_propDict["protection"] = new WorkbookFormatProtection($this->_propDict["protection"]);
@@ -283,7 +283,7 @@ class WorkbookRangeFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the protection
     * Returns the format protection object for a range. Read-only.
@@ -297,5 +297,5 @@ class WorkbookRangeFormat extends Entity
         $this->_propDict["protection"] = $val;
         return $this;
     }
-    
+
 }

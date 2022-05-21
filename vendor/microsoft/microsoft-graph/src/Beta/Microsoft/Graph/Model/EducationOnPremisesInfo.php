@@ -27,7 +27,7 @@ class EducationOnPremisesInfo extends Entity
     * Gets the immutableId
     * Unique identifier for the user object in Active Directory.
     *
-    * @return string The immutableId
+    * @return string|null The immutableId
     */
     public function getImmutableId()
     {

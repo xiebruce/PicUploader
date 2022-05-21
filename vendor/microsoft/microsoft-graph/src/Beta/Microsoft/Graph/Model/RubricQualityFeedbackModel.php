@@ -28,12 +28,12 @@ class RubricQualityFeedbackModel extends Entity
     * Gets the feedback
     * Specific feedback for one quality of this rubric.
     *
-    * @return EducationItemBody The feedback
+    * @return EducationItemBody|null The feedback
     */
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "\Beta\Microsoft\Graph\Model\EducationItemBody")) {
+            if (is_a($this->_propDict["feedback"], "\Beta\Microsoft\Graph\Model\EducationItemBody") || is_null($this->_propDict["feedback"])) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new EducationItemBody($this->_propDict["feedback"]);
@@ -60,7 +60,7 @@ class RubricQualityFeedbackModel extends Entity
     * Gets the qualityId
     * The ID of the rubricQuality that this feedback is related to.
     *
-    * @return string The qualityId
+    * @return string|null The qualityId
     */
     public function getQualityId()
     {

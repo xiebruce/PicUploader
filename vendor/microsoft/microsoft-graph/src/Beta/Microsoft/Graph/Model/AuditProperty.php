@@ -27,7 +27,7 @@ class AuditProperty extends Entity
     * Gets the displayName
     * Display name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class AuditProperty extends Entity
     * Gets the newValue
     * New value.
     *
-    * @return string The newValue
+    * @return string|null The newValue
     */
     public function getNewValue()
     {
@@ -83,7 +83,7 @@ class AuditProperty extends Entity
     * Gets the oldValue
     * Old value.
     *
-    * @return string The oldValue
+    * @return string|null The oldValue
     */
     public function getOldValue()
     {

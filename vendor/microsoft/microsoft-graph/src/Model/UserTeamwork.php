@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class UserTeamwork extends Entity
 {
 
-     /** 
+     /**
      * Gets the installedApps
     * The apps installed in the personal scope of this user.
      *
-     * @return array The installedApps
+     * @return array|null The installedApps
      */
     public function getInstalledApps()
     {
@@ -39,19 +39,19 @@ class UserTeamwork extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the installedApps
     * The apps installed in the personal scope of this user.
     *
-    * @param UserScopeTeamsAppInstallation $val The installedApps
+    * @param UserScopeTeamsAppInstallation[] $val The installedApps
     *
     * @return UserTeamwork
     */
     public function setInstalledApps($val)
     {
-		$this->_propDict["installedApps"] = $val;
+        $this->_propDict["installedApps"] = $val;
         return $this;
     }
-    
+
 }

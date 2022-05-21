@@ -28,12 +28,12 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
     * Gets the createdDateTime
     * Creation time of the Assignment Filter.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -42,7 +42,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * Creation time of the Assignment Filter.
@@ -56,12 +56,12 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Description of the Assignment Filter.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -71,7 +71,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the Assignment Filter.
@@ -85,12 +85,12 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * DisplayName of the Assignment Filter.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -100,7 +100,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * DisplayName of the Assignment Filter.
@@ -114,17 +114,17 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Last modified time of the Assignment Filter.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -133,7 +133,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Last modified time of the Assignment Filter.
@@ -147,17 +147,17 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the platform
     * Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
     *
-    * @return DevicePlatformType The platform
+    * @return DevicePlatformType|null The platform
     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType")) {
+            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new DevicePlatformType($this->_propDict["platform"]);
@@ -166,7 +166,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the platform
     * Platform type of the devices on which the Assignment Filter will be applicable. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
@@ -180,12 +180,12 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["platform"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleScopeTags
     * RoleScopeTags of the Assignment Filter.
     *
-    * @return string The roleScopeTags
+    * @return string|null The roleScopeTags
     */
     public function getRoleScopeTags()
     {
@@ -195,7 +195,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleScopeTags
     * RoleScopeTags of the Assignment Filter.
@@ -209,12 +209,12 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["roleScopeTags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the rule
     * Rule definition of the Assignment Filter.
     *
-    * @return string The rule
+    * @return string|null The rule
     */
     public function getRule()
     {
@@ -224,7 +224,7 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the rule
     * Rule definition of the Assignment Filter.
@@ -238,5 +238,5 @@ class DeviceAndAppManagementAssignmentFilter extends Entity
         $this->_propDict["rule"] = $val;
         return $this;
     }
-    
+
 }

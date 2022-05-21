@@ -27,7 +27,7 @@ class DeviceOperatingSystemSummary extends Entity
     * Gets the androidCount
     * Number of android device count.
     *
-    * @return int The androidCount
+    * @return int|null The androidCount
     */
     public function getAndroidCount()
     {
@@ -55,7 +55,7 @@ class DeviceOperatingSystemSummary extends Entity
     * Gets the iosCount
     * Number of iOS device count.
     *
-    * @return int The iosCount
+    * @return int|null The iosCount
     */
     public function getIosCount()
     {
@@ -83,7 +83,7 @@ class DeviceOperatingSystemSummary extends Entity
     * Gets the macOSCount
     * Number of Mac OS X device count.
     *
-    * @return int The macOSCount
+    * @return int|null The macOSCount
     */
     public function getMacOSCount()
     {
@@ -111,7 +111,7 @@ class DeviceOperatingSystemSummary extends Entity
     * Gets the unknownCount
     * Number of unknown device count.
     *
-    * @return int The unknownCount
+    * @return int|null The unknownCount
     */
     public function getUnknownCount()
     {
@@ -139,7 +139,7 @@ class DeviceOperatingSystemSummary extends Entity
     * Gets the windowsCount
     * Number of Windows device count.
     *
-    * @return int The windowsCount
+    * @return int|null The windowsCount
     */
     public function getWindowsCount()
     {
@@ -167,7 +167,7 @@ class DeviceOperatingSystemSummary extends Entity
     * Gets the windowsMobileCount
     * Number of Windows mobile device count.
     *
-    * @return int The windowsMobileCount
+    * @return int|null The windowsMobileCount
     */
     public function getWindowsMobileCount()
     {

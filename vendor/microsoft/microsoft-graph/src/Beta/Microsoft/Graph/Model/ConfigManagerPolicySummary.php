@@ -27,7 +27,7 @@ class ConfigManagerPolicySummary extends Entity
     * Gets the compliantDeviceCount
     * The number of devices evaluated to be compliant by the policy.
     *
-    * @return int The compliantDeviceCount
+    * @return int|null The compliantDeviceCount
     */
     public function getCompliantDeviceCount()
     {
@@ -55,7 +55,7 @@ class ConfigManagerPolicySummary extends Entity
     * Gets the enforcedDeviceCount
     * The number of devices that have have been remediated by the policy.
     *
-    * @return int The enforcedDeviceCount
+    * @return int|null The enforcedDeviceCount
     */
     public function getEnforcedDeviceCount()
     {
@@ -83,7 +83,7 @@ class ConfigManagerPolicySummary extends Entity
     * Gets the failedDeviceCount
     * The number of devices that failed to be evaluated by the policy.
     *
-    * @return int The failedDeviceCount
+    * @return int|null The failedDeviceCount
     */
     public function getFailedDeviceCount()
     {
@@ -111,7 +111,7 @@ class ConfigManagerPolicySummary extends Entity
     * Gets the nonCompliantDeviceCount
     * The number of devices evaluated to be noncompliant by the policy.
     *
-    * @return int The nonCompliantDeviceCount
+    * @return int|null The nonCompliantDeviceCount
     */
     public function getNonCompliantDeviceCount()
     {
@@ -139,7 +139,7 @@ class ConfigManagerPolicySummary extends Entity
     * Gets the pendingDeviceCount
     * The number of devices that have acknowledged the policy but are pending evaluation.
     *
-    * @return int The pendingDeviceCount
+    * @return int|null The pendingDeviceCount
     */
     public function getPendingDeviceCount()
     {
@@ -167,7 +167,7 @@ class ConfigManagerPolicySummary extends Entity
     * Gets the targetedDeviceCount
     * The number of devices targeted by the policy.
     *
-    * @return int The targetedDeviceCount
+    * @return int|null The targetedDeviceCount
     */
     public function getTargetedDeviceCount()
     {

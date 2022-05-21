@@ -27,7 +27,7 @@ class FilterOperand extends Entity
     * Gets the values
     * Collection of values.
     *
-    * @return string The values
+    * @return string|null The values
     */
     public function getValues()
     {

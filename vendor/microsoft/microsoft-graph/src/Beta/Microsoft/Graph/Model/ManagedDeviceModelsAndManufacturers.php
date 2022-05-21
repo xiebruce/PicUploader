@@ -27,7 +27,7 @@ class ManagedDeviceModelsAndManufacturers extends Entity
     * Gets the deviceManufacturers
     * List of Manufactures for managed devices in the account
     *
-    * @return string The deviceManufacturers
+    * @return string|null The deviceManufacturers
     */
     public function getDeviceManufacturers()
     {
@@ -55,7 +55,7 @@ class ManagedDeviceModelsAndManufacturers extends Entity
     * Gets the deviceModels
     * List of Models for managed devices in the account
     *
-    * @return string The deviceModels
+    * @return string|null The deviceModels
     */
     public function getDeviceModels()
     {

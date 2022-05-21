@@ -28,7 +28,7 @@ class DeviceManagementIntentDeviceState extends Entity
     * Gets the deviceDisplayName
     * Device name that is being reported
     *
-    * @return string The deviceDisplayName
+    * @return string|null The deviceDisplayName
     */
     public function getDeviceDisplayName()
     {
@@ -38,7 +38,7 @@ class DeviceManagementIntentDeviceState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceDisplayName
     * Device name that is being reported
@@ -52,12 +52,12 @@ class DeviceManagementIntentDeviceState extends Entity
         $this->_propDict["deviceDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceId
     * Device id that is being reported
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -67,7 +67,7 @@ class DeviceManagementIntentDeviceState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * Device id that is being reported
@@ -81,17 +81,17 @@ class DeviceManagementIntentDeviceState extends Entity
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastReportedDateTime
     * Last modified date time of an intent report
     *
-    * @return \DateTime The lastReportedDateTime
+    * @return \DateTime|null The lastReportedDateTime
     */
     public function getLastReportedDateTime()
     {
         if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -100,7 +100,7 @@ class DeviceManagementIntentDeviceState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastReportedDateTime
     * Last modified date time of an intent report
@@ -114,17 +114,17 @@ class DeviceManagementIntentDeviceState extends Entity
         $this->_propDict["lastReportedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * Device state for an intent. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
     *
-    * @return ComplianceStatus The state
+    * @return ComplianceStatus|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ComplianceStatus")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ComplianceStatus($this->_propDict["state"]);
@@ -133,7 +133,7 @@ class DeviceManagementIntentDeviceState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * Device state for an intent. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
@@ -147,12 +147,12 @@ class DeviceManagementIntentDeviceState extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userName
     * The user name that is being reported on a device
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {
@@ -162,7 +162,7 @@ class DeviceManagementIntentDeviceState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userName
     * The user name that is being reported on a device
@@ -176,12 +176,12 @@ class DeviceManagementIntentDeviceState extends Entity
         $this->_propDict["userName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * The user principal name that is being reported on a device
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -191,7 +191,7 @@ class DeviceManagementIntentDeviceState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * The user principal name that is being reported on a device
@@ -205,5 +205,5 @@ class DeviceManagementIntentDeviceState extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

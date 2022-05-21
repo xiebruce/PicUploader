@@ -26,7 +26,7 @@ class AlertDetection extends Entity
     /**
     * Gets the detectionType
     *
-    * @return string The detectionType
+    * @return string|null The detectionType
     */
     public function getDetectionType()
     {
@@ -52,7 +52,7 @@ class AlertDetection extends Entity
     /**
     * Gets the method
     *
-    * @return string The method
+    * @return string|null The method
     */
     public function getMethod()
     {
@@ -78,7 +78,7 @@ class AlertDetection extends Entity
     /**
     * Gets the name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

@@ -27,7 +27,7 @@ class RequestorSettings extends Entity
     * Gets the acceptRequests
     * Indicates whether new requests are accepted on this policy.
     *
-    * @return bool The acceptRequests
+    * @return bool|null The acceptRequests
     */
     public function getAcceptRequests()
     {
@@ -56,12 +56,12 @@ class RequestorSettings extends Entity
     * Gets the allowedRequestors
     * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
     *
-    * @return UserSet The allowedRequestors
+    * @return UserSet|null The allowedRequestors
     */
     public function getAllowedRequestors()
     {
         if (array_key_exists("allowedRequestors", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedRequestors"], "\Beta\Microsoft\Graph\Model\UserSet")) {
+            if (is_a($this->_propDict["allowedRequestors"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["allowedRequestors"])) {
                 return $this->_propDict["allowedRequestors"];
             } else {
                 $this->_propDict["allowedRequestors"] = new UserSet($this->_propDict["allowedRequestors"]);
@@ -88,7 +88,7 @@ class RequestorSettings extends Entity
     * Gets the scopeType
     * Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
     *
-    * @return string The scopeType
+    * @return string|null The scopeType
     */
     public function getScopeType()
     {

@@ -27,7 +27,7 @@ class MembershipRuleProcessingStatus extends Entity
     * Gets the errorMessage
     * Detailed error message if dynamic group processing ran into an error.  Optional. Read-only.
     *
-    * @return string The errorMessage
+    * @return string|null The errorMessage
     */
     public function getErrorMessage()
     {
@@ -56,12 +56,12 @@ class MembershipRuleProcessingStatus extends Entity
     * Gets the lastMembershipUpdated
     * Most recent date and time when membership of a dynamic group was updated.  Optional. Read-only.
     *
-    * @return \DateTime The lastMembershipUpdated
+    * @return \DateTime|null The lastMembershipUpdated
     */
     public function getLastMembershipUpdated()
     {
         if (array_key_exists("lastMembershipUpdated", $this->_propDict)) {
-            if (is_a($this->_propDict["lastMembershipUpdated"], "\DateTime")) {
+            if (is_a($this->_propDict["lastMembershipUpdated"], "\DateTime") || is_null($this->_propDict["lastMembershipUpdated"])) {
                 return $this->_propDict["lastMembershipUpdated"];
             } else {
                 $this->_propDict["lastMembershipUpdated"] = new \DateTime($this->_propDict["lastMembershipUpdated"]);
@@ -87,14 +87,14 @@ class MembershipRuleProcessingStatus extends Entity
 
     /**
     * Gets the status
-    * Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.   Required. Read-only.
+    * Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
     *
-    * @return MembershipRuleProcessingStatusDetails The status
+    * @return MembershipRuleProcessingStatusDetails|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\MembershipRuleProcessingStatusDetails")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\MembershipRuleProcessingStatusDetails") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new MembershipRuleProcessingStatusDetails($this->_propDict["status"]);
@@ -106,7 +106,7 @@ class MembershipRuleProcessingStatus extends Entity
 
     /**
     * Sets the status
-    * Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.   Required. Read-only.
+    * Current status of a dynamic group processing. Possible values are: NotStarted, Running, Succeeded, Failed, and UnknownFutureValue.  Required. Read-only.
     *
     * @param MembershipRuleProcessingStatusDetails $val The value to assign to the status
     *

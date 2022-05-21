@@ -27,7 +27,7 @@ class AssignedLicense extends Entity
     * Gets the disabledPlans
     * A collection of the unique identifiers for plans that have been disabled.
     *
-    * @return string The disabledPlans
+    * @return string|null The disabledPlans
     */
     public function getDisabledPlans()
     {
@@ -55,7 +55,7 @@ class AssignedLicense extends Entity
     * Gets the skuId
     * The unique identifier for the SKU.
     *
-    * @return string The skuId
+    * @return string|null The skuId
     */
     public function getSkuId()
     {

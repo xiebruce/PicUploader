@@ -23,44 +23,39 @@ namespace Microsoft\Graph\CallRecords\Model;
 */
 class NetworkInfo extends \Microsoft\Graph\Model\Entity
 {
-
     /**
     * Gets the bandwidthLowEventRatio
     * Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
     *
-    * @return \Microsoft\Graph\Model\Single The bandwidthLowEventRatio
+    * @return float|null The bandwidthLowEventRatio
     */
     public function getBandwidthLowEventRatio()
     {
         if (array_key_exists("bandwidthLowEventRatio", $this->_propDict)) {
-            if (is_a($this->_propDict["bandwidthLowEventRatio"], "\Microsoft\Graph\Model\Single")) {
-                return $this->_propDict["bandwidthLowEventRatio"];
-            } else {
-                $this->_propDict["bandwidthLowEventRatio"] = new \Microsoft\Graph\Model\Single($this->_propDict["bandwidthLowEventRatio"]);
-                return $this->_propDict["bandwidthLowEventRatio"];
-            }
+            return $this->_propDict["bandwidthLowEventRatio"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
     * Sets the bandwidthLowEventRatio
     * Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
     *
-    * @param \Microsoft\Graph\Model\Single $val The value to assign to the bandwidthLowEventRatio
+    * @param float $val The value of the bandwidthLowEventRatio
     *
-    * @return NetworkInfo The NetworkInfo
+    * @return NetworkInfo
     */
     public function setBandwidthLowEventRatio($val)
     {
         $this->_propDict["bandwidthLowEventRatio"] = $val;
-         return $this;
+        return $this;
     }
     /**
     * Gets the basicServiceSetIdentifier
     * The wireless LAN basic service set identifier of the media endpoint used to connect to the network.
     *
-    * @return string The basicServiceSetIdentifier
+    * @return string|null The basicServiceSetIdentifier
     */
     public function getBasicServiceSetIdentifier()
     {
@@ -89,12 +84,12 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the connectionType
     * Type of network used by the media endpoint. Possible values are: unknown, wired, wifi, mobile, tunnel, unknownFutureValue.
     *
-    * @return NetworkConnectionType The connectionType
+    * @return NetworkConnectionType|null The connectionType
     */
     public function getConnectionType()
     {
         if (array_key_exists("connectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["connectionType"], "\Microsoft\Graph\CallRecords\Model\NetworkConnectionType")) {
+            if (is_a($this->_propDict["connectionType"], "\Microsoft\Graph\CallRecords\Model\NetworkConnectionType") || is_null($this->_propDict["connectionType"])) {
                 return $this->_propDict["connectionType"];
             } else {
                 $this->_propDict["connectionType"] = new NetworkConnectionType($this->_propDict["connectionType"]);
@@ -117,44 +112,39 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
         $this->_propDict["connectionType"] = $val;
          return $this;
     }
-
     /**
     * Gets the delayEventRatio
     * Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.
     *
-    * @return \Microsoft\Graph\Model\Single The delayEventRatio
+    * @return float|null The delayEventRatio
     */
     public function getDelayEventRatio()
     {
         if (array_key_exists("delayEventRatio", $this->_propDict)) {
-            if (is_a($this->_propDict["delayEventRatio"], "\Microsoft\Graph\Model\Single")) {
-                return $this->_propDict["delayEventRatio"];
-            } else {
-                $this->_propDict["delayEventRatio"] = new \Microsoft\Graph\Model\Single($this->_propDict["delayEventRatio"]);
-                return $this->_propDict["delayEventRatio"];
-            }
+            return $this->_propDict["delayEventRatio"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
     * Sets the delayEventRatio
     * Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.
     *
-    * @param \Microsoft\Graph\Model\Single $val The value to assign to the delayEventRatio
+    * @param float $val The value of the delayEventRatio
     *
-    * @return NetworkInfo The NetworkInfo
+    * @return NetworkInfo
     */
     public function setDelayEventRatio($val)
     {
         $this->_propDict["delayEventRatio"] = $val;
-         return $this;
+        return $this;
     }
     /**
     * Gets the dnsSuffix
     * DNS suffix associated with the network adapter of the media endpoint.
     *
-    * @return string The dnsSuffix
+    * @return string|null The dnsSuffix
     */
     public function getDnsSuffix()
     {
@@ -182,7 +172,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the ipAddress
     * IP address of the media endpoint.
     *
-    * @return string The ipAddress
+    * @return string|null The ipAddress
     */
     public function getIpAddress()
     {
@@ -210,7 +200,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the linkSpeed
     * Link speed in bits per second reported by the network adapter used by the media endpoint.
     *
-    * @return int The linkSpeed
+    * @return int|null The linkSpeed
     */
     public function getLinkSpeed()
     {
@@ -238,7 +228,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the macAddress
     * The media access control (MAC) address of the media endpoint's network device.
     *
-    * @return string The macAddress
+    * @return string|null The macAddress
     */
     public function getMacAddress()
     {
@@ -266,7 +256,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the port
     * Network port number used by media endpoint.
     *
-    * @return int The port
+    * @return int|null The port
     */
     public function getPort()
     {
@@ -290,44 +280,39 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
         $this->_propDict["port"] = $val;
         return $this;
     }
-
     /**
     * Gets the receivedQualityEventRatio
     * Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.
     *
-    * @return \Microsoft\Graph\Model\Single The receivedQualityEventRatio
+    * @return float|null The receivedQualityEventRatio
     */
     public function getReceivedQualityEventRatio()
     {
         if (array_key_exists("receivedQualityEventRatio", $this->_propDict)) {
-            if (is_a($this->_propDict["receivedQualityEventRatio"], "\Microsoft\Graph\Model\Single")) {
-                return $this->_propDict["receivedQualityEventRatio"];
-            } else {
-                $this->_propDict["receivedQualityEventRatio"] = new \Microsoft\Graph\Model\Single($this->_propDict["receivedQualityEventRatio"]);
-                return $this->_propDict["receivedQualityEventRatio"];
-            }
+            return $this->_propDict["receivedQualityEventRatio"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
     * Sets the receivedQualityEventRatio
     * Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.
     *
-    * @param \Microsoft\Graph\Model\Single $val The value to assign to the receivedQualityEventRatio
+    * @param float $val The value of the receivedQualityEventRatio
     *
-    * @return NetworkInfo The NetworkInfo
+    * @return NetworkInfo
     */
     public function setReceivedQualityEventRatio($val)
     {
         $this->_propDict["receivedQualityEventRatio"] = $val;
-         return $this;
+        return $this;
     }
     /**
     * Gets the reflexiveIPAddress
     * IP address of the media endpoint as seen by the media relay server. This is typically the public internet IP address associated to the endpoint.
     *
-    * @return string The reflexiveIPAddress
+    * @return string|null The reflexiveIPAddress
     */
     public function getReflexiveIPAddress()
     {
@@ -355,7 +340,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the relayIPAddress
     * IP address of the media relay server allocated by the media endpoint.
     *
-    * @return string The relayIPAddress
+    * @return string|null The relayIPAddress
     */
     public function getRelayIPAddress()
     {
@@ -383,7 +368,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the relayPort
     * Network port number allocated on the media relay server by the media endpoint.
     *
-    * @return int The relayPort
+    * @return int|null The relayPort
     */
     public function getRelayPort()
     {
@@ -407,44 +392,39 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
         $this->_propDict["relayPort"] = $val;
         return $this;
     }
-
     /**
     * Gets the sentQualityEventRatio
     * Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.
     *
-    * @return \Microsoft\Graph\Model\Single The sentQualityEventRatio
+    * @return float|null The sentQualityEventRatio
     */
     public function getSentQualityEventRatio()
     {
         if (array_key_exists("sentQualityEventRatio", $this->_propDict)) {
-            if (is_a($this->_propDict["sentQualityEventRatio"], "\Microsoft\Graph\Model\Single")) {
-                return $this->_propDict["sentQualityEventRatio"];
-            } else {
-                $this->_propDict["sentQualityEventRatio"] = new \Microsoft\Graph\Model\Single($this->_propDict["sentQualityEventRatio"]);
-                return $this->_propDict["sentQualityEventRatio"];
-            }
+            return $this->_propDict["sentQualityEventRatio"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
     * Sets the sentQualityEventRatio
     * Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.
     *
-    * @param \Microsoft\Graph\Model\Single $val The value to assign to the sentQualityEventRatio
+    * @param float $val The value of the sentQualityEventRatio
     *
-    * @return NetworkInfo The NetworkInfo
+    * @return NetworkInfo
     */
     public function setSentQualityEventRatio($val)
     {
         $this->_propDict["sentQualityEventRatio"] = $val;
-         return $this;
+        return $this;
     }
     /**
     * Gets the subnet
     * Subnet used for media stream by the media endpoint.
     *
-    * @return string The subnet
+    * @return string|null The subnet
     */
     public function getSubnet()
     {
@@ -473,12 +453,12 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiBand
     * WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue.
     *
-    * @return WifiBand The wifiBand
+    * @return WifiBand|null The wifiBand
     */
     public function getWifiBand()
     {
         if (array_key_exists("wifiBand", $this->_propDict)) {
-            if (is_a($this->_propDict["wifiBand"], "\Microsoft\Graph\CallRecords\Model\WifiBand")) {
+            if (is_a($this->_propDict["wifiBand"], "\Microsoft\Graph\CallRecords\Model\WifiBand") || is_null($this->_propDict["wifiBand"])) {
                 return $this->_propDict["wifiBand"];
             } else {
                 $this->_propDict["wifiBand"] = new WifiBand($this->_propDict["wifiBand"]);
@@ -505,7 +485,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiBatteryCharge
     * Estimated remaining battery charge in percentage reported by the media endpoint.
     *
-    * @return int The wifiBatteryCharge
+    * @return int|null The wifiBatteryCharge
     */
     public function getWifiBatteryCharge()
     {
@@ -533,7 +513,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiChannel
     * WiFi channel used by the media endpoint.
     *
-    * @return int The wifiChannel
+    * @return int|null The wifiChannel
     */
     public function getWifiChannel()
     {
@@ -561,7 +541,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiMicrosoftDriver
     * Name of the Microsoft WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint.
     *
-    * @return string The wifiMicrosoftDriver
+    * @return string|null The wifiMicrosoftDriver
     */
     public function getWifiMicrosoftDriver()
     {
@@ -589,7 +569,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiMicrosoftDriverVersion
     * Version of the Microsoft WiFi driver used by the media endpoint.
     *
-    * @return string The wifiMicrosoftDriverVersion
+    * @return string|null The wifiMicrosoftDriverVersion
     */
     public function getWifiMicrosoftDriverVersion()
     {
@@ -618,12 +598,12 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiRadioType
     * Type of WiFi radio used by the media endpoint. Possible values are: unknown, wifi80211a, wifi80211b, wifi80211g, wifi80211n, wifi80211ac, wifi80211ax, unknownFutureValue.
     *
-    * @return WifiRadioType The wifiRadioType
+    * @return WifiRadioType|null The wifiRadioType
     */
     public function getWifiRadioType()
     {
         if (array_key_exists("wifiRadioType", $this->_propDict)) {
-            if (is_a($this->_propDict["wifiRadioType"], "\Microsoft\Graph\CallRecords\Model\WifiRadioType")) {
+            if (is_a($this->_propDict["wifiRadioType"], "\Microsoft\Graph\CallRecords\Model\WifiRadioType") || is_null($this->_propDict["wifiRadioType"])) {
                 return $this->_propDict["wifiRadioType"];
             } else {
                 $this->_propDict["wifiRadioType"] = new WifiRadioType($this->_propDict["wifiRadioType"]);
@@ -650,7 +630,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiSignalStrength
     * WiFi signal strength in percentage reported by the media endpoint.
     *
-    * @return int The wifiSignalStrength
+    * @return int|null The wifiSignalStrength
     */
     public function getWifiSignalStrength()
     {
@@ -678,7 +658,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiVendorDriver
     * Name of the WiFi driver used by the media endpoint. Value may be localized based on the language used by endpoint.
     *
-    * @return string The wifiVendorDriver
+    * @return string|null The wifiVendorDriver
     */
     public function getWifiVendorDriver()
     {
@@ -706,7 +686,7 @@ class NetworkInfo extends \Microsoft\Graph\Model\Entity
     * Gets the wifiVendorDriverVersion
     * Version of the WiFi driver used by the media endpoint.
     *
-    * @return string The wifiVendorDriverVersion
+    * @return string|null The wifiVendorDriverVersion
     */
     public function getWifiVendorDriverVersion()
     {

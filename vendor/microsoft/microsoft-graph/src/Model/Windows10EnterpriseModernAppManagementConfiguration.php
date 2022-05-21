@@ -28,7 +28,7 @@ class Windows10EnterpriseModernAppManagementConfiguration extends DeviceConfigur
     * Gets the uninstallBuiltInApps
     * Indicates whether or not to uninstall a fixed list of built-in Windows apps.
     *
-    * @return bool The uninstallBuiltInApps
+    * @return bool|null The uninstallBuiltInApps
     */
     public function getUninstallBuiltInApps()
     {
@@ -38,7 +38,7 @@ class Windows10EnterpriseModernAppManagementConfiguration extends DeviceConfigur
             return null;
         }
     }
-    
+
     /**
     * Sets the uninstallBuiltInApps
     * Indicates whether or not to uninstall a fixed list of built-in Windows apps.
@@ -52,5 +52,5 @@ class Windows10EnterpriseModernAppManagementConfiguration extends DeviceConfigur
         $this->_propDict["uninstallBuiltInApps"] = boolval($val);
         return $this;
     }
-    
+
 }

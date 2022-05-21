@@ -28,7 +28,7 @@ class UserInstallStateSummary extends Entity
     * Gets the failedDeviceCount
     * Failed Device Count.
     *
-    * @return int The failedDeviceCount
+    * @return int|null The failedDeviceCount
     */
     public function getFailedDeviceCount()
     {
@@ -38,7 +38,7 @@ class UserInstallStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedDeviceCount
     * Failed Device Count.
@@ -52,12 +52,12 @@ class UserInstallStateSummary extends Entity
         $this->_propDict["failedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the installedDeviceCount
     * Installed Device Count.
     *
-    * @return int The installedDeviceCount
+    * @return int|null The installedDeviceCount
     */
     public function getInstalledDeviceCount()
     {
@@ -67,7 +67,7 @@ class UserInstallStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedDeviceCount
     * Installed Device Count.
@@ -81,12 +81,12 @@ class UserInstallStateSummary extends Entity
         $this->_propDict["installedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notInstalledDeviceCount
     * Not installed device count.
     *
-    * @return int The notInstalledDeviceCount
+    * @return int|null The notInstalledDeviceCount
     */
     public function getNotInstalledDeviceCount()
     {
@@ -96,7 +96,7 @@ class UserInstallStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notInstalledDeviceCount
     * Not installed device count.
@@ -110,12 +110,12 @@ class UserInstallStateSummary extends Entity
         $this->_propDict["notInstalledDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userName
     * User name.
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {
@@ -125,7 +125,7 @@ class UserInstallStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userName
     * User name.
@@ -139,13 +139,13 @@ class UserInstallStateSummary extends Entity
         $this->_propDict["userName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceStates
     * The install state of the eBook.
      *
-     * @return array The deviceStates
+     * @return array|null The deviceStates
      */
     public function getDeviceStates()
     {
@@ -155,19 +155,19 @@ class UserInstallStateSummary extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the deviceStates
     * The install state of the eBook.
     *
-    * @param DeviceInstallState $val The deviceStates
+    * @param DeviceInstallState[] $val The deviceStates
     *
     * @return UserInstallStateSummary
     */
     public function setDeviceStates($val)
     {
-		$this->_propDict["deviceStates"] = $val;
+        $this->_propDict["deviceStates"] = $val;
         return $this;
     }
-    
+
 }

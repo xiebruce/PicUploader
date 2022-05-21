@@ -27,7 +27,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the activeDirectorySiteCode
     * Gets or sets the Active Directory site.
     *
-    * @return string The activeDirectorySiteCode
+    * @return string|null The activeDirectorySiteCode
     */
     public function getActiveDirectorySiteCode()
     {
@@ -55,7 +55,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the blockActiveDirectorySiteAutoDiscovery
     * Enables or disables whether the Kerberos extension can automatically determine its site name.
     *
-    * @return bool The blockActiveDirectorySiteAutoDiscovery
+    * @return bool|null The blockActiveDirectorySiteAutoDiscovery
     */
     public function getBlockActiveDirectorySiteAutoDiscovery()
     {
@@ -83,7 +83,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the blockAutomaticLogin
     * Enables or disables Keychain usage.
     *
-    * @return bool The blockAutomaticLogin
+    * @return bool|null The blockAutomaticLogin
     */
     public function getBlockAutomaticLogin()
     {
@@ -111,7 +111,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the cacheName
     * Gets or sets the Generic Security Services name of the Kerberos cache to use for this profile.
     *
-    * @return string The cacheName
+    * @return string|null The cacheName
     */
     public function getCacheName()
     {
@@ -139,7 +139,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the credentialBundleIdAccessControlList
     * Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
     *
-    * @return string The credentialBundleIdAccessControlList
+    * @return string|null The credentialBundleIdAccessControlList
     */
     public function getCredentialBundleIdAccessControlList()
     {
@@ -167,7 +167,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the domainRealms
     * Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
     *
-    * @return string The domainRealms
+    * @return string|null The domainRealms
     */
     public function getDomainRealms()
     {
@@ -195,7 +195,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the domains
     * Gets or sets a list of hosts or domain names for which the app extension performs SSO.
     *
-    * @return string The domains
+    * @return string|null The domains
     */
     public function getDomains()
     {
@@ -223,7 +223,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the isDefaultRealm
     * When true, this profile's realm will be selected as the default. Necessary if multiple Kerberos-type profiles are configured.
     *
-    * @return bool The isDefaultRealm
+    * @return bool|null The isDefaultRealm
     */
     public function getIsDefaultRealm()
     {
@@ -251,7 +251,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordBlockModification
     * Enables or disables password changes.
     *
-    * @return bool The passwordBlockModification
+    * @return bool|null The passwordBlockModification
     */
     public function getPasswordBlockModification()
     {
@@ -279,7 +279,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordChangeUrl
     * Gets or sets the URL that the user will be sent to when they initiate a password change.
     *
-    * @return string The passwordChangeUrl
+    * @return string|null The passwordChangeUrl
     */
     public function getPasswordChangeUrl()
     {
@@ -307,7 +307,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordEnableLocalSync
     * Enables or disables password syncing. This won't affect users logged in with a mobile account on macOS.
     *
-    * @return bool The passwordEnableLocalSync
+    * @return bool|null The passwordEnableLocalSync
     */
     public function getPasswordEnableLocalSync()
     {
@@ -335,7 +335,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordExpirationDays
     * Overrides the default password expiration in days. For most domains, this value is calculated automatically.
     *
-    * @return int The passwordExpirationDays
+    * @return int|null The passwordExpirationDays
     */
     public function getPasswordExpirationDays()
     {
@@ -363,7 +363,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordExpirationNotificationDays
     * Gets or sets the number of days until the user is notified that their password will expire (default is 15).
     *
-    * @return int The passwordExpirationNotificationDays
+    * @return int|null The passwordExpirationNotificationDays
     */
     public function getPasswordExpirationNotificationDays()
     {
@@ -391,7 +391,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordMinimumAgeDays
     * Gets or sets the minimum number of days until a user can change their password again.
     *
-    * @return int The passwordMinimumAgeDays
+    * @return int|null The passwordMinimumAgeDays
     */
     public function getPasswordMinimumAgeDays()
     {
@@ -419,7 +419,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordMinimumLength
     * Gets or sets the minimum length of a password.
     *
-    * @return int The passwordMinimumLength
+    * @return int|null The passwordMinimumLength
     */
     public function getPasswordMinimumLength()
     {
@@ -447,7 +447,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordPreviousPasswordBlockCount
     * Gets or sets the number of previous passwords to block.
     *
-    * @return int The passwordPreviousPasswordBlockCount
+    * @return int|null The passwordPreviousPasswordBlockCount
     */
     public function getPasswordPreviousPasswordBlockCount()
     {
@@ -475,7 +475,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordRequireActiveDirectoryComplexity
     * Enables or disables whether passwords must meet Active Directory's complexity requirements.
     *
-    * @return bool The passwordRequireActiveDirectoryComplexity
+    * @return bool|null The passwordRequireActiveDirectoryComplexity
     */
     public function getPasswordRequireActiveDirectoryComplexity()
     {
@@ -503,7 +503,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the passwordRequirementsDescription
     * Gets or sets a description of the password complexity requirements.
     *
-    * @return string The passwordRequirementsDescription
+    * @return string|null The passwordRequirementsDescription
     */
     public function getPasswordRequirementsDescription()
     {
@@ -531,7 +531,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the realm
     * Gets or sets the case-sensitive realm name for this profile.
     *
-    * @return string The realm
+    * @return string|null The realm
     */
     public function getRealm()
     {
@@ -559,7 +559,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the requireUserPresence
     * Gets or sets whether to require authentication via Touch ID, Face ID, or a passcode to access the keychain entry.
     *
-    * @return bool The requireUserPresence
+    * @return bool|null The requireUserPresence
     */
     public function getRequireUserPresence()
     {
@@ -587,7 +587,7 @@ class KerberosSingleSignOnExtension extends SingleSignOnExtension
     * Gets the userPrincipalName
     * Gets or sets the principle user name to use for this profile. The realm name does not need to be included.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

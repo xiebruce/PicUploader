@@ -28,12 +28,12 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration
     * Gets the keyStorageProvider
     * Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
     *
-    * @return KeyStorageProviderOption The keyStorageProvider
+    * @return KeyStorageProviderOption|null The keyStorageProvider
     */
     public function getKeyStorageProvider()
     {
         if (array_key_exists("keyStorageProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption")) {
+            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption") || is_null($this->_propDict["keyStorageProvider"])) {
                 return $this->_propDict["keyStorageProvider"];
             } else {
                 $this->_propDict["keyStorageProvider"] = new KeyStorageProviderOption($this->_propDict["keyStorageProvider"]);
@@ -42,7 +42,7 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the keyStorageProvider
     * Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
@@ -56,5 +56,5 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration
         $this->_propDict["keyStorageProvider"] = $val;
         return $this;
     }
-    
+
 }

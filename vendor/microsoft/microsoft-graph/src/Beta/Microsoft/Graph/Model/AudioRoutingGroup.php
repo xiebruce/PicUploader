@@ -28,7 +28,7 @@ class AudioRoutingGroup extends Entity
     * Gets the receivers
     * List of receiving participant ids.
     *
-    * @return string The receivers
+    * @return string|null The receivers
     */
     public function getReceivers()
     {
@@ -38,7 +38,7 @@ class AudioRoutingGroup extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the receivers
     * List of receiving participant ids.
@@ -52,17 +52,17 @@ class AudioRoutingGroup extends Entity
         $this->_propDict["receivers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the routingMode
     * Routing group mode.  Possible values are: oneToOne, multicast.
     *
-    * @return RoutingMode The routingMode
+    * @return RoutingMode|null The routingMode
     */
     public function getRoutingMode()
     {
         if (array_key_exists("routingMode", $this->_propDict)) {
-            if (is_a($this->_propDict["routingMode"], "\Beta\Microsoft\Graph\Model\RoutingMode")) {
+            if (is_a($this->_propDict["routingMode"], "\Beta\Microsoft\Graph\Model\RoutingMode") || is_null($this->_propDict["routingMode"])) {
                 return $this->_propDict["routingMode"];
             } else {
                 $this->_propDict["routingMode"] = new RoutingMode($this->_propDict["routingMode"]);
@@ -71,7 +71,7 @@ class AudioRoutingGroup extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the routingMode
     * Routing group mode.  Possible values are: oneToOne, multicast.
@@ -85,12 +85,12 @@ class AudioRoutingGroup extends Entity
         $this->_propDict["routingMode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sources
     * List of source participant ids.
     *
-    * @return string The sources
+    * @return string|null The sources
     */
     public function getSources()
     {
@@ -100,7 +100,7 @@ class AudioRoutingGroup extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sources
     * List of source participant ids.
@@ -114,5 +114,5 @@ class AudioRoutingGroup extends Entity
         $this->_propDict["sources"] = $val;
         return $this;
     }
-    
+
 }

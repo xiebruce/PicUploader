@@ -28,7 +28,7 @@ class EducationSubmissionResource extends Entity
     * Gets the assignmentResourceUrl
     * Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource.
     *
-    * @return string The assignmentResourceUrl
+    * @return string|null The assignmentResourceUrl
     */
     public function getAssignmentResourceUrl()
     {
@@ -38,7 +38,7 @@ class EducationSubmissionResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the assignmentResourceUrl
     * Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource.
@@ -52,17 +52,17 @@ class EducationSubmissionResource extends Entity
         $this->_propDict["assignmentResourceUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resource
     * Resource object.
     *
-    * @return EducationResource The resource
+    * @return EducationResource|null The resource
     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\EducationResource")) {
+            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\EducationResource") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new EducationResource($this->_propDict["resource"]);
@@ -71,7 +71,7 @@ class EducationSubmissionResource extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resource
     * Resource object.
@@ -85,5 +85,5 @@ class EducationSubmissionResource extends Entity
         $this->_propDict["resource"] = $val;
         return $this;
     }
-    
+
 }

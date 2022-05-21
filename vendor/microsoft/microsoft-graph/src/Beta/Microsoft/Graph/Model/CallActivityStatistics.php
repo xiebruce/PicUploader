@@ -28,26 +28,26 @@ class CallActivityStatistics extends ActivityStatistics
     * Gets the afterHours
     * Time spent on calls outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
     *
-    * @return Duration The afterHours
+    * @return \DateInterval|null The afterHours
     */
     public function getAfterHours()
     {
         if (array_key_exists("afterHours", $this->_propDict)) {
-            if (is_a($this->_propDict["afterHours"], "\Beta\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["afterHours"], "\DateInterval") || is_null($this->_propDict["afterHours"])) {
                 return $this->_propDict["afterHours"];
             } else {
-                $this->_propDict["afterHours"] = new Duration($this->_propDict["afterHours"]);
+                $this->_propDict["afterHours"] = new \DateInterval($this->_propDict["afterHours"]);
                 return $this->_propDict["afterHours"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the afterHours
     * Time spent on calls outside of working hours, which is based on the user's Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
     *
-    * @param Duration $val The afterHours
+    * @param \DateInterval $val The afterHours
     *
     * @return CallActivityStatistics
     */
@@ -56,5 +56,5 @@ class CallActivityStatistics extends ActivityStatistics
         $this->_propDict["afterHours"] = $val;
         return $this;
     }
-    
+
 }

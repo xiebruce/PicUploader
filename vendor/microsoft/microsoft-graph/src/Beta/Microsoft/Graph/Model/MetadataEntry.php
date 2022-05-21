@@ -27,7 +27,7 @@ class MetadataEntry extends Entity
     * Gets the key
     * Name of the metadata property.
     *
-    * @return string The key
+    * @return string|null The key
     */
     public function getKey()
     {
@@ -55,7 +55,7 @@ class MetadataEntry extends Entity
     * Gets the value
     * Value of the metadata property.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

@@ -27,7 +27,7 @@ class IosBookmark extends Entity
     * Gets the bookmarkFolder
     * The folder into which the bookmark should be added in Safari
     *
-    * @return string The bookmarkFolder
+    * @return string|null The bookmarkFolder
     */
     public function getBookmarkFolder()
     {
@@ -55,7 +55,7 @@ class IosBookmark extends Entity
     * Gets the displayName
     * The display name of the bookmark
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -83,7 +83,7 @@ class IosBookmark extends Entity
     * Gets the url
     * URL allowed to access
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {

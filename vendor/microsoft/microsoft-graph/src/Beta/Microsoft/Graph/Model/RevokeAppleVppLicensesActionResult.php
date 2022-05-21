@@ -27,7 +27,7 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult
     * Gets the failedLicensesCount
     * Total number of Apple Vpp licenses that failed to revoke
     *
-    * @return int The failedLicensesCount
+    * @return int|null The failedLicensesCount
     */
     public function getFailedLicensesCount()
     {
@@ -55,7 +55,7 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult
     * Gets the totalLicensesCount
     * Total number of Apple Vpp licenses associated
     *
-    * @return int The totalLicensesCount
+    * @return int|null The totalLicensesCount
     */
     public function getTotalLicensesCount()
     {

@@ -38,4 +38,5 @@ class DevicePlatformType extends Enum
     const WINDOWS10_AND_LATER = "windows10AndLater";
     const ANDROID_WORK_PROFILE = "androidWorkProfile";
     const UNKNOWN = "unknown";
+    const ANDROID_AOSP = "androidAOSP";
 }

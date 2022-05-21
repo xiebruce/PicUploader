@@ -37,4 +37,8 @@ class WorkforceIntegrationSupportedEntities extends Enum
     const OPEN_SHIFT_REQUEST = "openShiftRequest";
     const OFFER_SHIFT_REQUEST = "offerShiftRequest";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const TIME_CARD = "timeCard";
+    const TIME_OFF_REASON = "timeOffReason";
+    const TIME_OFF = "timeOff";
+    const TIME_OFF_REQUEST = "timeOffRequest";
 }

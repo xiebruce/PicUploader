@@ -26,7 +26,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria
     /**
     * Gets the roleId
     *
-    * @return string The roleId
+    * @return string|null The roleId
     */
     public function getRoleId()
     {
@@ -52,7 +52,7 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria
     /**
     * Gets the roleTemplateId
     *
-    * @return string The roleTemplateId
+    * @return string|null The roleTemplateId
     */
     public function getRoleTemplateId()
     {

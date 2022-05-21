@@ -28,7 +28,7 @@ class ReferenceAttachment extends Attachment
     * Gets the isFolder
     * Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.
     *
-    * @return bool The isFolder
+    * @return bool|null The isFolder
     */
     public function getIsFolder()
     {
@@ -38,7 +38,7 @@ class ReferenceAttachment extends Attachment
             return null;
         }
     }
-    
+
     /**
     * Sets the isFolder
     * Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.
@@ -52,17 +52,17 @@ class ReferenceAttachment extends Attachment
         $this->_propDict["isFolder"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the permission
     * Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
     *
-    * @return ReferenceAttachmentPermission The permission
+    * @return ReferenceAttachmentPermission|null The permission
     */
     public function getPermission()
     {
         if (array_key_exists("permission", $this->_propDict)) {
-            if (is_a($this->_propDict["permission"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentPermission")) {
+            if (is_a($this->_propDict["permission"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentPermission") || is_null($this->_propDict["permission"])) {
                 return $this->_propDict["permission"];
             } else {
                 $this->_propDict["permission"] = new ReferenceAttachmentPermission($this->_propDict["permission"]);
@@ -71,7 +71,7 @@ class ReferenceAttachment extends Attachment
         }
         return null;
     }
-    
+
     /**
     * Sets the permission
     * Specifies the permissions granted for the attachment by the type of provider in providerType. Possible values are: other, view, edit, anonymousView, anonymousEdit, organizationView, organizationEdit. Optional.
@@ -85,12 +85,12 @@ class ReferenceAttachment extends Attachment
         $this->_propDict["permission"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the previewUrl
     * Applies to only a reference attachment of an image - URL to get a preview image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
     *
-    * @return string The previewUrl
+    * @return string|null The previewUrl
     */
     public function getPreviewUrl()
     {
@@ -100,7 +100,7 @@ class ReferenceAttachment extends Attachment
             return null;
         }
     }
-    
+
     /**
     * Sets the previewUrl
     * Applies to only a reference attachment of an image - URL to get a preview image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
@@ -114,17 +114,17 @@ class ReferenceAttachment extends Attachment
         $this->_propDict["previewUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the providerType
     * The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
     *
-    * @return ReferenceAttachmentProvider The providerType
+    * @return ReferenceAttachmentProvider|null The providerType
     */
     public function getProviderType()
     {
         if (array_key_exists("providerType", $this->_propDict)) {
-            if (is_a($this->_propDict["providerType"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentProvider")) {
+            if (is_a($this->_propDict["providerType"], "\Beta\Microsoft\Graph\Model\ReferenceAttachmentProvider") || is_null($this->_propDict["providerType"])) {
                 return $this->_propDict["providerType"];
             } else {
                 $this->_propDict["providerType"] = new ReferenceAttachmentProvider($this->_propDict["providerType"]);
@@ -133,7 +133,7 @@ class ReferenceAttachment extends Attachment
         }
         return null;
     }
-    
+
     /**
     * Sets the providerType
     * The type of provider that supports an attachment of this contentType. Possible values are: other, oneDriveBusiness, oneDriveConsumer, dropbox. Optional.
@@ -147,12 +147,12 @@ class ReferenceAttachment extends Attachment
         $this->_propDict["providerType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sourceUrl
     * URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
     *
-    * @return string The sourceUrl
+    * @return string|null The sourceUrl
     */
     public function getSourceUrl()
     {
@@ -162,7 +162,7 @@ class ReferenceAttachment extends Attachment
             return null;
         }
     }
-    
+
     /**
     * Sets the sourceUrl
     * URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.
@@ -176,12 +176,12 @@ class ReferenceAttachment extends Attachment
         $this->_propDict["sourceUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     * Applies to only a reference attachment of an image - URL to get a thumbnail image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -191,7 +191,7 @@ class ReferenceAttachment extends Attachment
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     * Applies to only a reference attachment of an image - URL to get a thumbnail image. Use thumbnailUrl and previewUrl only when sourceUrl identifies an image file. Optional.
@@ -205,5 +205,5 @@ class ReferenceAttachment extends Attachment
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
 }

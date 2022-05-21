@@ -27,7 +27,7 @@ class KeyBooleanValuePair extends KeyTypedValuePair
     * Gets the value
     * The Boolean value of the key-value pair.
     *
-    * @return bool The value
+    * @return bool|null The value
     */
     public function getValue()
     {

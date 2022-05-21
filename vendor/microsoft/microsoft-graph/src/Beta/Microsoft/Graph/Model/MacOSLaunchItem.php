@@ -27,7 +27,7 @@ class MacOSLaunchItem extends Entity
     * Gets the hide
     * Whether or not to hide the item from the Users and Groups List.
     *
-    * @return bool The hide
+    * @return bool|null The hide
     */
     public function getHide()
     {
@@ -55,7 +55,7 @@ class MacOSLaunchItem extends Entity
     * Gets the path
     * Path to the launch item.
     *
-    * @return string The path
+    * @return string|null The path
     */
     public function getPath()
     {

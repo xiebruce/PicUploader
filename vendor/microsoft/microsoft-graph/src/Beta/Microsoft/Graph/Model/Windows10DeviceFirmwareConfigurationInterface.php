@@ -28,12 +28,12 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
     * Gets the bootFromBuiltInNetworkAdapters
     * Defines whether a user is allowed to boot from built-in network adapters. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The bootFromBuiltInNetworkAdapters
+    * @return Enablement|null The bootFromBuiltInNetworkAdapters
     */
     public function getBootFromBuiltInNetworkAdapters()
     {
         if (array_key_exists("bootFromBuiltInNetworkAdapters", $this->_propDict)) {
-            if (is_a($this->_propDict["bootFromBuiltInNetworkAdapters"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["bootFromBuiltInNetworkAdapters"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["bootFromBuiltInNetworkAdapters"])) {
                 return $this->_propDict["bootFromBuiltInNetworkAdapters"];
             } else {
                 $this->_propDict["bootFromBuiltInNetworkAdapters"] = new Enablement($this->_propDict["bootFromBuiltInNetworkAdapters"]);
@@ -42,7 +42,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bootFromBuiltInNetworkAdapters
     * Defines whether a user is allowed to boot from built-in network adapters. Possible values are: notConfigured, enabled, disabled.
@@ -56,17 +56,17 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["bootFromBuiltInNetworkAdapters"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bootFromExternalMedia
     * Defines whether a user is allowed to boot from external media. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The bootFromExternalMedia
+    * @return Enablement|null The bootFromExternalMedia
     */
     public function getBootFromExternalMedia()
     {
         if (array_key_exists("bootFromExternalMedia", $this->_propDict)) {
-            if (is_a($this->_propDict["bootFromExternalMedia"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["bootFromExternalMedia"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["bootFromExternalMedia"])) {
                 return $this->_propDict["bootFromExternalMedia"];
             } else {
                 $this->_propDict["bootFromExternalMedia"] = new Enablement($this->_propDict["bootFromExternalMedia"]);
@@ -75,7 +75,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bootFromExternalMedia
     * Defines whether a user is allowed to boot from external media. Possible values are: notConfigured, enabled, disabled.
@@ -89,17 +89,17 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["bootFromExternalMedia"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the cameras
     * Defines whether built-in cameras are enabled. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The cameras
+    * @return Enablement|null The cameras
     */
     public function getCameras()
     {
         if (array_key_exists("cameras", $this->_propDict)) {
-            if (is_a($this->_propDict["cameras"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["cameras"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["cameras"])) {
                 return $this->_propDict["cameras"];
             } else {
                 $this->_propDict["cameras"] = new Enablement($this->_propDict["cameras"]);
@@ -108,7 +108,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the cameras
     * Defines whether built-in cameras are enabled. Possible values are: notConfigured, enabled, disabled.
@@ -122,17 +122,17 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["cameras"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the changeUefiSettingsPermission
     * Defines the permission level granted to users to change UEFI settings. Possible values are: notConfiguredOnly, none.
     *
-    * @return ChangeUefiSettingsPermission The changeUefiSettingsPermission
+    * @return ChangeUefiSettingsPermission|null The changeUefiSettingsPermission
     */
     public function getChangeUefiSettingsPermission()
     {
         if (array_key_exists("changeUefiSettingsPermission", $this->_propDict)) {
-            if (is_a($this->_propDict["changeUefiSettingsPermission"], "\Beta\Microsoft\Graph\Model\ChangeUefiSettingsPermission")) {
+            if (is_a($this->_propDict["changeUefiSettingsPermission"], "\Beta\Microsoft\Graph\Model\ChangeUefiSettingsPermission") || is_null($this->_propDict["changeUefiSettingsPermission"])) {
                 return $this->_propDict["changeUefiSettingsPermission"];
             } else {
                 $this->_propDict["changeUefiSettingsPermission"] = new ChangeUefiSettingsPermission($this->_propDict["changeUefiSettingsPermission"]);
@@ -141,7 +141,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the changeUefiSettingsPermission
     * Defines the permission level granted to users to change UEFI settings. Possible values are: notConfiguredOnly, none.
@@ -155,17 +155,17 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["changeUefiSettingsPermission"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the microphonesAndSpeakers
     * Defines whether built-in microphones or speakers are enabled. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The microphonesAndSpeakers
+    * @return Enablement|null The microphonesAndSpeakers
     */
     public function getMicrophonesAndSpeakers()
     {
         if (array_key_exists("microphonesAndSpeakers", $this->_propDict)) {
-            if (is_a($this->_propDict["microphonesAndSpeakers"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["microphonesAndSpeakers"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["microphonesAndSpeakers"])) {
                 return $this->_propDict["microphonesAndSpeakers"];
             } else {
                 $this->_propDict["microphonesAndSpeakers"] = new Enablement($this->_propDict["microphonesAndSpeakers"]);
@@ -174,7 +174,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the microphonesAndSpeakers
     * Defines whether built-in microphones or speakers are enabled. Possible values are: notConfigured, enabled, disabled.
@@ -188,17 +188,17 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["microphonesAndSpeakers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the radios
     * Defines whether built-in radios e.g. WIFI, NFC, Bluetooth, are enabled. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The radios
+    * @return Enablement|null The radios
     */
     public function getRadios()
     {
         if (array_key_exists("radios", $this->_propDict)) {
-            if (is_a($this->_propDict["radios"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["radios"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["radios"])) {
                 return $this->_propDict["radios"];
             } else {
                 $this->_propDict["radios"] = new Enablement($this->_propDict["radios"]);
@@ -207,7 +207,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the radios
     * Defines whether built-in radios e.g. WIFI, NFC, Bluetooth, are enabled. Possible values are: notConfigured, enabled, disabled.
@@ -221,17 +221,50 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["radios"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the simultaneousMultiThreading
+    * Defines whether a user is allowed to enable Simultaneous MultiThreading. Possible values are: notConfigured, enabled, disabled.
+    *
+    * @return Enablement|null The simultaneousMultiThreading
+    */
+    public function getSimultaneousMultiThreading()
+    {
+        if (array_key_exists("simultaneousMultiThreading", $this->_propDict)) {
+            if (is_a($this->_propDict["simultaneousMultiThreading"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["simultaneousMultiThreading"])) {
+                return $this->_propDict["simultaneousMultiThreading"];
+            } else {
+                $this->_propDict["simultaneousMultiThreading"] = new Enablement($this->_propDict["simultaneousMultiThreading"]);
+                return $this->_propDict["simultaneousMultiThreading"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the simultaneousMultiThreading
+    * Defines whether a user is allowed to enable Simultaneous MultiThreading. Possible values are: notConfigured, enabled, disabled.
+    *
+    * @param Enablement $val The simultaneousMultiThreading
+    *
+    * @return Windows10DeviceFirmwareConfigurationInterface
+    */
+    public function setSimultaneousMultiThreading($val)
+    {
+        $this->_propDict["simultaneousMultiThreading"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the virtualizationOfCpuAndIO
     * Defines whether CPU and IO virtualization is enabled. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The virtualizationOfCpuAndIO
+    * @return Enablement|null The virtualizationOfCpuAndIO
     */
     public function getVirtualizationOfCpuAndIO()
     {
         if (array_key_exists("virtualizationOfCpuAndIO", $this->_propDict)) {
-            if (is_a($this->_propDict["virtualizationOfCpuAndIO"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["virtualizationOfCpuAndIO"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["virtualizationOfCpuAndIO"])) {
                 return $this->_propDict["virtualizationOfCpuAndIO"];
             } else {
                 $this->_propDict["virtualizationOfCpuAndIO"] = new Enablement($this->_propDict["virtualizationOfCpuAndIO"]);
@@ -240,7 +273,7 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the virtualizationOfCpuAndIO
     * Defines whether CPU and IO virtualization is enabled. Possible values are: notConfigured, enabled, disabled.
@@ -254,5 +287,38 @@ class Windows10DeviceFirmwareConfigurationInterface extends DeviceConfiguration
         $this->_propDict["virtualizationOfCpuAndIO"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the windowsPlatformBinaryTable
+    * Defines whether a user is allowed to enable Windows Platform Binary Table. Possible values are: notConfigured, enabled, disabled.
+    *
+    * @return Enablement|null The windowsPlatformBinaryTable
+    */
+    public function getWindowsPlatformBinaryTable()
+    {
+        if (array_key_exists("windowsPlatformBinaryTable", $this->_propDict)) {
+            if (is_a($this->_propDict["windowsPlatformBinaryTable"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["windowsPlatformBinaryTable"])) {
+                return $this->_propDict["windowsPlatformBinaryTable"];
+            } else {
+                $this->_propDict["windowsPlatformBinaryTable"] = new Enablement($this->_propDict["windowsPlatformBinaryTable"]);
+                return $this->_propDict["windowsPlatformBinaryTable"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the windowsPlatformBinaryTable
+    * Defines whether a user is allowed to enable Windows Platform Binary Table. Possible values are: notConfigured, enabled, disabled.
+    *
+    * @param Enablement $val The windowsPlatformBinaryTable
+    *
+    * @return Windows10DeviceFirmwareConfigurationInterface
+    */
+    public function setWindowsPlatformBinaryTable($val)
+    {
+        $this->_propDict["windowsPlatformBinaryTable"] = $val;
+        return $this;
+    }
+
 }

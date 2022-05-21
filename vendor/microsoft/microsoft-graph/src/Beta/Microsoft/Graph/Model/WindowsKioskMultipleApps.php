@@ -27,7 +27,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Gets the allowAccessToDownloadsFolder
     * This setting allows access to Downloads folder in file explorer.
     *
-    * @return bool The allowAccessToDownloadsFolder
+    * @return bool|null The allowAccessToDownloadsFolder
     */
     public function getAllowAccessToDownloadsFolder()
     {
@@ -56,12 +56,12 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Gets the apps
     * These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
     *
-    * @return WindowsKioskAppBase The apps
+    * @return WindowsKioskAppBase|null The apps
     */
     public function getApps()
     {
         if (array_key_exists("apps", $this->_propDict)) {
-            if (is_a($this->_propDict["apps"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppBase")) {
+            if (is_a($this->_propDict["apps"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppBase") || is_null($this->_propDict["apps"])) {
                 return $this->_propDict["apps"];
             } else {
                 $this->_propDict["apps"] = new WindowsKioskAppBase($this->_propDict["apps"]);
@@ -88,7 +88,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Gets the disallowDesktopApps
     * This setting indicates that desktop apps are allowed. Default to true.
     *
-    * @return bool The disallowDesktopApps
+    * @return bool|null The disallowDesktopApps
     */
     public function getDisallowDesktopApps()
     {
@@ -116,7 +116,7 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Gets the showTaskBar
     * This setting allows the admin to specify whether the Task Bar is shown or not.
     *
-    * @return bool The showTaskBar
+    * @return bool|null The showTaskBar
     */
     public function getShowTaskBar()
     {
@@ -145,15 +145,15 @@ class WindowsKioskMultipleApps extends WindowsKioskAppConfiguration
     * Gets the startMenuLayoutXml
     * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
     *
-    * @return \GuzzleHttp\Psr7\Stream The startMenuLayoutXml
+    * @return \GuzzleHttp\Psr7\Stream|null The startMenuLayoutXml
     */
     public function getStartMenuLayoutXml()
     {
         if (array_key_exists("startMenuLayoutXml", $this->_propDict)) {
-            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["startMenuLayoutXml"])) {
                 return $this->_propDict["startMenuLayoutXml"];
             } else {
-                $this->_propDict["startMenuLayoutXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["startMenuLayoutXml"]);
+                $this->_propDict["startMenuLayoutXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["startMenuLayoutXml"]);
                 return $this->_propDict["startMenuLayoutXml"];
             }
         }

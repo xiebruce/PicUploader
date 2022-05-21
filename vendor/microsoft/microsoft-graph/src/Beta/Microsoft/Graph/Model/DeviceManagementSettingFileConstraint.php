@@ -26,9 +26,11 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementSettingFileConstraint");
     }
 
@@ -36,7 +38,7 @@ class DeviceManagementSettingFileConstraint extends DeviceManagementConstraint
     * Gets the supportedExtensions
     * Acceptable file extensions to upload for this setting
     *
-    * @return string The supportedExtensions
+    * @return string|null The supportedExtensions
     */
     public function getSupportedExtensions()
     {

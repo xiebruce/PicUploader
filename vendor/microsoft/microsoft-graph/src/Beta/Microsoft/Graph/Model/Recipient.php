@@ -28,12 +28,12 @@ class Recipient extends Entity
     * Gets the emailAddress
     * The recipient's email address.
     *
-    * @return EmailAddress The emailAddress
+    * @return EmailAddress|null The emailAddress
     */
     public function getEmailAddress()
     {
         if (array_key_exists("emailAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddress"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
+            if (is_a($this->_propDict["emailAddress"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["emailAddress"])) {
                 return $this->_propDict["emailAddress"];
             } else {
                 $this->_propDict["emailAddress"] = new EmailAddress($this->_propDict["emailAddress"]);

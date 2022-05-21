@@ -28,7 +28,7 @@ class WorkbookApplication extends Entity
     * Gets the calculationMode
     * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
     *
-    * @return string The calculationMode
+    * @return string|null The calculationMode
     */
     public function getCalculationMode()
     {
@@ -38,7 +38,7 @@ class WorkbookApplication extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the calculationMode
     * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
@@ -52,5 +52,5 @@ class WorkbookApplication extends Entity
         $this->_propDict["calculationMode"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class AccessPackageResourceRole extends Entity
     * Gets the description
     * A description for the resource role.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class AccessPackageResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * A description for the resource role.
@@ -52,12 +52,12 @@ class AccessPackageResourceRole extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name of the resource role such as the role defined by the application.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class AccessPackageResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of the resource role such as the role defined by the application.
@@ -81,12 +81,12 @@ class AccessPackageResourceRole extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the originId
-    * The unique identifier of the resource role in the origin system.
+    * The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site.
     *
-    * @return string The originId
+    * @return string|null The originId
     */
     public function getOriginId()
     {
@@ -96,10 +96,10 @@ class AccessPackageResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the originId
-    * The unique identifier of the resource role in the origin system.
+    * The unique identifier of the resource role in the origin system. For a SharePoint Online site, the originId will be the sequence number of the role in the site.
     *
     * @param string $val The originId
     *
@@ -110,12 +110,12 @@ class AccessPackageResourceRole extends Entity
         $this->_propDict["originId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the originSystem
     * The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
     *
-    * @return string The originSystem
+    * @return string|null The originSystem
     */
     public function getOriginSystem()
     {
@@ -125,7 +125,7 @@ class AccessPackageResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the originSystem
     * The type of the resource in the origin system, such as SharePointOnline, AadApplication or AadGroup.
@@ -139,17 +139,17 @@ class AccessPackageResourceRole extends Entity
         $this->_propDict["originSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageResource
     * Read-only. Nullable.
     *
-    * @return AccessPackageResource The accessPackageResource
+    * @return AccessPackageResource|null The accessPackageResource
     */
     public function getAccessPackageResource()
     {
         if (array_key_exists("accessPackageResource", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource")) {
+            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource") || is_null($this->_propDict["accessPackageResource"])) {
                 return $this->_propDict["accessPackageResource"];
             } else {
                 $this->_propDict["accessPackageResource"] = new AccessPackageResource($this->_propDict["accessPackageResource"]);
@@ -158,7 +158,7 @@ class AccessPackageResourceRole extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageResource
     * Read-only. Nullable.
@@ -172,5 +172,5 @@ class AccessPackageResourceRole extends Entity
         $this->_propDict["accessPackageResource"] = $val;
         return $this;
     }
-    
+
 }

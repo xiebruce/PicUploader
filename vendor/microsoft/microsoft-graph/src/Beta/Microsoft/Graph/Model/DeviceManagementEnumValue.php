@@ -27,7 +27,7 @@ class DeviceManagementEnumValue extends Entity
     * Gets the displayName
     * Display name for this enum value
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class DeviceManagementEnumValue extends Entity
     * Gets the value
     * The raw enum value text
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

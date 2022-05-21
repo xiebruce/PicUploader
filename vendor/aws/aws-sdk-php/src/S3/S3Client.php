@@ -121,6 +121,8 @@ use Psr\Http\Message\RequestInterface;
  * @method \GuzzleHttp\Promise\Promise getObjectAsync(array $args = [])
  * @method \Aws\Result getObjectAcl(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getObjectAclAsync(array $args = [])
+ * @method \Aws\Result getObjectAttributes(array $args = [])
+ * @method \GuzzleHttp\Promise\Promise getObjectAttributesAsync(array $args = [])
  * @method \Aws\Result getObjectLegalHold(array $args = [])
  * @method \GuzzleHttp\Promise\Promise getObjectLegalHoldAsync(array $args = [])
  * @method \Aws\Result getObjectLockConfiguration(array $args = [])
@@ -268,15 +270,6 @@ class S3Client extends AwsClient implements S3ClientInterface
                     . ' be accessed via an Accelerate endpoint.',
                 'default' => false,
             ],
-            'use_dual_stack_endpoint' => [
-                'type' => 'config',
-                'valid' => ['bool'],
-                'doc' => 'Set to true to send requests to an S3 Dual Stack'
-                    . ' endpoint by default, which enables IPv6 Protocol.'
-                    . ' Can be enabled or disabled on individual operations by setting'
-                    . ' \'@use_dual_stack_endpoint\' to true or false.',
-                'default' => false,
-            ],
             'use_path_style_endpoint' => [
                 'type' => 'config',
                 'valid' => ['bool'],
@@ -284,6 +277,15 @@ class S3Client extends AwsClient implements S3ClientInterface
                     . ' endpoint by default.'
                     . ' Can be enabled or disabled on individual operations by setting'
                     . ' \'@use_path_style_endpoint\' to true or false.',
+                'default' => false,
+            ],
+            'disable_multiregion_access_points' => [
+                'type' => 'config',
+                'valid' => ['bool'],
+                'doc' => 'Set to true to disable the usage of'
+                    . ' multi region access points. These are enabled by default.'
+                    . ' Can be enabled or disabled on individual operations by setting'
+                    . ' \'@disable_multiregion_access_points\' to true or false.',
                 'default' => false,
             ],
         ];
@@ -334,6 +336,11 @@ class S3Client extends AwsClient implements S3ClientInterface
      *   Can be enabled or disabled on individual operations by setting
      *   '@use_path_style_endpoint\' to true or false. Note:
      *   you cannot use it together with an accelerate endpoint.
+     * - disable_multiregion_access_points: (bool) Set to true to disable
+     *   sending multi region requests.  They are enabled by default.
+     *   Can be enabled or disabled on individual operations by setting
+     *   '@disable_multiregion_access_points\' to true or false. Note:
+     *   you cannot use it together with an accelerate or dualstack endpoint.
      *
      * @param array $args
      */
@@ -363,9 +370,12 @@ class S3Client extends AwsClient implements S3ClientInterface
                     $this->getRegion(),
                     $this->getConfig('endpoint_provider'),
                     [
-                        'dual_stack' => $this->getConfig('use_dual_stack_endpoint'),
                         'accelerate' => $this->getConfig('use_accelerate_endpoint'),
                         'path_style' => $this->getConfig('use_path_style_endpoint'),
+                        'use_fips_endpoint' => $this->getConfig('use_fips_endpoint'),
+                        'dual_stack' =>
+                            $this->getConfig('use_dual_stack_endpoint')->isUseDualStackEndpoint(),
+
                     ]
                 ),
                 's3.endpoint_middleware'
@@ -378,9 +388,13 @@ class S3Client extends AwsClient implements S3ClientInterface
                 $this->getRegion(),
                 [
                     'use_arn_region' => $this->getConfig('use_arn_region'),
-                    'dual_stack' => $this->getConfig('use_dual_stack_endpoint'),
                     'accelerate' => $this->getConfig('use_accelerate_endpoint'),
                     'path_style' => $this->getConfig('use_path_style_endpoint'),
+                    'dual_stack' =>
+                        $this->getConfig('use_dual_stack_endpoint')->isUseDualStackEndpoint(),
+                    'use_fips_endpoint' => $this->getConfig('use_fips_endpoint'),
+                    'disable_multiregion_access_points' =>
+                        $this->getConfig('disable_multiregion_access_points'),
                     'endpoint' => isset($args['endpoint'])
                         ? $args['endpoint']
                         : null
@@ -717,13 +731,16 @@ class S3Client extends AwsClient implements S3ClientInterface
     {
         ClientResolver::_apply_api_provider($value, $args);
         $args['parser'] = new GetBucketLocationParser(
-            new AmbiguousSuccessParser(
-                new RetryableMalformedResponseParser(
-                    $args['parser'],
+            new ValidateResponseChecksumParser(
+                new AmbiguousSuccessParser(
+                    new RetryableMalformedResponseParser(
+                        $args['parser'],
+                        $args['exception_class']
+                    ),
+                    $args['error_parser'],
                     $args['exception_class']
                 ),
-                $args['error_parser'],
-                $args['exception_class']
+                $args['api']
             )
         );
     }

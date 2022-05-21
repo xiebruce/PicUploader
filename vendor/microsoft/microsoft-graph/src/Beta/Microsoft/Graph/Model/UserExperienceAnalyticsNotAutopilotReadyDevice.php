@@ -28,7 +28,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
     * Gets the autoPilotProfileAssigned
     * The intune device's autopilotProfileAssigned.
     *
-    * @return bool The autoPilotProfileAssigned
+    * @return bool|null The autoPilotProfileAssigned
     */
     public function getAutoPilotProfileAssigned()
     {
@@ -38,7 +38,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the autoPilotProfileAssigned
     * The intune device's autopilotProfileAssigned.
@@ -52,12 +52,12 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["autoPilotProfileAssigned"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the autoPilotRegistered
     * The intune device's autopilotRegistered.
     *
-    * @return bool The autoPilotRegistered
+    * @return bool|null The autoPilotRegistered
     */
     public function getAutoPilotRegistered()
     {
@@ -67,7 +67,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the autoPilotRegistered
     * The intune device's autopilotRegistered.
@@ -81,12 +81,12 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["autoPilotRegistered"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the azureAdJoinType
     * The intune device's azure Ad joinType.
     *
-    * @return string The azureAdJoinType
+    * @return string|null The azureAdJoinType
     */
     public function getAzureAdJoinType()
     {
@@ -96,7 +96,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureAdJoinType
     * The intune device's azure Ad joinType.
@@ -110,45 +110,41 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["azureAdJoinType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureAdRegistered
-    * The intune device's azureAdRegistered. Possible values are: no, yes, unknown.
+    * The intune device's azureAdRegistered.
     *
-    * @return AzureAdRegisteredState The azureAdRegistered
+    * @return bool|null The azureAdRegistered
     */
     public function getAzureAdRegistered()
     {
         if (array_key_exists("azureAdRegistered", $this->_propDict)) {
-            if (is_a($this->_propDict["azureAdRegistered"], "\Beta\Microsoft\Graph\Model\AzureAdRegisteredState")) {
-                return $this->_propDict["azureAdRegistered"];
-            } else {
-                $this->_propDict["azureAdRegistered"] = new AzureAdRegisteredState($this->_propDict["azureAdRegistered"]);
-                return $this->_propDict["azureAdRegistered"];
-            }
+            return $this->_propDict["azureAdRegistered"];
+        } else {
+            return null;
         }
-        return null;
     }
-    
+
     /**
     * Sets the azureAdRegistered
-    * The intune device's azureAdRegistered. Possible values are: no, yes, unknown.
+    * The intune device's azureAdRegistered.
     *
-    * @param AzureAdRegisteredState $val The azureAdRegistered
+    * @param bool $val The azureAdRegistered
     *
     * @return UserExperienceAnalyticsNotAutopilotReadyDevice
     */
     public function setAzureAdRegistered($val)
     {
-        $this->_propDict["azureAdRegistered"] = $val;
+        $this->_propDict["azureAdRegistered"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the deviceName
     * The intune device's name.
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -158,7 +154,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceName
     * The intune device's name.
@@ -172,12 +168,12 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managedBy
     * The intune device's managed by.
     *
-    * @return string The managedBy
+    * @return string|null The managedBy
     */
     public function getManagedBy()
     {
@@ -187,7 +183,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the managedBy
     * The intune device's managed by.
@@ -201,12 +197,12 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["managedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the manufacturer
     * The intune device's manufacturer.
     *
-    * @return string The manufacturer
+    * @return string|null The manufacturer
     */
     public function getManufacturer()
     {
@@ -216,7 +212,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the manufacturer
     * The intune device's manufacturer.
@@ -230,12 +226,12 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["manufacturer"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the model
     * The intune device's model.
     *
-    * @return string The model
+    * @return string|null The model
     */
     public function getModel()
     {
@@ -245,7 +241,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the model
     * The intune device's model.
@@ -259,12 +255,12 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["model"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serialNumber
     * The intune device's serial number.
     *
-    * @return string The serialNumber
+    * @return string|null The serialNumber
     */
     public function getSerialNumber()
     {
@@ -274,7 +270,7 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the serialNumber
     * The intune device's serial number.
@@ -288,5 +284,5 @@ class UserExperienceAnalyticsNotAutopilotReadyDevice extends Entity
         $this->_propDict["serialNumber"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class DeviceHealthScriptRunSchedule extends Entity
     * Gets the interval
     * The x value of every x hours for hourly schedule, every x days for Daily Schedule, every x weeks for weekly schedule, every x months for Monthly Schedule. Valid values 1 to 23
     *
-    * @return int The interval
+    * @return int|null The interval
     */
     public function getInterval()
     {

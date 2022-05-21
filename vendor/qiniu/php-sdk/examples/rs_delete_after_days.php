@@ -18,7 +18,9 @@ $bucketManager = new \Qiniu\Storage\BucketManager($auth, $config);
 $key = 'qiniu.mp4';
 $days = 10; // 设置为 0 表示取消生命周期
 
-$err = $bucketManager->deleteAfterDays($bucket, $key, $days);
-if ($err) {
-    print_r($err);
+list($ret, $err) = $bucketManager->deleteAfterDays($bucket, $key, $days);
+if ($err != null) {
+    var_dump($err);
+} else {
+    var_dump($ret);
 }

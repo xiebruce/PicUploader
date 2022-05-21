@@ -33,4 +33,6 @@ class AclType extends Enum
     const GROUP = "group";
     const EVERYONE = "everyone";
     const EVERYONE_EXCEPT_GUESTS = "everyoneExceptGuests";
+    const EXTERNAL_GROUP = "externalGroup";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

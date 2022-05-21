@@ -28,12 +28,12 @@ class EducationIdentityDomain extends Entity
     * Gets the appliesTo
     * The user role type to assign to the license. Possible values are: student, teacher, faculty.
     *
-    * @return EducationUserRole The appliesTo
+    * @return EducationUserRole|null The appliesTo
     */
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole")) {
+            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
                 return $this->_propDict["appliesTo"];
             } else {
                 $this->_propDict["appliesTo"] = new EducationUserRole($this->_propDict["appliesTo"]);
@@ -60,7 +60,7 @@ class EducationIdentityDomain extends Entity
     * Gets the name
     * Represents the domain for the user account.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

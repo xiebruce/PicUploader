@@ -28,12 +28,12 @@ class UserAnalytics extends Entity
     * Gets the settings
     * The current settings for a user to use the analytics API.
     *
-    * @return Settings The settings
+    * @return Settings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\Settings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\Settings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new Settings($this->_propDict["settings"]);
@@ -42,7 +42,7 @@ class UserAnalytics extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
     * The current settings for a user to use the analytics API.
@@ -56,13 +56,13 @@ class UserAnalytics extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the activityStatistics
     * The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
      *
-     * @return array The activityStatistics
+     * @return array|null The activityStatistics
      */
     public function getActivityStatistics()
     {
@@ -72,19 +72,19 @@ class UserAnalytics extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the activityStatistics
     * The collection of work activities that a user spent time on during and outside of working hours. Read-only. Nullable.
     *
-    * @param ActivityStatistics $val The activityStatistics
+    * @param ActivityStatistics[] $val The activityStatistics
     *
     * @return UserAnalytics
     */
     public function setActivityStatistics($val)
     {
-		$this->_propDict["activityStatistics"] = $val;
+        $this->_propDict["activityStatistics"] = $val;
         return $this;
     }
-    
+
 }

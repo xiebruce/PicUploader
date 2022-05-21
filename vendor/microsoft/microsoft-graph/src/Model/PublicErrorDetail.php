@@ -27,7 +27,7 @@ class PublicErrorDetail extends Entity
     * Gets the code
     * The error code.
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -55,7 +55,7 @@ class PublicErrorDetail extends Entity
     * Gets the message
     * The error message.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -83,7 +83,7 @@ class PublicErrorDetail extends Entity
     * Gets the target
     * The target of the error.
     *
-    * @return string The target
+    * @return string|null The target
     */
     public function getTarget()
     {

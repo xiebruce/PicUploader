@@ -28,7 +28,7 @@ class WindowsUpdateCatalogItem extends Entity
     * Gets the displayName
     * The display name for the catalog item.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class WindowsUpdateCatalogItem extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name for the catalog item.
@@ -52,17 +52,50 @@ class WindowsUpdateCatalogItem extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the endOfSupportDate
+    * The last supported date for a catalog item
+    *
+    * @return \DateTime|null The endOfSupportDate
+    */
+    public function getEndOfSupportDate()
+    {
+        if (array_key_exists("endOfSupportDate", $this->_propDict)) {
+            if (is_a($this->_propDict["endOfSupportDate"], "\DateTime") || is_null($this->_propDict["endOfSupportDate"])) {
+                return $this->_propDict["endOfSupportDate"];
+            } else {
+                $this->_propDict["endOfSupportDate"] = new \DateTime($this->_propDict["endOfSupportDate"]);
+                return $this->_propDict["endOfSupportDate"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the endOfSupportDate
+    * The last supported date for a catalog item
+    *
+    * @param \DateTime $val The endOfSupportDate
+    *
+    * @return WindowsUpdateCatalogItem
+    */
+    public function setEndOfSupportDate($val)
+    {
+        $this->_propDict["endOfSupportDate"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the releaseDateTime
     * The date the catalog item was released
     *
-    * @return \DateTime The releaseDateTime
+    * @return \DateTime|null The releaseDateTime
     */
     public function getReleaseDateTime()
     {
         if (array_key_exists("releaseDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["releaseDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["releaseDateTime"], "\DateTime") || is_null($this->_propDict["releaseDateTime"])) {
                 return $this->_propDict["releaseDateTime"];
             } else {
                 $this->_propDict["releaseDateTime"] = new \DateTime($this->_propDict["releaseDateTime"]);
@@ -71,7 +104,7 @@ class WindowsUpdateCatalogItem extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the releaseDateTime
     * The date the catalog item was released
@@ -85,5 +118,5 @@ class WindowsUpdateCatalogItem extends Entity
         $this->_propDict["releaseDateTime"] = $val;
         return $this;
     }
-    
+
 }

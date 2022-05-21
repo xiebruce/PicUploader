@@ -28,12 +28,12 @@ class IosAvailableUpdateVersion extends Entity
     * Gets the expirationDateTime
     * The expiration date of the update.
     *
-    * @return \DateTime The expirationDateTime
+    * @return \DateTime|null The expirationDateTime
     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -61,12 +61,12 @@ class IosAvailableUpdateVersion extends Entity
     * Gets the postingDateTime
     * The posting date of the update.
     *
-    * @return \DateTime The postingDateTime
+    * @return \DateTime|null The postingDateTime
     */
     public function getPostingDateTime()
     {
         if (array_key_exists("postingDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["postingDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["postingDateTime"], "\DateTime") || is_null($this->_propDict["postingDateTime"])) {
                 return $this->_propDict["postingDateTime"];
             } else {
                 $this->_propDict["postingDateTime"] = new \DateTime($this->_propDict["postingDateTime"]);
@@ -93,7 +93,7 @@ class IosAvailableUpdateVersion extends Entity
     * Gets the productVersion
     * The version of the update.
     *
-    * @return string The productVersion
+    * @return string|null The productVersion
     */
     public function getProductVersion()
     {
@@ -121,7 +121,7 @@ class IosAvailableUpdateVersion extends Entity
     * Gets the supportedDevices
     * List of supported devices for the update.
     *
-    * @return string The supportedDevices
+    * @return string|null The supportedDevices
     */
     public function getSupportedDevices()
     {

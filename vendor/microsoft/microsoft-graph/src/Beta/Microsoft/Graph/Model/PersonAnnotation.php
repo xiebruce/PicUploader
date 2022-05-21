@@ -28,12 +28,12 @@ class PersonAnnotation extends ItemFacet
     * Gets the detail
     * Contains the detail of the note itself.
     *
-    * @return ItemBody The detail
+    * @return ItemBody|null The detail
     */
     public function getDetail()
     {
         if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\ItemBody")) {
+            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["detail"])) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new ItemBody($this->_propDict["detail"]);
@@ -42,7 +42,7 @@ class PersonAnnotation extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the detail
     * Contains the detail of the note itself.
@@ -56,12 +56,12 @@ class PersonAnnotation extends ItemFacet
         $this->_propDict["detail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Contains a friendly name for the note.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -71,7 +71,7 @@ class PersonAnnotation extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Contains a friendly name for the note.
@@ -85,11 +85,11 @@ class PersonAnnotation extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -99,7 +99,7 @@ class PersonAnnotation extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     *
@@ -112,5 +112,5 @@ class PersonAnnotation extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
 }

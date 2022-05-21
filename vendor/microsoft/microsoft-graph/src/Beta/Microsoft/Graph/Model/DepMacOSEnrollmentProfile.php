@@ -28,7 +28,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     * Gets the accessibilityScreenDisabled
     * Indicates if Accessibility screen is disabled
     *
-    * @return bool The accessibilityScreenDisabled
+    * @return bool|null The accessibilityScreenDisabled
     */
     public function getAccessibilityScreenDisabled()
     {
@@ -38,7 +38,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the accessibilityScreenDisabled
     * Indicates if Accessibility screen is disabled
@@ -52,12 +52,41 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["accessibilityScreenDisabled"] = boolval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the autoUnlockWithWatchDisabled
+    * Indicates if UnlockWithWatch screen is disabled
+    *
+    * @return bool|null The autoUnlockWithWatchDisabled
+    */
+    public function getAutoUnlockWithWatchDisabled()
+    {
+        if (array_key_exists("autoUnlockWithWatchDisabled", $this->_propDict)) {
+            return $this->_propDict["autoUnlockWithWatchDisabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the autoUnlockWithWatchDisabled
+    * Indicates if UnlockWithWatch screen is disabled
+    *
+    * @param bool $val The autoUnlockWithWatchDisabled
+    *
+    * @return DepMacOSEnrollmentProfile
+    */
+    public function setAutoUnlockWithWatchDisabled($val)
+    {
+        $this->_propDict["autoUnlockWithWatchDisabled"] = boolval($val);
+        return $this;
+    }
+
     /**
     * Gets the chooseYourLockScreenDisabled
     * Indicates if iCloud Documents and Desktop screen is disabled
     *
-    * @return bool The chooseYourLockScreenDisabled
+    * @return bool|null The chooseYourLockScreenDisabled
     */
     public function getChooseYourLockScreenDisabled()
     {
@@ -67,7 +96,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the chooseYourLockScreenDisabled
     * Indicates if iCloud Documents and Desktop screen is disabled
@@ -81,12 +110,12 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["chooseYourLockScreenDisabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the fileVaultDisabled
     * Indicates if file vault is disabled
     *
-    * @return bool The fileVaultDisabled
+    * @return bool|null The fileVaultDisabled
     */
     public function getFileVaultDisabled()
     {
@@ -96,7 +125,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the fileVaultDisabled
     * Indicates if file vault is disabled
@@ -110,12 +139,12 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["fileVaultDisabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the iCloudDiagnosticsDisabled
     * Indicates if iCloud Analytics screen is disabled
     *
-    * @return bool The iCloudDiagnosticsDisabled
+    * @return bool|null The iCloudDiagnosticsDisabled
     */
     public function getICloudDiagnosticsDisabled()
     {
@@ -125,7 +154,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the iCloudDiagnosticsDisabled
     * Indicates if iCloud Analytics screen is disabled
@@ -139,12 +168,12 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["iCloudDiagnosticsDisabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the iCloudStorageDisabled
     * Indicates if iCloud Documents and Desktop screen is disabled
     *
-    * @return bool The iCloudStorageDisabled
+    * @return bool|null The iCloudStorageDisabled
     */
     public function getICloudStorageDisabled()
     {
@@ -154,7 +183,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the iCloudStorageDisabled
     * Indicates if iCloud Documents and Desktop screen is disabled
@@ -168,12 +197,12 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["iCloudStorageDisabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passCodeDisabled
     * Indicates if Passcode setup pane is disabled
     *
-    * @return bool The passCodeDisabled
+    * @return bool|null The passCodeDisabled
     */
     public function getPassCodeDisabled()
     {
@@ -183,7 +212,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the passCodeDisabled
     * Indicates if Passcode setup pane is disabled
@@ -197,12 +226,12 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["passCodeDisabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the registrationDisabled
     * Indicates if registration is disabled
     *
-    * @return bool The registrationDisabled
+    * @return bool|null The registrationDisabled
     */
     public function getRegistrationDisabled()
     {
@@ -212,7 +241,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the registrationDisabled
     * Indicates if registration is disabled
@@ -226,12 +255,12 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["registrationDisabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the zoomDisabled
     * Indicates if zoom setup pane is disabled
     *
-    * @return bool The zoomDisabled
+    * @return bool|null The zoomDisabled
     */
     public function getZoomDisabled()
     {
@@ -241,7 +270,7 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
             return null;
         }
     }
-    
+
     /**
     * Sets the zoomDisabled
     * Indicates if zoom setup pane is disabled
@@ -255,5 +284,5 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
         $this->_propDict["zoomDisabled"] = boolval($val);
         return $this;
     }
-    
+
 }

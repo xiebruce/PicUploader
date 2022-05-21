@@ -28,12 +28,12 @@ class RiskyUserHistoryItem extends RiskyUser
     * Gets the activity
     * The activity related to user risk level change.
     *
-    * @return RiskUserActivity The activity
+    * @return RiskUserActivity|null The activity
     */
     public function getActivity()
     {
         if (array_key_exists("activity", $this->_propDict)) {
-            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\RiskUserActivity")) {
+            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\RiskUserActivity") || is_null($this->_propDict["activity"])) {
                 return $this->_propDict["activity"];
             } else {
                 $this->_propDict["activity"] = new RiskUserActivity($this->_propDict["activity"]);
@@ -42,7 +42,7 @@ class RiskyUserHistoryItem extends RiskyUser
         }
         return null;
     }
-    
+
     /**
     * Sets the activity
     * The activity related to user risk level change.
@@ -56,12 +56,12 @@ class RiskyUserHistoryItem extends RiskyUser
         $this->_propDict["activity"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the initiatedBy
     * The id of actor that does the operation.
     *
-    * @return string The initiatedBy
+    * @return string|null The initiatedBy
     */
     public function getInitiatedBy()
     {
@@ -71,7 +71,7 @@ class RiskyUserHistoryItem extends RiskyUser
             return null;
         }
     }
-    
+
     /**
     * Sets the initiatedBy
     * The id of actor that does the operation.
@@ -85,12 +85,12 @@ class RiskyUserHistoryItem extends RiskyUser
         $this->_propDict["initiatedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * The id of the user.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -100,7 +100,7 @@ class RiskyUserHistoryItem extends RiskyUser
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * The id of the user.
@@ -114,5 +114,5 @@ class RiskyUserHistoryItem extends RiskyUser
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
 }

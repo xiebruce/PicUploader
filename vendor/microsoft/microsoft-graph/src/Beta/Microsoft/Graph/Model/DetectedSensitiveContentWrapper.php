@@ -27,12 +27,12 @@ class DetectedSensitiveContentWrapper extends Entity
     /**
     * Gets the classification
     *
-    * @return DetectedSensitiveContent The classification
+    * @return DetectedSensitiveContent|null The classification
     */
     public function getClassification()
     {
         if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\DetectedSensitiveContent")) {
+            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\DetectedSensitiveContent") || is_null($this->_propDict["classification"])) {
                 return $this->_propDict["classification"];
             } else {
                 $this->_propDict["classification"] = new DetectedSensitiveContent($this->_propDict["classification"]);

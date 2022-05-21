@@ -28,12 +28,12 @@ class AttendeeAvailability extends Entity
     * Gets the attendee
     * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
     *
-    * @return AttendeeBase The attendee
+    * @return AttendeeBase|null The attendee
     */
     public function getAttendee()
     {
         if (array_key_exists("attendee", $this->_propDict)) {
-            if (is_a($this->_propDict["attendee"], "\Microsoft\Graph\Model\AttendeeBase")) {
+            if (is_a($this->_propDict["attendee"], "\Microsoft\Graph\Model\AttendeeBase") || is_null($this->_propDict["attendee"])) {
                 return $this->_propDict["attendee"];
             } else {
                 $this->_propDict["attendee"] = new AttendeeBase($this->_propDict["attendee"]);
@@ -61,12 +61,12 @@ class AttendeeAvailability extends Entity
     * Gets the availability
     * The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
     *
-    * @return FreeBusyStatus The availability
+    * @return FreeBusyStatus|null The availability
     */
     public function getAvailability()
     {
         if (array_key_exists("availability", $this->_propDict)) {
-            if (is_a($this->_propDict["availability"], "\Microsoft\Graph\Model\FreeBusyStatus")) {
+            if (is_a($this->_propDict["availability"], "\Microsoft\Graph\Model\FreeBusyStatus") || is_null($this->_propDict["availability"])) {
                 return $this->_propDict["availability"];
             } else {
                 $this->_propDict["availability"] = new FreeBusyStatus($this->_propDict["availability"]);

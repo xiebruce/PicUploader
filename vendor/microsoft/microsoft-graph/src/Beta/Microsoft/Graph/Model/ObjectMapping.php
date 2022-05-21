@@ -28,12 +28,12 @@ class ObjectMapping extends Entity
     * Gets the attributeMappings
     * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
     *
-    * @return AttributeMapping The attributeMappings
+    * @return AttributeMapping|null The attributeMappings
     */
     public function getAttributeMappings()
     {
         if (array_key_exists("attributeMappings", $this->_propDict)) {
-            if (is_a($this->_propDict["attributeMappings"], "\Beta\Microsoft\Graph\Model\AttributeMapping")) {
+            if (is_a($this->_propDict["attributeMappings"], "\Beta\Microsoft\Graph\Model\AttributeMapping") || is_null($this->_propDict["attributeMappings"])) {
                 return $this->_propDict["attributeMappings"];
             } else {
                 $this->_propDict["attributeMappings"] = new AttributeMapping($this->_propDict["attributeMappings"]);
@@ -60,7 +60,7 @@ class ObjectMapping extends Entity
     * Gets the enabled
     * When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
     *
-    * @return bool The enabled
+    * @return bool|null The enabled
     */
     public function getEnabled()
     {
@@ -89,12 +89,12 @@ class ObjectMapping extends Entity
     * Gets the flowTypes
     * Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
     *
-    * @return ObjectFlowTypes The flowTypes
+    * @return ObjectFlowTypes|null The flowTypes
     */
     public function getFlowTypes()
     {
         if (array_key_exists("flowTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["flowTypes"], "\Beta\Microsoft\Graph\Model\ObjectFlowTypes")) {
+            if (is_a($this->_propDict["flowTypes"], "\Beta\Microsoft\Graph\Model\ObjectFlowTypes") || is_null($this->_propDict["flowTypes"])) {
                 return $this->_propDict["flowTypes"];
             } else {
                 $this->_propDict["flowTypes"] = new ObjectFlowTypes($this->_propDict["flowTypes"]);
@@ -122,12 +122,12 @@ class ObjectMapping extends Entity
     * Gets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @return MetadataEntry The metadata
+    * @return MetadataEntry|null The metadata
     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry")) {
+            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
@@ -154,7 +154,7 @@ class ObjectMapping extends Entity
     * Gets the name
     * Human-friendly name of the object mapping.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -183,12 +183,12 @@ class ObjectMapping extends Entity
     * Gets the scope
     * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
     *
-    * @return Filter The scope
+    * @return Filter|null The scope
     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\Filter")) {
+            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\Filter") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new Filter($this->_propDict["scope"]);
@@ -215,7 +215,7 @@ class ObjectMapping extends Entity
     * Gets the sourceObjectName
     * Name of the object in the source directory. Must match the object name from the source directory definition.
     *
-    * @return string The sourceObjectName
+    * @return string|null The sourceObjectName
     */
     public function getSourceObjectName()
     {
@@ -243,7 +243,7 @@ class ObjectMapping extends Entity
     * Gets the targetObjectName
     * Name of the object in target directory. Must match the object name from the target directory definition.
     *
-    * @return string The targetObjectName
+    * @return string|null The targetObjectName
     */
     public function getTargetObjectName()
     {

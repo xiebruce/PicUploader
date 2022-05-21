@@ -27,7 +27,7 @@ class RecentNotebook extends Entity
     * Gets the displayName
     * The name of the notebook.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -56,12 +56,12 @@ class RecentNotebook extends Entity
     * Gets the lastAccessedTime
     * The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
-    * @return \DateTime The lastAccessedTime
+    * @return \DateTime|null The lastAccessedTime
     */
     public function getLastAccessedTime()
     {
         if (array_key_exists("lastAccessedTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAccessedTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastAccessedTime"], "\DateTime") || is_null($this->_propDict["lastAccessedTime"])) {
                 return $this->_propDict["lastAccessedTime"];
             } else {
                 $this->_propDict["lastAccessedTime"] = new \DateTime($this->_propDict["lastAccessedTime"]);
@@ -89,12 +89,12 @@ class RecentNotebook extends Entity
     * Gets the links
     * Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote client, if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.
     *
-    * @return RecentNotebookLinks The links
+    * @return RecentNotebookLinks|null The links
     */
     public function getLinks()
     {
         if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\RecentNotebookLinks")) {
+            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\RecentNotebookLinks") || is_null($this->_propDict["links"])) {
                 return $this->_propDict["links"];
             } else {
                 $this->_propDict["links"] = new RecentNotebookLinks($this->_propDict["links"]);
@@ -122,12 +122,12 @@ class RecentNotebook extends Entity
     * Gets the sourceService
     * The backend store where the Notebook resides, either OneDriveForBusiness or OneDrive.
     *
-    * @return OnenoteSourceService The sourceService
+    * @return OnenoteSourceService|null The sourceService
     */
     public function getSourceService()
     {
         if (array_key_exists("sourceService", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceService"], "\Microsoft\Graph\Model\OnenoteSourceService")) {
+            if (is_a($this->_propDict["sourceService"], "\Microsoft\Graph\Model\OnenoteSourceService") || is_null($this->_propDict["sourceService"])) {
                 return $this->_propDict["sourceService"];
             } else {
                 $this->_propDict["sourceService"] = new OnenoteSourceService($this->_propDict["sourceService"]);

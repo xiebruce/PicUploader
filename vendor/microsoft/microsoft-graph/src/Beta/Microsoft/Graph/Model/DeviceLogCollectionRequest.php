@@ -27,7 +27,7 @@ class DeviceLogCollectionRequest extends Entity
     * Gets the id
     * The unique identifier
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -56,12 +56,12 @@ class DeviceLogCollectionRequest extends Entity
     * Gets the templateType
     * The template type that is sent with the collection request. Possible values are: predefined.
     *
-    * @return DeviceLogCollectionTemplateType The templateType
+    * @return DeviceLogCollectionTemplateType|null The templateType
     */
     public function getTemplateType()
     {
         if (array_key_exists("templateType", $this->_propDict)) {
-            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceLogCollectionTemplateType")) {
+            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceLogCollectionTemplateType") || is_null($this->_propDict["templateType"])) {
                 return $this->_propDict["templateType"];
             } else {
                 $this->_propDict["templateType"] = new DeviceLogCollectionTemplateType($this->_propDict["templateType"]);

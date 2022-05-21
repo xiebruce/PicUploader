@@ -27,7 +27,7 @@ class IntuneBrand extends Entity
     * Gets the contactITEmailAddress
     * Email address of the person/organization responsible for IT support.
     *
-    * @return string The contactITEmailAddress
+    * @return string|null The contactITEmailAddress
     */
     public function getContactITEmailAddress()
     {
@@ -55,7 +55,7 @@ class IntuneBrand extends Entity
     * Gets the contactITName
     * Name of the person/organization responsible for IT support.
     *
-    * @return string The contactITName
+    * @return string|null The contactITName
     */
     public function getContactITName()
     {
@@ -83,7 +83,7 @@ class IntuneBrand extends Entity
     * Gets the contactITNotes
     * Text comments regarding the person/organization responsible for IT support.
     *
-    * @return string The contactITNotes
+    * @return string|null The contactITNotes
     */
     public function getContactITNotes()
     {
@@ -111,7 +111,7 @@ class IntuneBrand extends Entity
     * Gets the contactITPhoneNumber
     * Phone number of the person/organization responsible for IT support.
     *
-    * @return string The contactITPhoneNumber
+    * @return string|null The contactITPhoneNumber
     */
     public function getContactITPhoneNumber()
     {
@@ -140,12 +140,12 @@ class IntuneBrand extends Entity
     * Gets the darkBackgroundLogo
     * Logo image displayed in Company Portal apps which have a dark background behind the logo.
     *
-    * @return MimeContent The darkBackgroundLogo
+    * @return MimeContent|null The darkBackgroundLogo
     */
     public function getDarkBackgroundLogo()
     {
         if (array_key_exists("darkBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["darkBackgroundLogo"], "\Microsoft\Graph\Model\MimeContent")) {
+            if (is_a($this->_propDict["darkBackgroundLogo"], "\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["darkBackgroundLogo"])) {
                 return $this->_propDict["darkBackgroundLogo"];
             } else {
                 $this->_propDict["darkBackgroundLogo"] = new MimeContent($this->_propDict["darkBackgroundLogo"]);
@@ -172,7 +172,7 @@ class IntuneBrand extends Entity
     * Gets the displayName
     * Company/organization name that is displayed to end users.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -201,12 +201,12 @@ class IntuneBrand extends Entity
     * Gets the lightBackgroundLogo
     * Logo image displayed in Company Portal apps which have a light background behind the logo.
     *
-    * @return MimeContent The lightBackgroundLogo
+    * @return MimeContent|null The lightBackgroundLogo
     */
     public function getLightBackgroundLogo()
     {
         if (array_key_exists("lightBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["lightBackgroundLogo"], "\Microsoft\Graph\Model\MimeContent")) {
+            if (is_a($this->_propDict["lightBackgroundLogo"], "\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["lightBackgroundLogo"])) {
                 return $this->_propDict["lightBackgroundLogo"];
             } else {
                 $this->_propDict["lightBackgroundLogo"] = new MimeContent($this->_propDict["lightBackgroundLogo"]);
@@ -233,7 +233,7 @@ class IntuneBrand extends Entity
     * Gets the onlineSupportSiteName
     * Display name of the company/organization’s IT helpdesk site.
     *
-    * @return string The onlineSupportSiteName
+    * @return string|null The onlineSupportSiteName
     */
     public function getOnlineSupportSiteName()
     {
@@ -261,7 +261,7 @@ class IntuneBrand extends Entity
     * Gets the onlineSupportSiteUrl
     * URL to the company/organization’s IT helpdesk site.
     *
-    * @return string The onlineSupportSiteUrl
+    * @return string|null The onlineSupportSiteUrl
     */
     public function getOnlineSupportSiteUrl()
     {
@@ -289,7 +289,7 @@ class IntuneBrand extends Entity
     * Gets the privacyUrl
     * URL to the company/organization’s privacy policy.
     *
-    * @return string The privacyUrl
+    * @return string|null The privacyUrl
     */
     public function getPrivacyUrl()
     {
@@ -317,7 +317,7 @@ class IntuneBrand extends Entity
     * Gets the showDisplayNameNextToLogo
     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
     *
-    * @return bool The showDisplayNameNextToLogo
+    * @return bool|null The showDisplayNameNextToLogo
     */
     public function getShowDisplayNameNextToLogo()
     {
@@ -345,7 +345,7 @@ class IntuneBrand extends Entity
     * Gets the showLogo
     * Boolean that represents whether the administrator-supplied logo images are shown or not shown.
     *
-    * @return bool The showLogo
+    * @return bool|null The showLogo
     */
     public function getShowLogo()
     {
@@ -373,7 +373,7 @@ class IntuneBrand extends Entity
     * Gets the showNameNextToLogo
     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
     *
-    * @return bool The showNameNextToLogo
+    * @return bool|null The showNameNextToLogo
     */
     public function getShowNameNextToLogo()
     {
@@ -402,12 +402,12 @@ class IntuneBrand extends Entity
     * Gets the themeColor
     * Primary theme color used in the Company Portal applications and web portal.
     *
-    * @return RgbColor The themeColor
+    * @return RgbColor|null The themeColor
     */
     public function getThemeColor()
     {
         if (array_key_exists("themeColor", $this->_propDict)) {
-            if (is_a($this->_propDict["themeColor"], "\Microsoft\Graph\Model\RgbColor")) {
+            if (is_a($this->_propDict["themeColor"], "\Microsoft\Graph\Model\RgbColor") || is_null($this->_propDict["themeColor"])) {
                 return $this->_propDict["themeColor"];
             } else {
                 $this->_propDict["themeColor"] = new RgbColor($this->_propDict["themeColor"]);

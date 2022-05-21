@@ -27,7 +27,7 @@ class DeviceManagementConfigurationStringSettingValue extends DeviceManagementCo
     * Gets the value
     * Value of the string setting.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

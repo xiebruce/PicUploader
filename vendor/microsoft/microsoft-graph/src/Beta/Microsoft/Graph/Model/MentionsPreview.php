@@ -27,7 +27,7 @@ class MentionsPreview extends Entity
     * Gets the isMentioned
     * True if the signed-in user is mentioned in the parent resource instance. Read-only. Supports filter.
     *
-    * @return bool The isMentioned
+    * @return bool|null The isMentioned
     */
     public function getIsMentioned()
     {

@@ -27,7 +27,7 @@ class CertificationControl extends Entity
     * Gets the name
     * Certification control name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -55,7 +55,7 @@ class CertificationControl extends Entity
     * Gets the url
     * URL for the Microsoft Service Trust Portal
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {

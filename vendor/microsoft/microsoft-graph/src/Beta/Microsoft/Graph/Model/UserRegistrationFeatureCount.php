@@ -28,12 +28,12 @@ class UserRegistrationFeatureCount extends Entity
     * Gets the feature
     * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
     *
-    * @return AuthenticationMethodFeature The feature
+    * @return AuthenticationMethodFeature|null The feature
     */
     public function getFeature()
     {
         if (array_key_exists("feature", $this->_propDict)) {
-            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodFeature")) {
+            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodFeature") || is_null($this->_propDict["feature"])) {
                 return $this->_propDict["feature"];
             } else {
                 $this->_propDict["feature"] = new AuthenticationMethodFeature($this->_propDict["feature"]);
@@ -60,7 +60,7 @@ class UserRegistrationFeatureCount extends Entity
     * Gets the userCount
     * Number of users.
     *
-    * @return int The userCount
+    * @return int|null The userCount
     */
     public function getUserCount()
     {

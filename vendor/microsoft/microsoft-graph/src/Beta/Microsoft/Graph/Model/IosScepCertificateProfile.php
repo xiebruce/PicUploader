@@ -28,12 +28,12 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
     * Gets the certificateStore
     * Target store certificate. Possible values are: user, machine.
     *
-    * @return CertificateStore The certificateStore
+    * @return CertificateStore|null The certificateStore
     */
     public function getCertificateStore()
     {
         if (array_key_exists("certificateStore", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore")) {
+            if (is_a($this->_propDict["certificateStore"], "\Beta\Microsoft\Graph\Model\CertificateStore") || is_null($this->_propDict["certificateStore"])) {
                 return $this->_propDict["certificateStore"];
             } else {
                 $this->_propDict["certificateStore"] = new CertificateStore($this->_propDict["certificateStore"]);
@@ -42,7 +42,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         }
         return null;
     }
-    
+
     /**
     * Sets the certificateStore
     * Target store certificate. Possible values are: user, machine.
@@ -56,13 +56,13 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["certificateStore"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the customSubjectAlternativeNames
     * Custom Subject Alternative Name Settings. The OnPremisesUserPrincipalName variable is support as well as others documented here: https://go.microsoft.com/fwlink/?LinkId=2027630. This collection can contain a maximum of 500 elements.
      *
-     * @return array The customSubjectAlternativeNames
+     * @return array|null The customSubjectAlternativeNames
      */
     public function getCustomSubjectAlternativeNames()
     {
@@ -72,27 +72,27 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the customSubjectAlternativeNames
     * Custom Subject Alternative Name Settings. The OnPremisesUserPrincipalName variable is support as well as others documented here: https://go.microsoft.com/fwlink/?LinkId=2027630. This collection can contain a maximum of 500 elements.
     *
-    * @param CustomSubjectAlternativeName $val The customSubjectAlternativeNames
+    * @param CustomSubjectAlternativeName[] $val The customSubjectAlternativeNames
     *
     * @return IosScepCertificateProfile
     */
     public function setCustomSubjectAlternativeNames($val)
     {
-		$this->_propDict["customSubjectAlternativeNames"] = $val;
+        $this->_propDict["customSubjectAlternativeNames"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *
-     * @return array The extendedKeyUsages
+     * @return array|null The extendedKeyUsages
      */
     public function getExtendedKeyUsages()
     {
@@ -102,31 +102,31 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
     *
-    * @param ExtendedKeyUsage $val The extendedKeyUsages
+    * @param ExtendedKeyUsage[] $val The extendedKeyUsages
     *
     * @return IosScepCertificateProfile
     */
     public function setExtendedKeyUsages($val)
     {
-		$this->_propDict["extendedKeyUsages"] = $val;
+        $this->_propDict["extendedKeyUsages"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the keySize
     * SCEP Key Size. Possible values are: size1024, size2048, size4096.
     *
-    * @return KeySize The keySize
+    * @return KeySize|null The keySize
     */
     public function getKeySize()
     {
         if (array_key_exists("keySize", $this->_propDict)) {
-            if (is_a($this->_propDict["keySize"], "\Beta\Microsoft\Graph\Model\KeySize")) {
+            if (is_a($this->_propDict["keySize"], "\Beta\Microsoft\Graph\Model\KeySize") || is_null($this->_propDict["keySize"])) {
                 return $this->_propDict["keySize"];
             } else {
                 $this->_propDict["keySize"] = new KeySize($this->_propDict["keySize"]);
@@ -135,7 +135,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         }
         return null;
     }
-    
+
     /**
     * Sets the keySize
     * SCEP Key Size. Possible values are: size1024, size2048, size4096.
@@ -149,17 +149,17 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["keySize"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the keyUsage
     * SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
     *
-    * @return KeyUsages The keyUsage
+    * @return KeyUsages|null The keyUsage
     */
     public function getKeyUsage()
     {
         if (array_key_exists("keyUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["keyUsage"], "\Beta\Microsoft\Graph\Model\KeyUsages")) {
+            if (is_a($this->_propDict["keyUsage"], "\Beta\Microsoft\Graph\Model\KeyUsages") || is_null($this->_propDict["keyUsage"])) {
                 return $this->_propDict["keyUsage"];
             } else {
                 $this->_propDict["keyUsage"] = new KeyUsages($this->_propDict["keyUsage"]);
@@ -168,7 +168,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         }
         return null;
     }
-    
+
     /**
     * Sets the keyUsage
     * SCEP Key Usage. Possible values are: keyEncipherment, digitalSignature.
@@ -182,12 +182,12 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["keyUsage"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @return string The scepServerUrls
+    * @return string|null The scepServerUrls
     */
     public function getScepServerUrls()
     {
@@ -197,7 +197,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
             return null;
         }
     }
-    
+
     /**
     * Sets the scepServerUrls
     * SCEP Server Url(s).
@@ -211,12 +211,12 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["scepServerUrls"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subjectAlternativeNameFormatString
     * Custom String that defines the AAD Attribute.
     *
-    * @return string The subjectAlternativeNameFormatString
+    * @return string|null The subjectAlternativeNameFormatString
     */
     public function getSubjectAlternativeNameFormatString()
     {
@@ -226,7 +226,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
             return null;
         }
     }
-    
+
     /**
     * Sets the subjectAlternativeNameFormatString
     * Custom String that defines the AAD Attribute.
@@ -240,12 +240,12 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["subjectAlternativeNameFormatString"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subjectNameFormatString
     * Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
     *
-    * @return string The subjectNameFormatString
+    * @return string|null The subjectNameFormatString
     */
     public function getSubjectNameFormatString()
     {
@@ -255,7 +255,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
             return null;
         }
     }
-    
+
     /**
     * Sets the subjectNameFormatString
     * Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
@@ -269,13 +269,13 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["subjectNameFormatString"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managedDeviceCertificateStates
-    * Certificate state for devices
+    * Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *
-     * @return array The managedDeviceCertificateStates
+     * @return array|null The managedDeviceCertificateStates
      */
     public function getManagedDeviceCertificateStates()
     {
@@ -285,31 +285,31 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the managedDeviceCertificateStates
-    * Certificate state for devices
+    * Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
     *
-    * @param ManagedDeviceCertificateState $val The managedDeviceCertificateStates
+    * @param ManagedDeviceCertificateState[] $val The managedDeviceCertificateStates
     *
     * @return IosScepCertificateProfile
     */
     public function setManagedDeviceCertificateStates($val)
     {
-		$this->_propDict["managedDeviceCertificateStates"] = $val;
+        $this->_propDict["managedDeviceCertificateStates"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the rootCertificate
     * Trusted Root Certificate.
     *
-    * @return IosTrustedRootCertificate The rootCertificate
+    * @return IosTrustedRootCertificate|null The rootCertificate
     */
     public function getRootCertificate()
     {
         if (array_key_exists("rootCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificate"], "\Beta\Microsoft\Graph\Model\IosTrustedRootCertificate")) {
+            if (is_a($this->_propDict["rootCertificate"], "\Beta\Microsoft\Graph\Model\IosTrustedRootCertificate") || is_null($this->_propDict["rootCertificate"])) {
                 return $this->_propDict["rootCertificate"];
             } else {
                 $this->_propDict["rootCertificate"] = new IosTrustedRootCertificate($this->_propDict["rootCertificate"]);
@@ -318,7 +318,7 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         }
         return null;
     }
-    
+
     /**
     * Sets the rootCertificate
     * Trusted Root Certificate.
@@ -332,5 +332,5 @@ class IosScepCertificateProfile extends IosCertificateProfileBase
         $this->_propDict["rootCertificate"] = $val;
         return $this;
     }
-    
+
 }

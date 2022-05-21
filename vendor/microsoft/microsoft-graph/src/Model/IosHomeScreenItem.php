@@ -27,7 +27,7 @@ class IosHomeScreenItem extends Entity
     * Gets the displayName
     * Name of the app
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {

@@ -28,12 +28,12 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
     * Gets the authenticationMethod
     * Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
     *
-    * @return WiFiAuthenticationMethod The authenticationMethod
+    * @return WiFiAuthenticationMethod|null The authenticationMethod
     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod")) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\WiFiAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new WiFiAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -42,7 +42,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the authenticationMethod
     * Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS. Possible values are: certificate, usernameAndPassword, derivedCredential.
@@ -56,17 +56,17 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the eapType
     * Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
     *
-    * @return AndroidEapType The eapType
+    * @return AndroidEapType|null The eapType
     */
     public function getEapType()
     {
         if (array_key_exists("eapType", $this->_propDict)) {
-            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\AndroidEapType")) {
+            if (is_a($this->_propDict["eapType"], "\Beta\Microsoft\Graph\Model\AndroidEapType") || is_null($this->_propDict["eapType"])) {
                 return $this->_propDict["eapType"];
             } else {
                 $this->_propDict["eapType"] = new AndroidEapType($this->_propDict["eapType"]);
@@ -75,7 +75,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the eapType
     * Indicates the type of EAP protocol set on the Wi-Fi endpoint (router). Possible values are: eapTls, eapTtls, peap.
@@ -89,17 +89,17 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["eapType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the innerAuthenticationProtocolForEapTtls
     * Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
     *
-    * @return NonEapAuthenticationMethodForEapTtlsType The innerAuthenticationProtocolForEapTtls
+    * @return NonEapAuthenticationMethodForEapTtlsType|null The innerAuthenticationProtocolForEapTtls
     */
     public function getInnerAuthenticationProtocolForEapTtls()
     {
         if (array_key_exists("innerAuthenticationProtocolForEapTtls", $this->_propDict)) {
-            if (is_a($this->_propDict["innerAuthenticationProtocolForEapTtls"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType")) {
+            if (is_a($this->_propDict["innerAuthenticationProtocolForEapTtls"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForEapTtlsType") || is_null($this->_propDict["innerAuthenticationProtocolForEapTtls"])) {
                 return $this->_propDict["innerAuthenticationProtocolForEapTtls"];
             } else {
                 $this->_propDict["innerAuthenticationProtocolForEapTtls"] = new NonEapAuthenticationMethodForEapTtlsType($this->_propDict["innerAuthenticationProtocolForEapTtls"]);
@@ -108,7 +108,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the innerAuthenticationProtocolForEapTtls
     * Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password. Possible values are: unencryptedPassword, challengeHandshakeAuthenticationProtocol, microsoftChap, microsoftChapVersionTwo.
@@ -122,17 +122,17 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["innerAuthenticationProtocolForEapTtls"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the innerAuthenticationProtocolForPeap
     * Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password. Possible values are: none, microsoftChapVersionTwo.
     *
-    * @return NonEapAuthenticationMethodForPeap The innerAuthenticationProtocolForPeap
+    * @return NonEapAuthenticationMethodForPeap|null The innerAuthenticationProtocolForPeap
     */
     public function getInnerAuthenticationProtocolForPeap()
     {
         if (array_key_exists("innerAuthenticationProtocolForPeap", $this->_propDict)) {
-            if (is_a($this->_propDict["innerAuthenticationProtocolForPeap"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForPeap")) {
+            if (is_a($this->_propDict["innerAuthenticationProtocolForPeap"], "\Beta\Microsoft\Graph\Model\NonEapAuthenticationMethodForPeap") || is_null($this->_propDict["innerAuthenticationProtocolForPeap"])) {
                 return $this->_propDict["innerAuthenticationProtocolForPeap"];
             } else {
                 $this->_propDict["innerAuthenticationProtocolForPeap"] = new NonEapAuthenticationMethodForPeap($this->_propDict["innerAuthenticationProtocolForPeap"]);
@@ -141,7 +141,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the innerAuthenticationProtocolForPeap
     * Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password. Possible values are: none, microsoftChapVersionTwo.
@@ -155,12 +155,12 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["innerAuthenticationProtocolForPeap"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the outerIdentityPrivacyTemporaryValue
     * Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
     *
-    * @return string The outerIdentityPrivacyTemporaryValue
+    * @return string|null The outerIdentityPrivacyTemporaryValue
     */
     public function getOuterIdentityPrivacyTemporaryValue()
     {
@@ -170,7 +170,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the outerIdentityPrivacyTemporaryValue
     * Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
@@ -184,12 +184,12 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["outerIdentityPrivacyTemporaryValue"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the passwordFormatString
     * Password format string used to build the password to connect to wifi
     *
-    * @return string The passwordFormatString
+    * @return string|null The passwordFormatString
     */
     public function getPasswordFormatString()
     {
@@ -199,7 +199,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordFormatString
     * Password format string used to build the password to connect to wifi
@@ -213,12 +213,12 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["passwordFormatString"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the preSharedKey
     * PreSharedKey used to build the password to connect to wifi
     *
-    * @return string The preSharedKey
+    * @return string|null The preSharedKey
     */
     public function getPreSharedKey()
     {
@@ -228,7 +228,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the preSharedKey
     * PreSharedKey used to build the password to connect to wifi
@@ -242,12 +242,41 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["preSharedKey"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the trustedServerCertificateNames
+    * Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users' devices when they connect to this Wi-Fi network.
+    *
+    * @return string|null The trustedServerCertificateNames
+    */
+    public function getTrustedServerCertificateNames()
+    {
+        if (array_key_exists("trustedServerCertificateNames", $this->_propDict)) {
+            return $this->_propDict["trustedServerCertificateNames"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the trustedServerCertificateNames
+    * Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users' devices when they connect to this Wi-Fi network.
+    *
+    * @param string $val The trustedServerCertificateNames
+    *
+    * @return AndroidEnterpriseWiFiConfiguration
+    */
+    public function setTrustedServerCertificateNames($val)
+    {
+        $this->_propDict["trustedServerCertificateNames"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the usernameFormatString
     * Username format string used to build the username to connect to wifi
     *
-    * @return string The usernameFormatString
+    * @return string|null The usernameFormatString
     */
     public function getUsernameFormatString()
     {
@@ -257,7 +286,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the usernameFormatString
     * Username format string used to build the username to connect to wifi
@@ -271,17 +300,17 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["usernameFormatString"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityCertificateForClientAuthentication
     * Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication). This is the certificate presented by client to the Wi-Fi endpoint. The authentication server sitting behind the Wi-Fi endpoint must accept this certificate to successfully establish a Wi-Fi connection.
     *
-    * @return AndroidCertificateProfileBase The identityCertificateForClientAuthentication
+    * @return AndroidCertificateProfileBase|null The identityCertificateForClientAuthentication
     */
     public function getIdentityCertificateForClientAuthentication()
     {
         if (array_key_exists("identityCertificateForClientAuthentication", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\AndroidCertificateProfileBase")) {
+            if (is_a($this->_propDict["identityCertificateForClientAuthentication"], "\Beta\Microsoft\Graph\Model\AndroidCertificateProfileBase") || is_null($this->_propDict["identityCertificateForClientAuthentication"])) {
                 return $this->_propDict["identityCertificateForClientAuthentication"];
             } else {
                 $this->_propDict["identityCertificateForClientAuthentication"] = new AndroidCertificateProfileBase($this->_propDict["identityCertificateForClientAuthentication"]);
@@ -290,7 +319,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the identityCertificateForClientAuthentication
     * Identity Certificate for client authentication when EAP Type is configured to EAP-TLS, EAP-TTLS (with Certificate Authentication), or PEAP (with Certificate Authentication). This is the certificate presented by client to the Wi-Fi endpoint. The authentication server sitting behind the Wi-Fi endpoint must accept this certificate to successfully establish a Wi-Fi connection.
@@ -304,17 +333,17 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["identityCertificateForClientAuthentication"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the rootCertificateForServerValidation
     * Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt.
     *
-    * @return AndroidTrustedRootCertificate The rootCertificateForServerValidation
+    * @return AndroidTrustedRootCertificate|null The rootCertificateForServerValidation
     */
     public function getRootCertificateForServerValidation()
     {
         if (array_key_exists("rootCertificateForServerValidation", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificateForServerValidation"], "\Beta\Microsoft\Graph\Model\AndroidTrustedRootCertificate")) {
+            if (is_a($this->_propDict["rootCertificateForServerValidation"], "\Beta\Microsoft\Graph\Model\AndroidTrustedRootCertificate") || is_null($this->_propDict["rootCertificateForServerValidation"])) {
                 return $this->_propDict["rootCertificateForServerValidation"];
             } else {
                 $this->_propDict["rootCertificateForServerValidation"] = new AndroidTrustedRootCertificate($this->_propDict["rootCertificateForServerValidation"]);
@@ -323,7 +352,7 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the rootCertificateForServerValidation
     * Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt.
@@ -337,5 +366,5 @@ class AndroidEnterpriseWiFiConfiguration extends AndroidWiFiConfiguration
         $this->_propDict["rootCertificateForServerValidation"] = $val;
         return $this;
     }
-    
+
 }

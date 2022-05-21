@@ -28,12 +28,12 @@ class CallRoute extends Entity
     * Gets the final
     * The identity that was resolved to in the call.
     *
-    * @return IdentitySet The final
+    * @return IdentitySet|null The final
     */
     public function getFinal()
     {
         if (array_key_exists("final", $this->_propDict)) {
-            if (is_a($this->_propDict["final"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["final"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["final"])) {
                 return $this->_propDict["final"];
             } else {
                 $this->_propDict["final"] = new IdentitySet($this->_propDict["final"]);
@@ -61,12 +61,12 @@ class CallRoute extends Entity
     * Gets the original
     * The identity that was originally used in the call.
     *
-    * @return IdentitySet The original
+    * @return IdentitySet|null The original
     */
     public function getOriginal()
     {
         if (array_key_exists("original", $this->_propDict)) {
-            if (is_a($this->_propDict["original"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["original"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["original"])) {
                 return $this->_propDict["original"];
             } else {
                 $this->_propDict["original"] = new IdentitySet($this->_propDict["original"]);
@@ -94,12 +94,12 @@ class CallRoute extends Entity
     * Gets the routingType
     * Possible values are: forwarded, lookup, selfFork.
     *
-    * @return RoutingType The routingType
+    * @return RoutingType|null The routingType
     */
     public function getRoutingType()
     {
         if (array_key_exists("routingType", $this->_propDict)) {
-            if (is_a($this->_propDict["routingType"], "\Microsoft\Graph\Model\RoutingType")) {
+            if (is_a($this->_propDict["routingType"], "\Microsoft\Graph\Model\RoutingType") || is_null($this->_propDict["routingType"])) {
                 return $this->_propDict["routingType"];
             } else {
                 $this->_propDict["routingType"] = new RoutingType($this->_propDict["routingType"]);

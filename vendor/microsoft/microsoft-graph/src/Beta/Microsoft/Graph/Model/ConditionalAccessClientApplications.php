@@ -25,8 +25,9 @@ class ConditionalAccessClientApplications extends Entity
 {
     /**
     * Gets the excludeServicePrincipals
+    * Service principal IDs excluded from the policy scope.
     *
-    * @return string The excludeServicePrincipals
+    * @return string|null The excludeServicePrincipals
     */
     public function getExcludeServicePrincipals()
     {
@@ -39,6 +40,7 @@ class ConditionalAccessClientApplications extends Entity
 
     /**
     * Sets the excludeServicePrincipals
+    * Service principal IDs excluded from the policy scope.
     *
     * @param string $val The value of the excludeServicePrincipals
     *
@@ -51,8 +53,9 @@ class ConditionalAccessClientApplications extends Entity
     }
     /**
     * Gets the includeServicePrincipals
+    * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
     *
-    * @return string The includeServicePrincipals
+    * @return string|null The includeServicePrincipals
     */
     public function getIncludeServicePrincipals()
     {
@@ -65,6 +68,7 @@ class ConditionalAccessClientApplications extends Entity
 
     /**
     * Sets the includeServicePrincipals
+    * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
     *
     * @param string $val The value of the includeServicePrincipals
     *

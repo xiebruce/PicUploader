@@ -21,7 +21,9 @@ $destKey = $key . "_move";
 // 资源移动或者重命名
 // 参考文档：https://developer.qiniu.com/kodo/api/1288/move
 
-$err = $bucketManager->move($srcBucket, $srcKey, $destBucket, $destKey, true);
-if ($err) {
-    print_r($err);
+list($ret, $err) = $bucketManager->move($srcBucket, $srcKey, $destBucket, $destKey, true);
+if ($err != null) {
+    var_dump($err);
+} else {
+    var_dump($ret);
 }

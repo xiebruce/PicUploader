@@ -27,7 +27,7 @@ class PrintOperationStatus extends Entity
     * Gets the description
     * A human-readable description of the printOperation's current processing state. Read-only.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -56,12 +56,12 @@ class PrintOperationStatus extends Entity
     * Gets the state
     * The printOperation's current processing state. Valid values are described in the following table. Read-only.
     *
-    * @return PrintOperationProcessingState The state
+    * @return PrintOperationProcessingState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrintOperationProcessingState")) {
+            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrintOperationProcessingState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrintOperationProcessingState($this->_propDict["state"]);

@@ -26,9 +26,11 @@ class OrganizerMeetingInfo extends MeetingInfo
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.organizerMeetingInfo");
     }
 
@@ -37,12 +39,12 @@ class OrganizerMeetingInfo extends MeetingInfo
     * Gets the organizer
     * The organizer Azure Active Directory identity.
     *
-    * @return IdentitySet The organizer
+    * @return IdentitySet|null The organizer
     */
     public function getOrganizer()
     {
         if (array_key_exists("organizer", $this->_propDict)) {
-            if (is_a($this->_propDict["organizer"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["organizer"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["organizer"])) {
                 return $this->_propDict["organizer"];
             } else {
                 $this->_propDict["organizer"] = new IdentitySet($this->_propDict["organizer"]);

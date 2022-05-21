@@ -27,7 +27,7 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     * Gets the deviceId
     * The id of the device in the checkin.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -55,7 +55,7 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     * Gets the deviceName
     * The name of the device in the checkin.
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -84,12 +84,12 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     * Gets the lastCheckinDateTime
     * Last checkin time for this user/device pair.
     *
-    * @return \DateTime The lastCheckinDateTime
+    * @return \DateTime|null The lastCheckinDateTime
     */
     public function getLastCheckinDateTime()
     {
         if (array_key_exists("lastCheckinDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckinDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastCheckinDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckinDateTime"])) {
                 return $this->_propDict["lastCheckinDateTime"];
             } else {
                 $this->_propDict["lastCheckinDateTime"] = new \DateTime($this->_propDict["lastCheckinDateTime"]);
@@ -116,7 +116,7 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     * Gets the userDisplayName
     * The display name of the user in the checkin
     *
-    * @return string The userDisplayName
+    * @return string|null The userDisplayName
     */
     public function getUserDisplayName()
     {
@@ -144,7 +144,7 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     * Gets the userId
     * The id of the user in the checkin.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -172,7 +172,7 @@ class DeviceConfigurationTargetedUserAndDevice extends Entity
     * Gets the userPrincipalName
     * The UPN of the user in the checkin.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

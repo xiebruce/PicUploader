@@ -25,10 +25,11 @@ namespace Microsoft\Graph\Model;
 class Authentication extends Entity
 {
 
-     /** 
+     /**
      * Gets the fido2Methods
+    * Represents the FIDO2 security keys registered to a user for authentication.
      *
-     * @return array The fido2Methods
+     * @return array|null The fido2Methods
      */
     public function getFido2Methods()
     {
@@ -38,25 +39,27 @@ class Authentication extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the fido2Methods
+    * Represents the FIDO2 security keys registered to a user for authentication.
     *
-    * @param Fido2AuthenticationMethod $val The fido2Methods
+    * @param Fido2AuthenticationMethod[] $val The fido2Methods
     *
     * @return Authentication
     */
     public function setFido2Methods($val)
     {
-		$this->_propDict["fido2Methods"] = $val;
+        $this->_propDict["fido2Methods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the methods
+    * Represents all authentication methods registered to a user.
      *
-     * @return array The methods
+     * @return array|null The methods
      */
     public function getMethods()
     {
@@ -66,25 +69,27 @@ class Authentication extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the methods
+    * Represents all authentication methods registered to a user.
     *
-    * @param AuthenticationMethod $val The methods
+    * @param AuthenticationMethod[] $val The methods
     *
     * @return Authentication
     */
     public function setMethods($val)
     {
-		$this->_propDict["methods"] = $val;
+        $this->_propDict["methods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the microsoftAuthenticatorMethods
+    * The details of the Microsoft Authenticator app registered to a user for authentication.
      *
-     * @return array The microsoftAuthenticatorMethods
+     * @return array|null The microsoftAuthenticatorMethods
      */
     public function getMicrosoftAuthenticatorMethods()
     {
@@ -94,25 +99,27 @@ class Authentication extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the microsoftAuthenticatorMethods
+    * The details of the Microsoft Authenticator app registered to a user for authentication.
     *
-    * @param MicrosoftAuthenticatorAuthenticationMethod $val The microsoftAuthenticatorMethods
+    * @param MicrosoftAuthenticatorAuthenticationMethod[] $val The microsoftAuthenticatorMethods
     *
     * @return Authentication
     */
     public function setMicrosoftAuthenticatorMethods($val)
     {
-		$this->_propDict["microsoftAuthenticatorMethods"] = $val;
+        $this->_propDict["microsoftAuthenticatorMethods"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the windowsHelloForBusinessMethods
+    * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      *
-     * @return array The windowsHelloForBusinessMethods
+     * @return array|null The windowsHelloForBusinessMethods
      */
     public function getWindowsHelloForBusinessMethods()
     {
@@ -122,18 +129,19 @@ class Authentication extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the windowsHelloForBusinessMethods
+    * Represents the Windows Hello for Business authentication method registered to a user for authentication.
     *
-    * @param WindowsHelloForBusinessAuthenticationMethod $val The windowsHelloForBusinessMethods
+    * @param WindowsHelloForBusinessAuthenticationMethod[] $val The windowsHelloForBusinessMethods
     *
     * @return Authentication
     */
     public function setWindowsHelloForBusinessMethods($val)
     {
-		$this->_propDict["windowsHelloForBusinessMethods"] = $val;
+        $this->_propDict["windowsHelloForBusinessMethods"] = $val;
         return $this;
     }
-    
+
 }

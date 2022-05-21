@@ -26,9 +26,11 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.macOSKerberosSingleSignOnExtension");
     }
 
@@ -36,7 +38,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the activeDirectorySiteCode
     * Gets or sets the Active Directory site.
     *
-    * @return string The activeDirectorySiteCode
+    * @return string|null The activeDirectorySiteCode
     */
     public function getActiveDirectorySiteCode()
     {
@@ -64,7 +66,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the blockActiveDirectorySiteAutoDiscovery
     * Enables or disables whether the Kerberos extension can automatically determine its site name.
     *
-    * @return bool The blockActiveDirectorySiteAutoDiscovery
+    * @return bool|null The blockActiveDirectorySiteAutoDiscovery
     */
     public function getBlockActiveDirectorySiteAutoDiscovery()
     {
@@ -92,7 +94,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the blockAutomaticLogin
     * Enables or disables Keychain usage.
     *
-    * @return bool The blockAutomaticLogin
+    * @return bool|null The blockAutomaticLogin
     */
     public function getBlockAutomaticLogin()
     {
@@ -120,7 +122,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the cacheName
     * Gets or sets the Generic Security Services name of the Kerberos cache to use for this profile.
     *
-    * @return string The cacheName
+    * @return string|null The cacheName
     */
     public function getCacheName()
     {
@@ -148,7 +150,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the credentialBundleIdAccessControlList
     * Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
     *
-    * @return string The credentialBundleIdAccessControlList
+    * @return string|null The credentialBundleIdAccessControlList
     */
     public function getCredentialBundleIdAccessControlList()
     {
@@ -173,10 +175,38 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
         return $this;
     }
     /**
+    * Gets the credentialsCacheMonitored
+    * When set to True, the credential is requested on the next matching Kerberos challenge or network state change. When the credential is expired or missing, a new credential is created. Available for devices running macOS versions 12 and later.
+    *
+    * @return bool|null The credentialsCacheMonitored
+    */
+    public function getCredentialsCacheMonitored()
+    {
+        if (array_key_exists("credentialsCacheMonitored", $this->_propDict)) {
+            return $this->_propDict["credentialsCacheMonitored"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the credentialsCacheMonitored
+    * When set to True, the credential is requested on the next matching Kerberos challenge or network state change. When the credential is expired or missing, a new credential is created. Available for devices running macOS versions 12 and later.
+    *
+    * @param bool $val The value of the credentialsCacheMonitored
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setCredentialsCacheMonitored($val)
+    {
+        $this->_propDict["credentialsCacheMonitored"] = $val;
+        return $this;
+    }
+    /**
     * Gets the domainRealms
     * Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
     *
-    * @return string The domainRealms
+    * @return string|null The domainRealms
     */
     public function getDomainRealms()
     {
@@ -204,7 +234,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the domains
     * Gets or sets a list of hosts or domain names for which the app extension performs SSO.
     *
-    * @return string The domains
+    * @return string|null The domains
     */
     public function getDomains()
     {
@@ -232,7 +262,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the isDefaultRealm
     * When true, this profile's realm will be selected as the default. Necessary if multiple Kerberos-type profiles are configured.
     *
-    * @return bool The isDefaultRealm
+    * @return bool|null The isDefaultRealm
     */
     public function getIsDefaultRealm()
     {
@@ -257,10 +287,94 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
         return $this;
     }
     /**
+    * Gets the kerberosAppsInBundleIdACLIncluded
+    * When set to True, the Kerberos extension allows any apps entered with the app bundle ID, managed apps, and standard Kerberos utilities, such as TicketViewer and klist, to access and use the credential. Available for devices running macOS versions 12 and later.
+    *
+    * @return bool|null The kerberosAppsInBundleIdACLIncluded
+    */
+    public function getKerberosAppsInBundleIdACLIncluded()
+    {
+        if (array_key_exists("kerberosAppsInBundleIdACLIncluded", $this->_propDict)) {
+            return $this->_propDict["kerberosAppsInBundleIdACLIncluded"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the kerberosAppsInBundleIdACLIncluded
+    * When set to True, the Kerberos extension allows any apps entered with the app bundle ID, managed apps, and standard Kerberos utilities, such as TicketViewer and klist, to access and use the credential. Available for devices running macOS versions 12 and later.
+    *
+    * @param bool $val The value of the kerberosAppsInBundleIdACLIncluded
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setKerberosAppsInBundleIdACLIncluded($val)
+    {
+        $this->_propDict["kerberosAppsInBundleIdACLIncluded"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the managedAppsInBundleIdACLIncluded
+    * When set to True, the Kerberos extension allows managed apps, and any apps entered with the app bundle ID to access the credential. When set to False, the Kerberos extension allows all apps to access the credential. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @return bool|null The managedAppsInBundleIdACLIncluded
+    */
+    public function getManagedAppsInBundleIdACLIncluded()
+    {
+        if (array_key_exists("managedAppsInBundleIdACLIncluded", $this->_propDict)) {
+            return $this->_propDict["managedAppsInBundleIdACLIncluded"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the managedAppsInBundleIdACLIncluded
+    * When set to True, the Kerberos extension allows managed apps, and any apps entered with the app bundle ID to access the credential. When set to False, the Kerberos extension allows all apps to access the credential. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @param bool $val The value of the managedAppsInBundleIdACLIncluded
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setManagedAppsInBundleIdACLIncluded($val)
+    {
+        $this->_propDict["managedAppsInBundleIdACLIncluded"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the modeCredentialUsed
+    * Select how other processes use the Kerberos Extension credential.
+    *
+    * @return string|null The modeCredentialUsed
+    */
+    public function getModeCredentialUsed()
+    {
+        if (array_key_exists("modeCredentialUsed", $this->_propDict)) {
+            return $this->_propDict["modeCredentialUsed"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the modeCredentialUsed
+    * Select how other processes use the Kerberos Extension credential.
+    *
+    * @param string $val The value of the modeCredentialUsed
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setModeCredentialUsed($val)
+    {
+        $this->_propDict["modeCredentialUsed"] = $val;
+        return $this;
+    }
+    /**
     * Gets the passwordBlockModification
     * Enables or disables password changes.
     *
-    * @return bool The passwordBlockModification
+    * @return bool|null The passwordBlockModification
     */
     public function getPasswordBlockModification()
     {
@@ -288,7 +402,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordChangeUrl
     * Gets or sets the URL that the user will be sent to when they initiate a password change.
     *
-    * @return string The passwordChangeUrl
+    * @return string|null The passwordChangeUrl
     */
     public function getPasswordChangeUrl()
     {
@@ -316,7 +430,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordEnableLocalSync
     * Enables or disables password syncing. This won't affect users logged in with a mobile account on macOS.
     *
-    * @return bool The passwordEnableLocalSync
+    * @return bool|null The passwordEnableLocalSync
     */
     public function getPasswordEnableLocalSync()
     {
@@ -344,7 +458,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordExpirationDays
     * Overrides the default password expiration in days. For most domains, this value is calculated automatically.
     *
-    * @return int The passwordExpirationDays
+    * @return int|null The passwordExpirationDays
     */
     public function getPasswordExpirationDays()
     {
@@ -372,7 +486,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordExpirationNotificationDays
     * Gets or sets the number of days until the user is notified that their password will expire (default is 15).
     *
-    * @return int The passwordExpirationNotificationDays
+    * @return int|null The passwordExpirationNotificationDays
     */
     public function getPasswordExpirationNotificationDays()
     {
@@ -400,7 +514,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordMinimumAgeDays
     * Gets or sets the minimum number of days until a user can change their password again.
     *
-    * @return int The passwordMinimumAgeDays
+    * @return int|null The passwordMinimumAgeDays
     */
     public function getPasswordMinimumAgeDays()
     {
@@ -428,7 +542,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordMinimumLength
     * Gets or sets the minimum length of a password.
     *
-    * @return int The passwordMinimumLength
+    * @return int|null The passwordMinimumLength
     */
     public function getPasswordMinimumLength()
     {
@@ -456,7 +570,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordPreviousPasswordBlockCount
     * Gets or sets the number of previous passwords to block.
     *
-    * @return int The passwordPreviousPasswordBlockCount
+    * @return int|null The passwordPreviousPasswordBlockCount
     */
     public function getPasswordPreviousPasswordBlockCount()
     {
@@ -484,7 +598,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordRequireActiveDirectoryComplexity
     * Enables or disables whether passwords must meet Active Directory's complexity requirements.
     *
-    * @return bool The passwordRequireActiveDirectoryComplexity
+    * @return bool|null The passwordRequireActiveDirectoryComplexity
     */
     public function getPasswordRequireActiveDirectoryComplexity()
     {
@@ -512,7 +626,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the passwordRequirementsDescription
     * Gets or sets a description of the password complexity requirements.
     *
-    * @return string The passwordRequirementsDescription
+    * @return string|null The passwordRequirementsDescription
     */
     public function getPasswordRequirementsDescription()
     {
@@ -537,10 +651,38 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
         return $this;
     }
     /**
+    * Gets the preferredKDCs
+    * Add creates an ordered list of preferred Key Distribution Centers (KDCs) to use for Kerberos traffic. This list is used when the servers are not discoverable using DNS. When the servers are discoverable, the list is used for both connectivity checks, and used first for Kerberos traffic. If the servers don’t respond, then the device uses DNS discovery. Delete removes an existing list, and devices use DNS discovery. Available for devices running macOS versions 12 and later.
+    *
+    * @return string|null The preferredKDCs
+    */
+    public function getPreferredKDCs()
+    {
+        if (array_key_exists("preferredKDCs", $this->_propDict)) {
+            return $this->_propDict["preferredKDCs"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the preferredKDCs
+    * Add creates an ordered list of preferred Key Distribution Centers (KDCs) to use for Kerberos traffic. This list is used when the servers are not discoverable using DNS. When the servers are discoverable, the list is used for both connectivity checks, and used first for Kerberos traffic. If the servers don’t respond, then the device uses DNS discovery. Delete removes an existing list, and devices use DNS discovery. Available for devices running macOS versions 12 and later.
+    *
+    * @param string $val The value of the preferredKDCs
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setPreferredKDCs($val)
+    {
+        $this->_propDict["preferredKDCs"] = $val;
+        return $this;
+    }
+    /**
     * Gets the realm
     * Gets or sets the case-sensitive realm name for this profile.
     *
-    * @return string The realm
+    * @return string|null The realm
     */
     public function getRealm()
     {
@@ -568,7 +710,7 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     * Gets the requireUserPresence
     * Gets or sets whether to require authentication via Touch ID, Face ID, or a passcode to access the keychain entry.
     *
-    * @return bool The requireUserPresence
+    * @return bool|null The requireUserPresence
     */
     public function getRequireUserPresence()
     {
@@ -593,10 +735,94 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
         return $this;
     }
     /**
+    * Gets the signInHelpText
+    * Text displayed to the user at the Kerberos sign in window. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @return string|null The signInHelpText
+    */
+    public function getSignInHelpText()
+    {
+        if (array_key_exists("signInHelpText", $this->_propDict)) {
+            return $this->_propDict["signInHelpText"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the signInHelpText
+    * Text displayed to the user at the Kerberos sign in window. Available for devices running iOS and iPadOS versions 14 and later.
+    *
+    * @param string $val The value of the signInHelpText
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setSignInHelpText($val)
+    {
+        $this->_propDict["signInHelpText"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the tlsForLDAPRequired
+    * When set to True, LDAP connections are required to use Transport Layer Security (TLS). Available for devices running macOS versions 11 and later.
+    *
+    * @return bool|null The tlsForLDAPRequired
+    */
+    public function getTlsForLDAPRequired()
+    {
+        if (array_key_exists("tlsForLDAPRequired", $this->_propDict)) {
+            return $this->_propDict["tlsForLDAPRequired"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the tlsForLDAPRequired
+    * When set to True, LDAP connections are required to use Transport Layer Security (TLS). Available for devices running macOS versions 11 and later.
+    *
+    * @param bool $val The value of the tlsForLDAPRequired
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setTlsForLDAPRequired($val)
+    {
+        $this->_propDict["tlsForLDAPRequired"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the usernameLabelCustom
+    * This label replaces the user name shown in the Kerberos extension. You can enter a name to match the name of your company or organization. Available for devices running macOS versions 11 and later.
+    *
+    * @return string|null The usernameLabelCustom
+    */
+    public function getUsernameLabelCustom()
+    {
+        if (array_key_exists("usernameLabelCustom", $this->_propDict)) {
+            return $this->_propDict["usernameLabelCustom"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the usernameLabelCustom
+    * This label replaces the user name shown in the Kerberos extension. You can enter a name to match the name of your company or organization. Available for devices running macOS versions 11 and later.
+    *
+    * @param string $val The value of the usernameLabelCustom
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setUsernameLabelCustom($val)
+    {
+        $this->_propDict["usernameLabelCustom"] = $val;
+        return $this;
+    }
+    /**
     * Gets the userPrincipalName
     * Gets or sets the principle user name to use for this profile. The realm name does not need to be included.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -618,6 +844,34 @@ class MacOSKerberosSingleSignOnExtension extends MacOSSingleSignOnExtension
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the userSetupDelayed
+    * When set to True, the user isn’t prompted to set up the Kerberos extension until the extension is enabled by the admin, or a Kerberos challenge is received. Available for devices running macOS versions 11 and later.
+    *
+    * @return bool|null The userSetupDelayed
+    */
+    public function getUserSetupDelayed()
+    {
+        if (array_key_exists("userSetupDelayed", $this->_propDict)) {
+            return $this->_propDict["userSetupDelayed"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the userSetupDelayed
+    * When set to True, the user isn’t prompted to set up the Kerberos extension until the extension is enabled by the admin, or a Kerberos challenge is received. Available for devices running macOS versions 11 and later.
+    *
+    * @param bool $val The value of the userSetupDelayed
+    *
+    * @return MacOSKerberosSingleSignOnExtension
+    */
+    public function setUserSetupDelayed($val)
+    {
+        $this->_propDict["userSetupDelayed"] = $val;
         return $this;
     }
 }

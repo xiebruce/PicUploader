@@ -27,7 +27,7 @@ class ConditionalAccessApplications extends Entity
     * Gets the excludeApplications
     * The list of application IDs explicitly excluded from the policy.
     *
-    * @return string The excludeApplications
+    * @return string|null The excludeApplications
     */
     public function getExcludeApplications()
     {
@@ -55,7 +55,7 @@ class ConditionalAccessApplications extends Entity
     * Gets the includeApplications
     * The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
     *
-    * @return string The includeApplications
+    * @return string|null The includeApplications
     */
     public function getIncludeApplications()
     {
@@ -80,10 +80,38 @@ class ConditionalAccessApplications extends Entity
         return $this;
     }
     /**
+    * Gets the includeAuthenticationContextClassReferences
+    * Authentication context class references include. Supported values are c1 through c25.
+    *
+    * @return string|null The includeAuthenticationContextClassReferences
+    */
+    public function getIncludeAuthenticationContextClassReferences()
+    {
+        if (array_key_exists("includeAuthenticationContextClassReferences", $this->_propDict)) {
+            return $this->_propDict["includeAuthenticationContextClassReferences"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the includeAuthenticationContextClassReferences
+    * Authentication context class references include. Supported values are c1 through c25.
+    *
+    * @param string $val The value of the includeAuthenticationContextClassReferences
+    *
+    * @return ConditionalAccessApplications
+    */
+    public function setIncludeAuthenticationContextClassReferences($val)
+    {
+        $this->_propDict["includeAuthenticationContextClassReferences"] = $val;
+        return $this;
+    }
+    /**
     * Gets the includeUserActions
     * User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
     *
-    * @return string The includeUserActions
+    * @return string|null The includeUserActions
     */
     public function getIncludeUserActions()
     {

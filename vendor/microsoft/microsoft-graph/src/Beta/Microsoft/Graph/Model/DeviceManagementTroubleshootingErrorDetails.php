@@ -27,7 +27,7 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Gets the context
     * Not yet documented
     *
-    * @return string The context
+    * @return string|null The context
     */
     public function getContext()
     {
@@ -55,7 +55,7 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Gets the failure
     * Not yet documented
     *
-    * @return string The failure
+    * @return string|null The failure
     */
     public function getFailure()
     {
@@ -83,7 +83,7 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Gets the failureDetails
     * The detailed description of what went wrong.
     *
-    * @return string The failureDetails
+    * @return string|null The failureDetails
     */
     public function getFailureDetails()
     {
@@ -111,7 +111,7 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Gets the remediation
     * The detailed description of how to remediate this issue.
     *
-    * @return string The remediation
+    * @return string|null The remediation
     */
     public function getRemediation()
     {
@@ -140,12 +140,12 @@ class DeviceManagementTroubleshootingErrorDetails extends Entity
     * Gets the resources
     * Links to helpful documentation about this failure.
     *
-    * @return DeviceManagementTroubleshootingErrorResource The resources
+    * @return DeviceManagementTroubleshootingErrorResource|null The resources
     */
     public function getResources()
     {
         if (array_key_exists("resources", $this->_propDict)) {
-            if (is_a($this->_propDict["resources"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorResource")) {
+            if (is_a($this->_propDict["resources"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorResource") || is_null($this->_propDict["resources"])) {
                 return $this->_propDict["resources"];
             } else {
                 $this->_propDict["resources"] = new DeviceManagementTroubleshootingErrorResource($this->_propDict["resources"]);

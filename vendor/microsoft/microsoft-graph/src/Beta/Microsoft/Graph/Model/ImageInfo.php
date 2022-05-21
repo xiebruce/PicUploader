@@ -27,7 +27,7 @@ class ImageInfo extends Entity
     * Gets the addImageQuery
     * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
     *
-    * @return bool The addImageQuery
+    * @return bool|null The addImageQuery
     */
     public function getAddImageQuery()
     {
@@ -55,7 +55,7 @@ class ImageInfo extends Entity
     * Gets the alternateText
     * Optional; alt-text accessible content for the image
     *
-    * @return string The alternateText
+    * @return string|null The alternateText
     */
     public function getAlternateText()
     {
@@ -82,7 +82,7 @@ class ImageInfo extends Entity
     /**
     * Gets the alternativeText
     *
-    * @return string The alternativeText
+    * @return string|null The alternativeText
     */
     public function getAlternativeText()
     {
@@ -109,7 +109,7 @@ class ImageInfo extends Entity
     * Gets the iconUrl
     * Optional; URI that points to an icon which represents the application used to generate the activity
     *
-    * @return string The iconUrl
+    * @return string|null The iconUrl
     */
     public function getIconUrl()
     {

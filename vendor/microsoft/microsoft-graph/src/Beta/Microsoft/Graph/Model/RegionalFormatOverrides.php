@@ -27,7 +27,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the calendar
     * The calendar to use, e.g., Gregorian Calendar.Returned by default.
     *
-    * @return string The calendar
+    * @return string|null The calendar
     */
     public function getCalendar()
     {
@@ -55,7 +55,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the firstDayOfWeek
     * The first day of the week to use, e.g., Sunday.Returned by default.
     *
-    * @return string The firstDayOfWeek
+    * @return string|null The firstDayOfWeek
     */
     public function getFirstDayOfWeek()
     {
@@ -83,7 +83,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the longDateFormat
     * The long date time format to be used for displaying dates.Returned by default.
     *
-    * @return string The longDateFormat
+    * @return string|null The longDateFormat
     */
     public function getLongDateFormat()
     {
@@ -111,7 +111,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the longTimeFormat
     * The long time format to be used for displaying time.Returned by default.
     *
-    * @return string The longTimeFormat
+    * @return string|null The longTimeFormat
     */
     public function getLongTimeFormat()
     {
@@ -139,7 +139,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the shortDateFormat
     * The short date time format to be used for displaying dates.Returned by default.
     *
-    * @return string The shortDateFormat
+    * @return string|null The shortDateFormat
     */
     public function getShortDateFormat()
     {
@@ -167,7 +167,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the shortTimeFormat
     * The short time format to be used for displaying time.Returned by default.
     *
-    * @return string The shortTimeFormat
+    * @return string|null The shortTimeFormat
     */
     public function getShortTimeFormat()
     {
@@ -195,7 +195,7 @@ class RegionalFormatOverrides extends Entity
     * Gets the timeZone
     * The timezone to be used for displaying time.Returned by default.
     *
-    * @return string The timeZone
+    * @return string|null The timeZone
     */
     public function getTimeZone()
     {

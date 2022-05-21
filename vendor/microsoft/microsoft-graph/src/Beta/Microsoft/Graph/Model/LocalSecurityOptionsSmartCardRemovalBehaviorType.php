@@ -29,8 +29,8 @@ class LocalSecurityOptionsSmartCardRemovalBehaviorType extends Enum
     /**
     * The Enum LocalSecurityOptionsSmartCardRemovalBehaviorType
     */
-    const LOCK_WORKSTATION = "lockWorkstation";
     const NO_ACTION = "noAction";
+    const LOCK_WORKSTATION = "lockWorkstation";
     const FORCE_LOGOFF = "forceLogoff";
     const DISCONNECT_REMOTE_DESKTOP_SESSION = "disconnectRemoteDesktopSession";
 }

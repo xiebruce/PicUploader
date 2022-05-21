@@ -27,7 +27,7 @@ class OnPremisesProvisioningError extends Entity
     * Gets the category
     * Category of the provisioning error. Note: Currently, there is only one possible value. Possible value: PropertyConflict - indicates a property value is not unique. Other objects contain the same value for the property.
     *
-    * @return string The category
+    * @return string|null The category
     */
     public function getCategory()
     {
@@ -56,12 +56,12 @@ class OnPremisesProvisioningError extends Entity
     * Gets the occurredDateTime
     * The date and time at which the error occurred.
     *
-    * @return \DateTime The occurredDateTime
+    * @return \DateTime|null The occurredDateTime
     */
     public function getOccurredDateTime()
     {
         if (array_key_exists("occurredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["occurredDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["occurredDateTime"], "\DateTime") || is_null($this->_propDict["occurredDateTime"])) {
                 return $this->_propDict["occurredDateTime"];
             } else {
                 $this->_propDict["occurredDateTime"] = new \DateTime($this->_propDict["occurredDateTime"]);
@@ -88,7 +88,7 @@ class OnPremisesProvisioningError extends Entity
     * Gets the propertyCausingError
     * Name of the directory property causing the error. Current possible values: UserPrincipalName or ProxyAddress
     *
-    * @return string The propertyCausingError
+    * @return string|null The propertyCausingError
     */
     public function getPropertyCausingError()
     {
@@ -116,7 +116,7 @@ class OnPremisesProvisioningError extends Entity
     * Gets the value
     * Value of the property causing the error.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

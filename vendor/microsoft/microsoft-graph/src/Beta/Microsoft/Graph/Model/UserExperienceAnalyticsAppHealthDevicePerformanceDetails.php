@@ -28,7 +28,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
     * Gets the appDisplayName
     * The friendly name of the application for which the event occurred.
     *
-    * @return string The appDisplayName
+    * @return string|null The appDisplayName
     */
     public function getAppDisplayName()
     {
@@ -38,7 +38,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appDisplayName
     * The friendly name of the application for which the event occurred.
@@ -52,12 +52,70 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the appPublisher
+    * The publisher of the application.
+    *
+    * @return string|null The appPublisher
+    */
+    public function getAppPublisher()
+    {
+        if (array_key_exists("appPublisher", $this->_propDict)) {
+            return $this->_propDict["appPublisher"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the appPublisher
+    * The publisher of the application.
+    *
+    * @param string $val The appPublisher
+    *
+    * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+    */
+    public function setAppPublisher($val)
+    {
+        $this->_propDict["appPublisher"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the appVersion
+    * The version of the application.
+    *
+    * @return string|null The appVersion
+    */
+    public function getAppVersion()
+    {
+        if (array_key_exists("appVersion", $this->_propDict)) {
+            return $this->_propDict["appVersion"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the appVersion
+    * The version of the application.
+    *
+    * @param string $val The appVersion
+    *
+    * @return UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+    */
+    public function setAppVersion($val)
+    {
+        $this->_propDict["appVersion"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the deviceDisplayName
     * The name of the device.
     *
-    * @return string The deviceDisplayName
+    * @return string|null The deviceDisplayName
     */
     public function getDeviceDisplayName()
     {
@@ -67,7 +125,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceDisplayName
     * The name of the device.
@@ -81,12 +139,12 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
         $this->_propDict["deviceDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceId
     * The id of the device.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -96,7 +154,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * The id of the device.
@@ -110,17 +168,17 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the eventDateTime
     * The time the event occurred.
     *
-    * @return \DateTime The eventDateTime
+    * @return \DateTime|null The eventDateTime
     */
     public function getEventDateTime()
     {
         if (array_key_exists("eventDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["eventDateTime"], "\DateTime") || is_null($this->_propDict["eventDateTime"])) {
                 return $this->_propDict["eventDateTime"];
             } else {
                 $this->_propDict["eventDateTime"] = new \DateTime($this->_propDict["eventDateTime"]);
@@ -129,7 +187,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the eventDateTime
     * The time the event occurred.
@@ -143,12 +201,12 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
         $this->_propDict["eventDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the eventType
     * The type of the event.
     *
-    * @return string The eventType
+    * @return string|null The eventType
     */
     public function getEventType()
     {
@@ -158,7 +216,7 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the eventType
     * The type of the event.
@@ -172,5 +230,5 @@ class UserExperienceAnalyticsAppHealthDevicePerformanceDetails extends Entity
         $this->_propDict["eventType"] = $val;
         return $this;
     }
-    
+
 }

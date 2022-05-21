@@ -28,7 +28,7 @@ class PersonAward extends ItemFacet
     * Gets the description
     * Descpription of the award or honor.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class PersonAward extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Descpription of the award or honor.
@@ -52,12 +52,12 @@ class PersonAward extends ItemFacet
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Name of the award or honor.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class PersonAward extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Name of the award or honor.
@@ -81,17 +81,17 @@ class PersonAward extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the issuedDate
     * The date that the award or honor was granted.
     *
-    * @return \DateTime The issuedDate
+    * @return \DateTime|null The issuedDate
     */
     public function getIssuedDate()
     {
         if (array_key_exists("issuedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["issuedDate"], "\DateTime")) {
+            if (is_a($this->_propDict["issuedDate"], "\DateTime") || is_null($this->_propDict["issuedDate"])) {
                 return $this->_propDict["issuedDate"];
             } else {
                 $this->_propDict["issuedDate"] = new \DateTime($this->_propDict["issuedDate"]);
@@ -100,7 +100,7 @@ class PersonAward extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the issuedDate
     * The date that the award or honor was granted.
@@ -114,12 +114,12 @@ class PersonAward extends ItemFacet
         $this->_propDict["issuedDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the issuingAuthority
     * Authority which granted the award or honor.
     *
-    * @return string The issuingAuthority
+    * @return string|null The issuingAuthority
     */
     public function getIssuingAuthority()
     {
@@ -129,7 +129,7 @@ class PersonAward extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the issuingAuthority
     * Authority which granted the award or honor.
@@ -143,12 +143,12 @@ class PersonAward extends ItemFacet
         $this->_propDict["issuingAuthority"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     * URL referencing a thumbnail of the award or honor.
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -158,7 +158,7 @@ class PersonAward extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     * URL referencing a thumbnail of the award or honor.
@@ -172,12 +172,12 @@ class PersonAward extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * URL referencing the award or honor.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -187,7 +187,7 @@ class PersonAward extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * URL referencing the award or honor.
@@ -201,5 +201,5 @@ class PersonAward extends ItemFacet
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

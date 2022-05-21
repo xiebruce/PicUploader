@@ -40,4 +40,9 @@ class ConditionalAccessConditions extends Enum
     const TIME = "time";
     const DEVICE_STATE = "deviceState";
     const CLIENT = "client";
+    const IP_ADDRESS_SEEN_BY_AZURE_AD = "ipAddressSeenByAzureAD";
+    const IP_ADDRESS_SEEN_BY_RESOURCE_PROVIDER = "ipAddressSeenByResourceProvider";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const SERVICE_PRINCIPALS = "servicePrincipals";
+    const SERVICE_PRINCIPAL_RISK = "servicePrincipalRisk";
 }

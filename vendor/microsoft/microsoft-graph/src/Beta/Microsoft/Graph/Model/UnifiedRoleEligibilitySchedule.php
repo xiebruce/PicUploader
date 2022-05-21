@@ -26,8 +26,9 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
 {
     /**
     * Gets the memberType
+    * Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
     *
-    * @return string The memberType
+    * @return string|null The memberType
     */
     public function getMemberType()
     {
@@ -37,9 +38,10 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
             return null;
         }
     }
-    
+
     /**
     * Sets the memberType
+    * Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
     *
     * @param string $val The memberType
     *
@@ -50,16 +52,17 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
         $this->_propDict["memberType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the scheduleInfo
+    * The schedule object of the eligible role assignment request.
     *
-    * @return RequestSchedule The scheduleInfo
+    * @return RequestSchedule|null The scheduleInfo
     */
     public function getScheduleInfo()
     {
         if (array_key_exists("scheduleInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduleInfo"], "\Beta\Microsoft\Graph\Model\RequestSchedule")) {
+            if (is_a($this->_propDict["scheduleInfo"], "\Beta\Microsoft\Graph\Model\RequestSchedule") || is_null($this->_propDict["scheduleInfo"])) {
                 return $this->_propDict["scheduleInfo"];
             } else {
                 $this->_propDict["scheduleInfo"] = new RequestSchedule($this->_propDict["scheduleInfo"]);
@@ -68,9 +71,10 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
         }
         return null;
     }
-    
+
     /**
     * Sets the scheduleInfo
+    * The schedule object of the eligible role assignment request.
     *
     * @param RequestSchedule $val The scheduleInfo
     *
@@ -81,5 +85,5 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
         $this->_propDict["scheduleInfo"] = $val;
         return $this;
     }
-    
+
 }

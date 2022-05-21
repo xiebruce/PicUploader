@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class Calendar extends Entity
 {
 
-     /** 
+     /**
      * Gets the allowedOnlineMeetingProviders
     * Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
      *
-     * @return array The allowedOnlineMeetingProviders
+     * @return array|null The allowedOnlineMeetingProviders
      */
     public function getAllowedOnlineMeetingProviders()
     {
@@ -39,26 +39,26 @@ class Calendar extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the allowedOnlineMeetingProviders
     * Represent the online meeting service providers that can be used to create online meetings in this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
     *
-    * @param OnlineMeetingProviderType $val The allowedOnlineMeetingProviders
+    * @param OnlineMeetingProviderType[] $val The allowedOnlineMeetingProviders
     *
     * @return Calendar
     */
     public function setAllowedOnlineMeetingProviders($val)
     {
-		$this->_propDict["allowedOnlineMeetingProviders"] = $val;
+        $this->_propDict["allowedOnlineMeetingProviders"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the calendarGroupId
     * The calendarGroup in which to create the calendar. If the user has never explicitly set a group for the calendar, this property is  null.
     *
-    * @return string The calendarGroupId
+    * @return string|null The calendarGroupId
     */
     public function getCalendarGroupId()
     {
@@ -68,7 +68,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the calendarGroupId
     * The calendarGroup in which to create the calendar. If the user has never explicitly set a group for the calendar, this property is  null.
@@ -82,12 +82,12 @@ class Calendar extends Entity
         $this->_propDict["calendarGroupId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the canEdit
     * true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access, through an Outlook client or the corresponding calendarPermission resource. Read-only.
     *
-    * @return bool The canEdit
+    * @return bool|null The canEdit
     */
     public function getCanEdit()
     {
@@ -97,7 +97,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the canEdit
     * true if the user can write to the calendar, false otherwise. This property is true for the user who created the calendar. This property is also true for a user who has been shared a calendar and granted write access, through an Outlook client or the corresponding calendarPermission resource. Read-only.
@@ -111,12 +111,12 @@ class Calendar extends Entity
         $this->_propDict["canEdit"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the canShare
     * true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. Read-only.
     *
-    * @return bool The canShare
+    * @return bool|null The canShare
     */
     public function getCanShare()
     {
@@ -126,7 +126,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the canShare
     * true if the user has the permission to share the calendar, false otherwise. Only the user who created the calendar can share it. Read-only.
@@ -140,12 +140,12 @@ class Calendar extends Entity
         $this->_propDict["canShare"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the canViewPrivateItems
     * true if the user can read calendar items that have been marked private, false otherwise. This property is set through an Outlook client or the corresponding calendarPermission resource. Read-only.
     *
-    * @return bool The canViewPrivateItems
+    * @return bool|null The canViewPrivateItems
     */
     public function getCanViewPrivateItems()
     {
@@ -155,7 +155,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the canViewPrivateItems
     * true if the user can read calendar items that have been marked private, false otherwise. This property is set through an Outlook client or the corresponding calendarPermission resource. Read-only.
@@ -169,12 +169,12 @@ class Calendar extends Entity
         $this->_propDict["canViewPrivateItems"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the changeKey
     * Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
     *
-    * @return string The changeKey
+    * @return string|null The changeKey
     */
     public function getChangeKey()
     {
@@ -184,7 +184,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the changeKey
     * Identifies the version of the calendar object. Every time the calendar is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
@@ -198,17 +198,17 @@ class Calendar extends Entity
         $this->_propDict["changeKey"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the color
     * Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor.
     *
-    * @return CalendarColor The color
+    * @return CalendarColor|null The color
     */
     public function getColor()
     {
         if (array_key_exists("color", $this->_propDict)) {
-            if (is_a($this->_propDict["color"], "\Beta\Microsoft\Graph\Model\CalendarColor")) {
+            if (is_a($this->_propDict["color"], "\Beta\Microsoft\Graph\Model\CalendarColor") || is_null($this->_propDict["color"])) {
                 return $this->_propDict["color"];
             } else {
                 $this->_propDict["color"] = new CalendarColor($this->_propDict["color"]);
@@ -217,7 +217,7 @@ class Calendar extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the color
     * Specifies the color theme to distinguish the calendar from other calendars in a UI. The property values are: auto, lightBlue, lightGreen, lightOrange, lightGray, lightYellow, lightTeal, lightPink, lightBrown, lightRed, maxColor.
@@ -231,17 +231,17 @@ class Calendar extends Entity
         $this->_propDict["color"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defaultOnlineMeetingProvider
     * The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
     *
-    * @return OnlineMeetingProviderType The defaultOnlineMeetingProvider
+    * @return OnlineMeetingProviderType|null The defaultOnlineMeetingProvider
     */
     public function getDefaultOnlineMeetingProvider()
     {
         if (array_key_exists("defaultOnlineMeetingProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultOnlineMeetingProvider"], "\Beta\Microsoft\Graph\Model\OnlineMeetingProviderType")) {
+            if (is_a($this->_propDict["defaultOnlineMeetingProvider"], "\Beta\Microsoft\Graph\Model\OnlineMeetingProviderType") || is_null($this->_propDict["defaultOnlineMeetingProvider"])) {
                 return $this->_propDict["defaultOnlineMeetingProvider"];
             } else {
                 $this->_propDict["defaultOnlineMeetingProvider"] = new OnlineMeetingProviderType($this->_propDict["defaultOnlineMeetingProvider"]);
@@ -250,7 +250,7 @@ class Calendar extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the defaultOnlineMeetingProvider
     * The default online meeting provider for meetings sent from this calendar. Possible values are: unknown, skypeForBusiness, skypeForConsumer, teamsForBusiness.
@@ -264,12 +264,12 @@ class Calendar extends Entity
         $this->_propDict["defaultOnlineMeetingProvider"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the hexColor
     * The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty.
     *
-    * @return string The hexColor
+    * @return string|null The hexColor
     */
     public function getHexColor()
     {
@@ -279,7 +279,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the hexColor
     * The calendar color, expressed in a hex color code of three hexadecimal values, each ranging from 00 to FF and representing the red, green, or blue components of the color in the RGB color space. If the user has never explicitly set a color for the calendar, this property is  empty.
@@ -293,12 +293,12 @@ class Calendar extends Entity
         $this->_propDict["hexColor"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isDefaultCalendar
     * true if this is the default calendar where new events are created by default, false otherwise.
     *
-    * @return bool The isDefaultCalendar
+    * @return bool|null The isDefaultCalendar
     */
     public function getIsDefaultCalendar()
     {
@@ -308,7 +308,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDefaultCalendar
     * true if this is the default calendar where new events are created by default, false otherwise.
@@ -322,12 +322,12 @@ class Calendar extends Entity
         $this->_propDict["isDefaultCalendar"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isRemovable
     * Indicates whether this user calendar can be deleted from the user mailbox.
     *
-    * @return bool The isRemovable
+    * @return bool|null The isRemovable
     */
     public function getIsRemovable()
     {
@@ -337,7 +337,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isRemovable
     * Indicates whether this user calendar can be deleted from the user mailbox.
@@ -351,12 +351,12 @@ class Calendar extends Entity
         $this->_propDict["isRemovable"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isShared
     * true if the user has shared the calendar with other users, false otherwise. Since only the user who created the calendar can share it, isShared and isSharedWithMe cannot be true for the same user. This property is set when sharing is initiated in an Outlook client, and can be reset when the sharing is cancelled through the client or the corresponding calendarPermission resource. Read-only.
     *
-    * @return bool The isShared
+    * @return bool|null The isShared
     */
     public function getIsShared()
     {
@@ -366,7 +366,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isShared
     * true if the user has shared the calendar with other users, false otherwise. Since only the user who created the calendar can share it, isShared and isSharedWithMe cannot be true for the same user. This property is set when sharing is initiated in an Outlook client, and can be reset when the sharing is cancelled through the client or the corresponding calendarPermission resource. Read-only.
@@ -380,12 +380,12 @@ class Calendar extends Entity
         $this->_propDict["isShared"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isSharedWithMe
     * true if the user has been shared this calendar, false otherwise. This property is always false for a calendar owner. This property is set when sharing is initiated in an Outlook client, and can be reset when the sharing is cancelled through the client or the corresponding calendarPermission resource. Read-only.
     *
-    * @return bool The isSharedWithMe
+    * @return bool|null The isSharedWithMe
     */
     public function getIsSharedWithMe()
     {
@@ -395,7 +395,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isSharedWithMe
     * true if the user has been shared this calendar, false otherwise. This property is always false for a calendar owner. This property is set when sharing is initiated in an Outlook client, and can be reset when the sharing is cancelled through the client or the corresponding calendarPermission resource. Read-only.
@@ -409,12 +409,12 @@ class Calendar extends Entity
         $this->_propDict["isSharedWithMe"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isTallyingResponses
     * Indicates whether this user calendar supports tracking of meeting responses. Only meeting invites sent from users' primary calendars support tracking of meeting responses.
     *
-    * @return bool The isTallyingResponses
+    * @return bool|null The isTallyingResponses
     */
     public function getIsTallyingResponses()
     {
@@ -424,7 +424,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isTallyingResponses
     * Indicates whether this user calendar supports tracking of meeting responses. Only meeting invites sent from users' primary calendars support tracking of meeting responses.
@@ -438,12 +438,12 @@ class Calendar extends Entity
         $this->_propDict["isTallyingResponses"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the name
     * The calendar name.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -453,7 +453,7 @@ class Calendar extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * The calendar name.
@@ -467,17 +467,17 @@ class Calendar extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the owner
     * If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.
     *
-    * @return EmailAddress The owner
+    * @return EmailAddress|null The owner
     */
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
-            if (is_a($this->_propDict["owner"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
+            if (is_a($this->_propDict["owner"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["owner"])) {
                 return $this->_propDict["owner"];
             } else {
                 $this->_propDict["owner"] = new EmailAddress($this->_propDict["owner"]);
@@ -486,7 +486,7 @@ class Calendar extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the owner
     * If set, this represents the user who created or added the calendar. For a calendar that the user created or added, the owner property is set to the user. For a calendar shared with the user, the owner property is set to the person who shared that calendar with the user. Read-only.
@@ -500,13 +500,13 @@ class Calendar extends Entity
         $this->_propDict["owner"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the calendarPermissions
     * The permissions of the users with whom the calendar is shared.
      *
-     * @return array The calendarPermissions
+     * @return array|null The calendarPermissions
      */
     public function getCalendarPermissions()
     {
@@ -516,27 +516,27 @@ class Calendar extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the calendarPermissions
     * The permissions of the users with whom the calendar is shared.
     *
-    * @param CalendarPermission $val The calendarPermissions
+    * @param CalendarPermission[] $val The calendarPermissions
     *
     * @return Calendar
     */
     public function setCalendarPermissions($val)
     {
-		$this->_propDict["calendarPermissions"] = $val;
+        $this->_propDict["calendarPermissions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the calendarView
     * The calendar view for the calendar. Navigation property. Read-only.
      *
-     * @return array The calendarView
+     * @return array|null The calendarView
      */
     public function getCalendarView()
     {
@@ -546,27 +546,27 @@ class Calendar extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the calendarView
     * The calendar view for the calendar. Navigation property. Read-only.
     *
-    * @param Event $val The calendarView
+    * @param Event[] $val The calendarView
     *
     * @return Calendar
     */
     public function setCalendarView($val)
     {
-		$this->_propDict["calendarView"] = $val;
+        $this->_propDict["calendarView"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the events
     * The events in the calendar. Navigation property. Read-only.
      *
-     * @return array The events
+     * @return array|null The events
      */
     public function getEvents()
     {
@@ -576,27 +576,27 @@ class Calendar extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the events
     * The events in the calendar. Navigation property. Read-only.
     *
-    * @param Event $val The events
+    * @param Event[] $val The events
     *
     * @return Calendar
     */
     public function setEvents($val)
     {
-		$this->_propDict["events"] = $val;
+        $this->_propDict["events"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the calendar. Read-only. Nullable.
      *
-     * @return array The multiValueExtendedProperties
+     * @return array|null The multiValueExtendedProperties
      */
     public function getMultiValueExtendedProperties()
     {
@@ -606,27 +606,27 @@ class Calendar extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the calendar. Read-only. Nullable.
     *
-    * @param MultiValueLegacyExtendedProperty $val The multiValueExtendedProperties
+    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
     *
     * @return Calendar
     */
     public function setMultiValueExtendedProperties($val)
     {
-		$this->_propDict["multiValueExtendedProperties"] = $val;
+        $this->_propDict["multiValueExtendedProperties"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the calendar. Read-only. Nullable.
      *
-     * @return array The singleValueExtendedProperties
+     * @return array|null The singleValueExtendedProperties
      */
     public function getSingleValueExtendedProperties()
     {
@@ -636,19 +636,19 @@ class Calendar extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the calendar. Read-only. Nullable.
     *
-    * @param SingleValueLegacyExtendedProperty $val The singleValueExtendedProperties
+    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
     *
     * @return Calendar
     */
     public function setSingleValueExtendedProperties($val)
     {
-		$this->_propDict["singleValueExtendedProperties"] = $val;
+        $this->_propDict["singleValueExtendedProperties"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class DeviceConfigurationUserStatus extends Entity
     * Gets the devicesCount
     * Devices count for that user.
     *
-    * @return int The devicesCount
+    * @return int|null The devicesCount
     */
     public function getDevicesCount()
     {
@@ -38,7 +38,7 @@ class DeviceConfigurationUserStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the devicesCount
     * Devices count for that user.
@@ -52,17 +52,17 @@ class DeviceConfigurationUserStatus extends Entity
         $this->_propDict["devicesCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastReportedDateTime
     * Last modified date time of the policy report.
     *
-    * @return \DateTime The lastReportedDateTime
+    * @return \DateTime|null The lastReportedDateTime
     */
     public function getLastReportedDateTime()
     {
         if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -71,7 +71,7 @@ class DeviceConfigurationUserStatus extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastReportedDateTime
     * Last modified date time of the policy report.
@@ -85,17 +85,17 @@ class DeviceConfigurationUserStatus extends Entity
         $this->_propDict["lastReportedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
     *
-    * @return ComplianceStatus The status
+    * @return ComplianceStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ComplianceStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ComplianceStatus($this->_propDict["status"]);
@@ -104,7 +104,7 @@ class DeviceConfigurationUserStatus extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
@@ -118,12 +118,12 @@ class DeviceConfigurationUserStatus extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userDisplayName
     * User name of the DevicePolicyStatus.
     *
-    * @return string The userDisplayName
+    * @return string|null The userDisplayName
     */
     public function getUserDisplayName()
     {
@@ -133,7 +133,7 @@ class DeviceConfigurationUserStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userDisplayName
     * User name of the DevicePolicyStatus.
@@ -147,12 +147,12 @@ class DeviceConfigurationUserStatus extends Entity
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * UserPrincipalName.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -162,7 +162,7 @@ class DeviceConfigurationUserStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * UserPrincipalName.
@@ -176,5 +176,5 @@ class DeviceConfigurationUserStatus extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

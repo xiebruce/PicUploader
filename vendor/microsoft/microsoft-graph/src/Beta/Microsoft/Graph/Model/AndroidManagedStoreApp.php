@@ -28,7 +28,7 @@ class AndroidManagedStoreApp extends MobileApp
     * Gets the appIdentifier
     * The Identity Name.
     *
-    * @return string The appIdentifier
+    * @return string|null The appIdentifier
     */
     public function getAppIdentifier()
     {
@@ -38,7 +38,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appIdentifier
     * The Identity Name.
@@ -52,12 +52,12 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appStoreUrl
     * The Play for Work Store app URL.
     *
-    * @return string The appStoreUrl
+    * @return string|null The appStoreUrl
     */
     public function getAppStoreUrl()
     {
@@ -67,7 +67,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appStoreUrl
     * The Play for Work Store app URL.
@@ -81,13 +81,13 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the appTracks
     * The tracks that are visible to this enterprise.
      *
-     * @return array The appTracks
+     * @return array|null The appTracks
      */
     public function getAppTracks()
     {
@@ -97,26 +97,26 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the appTracks
     * The tracks that are visible to this enterprise.
     *
-    * @param AndroidManagedStoreAppTrack $val The appTracks
+    * @param AndroidManagedStoreAppTrack[] $val The appTracks
     *
     * @return AndroidManagedStoreApp
     */
     public function setAppTracks($val)
     {
-		$this->_propDict["appTracks"] = $val;
+        $this->_propDict["appTracks"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isPrivate
     * Indicates whether the app is only available to a given enterprise's users.
     *
-    * @return bool The isPrivate
+    * @return bool|null The isPrivate
     */
     public function getIsPrivate()
     {
@@ -126,7 +126,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the isPrivate
     * Indicates whether the app is only available to a given enterprise's users.
@@ -140,12 +140,12 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["isPrivate"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isSystemApp
     * Indicates whether the app is a preinstalled system app.
     *
-    * @return bool The isSystemApp
+    * @return bool|null The isSystemApp
     */
     public function getIsSystemApp()
     {
@@ -155,7 +155,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the isSystemApp
     * Indicates whether the app is a preinstalled system app.
@@ -169,12 +169,12 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["isSystemApp"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the packageId
     * The package identifier.
     *
-    * @return string The packageId
+    * @return string|null The packageId
     */
     public function getPackageId()
     {
@@ -184,7 +184,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the packageId
     * The package identifier.
@@ -198,12 +198,12 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the supportsOemConfig
     * Whether this app supports OEMConfig policy.
     *
-    * @return bool The supportsOemConfig
+    * @return bool|null The supportsOemConfig
     */
     public function getSupportsOemConfig()
     {
@@ -213,7 +213,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the supportsOemConfig
     * Whether this app supports OEMConfig policy.
@@ -227,12 +227,12 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["supportsOemConfig"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the totalLicenseCount
     * The total number of VPP licenses.
     *
-    * @return int The totalLicenseCount
+    * @return int|null The totalLicenseCount
     */
     public function getTotalLicenseCount()
     {
@@ -242,7 +242,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the totalLicenseCount
     * The total number of VPP licenses.
@@ -256,12 +256,12 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the usedLicenseCount
     * The number of VPP licenses in use.
     *
-    * @return int The usedLicenseCount
+    * @return int|null The usedLicenseCount
     */
     public function getUsedLicenseCount()
     {
@@ -271,7 +271,7 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the usedLicenseCount
     * The number of VPP licenses in use.
@@ -285,5 +285,5 @@ class AndroidManagedStoreApp extends MobileApp
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-    
+
 }

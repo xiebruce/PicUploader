@@ -1,28 +1,34 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
 
-name: "validate pull request"
+name: "Validate Pull Request"
 
 on:
   push:
     branches: [ main, dev ]
   pull_request:
     branches: [ main, dev ]
+    # Add assigned to defaults as a hack to easily trigger code-gen PRs to run validation
+    types: [assigned, opened, synchronize, reopened]
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   validate-pull-request:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: composer validate
-      shell: bash
+    - uses: actions/checkout@v3
+    - name: Validate composer file
       run: |
         composer validate
-    - name: composer install
-      shell: bash
+    - name: Install dependencies
       run: |
         composer install
     - name: run tests
-      shell: bash
       run : |
         vendor/bin/phpunit --exclude-group functional
+#    - name: Run static analysis
+#      run: |
+#        vendor/bin/phpstan analyse --memory-limit=1500M --error-format=github

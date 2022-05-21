@@ -27,7 +27,7 @@ class PrintJobStatus extends Entity
     * Gets the description
     * A human-readable description of the print job's current processing state. Read-only.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -56,12 +56,12 @@ class PrintJobStatus extends Entity
     * Gets the details
     * Additional details for print job state. Valid values are described in the following table. Read-only.
     *
-    * @return PrintJobStateDetail The details
+    * @return PrintJobStateDetail|null The details
     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PrintJobStateDetail")) {
+            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PrintJobStateDetail") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PrintJobStateDetail($this->_propDict["details"]);
@@ -88,7 +88,7 @@ class PrintJobStatus extends Entity
     * Gets the isAcquiredByPrinter
     * True if the job was acknowledged by a printer; false otherwise. Read-only.
     *
-    * @return bool The isAcquiredByPrinter
+    * @return bool|null The isAcquiredByPrinter
     */
     public function getIsAcquiredByPrinter()
     {
@@ -117,12 +117,12 @@ class PrintJobStatus extends Entity
     * Gets the state
     * The print job's current processing state. Valid values are described in the following table. Read-only.
     *
-    * @return PrintJobProcessingState The state
+    * @return PrintJobProcessingState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrintJobProcessingState")) {
+            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrintJobProcessingState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrintJobProcessingState($this->_propDict["state"]);

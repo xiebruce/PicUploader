@@ -27,7 +27,7 @@ class DaylightTimeZoneOffset extends StandardTimeZoneOffset
     * Gets the daylightBias
     * The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.
     *
-    * @return int The daylightBias
+    * @return int|null The daylightBias
     */
     public function getDaylightBias()
     {

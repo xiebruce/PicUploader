@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration
 {
 
-     /** 
+     /**
      * Gets the includeTargets
     * A collection of users or groups who are enabled to use the authentication method.
      *
-     * @return array The includeTargets
+     * @return array|null The includeTargets
      */
     public function getIncludeTargets()
     {
@@ -39,19 +39,19 @@ class SmsAuthenticationMethodConfiguration extends AuthenticationMethodConfigura
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the includeTargets
     * A collection of users or groups who are enabled to use the authentication method.
     *
-    * @param SmsAuthenticationMethodTarget $val The includeTargets
+    * @param SmsAuthenticationMethodTarget[] $val The includeTargets
     *
     * @return SmsAuthenticationMethodConfiguration
     */
     public function setIncludeTargets($val)
     {
-		$this->_propDict["includeTargets"] = $val;
+        $this->_propDict["includeTargets"] = $val;
         return $this;
     }
-    
+
 }

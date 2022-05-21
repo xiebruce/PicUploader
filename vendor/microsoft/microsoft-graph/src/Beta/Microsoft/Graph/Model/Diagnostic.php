@@ -27,7 +27,7 @@ class Diagnostic extends Entity
     * Gets the message
     * The message describing the condition that triggered the error or warning.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -55,7 +55,7 @@ class Diagnostic extends Entity
     * Gets the url
     * The link to the documentation for this issue.
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {

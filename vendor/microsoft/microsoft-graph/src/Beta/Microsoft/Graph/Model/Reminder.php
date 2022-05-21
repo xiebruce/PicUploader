@@ -27,7 +27,7 @@ class Reminder extends Entity
     * Gets the changeKey
     * Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object.
     *
-    * @return string The changeKey
+    * @return string|null The changeKey
     */
     public function getChangeKey()
     {
@@ -56,12 +56,12 @@ class Reminder extends Entity
     * Gets the eventEndTime
     * The date, time and time zone that the event ends.
     *
-    * @return DateTimeTimeZone The eventEndTime
+    * @return DateTimeTimeZone|null The eventEndTime
     */
     public function getEventEndTime()
     {
         if (array_key_exists("eventEndTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventEndTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
+            if (is_a($this->_propDict["eventEndTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["eventEndTime"])) {
                 return $this->_propDict["eventEndTime"];
             } else {
                 $this->_propDict["eventEndTime"] = new DateTimeTimeZone($this->_propDict["eventEndTime"]);
@@ -88,7 +88,7 @@ class Reminder extends Entity
     * Gets the eventId
     * The unique ID of the event. Read only.
     *
-    * @return string The eventId
+    * @return string|null The eventId
     */
     public function getEventId()
     {
@@ -117,12 +117,12 @@ class Reminder extends Entity
     * Gets the eventLocation
     * The location of the event.
     *
-    * @return Location The eventLocation
+    * @return Location|null The eventLocation
     */
     public function getEventLocation()
     {
         if (array_key_exists("eventLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["eventLocation"], "\Beta\Microsoft\Graph\Model\Location")) {
+            if (is_a($this->_propDict["eventLocation"], "\Beta\Microsoft\Graph\Model\Location") || is_null($this->_propDict["eventLocation"])) {
                 return $this->_propDict["eventLocation"];
             } else {
                 $this->_propDict["eventLocation"] = new Location($this->_propDict["eventLocation"]);
@@ -150,12 +150,12 @@ class Reminder extends Entity
     * Gets the eventStartTime
     * The date, time, and time zone that the event starts.
     *
-    * @return DateTimeTimeZone The eventStartTime
+    * @return DateTimeTimeZone|null The eventStartTime
     */
     public function getEventStartTime()
     {
         if (array_key_exists("eventStartTime", $this->_propDict)) {
-            if (is_a($this->_propDict["eventStartTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
+            if (is_a($this->_propDict["eventStartTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["eventStartTime"])) {
                 return $this->_propDict["eventStartTime"];
             } else {
                 $this->_propDict["eventStartTime"] = new DateTimeTimeZone($this->_propDict["eventStartTime"]);
@@ -182,7 +182,7 @@ class Reminder extends Entity
     * Gets the eventSubject
     * The text of the event's subject line.
     *
-    * @return string The eventSubject
+    * @return string|null The eventSubject
     */
     public function getEventSubject()
     {
@@ -210,7 +210,7 @@ class Reminder extends Entity
     * Gets the eventWebLink
     * The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.
     *
-    * @return string The eventWebLink
+    * @return string|null The eventWebLink
     */
     public function getEventWebLink()
     {
@@ -239,12 +239,12 @@ class Reminder extends Entity
     * Gets the reminderFireTime
     * The date, time, and time zone that the reminder is set to occur.
     *
-    * @return DateTimeTimeZone The reminderFireTime
+    * @return DateTimeTimeZone|null The reminderFireTime
     */
     public function getReminderFireTime()
     {
         if (array_key_exists("reminderFireTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reminderFireTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone")) {
+            if (is_a($this->_propDict["reminderFireTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["reminderFireTime"])) {
                 return $this->_propDict["reminderFireTime"];
             } else {
                 $this->_propDict["reminderFireTime"] = new DateTimeTimeZone($this->_propDict["reminderFireTime"]);

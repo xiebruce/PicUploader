@@ -28,12 +28,12 @@ class Attendee extends AttendeeBase
     * Gets the proposedNewTime
     * An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
     *
-    * @return TimeSlot The proposedNewTime
+    * @return TimeSlot|null The proposedNewTime
     */
     public function getProposedNewTime()
     {
         if (array_key_exists("proposedNewTime", $this->_propDict)) {
-            if (is_a($this->_propDict["proposedNewTime"], "\Microsoft\Graph\Model\TimeSlot")) {
+            if (is_a($this->_propDict["proposedNewTime"], "\Microsoft\Graph\Model\TimeSlot") || is_null($this->_propDict["proposedNewTime"])) {
                 return $this->_propDict["proposedNewTime"];
             } else {
                 $this->_propDict["proposedNewTime"] = new TimeSlot($this->_propDict["proposedNewTime"]);
@@ -61,12 +61,12 @@ class Attendee extends AttendeeBase
     * Gets the status
     * The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
     *
-    * @return ResponseStatus The status
+    * @return ResponseStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ResponseStatus")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ResponseStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ResponseStatus($this->_propDict["status"]);

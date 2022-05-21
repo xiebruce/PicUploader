@@ -28,7 +28,7 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
     * Gets the status
     * Status of imported device identity
     *
-    * @return bool The status
+    * @return bool|null The status
     */
     public function getStatus()
     {
@@ -38,7 +38,7 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     * Status of imported device identity
@@ -52,5 +52,5 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
         $this->_propDict["status"] = boolval($val);
         return $this;
     }
-    
+
 }

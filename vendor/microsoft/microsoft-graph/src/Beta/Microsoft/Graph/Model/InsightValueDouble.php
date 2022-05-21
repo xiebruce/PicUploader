@@ -27,7 +27,7 @@ class InsightValueDouble extends UserExperienceAnalyticsInsightValue
     * Gets the value
     * Not yet documented
     *
-    * @return float The value
+    * @return float|null The value
     */
     public function getValue()
     {

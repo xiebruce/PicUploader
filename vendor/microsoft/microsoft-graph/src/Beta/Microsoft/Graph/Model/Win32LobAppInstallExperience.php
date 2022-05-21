@@ -28,12 +28,12 @@ class Win32LobAppInstallExperience extends Entity
     * Gets the deviceRestartBehavior
     * Device restart behavior. Possible values are: basedOnReturnCode, allow, suppress, force.
     *
-    * @return Win32LobAppRestartBehavior The deviceRestartBehavior
+    * @return Win32LobAppRestartBehavior|null The deviceRestartBehavior
     */
     public function getDeviceRestartBehavior()
     {
         if (array_key_exists("deviceRestartBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceRestartBehavior"], "\Beta\Microsoft\Graph\Model\Win32LobAppRestartBehavior")) {
+            if (is_a($this->_propDict["deviceRestartBehavior"], "\Beta\Microsoft\Graph\Model\Win32LobAppRestartBehavior") || is_null($this->_propDict["deviceRestartBehavior"])) {
                 return $this->_propDict["deviceRestartBehavior"];
             } else {
                 $this->_propDict["deviceRestartBehavior"] = new Win32LobAppRestartBehavior($this->_propDict["deviceRestartBehavior"]);
@@ -61,12 +61,12 @@ class Win32LobAppInstallExperience extends Entity
     * Gets the runAsAccount
     * Indicates the type of execution context the app runs in. Possible values are: system, user.
     *
-    * @return RunAsAccountType The runAsAccount
+    * @return RunAsAccountType|null The runAsAccount
     */
     public function getRunAsAccount()
     {
         if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType")) {
+            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);

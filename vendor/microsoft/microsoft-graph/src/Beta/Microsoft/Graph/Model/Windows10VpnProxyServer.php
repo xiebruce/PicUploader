@@ -27,7 +27,7 @@ class Windows10VpnProxyServer extends VpnProxyServer
     * Gets the bypassProxyServerForLocalAddress
     * Bypass proxy server for local address.
     *
-    * @return bool The bypassProxyServerForLocalAddress
+    * @return bool|null The bypassProxyServerForLocalAddress
     */
     public function getBypassProxyServerForLocalAddress()
     {

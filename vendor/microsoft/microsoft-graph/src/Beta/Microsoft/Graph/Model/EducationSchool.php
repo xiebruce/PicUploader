@@ -28,12 +28,12 @@ class EducationSchool extends EducationOrganization
     * Gets the address
     * Address of the school.
     *
-    * @return PhysicalAddress The address
+    * @return PhysicalAddress|null The address
     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress")) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["address"])) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PhysicalAddress($this->_propDict["address"]);
@@ -42,7 +42,7 @@ class EducationSchool extends EducationOrganization
         }
         return null;
     }
-    
+
     /**
     * Sets the address
     * Address of the school.
@@ -56,17 +56,17 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["address"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdBy
     * Entity who created the school.
     *
-    * @return IdentitySet The createdBy
+    * @return IdentitySet|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -75,7 +75,7 @@ class EducationSchool extends EducationOrganization
         }
         return null;
     }
-    
+
     /**
     * Sets the createdBy
     * Entity who created the school.
@@ -89,12 +89,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the externalId
     * ID of school in syncing system.
     *
-    * @return string The externalId
+    * @return string|null The externalId
     */
     public function getExternalId()
     {
@@ -104,7 +104,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the externalId
     * ID of school in syncing system.
@@ -118,12 +118,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["externalId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the externalPrincipalId
     * ID of principal in syncing system.
     *
-    * @return string The externalPrincipalId
+    * @return string|null The externalPrincipalId
     */
     public function getExternalPrincipalId()
     {
@@ -133,7 +133,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the externalPrincipalId
     * ID of principal in syncing system.
@@ -147,11 +147,11 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["externalPrincipalId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fax
     *
-    * @return string The fax
+    * @return string|null The fax
     */
     public function getFax()
     {
@@ -161,7 +161,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the fax
     *
@@ -174,12 +174,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["fax"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the highestGrade
     * Highest grade taught.
     *
-    * @return string The highestGrade
+    * @return string|null The highestGrade
     */
     public function getHighestGrade()
     {
@@ -189,7 +189,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the highestGrade
     * Highest grade taught.
@@ -203,12 +203,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["highestGrade"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lowestGrade
     * Lowest grade taught.
     *
-    * @return string The lowestGrade
+    * @return string|null The lowestGrade
     */
     public function getLowestGrade()
     {
@@ -218,7 +218,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the lowestGrade
     * Lowest grade taught.
@@ -232,12 +232,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["lowestGrade"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the phone
     * Phone number of school.
     *
-    * @return string The phone
+    * @return string|null The phone
     */
     public function getPhone()
     {
@@ -247,7 +247,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the phone
     * Phone number of school.
@@ -261,12 +261,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["phone"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the principalEmail
     * Email address of the principal.
     *
-    * @return string The principalEmail
+    * @return string|null The principalEmail
     */
     public function getPrincipalEmail()
     {
@@ -276,7 +276,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the principalEmail
     * Email address of the principal.
@@ -290,12 +290,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["principalEmail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the principalName
     * Name of the principal.
     *
-    * @return string The principalName
+    * @return string|null The principalName
     */
     public function getPrincipalName()
     {
@@ -305,7 +305,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the principalName
     * Name of the principal.
@@ -319,12 +319,12 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["principalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the schoolNumber
     * School Number.
     *
-    * @return string The schoolNumber
+    * @return string|null The schoolNumber
     */
     public function getSchoolNumber()
     {
@@ -334,7 +334,7 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
+
     /**
     * Sets the schoolNumber
     * School Number.
@@ -348,16 +348,17 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["schoolNumber"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the administrativeUnit
+    * The underlying administrativeUnit for this school.
     *
-    * @return AdministrativeUnit The administrativeUnit
+    * @return AdministrativeUnit|null The administrativeUnit
     */
     public function getAdministrativeUnit()
     {
         if (array_key_exists("administrativeUnit", $this->_propDict)) {
-            if (is_a($this->_propDict["administrativeUnit"], "\Beta\Microsoft\Graph\Model\AdministrativeUnit")) {
+            if (is_a($this->_propDict["administrativeUnit"], "\Beta\Microsoft\Graph\Model\AdministrativeUnit") || is_null($this->_propDict["administrativeUnit"])) {
                 return $this->_propDict["administrativeUnit"];
             } else {
                 $this->_propDict["administrativeUnit"] = new AdministrativeUnit($this->_propDict["administrativeUnit"]);
@@ -366,9 +367,10 @@ class EducationSchool extends EducationOrganization
         }
         return null;
     }
-    
+
     /**
     * Sets the administrativeUnit
+    * The underlying administrativeUnit for this school.
     *
     * @param AdministrativeUnit $val The administrativeUnit
     *
@@ -379,13 +381,13 @@ class EducationSchool extends EducationOrganization
         $this->_propDict["administrativeUnit"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the classes
     * Classes taught at the school. Nullable.
      *
-     * @return array The classes
+     * @return array|null The classes
      */
     public function getClasses()
     {
@@ -395,27 +397,27 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the classes
     * Classes taught at the school. Nullable.
     *
-    * @param EducationClass $val The classes
+    * @param EducationClass[] $val The classes
     *
     * @return EducationSchool
     */
     public function setClasses($val)
     {
-		$this->_propDict["classes"] = $val;
+        $this->_propDict["classes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the users
     * Users in the school. Nullable.
      *
-     * @return array The users
+     * @return array|null The users
      */
     public function getUsers()
     {
@@ -425,19 +427,19 @@ class EducationSchool extends EducationOrganization
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the users
     * Users in the school. Nullable.
     *
-    * @param EducationUser $val The users
+    * @param EducationUser[] $val The users
     *
     * @return EducationSchool
     */
     public function setUsers($val)
     {
-		$this->_propDict["users"] = $val;
+        $this->_propDict["users"] = $val;
         return $this;
     }
-    
+
 }

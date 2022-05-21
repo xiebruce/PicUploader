@@ -27,7 +27,7 @@ class DriveItemUploadableProperties extends Entity
     * Gets the description
     * Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -55,7 +55,7 @@ class DriveItemUploadableProperties extends Entity
     * Gets the fileSize
     * Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.
     *
-    * @return int The fileSize
+    * @return int|null The fileSize
     */
     public function getFileSize()
     {
@@ -84,12 +84,12 @@ class DriveItemUploadableProperties extends Entity
     * Gets the fileSystemInfo
     * File system information on client. Read-write.
     *
-    * @return FileSystemInfo The fileSystemInfo
+    * @return FileSystemInfo|null The fileSystemInfo
     */
     public function getFileSystemInfo()
     {
         if (array_key_exists("fileSystemInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["fileSystemInfo"], "\Microsoft\Graph\Model\FileSystemInfo")) {
+            if (is_a($this->_propDict["fileSystemInfo"], "\Microsoft\Graph\Model\FileSystemInfo") || is_null($this->_propDict["fileSystemInfo"])) {
                 return $this->_propDict["fileSystemInfo"];
             } else {
                 $this->_propDict["fileSystemInfo"] = new FileSystemInfo($this->_propDict["fileSystemInfo"]);
@@ -116,7 +116,7 @@ class DriveItemUploadableProperties extends Entity
     * Gets the name
     * The name of the item (filename and extension). Read-write.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

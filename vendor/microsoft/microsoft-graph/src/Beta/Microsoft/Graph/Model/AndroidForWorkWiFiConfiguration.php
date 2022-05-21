@@ -28,7 +28,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
     * Gets the connectAutomatically
     * Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
     *
-    * @return bool The connectAutomatically
+    * @return bool|null The connectAutomatically
     */
     public function getConnectAutomatically()
     {
@@ -38,7 +38,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectAutomatically
     * Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
@@ -52,12 +52,12 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["connectAutomatically"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the connectWhenNetworkNameIsHidden
     * When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
     *
-    * @return bool The connectWhenNetworkNameIsHidden
+    * @return bool|null The connectWhenNetworkNameIsHidden
     */
     public function getConnectWhenNetworkNameIsHidden()
     {
@@ -67,7 +67,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectWhenNetworkNameIsHidden
     * When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
@@ -81,12 +81,12 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["connectWhenNetworkNameIsHidden"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the networkName
     * Network Name
     *
-    * @return string The networkName
+    * @return string|null The networkName
     */
     public function getNetworkName()
     {
@@ -96,7 +96,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the networkName
     * Network Name
@@ -110,12 +110,12 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["networkName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ssid
     * This is the name of the Wi-Fi network that is broadcast to all devices.
     *
-    * @return string The ssid
+    * @return string|null The ssid
     */
     public function getSsid()
     {
@@ -125,7 +125,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the ssid
     * This is the name of the Wi-Fi network that is broadcast to all devices.
@@ -139,17 +139,17 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["ssid"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the wiFiSecurityType
     * Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaEnterprise, wpa2Enterprise.
     *
-    * @return AndroidWiFiSecurityType The wiFiSecurityType
+    * @return AndroidWiFiSecurityType|null The wiFiSecurityType
     */
     public function getWiFiSecurityType()
     {
         if (array_key_exists("wiFiSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\AndroidWiFiSecurityType")) {
+            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\AndroidWiFiSecurityType") || is_null($this->_propDict["wiFiSecurityType"])) {
                 return $this->_propDict["wiFiSecurityType"];
             } else {
                 $this->_propDict["wiFiSecurityType"] = new AndroidWiFiSecurityType($this->_propDict["wiFiSecurityType"]);
@@ -158,7 +158,7 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the wiFiSecurityType
     * Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaEnterprise, wpa2Enterprise.
@@ -172,5 +172,5 @@ class AndroidForWorkWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["wiFiSecurityType"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class Office365GroupsActivityCounts extends Entity
     * Gets the exchangeEmailsReceived
     * The number of emails received by Group mailboxes.
     *
-    * @return int The exchangeEmailsReceived
+    * @return int|null The exchangeEmailsReceived
     */
     public function getExchangeEmailsReceived()
     {
@@ -38,7 +38,7 @@ class Office365GroupsActivityCounts extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the exchangeEmailsReceived
     * The number of emails received by Group mailboxes.
@@ -52,17 +52,17 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["exchangeEmailsReceived"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the reportDate
     * The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group
     *
-    * @return \DateTime The reportDate
+    * @return \DateTime|null The reportDate
     */
     public function getReportDate()
     {
         if (array_key_exists("reportDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportDate"], "\DateTime")) {
+            if (is_a($this->_propDict["reportDate"], "\DateTime") || is_null($this->_propDict["reportDate"])) {
                 return $this->_propDict["reportDate"];
             } else {
                 $this->_propDict["reportDate"] = new \DateTime($this->_propDict["reportDate"]);
@@ -71,7 +71,7 @@ class Office365GroupsActivityCounts extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reportDate
     * The date on which a number of emails were sent to a group mailbox or a number of messages were posted, read, or liked in a Yammer group
@@ -85,12 +85,12 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["reportDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportPeriod
     * The number of days the report covers.
     *
-    * @return string The reportPeriod
+    * @return string|null The reportPeriod
     */
     public function getReportPeriod()
     {
@@ -100,7 +100,7 @@ class Office365GroupsActivityCounts extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reportPeriod
     * The number of days the report covers.
@@ -114,17 +114,17 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["reportPeriod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportRefreshDate
     * The latest date of the content.
     *
-    * @return \DateTime The reportRefreshDate
+    * @return \DateTime|null The reportRefreshDate
     */
     public function getReportRefreshDate()
     {
         if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);
@@ -133,7 +133,7 @@ class Office365GroupsActivityCounts extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reportRefreshDate
     * The latest date of the content.
@@ -147,12 +147,12 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["reportRefreshDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the yammerMessagesLiked
     * The number of messages liked in Yammer groups.
     *
-    * @return int The yammerMessagesLiked
+    * @return int|null The yammerMessagesLiked
     */
     public function getYammerMessagesLiked()
     {
@@ -162,7 +162,7 @@ class Office365GroupsActivityCounts extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the yammerMessagesLiked
     * The number of messages liked in Yammer groups.
@@ -176,12 +176,12 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["yammerMessagesLiked"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the yammerMessagesPosted
     * The number of messages posted to Yammer groups.
     *
-    * @return int The yammerMessagesPosted
+    * @return int|null The yammerMessagesPosted
     */
     public function getYammerMessagesPosted()
     {
@@ -191,7 +191,7 @@ class Office365GroupsActivityCounts extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the yammerMessagesPosted
     * The number of messages posted to Yammer groups.
@@ -205,12 +205,12 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["yammerMessagesPosted"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the yammerMessagesRead
     * The number of messages read in Yammer groups.
     *
-    * @return int The yammerMessagesRead
+    * @return int|null The yammerMessagesRead
     */
     public function getYammerMessagesRead()
     {
@@ -220,7 +220,7 @@ class Office365GroupsActivityCounts extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the yammerMessagesRead
     * The number of messages read in Yammer groups.
@@ -234,5 +234,5 @@ class Office365GroupsActivityCounts extends Entity
         $this->_propDict["yammerMessagesRead"] = intval($val);
         return $this;
     }
-    
+
 }

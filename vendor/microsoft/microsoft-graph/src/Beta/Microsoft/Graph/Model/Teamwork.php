@@ -25,10 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class Teamwork extends Entity
 {
 
-     /** 
+     /**
      * Gets the workforceIntegrations
+    * A workforce integration with shifts.
      *
-     * @return array The workforceIntegrations
+     * @return array|null The workforceIntegrations
      */
     public function getWorkforceIntegrations()
     {
@@ -38,18 +39,49 @@ class Teamwork extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the workforceIntegrations
+    * A workforce integration with shifts.
     *
-    * @param WorkforceIntegration $val The workforceIntegrations
+    * @param WorkforceIntegration[] $val The workforceIntegrations
     *
     * @return Teamwork
     */
     public function setWorkforceIntegrations($val)
     {
-		$this->_propDict["workforceIntegrations"] = $val;
+        $this->_propDict["workforceIntegrations"] = $val;
         return $this;
     }
-    
+
+
+     /**
+     * Gets the devices
+    * The Teams devices provisioned for the tenant.
+     *
+     * @return array|null The devices
+     */
+    public function getDevices()
+    {
+        if (array_key_exists("devices", $this->_propDict)) {
+           return $this->_propDict["devices"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the devices
+    * The Teams devices provisioned for the tenant.
+    *
+    * @param TeamworkDevice[] $val The devices
+    *
+    * @return Teamwork
+    */
+    public function setDevices($val)
+    {
+        $this->_propDict["devices"] = $val;
+        return $this;
+    }
+
 }

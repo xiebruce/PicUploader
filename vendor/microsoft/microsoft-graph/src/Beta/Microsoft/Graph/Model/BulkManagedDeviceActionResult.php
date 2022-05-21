@@ -27,7 +27,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Gets the failedDeviceIds
     * Failed devices
     *
-    * @return string The failedDeviceIds
+    * @return string|null The failedDeviceIds
     */
     public function getFailedDeviceIds()
     {
@@ -55,7 +55,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Gets the notFoundDeviceIds
     * Not found devices
     *
-    * @return string The notFoundDeviceIds
+    * @return string|null The notFoundDeviceIds
     */
     public function getNotFoundDeviceIds()
     {
@@ -83,7 +83,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Gets the notSupportedDeviceIds
     * Not supported devices
     *
-    * @return string The notSupportedDeviceIds
+    * @return string|null The notSupportedDeviceIds
     */
     public function getNotSupportedDeviceIds()
     {
@@ -111,7 +111,7 @@ class BulkManagedDeviceActionResult extends Entity
     * Gets the successfulDeviceIds
     * Successful devices
     *
-    * @return string The successfulDeviceIds
+    * @return string|null The successfulDeviceIds
     */
     public function getSuccessfulDeviceIds()
     {

@@ -26,8 +26,9 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
 {
     /**
     * Gets the policyId
+    * The id of the policy.
     *
-    * @return string The policyId
+    * @return string|null The policyId
     */
     public function getPolicyId()
     {
@@ -37,9 +38,10 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the policyId
+    * The id of the policy.
     *
     * @param string $val The policyId
     *
@@ -50,11 +52,12 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
         $this->_propDict["policyId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleDefinitionId
+    * The id of the role definition where the policy applies. If not specified, the policy applies to all roles.
     *
-    * @return string The roleDefinitionId
+    * @return string|null The roleDefinitionId
     */
     public function getRoleDefinitionId()
     {
@@ -64,9 +67,10 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleDefinitionId
+    * The id of the role definition where the policy applies. If not specified, the policy applies to all roles.
     *
     * @param string $val The roleDefinitionId
     *
@@ -77,11 +81,12 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
         $this->_propDict["roleDefinitionId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the scopeId
+    * The id of the scope where the policy is assigned. E.g. '/', groupId, etc.
     *
-    * @return string The scopeId
+    * @return string|null The scopeId
     */
     public function getScopeId()
     {
@@ -91,9 +96,10 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the scopeId
+    * The id of the scope where the policy is assigned. E.g. '/', groupId, etc.
     *
     * @param string $val The scopeId
     *
@@ -104,11 +110,12 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
         $this->_propDict["scopeId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the scopeType
+    * The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group.
     *
-    * @return string The scopeType
+    * @return string|null The scopeType
     */
     public function getScopeType()
     {
@@ -118,9 +125,10 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the scopeType
+    * The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group.
     *
     * @param string $val The scopeType
     *
@@ -131,16 +139,17 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
         $this->_propDict["scopeType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policy
+    * The policy for the assignment.
     *
-    * @return UnifiedRoleManagementPolicy The policy
+    * @return UnifiedRoleManagementPolicy|null The policy
     */
     public function getPolicy()
     {
         if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicy")) {
+            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\UnifiedRoleManagementPolicy") || is_null($this->_propDict["policy"])) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new UnifiedRoleManagementPolicy($this->_propDict["policy"]);
@@ -149,9 +158,10 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the policy
+    * The policy for the assignment.
     *
     * @param UnifiedRoleManagementPolicy $val The policy
     *
@@ -162,5 +172,5 @@ class UnifiedRoleManagementPolicyAssignment extends Entity
         $this->_propDict["policy"] = $val;
         return $this;
     }
-    
+
 }

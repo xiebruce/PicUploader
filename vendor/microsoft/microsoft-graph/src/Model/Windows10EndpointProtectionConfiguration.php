@@ -28,7 +28,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the applicationGuardAllowPersistence
     * Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
     *
-    * @return bool The applicationGuardAllowPersistence
+    * @return bool|null The applicationGuardAllowPersistence
     */
     public function getApplicationGuardAllowPersistence()
     {
@@ -38,7 +38,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPersistence
     * Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
@@ -52,12 +52,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPersistence"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToLocalPrinters
     * Allow printing to Local Printers from Container
     *
-    * @return bool The applicationGuardAllowPrintToLocalPrinters
+    * @return bool|null The applicationGuardAllowPrintToLocalPrinters
     */
     public function getApplicationGuardAllowPrintToLocalPrinters()
     {
@@ -67,7 +67,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToLocalPrinters
     * Allow printing to Local Printers from Container
@@ -81,12 +81,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToLocalPrinters"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToNetworkPrinters
     * Allow printing to Network Printers from Container
     *
-    * @return bool The applicationGuardAllowPrintToNetworkPrinters
+    * @return bool|null The applicationGuardAllowPrintToNetworkPrinters
     */
     public function getApplicationGuardAllowPrintToNetworkPrinters()
     {
@@ -96,7 +96,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToNetworkPrinters
     * Allow printing to Network Printers from Container
@@ -110,12 +110,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToNetworkPrinters"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToPDF
     * Allow printing to PDF from Container
     *
-    * @return bool The applicationGuardAllowPrintToPDF
+    * @return bool|null The applicationGuardAllowPrintToPDF
     */
     public function getApplicationGuardAllowPrintToPDF()
     {
@@ -125,7 +125,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToPDF
     * Allow printing to PDF from Container
@@ -139,12 +139,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToPDF"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToXPS
     * Allow printing to XPS from Container
     *
-    * @return bool The applicationGuardAllowPrintToXPS
+    * @return bool|null The applicationGuardAllowPrintToXPS
     */
     public function getApplicationGuardAllowPrintToXPS()
     {
@@ -154,7 +154,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToXPS
     * Allow printing to XPS from Container
@@ -168,17 +168,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToXPS"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardBlockClipboardSharing
     * Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
     *
-    * @return ApplicationGuardBlockClipboardSharingType The applicationGuardBlockClipboardSharing
+    * @return ApplicationGuardBlockClipboardSharingType|null The applicationGuardBlockClipboardSharing
     */
     public function getApplicationGuardBlockClipboardSharing()
     {
         if (array_key_exists("applicationGuardBlockClipboardSharing", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationGuardBlockClipboardSharing"], "\Microsoft\Graph\Model\ApplicationGuardBlockClipboardSharingType")) {
+            if (is_a($this->_propDict["applicationGuardBlockClipboardSharing"], "\Microsoft\Graph\Model\ApplicationGuardBlockClipboardSharingType") || is_null($this->_propDict["applicationGuardBlockClipboardSharing"])) {
                 return $this->_propDict["applicationGuardBlockClipboardSharing"];
             } else {
                 $this->_propDict["applicationGuardBlockClipboardSharing"] = new ApplicationGuardBlockClipboardSharingType($this->_propDict["applicationGuardBlockClipboardSharing"]);
@@ -187,7 +187,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the applicationGuardBlockClipboardSharing
     * Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
@@ -201,17 +201,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardBlockClipboardSharing"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardBlockFileTransfer
     * Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
     *
-    * @return ApplicationGuardBlockFileTransferType The applicationGuardBlockFileTransfer
+    * @return ApplicationGuardBlockFileTransferType|null The applicationGuardBlockFileTransfer
     */
     public function getApplicationGuardBlockFileTransfer()
     {
         if (array_key_exists("applicationGuardBlockFileTransfer", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationGuardBlockFileTransfer"], "\Microsoft\Graph\Model\ApplicationGuardBlockFileTransferType")) {
+            if (is_a($this->_propDict["applicationGuardBlockFileTransfer"], "\Microsoft\Graph\Model\ApplicationGuardBlockFileTransferType") || is_null($this->_propDict["applicationGuardBlockFileTransfer"])) {
                 return $this->_propDict["applicationGuardBlockFileTransfer"];
             } else {
                 $this->_propDict["applicationGuardBlockFileTransfer"] = new ApplicationGuardBlockFileTransferType($this->_propDict["applicationGuardBlockFileTransfer"]);
@@ -220,7 +220,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the applicationGuardBlockFileTransfer
     * Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
@@ -234,12 +234,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardBlockFileTransfer"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardBlockNonEnterpriseContent
     * Block enterprise sites to load non-enterprise content, such as third party plug-ins
     *
-    * @return bool The applicationGuardBlockNonEnterpriseContent
+    * @return bool|null The applicationGuardBlockNonEnterpriseContent
     */
     public function getApplicationGuardBlockNonEnterpriseContent()
     {
@@ -249,7 +249,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardBlockNonEnterpriseContent
     * Block enterprise sites to load non-enterprise content, such as third party plug-ins
@@ -263,12 +263,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardBlockNonEnterpriseContent"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardEnabled
     * Enable Windows Defender Application Guard
     *
-    * @return bool The applicationGuardEnabled
+    * @return bool|null The applicationGuardEnabled
     */
     public function getApplicationGuardEnabled()
     {
@@ -278,7 +278,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardEnabled
     * Enable Windows Defender Application Guard
@@ -292,12 +292,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardForceAuditing
     * Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
     *
-    * @return bool The applicationGuardForceAuditing
+    * @return bool|null The applicationGuardForceAuditing
     */
     public function getApplicationGuardForceAuditing()
     {
@@ -307,7 +307,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardForceAuditing
     * Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
@@ -321,17 +321,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardForceAuditing"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the appLockerApplicationControl
     * Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
     *
-    * @return AppLockerApplicationControlType The appLockerApplicationControl
+    * @return AppLockerApplicationControlType|null The appLockerApplicationControl
     */
     public function getAppLockerApplicationControl()
     {
         if (array_key_exists("appLockerApplicationControl", $this->_propDict)) {
-            if (is_a($this->_propDict["appLockerApplicationControl"], "\Microsoft\Graph\Model\AppLockerApplicationControlType")) {
+            if (is_a($this->_propDict["appLockerApplicationControl"], "\Microsoft\Graph\Model\AppLockerApplicationControlType") || is_null($this->_propDict["appLockerApplicationControl"])) {
                 return $this->_propDict["appLockerApplicationControl"];
             } else {
                 $this->_propDict["appLockerApplicationControl"] = new AppLockerApplicationControlType($this->_propDict["appLockerApplicationControl"]);
@@ -340,7 +340,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the appLockerApplicationControl
     * Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
@@ -354,12 +354,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["appLockerApplicationControl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerDisableWarningForOtherDiskEncryption
     * Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
     *
-    * @return bool The bitLockerDisableWarningForOtherDiskEncryption
+    * @return bool|null The bitLockerDisableWarningForOtherDiskEncryption
     */
     public function getBitLockerDisableWarningForOtherDiskEncryption()
     {
@@ -369,7 +369,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerDisableWarningForOtherDiskEncryption
     * Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
@@ -383,12 +383,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerDisableWarningForOtherDiskEncryption"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerEnableStorageCardEncryptionOnMobile
     * Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
     *
-    * @return bool The bitLockerEnableStorageCardEncryptionOnMobile
+    * @return bool|null The bitLockerEnableStorageCardEncryptionOnMobile
     */
     public function getBitLockerEnableStorageCardEncryptionOnMobile()
     {
@@ -398,7 +398,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerEnableStorageCardEncryptionOnMobile
     * Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
@@ -412,12 +412,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerEnableStorageCardEncryptionOnMobile"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerEncryptDevice
     * Allows the admin to require encryption to be turned on using BitLocker.
     *
-    * @return bool The bitLockerEncryptDevice
+    * @return bool|null The bitLockerEncryptDevice
     */
     public function getBitLockerEncryptDevice()
     {
@@ -427,7 +427,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerEncryptDevice
     * Allows the admin to require encryption to be turned on using BitLocker.
@@ -441,17 +441,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerEncryptDevice"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerRemovableDrivePolicy
     * BitLocker Removable Drive Policy.
     *
-    * @return BitLockerRemovableDrivePolicy The bitLockerRemovableDrivePolicy
+    * @return BitLockerRemovableDrivePolicy|null The bitLockerRemovableDrivePolicy
     */
     public function getBitLockerRemovableDrivePolicy()
     {
         if (array_key_exists("bitLockerRemovableDrivePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["bitLockerRemovableDrivePolicy"], "\Microsoft\Graph\Model\BitLockerRemovableDrivePolicy")) {
+            if (is_a($this->_propDict["bitLockerRemovableDrivePolicy"], "\Microsoft\Graph\Model\BitLockerRemovableDrivePolicy") || is_null($this->_propDict["bitLockerRemovableDrivePolicy"])) {
                 return $this->_propDict["bitLockerRemovableDrivePolicy"];
             } else {
                 $this->_propDict["bitLockerRemovableDrivePolicy"] = new BitLockerRemovableDrivePolicy($this->_propDict["bitLockerRemovableDrivePolicy"]);
@@ -460,7 +460,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bitLockerRemovableDrivePolicy
     * BitLocker Removable Drive Policy.
@@ -474,12 +474,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerRemovableDrivePolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderAdditionalGuardedFolders
     * List of folder paths to be added to the list of protected folders
     *
-    * @return string The defenderAdditionalGuardedFolders
+    * @return string|null The defenderAdditionalGuardedFolders
     */
     public function getDefenderAdditionalGuardedFolders()
     {
@@ -489,7 +489,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAdditionalGuardedFolders
     * List of folder paths to be added to the list of protected folders
@@ -503,12 +503,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAdditionalGuardedFolders"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderAttackSurfaceReductionExcludedPaths
     * List of exe files and folders to be excluded from attack surface reduction rules
     *
-    * @return string The defenderAttackSurfaceReductionExcludedPaths
+    * @return string|null The defenderAttackSurfaceReductionExcludedPaths
     */
     public function getDefenderAttackSurfaceReductionExcludedPaths()
     {
@@ -518,7 +518,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAttackSurfaceReductionExcludedPaths
     * List of exe files and folders to be excluded from attack surface reduction rules
@@ -532,26 +532,26 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAttackSurfaceReductionExcludedPaths"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderExploitProtectionXml
     * Xml content containing information regarding exploit protection details.
     *
-    * @return \GuzzleHttp\Psr7\Stream The defenderExploitProtectionXml
+    * @return \GuzzleHttp\Psr7\Stream|null The defenderExploitProtectionXml
     */
     public function getDefenderExploitProtectionXml()
     {
         if (array_key_exists("defenderExploitProtectionXml", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderExploitProtectionXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["defenderExploitProtectionXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["defenderExploitProtectionXml"])) {
                 return $this->_propDict["defenderExploitProtectionXml"];
             } else {
-                $this->_propDict["defenderExploitProtectionXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["defenderExploitProtectionXml"]);
+                $this->_propDict["defenderExploitProtectionXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["defenderExploitProtectionXml"]);
                 return $this->_propDict["defenderExploitProtectionXml"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderExploitProtectionXml
     * Xml content containing information regarding exploit protection details.
@@ -565,12 +565,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderExploitProtectionXml"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderExploitProtectionXmlFileName
     * Name of the file from which DefenderExploitProtectionXml was obtained.
     *
-    * @return string The defenderExploitProtectionXmlFileName
+    * @return string|null The defenderExploitProtectionXmlFileName
     */
     public function getDefenderExploitProtectionXmlFileName()
     {
@@ -580,7 +580,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderExploitProtectionXmlFileName
     * Name of the file from which DefenderExploitProtectionXml was obtained.
@@ -594,12 +594,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderExploitProtectionXmlFileName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderGuardedFoldersAllowedAppPaths
     * List of paths to exe that are allowed to access protected folders
     *
-    * @return string The defenderGuardedFoldersAllowedAppPaths
+    * @return string|null The defenderGuardedFoldersAllowedAppPaths
     */
     public function getDefenderGuardedFoldersAllowedAppPaths()
     {
@@ -609,7 +609,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderGuardedFoldersAllowedAppPaths
     * List of paths to exe that are allowed to access protected folders
@@ -623,12 +623,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderGuardedFoldersAllowedAppPaths"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterBlockExploitProtectionOverride
     * Indicates whether or not to block user from overriding Exploit Protection settings.
     *
-    * @return bool The defenderSecurityCenterBlockExploitProtectionOverride
+    * @return bool|null The defenderSecurityCenterBlockExploitProtectionOverride
     */
     public function getDefenderSecurityCenterBlockExploitProtectionOverride()
     {
@@ -638,7 +638,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterBlockExploitProtectionOverride
     * Indicates whether or not to block user from overriding Exploit Protection settings.
@@ -652,12 +652,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterBlockExploitProtectionOverride"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallBlockStatefulFTP
     * Blocks stateful FTP connections to the device
     *
-    * @return bool The firewallBlockStatefulFTP
+    * @return bool|null The firewallBlockStatefulFTP
     */
     public function getFirewallBlockStatefulFTP()
     {
@@ -667,7 +667,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallBlockStatefulFTP
     * Blocks stateful FTP connections to the device
@@ -681,17 +681,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallBlockStatefulFTP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallCertificateRevocationListCheckMethod
     * Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
     *
-    * @return FirewallCertificateRevocationListCheckMethodType The firewallCertificateRevocationListCheckMethod
+    * @return FirewallCertificateRevocationListCheckMethodType|null The firewallCertificateRevocationListCheckMethod
     */
     public function getFirewallCertificateRevocationListCheckMethod()
     {
         if (array_key_exists("firewallCertificateRevocationListCheckMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallCertificateRevocationListCheckMethod"], "\Microsoft\Graph\Model\FirewallCertificateRevocationListCheckMethodType")) {
+            if (is_a($this->_propDict["firewallCertificateRevocationListCheckMethod"], "\Microsoft\Graph\Model\FirewallCertificateRevocationListCheckMethodType") || is_null($this->_propDict["firewallCertificateRevocationListCheckMethod"])) {
                 return $this->_propDict["firewallCertificateRevocationListCheckMethod"];
             } else {
                 $this->_propDict["firewallCertificateRevocationListCheckMethod"] = new FirewallCertificateRevocationListCheckMethodType($this->_propDict["firewallCertificateRevocationListCheckMethod"]);
@@ -700,7 +700,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallCertificateRevocationListCheckMethod
     * Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
@@ -714,12 +714,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallCertificateRevocationListCheckMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallIdleTimeoutForSecurityAssociationInSeconds
     * Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
     *
-    * @return int The firewallIdleTimeoutForSecurityAssociationInSeconds
+    * @return int|null The firewallIdleTimeoutForSecurityAssociationInSeconds
     */
     public function getFirewallIdleTimeoutForSecurityAssociationInSeconds()
     {
@@ -729,7 +729,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIdleTimeoutForSecurityAssociationInSeconds
     * Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
@@ -743,12 +743,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIdleTimeoutForSecurityAssociationInSeconds"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowDHCP
     * Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
     *
-    * @return bool The firewallIPSecExemptionsAllowDHCP
+    * @return bool|null The firewallIPSecExemptionsAllowDHCP
     */
     public function getFirewallIPSecExemptionsAllowDHCP()
     {
@@ -758,7 +758,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowDHCP
     * Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
@@ -772,12 +772,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowDHCP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowICMP
     * Configures IPSec exemptions to allow ICMP
     *
-    * @return bool The firewallIPSecExemptionsAllowICMP
+    * @return bool|null The firewallIPSecExemptionsAllowICMP
     */
     public function getFirewallIPSecExemptionsAllowICMP()
     {
@@ -787,7 +787,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowICMP
     * Configures IPSec exemptions to allow ICMP
@@ -801,12 +801,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowICMP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowNeighborDiscovery
     * Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
     *
-    * @return bool The firewallIPSecExemptionsAllowNeighborDiscovery
+    * @return bool|null The firewallIPSecExemptionsAllowNeighborDiscovery
     */
     public function getFirewallIPSecExemptionsAllowNeighborDiscovery()
     {
@@ -816,7 +816,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowNeighborDiscovery
     * Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
@@ -830,12 +830,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowNeighborDiscovery"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowRouterDiscovery
     * Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
     *
-    * @return bool The firewallIPSecExemptionsAllowRouterDiscovery
+    * @return bool|null The firewallIPSecExemptionsAllowRouterDiscovery
     */
     public function getFirewallIPSecExemptionsAllowRouterDiscovery()
     {
@@ -845,7 +845,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowRouterDiscovery
     * Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
@@ -859,12 +859,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowRouterDiscovery"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallMergeKeyingModuleSettings
     * If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
     *
-    * @return bool The firewallMergeKeyingModuleSettings
+    * @return bool|null The firewallMergeKeyingModuleSettings
     */
     public function getFirewallMergeKeyingModuleSettings()
     {
@@ -874,7 +874,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallMergeKeyingModuleSettings
     * If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
@@ -888,17 +888,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallMergeKeyingModuleSettings"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallPacketQueueingMethod
     * Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
     *
-    * @return FirewallPacketQueueingMethodType The firewallPacketQueueingMethod
+    * @return FirewallPacketQueueingMethodType|null The firewallPacketQueueingMethod
     */
     public function getFirewallPacketQueueingMethod()
     {
         if (array_key_exists("firewallPacketQueueingMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallPacketQueueingMethod"], "\Microsoft\Graph\Model\FirewallPacketQueueingMethodType")) {
+            if (is_a($this->_propDict["firewallPacketQueueingMethod"], "\Microsoft\Graph\Model\FirewallPacketQueueingMethodType") || is_null($this->_propDict["firewallPacketQueueingMethod"])) {
                 return $this->_propDict["firewallPacketQueueingMethod"];
             } else {
                 $this->_propDict["firewallPacketQueueingMethod"] = new FirewallPacketQueueingMethodType($this->_propDict["firewallPacketQueueingMethod"]);
@@ -907,7 +907,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallPacketQueueingMethod
     * Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
@@ -921,17 +921,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallPacketQueueingMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallPreSharedKeyEncodingMethod
     * Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
     *
-    * @return FirewallPreSharedKeyEncodingMethodType The firewallPreSharedKeyEncodingMethod
+    * @return FirewallPreSharedKeyEncodingMethodType|null The firewallPreSharedKeyEncodingMethod
     */
     public function getFirewallPreSharedKeyEncodingMethod()
     {
         if (array_key_exists("firewallPreSharedKeyEncodingMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallPreSharedKeyEncodingMethod"], "\Microsoft\Graph\Model\FirewallPreSharedKeyEncodingMethodType")) {
+            if (is_a($this->_propDict["firewallPreSharedKeyEncodingMethod"], "\Microsoft\Graph\Model\FirewallPreSharedKeyEncodingMethodType") || is_null($this->_propDict["firewallPreSharedKeyEncodingMethod"])) {
                 return $this->_propDict["firewallPreSharedKeyEncodingMethod"];
             } else {
                 $this->_propDict["firewallPreSharedKeyEncodingMethod"] = new FirewallPreSharedKeyEncodingMethodType($this->_propDict["firewallPreSharedKeyEncodingMethod"]);
@@ -940,7 +940,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallPreSharedKeyEncodingMethod
     * Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
@@ -954,17 +954,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallPreSharedKeyEncodingMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallProfileDomain
     * Configures the firewall profile settings for domain networks
     *
-    * @return WindowsFirewallNetworkProfile The firewallProfileDomain
+    * @return WindowsFirewallNetworkProfile|null The firewallProfileDomain
     */
     public function getFirewallProfileDomain()
     {
         if (array_key_exists("firewallProfileDomain", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallProfileDomain"], "\Microsoft\Graph\Model\WindowsFirewallNetworkProfile")) {
+            if (is_a($this->_propDict["firewallProfileDomain"], "\Microsoft\Graph\Model\WindowsFirewallNetworkProfile") || is_null($this->_propDict["firewallProfileDomain"])) {
                 return $this->_propDict["firewallProfileDomain"];
             } else {
                 $this->_propDict["firewallProfileDomain"] = new WindowsFirewallNetworkProfile($this->_propDict["firewallProfileDomain"]);
@@ -973,7 +973,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallProfileDomain
     * Configures the firewall profile settings for domain networks
@@ -987,17 +987,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallProfileDomain"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallProfilePrivate
     * Configures the firewall profile settings for private networks
     *
-    * @return WindowsFirewallNetworkProfile The firewallProfilePrivate
+    * @return WindowsFirewallNetworkProfile|null The firewallProfilePrivate
     */
     public function getFirewallProfilePrivate()
     {
         if (array_key_exists("firewallProfilePrivate", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallProfilePrivate"], "\Microsoft\Graph\Model\WindowsFirewallNetworkProfile")) {
+            if (is_a($this->_propDict["firewallProfilePrivate"], "\Microsoft\Graph\Model\WindowsFirewallNetworkProfile") || is_null($this->_propDict["firewallProfilePrivate"])) {
                 return $this->_propDict["firewallProfilePrivate"];
             } else {
                 $this->_propDict["firewallProfilePrivate"] = new WindowsFirewallNetworkProfile($this->_propDict["firewallProfilePrivate"]);
@@ -1006,7 +1006,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallProfilePrivate
     * Configures the firewall profile settings for private networks
@@ -1020,17 +1020,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallProfilePrivate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallProfilePublic
     * Configures the firewall profile settings for public networks
     *
-    * @return WindowsFirewallNetworkProfile The firewallProfilePublic
+    * @return WindowsFirewallNetworkProfile|null The firewallProfilePublic
     */
     public function getFirewallProfilePublic()
     {
         if (array_key_exists("firewallProfilePublic", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallProfilePublic"], "\Microsoft\Graph\Model\WindowsFirewallNetworkProfile")) {
+            if (is_a($this->_propDict["firewallProfilePublic"], "\Microsoft\Graph\Model\WindowsFirewallNetworkProfile") || is_null($this->_propDict["firewallProfilePublic"])) {
                 return $this->_propDict["firewallProfilePublic"];
             } else {
                 $this->_propDict["firewallProfilePublic"] = new WindowsFirewallNetworkProfile($this->_propDict["firewallProfilePublic"]);
@@ -1039,7 +1039,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallProfilePublic
     * Configures the firewall profile settings for public networks
@@ -1053,12 +1053,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallProfilePublic"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the smartScreenBlockOverrideForFiles
     * Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
     *
-    * @return bool The smartScreenBlockOverrideForFiles
+    * @return bool|null The smartScreenBlockOverrideForFiles
     */
     public function getSmartScreenBlockOverrideForFiles()
     {
@@ -1068,7 +1068,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the smartScreenBlockOverrideForFiles
     * Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
@@ -1082,12 +1082,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["smartScreenBlockOverrideForFiles"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smartScreenEnableInShell
     * Allows IT Admins to configure SmartScreen for Windows.
     *
-    * @return bool The smartScreenEnableInShell
+    * @return bool|null The smartScreenEnableInShell
     */
     public function getSmartScreenEnableInShell()
     {
@@ -1097,7 +1097,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the smartScreenEnableInShell
     * Allows IT Admins to configure SmartScreen for Windows.
@@ -1111,5 +1111,5 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["smartScreenEnableInShell"] = boolval($val);
         return $this;
     }
-    
+
 }

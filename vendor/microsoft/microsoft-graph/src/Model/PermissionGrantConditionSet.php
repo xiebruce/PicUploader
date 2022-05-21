@@ -28,7 +28,7 @@ class PermissionGrantConditionSet extends Entity
     * Gets the clientApplicationIds
     * A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all.
     *
-    * @return string The clientApplicationIds
+    * @return string|null The clientApplicationIds
     */
     public function getClientApplicationIds()
     {
@@ -38,7 +38,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientApplicationIds
     * A list of appId values for the client applications to match with, or a list with the single value all to match any client application. Default is the single value all.
@@ -52,12 +52,12 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["clientApplicationIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clientApplicationPublisherIds
     * A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all.
     *
-    * @return string The clientApplicationPublisherIds
+    * @return string|null The clientApplicationPublisherIds
     */
     public function getClientApplicationPublisherIds()
     {
@@ -67,7 +67,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientApplicationPublisherIds
     * A list of Microsoft Partner Network (MPN) IDs for verified publishers of the client application, or a list with the single value all to match with client apps from any publisher. Default is the single value all.
@@ -81,12 +81,12 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["clientApplicationPublisherIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clientApplicationsFromVerifiedPublisherOnly
     * Set to true to only match on client applications with a verified publisher. Set to false to match on any client app, even if it does not have a verified publisher. Default is false.
     *
-    * @return bool The clientApplicationsFromVerifiedPublisherOnly
+    * @return bool|null The clientApplicationsFromVerifiedPublisherOnly
     */
     public function getClientApplicationsFromVerifiedPublisherOnly()
     {
@@ -96,7 +96,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientApplicationsFromVerifiedPublisherOnly
     * Set to true to only match on client applications with a verified publisher. Set to false to match on any client app, even if it does not have a verified publisher. Default is false.
@@ -110,12 +110,12 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["clientApplicationsFromVerifiedPublisherOnly"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the clientApplicationTenantIds
     * A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value all to match with client apps registered in any tenant. Default is the single value all.
     *
-    * @return string The clientApplicationTenantIds
+    * @return string|null The clientApplicationTenantIds
     */
     public function getClientApplicationTenantIds()
     {
@@ -125,7 +125,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientApplicationTenantIds
     * A list of Azure Active Directory tenant IDs in which the client application is registered, or a list with the single value all to match with client apps registered in any tenant. Default is the single value all.
@@ -139,12 +139,12 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["clientApplicationTenantIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the permissionClassification
     * The permission classification for the permission being granted, or all to match with any permission classification (including permissions which are not classified). Default is all.
     *
-    * @return string The permissionClassification
+    * @return string|null The permissionClassification
     */
     public function getPermissionClassification()
     {
@@ -154,7 +154,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the permissionClassification
     * The permission classification for the permission being granted, or all to match with any permission classification (including permissions which are not classified). Default is all.
@@ -168,12 +168,12 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["permissionClassification"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the permissions
     * The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
     *
-    * @return string The permissions
+    * @return string|null The permissions
     */
     public function getPermissions()
     {
@@ -183,7 +183,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the permissions
     * The list of id values for the specific permissions to match with, or a list with the single value all to match with any permission. The id of delegated permissions can be found in the publishedPermissionScopes property of the API's **servicePrincipal** object. The id of application permissions can be found in the appRoles property of the API's **servicePrincipal** object. The id of resource-specific application permissions can be found in the resourceSpecificApplicationPermissions property of the API's **servicePrincipal** object. Default is the single value all.
@@ -197,17 +197,17 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["permissions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the permissionType
     * The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.
     *
-    * @return PermissionType The permissionType
+    * @return PermissionType|null The permissionType
     */
     public function getPermissionType()
     {
         if (array_key_exists("permissionType", $this->_propDict)) {
-            if (is_a($this->_propDict["permissionType"], "\Microsoft\Graph\Model\PermissionType")) {
+            if (is_a($this->_propDict["permissionType"], "\Microsoft\Graph\Model\PermissionType") || is_null($this->_propDict["permissionType"])) {
                 return $this->_propDict["permissionType"];
             } else {
                 $this->_propDict["permissionType"] = new PermissionType($this->_propDict["permissionType"]);
@@ -216,7 +216,7 @@ class PermissionGrantConditionSet extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the permissionType
     * The permission type of the permission being granted. Possible values: application for application permissions (e.g. app roles), or delegated for delegated permissions. The value delegatedUserConsentable indicates delegated permissions which have not been configured by the API publisher to require admin consent—this value may be used in built-in permission grant policies, but cannot be used in custom permission grant policies. Required.
@@ -230,12 +230,12 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["permissionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceApplication
     * The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any.
     *
-    * @return string The resourceApplication
+    * @return string|null The resourceApplication
     */
     public function getResourceApplication()
     {
@@ -245,7 +245,7 @@ class PermissionGrantConditionSet extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the resourceApplication
     * The appId of the resource application (e.g. the API) for which a permission is being granted, or any to match with any resource application or API. Default is any.
@@ -259,5 +259,5 @@ class PermissionGrantConditionSet extends Entity
         $this->_propDict["resourceApplication"] = $val;
         return $this;
     }
-    
+
 }

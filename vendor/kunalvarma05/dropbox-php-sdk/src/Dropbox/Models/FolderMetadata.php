@@ -12,6 +12,13 @@ class FolderMetadata extends BaseModel
     protected $id;
 
     /**
+     * Object type
+     *
+     * @var string
+     */
+    protected $tag;
+
+    /**
      * The last component of the path (including extension).
      * This never contains a slash.
      *
@@ -51,6 +58,7 @@ class FolderMetadata extends BaseModel
     {
         parent::__construct($data);
         $this->id = $this->getDataProperty('id');
+        $this->tag = $this->getDataProperty('.tag');
         $this->name = $this->getDataProperty('name');
         $this->path_lower = $this->getDataProperty('path_lower');
         $this->path_display = $this->getDataProperty('path_display');
@@ -70,6 +78,16 @@ class FolderMetadata extends BaseModel
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get the '.tag' property of the folder model.
+     *
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->tag;
     }
 
     /**

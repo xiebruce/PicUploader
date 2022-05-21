@@ -28,12 +28,12 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the complianceState
     * Managed Device ComplianceStatus. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
     *
-    * @return ComplianceStatus The complianceState
+    * @return ComplianceStatus|null The complianceState
     */
     public function getComplianceState()
     {
         if (array_key_exists("complianceState", $this->_propDict)) {
-            if (is_a($this->_propDict["complianceState"], "\Beta\Microsoft\Graph\Model\ComplianceStatus")) {
+            if (is_a($this->_propDict["complianceState"], "\Beta\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["complianceState"])) {
                 return $this->_propDict["complianceState"];
             } else {
                 $this->_propDict["complianceState"] = new ComplianceStatus($this->_propDict["complianceState"]);
@@ -60,7 +60,7 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the deviceCompliancePolicyId
     * Device Compliance PolicyId
     *
-    * @return string The deviceCompliancePolicyId
+    * @return string|null The deviceCompliancePolicyId
     */
     public function getDeviceCompliancePolicyId()
     {
@@ -88,7 +88,7 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the deviceCompliancePolicyName
     * Device Compliance Policy Name
     *
-    * @return string The deviceCompliancePolicyName
+    * @return string|null The deviceCompliancePolicyName
     */
     public function getDeviceCompliancePolicyName()
     {
@@ -117,12 +117,12 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the deviceType
     * Managed Device Device Type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, cloudPC, blackberry, palm, unknown.
     *
-    * @return DeviceType The deviceType
+    * @return DeviceType|null The deviceType
     */
     public function getDeviceType()
     {
         if (array_key_exists("deviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceType")) {
+            if (is_a($this->_propDict["deviceType"], "\Beta\Microsoft\Graph\Model\DeviceType") || is_null($this->_propDict["deviceType"])) {
                 return $this->_propDict["deviceType"];
             } else {
                 $this->_propDict["deviceType"] = new DeviceType($this->_propDict["deviceType"]);
@@ -149,7 +149,7 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the id
     * Key of the entity.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -177,7 +177,7 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the managedDeviceId
     * Managed DeviceId
     *
-    * @return string The managedDeviceId
+    * @return string|null The managedDeviceId
     */
     public function getManagedDeviceId()
     {
@@ -205,7 +205,7 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the managedDeviceName
     * Managed Device Name
     *
-    * @return string The managedDeviceName
+    * @return string|null The managedDeviceName
     */
     public function getManagedDeviceName()
     {
@@ -234,12 +234,12 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the managementAgent
     * Managed Device ManagementAgentType. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, windowsManagementCloudApi.
     *
-    * @return ManagementAgentType The managementAgent
+    * @return ManagementAgentType|null The managementAgent
     */
     public function getManagementAgent()
     {
         if (array_key_exists("managementAgent", $this->_propDict)) {
-            if (is_a($this->_propDict["managementAgent"], "\Beta\Microsoft\Graph\Model\ManagementAgentType")) {
+            if (is_a($this->_propDict["managementAgent"], "\Beta\Microsoft\Graph\Model\ManagementAgentType") || is_null($this->_propDict["managementAgent"])) {
                 return $this->_propDict["managementAgent"];
             } else {
                 $this->_propDict["managementAgent"] = new ManagementAgentType($this->_propDict["managementAgent"]);
@@ -267,12 +267,12 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the ownerType
     * Managed Device ManagedDeviceOwnerType. Possible values are: unknown, company, personal.
     *
-    * @return ManagedDeviceOwnerType The ownerType
+    * @return ManagedDeviceOwnerType|null The ownerType
     */
     public function getOwnerType()
     {
         if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType")) {
+            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType") || is_null($this->_propDict["ownerType"])) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new ManagedDeviceOwnerType($this->_propDict["ownerType"]);
@@ -300,12 +300,12 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the retireAfterDateTime
     * Managed Device Retire After DateTime
     *
-    * @return \DateTime The retireAfterDateTime
+    * @return \DateTime|null The retireAfterDateTime
     */
     public function getRetireAfterDateTime()
     {
         if (array_key_exists("retireAfterDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["retireAfterDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["retireAfterDateTime"], "\DateTime") || is_null($this->_propDict["retireAfterDateTime"])) {
                 return $this->_propDict["retireAfterDateTime"];
             } else {
                 $this->_propDict["retireAfterDateTime"] = new \DateTime($this->_propDict["retireAfterDateTime"]);
@@ -332,7 +332,7 @@ class RetireScheduledManagedDevice extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @return string The roleScopeTagIds
+    * @return string|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {

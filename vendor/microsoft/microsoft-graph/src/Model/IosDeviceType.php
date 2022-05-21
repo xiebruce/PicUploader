@@ -27,7 +27,7 @@ class IosDeviceType extends Entity
     * Gets the iPad
     * Whether the app should run on iPads.
     *
-    * @return bool The iPad
+    * @return bool|null The iPad
     */
     public function getIPad()
     {
@@ -55,7 +55,7 @@ class IosDeviceType extends Entity
     * Gets the iPhoneAndIPod
     * Whether the app should run on iPhones and iPods.
     *
-    * @return bool The iPhoneAndIPod
+    * @return bool|null The iPhoneAndIPod
     */
     public function getIPhoneAndIPod()
     {

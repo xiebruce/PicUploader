@@ -28,7 +28,7 @@ class AccessReview extends Entity
     * Gets the businessFlowTemplateId
     * The business flow template identifier. Required on create.  This value is case sensitive.
     *
-    * @return string The businessFlowTemplateId
+    * @return string|null The businessFlowTemplateId
     */
     public function getBusinessFlowTemplateId()
     {
@@ -38,7 +38,7 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the businessFlowTemplateId
     * The business flow template identifier. Required on create.  This value is case sensitive.
@@ -52,17 +52,17 @@ class AccessReview extends Entity
         $this->_propDict["businessFlowTemplateId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdBy
     * The user who created this review.
     *
-    * @return UserIdentity The createdBy
+    * @return UserIdentity|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new UserIdentity($this->_propDict["createdBy"]);
@@ -71,7 +71,7 @@ class AccessReview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdBy
     * The user who created this review.
@@ -85,12 +85,12 @@ class AccessReview extends Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The description provided by the access review creator, to show to the reviewers.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -100,7 +100,7 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description provided by the access review creator, to show to the reviewers.
@@ -114,12 +114,12 @@ class AccessReview extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The access review name. Required on create.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -129,7 +129,7 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The access review name. Required on create.
@@ -143,17 +143,17 @@ class AccessReview extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the endDateTime
     * The DateTime when the review is scheduled to end. This must be at least one day later than the start date.  Required on create.
     *
-    * @return \DateTime The endDateTime
+    * @return \DateTime|null The endDateTime
     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -162,7 +162,7 @@ class AccessReview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the endDateTime
     * The DateTime when the review is scheduled to end. This must be at least one day later than the start date.  Required on create.
@@ -176,17 +176,17 @@ class AccessReview extends Entity
         $this->_propDict["endDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewedEntity
     * The object for which the access reviews is reviewing the access rights assignments. This can be the group for the review of memberships of users in a group, or the app for a review of assignments of users to an application. Required on create.
     *
-    * @return Identity The reviewedEntity
+    * @return Identity|null The reviewedEntity
     */
     public function getReviewedEntity()
     {
         if (array_key_exists("reviewedEntity", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewedEntity"], "\Beta\Microsoft\Graph\Model\Identity")) {
+            if (is_a($this->_propDict["reviewedEntity"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["reviewedEntity"])) {
                 return $this->_propDict["reviewedEntity"];
             } else {
                 $this->_propDict["reviewedEntity"] = new Identity($this->_propDict["reviewedEntity"]);
@@ -195,7 +195,7 @@ class AccessReview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reviewedEntity
     * The object for which the access reviews is reviewing the access rights assignments. This can be the group for the review of memberships of users in a group, or the app for a review of assignments of users to an application. Required on create.
@@ -209,12 +209,12 @@ class AccessReview extends Entity
         $this->_propDict["reviewedEntity"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewerType
     * The relationship type of reviewer to the target object, one of self, delegated or entityOwners. Required on create.
     *
-    * @return string The reviewerType
+    * @return string|null The reviewerType
     */
     public function getReviewerType()
     {
@@ -224,7 +224,7 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reviewerType
     * The relationship type of reviewer to the target object, one of self, delegated or entityOwners. Required on create.
@@ -238,17 +238,17 @@ class AccessReview extends Entity
         $this->_propDict["reviewerType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settings
     * The settings of an accessReview, see type definition below.
     *
-    * @return AccessReviewSettings The settings
+    * @return AccessReviewSettings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewSettings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new AccessReviewSettings($this->_propDict["settings"]);
@@ -257,7 +257,7 @@ class AccessReview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
     * The settings of an accessReview, see type definition below.
@@ -271,17 +271,17 @@ class AccessReview extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the startDateTime
     * The DateTime when the review is scheduled to be start.  This could be a date in the future.  Required on create.
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -290,7 +290,7 @@ class AccessReview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the startDateTime
     * The DateTime when the review is scheduled to be start.  This could be a date in the future.  Required on create.
@@ -304,12 +304,12 @@ class AccessReview extends Entity
         $this->_propDict["startDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * This read-only field specifies the status of an accessReview. The typical states include Initializing, NotStarted, Starting,InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -319,7 +319,7 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     * This read-only field specifies the status of an accessReview. The typical states include Initializing, NotStarted, Starting,InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.
@@ -333,13 +333,13 @@ class AccessReview extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the decisions
     * The collection of decisions for this access review.
      *
-     * @return array The decisions
+     * @return array|null The decisions
      */
     public function getDecisions()
     {
@@ -349,27 +349,27 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the decisions
     * The collection of decisions for this access review.
     *
-    * @param AccessReviewDecision $val The decisions
+    * @param AccessReviewDecision[] $val The decisions
     *
     * @return AccessReview
     */
     public function setDecisions($val)
     {
-		$this->_propDict["decisions"] = $val;
+        $this->_propDict["decisions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the instances
     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
      *
-     * @return array The instances
+     * @return array|null The instances
      */
     public function getInstances()
     {
@@ -379,27 +379,27 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the instances
     * The collection of access reviews instances past, present and future, if this object is a recurring access review.
     *
-    * @param AccessReview $val The instances
+    * @param AccessReview[] $val The instances
     *
     * @return AccessReview
     */
     public function setInstances($val)
     {
-		$this->_propDict["instances"] = $val;
+        $this->_propDict["instances"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the myDecisions
     * The collection of decisions for the caller, if the caller is a reviewer.
      *
-     * @return array The myDecisions
+     * @return array|null The myDecisions
      */
     public function getMyDecisions()
     {
@@ -409,27 +409,27 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the myDecisions
     * The collection of decisions for the caller, if the caller is a reviewer.
     *
-    * @param AccessReviewDecision $val The myDecisions
+    * @param AccessReviewDecision[] $val The myDecisions
     *
     * @return AccessReview
     */
     public function setMyDecisions($val)
     {
-		$this->_propDict["myDecisions"] = $val;
+        $this->_propDict["myDecisions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the reviewers
     * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
      *
-     * @return array The reviewers
+     * @return array|null The reviewers
      */
     public function getReviewers()
     {
@@ -439,19 +439,19 @@ class AccessReview extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the reviewers
     * The collection of reviewers for an access review, if access review reviewerType is of type delegated.
     *
-    * @param AccessReviewReviewer $val The reviewers
+    * @param AccessReviewReviewer[] $val The reviewers
     *
     * @return AccessReview
     */
     public function setReviewers($val)
     {
-		$this->_propDict["reviewers"] = $val;
+        $this->_propDict["reviewers"] = $val;
         return $this;
     }
-    
+
 }

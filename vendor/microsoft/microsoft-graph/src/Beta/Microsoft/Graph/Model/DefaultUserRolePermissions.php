@@ -27,7 +27,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the allowedToCreateApps
     * Indicates whether the default user role can create applications.
     *
-    * @return bool The allowedToCreateApps
+    * @return bool|null The allowedToCreateApps
     */
     public function getAllowedToCreateApps()
     {
@@ -55,7 +55,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the allowedToCreateSecurityGroups
     * Indicates whether the default user role can create security groups.
     *
-    * @return bool The allowedToCreateSecurityGroups
+    * @return bool|null The allowedToCreateSecurityGroups
     */
     public function getAllowedToCreateSecurityGroups()
     {
@@ -83,7 +83,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the allowedToReadOtherUsers
     * Indicates whether the default user role can read other users.
     *
-    * @return bool The allowedToReadOtherUsers
+    * @return bool|null The allowedToReadOtherUsers
     */
     public function getAllowedToReadOtherUsers()
     {

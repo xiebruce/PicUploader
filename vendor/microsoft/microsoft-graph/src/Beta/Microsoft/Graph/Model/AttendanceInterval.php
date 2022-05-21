@@ -25,8 +25,9 @@ class AttendanceInterval extends Entity
 {
     /**
     * Gets the durationInSeconds
+    * Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime.
     *
-    * @return int The durationInSeconds
+    * @return int|null The durationInSeconds
     */
     public function getDurationInSeconds()
     {
@@ -39,6 +40,7 @@ class AttendanceInterval extends Entity
 
     /**
     * Sets the durationInSeconds
+    * Duration of the meeting interval in seconds; that is, the difference between joinDateTime and leaveDateTime.
     *
     * @param int $val The value of the durationInSeconds
     *
@@ -52,13 +54,14 @@ class AttendanceInterval extends Entity
 
     /**
     * Gets the joinDateTime
+    * The time the attendee joined in UTC.
     *
-    * @return \DateTime The joinDateTime
+    * @return \DateTime|null The joinDateTime
     */
     public function getJoinDateTime()
     {
         if (array_key_exists("joinDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["joinDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["joinDateTime"], "\DateTime") || is_null($this->_propDict["joinDateTime"])) {
                 return $this->_propDict["joinDateTime"];
             } else {
                 $this->_propDict["joinDateTime"] = new \DateTime($this->_propDict["joinDateTime"]);
@@ -70,6 +73,7 @@ class AttendanceInterval extends Entity
 
     /**
     * Sets the joinDateTime
+    * The time the attendee joined in UTC.
     *
     * @param \DateTime $val The value to assign to the joinDateTime
     *
@@ -83,13 +87,14 @@ class AttendanceInterval extends Entity
 
     /**
     * Gets the leaveDateTime
+    * The time the attendee left in UTC.
     *
-    * @return \DateTime The leaveDateTime
+    * @return \DateTime|null The leaveDateTime
     */
     public function getLeaveDateTime()
     {
         if (array_key_exists("leaveDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["leaveDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["leaveDateTime"], "\DateTime") || is_null($this->_propDict["leaveDateTime"])) {
                 return $this->_propDict["leaveDateTime"];
             } else {
                 $this->_propDict["leaveDateTime"] = new \DateTime($this->_propDict["leaveDateTime"]);
@@ -101,6 +106,7 @@ class AttendanceInterval extends Entity
 
     /**
     * Sets the leaveDateTime
+    * The time the attendee left in UTC.
     *
     * @param \DateTime $val The value to assign to the leaveDateTime
     *

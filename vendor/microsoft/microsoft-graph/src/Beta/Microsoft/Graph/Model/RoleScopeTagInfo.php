@@ -27,7 +27,7 @@ class RoleScopeTagInfo extends Entity
     * Gets the displayName
     * Scope Tag Display name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class RoleScopeTagInfo extends Entity
     * Gets the roleScopeTagId
     * Scope Tag Id.
     *
-    * @return string The roleScopeTagId
+    * @return string|null The roleScopeTagId
     */
     public function getRoleScopeTagId()
     {

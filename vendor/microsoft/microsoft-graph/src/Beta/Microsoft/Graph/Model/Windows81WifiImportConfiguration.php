@@ -28,21 +28,21 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
     * Gets the payload
     * Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
     *
-    * @return \GuzzleHttp\Psr7\Stream The payload
+    * @return \GuzzleHttp\Psr7\Stream|null The payload
     */
     public function getPayload()
     {
         if (array_key_exists("payload", $this->_propDict)) {
-            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["payload"])) {
                 return $this->_propDict["payload"];
             } else {
-                $this->_propDict["payload"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["payload"]);
+                $this->_propDict["payload"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["payload"]);
                 return $this->_propDict["payload"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the payload
     * Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
@@ -56,12 +56,12 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
         $this->_propDict["payload"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the payloadFileName
     * Payload file name (.xml).
     *
-    * @return string The payloadFileName
+    * @return string|null The payloadFileName
     */
     public function getPayloadFileName()
     {
@@ -71,7 +71,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the payloadFileName
     * Payload file name (.xml).
@@ -85,12 +85,12 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
         $this->_propDict["payloadFileName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the profileName
     * Profile name displayed in the UI.
     *
-    * @return string The profileName
+    * @return string|null The profileName
     */
     public function getProfileName()
     {
@@ -100,7 +100,7 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the profileName
     * Profile name displayed in the UI.
@@ -114,5 +114,5 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
         $this->_propDict["profileName"] = $val;
         return $this;
     }
-    
+
 }

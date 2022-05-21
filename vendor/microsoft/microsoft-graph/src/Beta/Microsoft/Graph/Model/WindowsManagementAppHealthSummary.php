@@ -28,7 +28,7 @@ class WindowsManagementAppHealthSummary extends Entity
     * Gets the healthyDeviceCount
     * Healthy device count.
     *
-    * @return int The healthyDeviceCount
+    * @return int|null The healthyDeviceCount
     */
     public function getHealthyDeviceCount()
     {
@@ -38,7 +38,7 @@ class WindowsManagementAppHealthSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the healthyDeviceCount
     * Healthy device count.
@@ -52,12 +52,12 @@ class WindowsManagementAppHealthSummary extends Entity
         $this->_propDict["healthyDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the unhealthyDeviceCount
     * Unhealthy device count.
     *
-    * @return int The unhealthyDeviceCount
+    * @return int|null The unhealthyDeviceCount
     */
     public function getUnhealthyDeviceCount()
     {
@@ -67,7 +67,7 @@ class WindowsManagementAppHealthSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the unhealthyDeviceCount
     * Unhealthy device count.
@@ -81,12 +81,12 @@ class WindowsManagementAppHealthSummary extends Entity
         $this->_propDict["unhealthyDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the unknownDeviceCount
     * Unknown device count.
     *
-    * @return int The unknownDeviceCount
+    * @return int|null The unknownDeviceCount
     */
     public function getUnknownDeviceCount()
     {
@@ -96,7 +96,7 @@ class WindowsManagementAppHealthSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the unknownDeviceCount
     * Unknown device count.
@@ -110,5 +110,5 @@ class WindowsManagementAppHealthSummary extends Entity
         $this->_propDict["unknownDeviceCount"] = intval($val);
         return $this;
     }
-    
+
 }

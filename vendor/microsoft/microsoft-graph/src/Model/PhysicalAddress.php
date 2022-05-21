@@ -27,7 +27,7 @@ class PhysicalAddress extends Entity
     * Gets the city
     * The city.
     *
-    * @return string The city
+    * @return string|null The city
     */
     public function getCity()
     {
@@ -55,7 +55,7 @@ class PhysicalAddress extends Entity
     * Gets the countryOrRegion
     * The country or region. It's a free-format string value, for example, 'United States'.
     *
-    * @return string The countryOrRegion
+    * @return string|null The countryOrRegion
     */
     public function getCountryOrRegion()
     {
@@ -83,7 +83,7 @@ class PhysicalAddress extends Entity
     * Gets the postalCode
     * The postal code.
     *
-    * @return string The postalCode
+    * @return string|null The postalCode
     */
     public function getPostalCode()
     {
@@ -111,7 +111,7 @@ class PhysicalAddress extends Entity
     * Gets the state
     * The state.
     *
-    * @return string The state
+    * @return string|null The state
     */
     public function getState()
     {
@@ -139,7 +139,7 @@ class PhysicalAddress extends Entity
     * Gets the street
     * The street.
     *
-    * @return string The street
+    * @return string|null The street
     */
     public function getStreet()
     {

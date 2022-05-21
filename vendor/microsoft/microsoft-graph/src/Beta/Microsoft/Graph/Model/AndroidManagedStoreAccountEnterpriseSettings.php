@@ -28,7 +28,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     * Gets the androidDeviceOwnerFullyManagedEnrollmentEnabled
     * Company codes for AndroidManagedStoreAccountEnterpriseSettings
     *
-    * @return bool The androidDeviceOwnerFullyManagedEnrollmentEnabled
+    * @return bool|null The androidDeviceOwnerFullyManagedEnrollmentEnabled
     */
     public function getAndroidDeviceOwnerFullyManagedEnrollmentEnabled()
     {
@@ -38,7 +38,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the androidDeviceOwnerFullyManagedEnrollmentEnabled
     * Company codes for AndroidManagedStoreAccountEnterpriseSettings
@@ -52,17 +52,17 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["androidDeviceOwnerFullyManagedEnrollmentEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bindStatus
     * Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
     *
-    * @return AndroidManagedStoreAccountBindStatus The bindStatus
+    * @return AndroidManagedStoreAccountBindStatus|null The bindStatus
     */
     public function getBindStatus()
     {
         if (array_key_exists("bindStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["bindStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountBindStatus")) {
+            if (is_a($this->_propDict["bindStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountBindStatus") || is_null($this->_propDict["bindStatus"])) {
                 return $this->_propDict["bindStatus"];
             } else {
                 $this->_propDict["bindStatus"] = new AndroidManagedStoreAccountBindStatus($this->_propDict["bindStatus"]);
@@ -71,7 +71,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the bindStatus
     * Bind status of the tenant with the Google EMM API. Possible values are: notBound, bound, boundAndValidated, unbinding.
@@ -85,13 +85,13 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["bindStatus"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the companyCodes
     * Company codes for AndroidManagedStoreAccountEnterpriseSettings
      *
-     * @return array The companyCodes
+     * @return array|null The companyCodes
      */
     public function getCompanyCodes()
     {
@@ -101,26 +101,26 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the companyCodes
     * Company codes for AndroidManagedStoreAccountEnterpriseSettings
     *
-    * @param AndroidEnrollmentCompanyCode $val The companyCodes
+    * @param AndroidEnrollmentCompanyCode[] $val The companyCodes
     *
     * @return AndroidManagedStoreAccountEnterpriseSettings
     */
     public function setCompanyCodes($val)
     {
-		$this->_propDict["companyCodes"] = $val;
+        $this->_propDict["companyCodes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceOwnerManagementEnabled
     * Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
     *
-    * @return bool The deviceOwnerManagementEnabled
+    * @return bool|null The deviceOwnerManagementEnabled
     */
     public function getDeviceOwnerManagementEnabled()
     {
@@ -130,7 +130,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceOwnerManagementEnabled
     * Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
@@ -144,17 +144,17 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["deviceOwnerManagementEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enrollmentTarget
     * Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
     *
-    * @return AndroidManagedStoreAccountEnrollmentTarget The enrollmentTarget
+    * @return AndroidManagedStoreAccountEnrollmentTarget|null The enrollmentTarget
     */
     public function getEnrollmentTarget()
     {
         if (array_key_exists("enrollmentTarget", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentTarget"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountEnrollmentTarget")) {
+            if (is_a($this->_propDict["enrollmentTarget"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountEnrollmentTarget") || is_null($this->_propDict["enrollmentTarget"])) {
                 return $this->_propDict["enrollmentTarget"];
             } else {
                 $this->_propDict["enrollmentTarget"] = new AndroidManagedStoreAccountEnrollmentTarget($this->_propDict["enrollmentTarget"]);
@@ -163,7 +163,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the enrollmentTarget
     * Indicates which users can enroll devices in Android Enterprise device management. Possible values are: none, all, targeted, targetedAsEnrollmentRestrictions.
@@ -177,17 +177,17 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["enrollmentTarget"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastAppSyncDateTime
     * Last completion time for app sync
     *
-    * @return \DateTime The lastAppSyncDateTime
+    * @return \DateTime|null The lastAppSyncDateTime
     */
     public function getLastAppSyncDateTime()
     {
         if (array_key_exists("lastAppSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAppSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastAppSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastAppSyncDateTime"])) {
                 return $this->_propDict["lastAppSyncDateTime"];
             } else {
                 $this->_propDict["lastAppSyncDateTime"] = new \DateTime($this->_propDict["lastAppSyncDateTime"]);
@@ -196,7 +196,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastAppSyncDateTime
     * Last completion time for app sync
@@ -210,17 +210,17 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["lastAppSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastAppSyncStatus
     * Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
     *
-    * @return AndroidManagedStoreAccountAppSyncStatus The lastAppSyncStatus
+    * @return AndroidManagedStoreAccountAppSyncStatus|null The lastAppSyncStatus
     */
     public function getLastAppSyncStatus()
     {
         if (array_key_exists("lastAppSyncStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAppSyncStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountAppSyncStatus")) {
+            if (is_a($this->_propDict["lastAppSyncStatus"], "\Beta\Microsoft\Graph\Model\AndroidManagedStoreAccountAppSyncStatus") || is_null($this->_propDict["lastAppSyncStatus"])) {
                 return $this->_propDict["lastAppSyncStatus"];
             } else {
                 $this->_propDict["lastAppSyncStatus"] = new AndroidManagedStoreAccountAppSyncStatus($this->_propDict["lastAppSyncStatus"]);
@@ -229,7 +229,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastAppSyncStatus
     * Last application sync result. Possible values are: success, credentialsNotValid, androidForWorkApiError, managementServiceError, unknownError, none.
@@ -243,17 +243,17 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["lastAppSyncStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Last modification time for Android enterprise settings
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -262,7 +262,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Last modification time for Android enterprise settings
@@ -276,12 +276,41 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the managedGooglePlayInitialScopeTagIds
+    * Initial scope tags for MGP apps
+    *
+    * @return string|null The managedGooglePlayInitialScopeTagIds
+    */
+    public function getManagedGooglePlayInitialScopeTagIds()
+    {
+        if (array_key_exists("managedGooglePlayInitialScopeTagIds", $this->_propDict)) {
+            return $this->_propDict["managedGooglePlayInitialScopeTagIds"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the managedGooglePlayInitialScopeTagIds
+    * Initial scope tags for MGP apps
+    *
+    * @param string $val The managedGooglePlayInitialScopeTagIds
+    *
+    * @return AndroidManagedStoreAccountEnterpriseSettings
+    */
+    public function setManagedGooglePlayInitialScopeTagIds($val)
+    {
+        $this->_propDict["managedGooglePlayInitialScopeTagIds"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the ownerOrganizationName
     * Organization name used when onboarding Android Enterprise
     *
-    * @return string The ownerOrganizationName
+    * @return string|null The ownerOrganizationName
     */
     public function getOwnerOrganizationName()
     {
@@ -291,7 +320,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ownerOrganizationName
     * Organization name used when onboarding Android Enterprise
@@ -305,12 +334,12 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["ownerOrganizationName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ownerUserPrincipalName
     * Owner UPN that created the enterprise
     *
-    * @return string The ownerUserPrincipalName
+    * @return string|null The ownerUserPrincipalName
     */
     public function getOwnerUserPrincipalName()
     {
@@ -320,7 +349,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ownerUserPrincipalName
     * Owner UPN that created the enterprise
@@ -334,12 +363,12 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["ownerUserPrincipalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetGroupIds
     * Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
     *
-    * @return string The targetGroupIds
+    * @return string|null The targetGroupIds
     */
     public function getTargetGroupIds()
     {
@@ -349,7 +378,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetGroupIds
     * Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
@@ -363,5 +392,5 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
         $this->_propDict["targetGroupIds"] = $val;
         return $this;
     }
-    
+
 }

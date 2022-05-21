@@ -27,7 +27,7 @@ class Process extends Entity
     * Gets the accountName
     * User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.
     *
-    * @return string The accountName
+    * @return string|null The accountName
     */
     public function getAccountName()
     {
@@ -55,7 +55,7 @@ class Process extends Entity
     * Gets the commandLine
     * The full process invocation commandline including all parameters.
     *
-    * @return string The commandLine
+    * @return string|null The commandLine
     */
     public function getCommandLine()
     {
@@ -84,12 +84,12 @@ class Process extends Entity
     * Gets the createdDateTime
     * Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -117,12 +117,12 @@ class Process extends Entity
     * Gets the fileHash
     * Complex type containing file hashes (cryptographic and location-sensitive).
     *
-    * @return FileHash The fileHash
+    * @return FileHash|null The fileHash
     */
     public function getFileHash()
     {
         if (array_key_exists("fileHash", $this->_propDict)) {
-            if (is_a($this->_propDict["fileHash"], "\Microsoft\Graph\Model\FileHash")) {
+            if (is_a($this->_propDict["fileHash"], "\Microsoft\Graph\Model\FileHash") || is_null($this->_propDict["fileHash"])) {
                 return $this->_propDict["fileHash"];
             } else {
                 $this->_propDict["fileHash"] = new FileHash($this->_propDict["fileHash"]);
@@ -150,12 +150,12 @@ class Process extends Entity
     * Gets the integrityLevel
     * The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
     *
-    * @return ProcessIntegrityLevel The integrityLevel
+    * @return ProcessIntegrityLevel|null The integrityLevel
     */
     public function getIntegrityLevel()
     {
         if (array_key_exists("integrityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["integrityLevel"], "\Microsoft\Graph\Model\ProcessIntegrityLevel")) {
+            if (is_a($this->_propDict["integrityLevel"], "\Microsoft\Graph\Model\ProcessIntegrityLevel") || is_null($this->_propDict["integrityLevel"])) {
                 return $this->_propDict["integrityLevel"];
             } else {
                 $this->_propDict["integrityLevel"] = new ProcessIntegrityLevel($this->_propDict["integrityLevel"]);
@@ -182,7 +182,7 @@ class Process extends Entity
     * Gets the isElevated
     * True if the process is elevated.
     *
-    * @return bool The isElevated
+    * @return bool|null The isElevated
     */
     public function getIsElevated()
     {
@@ -210,7 +210,7 @@ class Process extends Entity
     * Gets the name
     * The name of the process' Image file.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -239,12 +239,12 @@ class Process extends Entity
     * Gets the parentProcessCreatedDateTime
     * DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The parentProcessCreatedDateTime
+    * @return \DateTime|null The parentProcessCreatedDateTime
     */
     public function getParentProcessCreatedDateTime()
     {
         if (array_key_exists("parentProcessCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["parentProcessCreatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["parentProcessCreatedDateTime"], "\DateTime") || is_null($this->_propDict["parentProcessCreatedDateTime"])) {
                 return $this->_propDict["parentProcessCreatedDateTime"];
             } else {
                 $this->_propDict["parentProcessCreatedDateTime"] = new \DateTime($this->_propDict["parentProcessCreatedDateTime"]);
@@ -271,7 +271,7 @@ class Process extends Entity
     * Gets the parentProcessId
     * The Process ID (PID) of the parent process.
     *
-    * @return int The parentProcessId
+    * @return int|null The parentProcessId
     */
     public function getParentProcessId()
     {
@@ -299,7 +299,7 @@ class Process extends Entity
     * Gets the parentProcessName
     * The name of the image file of the parent process.
     *
-    * @return string The parentProcessName
+    * @return string|null The parentProcessName
     */
     public function getParentProcessName()
     {
@@ -327,7 +327,7 @@ class Process extends Entity
     * Gets the path
     * Full path, including filename.
     *
-    * @return string The path
+    * @return string|null The path
     */
     public function getPath()
     {
@@ -355,7 +355,7 @@ class Process extends Entity
     * Gets the processId
     * The Process ID (PID) of the process.
     *
-    * @return int The processId
+    * @return int|null The processId
     */
     public function getProcessId()
     {

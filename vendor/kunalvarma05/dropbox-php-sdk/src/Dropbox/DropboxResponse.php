@@ -104,6 +104,7 @@ class DropboxResponse
      * Get the Decoded Body
      *
      * @return array
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getDecodedBody()
     {

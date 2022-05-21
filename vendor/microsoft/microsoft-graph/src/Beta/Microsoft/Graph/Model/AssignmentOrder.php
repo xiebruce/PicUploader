@@ -27,7 +27,7 @@ class AssignmentOrder extends Entity
     * Gets the order
     * A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
     *
-    * @return string The order
+    * @return string|null The order
     */
     public function getOrder()
     {

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
     * Gets the category
     * The category of impacting process.
     *
-    * @return string The category
+    * @return string|null The category
     */
     public function getCategory()
     {
@@ -38,7 +38,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the category
     * The category of impacting process.
@@ -52,12 +52,12 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
         $this->_propDict["category"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The description of process.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -67,7 +67,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description of process.
@@ -81,12 +81,12 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceId
     * The unique identifier of the impacted device.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -96,7 +96,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * The unique identifier of the impacted device.
@@ -110,12 +110,12 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the impactValue
     * The impact value of the process. Valid values 0 to 1.79769313486232E+308
     *
-    * @return float The impactValue
+    * @return float|null The impactValue
     */
     public function getImpactValue()
     {
@@ -125,7 +125,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the impactValue
     * The impact value of the process. Valid values 0 to 1.79769313486232E+308
@@ -136,15 +136,15 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
     */
     public function setImpactValue($val)
     {
-        $this->_propDict["impactValue"] = $val;
+        $this->_propDict["impactValue"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the processName
     * The process name.
     *
-    * @return string The processName
+    * @return string|null The processName
     */
     public function getProcessName()
     {
@@ -154,7 +154,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the processName
     * The process name.
@@ -168,12 +168,12 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
         $this->_propDict["processName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publisher
     * The publisher of the process.
     *
-    * @return string The publisher
+    * @return string|null The publisher
     */
     public function getPublisher()
     {
@@ -183,7 +183,7 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the publisher
     * The publisher of the process.
@@ -197,5 +197,5 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-    
+
 }

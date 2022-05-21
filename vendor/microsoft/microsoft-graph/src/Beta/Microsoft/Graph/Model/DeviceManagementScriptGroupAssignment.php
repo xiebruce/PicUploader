@@ -28,7 +28,7 @@ class DeviceManagementScriptGroupAssignment extends Entity
     * Gets the targetGroupId
     * The Id of the Azure Active Directory group we are targeting the script to.
     *
-    * @return string The targetGroupId
+    * @return string|null The targetGroupId
     */
     public function getTargetGroupId()
     {
@@ -38,7 +38,7 @@ class DeviceManagementScriptGroupAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetGroupId
     * The Id of the Azure Active Directory group we are targeting the script to.
@@ -52,5 +52,5 @@ class DeviceManagementScriptGroupAssignment extends Entity
         $this->_propDict["targetGroupId"] = $val;
         return $this;
     }
-    
+
 }

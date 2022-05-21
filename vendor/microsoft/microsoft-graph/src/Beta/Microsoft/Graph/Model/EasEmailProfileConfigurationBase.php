@@ -28,7 +28,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
     * Gets the customDomainName
     * Custom domain name value used while generating an email profile before installing on the device.
     *
-    * @return string The customDomainName
+    * @return string|null The customDomainName
     */
     public function getCustomDomainName()
     {
@@ -38,7 +38,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the customDomainName
     * Custom domain name value used while generating an email profile before installing on the device.
@@ -52,17 +52,17 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         $this->_propDict["customDomainName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userDomainNameSource
     * UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
     *
-    * @return DomainNameSource The userDomainNameSource
+    * @return DomainNameSource|null The userDomainNameSource
     */
     public function getUserDomainNameSource()
     {
         if (array_key_exists("userDomainNameSource", $this->_propDict)) {
-            if (is_a($this->_propDict["userDomainNameSource"], "\Beta\Microsoft\Graph\Model\DomainNameSource")) {
+            if (is_a($this->_propDict["userDomainNameSource"], "\Beta\Microsoft\Graph\Model\DomainNameSource") || is_null($this->_propDict["userDomainNameSource"])) {
                 return $this->_propDict["userDomainNameSource"];
             } else {
                 $this->_propDict["userDomainNameSource"] = new DomainNameSource($this->_propDict["userDomainNameSource"]);
@@ -71,7 +71,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userDomainNameSource
     * UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: fullDomainName, netBiosDomainName.
@@ -85,17 +85,17 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         $this->_propDict["userDomainNameSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the usernameAADSource
     * Name of the AAD field, that will be used to retrieve UserName for email profile. Possible values are: userPrincipalName, primarySmtpAddress, samAccountName.
     *
-    * @return UsernameSource The usernameAADSource
+    * @return UsernameSource|null The usernameAADSource
     */
     public function getUsernameAADSource()
     {
         if (array_key_exists("usernameAADSource", $this->_propDict)) {
-            if (is_a($this->_propDict["usernameAADSource"], "\Beta\Microsoft\Graph\Model\UsernameSource")) {
+            if (is_a($this->_propDict["usernameAADSource"], "\Beta\Microsoft\Graph\Model\UsernameSource") || is_null($this->_propDict["usernameAADSource"])) {
                 return $this->_propDict["usernameAADSource"];
             } else {
                 $this->_propDict["usernameAADSource"] = new UsernameSource($this->_propDict["usernameAADSource"]);
@@ -104,7 +104,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the usernameAADSource
     * Name of the AAD field, that will be used to retrieve UserName for email profile. Possible values are: userPrincipalName, primarySmtpAddress, samAccountName.
@@ -118,17 +118,17 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         $this->_propDict["usernameAADSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the usernameSource
     * Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
     *
-    * @return UserEmailSource The usernameSource
+    * @return UserEmailSource|null The usernameSource
     */
     public function getUsernameSource()
     {
         if (array_key_exists("usernameSource", $this->_propDict)) {
-            if (is_a($this->_propDict["usernameSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource")) {
+            if (is_a($this->_propDict["usernameSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource") || is_null($this->_propDict["usernameSource"])) {
                 return $this->_propDict["usernameSource"];
             } else {
                 $this->_propDict["usernameSource"] = new UserEmailSource($this->_propDict["usernameSource"]);
@@ -137,7 +137,7 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the usernameSource
     * Username attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
@@ -151,5 +151,5 @@ class EasEmailProfileConfigurationBase extends DeviceConfiguration
         $this->_propDict["usernameSource"] = $val;
         return $this;
     }
-    
+
 }

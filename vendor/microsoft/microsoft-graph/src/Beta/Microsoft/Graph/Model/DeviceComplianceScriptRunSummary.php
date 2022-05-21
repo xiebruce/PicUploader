@@ -28,7 +28,7 @@ class DeviceComplianceScriptRunSummary extends Entity
     * Gets the detectionScriptErrorDeviceCount
     * Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647
     *
-    * @return int The detectionScriptErrorDeviceCount
+    * @return int|null The detectionScriptErrorDeviceCount
     */
     public function getDetectionScriptErrorDeviceCount()
     {
@@ -38,7 +38,7 @@ class DeviceComplianceScriptRunSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the detectionScriptErrorDeviceCount
     * Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647
@@ -52,12 +52,12 @@ class DeviceComplianceScriptRunSummary extends Entity
         $this->_propDict["detectionScriptErrorDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the detectionScriptPendingDeviceCount
     * Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647
     *
-    * @return int The detectionScriptPendingDeviceCount
+    * @return int|null The detectionScriptPendingDeviceCount
     */
     public function getDetectionScriptPendingDeviceCount()
     {
@@ -67,7 +67,7 @@ class DeviceComplianceScriptRunSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the detectionScriptPendingDeviceCount
     * Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647
@@ -81,12 +81,12 @@ class DeviceComplianceScriptRunSummary extends Entity
         $this->_propDict["detectionScriptPendingDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the issueDetectedDeviceCount
     * Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647
     *
-    * @return int The issueDetectedDeviceCount
+    * @return int|null The issueDetectedDeviceCount
     */
     public function getIssueDetectedDeviceCount()
     {
@@ -96,7 +96,7 @@ class DeviceComplianceScriptRunSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the issueDetectedDeviceCount
     * Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647
@@ -110,17 +110,17 @@ class DeviceComplianceScriptRunSummary extends Entity
         $this->_propDict["issueDetectedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastScriptRunDateTime
     * Last run time for the script across all devices
     *
-    * @return \DateTime The lastScriptRunDateTime
+    * @return \DateTime|null The lastScriptRunDateTime
     */
     public function getLastScriptRunDateTime()
     {
         if (array_key_exists("lastScriptRunDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastScriptRunDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastScriptRunDateTime"], "\DateTime") || is_null($this->_propDict["lastScriptRunDateTime"])) {
                 return $this->_propDict["lastScriptRunDateTime"];
             } else {
                 $this->_propDict["lastScriptRunDateTime"] = new \DateTime($this->_propDict["lastScriptRunDateTime"]);
@@ -129,7 +129,7 @@ class DeviceComplianceScriptRunSummary extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastScriptRunDateTime
     * Last run time for the script across all devices
@@ -143,12 +143,12 @@ class DeviceComplianceScriptRunSummary extends Entity
         $this->_propDict["lastScriptRunDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the noIssueDetectedDeviceCount
     * Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647
     *
-    * @return int The noIssueDetectedDeviceCount
+    * @return int|null The noIssueDetectedDeviceCount
     */
     public function getNoIssueDetectedDeviceCount()
     {
@@ -158,7 +158,7 @@ class DeviceComplianceScriptRunSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the noIssueDetectedDeviceCount
     * Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647
@@ -172,5 +172,5 @@ class DeviceComplianceScriptRunSummary extends Entity
         $this->_propDict["noIssueDetectedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
 }

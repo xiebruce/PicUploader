@@ -28,12 +28,12 @@ class IosHomeScreenFolderPage extends Entity
     * Gets the apps
     * A list of apps and web clips to appear on a page within a folder. This collection can contain a maximum of 500 elements.
     *
-    * @return IosHomeScreenApp The apps
+    * @return IosHomeScreenApp|null The apps
     */
     public function getApps()
     {
         if (array_key_exists("apps", $this->_propDict)) {
-            if (is_a($this->_propDict["apps"], "\Beta\Microsoft\Graph\Model\IosHomeScreenApp")) {
+            if (is_a($this->_propDict["apps"], "\Beta\Microsoft\Graph\Model\IosHomeScreenApp") || is_null($this->_propDict["apps"])) {
                 return $this->_propDict["apps"];
             } else {
                 $this->_propDict["apps"] = new IosHomeScreenApp($this->_propDict["apps"]);
@@ -60,7 +60,7 @@ class IosHomeScreenFolderPage extends Entity
     * Gets the displayName
     * Name of the folder page
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {

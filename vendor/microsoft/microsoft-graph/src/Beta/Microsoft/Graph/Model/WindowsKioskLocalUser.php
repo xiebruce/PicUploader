@@ -27,7 +27,7 @@ class WindowsKioskLocalUser extends WindowsKioskUser
     * Gets the userName
     * The local user that will be locked to this kiosk configuration
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {

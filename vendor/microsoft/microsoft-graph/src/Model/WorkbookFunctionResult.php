@@ -27,7 +27,7 @@ class WorkbookFunctionResult extends Entity
     /**
     * Gets the error
     *
-    * @return string The error
+    * @return string|null The error
     */
     public function getError()
     {
@@ -37,7 +37,7 @@ class WorkbookFunctionResult extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the error
     *
@@ -50,11 +50,11 @@ class WorkbookFunctionResult extends Entity
         $this->_propDict["error"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the value
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -64,7 +64,7 @@ class WorkbookFunctionResult extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the value
     *
@@ -77,5 +77,5 @@ class WorkbookFunctionResult extends Entity
         $this->_propDict["value"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class EducationFeedback extends Entity
     * Gets the feedbackBy
     * User who created the feedback.
     *
-    * @return IdentitySet The feedbackBy
+    * @return IdentitySet|null The feedbackBy
     */
     public function getFeedbackBy()
     {
         if (array_key_exists("feedbackBy", $this->_propDict)) {
-            if (is_a($this->_propDict["feedbackBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["feedbackBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["feedbackBy"])) {
                 return $this->_propDict["feedbackBy"];
             } else {
                 $this->_propDict["feedbackBy"] = new IdentitySet($this->_propDict["feedbackBy"]);
@@ -61,12 +61,12 @@ class EducationFeedback extends Entity
     * Gets the feedbackDateTime
     * Moment in time when the feedback was given. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The feedbackDateTime
+    * @return \DateTime|null The feedbackDateTime
     */
     public function getFeedbackDateTime()
     {
         if (array_key_exists("feedbackDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["feedbackDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["feedbackDateTime"], "\DateTime") || is_null($this->_propDict["feedbackDateTime"])) {
                 return $this->_propDict["feedbackDateTime"];
             } else {
                 $this->_propDict["feedbackDateTime"] = new \DateTime($this->_propDict["feedbackDateTime"]);
@@ -94,12 +94,12 @@ class EducationFeedback extends Entity
     * Gets the text
     * Feedback.
     *
-    * @return EducationItemBody The text
+    * @return EducationItemBody|null The text
     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
-            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\EducationItemBody")) {
+            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\EducationItemBody") || is_null($this->_propDict["text"])) {
                 return $this->_propDict["text"];
             } else {
                 $this->_propDict["text"] = new EducationItemBody($this->_propDict["text"]);

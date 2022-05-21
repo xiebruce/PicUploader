@@ -28,7 +28,7 @@ class AppConsentRequest extends Entity
     * Gets the appDisplayName
     * The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
     *
-    * @return string The appDisplayName
+    * @return string|null The appDisplayName
     */
     public function getAppDisplayName()
     {
@@ -38,7 +38,7 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appDisplayName
     * The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
@@ -52,12 +52,12 @@ class AppConsentRequest extends Entity
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appId
     * The identifier of the application. Required. Supports $filter (eq only) and $orderby.
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -67,7 +67,7 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appId
     * The identifier of the application. Required. Supports $filter (eq only) and $orderby.
@@ -81,13 +81,13 @@ class AppConsentRequest extends Entity
         $this->_propDict["appId"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the pendingScopes
     * A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
      *
-     * @return array The pendingScopes
+     * @return array|null The pendingScopes
      */
     public function getPendingScopes()
     {
@@ -97,27 +97,27 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the pendingScopes
     * A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
     *
-    * @param AppConsentRequestScope $val The pendingScopes
+    * @param AppConsentRequestScope[] $val The pendingScopes
     *
     * @return AppConsentRequest
     */
     public function setPendingScopes($val)
     {
-		$this->_propDict["pendingScopes"] = $val;
+        $this->_propDict["pendingScopes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userConsentRequests
     * A list of pending user consent requests.
      *
-     * @return array The userConsentRequests
+     * @return array|null The userConsentRequests
      */
     public function getUserConsentRequests()
     {
@@ -127,19 +127,19 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the userConsentRequests
     * A list of pending user consent requests.
     *
-    * @param UserConsentRequest $val The userConsentRequests
+    * @param UserConsentRequest[] $val The userConsentRequests
     *
     * @return AppConsentRequest
     */
     public function setUserConsentRequests($val)
     {
-		$this->_propDict["userConsentRequests"] = $val;
+        $this->_propDict["userConsentRequests"] = $val;
         return $this;
     }
-    
+
 }

@@ -26,9 +26,9 @@ class DeviceComplianceScheduledActionForRule extends Entity
 {
     /**
     * Gets the ruleName
-    * Name of the rule which this scheduled action applies to.
+    * Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired.
     *
-    * @return string The ruleName
+    * @return string|null The ruleName
     */
     public function getRuleName()
     {
@@ -38,10 +38,10 @@ class DeviceComplianceScheduledActionForRule extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ruleName
-    * Name of the rule which this scheduled action applies to.
+    * Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired.
     *
     * @param string $val The ruleName
     *
@@ -52,13 +52,13 @@ class DeviceComplianceScheduledActionForRule extends Entity
         $this->_propDict["ruleName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the scheduledActionConfigurations
-    * The list of scheduled action configurations for this compliance policy.
+    * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
      *
-     * @return array The scheduledActionConfigurations
+     * @return array|null The scheduledActionConfigurations
      */
     public function getScheduledActionConfigurations()
     {
@@ -68,19 +68,19 @@ class DeviceComplianceScheduledActionForRule extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the scheduledActionConfigurations
-    * The list of scheduled action configurations for this compliance policy.
+    * The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
     *
-    * @param DeviceComplianceActionItem $val The scheduledActionConfigurations
+    * @param DeviceComplianceActionItem[] $val The scheduledActionConfigurations
     *
     * @return DeviceComplianceScheduledActionForRule
     */
     public function setScheduledActionConfigurations($val)
     {
-		$this->_propDict["scheduledActionConfigurations"] = $val;
+        $this->_propDict["scheduledActionConfigurations"] = $val;
         return $this;
     }
-    
+
 }

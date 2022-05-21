@@ -28,7 +28,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
     * Gets the allowPrinting
     * Indicates whether or not to allow the app from printing during the test.
     *
-    * @return bool The allowPrinting
+    * @return bool|null The allowPrinting
     */
     public function getAllowPrinting()
     {
@@ -38,7 +38,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the allowPrinting
     * Indicates whether or not to allow the app from printing during the test.
@@ -52,12 +52,12 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
         $this->_propDict["allowPrinting"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the allowScreenCapture
     * Indicates whether or not to allow screen capture capability during a test.
     *
-    * @return bool The allowScreenCapture
+    * @return bool|null The allowScreenCapture
     */
     public function getAllowScreenCapture()
     {
@@ -67,7 +67,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the allowScreenCapture
     * Indicates whether or not to allow screen capture capability during a test.
@@ -81,12 +81,12 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
         $this->_propDict["allowScreenCapture"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the allowTextSuggestion
     * Indicates whether or not to allow text suggestions during the test.
     *
-    * @return bool The allowTextSuggestion
+    * @return bool|null The allowTextSuggestion
     */
     public function getAllowTextSuggestion()
     {
@@ -96,7 +96,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the allowTextSuggestion
     * Indicates whether or not to allow text suggestions during the test.
@@ -110,12 +110,12 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
         $this->_propDict["allowTextSuggestion"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the configurationAccount
     * The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).
     *
-    * @return string The configurationAccount
+    * @return string|null The configurationAccount
     */
     public function getConfigurationAccount()
     {
@@ -125,7 +125,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the configurationAccount
     * The account used to configure the Windows device for taking the test. The user can be a domain account (domain/user), an AAD account (username@tenant.com) or a local account (username).
@@ -139,12 +139,12 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
         $this->_propDict["configurationAccount"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the launchUri
     * Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
     *
-    * @return string The launchUri
+    * @return string|null The launchUri
     */
     public function getLaunchUri()
     {
@@ -154,7 +154,7 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the launchUri
     * Url link to an assessment that's automatically loaded when the secure assessment browser is launched. It has to be a valid Url (http[s]://msdn.microsoft.com/).
@@ -168,5 +168,5 @@ class Windows10SecureAssessmentConfiguration extends DeviceConfiguration
         $this->_propDict["launchUri"] = $val;
         return $this;
     }
-    
+
 }

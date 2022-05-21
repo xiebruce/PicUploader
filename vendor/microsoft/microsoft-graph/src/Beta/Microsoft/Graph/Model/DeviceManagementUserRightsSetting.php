@@ -28,12 +28,12 @@ class DeviceManagementUserRightsSetting extends Entity
     * Gets the localUsersOrGroups
     * Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.
     *
-    * @return DeviceManagementUserRightsLocalUserOrGroup The localUsersOrGroups
+    * @return DeviceManagementUserRightsLocalUserOrGroup|null The localUsersOrGroups
     */
     public function getLocalUsersOrGroups()
     {
         if (array_key_exists("localUsersOrGroups", $this->_propDict)) {
-            if (is_a($this->_propDict["localUsersOrGroups"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsLocalUserOrGroup")) {
+            if (is_a($this->_propDict["localUsersOrGroups"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsLocalUserOrGroup") || is_null($this->_propDict["localUsersOrGroups"])) {
                 return $this->_propDict["localUsersOrGroups"];
             } else {
                 $this->_propDict["localUsersOrGroups"] = new DeviceManagementUserRightsLocalUserOrGroup($this->_propDict["localUsersOrGroups"]);
@@ -61,12 +61,12 @@ class DeviceManagementUserRightsSetting extends Entity
     * Gets the state
     * Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
     *
-    * @return StateManagementSetting The state
+    * @return StateManagementSetting|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\StateManagementSetting")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new StateManagementSetting($this->_propDict["state"]);

@@ -2,7 +2,12 @@
     "name": "qiniu/php-sdk",
     "type": "library",
     "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
-    "keywords": ["qiniu", "storage", "sdk", "cloud"],
+    "keywords": [
+        "qiniu",
+        "storage",
+        "sdk",
+        "cloud"
+    ],
     "homepage": "http://developer.qiniu.com/",
     "license": "MIT",
     "authors": [
@@ -13,14 +18,20 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3"
+        "php": ">=5.3.3",
+        "myclabs/php-enum": "1.6.6"
     },
     "require-dev": {
+        "paragonie/random_compat": ">=2",
         "phpunit/phpunit": "~4.0",
-        "squizlabs/php_codesniffer": "~2.3"
+        "squizlabs/php_codesniffer": "~3.6"
     },
     "autoload": {
-        "psr-4": {"Qiniu\\": "src/Qiniu"},
-        "files": ["src/Qiniu/functions.php"]
+        "psr-4": {
+            "Qiniu\\": "src/Qiniu"
+        },
+        "files": [
+            "src/Qiniu/functions.php"
+        ]
     }
 }

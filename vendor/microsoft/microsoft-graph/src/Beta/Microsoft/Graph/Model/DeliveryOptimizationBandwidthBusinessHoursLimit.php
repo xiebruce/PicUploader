@@ -27,7 +27,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
     * Gets the bandwidthBeginBusinessHours
     * Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
     *
-    * @return int The bandwidthBeginBusinessHours
+    * @return int|null The bandwidthBeginBusinessHours
     */
     public function getBandwidthBeginBusinessHours()
     {
@@ -55,7 +55,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
     * Gets the bandwidthEndBusinessHours
     * Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23
     *
-    * @return int The bandwidthEndBusinessHours
+    * @return int|null The bandwidthEndBusinessHours
     */
     public function getBandwidthEndBusinessHours()
     {
@@ -83,7 +83,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
     * Gets the bandwidthPercentageDuringBusinessHours
     * Specifies the percentage of bandwidth to limit during business hours (0-100). Valid values 0 to 100
     *
-    * @return int The bandwidthPercentageDuringBusinessHours
+    * @return int|null The bandwidthPercentageDuringBusinessHours
     */
     public function getBandwidthPercentageDuringBusinessHours()
     {
@@ -111,7 +111,7 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
     * Gets the bandwidthPercentageOutsideBusinessHours
     * Specifies the percentage of bandwidth to limit outsidse business hours (0-100). Valid values 0 to 100
     *
-    * @return int The bandwidthPercentageOutsideBusinessHours
+    * @return int|null The bandwidthPercentageOutsideBusinessHours
     */
     public function getBandwidthPercentageOutsideBusinessHours()
     {

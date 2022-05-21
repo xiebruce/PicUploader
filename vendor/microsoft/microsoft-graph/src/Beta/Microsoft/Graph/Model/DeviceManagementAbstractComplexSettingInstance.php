@@ -28,7 +28,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
     * Gets the implementationId
     * The definition ID for the chosen implementation of this complex setting
     *
-    * @return string The implementationId
+    * @return string|null The implementationId
     */
     public function getImplementationId()
     {
@@ -38,7 +38,7 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
             return null;
         }
     }
-    
+
     /**
     * Sets the implementationId
     * The definition ID for the chosen implementation of this complex setting
@@ -52,13 +52,13 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
         $this->_propDict["implementationId"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the value
     * The values that make up the complex setting
      *
-     * @return array The value
+     * @return array|null The value
      */
     public function getValue()
     {
@@ -68,19 +68,19 @@ class DeviceManagementAbstractComplexSettingInstance extends DeviceManagementSet
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the value
     * The values that make up the complex setting
     *
-    * @param DeviceManagementSettingInstance $val The value
+    * @param DeviceManagementSettingInstance[] $val The value
     *
     * @return DeviceManagementAbstractComplexSettingInstance
     */
     public function setValue($val)
     {
-		$this->_propDict["value"] = $val;
+        $this->_propDict["value"] = $val;
         return $this;
     }
-    
+
 }

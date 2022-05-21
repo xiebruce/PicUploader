@@ -28,12 +28,12 @@ class TeamworkActivityTopic extends Entity
     * Gets the source
     * Type of source. Possible values are: entityUrl, text. For supported Microsoft Graph URLs, use entityUrl. For custom text, use text.
     *
-    * @return TeamworkActivityTopicSource The source
+    * @return TeamworkActivityTopicSource|null The source
     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\TeamworkActivityTopicSource")) {
+            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\TeamworkActivityTopicSource") || is_null($this->_propDict["source"])) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new TeamworkActivityTopicSource($this->_propDict["source"]);
@@ -60,7 +60,7 @@ class TeamworkActivityTopic extends Entity
     * Gets the value
     * The topic value. If the value of the source property is entityUrl, this must be a Microsoft Graph URL. If the vaule is text, this must be a plain text value.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -88,7 +88,7 @@ class TeamworkActivityTopic extends Entity
     * Gets the webUrl
     * The link the user clicks when they select the notification. Optional when source is entityUrl; required when source is text.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {

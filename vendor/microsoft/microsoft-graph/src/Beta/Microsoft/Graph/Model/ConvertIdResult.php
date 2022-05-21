@@ -28,12 +28,12 @@ class ConvertIdResult extends Entity
     * Gets the errorDetails
     * An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
     *
-    * @return GenericError The errorDetails
+    * @return GenericError|null The errorDetails
     */
     public function getErrorDetails()
     {
         if (array_key_exists("errorDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["errorDetails"], "\Beta\Microsoft\Graph\Model\GenericError")) {
+            if (is_a($this->_propDict["errorDetails"], "\Beta\Microsoft\Graph\Model\GenericError") || is_null($this->_propDict["errorDetails"])) {
                 return $this->_propDict["errorDetails"];
             } else {
                 $this->_propDict["errorDetails"] = new GenericError($this->_propDict["errorDetails"]);
@@ -60,7 +60,7 @@ class ConvertIdResult extends Entity
     * Gets the sourceId
     * The identifier that was converted. This value is the original, un-converted identifier.
     *
-    * @return string The sourceId
+    * @return string|null The sourceId
     */
     public function getSourceId()
     {
@@ -88,7 +88,7 @@ class ConvertIdResult extends Entity
     * Gets the targetId
     * The converted identifier. This value is not present if the conversion failed.
     *
-    * @return string The targetId
+    * @return string|null The targetId
     */
     public function getTargetId()
     {

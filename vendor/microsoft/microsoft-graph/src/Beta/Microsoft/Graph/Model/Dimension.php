@@ -27,7 +27,7 @@ class Dimension extends Entity
     /**
     * Gets the code
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -37,7 +37,7 @@ class Dimension extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the code
     *
@@ -50,11 +50,11 @@ class Dimension extends Entity
         $this->_propDict["code"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -64,7 +64,7 @@ class Dimension extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -77,16 +77,16 @@ class Dimension extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -95,7 +95,7 @@ class Dimension extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -108,12 +108,12 @@ class Dimension extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the dimensionValues
      *
-     * @return array The dimensionValues
+     * @return array|null The dimensionValues
      */
     public function getDimensionValues()
     {
@@ -123,18 +123,18 @@ class Dimension extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the dimensionValues
     *
-    * @param DimensionValue $val The dimensionValues
+    * @param DimensionValue[] $val The dimensionValues
     *
     * @return Dimension
     */
     public function setDimensionValues($val)
     {
-		$this->_propDict["dimensionValues"] = $val;
+        $this->_propDict["dimensionValues"] = $val;
         return $this;
     }
-    
+
 }

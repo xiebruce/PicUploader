@@ -28,12 +28,12 @@ class SharedPCAccountManagerPolicy extends Entity
     * Gets the accountDeletionPolicy
     * Configures when accounts are deleted. Possible values are: immediate, diskSpaceThreshold, diskSpaceThresholdOrInactiveThreshold.
     *
-    * @return SharedPCAccountDeletionPolicyType The accountDeletionPolicy
+    * @return SharedPCAccountDeletionPolicyType|null The accountDeletionPolicy
     */
     public function getAccountDeletionPolicy()
     {
         if (array_key_exists("accountDeletionPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["accountDeletionPolicy"], "\Beta\Microsoft\Graph\Model\SharedPCAccountDeletionPolicyType")) {
+            if (is_a($this->_propDict["accountDeletionPolicy"], "\Beta\Microsoft\Graph\Model\SharedPCAccountDeletionPolicyType") || is_null($this->_propDict["accountDeletionPolicy"])) {
                 return $this->_propDict["accountDeletionPolicy"];
             } else {
                 $this->_propDict["accountDeletionPolicy"] = new SharedPCAccountDeletionPolicyType($this->_propDict["accountDeletionPolicy"]);
@@ -60,7 +60,7 @@ class SharedPCAccountManagerPolicy extends Entity
     * Gets the cacheAccountsAboveDiskFreePercentage
     * Sets the percentage of available disk space a PC should have before it stops deleting cached shared PC accounts. Only applies when AccountDeletionPolicy is DiskSpaceThreshold or DiskSpaceThresholdOrInactiveThreshold. Valid values 0 to 100
     *
-    * @return int The cacheAccountsAboveDiskFreePercentage
+    * @return int|null The cacheAccountsAboveDiskFreePercentage
     */
     public function getCacheAccountsAboveDiskFreePercentage()
     {
@@ -88,7 +88,7 @@ class SharedPCAccountManagerPolicy extends Entity
     * Gets the inactiveThresholdDays
     * Specifies when the accounts will start being deleted when they have not been logged on during the specified period, given as number of days. Only applies when AccountDeletionPolicy is DiskSpaceThreshold or DiskSpaceThresholdOrInactiveThreshold.
     *
-    * @return int The inactiveThresholdDays
+    * @return int|null The inactiveThresholdDays
     */
     public function getInactiveThresholdDays()
     {
@@ -116,7 +116,7 @@ class SharedPCAccountManagerPolicy extends Entity
     * Gets the removeAccountsBelowDiskFreePercentage
     * Sets the percentage of disk space remaining on a PC before cached accounts will be deleted to free disk space. Accounts that have been inactive the longest will be deleted first. Only applies when AccountDeletionPolicy is DiskSpaceThresholdOrInactiveThreshold. Valid values 0 to 100
     *
-    * @return int The removeAccountsBelowDiskFreePercentage
+    * @return int|null The removeAccountsBelowDiskFreePercentage
     */
     public function getRemoveAccountsBelowDiskFreePercentage()
     {

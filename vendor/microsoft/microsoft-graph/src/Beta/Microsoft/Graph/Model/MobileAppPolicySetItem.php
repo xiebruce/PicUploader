@@ -28,12 +28,12 @@ class MobileAppPolicySetItem extends PolicySetItem
     * Gets the intent
     * Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
     *
-    * @return InstallIntent The intent
+    * @return InstallIntent|null The intent
     */
     public function getIntent()
     {
         if (array_key_exists("intent", $this->_propDict)) {
-            if (is_a($this->_propDict["intent"], "\Beta\Microsoft\Graph\Model\InstallIntent")) {
+            if (is_a($this->_propDict["intent"], "\Beta\Microsoft\Graph\Model\InstallIntent") || is_null($this->_propDict["intent"])) {
                 return $this->_propDict["intent"];
             } else {
                 $this->_propDict["intent"] = new InstallIntent($this->_propDict["intent"]);
@@ -42,7 +42,7 @@ class MobileAppPolicySetItem extends PolicySetItem
         }
         return null;
     }
-    
+
     /**
     * Sets the intent
     * Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
@@ -56,17 +56,17 @@ class MobileAppPolicySetItem extends PolicySetItem
         $this->_propDict["intent"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settings
     * Settings of the MobileAppPolicySetItem.
     *
-    * @return MobileAppAssignmentSettings The settings
+    * @return MobileAppAssignmentSettings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\MobileAppAssignmentSettings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\MobileAppAssignmentSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new MobileAppAssignmentSettings($this->_propDict["settings"]);
@@ -75,7 +75,7 @@ class MobileAppPolicySetItem extends PolicySetItem
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
     * Settings of the MobileAppPolicySetItem.
@@ -89,5 +89,5 @@ class MobileAppPolicySetItem extends PolicySetItem
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

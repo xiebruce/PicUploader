@@ -27,7 +27,7 @@ class ShiftActivity extends Entity
     * Gets the code
     * Customer defined code for the shiftActivity. Required.
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -55,7 +55,7 @@ class ShiftActivity extends Entity
     * Gets the displayName
     * The name of the shiftActivity. Required.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -84,12 +84,12 @@ class ShiftActivity extends Entity
     * Gets the endDateTime
     * The end date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
     *
-    * @return \DateTime The endDateTime
+    * @return \DateTime|null The endDateTime
     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -116,7 +116,7 @@ class ShiftActivity extends Entity
     * Gets the isPaid
     * Indicates whether the microsoft.graph.user should be paid for the activity during their shift. Required.
     *
-    * @return bool The isPaid
+    * @return bool|null The isPaid
     */
     public function getIsPaid()
     {
@@ -145,12 +145,12 @@ class ShiftActivity extends Entity
     * Gets the startDateTime
     * The start date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -177,12 +177,12 @@ class ShiftActivity extends Entity
     /**
     * Gets the theme
     *
-    * @return ScheduleEntityTheme The theme
+    * @return ScheduleEntityTheme|null The theme
     */
     public function getTheme()
     {
         if (array_key_exists("theme", $this->_propDict)) {
-            if (is_a($this->_propDict["theme"], "\Beta\Microsoft\Graph\Model\ScheduleEntityTheme")) {
+            if (is_a($this->_propDict["theme"], "\Beta\Microsoft\Graph\Model\ScheduleEntityTheme") || is_null($this->_propDict["theme"])) {
                 return $this->_propDict["theme"];
             } else {
                 $this->_propDict["theme"] = new ScheduleEntityTheme($this->_propDict["theme"]);

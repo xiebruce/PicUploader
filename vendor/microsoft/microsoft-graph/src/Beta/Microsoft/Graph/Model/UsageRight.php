@@ -28,7 +28,7 @@ class UsageRight extends Entity
     * Gets the catalogId
     * Product id corresponding to the usage right.
     *
-    * @return string The catalogId
+    * @return string|null The catalogId
     */
     public function getCatalogId()
     {
@@ -38,7 +38,7 @@ class UsageRight extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the catalogId
     * Product id corresponding to the usage right.
@@ -52,12 +52,12 @@ class UsageRight extends Entity
         $this->_propDict["catalogId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serviceIdentifier
     * Identifier of the service corresponding to the usage right.
     *
-    * @return string The serviceIdentifier
+    * @return string|null The serviceIdentifier
     */
     public function getServiceIdentifier()
     {
@@ -67,7 +67,7 @@ class UsageRight extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the serviceIdentifier
     * Identifier of the service corresponding to the usage right.
@@ -81,17 +81,17 @@ class UsageRight extends Entity
         $this->_propDict["serviceIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * The state of the usage right. Possible values are: active, inactive, warning, suspended.
     *
-    * @return UsageRightState The state
+    * @return UsageRightState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\UsageRightState")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\UsageRightState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new UsageRightState($this->_propDict["state"]);
@@ -100,7 +100,7 @@ class UsageRight extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * The state of the usage right. Possible values are: active, inactive, warning, suspended.
@@ -114,5 +114,5 @@ class UsageRight extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v10_0
     * Version 10.0 or later.
     *
-    * @return bool The v10_0
+    * @return bool|null The v10_0
     */
     public function getV10_0()
     {
@@ -55,7 +55,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v11_0
     * Version 11.0 or later.
     *
-    * @return bool The v11_0
+    * @return bool|null The v11_0
     */
     public function getV11_0()
     {
@@ -83,7 +83,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v4_0
     * Version 4.0 or later.
     *
-    * @return bool The v4_0
+    * @return bool|null The v4_0
     */
     public function getV4_0()
     {
@@ -111,7 +111,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v4_0_3
     * Version 4.0.3 or later.
     *
-    * @return bool The v4_0_3
+    * @return bool|null The v4_0_3
     */
     public function getV4_0_3()
     {
@@ -139,7 +139,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v4_1
     * Version 4.1 or later.
     *
-    * @return bool The v4_1
+    * @return bool|null The v4_1
     */
     public function getV4_1()
     {
@@ -167,7 +167,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v4_2
     * Version 4.2 or later.
     *
-    * @return bool The v4_2
+    * @return bool|null The v4_2
     */
     public function getV4_2()
     {
@@ -195,7 +195,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v4_3
     * Version 4.3 or later.
     *
-    * @return bool The v4_3
+    * @return bool|null The v4_3
     */
     public function getV4_3()
     {
@@ -223,7 +223,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v4_4
     * Version 4.4 or later.
     *
-    * @return bool The v4_4
+    * @return bool|null The v4_4
     */
     public function getV4_4()
     {
@@ -251,7 +251,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v5_0
     * Version 5.0 or later.
     *
-    * @return bool The v5_0
+    * @return bool|null The v5_0
     */
     public function getV5_0()
     {
@@ -279,7 +279,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v5_1
     * Version 5.1 or later.
     *
-    * @return bool The v5_1
+    * @return bool|null The v5_1
     */
     public function getV5_1()
     {
@@ -307,7 +307,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v6_0
     * Version 6.0 or later.
     *
-    * @return bool The v6_0
+    * @return bool|null The v6_0
     */
     public function getV6_0()
     {
@@ -335,7 +335,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v7_0
     * Version 7.0 or later.
     *
-    * @return bool The v7_0
+    * @return bool|null The v7_0
     */
     public function getV7_0()
     {
@@ -363,7 +363,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v7_1
     * Version 7.1 or later.
     *
-    * @return bool The v7_1
+    * @return bool|null The v7_1
     */
     public function getV7_1()
     {
@@ -391,7 +391,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v8_0
     * Version 8.0 or later.
     *
-    * @return bool The v8_0
+    * @return bool|null The v8_0
     */
     public function getV8_0()
     {
@@ -419,7 +419,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v8_1
     * Version 8.1 or later.
     *
-    * @return bool The v8_1
+    * @return bool|null The v8_1
     */
     public function getV8_1()
     {
@@ -447,7 +447,7 @@ class AndroidMinimumOperatingSystem extends Entity
     * Gets the v9_0
     * Version 9.0 or later.
     *
-    * @return bool The v9_0
+    * @return bool|null The v9_0
     */
     public function getV9_0()
     {

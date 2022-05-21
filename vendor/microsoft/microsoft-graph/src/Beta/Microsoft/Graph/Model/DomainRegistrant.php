@@ -26,7 +26,7 @@ class DomainRegistrant extends Entity
     /**
     * Gets the countryOrRegionCode
     *
-    * @return string The countryOrRegionCode
+    * @return string|null The countryOrRegionCode
     */
     public function getCountryOrRegionCode()
     {
@@ -52,7 +52,7 @@ class DomainRegistrant extends Entity
     /**
     * Gets the organization
     *
-    * @return string The organization
+    * @return string|null The organization
     */
     public function getOrganization()
     {
@@ -78,7 +78,7 @@ class DomainRegistrant extends Entity
     /**
     * Gets the url
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {
@@ -104,7 +104,7 @@ class DomainRegistrant extends Entity
     /**
     * Gets the vendor
     *
-    * @return string The vendor
+    * @return string|null The vendor
     */
     public function getVendor()
     {

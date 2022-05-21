@@ -28,12 +28,12 @@ class TimeConstraint extends Entity
     * Gets the activityDomain
     * The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
     *
-    * @return ActivityDomain The activityDomain
+    * @return ActivityDomain|null The activityDomain
     */
     public function getActivityDomain()
     {
         if (array_key_exists("activityDomain", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDomain"], "\Beta\Microsoft\Graph\Model\ActivityDomain")) {
+            if (is_a($this->_propDict["activityDomain"], "\Beta\Microsoft\Graph\Model\ActivityDomain") || is_null($this->_propDict["activityDomain"])) {
                 return $this->_propDict["activityDomain"];
             } else {
                 $this->_propDict["activityDomain"] = new ActivityDomain($this->_propDict["activityDomain"]);
@@ -60,12 +60,12 @@ class TimeConstraint extends Entity
     /**
     * Gets the timeSlots
     *
-    * @return TimeSlot The timeSlots
+    * @return TimeSlot|null The timeSlots
     */
     public function getTimeSlots()
     {
         if (array_key_exists("timeSlots", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlots"], "\Beta\Microsoft\Graph\Model\TimeSlot")) {
+            if (is_a($this->_propDict["timeSlots"], "\Beta\Microsoft\Graph\Model\TimeSlot") || is_null($this->_propDict["timeSlots"])) {
                 return $this->_propDict["timeSlots"];
             } else {
                 $this->_propDict["timeSlots"] = new TimeSlot($this->_propDict["timeSlots"]);

@@ -27,7 +27,7 @@ class DisplayNameLocalization extends Entity
     * Gets the displayName
     * If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class DisplayNameLocalization extends Entity
     * Gets the languageTag
     * Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
     *
-    * @return string The languageTag
+    * @return string|null The languageTag
     */
     public function getLanguageTag()
     {

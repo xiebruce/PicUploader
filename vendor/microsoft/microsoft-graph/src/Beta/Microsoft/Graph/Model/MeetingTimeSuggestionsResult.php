@@ -27,7 +27,7 @@ class MeetingTimeSuggestionsResult extends Entity
     * Gets the emptySuggestionsReason
     * A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.
     *
-    * @return string The emptySuggestionsReason
+    * @return string|null The emptySuggestionsReason
     */
     public function getEmptySuggestionsReason()
     {
@@ -56,12 +56,12 @@ class MeetingTimeSuggestionsResult extends Entity
     * Gets the meetingTimeSuggestions
     * An array of meeting suggestions.
     *
-    * @return MeetingTimeSuggestion The meetingTimeSuggestions
+    * @return MeetingTimeSuggestion|null The meetingTimeSuggestions
     */
     public function getMeetingTimeSuggestions()
     {
         if (array_key_exists("meetingTimeSuggestions", $this->_propDict)) {
-            if (is_a($this->_propDict["meetingTimeSuggestions"], "\Beta\Microsoft\Graph\Model\MeetingTimeSuggestion")) {
+            if (is_a($this->_propDict["meetingTimeSuggestions"], "\Beta\Microsoft\Graph\Model\MeetingTimeSuggestion") || is_null($this->_propDict["meetingTimeSuggestions"])) {
                 return $this->_propDict["meetingTimeSuggestions"];
             } else {
                 $this->_propDict["meetingTimeSuggestions"] = new MeetingTimeSuggestion($this->_propDict["meetingTimeSuggestions"]);

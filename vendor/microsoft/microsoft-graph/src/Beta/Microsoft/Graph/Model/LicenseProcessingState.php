@@ -26,7 +26,7 @@ class LicenseProcessingState extends Entity
     /**
     * Gets the state
     *
-    * @return string The state
+    * @return string|null The state
     */
     public function getState()
     {

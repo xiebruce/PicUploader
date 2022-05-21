@@ -28,12 +28,12 @@ class RgbColor extends Entity
     * Gets the b
     * Blue value
     *
-    * @return Byte The b
+    * @return Byte|null The b
     */
     public function getB()
     {
         if (array_key_exists("b", $this->_propDict)) {
-            if (is_a($this->_propDict["b"], "\Microsoft\Graph\Model\Byte")) {
+            if (is_a($this->_propDict["b"], "\Microsoft\Graph\Model\Byte") || is_null($this->_propDict["b"])) {
                 return $this->_propDict["b"];
             } else {
                 $this->_propDict["b"] = new Byte($this->_propDict["b"]);
@@ -61,12 +61,12 @@ class RgbColor extends Entity
     * Gets the g
     * Green value
     *
-    * @return Byte The g
+    * @return Byte|null The g
     */
     public function getG()
     {
         if (array_key_exists("g", $this->_propDict)) {
-            if (is_a($this->_propDict["g"], "\Microsoft\Graph\Model\Byte")) {
+            if (is_a($this->_propDict["g"], "\Microsoft\Graph\Model\Byte") || is_null($this->_propDict["g"])) {
                 return $this->_propDict["g"];
             } else {
                 $this->_propDict["g"] = new Byte($this->_propDict["g"]);
@@ -94,12 +94,12 @@ class RgbColor extends Entity
     * Gets the r
     * Red value
     *
-    * @return Byte The r
+    * @return Byte|null The r
     */
     public function getR()
     {
         if (array_key_exists("r", $this->_propDict)) {
-            if (is_a($this->_propDict["r"], "\Microsoft\Graph\Model\Byte")) {
+            if (is_a($this->_propDict["r"], "\Microsoft\Graph\Model\Byte") || is_null($this->_propDict["r"])) {
                 return $this->_propDict["r"];
             } else {
                 $this->_propDict["r"] = new Byte($this->_propDict["r"]);

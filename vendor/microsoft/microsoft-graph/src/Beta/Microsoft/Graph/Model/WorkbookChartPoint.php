@@ -28,7 +28,7 @@ class WorkbookChartPoint extends Entity
     * Gets the value
     * Returns the value of a chart point. Read-only.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -38,7 +38,7 @@ class WorkbookChartPoint extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the value
     * Returns the value of a chart point. Read-only.
@@ -52,17 +52,17 @@ class WorkbookChartPoint extends Entity
         $this->_propDict["value"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the format
     * Encapsulates the format properties chart point. Read-only.
     *
-    * @return WorkbookChartPointFormat The format
+    * @return WorkbookChartPointFormat|null The format
     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartPointFormat")) {
+            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartPointFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new WorkbookChartPointFormat($this->_propDict["format"]);
@@ -71,7 +71,7 @@ class WorkbookChartPoint extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the format
     * Encapsulates the format properties chart point. Read-only.
@@ -85,5 +85,5 @@ class WorkbookChartPoint extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class SearchHitsContainer extends Entity
     * Gets the aggregations
     * Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
     *
-    * @return SearchAggregation The aggregations
+    * @return SearchAggregation|null The aggregations
     */
     public function getAggregations()
     {
         if (array_key_exists("aggregations", $this->_propDict)) {
-            if (is_a($this->_propDict["aggregations"], "\Beta\Microsoft\Graph\Model\SearchAggregation")) {
+            if (is_a($this->_propDict["aggregations"], "\Beta\Microsoft\Graph\Model\SearchAggregation") || is_null($this->_propDict["aggregations"])) {
                 return $this->_propDict["aggregations"];
             } else {
                 $this->_propDict["aggregations"] = new SearchAggregation($this->_propDict["aggregations"]);
@@ -61,12 +61,12 @@ class SearchHitsContainer extends Entity
     * Gets the hits
     * A collection of the search results.
     *
-    * @return SearchHit The hits
+    * @return SearchHit|null The hits
     */
     public function getHits()
     {
         if (array_key_exists("hits", $this->_propDict)) {
-            if (is_a($this->_propDict["hits"], "\Beta\Microsoft\Graph\Model\SearchHit")) {
+            if (is_a($this->_propDict["hits"], "\Beta\Microsoft\Graph\Model\SearchHit") || is_null($this->_propDict["hits"])) {
                 return $this->_propDict["hits"];
             } else {
                 $this->_propDict["hits"] = new SearchHit($this->_propDict["hits"]);
@@ -93,7 +93,7 @@ class SearchHitsContainer extends Entity
     * Gets the moreResultsAvailable
     * Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly.
     *
-    * @return bool The moreResultsAvailable
+    * @return bool|null The moreResultsAvailable
     */
     public function getMoreResultsAvailable()
     {
@@ -121,7 +121,7 @@ class SearchHitsContainer extends Entity
     * Gets the total
     * The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query.
     *
-    * @return int The total
+    * @return int|null The total
     */
     public function getTotal()
     {

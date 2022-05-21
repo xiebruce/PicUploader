@@ -28,7 +28,7 @@ class WorkbookRangeFill extends Entity
     * Gets the color
     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange')
     *
-    * @return string The color
+    * @return string|null The color
     */
     public function getColor()
     {
@@ -38,7 +38,7 @@ class WorkbookRangeFill extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the color
     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange')
@@ -52,5 +52,5 @@ class WorkbookRangeFill extends Entity
         $this->_propDict["color"] = $val;
         return $this;
     }
-    
+
 }

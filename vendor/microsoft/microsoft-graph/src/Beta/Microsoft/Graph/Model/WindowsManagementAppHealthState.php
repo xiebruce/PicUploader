@@ -28,7 +28,7 @@ class WindowsManagementAppHealthState extends Entity
     * Gets the deviceName
     * Name of the device on which Windows management app is installed.
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -38,7 +38,7 @@ class WindowsManagementAppHealthState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceName
     * Name of the device on which Windows management app is installed.
@@ -52,12 +52,12 @@ class WindowsManagementAppHealthState extends Entity
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceOSVersion
     * Windows 10 OS version of the device on which Windows management app is installed.
     *
-    * @return string The deviceOSVersion
+    * @return string|null The deviceOSVersion
     */
     public function getDeviceOSVersion()
     {
@@ -67,7 +67,7 @@ class WindowsManagementAppHealthState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceOSVersion
     * Windows 10 OS version of the device on which Windows management app is installed.
@@ -81,17 +81,17 @@ class WindowsManagementAppHealthState extends Entity
         $this->_propDict["deviceOSVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the healthState
     * Windows management app health state. Possible values are: unknown, healthy, unhealthy.
     *
-    * @return HealthState The healthState
+    * @return HealthState|null The healthState
     */
     public function getHealthState()
     {
         if (array_key_exists("healthState", $this->_propDict)) {
-            if (is_a($this->_propDict["healthState"], "\Beta\Microsoft\Graph\Model\HealthState")) {
+            if (is_a($this->_propDict["healthState"], "\Beta\Microsoft\Graph\Model\HealthState") || is_null($this->_propDict["healthState"])) {
                 return $this->_propDict["healthState"];
             } else {
                 $this->_propDict["healthState"] = new HealthState($this->_propDict["healthState"]);
@@ -100,7 +100,7 @@ class WindowsManagementAppHealthState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the healthState
     * Windows management app health state. Possible values are: unknown, healthy, unhealthy.
@@ -114,12 +114,12 @@ class WindowsManagementAppHealthState extends Entity
         $this->_propDict["healthState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the installedVersion
     * Windows management app installed version.
     *
-    * @return string The installedVersion
+    * @return string|null The installedVersion
     */
     public function getInstalledVersion()
     {
@@ -129,7 +129,7 @@ class WindowsManagementAppHealthState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedVersion
     * Windows management app installed version.
@@ -143,17 +143,17 @@ class WindowsManagementAppHealthState extends Entity
         $this->_propDict["installedVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastCheckInDateTime
     * Windows management app last check-in time.
     *
-    * @return \DateTime The lastCheckInDateTime
+    * @return \DateTime|null The lastCheckInDateTime
     */
     public function getLastCheckInDateTime()
     {
         if (array_key_exists("lastCheckInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckInDateTime"])) {
                 return $this->_propDict["lastCheckInDateTime"];
             } else {
                 $this->_propDict["lastCheckInDateTime"] = new \DateTime($this->_propDict["lastCheckInDateTime"]);
@@ -162,7 +162,7 @@ class WindowsManagementAppHealthState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastCheckInDateTime
     * Windows management app last check-in time.
@@ -176,5 +176,5 @@ class WindowsManagementAppHealthState extends Entity
         $this->_propDict["lastCheckInDateTime"] = $val;
         return $this;
     }
-    
+
 }

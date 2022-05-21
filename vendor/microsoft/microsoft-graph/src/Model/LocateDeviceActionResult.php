@@ -28,12 +28,12 @@ class LocateDeviceActionResult extends DeviceActionResult
     * Gets the deviceLocation
     * device location
     *
-    * @return DeviceGeoLocation The deviceLocation
+    * @return DeviceGeoLocation|null The deviceLocation
     */
     public function getDeviceLocation()
     {
         if (array_key_exists("deviceLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceLocation"], "\Microsoft\Graph\Model\DeviceGeoLocation")) {
+            if (is_a($this->_propDict["deviceLocation"], "\Microsoft\Graph\Model\DeviceGeoLocation") || is_null($this->_propDict["deviceLocation"])) {
                 return $this->_propDict["deviceLocation"];
             } else {
                 $this->_propDict["deviceLocation"] = new DeviceGeoLocation($this->_propDict["deviceLocation"]);

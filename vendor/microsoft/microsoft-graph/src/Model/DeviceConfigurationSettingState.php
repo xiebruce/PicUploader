@@ -27,7 +27,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the currentValue
     * Current value of setting on device
     *
-    * @return string The currentValue
+    * @return string|null The currentValue
     */
     public function getCurrentValue()
     {
@@ -55,7 +55,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the errorCode
     * Error code for the setting
     *
-    * @return int The errorCode
+    * @return int|null The errorCode
     */
     public function getErrorCode()
     {
@@ -83,7 +83,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the errorDescription
     * Error description
     *
-    * @return string The errorDescription
+    * @return string|null The errorDescription
     */
     public function getErrorDescription()
     {
@@ -111,7 +111,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the instanceDisplayName
     * Name of setting instance that is being reported.
     *
-    * @return string The instanceDisplayName
+    * @return string|null The instanceDisplayName
     */
     public function getInstanceDisplayName()
     {
@@ -139,7 +139,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the setting
     * The setting that is being reported
     *
-    * @return string The setting
+    * @return string|null The setting
     */
     public function getSetting()
     {
@@ -167,7 +167,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the settingName
     * Localized/user friendly setting name that is being reported
     *
-    * @return string The settingName
+    * @return string|null The settingName
     */
     public function getSettingName()
     {
@@ -196,12 +196,12 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the sources
     * Contributing policies
     *
-    * @return SettingSource The sources
+    * @return SettingSource|null The sources
     */
     public function getSources()
     {
         if (array_key_exists("sources", $this->_propDict)) {
-            if (is_a($this->_propDict["sources"], "\Microsoft\Graph\Model\SettingSource")) {
+            if (is_a($this->_propDict["sources"], "\Microsoft\Graph\Model\SettingSource") || is_null($this->_propDict["sources"])) {
                 return $this->_propDict["sources"];
             } else {
                 $this->_propDict["sources"] = new SettingSource($this->_propDict["sources"]);
@@ -229,12 +229,12 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the state
     * The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
     *
-    * @return ComplianceStatus The state
+    * @return ComplianceStatus|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\ComplianceStatus")) {
+            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ComplianceStatus($this->_propDict["state"]);
@@ -261,7 +261,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the userEmail
     * UserEmail
     *
-    * @return string The userEmail
+    * @return string|null The userEmail
     */
     public function getUserEmail()
     {
@@ -289,7 +289,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the userId
     * UserId
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -317,7 +317,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the userName
     * UserName
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {
@@ -345,7 +345,7 @@ class DeviceConfigurationSettingState extends Entity
     * Gets the userPrincipalName
     * UserPrincipalName.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

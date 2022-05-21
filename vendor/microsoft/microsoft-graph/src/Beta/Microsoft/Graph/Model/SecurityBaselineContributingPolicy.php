@@ -27,7 +27,7 @@ class SecurityBaselineContributingPolicy extends Entity
     * Gets the displayName
     * Name of the policy
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class SecurityBaselineContributingPolicy extends Entity
     * Gets the sourceId
     * Unique identifier of the policy
     *
-    * @return string The sourceId
+    * @return string|null The sourceId
     */
     public function getSourceId()
     {
@@ -84,12 +84,12 @@ class SecurityBaselineContributingPolicy extends Entity
     * Gets the sourceType
     * Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
     *
-    * @return SecurityBaselinePolicySourceType The sourceType
+    * @return SecurityBaselinePolicySourceType|null The sourceType
     */
     public function getSourceType()
     {
         if (array_key_exists("sourceType", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceType"], "\Beta\Microsoft\Graph\Model\SecurityBaselinePolicySourceType")) {
+            if (is_a($this->_propDict["sourceType"], "\Beta\Microsoft\Graph\Model\SecurityBaselinePolicySourceType") || is_null($this->_propDict["sourceType"])) {
                 return $this->_propDict["sourceType"];
             } else {
                 $this->_propDict["sourceType"] = new SecurityBaselinePolicySourceType($this->_propDict["sourceType"]);

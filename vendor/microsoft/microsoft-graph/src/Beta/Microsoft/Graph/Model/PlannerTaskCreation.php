@@ -28,12 +28,12 @@ class PlannerTaskCreation extends Entity
     * Gets the teamsPublicationInfo
     * Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
     *
-    * @return PlannerTeamsPublicationInfo The teamsPublicationInfo
+    * @return PlannerTeamsPublicationInfo|null The teamsPublicationInfo
     */
     public function getTeamsPublicationInfo()
     {
         if (array_key_exists("teamsPublicationInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["teamsPublicationInfo"], "\Beta\Microsoft\Graph\Model\PlannerTeamsPublicationInfo")) {
+            if (is_a($this->_propDict["teamsPublicationInfo"], "\Beta\Microsoft\Graph\Model\PlannerTeamsPublicationInfo") || is_null($this->_propDict["teamsPublicationInfo"])) {
                 return $this->_propDict["teamsPublicationInfo"];
             } else {
                 $this->_propDict["teamsPublicationInfo"] = new PlannerTeamsPublicationInfo($this->_propDict["teamsPublicationInfo"]);

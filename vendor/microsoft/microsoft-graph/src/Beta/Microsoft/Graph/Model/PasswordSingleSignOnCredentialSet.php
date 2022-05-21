@@ -28,12 +28,12 @@ class PasswordSingleSignOnCredentialSet extends Entity
     * Gets the credentials
     * A list of credential objects that define the complete sign in flow.
     *
-    * @return Credential The credentials
+    * @return Credential|null The credentials
     */
     public function getCredentials()
     {
         if (array_key_exists("credentials", $this->_propDict)) {
-            if (is_a($this->_propDict["credentials"], "\Beta\Microsoft\Graph\Model\Credential")) {
+            if (is_a($this->_propDict["credentials"], "\Beta\Microsoft\Graph\Model\Credential") || is_null($this->_propDict["credentials"])) {
                 return $this->_propDict["credentials"];
             } else {
                 $this->_propDict["credentials"] = new Credential($this->_propDict["credentials"]);
@@ -60,7 +60,7 @@ class PasswordSingleSignOnCredentialSet extends Entity
     * Gets the id
     * The ID of the user or group this credential set belongs to.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {

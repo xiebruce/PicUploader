@@ -38,5 +38,6 @@ class PolicyPlatformType extends Enum
     const WINDOWS10_AND_LATER = "windows10AndLater";
     const ANDROID_WORK_PROFILE = "androidWorkProfile";
     const WINDOWS10_X_PROFILE = "windows10XProfile";
+    const ANDROID_AOSP = "androidAOSP";
     const ALL = "all";
 }

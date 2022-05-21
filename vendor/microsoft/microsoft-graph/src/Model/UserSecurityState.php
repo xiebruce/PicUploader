@@ -27,7 +27,7 @@ class UserSecurityState extends Entity
     * Gets the aadUserId
     * AAD User object identifier (GUID) - represents the physical/multi-account user entity.
     *
-    * @return string The aadUserId
+    * @return string|null The aadUserId
     */
     public function getAadUserId()
     {
@@ -55,7 +55,7 @@ class UserSecurityState extends Entity
     * Gets the accountName
     * Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
     *
-    * @return string The accountName
+    * @return string|null The accountName
     */
     public function getAccountName()
     {
@@ -83,7 +83,7 @@ class UserSecurityState extends Entity
     * Gets the domainName
     * NetBIOS/Active Directory domain of user account (that is, domain/account format).
     *
-    * @return string The domainName
+    * @return string|null The domainName
     */
     public function getDomainName()
     {
@@ -112,12 +112,12 @@ class UserSecurityState extends Entity
     * Gets the emailRole
     * For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
     *
-    * @return EmailRole The emailRole
+    * @return EmailRole|null The emailRole
     */
     public function getEmailRole()
     {
         if (array_key_exists("emailRole", $this->_propDict)) {
-            if (is_a($this->_propDict["emailRole"], "\Microsoft\Graph\Model\EmailRole")) {
+            if (is_a($this->_propDict["emailRole"], "\Microsoft\Graph\Model\EmailRole") || is_null($this->_propDict["emailRole"])) {
                 return $this->_propDict["emailRole"];
             } else {
                 $this->_propDict["emailRole"] = new EmailRole($this->_propDict["emailRole"]);
@@ -144,7 +144,7 @@ class UserSecurityState extends Entity
     * Gets the isVpn
     * Indicates whether the user logged on through a VPN.
     *
-    * @return bool The isVpn
+    * @return bool|null The isVpn
     */
     public function getIsVpn()
     {
@@ -173,12 +173,12 @@ class UserSecurityState extends Entity
     * Gets the logonDateTime
     * Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The logonDateTime
+    * @return \DateTime|null The logonDateTime
     */
     public function getLogonDateTime()
     {
         if (array_key_exists("logonDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["logonDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["logonDateTime"], "\DateTime") || is_null($this->_propDict["logonDateTime"])) {
                 return $this->_propDict["logonDateTime"];
             } else {
                 $this->_propDict["logonDateTime"] = new \DateTime($this->_propDict["logonDateTime"]);
@@ -205,7 +205,7 @@ class UserSecurityState extends Entity
     * Gets the logonId
     * User sign-in ID.
     *
-    * @return string The logonId
+    * @return string|null The logonId
     */
     public function getLogonId()
     {
@@ -233,7 +233,7 @@ class UserSecurityState extends Entity
     * Gets the logonIp
     * IP Address the sign-in request originated from.
     *
-    * @return string The logonIp
+    * @return string|null The logonIp
     */
     public function getLogonIp()
     {
@@ -261,7 +261,7 @@ class UserSecurityState extends Entity
     * Gets the logonLocation
     * Location (by IP address mapping) associated with a user sign-in event by this user.
     *
-    * @return string The logonLocation
+    * @return string|null The logonLocation
     */
     public function getLogonLocation()
     {
@@ -290,12 +290,12 @@ class UserSecurityState extends Entity
     * Gets the logonType
     * Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
     *
-    * @return LogonType The logonType
+    * @return LogonType|null The logonType
     */
     public function getLogonType()
     {
         if (array_key_exists("logonType", $this->_propDict)) {
-            if (is_a($this->_propDict["logonType"], "\Microsoft\Graph\Model\LogonType")) {
+            if (is_a($this->_propDict["logonType"], "\Microsoft\Graph\Model\LogonType") || is_null($this->_propDict["logonType"])) {
                 return $this->_propDict["logonType"];
             } else {
                 $this->_propDict["logonType"] = new LogonType($this->_propDict["logonType"]);
@@ -322,7 +322,7 @@ class UserSecurityState extends Entity
     * Gets the onPremisesSecurityIdentifier
     * Active Directory (on-premises) Security Identifier (SID) of the user.
     *
-    * @return string The onPremisesSecurityIdentifier
+    * @return string|null The onPremisesSecurityIdentifier
     */
     public function getOnPremisesSecurityIdentifier()
     {
@@ -350,7 +350,7 @@ class UserSecurityState extends Entity
     * Gets the riskScore
     * Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
     *
-    * @return string The riskScore
+    * @return string|null The riskScore
     */
     public function getRiskScore()
     {
@@ -379,12 +379,12 @@ class UserSecurityState extends Entity
     * Gets the userAccountType
     * User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
     *
-    * @return UserAccountSecurityType The userAccountType
+    * @return UserAccountSecurityType|null The userAccountType
     */
     public function getUserAccountType()
     {
         if (array_key_exists("userAccountType", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccountType"], "\Microsoft\Graph\Model\UserAccountSecurityType")) {
+            if (is_a($this->_propDict["userAccountType"], "\Microsoft\Graph\Model\UserAccountSecurityType") || is_null($this->_propDict["userAccountType"])) {
                 return $this->_propDict["userAccountType"];
             } else {
                 $this->_propDict["userAccountType"] = new UserAccountSecurityType($this->_propDict["userAccountType"]);
@@ -411,7 +411,7 @@ class UserSecurityState extends Entity
     * Gets the userPrincipalName
     * User sign-in name - internet format: (user account name)@(user account DNS domain name).
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

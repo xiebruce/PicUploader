@@ -28,7 +28,7 @@ class PersonResponsibility extends ItemFacet
     * Gets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @return string The collaborationTags
+    * @return string|null The collaborationTags
     */
     public function getCollaborationTags()
     {
@@ -38,7 +38,7 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
@@ -52,12 +52,12 @@ class PersonResponsibility extends ItemFacet
         $this->_propDict["collaborationTags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Description of the responsibility.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -67,7 +67,7 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the responsibility.
@@ -81,12 +81,12 @@ class PersonResponsibility extends ItemFacet
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Contains a friendly name for the responsibility.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -96,7 +96,7 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Contains a friendly name for the responsibility.
@@ -110,11 +110,11 @@ class PersonResponsibility extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -124,7 +124,7 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     *
@@ -137,12 +137,12 @@ class PersonResponsibility extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * Contains a link to a web page or resource about the responsibility.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -152,7 +152,7 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * Contains a link to a web page or resource about the responsibility.
@@ -166,5 +166,5 @@ class PersonResponsibility extends ItemFacet
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

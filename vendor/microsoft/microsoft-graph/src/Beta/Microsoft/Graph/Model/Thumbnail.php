@@ -28,15 +28,15 @@ class Thumbnail extends Entity
     * Gets the content
     * The content stream for the thumbnail.
     *
-    * @return \GuzzleHttp\Psr7\Stream The content
+    * @return \GuzzleHttp\Psr7\Stream|null The content
     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["content"]);
+                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
@@ -60,7 +60,7 @@ class Thumbnail extends Entity
     * Gets the height
     * The height of the thumbnail, in pixels.
     *
-    * @return int The height
+    * @return int|null The height
     */
     public function getHeight()
     {
@@ -88,7 +88,7 @@ class Thumbnail extends Entity
     * Gets the sourceItemId
     * The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
     *
-    * @return string The sourceItemId
+    * @return string|null The sourceItemId
     */
     public function getSourceItemId()
     {
@@ -116,7 +116,7 @@ class Thumbnail extends Entity
     * Gets the url
     * The URL used to fetch the thumbnail content.
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {
@@ -144,7 +144,7 @@ class Thumbnail extends Entity
     * Gets the width
     * The width of the thumbnail, in pixels.
     *
-    * @return int The width
+    * @return int|null The width
     */
     public function getWidth()
     {

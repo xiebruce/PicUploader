@@ -1,0 +1,60 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: sy-records
+ * Email: lufei@php.net
+ * Usage: php bin/format
+ */
+
+function scan_dir(string $dir, callable $filter = null): array
+{
+    $files = array_filter(scandir($dir), function (string $file) {
+        return $file[0] !== '.';
+    });
+    array_walk($files, function (&$file) use ($dir) {
+        $file = "{$dir}/{$file}";
+    });
+    return array_values($filter ? array_filter($files, $filter) : $files);
+}
+
+function fix_tests_in_this_dir(string $dir, string $root = '')
+{
+    $files = scan_dir($dir);
+    foreach ($files as $file) {
+        if (pathinfo($file, PATHINFO_EXTENSION) === 'php') {
+            $requirement_level = (function () use ($root, $file) {
+                for ($l = 0; $l < 8; $l++) {
+                    $file = dirname($file);
+                    if ($file === $root) {
+                        return $l;
+                    }
+                }
+                return -1;
+            })();
+            if ($requirement_level < 0) {
+                echo("Failed to get requirement level of file {$file}");
+            }
+            $content = file_get_contents($file);
+            $changed = false;
+            // empty lines
+            $_content = trim($content) . "\n";
+            if ($content !== $_content) {
+                echo "Format empty lines in {$file}", PHP_EOL;
+                $content = $_content;
+                $changed = true;
+            }
+            if ($changed) {
+                file_put_contents($file, $content);
+            }
+        } elseif (is_dir($file)) {
+            fix_tests_in_this_dir($file, $root);
+        }
+    }
+}
+
+$root = realpath(dirname(__DIR__));
+$dirs = ['src', 'tests', 'sample'];
+foreach ($dirs as $dir) {
+    fix_tests_in_this_dir($root . '/' . $dir, $root);
+}
+echo 'Format done', PHP_EOL;

@@ -27,7 +27,7 @@ class PrinterLocation extends Entity
     * Gets the altitudeInMeters
     * The altitude, in meters, that the printer is located at.
     *
-    * @return int The altitudeInMeters
+    * @return int|null The altitudeInMeters
     */
     public function getAltitudeInMeters()
     {
@@ -55,7 +55,7 @@ class PrinterLocation extends Entity
     * Gets the building
     * The building that the printer is located in.
     *
-    * @return string The building
+    * @return string|null The building
     */
     public function getBuilding()
     {
@@ -83,7 +83,7 @@ class PrinterLocation extends Entity
     * Gets the city
     * The city that the printer is located in.
     *
-    * @return string The city
+    * @return string|null The city
     */
     public function getCity()
     {
@@ -111,7 +111,7 @@ class PrinterLocation extends Entity
     * Gets the countryOrRegion
     * The country or region that the printer is located in.
     *
-    * @return string The countryOrRegion
+    * @return string|null The countryOrRegion
     */
     public function getCountryOrRegion()
     {
@@ -139,7 +139,7 @@ class PrinterLocation extends Entity
     * Gets the floor
     * The floor that the printer is located on. Only numerical values are supported right now.
     *
-    * @return string The floor
+    * @return string|null The floor
     */
     public function getFloor()
     {
@@ -167,7 +167,7 @@ class PrinterLocation extends Entity
     * Gets the floorDescription
     * The description of the floor that the printer is located on.
     *
-    * @return string The floorDescription
+    * @return string|null The floorDescription
     */
     public function getFloorDescription()
     {
@@ -194,7 +194,7 @@ class PrinterLocation extends Entity
     /**
     * Gets the floorNumber
     *
-    * @return int The floorNumber
+    * @return int|null The floorNumber
     */
     public function getFloorNumber()
     {
@@ -221,7 +221,7 @@ class PrinterLocation extends Entity
     * Gets the latitude
     * The latitude that the printer is located at.
     *
-    * @return float The latitude
+    * @return float|null The latitude
     */
     public function getLatitude()
     {
@@ -249,7 +249,7 @@ class PrinterLocation extends Entity
     * Gets the longitude
     * The longitude that the printer is located at.
     *
-    * @return float The longitude
+    * @return float|null The longitude
     */
     public function getLongitude()
     {
@@ -277,7 +277,7 @@ class PrinterLocation extends Entity
     * Gets the organization
     * The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.
     *
-    * @return string The organization
+    * @return string|null The organization
     */
     public function getOrganization()
     {
@@ -305,7 +305,7 @@ class PrinterLocation extends Entity
     * Gets the postalCode
     * The postal code that the printer is located in.
     *
-    * @return string The postalCode
+    * @return string|null The postalCode
     */
     public function getPostalCode()
     {
@@ -333,7 +333,7 @@ class PrinterLocation extends Entity
     * Gets the roomDescription
     * The description of the room that the printer is located in.
     *
-    * @return string The roomDescription
+    * @return string|null The roomDescription
     */
     public function getRoomDescription()
     {
@@ -361,7 +361,7 @@ class PrinterLocation extends Entity
     * Gets the roomName
     * The room that the printer is located in. Only numerical values are supported right now.
     *
-    * @return string The roomName
+    * @return string|null The roomName
     */
     public function getRoomName()
     {
@@ -388,7 +388,7 @@ class PrinterLocation extends Entity
     /**
     * Gets the roomNumber
     *
-    * @return int The roomNumber
+    * @return int|null The roomNumber
     */
     public function getRoomNumber()
     {
@@ -415,7 +415,7 @@ class PrinterLocation extends Entity
     * Gets the site
     * The site that the printer is located in.
     *
-    * @return string The site
+    * @return string|null The site
     */
     public function getSite()
     {
@@ -443,7 +443,7 @@ class PrinterLocation extends Entity
     * Gets the stateOrProvince
     * The state or province that the printer is located in.
     *
-    * @return string The stateOrProvince
+    * @return string|null The stateOrProvince
     */
     public function getStateOrProvince()
     {
@@ -471,7 +471,7 @@ class PrinterLocation extends Entity
     * Gets the streetAddress
     * The street address where the printer is located.
     *
-    * @return string The streetAddress
+    * @return string|null The streetAddress
     */
     public function getStreetAddress()
     {
@@ -499,7 +499,7 @@ class PrinterLocation extends Entity
     * Gets the subdivision
     * The subdivision that the printer is located in. The elements should be in hierarchical order.
     *
-    * @return string The subdivision
+    * @return string|null The subdivision
     */
     public function getSubdivision()
     {
@@ -526,7 +526,7 @@ class PrinterLocation extends Entity
     /**
     * Gets the subunit
     *
-    * @return string The subunit
+    * @return string|null The subunit
     */
     public function getSubunit()
     {

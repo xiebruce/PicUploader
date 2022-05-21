@@ -26,7 +26,7 @@ class GovernanceNotificationPolicy extends Entity
     /**
     * Gets the enabledTemplateTypes
     *
-    * @return string The enabledTemplateTypes
+    * @return string|null The enabledTemplateTypes
     */
     public function getEnabledTemplateTypes()
     {
@@ -53,12 +53,12 @@ class GovernanceNotificationPolicy extends Entity
     /**
     * Gets the notificationTemplates
     *
-    * @return GovernanceNotificationTemplate The notificationTemplates
+    * @return GovernanceNotificationTemplate|null The notificationTemplates
     */
     public function getNotificationTemplates()
     {
         if (array_key_exists("notificationTemplates", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationTemplates"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationTemplate")) {
+            if (is_a($this->_propDict["notificationTemplates"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationTemplate") || is_null($this->_propDict["notificationTemplates"])) {
                 return $this->_propDict["notificationTemplates"];
             } else {
                 $this->_propDict["notificationTemplates"] = new GovernanceNotificationTemplate($this->_propDict["notificationTemplates"]);

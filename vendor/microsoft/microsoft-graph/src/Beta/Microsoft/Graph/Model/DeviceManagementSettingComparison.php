@@ -28,12 +28,12 @@ class DeviceManagementSettingComparison extends Entity
     * Gets the comparisonResult
     * Setting comparison result. Possible values are: unknown, equal, notEqual, added, removed.
     *
-    * @return DeviceManagementComparisonResult The comparisonResult
+    * @return DeviceManagementComparisonResult|null The comparisonResult
     */
     public function getComparisonResult()
     {
         if (array_key_exists("comparisonResult", $this->_propDict)) {
-            if (is_a($this->_propDict["comparisonResult"], "\Beta\Microsoft\Graph\Model\DeviceManagementComparisonResult")) {
+            if (is_a($this->_propDict["comparisonResult"], "\Beta\Microsoft\Graph\Model\DeviceManagementComparisonResult") || is_null($this->_propDict["comparisonResult"])) {
                 return $this->_propDict["comparisonResult"];
             } else {
                 $this->_propDict["comparisonResult"] = new DeviceManagementComparisonResult($this->_propDict["comparisonResult"]);
@@ -60,7 +60,7 @@ class DeviceManagementSettingComparison extends Entity
     * Gets the currentValueJson
     * JSON representation of current intent (or) template setting's value
     *
-    * @return string The currentValueJson
+    * @return string|null The currentValueJson
     */
     public function getCurrentValueJson()
     {
@@ -88,7 +88,7 @@ class DeviceManagementSettingComparison extends Entity
     * Gets the definitionId
     * The ID of the setting definition for this instance
     *
-    * @return string The definitionId
+    * @return string|null The definitionId
     */
     public function getDefinitionId()
     {
@@ -116,7 +116,7 @@ class DeviceManagementSettingComparison extends Entity
     * Gets the displayName
     * The setting's display name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -144,7 +144,7 @@ class DeviceManagementSettingComparison extends Entity
     * Gets the id
     * The setting ID
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -172,7 +172,7 @@ class DeviceManagementSettingComparison extends Entity
     * Gets the newValueJson
     * JSON representation of new template setting's value
     *
-    * @return string The newValueJson
+    * @return string|null The newValueJson
     */
     public function getNewValueJson()
     {

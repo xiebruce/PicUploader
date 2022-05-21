@@ -27,7 +27,7 @@ class SizeRange extends Entity
     * Gets the maximumSize
     * The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
     *
-    * @return int The maximumSize
+    * @return int|null The maximumSize
     */
     public function getMaximumSize()
     {
@@ -55,7 +55,7 @@ class SizeRange extends Entity
     * Gets the minimumSize
     * The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
     *
-    * @return int The minimumSize
+    * @return int|null The minimumSize
     */
     public function getMinimumSize()
     {

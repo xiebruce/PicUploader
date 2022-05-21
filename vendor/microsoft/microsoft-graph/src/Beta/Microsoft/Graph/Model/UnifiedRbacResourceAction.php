@@ -26,8 +26,9 @@ class UnifiedRbacResourceAction extends Entity
 {
     /**
     * Gets the actionVerb
+    * HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
     *
-    * @return string The actionVerb
+    * @return string|null The actionVerb
     */
     public function getActionVerb()
     {
@@ -37,9 +38,10 @@ class UnifiedRbacResourceAction extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the actionVerb
+    * HTTP method for the action, such as DELETE, GET, PATCH, POST, PUT, or null. Supports $filter (eq) but not for null values.
     *
     * @param string $val The actionVerb
     *
@@ -50,11 +52,12 @@ class UnifiedRbacResourceAction extends Entity
         $this->_propDict["actionVerb"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
+    * Description for the action. Supports $filter (eq).
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -64,9 +67,10 @@ class UnifiedRbacResourceAction extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
+    * Description for the action. Supports $filter (eq).
     *
     * @param string $val The description
     *
@@ -77,11 +81,12 @@ class UnifiedRbacResourceAction extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
+    * Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -91,9 +96,10 @@ class UnifiedRbacResourceAction extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
+    * Name for the action within the resource namespace, such as microsoft.insights/programs/update. Can include slash character (/). Case insensitive. Required. Supports $filter (eq).
     *
     * @param string $val The name
     *
@@ -104,11 +110,12 @@ class UnifiedRbacResourceAction extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceScopeId
+    * Not implemented.
     *
-    * @return string The resourceScopeId
+    * @return string|null The resourceScopeId
     */
     public function getResourceScopeId()
     {
@@ -118,9 +125,10 @@ class UnifiedRbacResourceAction extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the resourceScopeId
+    * Not implemented.
     *
     * @param string $val The resourceScopeId
     *
@@ -131,16 +139,16 @@ class UnifiedRbacResourceAction extends Entity
         $this->_propDict["resourceScopeId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceScope
     *
-    * @return UnifiedRbacResourceScope The resourceScope
+    * @return UnifiedRbacResourceScope|null The resourceScope
     */
     public function getResourceScope()
     {
         if (array_key_exists("resourceScope", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceScope"], "\Beta\Microsoft\Graph\Model\UnifiedRbacResourceScope")) {
+            if (is_a($this->_propDict["resourceScope"], "\Beta\Microsoft\Graph\Model\UnifiedRbacResourceScope") || is_null($this->_propDict["resourceScope"])) {
                 return $this->_propDict["resourceScope"];
             } else {
                 $this->_propDict["resourceScope"] = new UnifiedRbacResourceScope($this->_propDict["resourceScope"]);
@@ -149,7 +157,7 @@ class UnifiedRbacResourceAction extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resourceScope
     *
@@ -162,5 +170,5 @@ class UnifiedRbacResourceAction extends Entity
         $this->_propDict["resourceScope"] = $val;
         return $this;
     }
-    
+
 }

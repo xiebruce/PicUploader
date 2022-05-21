@@ -25,15 +25,77 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 {
 
     /**
+    * Gets the authenticationType
+    *
+    * @return SignInFrequencyAuthenticationType|null The authenticationType
+    */
+    public function getAuthenticationType()
+    {
+        if (array_key_exists("authenticationType", $this->_propDict)) {
+            if (is_a($this->_propDict["authenticationType"], "\Beta\Microsoft\Graph\Model\SignInFrequencyAuthenticationType") || is_null($this->_propDict["authenticationType"])) {
+                return $this->_propDict["authenticationType"];
+            } else {
+                $this->_propDict["authenticationType"] = new SignInFrequencyAuthenticationType($this->_propDict["authenticationType"]);
+                return $this->_propDict["authenticationType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authenticationType
+    *
+    * @param SignInFrequencyAuthenticationType $val The value to assign to the authenticationType
+    *
+    * @return SignInFrequencySessionControl The SignInFrequencySessionControl
+    */
+    public function setAuthenticationType($val)
+    {
+        $this->_propDict["authenticationType"] = $val;
+         return $this;
+    }
+
+    /**
+    * Gets the frequencyInterval
+    *
+    * @return SignInFrequencyInterval|null The frequencyInterval
+    */
+    public function getFrequencyInterval()
+    {
+        if (array_key_exists("frequencyInterval", $this->_propDict)) {
+            if (is_a($this->_propDict["frequencyInterval"], "\Beta\Microsoft\Graph\Model\SignInFrequencyInterval") || is_null($this->_propDict["frequencyInterval"])) {
+                return $this->_propDict["frequencyInterval"];
+            } else {
+                $this->_propDict["frequencyInterval"] = new SignInFrequencyInterval($this->_propDict["frequencyInterval"]);
+                return $this->_propDict["frequencyInterval"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the frequencyInterval
+    *
+    * @param SignInFrequencyInterval $val The value to assign to the frequencyInterval
+    *
+    * @return SignInFrequencySessionControl The SignInFrequencySessionControl
+    */
+    public function setFrequencyInterval($val)
+    {
+        $this->_propDict["frequencyInterval"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the type
     * Possible values are: days, hours.
     *
-    * @return SigninFrequencyType The type
+    * @return SigninFrequencyType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\SigninFrequencyType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\SigninFrequencyType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new SigninFrequencyType($this->_propDict["type"]);
@@ -60,7 +122,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
     * Gets the value
     * The number of days or hours.
     *
-    * @return int The value
+    * @return int|null The value
     */
     public function getValue()
     {

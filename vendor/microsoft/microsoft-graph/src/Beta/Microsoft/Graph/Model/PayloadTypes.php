@@ -27,7 +27,7 @@ class PayloadTypes extends Entity
     * Gets the rawContent
     * The notification content of a raw user notification that will be delivered to and consumed by the app client on all supported platforms (Windows, iOS, Android or WebPush) receiving this notification. At least one of Payload.RawContent or Payload.VisualContent needs to be valid for a POST Notification request.
     *
-    * @return string The rawContent
+    * @return string|null The rawContent
     */
     public function getRawContent()
     {
@@ -56,12 +56,12 @@ class PayloadTypes extends Entity
     * Gets the visualContent
     * The visual content of a visual user notification, which will be consumed by the notification platform on each supported platform (Windows, iOS and Android only) and rendered for the user. At least one of Payload.RawContent or Payload.VisualContent needs to be valid for a POST Notification request.
     *
-    * @return VisualProperties The visualContent
+    * @return VisualProperties|null The visualContent
     */
     public function getVisualContent()
     {
         if (array_key_exists("visualContent", $this->_propDict)) {
-            if (is_a($this->_propDict["visualContent"], "\Beta\Microsoft\Graph\Model\VisualProperties")) {
+            if (is_a($this->_propDict["visualContent"], "\Beta\Microsoft\Graph\Model\VisualProperties") || is_null($this->_propDict["visualContent"])) {
                 return $this->_propDict["visualContent"];
             } else {
                 $this->_propDict["visualContent"] = new VisualProperties($this->_propDict["visualContent"]);

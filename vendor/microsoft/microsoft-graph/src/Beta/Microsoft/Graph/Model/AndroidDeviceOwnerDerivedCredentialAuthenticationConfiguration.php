@@ -28,12 +28,12 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
     * Gets the derivedCredentialSettings
     * Tenant level settings for the Derived Credentials to be used for authentication.
     *
-    * @return DeviceManagementDerivedCredentialSettings The derivedCredentialSettings
+    * @return DeviceManagementDerivedCredentialSettings|null The derivedCredentialSettings
     */
     public function getDerivedCredentialSettings()
     {
         if (array_key_exists("derivedCredentialSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings")) {
+            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
                 return $this->_propDict["derivedCredentialSettings"];
             } else {
                 $this->_propDict["derivedCredentialSettings"] = new DeviceManagementDerivedCredentialSettings($this->_propDict["derivedCredentialSettings"]);
@@ -42,7 +42,7 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
         }
         return null;
     }
-    
+
     /**
     * Sets the derivedCredentialSettings
     * Tenant level settings for the Derived Credentials to be used for authentication.
@@ -56,5 +56,5 @@ class AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration extends Dev
         $this->_propDict["derivedCredentialSettings"] = $val;
         return $this;
     }
-    
+
 }

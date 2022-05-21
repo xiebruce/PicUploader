@@ -28,7 +28,7 @@ class ManagedAndroidStoreApp extends ManagedApp
     * Gets the appStoreUrl
     * The Android AppStoreUrl.
     *
-    * @return string The appStoreUrl
+    * @return string|null The appStoreUrl
     */
     public function getAppStoreUrl()
     {
@@ -38,7 +38,7 @@ class ManagedAndroidStoreApp extends ManagedApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appStoreUrl
     * The Android AppStoreUrl.
@@ -52,17 +52,17 @@ class ManagedAndroidStoreApp extends ManagedApp
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimumSupportedOperatingSystem
     * The value for the minimum supported operating system.
     *
-    * @return AndroidMinimumOperatingSystem The minimumSupportedOperatingSystem
+    * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\AndroidMinimumOperatingSystem")) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new AndroidMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -71,7 +71,7 @@ class ManagedAndroidStoreApp extends ManagedApp
         }
         return null;
     }
-    
+
     /**
     * Sets the minimumSupportedOperatingSystem
     * The value for the minimum supported operating system.
@@ -85,12 +85,12 @@ class ManagedAndroidStoreApp extends ManagedApp
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the packageId
     * The app's package ID.
     *
-    * @return string The packageId
+    * @return string|null The packageId
     */
     public function getPackageId()
     {
@@ -100,7 +100,7 @@ class ManagedAndroidStoreApp extends ManagedApp
             return null;
         }
     }
-    
+
     /**
     * Sets the packageId
     * The app's package ID.
@@ -114,5 +114,5 @@ class ManagedAndroidStoreApp extends ManagedApp
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-    
+
 }

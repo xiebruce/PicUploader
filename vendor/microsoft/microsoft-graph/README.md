@@ -11,7 +11,7 @@ You can install the PHP SDK with Composer, either run `composer require microsof
 ```
 {
     "require": {
-        "microsoft/microsoft-graph": "^1.20"
+        "microsoft/microsoft-graph": "^1.65.0"
     }
 }
 ```
@@ -28,12 +28,12 @@ The Microsoft Graph SDK for PHP does not include any default authentication impl
 To authenticate as an application you can use the [Guzzle HTTP client](http://docs.guzzlephp.org/en/stable/), which comes preinstalled with this library, for example like this:
 ```php
 $guzzle = new \GuzzleHttp\Client();
-$url = 'https://login.microsoftonline.com/' . $tenantId . '/oauth2/token?api-version=1.0';
+$url = 'https://login.microsoftonline.com/' . $tenantId . '/oauth2/v2.0/token';
 $token = json_decode($guzzle->post($url, [
     'form_params' => [
         'client_id' => $clientId,
         'client_secret' => $clientSecret,
-        'resource' => 'https://graph.microsoft.com/',
+        'scope' => 'https://graph.microsoft.com/.default',
         'grant_type' => 'client_credentials',
     ],
 ])->getBody()->getContents());
@@ -62,7 +62,7 @@ class UsageExample
                       ->setReturnType(Model\User::class)
                       ->execute();
 
-        echo "Hello, I am $user->getGivenName() ";
+        echo "Hello, I am {$user->getGivenName()}.";
     }
 }
 ```
@@ -142,11 +142,9 @@ Now you can hit a Visual Studio Code breakpoint in a test. Try this:
 
 ## Documentation and resources
 
-* [Documentation](https://github.com/microsoftgraph/msgraph-sdk-php/blob/master/docs/index.html)
+* [Documentation](docs/index.html)
 
-* [Wiki](https://github.com/microsoftgraph/msgraph-sdk-php/wiki)
-
-* [Examples](https://github.com/microsoftgraph/msgraph-sdk-php/wiki/Example-calls)
+* [Examples](docs/Examples.md)
 
 * [Microsoft Graph website](https://developer.microsoft.com/en-us/graph/)
 
@@ -156,7 +154,7 @@ View or log issues on the [Issues](https://github.com/microsoftgraph/msgraph-sdk
 
 ## Contribute
 
-Please read our [Contributing](https://github.com/microsoftgraph/msgraph-sdk-php/blob/master/CONTRIBUTING.md) guidelines carefully for advice on how to contribute to this repo.
+Please read our [Contributing](CONTRIBUTING.md) guidelines carefully for advice on how to contribute to this repo.
 
 ## Copyright and license
 

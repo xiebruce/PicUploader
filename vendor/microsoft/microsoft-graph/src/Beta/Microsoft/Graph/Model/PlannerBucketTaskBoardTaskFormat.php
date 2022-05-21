@@ -28,7 +28,7 @@ class PlannerBucketTaskBoardTaskFormat extends PlannerDelta
     * Gets the orderHint
     * Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
     *
-    * @return string The orderHint
+    * @return string|null The orderHint
     */
     public function getOrderHint()
     {
@@ -38,7 +38,7 @@ class PlannerBucketTaskBoardTaskFormat extends PlannerDelta
             return null;
         }
     }
-    
+
     /**
     * Sets the orderHint
     * Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
@@ -52,5 +52,5 @@ class PlannerBucketTaskBoardTaskFormat extends PlannerDelta
         $this->_propDict["orderHint"] = $val;
         return $this;
     }
-    
+
 }

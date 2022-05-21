@@ -26,9 +26,11 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppPowerShellScriptDetection");
     }
 
@@ -36,7 +38,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection
     * Gets the enforceSignatureCheck
     * A value indicating whether signature check is enforced
     *
-    * @return bool The enforceSignatureCheck
+    * @return bool|null The enforceSignatureCheck
     */
     public function getEnforceSignatureCheck()
     {
@@ -64,7 +66,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection
     * Gets the runAs32Bit
     * A value indicating whether this script should run as 32-bit
     *
-    * @return bool The runAs32Bit
+    * @return bool|null The runAs32Bit
     */
     public function getRunAs32Bit()
     {
@@ -92,7 +94,7 @@ class Win32LobAppPowerShellScriptDetection extends Win32LobAppDetection
     * Gets the scriptContent
     * The base64 encoded script content to detect Win32 Line of Business (LoB) app
     *
-    * @return string The scriptContent
+    * @return string|null The scriptContent
     */
     public function getScriptContent()
     {

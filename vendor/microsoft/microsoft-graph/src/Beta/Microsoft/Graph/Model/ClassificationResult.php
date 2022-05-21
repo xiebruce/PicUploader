@@ -27,7 +27,7 @@ class ClassificationResult extends Entity
     * Gets the confidenceLevel
     * The confidence level, 0 to 100, of the result.
     *
-    * @return int The confidenceLevel
+    * @return int|null The confidenceLevel
     */
     public function getConfidenceLevel()
     {
@@ -55,7 +55,7 @@ class ClassificationResult extends Entity
     * Gets the count
     * The number of instances of the specific information type in the input.
     *
-    * @return int The count
+    * @return int|null The count
     */
     public function getCount()
     {
@@ -83,7 +83,7 @@ class ClassificationResult extends Entity
     * Gets the sensitiveTypeId
     * The GUID of the discovered sensitive information type.
     *
-    * @return string The sensitiveTypeId
+    * @return string|null The sensitiveTypeId
     */
     public function getSensitiveTypeId()
     {

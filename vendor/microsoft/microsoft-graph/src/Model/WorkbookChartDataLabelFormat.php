@@ -28,12 +28,12 @@ class WorkbookChartDataLabelFormat extends Entity
     * Gets the fill
     * Represents the fill format of the current chart data label. Read-only.
     *
-    * @return WorkbookChartFill The fill
+    * @return WorkbookChartFill|null The fill
     */
     public function getFill()
     {
         if (array_key_exists("fill", $this->_propDict)) {
-            if (is_a($this->_propDict["fill"], "\Microsoft\Graph\Model\WorkbookChartFill")) {
+            if (is_a($this->_propDict["fill"], "\Microsoft\Graph\Model\WorkbookChartFill") || is_null($this->_propDict["fill"])) {
                 return $this->_propDict["fill"];
             } else {
                 $this->_propDict["fill"] = new WorkbookChartFill($this->_propDict["fill"]);
@@ -42,7 +42,7 @@ class WorkbookChartDataLabelFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the fill
     * Represents the fill format of the current chart data label. Read-only.
@@ -56,17 +56,17 @@ class WorkbookChartDataLabelFormat extends Entity
         $this->_propDict["fill"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the font
     * Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only.
     *
-    * @return WorkbookChartFont The font
+    * @return WorkbookChartFont|null The font
     */
     public function getFont()
     {
         if (array_key_exists("font", $this->_propDict)) {
-            if (is_a($this->_propDict["font"], "\Microsoft\Graph\Model\WorkbookChartFont")) {
+            if (is_a($this->_propDict["font"], "\Microsoft\Graph\Model\WorkbookChartFont") || is_null($this->_propDict["font"])) {
                 return $this->_propDict["font"];
             } else {
                 $this->_propDict["font"] = new WorkbookChartFont($this->_propDict["font"]);
@@ -75,7 +75,7 @@ class WorkbookChartDataLabelFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the font
     * Represents the font attributes (font name, font size, color, etc.) for a chart data label. Read-only.
@@ -89,5 +89,5 @@ class WorkbookChartDataLabelFormat extends Entity
         $this->_propDict["font"] = $val;
         return $this;
     }
-    
+
 }

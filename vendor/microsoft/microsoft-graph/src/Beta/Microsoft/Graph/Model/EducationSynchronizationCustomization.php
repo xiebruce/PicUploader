@@ -27,7 +27,7 @@ class EducationSynchronizationCustomization extends Entity
     * Gets the allowDisplayNameUpdate
     * Indicates whether the display name of the resource can be overwritten by the sync.
     *
-    * @return bool The allowDisplayNameUpdate
+    * @return bool|null The allowDisplayNameUpdate
     */
     public function getAllowDisplayNameUpdate()
     {
@@ -55,7 +55,7 @@ class EducationSynchronizationCustomization extends Entity
     * Gets the isSyncDeferred
     * Indicates whether synchronization of the parent entity is deferred to a later date.
     *
-    * @return bool The isSyncDeferred
+    * @return bool|null The isSyncDeferred
     */
     public function getIsSyncDeferred()
     {
@@ -83,7 +83,7 @@ class EducationSynchronizationCustomization extends Entity
     * Gets the optionalPropertiesToSync
     * The collection of property names to sync. If set to null, all properties will be synchronized. Does not apply to Student Enrollments or Teacher Rosters
     *
-    * @return string The optionalPropertiesToSync
+    * @return string|null The optionalPropertiesToSync
     */
     public function getOptionalPropertiesToSync()
     {
@@ -112,12 +112,12 @@ class EducationSynchronizationCustomization extends Entity
     * Gets the synchronizationStartDate
     * The date that the synchronization should start. This value should be set to a future date. If set to null, the resource will be synchronized when the profile setup completes. Only applies to Student Enrollments
     *
-    * @return \DateTime The synchronizationStartDate
+    * @return \DateTime|null The synchronizationStartDate
     */
     public function getSynchronizationStartDate()
     {
         if (array_key_exists("synchronizationStartDate", $this->_propDict)) {
-            if (is_a($this->_propDict["synchronizationStartDate"], "\DateTime")) {
+            if (is_a($this->_propDict["synchronizationStartDate"], "\DateTime") || is_null($this->_propDict["synchronizationStartDate"])) {
                 return $this->_propDict["synchronizationStartDate"];
             } else {
                 $this->_propDict["synchronizationStartDate"] = new \DateTime($this->_propDict["synchronizationStartDate"]);

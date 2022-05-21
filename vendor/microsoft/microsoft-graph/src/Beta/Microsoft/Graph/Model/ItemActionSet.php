@@ -28,12 +28,12 @@ class ItemActionSet extends Entity
     * Gets the comment
     * A comment was added to the item.
     *
-    * @return CommentAction The comment
+    * @return CommentAction|null The comment
     */
     public function getComment()
     {
         if (array_key_exists("comment", $this->_propDict)) {
-            if (is_a($this->_propDict["comment"], "\Beta\Microsoft\Graph\Model\CommentAction")) {
+            if (is_a($this->_propDict["comment"], "\Beta\Microsoft\Graph\Model\CommentAction") || is_null($this->_propDict["comment"])) {
                 return $this->_propDict["comment"];
             } else {
                 $this->_propDict["comment"] = new CommentAction($this->_propDict["comment"]);
@@ -61,12 +61,12 @@ class ItemActionSet extends Entity
     * Gets the create
     * An item was created.
     *
-    * @return CreateAction The create
+    * @return CreateAction|null The create
     */
     public function getCreate()
     {
         if (array_key_exists("create", $this->_propDict)) {
-            if (is_a($this->_propDict["create"], "\Beta\Microsoft\Graph\Model\CreateAction")) {
+            if (is_a($this->_propDict["create"], "\Beta\Microsoft\Graph\Model\CreateAction") || is_null($this->_propDict["create"])) {
                 return $this->_propDict["create"];
             } else {
                 $this->_propDict["create"] = new CreateAction($this->_propDict["create"]);
@@ -94,12 +94,12 @@ class ItemActionSet extends Entity
     * Gets the delete
     * An item was deleted.
     *
-    * @return DeleteAction The delete
+    * @return DeleteAction|null The delete
     */
     public function getDelete()
     {
         if (array_key_exists("delete", $this->_propDict)) {
-            if (is_a($this->_propDict["delete"], "\Beta\Microsoft\Graph\Model\DeleteAction")) {
+            if (is_a($this->_propDict["delete"], "\Beta\Microsoft\Graph\Model\DeleteAction") || is_null($this->_propDict["delete"])) {
                 return $this->_propDict["delete"];
             } else {
                 $this->_propDict["delete"] = new DeleteAction($this->_propDict["delete"]);
@@ -127,12 +127,12 @@ class ItemActionSet extends Entity
     * Gets the edit
     * An item was edited.
     *
-    * @return EditAction The edit
+    * @return EditAction|null The edit
     */
     public function getEdit()
     {
         if (array_key_exists("edit", $this->_propDict)) {
-            if (is_a($this->_propDict["edit"], "\Beta\Microsoft\Graph\Model\EditAction")) {
+            if (is_a($this->_propDict["edit"], "\Beta\Microsoft\Graph\Model\EditAction") || is_null($this->_propDict["edit"])) {
                 return $this->_propDict["edit"];
             } else {
                 $this->_propDict["edit"] = new EditAction($this->_propDict["edit"]);
@@ -160,12 +160,12 @@ class ItemActionSet extends Entity
     * Gets the mention
     * A user was mentioned in the item.
     *
-    * @return MentionAction The mention
+    * @return MentionAction|null The mention
     */
     public function getMention()
     {
         if (array_key_exists("mention", $this->_propDict)) {
-            if (is_a($this->_propDict["mention"], "\Beta\Microsoft\Graph\Model\MentionAction")) {
+            if (is_a($this->_propDict["mention"], "\Beta\Microsoft\Graph\Model\MentionAction") || is_null($this->_propDict["mention"])) {
                 return $this->_propDict["mention"];
             } else {
                 $this->_propDict["mention"] = new MentionAction($this->_propDict["mention"]);
@@ -193,12 +193,12 @@ class ItemActionSet extends Entity
     * Gets the move
     * An item was moved.
     *
-    * @return MoveAction The move
+    * @return MoveAction|null The move
     */
     public function getMove()
     {
         if (array_key_exists("move", $this->_propDict)) {
-            if (is_a($this->_propDict["move"], "\Beta\Microsoft\Graph\Model\MoveAction")) {
+            if (is_a($this->_propDict["move"], "\Beta\Microsoft\Graph\Model\MoveAction") || is_null($this->_propDict["move"])) {
                 return $this->_propDict["move"];
             } else {
                 $this->_propDict["move"] = new MoveAction($this->_propDict["move"]);
@@ -226,12 +226,12 @@ class ItemActionSet extends Entity
     * Gets the rename
     * An item was renamed.
     *
-    * @return RenameAction The rename
+    * @return RenameAction|null The rename
     */
     public function getRename()
     {
         if (array_key_exists("rename", $this->_propDict)) {
-            if (is_a($this->_propDict["rename"], "\Beta\Microsoft\Graph\Model\RenameAction")) {
+            if (is_a($this->_propDict["rename"], "\Beta\Microsoft\Graph\Model\RenameAction") || is_null($this->_propDict["rename"])) {
                 return $this->_propDict["rename"];
             } else {
                 $this->_propDict["rename"] = new RenameAction($this->_propDict["rename"]);
@@ -259,12 +259,12 @@ class ItemActionSet extends Entity
     * Gets the restore
     * An item was restored.
     *
-    * @return RestoreAction The restore
+    * @return RestoreAction|null The restore
     */
     public function getRestore()
     {
         if (array_key_exists("restore", $this->_propDict)) {
-            if (is_a($this->_propDict["restore"], "\Beta\Microsoft\Graph\Model\RestoreAction")) {
+            if (is_a($this->_propDict["restore"], "\Beta\Microsoft\Graph\Model\RestoreAction") || is_null($this->_propDict["restore"])) {
                 return $this->_propDict["restore"];
             } else {
                 $this->_propDict["restore"] = new RestoreAction($this->_propDict["restore"]);
@@ -292,12 +292,12 @@ class ItemActionSet extends Entity
     * Gets the share
     * An item was shared.
     *
-    * @return ShareAction The share
+    * @return ShareAction|null The share
     */
     public function getShare()
     {
         if (array_key_exists("share", $this->_propDict)) {
-            if (is_a($this->_propDict["share"], "\Beta\Microsoft\Graph\Model\ShareAction")) {
+            if (is_a($this->_propDict["share"], "\Beta\Microsoft\Graph\Model\ShareAction") || is_null($this->_propDict["share"])) {
                 return $this->_propDict["share"];
             } else {
                 $this->_propDict["share"] = new ShareAction($this->_propDict["share"]);
@@ -325,12 +325,12 @@ class ItemActionSet extends Entity
     * Gets the version
     * An item was versioned.
     *
-    * @return VersionAction The version
+    * @return VersionAction|null The version
     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
-            if (is_a($this->_propDict["version"], "\Beta\Microsoft\Graph\Model\VersionAction")) {
+            if (is_a($this->_propDict["version"], "\Beta\Microsoft\Graph\Model\VersionAction") || is_null($this->_propDict["version"])) {
                 return $this->_propDict["version"];
             } else {
                 $this->_propDict["version"] = new VersionAction($this->_propDict["version"]);

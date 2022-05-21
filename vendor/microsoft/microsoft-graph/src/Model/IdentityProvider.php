@@ -28,7 +28,7 @@ class IdentityProvider extends Entity
     * Gets the clientId
     * The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
     *
-    * @return string The clientId
+    * @return string|null The clientId
     */
     public function getClientId()
     {
@@ -38,7 +38,7 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientId
     * The client ID for the application obtained when registering the application with the identity provider. This is a required field.  Required. Not nullable.
@@ -52,12 +52,12 @@ class IdentityProvider extends Entity
         $this->_propDict["clientId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clientSecret
     * The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable.
     *
-    * @return string The clientSecret
+    * @return string|null The clientSecret
     */
     public function getClientSecret()
     {
@@ -67,7 +67,7 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientSecret
     * The client secret for the application obtained when registering the application with the identity provider. This is write-only. A read operation will return ****. This is a required field. Required. Not nullable.
@@ -81,12 +81,12 @@ class IdentityProvider extends Entity
         $this->_propDict["clientSecret"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     * The display name of the identity provider. Not nullable.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -96,7 +96,7 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * The display name of the identity provider. Not nullable.
@@ -110,12 +110,12 @@ class IdentityProvider extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the type
     * The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -125,7 +125,7 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the type
     * The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo,QQ, WeChat, OpenIDConnect. Not nullable.
@@ -139,5 +139,5 @@ class IdentityProvider extends Entity
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
+
 }

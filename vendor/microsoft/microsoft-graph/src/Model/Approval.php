@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class Approval extends Entity
 {
 
-     /** 
+     /**
      * Gets the stages
     * Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
      *
-     * @return array The stages
+     * @return array|null The stages
      */
     public function getStages()
     {
@@ -39,19 +39,19 @@ class Approval extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the stages
     * Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
     *
-    * @param ApprovalStage $val The stages
+    * @param ApprovalStage[] $val The stages
     *
     * @return Approval
     */
     public function setStages($val)
     {
-		$this->_propDict["stages"] = $val;
+        $this->_propDict["stages"] = $val;
         return $this;
     }
-    
+
 }

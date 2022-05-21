@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class OutlookUser extends Entity
 {
 
-     /** 
+     /**
      * Gets the masterCategories
     * A list of categories defined for the user.
      *
-     * @return array The masterCategories
+     * @return array|null The masterCategories
      */
     public function getMasterCategories()
     {
@@ -39,19 +39,19 @@ class OutlookUser extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the masterCategories
     * A list of categories defined for the user.
     *
-    * @param OutlookCategory $val The masterCategories
+    * @param OutlookCategory[] $val The masterCategories
     *
     * @return OutlookUser
     */
     public function setMasterCategories($val)
     {
-		$this->_propDict["masterCategories"] = $val;
+        $this->_propDict["masterCategories"] = $val;
         return $this;
     }
-    
+
 }

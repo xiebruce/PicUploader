@@ -27,7 +27,7 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
     * Gets the className
     * Class name of application
     *
-    * @return string The className
+    * @return string|null The className
     */
     public function getClassName()
     {
@@ -55,7 +55,7 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
     * Gets the package
     * Package name of application
     *
-    * @return string The package
+    * @return string|null The package
     */
     public function getPackage()
     {

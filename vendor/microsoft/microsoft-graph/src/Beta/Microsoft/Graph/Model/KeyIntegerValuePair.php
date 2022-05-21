@@ -27,7 +27,7 @@ class KeyIntegerValuePair extends KeyTypedValuePair
     * Gets the value
     * The integer value of the key-value pair.
     *
-    * @return int The value
+    * @return int|null The value
     */
     public function getValue()
     {

@@ -28,7 +28,7 @@ class WorkbookPivotTable extends Entity
     * Gets the name
     * Name of the PivotTable.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -38,7 +38,7 @@ class WorkbookPivotTable extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * Name of the PivotTable.
@@ -52,17 +52,17 @@ class WorkbookPivotTable extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the worksheet
     * The worksheet containing the current PivotTable. Read-only.
     *
-    * @return WorkbookWorksheet The worksheet
+    * @return WorkbookWorksheet|null The worksheet
     */
     public function getWorksheet()
     {
         if (array_key_exists("worksheet", $this->_propDict)) {
-            if (is_a($this->_propDict["worksheet"], "\Microsoft\Graph\Model\WorkbookWorksheet")) {
+            if (is_a($this->_propDict["worksheet"], "\Microsoft\Graph\Model\WorkbookWorksheet") || is_null($this->_propDict["worksheet"])) {
                 return $this->_propDict["worksheet"];
             } else {
                 $this->_propDict["worksheet"] = new WorkbookWorksheet($this->_propDict["worksheet"]);
@@ -71,7 +71,7 @@ class WorkbookPivotTable extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the worksheet
     * The worksheet containing the current PivotTable. Read-only.
@@ -85,5 +85,5 @@ class WorkbookPivotTable extends Entity
         $this->_propDict["worksheet"] = $val;
         return $this;
     }
-    
+
 }

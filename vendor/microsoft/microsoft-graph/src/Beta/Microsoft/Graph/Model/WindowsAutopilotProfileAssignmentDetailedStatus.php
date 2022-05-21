@@ -34,4 +34,6 @@ class WindowsAutopilotProfileAssignmentDetailedStatus extends Enum
     const SURFACE_HUB_PROFILE_NOT_SUPPORTED = "surfaceHubProfileNotSupported";
     const HOLO_LENS_PROFILE_NOT_SUPPORTED = "holoLensProfileNotSupported";
     const WINDOWS_PC_PROFILE_NOT_SUPPORTED = "windowsPcProfileNotSupported";
+    const SURFACE_HUB2_S_PROFILE_NOT_SUPPORTED = "surfaceHub2SProfileNotSupported";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

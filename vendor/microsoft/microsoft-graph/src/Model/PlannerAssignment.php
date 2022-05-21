@@ -28,12 +28,12 @@ class PlannerAssignment extends Entity
     * Gets the assignedBy
     * The identity of the user that performed the assignment of the task, i.e. the assignor.
     *
-    * @return IdentitySet The assignedBy
+    * @return IdentitySet|null The assignedBy
     */
     public function getAssignedBy()
     {
         if (array_key_exists("assignedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["assignedBy"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["assignedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["assignedBy"])) {
                 return $this->_propDict["assignedBy"];
             } else {
                 $this->_propDict["assignedBy"] = new IdentitySet($this->_propDict["assignedBy"]);
@@ -61,12 +61,12 @@ class PlannerAssignment extends Entity
     * Gets the assignedDateTime
     * The time at which the task was assigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The assignedDateTime
+    * @return \DateTime|null The assignedDateTime
     */
     public function getAssignedDateTime()
     {
         if (array_key_exists("assignedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["assignedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["assignedDateTime"], "\DateTime") || is_null($this->_propDict["assignedDateTime"])) {
                 return $this->_propDict["assignedDateTime"];
             } else {
                 $this->_propDict["assignedDateTime"] = new \DateTime($this->_propDict["assignedDateTime"]);
@@ -93,7 +93,7 @@ class PlannerAssignment extends Entity
     * Gets the orderHint
     * Hint used to order assignees in a task. The format is defined as outlined here.
     *
-    * @return string The orderHint
+    * @return string|null The orderHint
     */
     public function getOrderHint()
     {

@@ -27,7 +27,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category1
     * The label associated with Category 1
     *
-    * @return string The category1
+    * @return string|null The category1
     */
     public function getCategory1()
     {
@@ -55,7 +55,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category10
     * The label associated with Category 10
     *
-    * @return string The category10
+    * @return string|null The category10
     */
     public function getCategory10()
     {
@@ -83,7 +83,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category11
     * The label associated with Category 11
     *
-    * @return string The category11
+    * @return string|null The category11
     */
     public function getCategory11()
     {
@@ -111,7 +111,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category12
     * The label associated with Category 12
     *
-    * @return string The category12
+    * @return string|null The category12
     */
     public function getCategory12()
     {
@@ -139,7 +139,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category13
     * The label associated with Category 13
     *
-    * @return string The category13
+    * @return string|null The category13
     */
     public function getCategory13()
     {
@@ -167,7 +167,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category14
     * The label associated with Category 14
     *
-    * @return string The category14
+    * @return string|null The category14
     */
     public function getCategory14()
     {
@@ -195,7 +195,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category15
     * The label associated with Category 15
     *
-    * @return string The category15
+    * @return string|null The category15
     */
     public function getCategory15()
     {
@@ -223,7 +223,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category16
     * The label associated with Category 16
     *
-    * @return string The category16
+    * @return string|null The category16
     */
     public function getCategory16()
     {
@@ -251,7 +251,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category17
     * The label associated with Category 17
     *
-    * @return string The category17
+    * @return string|null The category17
     */
     public function getCategory17()
     {
@@ -279,7 +279,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category18
     * The label associated with Category 18
     *
-    * @return string The category18
+    * @return string|null The category18
     */
     public function getCategory18()
     {
@@ -307,7 +307,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category19
     * The label associated with Category 19
     *
-    * @return string The category19
+    * @return string|null The category19
     */
     public function getCategory19()
     {
@@ -335,7 +335,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category2
     * The label associated with Category 2
     *
-    * @return string The category2
+    * @return string|null The category2
     */
     public function getCategory2()
     {
@@ -363,7 +363,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category20
     * The label associated with Category 20
     *
-    * @return string The category20
+    * @return string|null The category20
     */
     public function getCategory20()
     {
@@ -391,7 +391,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category21
     * The label associated with Category 21
     *
-    * @return string The category21
+    * @return string|null The category21
     */
     public function getCategory21()
     {
@@ -419,7 +419,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category22
     * The label associated with Category 22
     *
-    * @return string The category22
+    * @return string|null The category22
     */
     public function getCategory22()
     {
@@ -447,7 +447,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category23
     * The label associated with Category 23
     *
-    * @return string The category23
+    * @return string|null The category23
     */
     public function getCategory23()
     {
@@ -475,7 +475,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category24
     * The label associated with Category 24
     *
-    * @return string The category24
+    * @return string|null The category24
     */
     public function getCategory24()
     {
@@ -503,7 +503,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category25
     * The label associated with Category 25
     *
-    * @return string The category25
+    * @return string|null The category25
     */
     public function getCategory25()
     {
@@ -531,7 +531,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category3
     * The label associated with Category 3
     *
-    * @return string The category3
+    * @return string|null The category3
     */
     public function getCategory3()
     {
@@ -559,7 +559,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category4
     * The label associated with Category 4
     *
-    * @return string The category4
+    * @return string|null The category4
     */
     public function getCategory4()
     {
@@ -587,7 +587,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category5
     * The label associated with Category 5
     *
-    * @return string The category5
+    * @return string|null The category5
     */
     public function getCategory5()
     {
@@ -615,7 +615,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category6
     * The label associated with Category 6
     *
-    * @return string The category6
+    * @return string|null The category6
     */
     public function getCategory6()
     {
@@ -643,7 +643,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category7
     * The label associated with Category 7
     *
-    * @return string The category7
+    * @return string|null The category7
     */
     public function getCategory7()
     {
@@ -671,7 +671,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category8
     * The label associated with Category 8
     *
-    * @return string The category8
+    * @return string|null The category8
     */
     public function getCategory8()
     {
@@ -699,7 +699,7 @@ class PlannerCategoryDescriptions extends Entity
     * Gets the category9
     * The label associated with Category 9
     *
-    * @return string The category9
+    * @return string|null The category9
     */
     public function getCategory9()
     {

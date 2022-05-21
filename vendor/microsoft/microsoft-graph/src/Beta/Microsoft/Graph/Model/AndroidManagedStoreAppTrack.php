@@ -27,7 +27,7 @@ class AndroidManagedStoreAppTrack extends Entity
     * Gets the trackAlias
     * Friendly name for track.
     *
-    * @return string The trackAlias
+    * @return string|null The trackAlias
     */
     public function getTrackAlias()
     {
@@ -55,7 +55,7 @@ class AndroidManagedStoreAppTrack extends Entity
     * Gets the trackId
     * Unique track identifier.
     *
-    * @return string The trackId
+    * @return string|null The trackId
     */
     public function getTrackId()
     {

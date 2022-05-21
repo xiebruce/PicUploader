@@ -28,7 +28,7 @@ class RemoteAssistancePartner extends Entity
     * Gets the displayName
     * Display name of the partner.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class RemoteAssistancePartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Display name of the partner.
@@ -52,17 +52,17 @@ class RemoteAssistancePartner extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastConnectionDateTime
     * Timestamp of the last request sent to Intune by the TEM partner.
     *
-    * @return \DateTime The lastConnectionDateTime
+    * @return \DateTime|null The lastConnectionDateTime
     */
     public function getLastConnectionDateTime()
     {
         if (array_key_exists("lastConnectionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
                 return $this->_propDict["lastConnectionDateTime"];
             } else {
                 $this->_propDict["lastConnectionDateTime"] = new \DateTime($this->_propDict["lastConnectionDateTime"]);
@@ -71,7 +71,7 @@ class RemoteAssistancePartner extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastConnectionDateTime
     * Timestamp of the last request sent to Intune by the TEM partner.
@@ -85,17 +85,17 @@ class RemoteAssistancePartner extends Entity
         $this->_propDict["lastConnectionDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the onboardingRequestExpiryDateTime
     * When the OnboardingStatus is Onboarding, This is the date time when the onboarding request expires.
     *
-    * @return \DateTime The onboardingRequestExpiryDateTime
+    * @return \DateTime|null The onboardingRequestExpiryDateTime
     */
     public function getOnboardingRequestExpiryDateTime()
     {
         if (array_key_exists("onboardingRequestExpiryDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardingRequestExpiryDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["onboardingRequestExpiryDateTime"], "\DateTime") || is_null($this->_propDict["onboardingRequestExpiryDateTime"])) {
                 return $this->_propDict["onboardingRequestExpiryDateTime"];
             } else {
                 $this->_propDict["onboardingRequestExpiryDateTime"] = new \DateTime($this->_propDict["onboardingRequestExpiryDateTime"]);
@@ -104,7 +104,7 @@ class RemoteAssistancePartner extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the onboardingRequestExpiryDateTime
     * When the OnboardingStatus is Onboarding, This is the date time when the onboarding request expires.
@@ -118,17 +118,17 @@ class RemoteAssistancePartner extends Entity
         $this->_propDict["onboardingRequestExpiryDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the onboardingStatus
     * A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
     *
-    * @return RemoteAssistanceOnboardingStatus The onboardingStatus
+    * @return RemoteAssistanceOnboardingStatus|null The onboardingStatus
     */
     public function getOnboardingStatus()
     {
         if (array_key_exists("onboardingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\Model\RemoteAssistanceOnboardingStatus")) {
+            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\Model\RemoteAssistanceOnboardingStatus") || is_null($this->_propDict["onboardingStatus"])) {
                 return $this->_propDict["onboardingStatus"];
             } else {
                 $this->_propDict["onboardingStatus"] = new RemoteAssistanceOnboardingStatus($this->_propDict["onboardingStatus"]);
@@ -137,7 +137,7 @@ class RemoteAssistancePartner extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the onboardingStatus
     * A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.
@@ -151,12 +151,12 @@ class RemoteAssistancePartner extends Entity
         $this->_propDict["onboardingStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the onboardingUrl
     * URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
     *
-    * @return string The onboardingUrl
+    * @return string|null The onboardingUrl
     */
     public function getOnboardingUrl()
     {
@@ -166,7 +166,7 @@ class RemoteAssistancePartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the onboardingUrl
     * URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
@@ -180,5 +180,5 @@ class RemoteAssistancePartner extends Entity
         $this->_propDict["onboardingUrl"] = $val;
         return $this;
     }
-    
+
 }

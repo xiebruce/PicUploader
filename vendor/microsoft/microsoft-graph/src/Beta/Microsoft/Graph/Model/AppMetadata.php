@@ -27,12 +27,12 @@ class AppMetadata extends Entity
     /**
     * Gets the data
     *
-    * @return AppMetadataEntry The data
+    * @return AppMetadataEntry|null The data
     */
     public function getData()
     {
         if (array_key_exists("data", $this->_propDict)) {
-            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\AppMetadataEntry")) {
+            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\AppMetadataEntry") || is_null($this->_propDict["data"])) {
                 return $this->_propDict["data"];
             } else {
                 $this->_propDict["data"] = new AppMetadataEntry($this->_propDict["data"]);
@@ -57,7 +57,7 @@ class AppMetadata extends Entity
     /**
     * Gets the version
     *
-    * @return int The version
+    * @return int|null The version
     */
     public function getVersion()
     {

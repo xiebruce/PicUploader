@@ -28,12 +28,12 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the createdBy
     * The user who created the dataSource.
     *
-    * @return \Beta\Microsoft\Graph\Model\IdentitySet The createdBy
+    * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
@@ -42,7 +42,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdBy
     * The user who created the dataSource.
@@ -56,17 +56,17 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The date and time the dataSource was created.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -75,7 +75,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The date and time the dataSource was created.
@@ -89,12 +89,12 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name of the dataSource. This will be the name of the SharePoint site.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -104,7 +104,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of the dataSource. This will be the name of the SharePoint site.
@@ -118,5 +118,36 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the holdStatus
+    *
+    * @return DataSourceHoldStatus|null The holdStatus
+    */
+    public function getHoldStatus()
+    {
+        if (array_key_exists("holdStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["holdStatus"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSourceHoldStatus") || is_null($this->_propDict["holdStatus"])) {
+                return $this->_propDict["holdStatus"];
+            } else {
+                $this->_propDict["holdStatus"] = new DataSourceHoldStatus($this->_propDict["holdStatus"]);
+                return $this->_propDict["holdStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the holdStatus
+    *
+    * @param DataSourceHoldStatus $val The holdStatus
+    *
+    * @return DataSource
+    */
+    public function setHoldStatus($val)
+    {
+        $this->_propDict["holdStatus"] = $val;
+        return $this;
+    }
+
 }

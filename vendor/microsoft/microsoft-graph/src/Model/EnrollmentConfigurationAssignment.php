@@ -28,12 +28,12 @@ class EnrollmentConfigurationAssignment extends Entity
     * Gets the target
     * Represents an assignment to managed devices in the tenant
     *
-    * @return DeviceAndAppManagementAssignmentTarget The target
+    * @return DeviceAndAppManagementAssignmentTarget|null The target
     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget")) {
+            if (is_a($this->_propDict["target"], "\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -42,7 +42,7 @@ class EnrollmentConfigurationAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the target
     * Represents an assignment to managed devices in the tenant
@@ -56,5 +56,5 @@ class EnrollmentConfigurationAssignment extends Entity
         $this->_propDict["target"] = $val;
         return $this;
     }
-    
+
 }

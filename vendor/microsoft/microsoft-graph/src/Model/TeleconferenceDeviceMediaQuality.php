@@ -28,15 +28,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the averageInboundJitter
     * The average inbound stream network jitter.
     *
-    * @return Duration The averageInboundJitter
+    * @return \DateInterval|null The averageInboundJitter
     */
     public function getAverageInboundJitter()
     {
         if (array_key_exists("averageInboundJitter", $this->_propDict)) {
-            if (is_a($this->_propDict["averageInboundJitter"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["averageInboundJitter"], "\DateInterval") || is_null($this->_propDict["averageInboundJitter"])) {
                 return $this->_propDict["averageInboundJitter"];
             } else {
-                $this->_propDict["averageInboundJitter"] = new Duration($this->_propDict["averageInboundJitter"]);
+                $this->_propDict["averageInboundJitter"] = new \DateInterval($this->_propDict["averageInboundJitter"]);
                 return $this->_propDict["averageInboundJitter"];
             }
         }
@@ -47,7 +47,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the averageInboundJitter
     * The average inbound stream network jitter.
     *
-    * @param Duration $val The value to assign to the averageInboundJitter
+    * @param \DateInterval $val The value to assign to the averageInboundJitter
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -60,7 +60,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the averageInboundPacketLossRateInPercentage
     * The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
     *
-    * @return float The averageInboundPacketLossRateInPercentage
+    * @return float|null The averageInboundPacketLossRateInPercentage
     */
     public function getAverageInboundPacketLossRateInPercentage()
     {
@@ -89,15 +89,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the averageInboundRoundTripDelay
     * The average inbound stream network round trip delay.
     *
-    * @return Duration The averageInboundRoundTripDelay
+    * @return \DateInterval|null The averageInboundRoundTripDelay
     */
     public function getAverageInboundRoundTripDelay()
     {
         if (array_key_exists("averageInboundRoundTripDelay", $this->_propDict)) {
-            if (is_a($this->_propDict["averageInboundRoundTripDelay"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["averageInboundRoundTripDelay"], "\DateInterval") || is_null($this->_propDict["averageInboundRoundTripDelay"])) {
                 return $this->_propDict["averageInboundRoundTripDelay"];
             } else {
-                $this->_propDict["averageInboundRoundTripDelay"] = new Duration($this->_propDict["averageInboundRoundTripDelay"]);
+                $this->_propDict["averageInboundRoundTripDelay"] = new \DateInterval($this->_propDict["averageInboundRoundTripDelay"]);
                 return $this->_propDict["averageInboundRoundTripDelay"];
             }
         }
@@ -108,7 +108,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the averageInboundRoundTripDelay
     * The average inbound stream network round trip delay.
     *
-    * @param Duration $val The value to assign to the averageInboundRoundTripDelay
+    * @param \DateInterval $val The value to assign to the averageInboundRoundTripDelay
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -122,15 +122,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the averageOutboundJitter
     * The average outbound stream network jitter.
     *
-    * @return Duration The averageOutboundJitter
+    * @return \DateInterval|null The averageOutboundJitter
     */
     public function getAverageOutboundJitter()
     {
         if (array_key_exists("averageOutboundJitter", $this->_propDict)) {
-            if (is_a($this->_propDict["averageOutboundJitter"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["averageOutboundJitter"], "\DateInterval") || is_null($this->_propDict["averageOutboundJitter"])) {
                 return $this->_propDict["averageOutboundJitter"];
             } else {
-                $this->_propDict["averageOutboundJitter"] = new Duration($this->_propDict["averageOutboundJitter"]);
+                $this->_propDict["averageOutboundJitter"] = new \DateInterval($this->_propDict["averageOutboundJitter"]);
                 return $this->_propDict["averageOutboundJitter"];
             }
         }
@@ -141,7 +141,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the averageOutboundJitter
     * The average outbound stream network jitter.
     *
-    * @param Duration $val The value to assign to the averageOutboundJitter
+    * @param \DateInterval $val The value to assign to the averageOutboundJitter
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -154,7 +154,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the averageOutboundPacketLossRateInPercentage
     * The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
     *
-    * @return float The averageOutboundPacketLossRateInPercentage
+    * @return float|null The averageOutboundPacketLossRateInPercentage
     */
     public function getAverageOutboundPacketLossRateInPercentage()
     {
@@ -183,15 +183,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the averageOutboundRoundTripDelay
     * The average outbound stream network round trip delay.
     *
-    * @return Duration The averageOutboundRoundTripDelay
+    * @return \DateInterval|null The averageOutboundRoundTripDelay
     */
     public function getAverageOutboundRoundTripDelay()
     {
         if (array_key_exists("averageOutboundRoundTripDelay", $this->_propDict)) {
-            if (is_a($this->_propDict["averageOutboundRoundTripDelay"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["averageOutboundRoundTripDelay"], "\DateInterval") || is_null($this->_propDict["averageOutboundRoundTripDelay"])) {
                 return $this->_propDict["averageOutboundRoundTripDelay"];
             } else {
-                $this->_propDict["averageOutboundRoundTripDelay"] = new Duration($this->_propDict["averageOutboundRoundTripDelay"]);
+                $this->_propDict["averageOutboundRoundTripDelay"] = new \DateInterval($this->_propDict["averageOutboundRoundTripDelay"]);
                 return $this->_propDict["averageOutboundRoundTripDelay"];
             }
         }
@@ -202,7 +202,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the averageOutboundRoundTripDelay
     * The average outbound stream network round trip delay.
     *
-    * @param Duration $val The value to assign to the averageOutboundRoundTripDelay
+    * @param \DateInterval $val The value to assign to the averageOutboundRoundTripDelay
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -215,7 +215,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the channelIndex
     * The channel index of media. Indexing begins with 1.  If a media session contains 3 video modalities, channel indexes will be 1, 2, and 3.
     *
-    * @return int The channelIndex
+    * @return int|null The channelIndex
     */
     public function getChannelIndex()
     {
@@ -243,7 +243,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the inboundPackets
     * The total number of the inbound packets.
     *
-    * @return int The inboundPackets
+    * @return int|null The inboundPackets
     */
     public function getInboundPackets()
     {
@@ -271,7 +271,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the localIPAddress
     * the local IP address for the media session.
     *
-    * @return string The localIPAddress
+    * @return string|null The localIPAddress
     */
     public function getLocalIPAddress()
     {
@@ -299,7 +299,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the localPort
     * The local media port.
     *
-    * @return int The localPort
+    * @return int|null The localPort
     */
     public function getLocalPort()
     {
@@ -328,15 +328,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the maximumInboundJitter
     * The maximum inbound stream network jitter.
     *
-    * @return Duration The maximumInboundJitter
+    * @return \DateInterval|null The maximumInboundJitter
     */
     public function getMaximumInboundJitter()
     {
         if (array_key_exists("maximumInboundJitter", $this->_propDict)) {
-            if (is_a($this->_propDict["maximumInboundJitter"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["maximumInboundJitter"], "\DateInterval") || is_null($this->_propDict["maximumInboundJitter"])) {
                 return $this->_propDict["maximumInboundJitter"];
             } else {
-                $this->_propDict["maximumInboundJitter"] = new Duration($this->_propDict["maximumInboundJitter"]);
+                $this->_propDict["maximumInboundJitter"] = new \DateInterval($this->_propDict["maximumInboundJitter"]);
                 return $this->_propDict["maximumInboundJitter"];
             }
         }
@@ -347,7 +347,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the maximumInboundJitter
     * The maximum inbound stream network jitter.
     *
-    * @param Duration $val The value to assign to the maximumInboundJitter
+    * @param \DateInterval $val The value to assign to the maximumInboundJitter
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -360,7 +360,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the maximumInboundPacketLossRateInPercentage
     * The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
     *
-    * @return float The maximumInboundPacketLossRateInPercentage
+    * @return float|null The maximumInboundPacketLossRateInPercentage
     */
     public function getMaximumInboundPacketLossRateInPercentage()
     {
@@ -389,15 +389,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the maximumInboundRoundTripDelay
     * The maximum inbound stream network round trip delay.
     *
-    * @return Duration The maximumInboundRoundTripDelay
+    * @return \DateInterval|null The maximumInboundRoundTripDelay
     */
     public function getMaximumInboundRoundTripDelay()
     {
         if (array_key_exists("maximumInboundRoundTripDelay", $this->_propDict)) {
-            if (is_a($this->_propDict["maximumInboundRoundTripDelay"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["maximumInboundRoundTripDelay"], "\DateInterval") || is_null($this->_propDict["maximumInboundRoundTripDelay"])) {
                 return $this->_propDict["maximumInboundRoundTripDelay"];
             } else {
-                $this->_propDict["maximumInboundRoundTripDelay"] = new Duration($this->_propDict["maximumInboundRoundTripDelay"]);
+                $this->_propDict["maximumInboundRoundTripDelay"] = new \DateInterval($this->_propDict["maximumInboundRoundTripDelay"]);
                 return $this->_propDict["maximumInboundRoundTripDelay"];
             }
         }
@@ -408,7 +408,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the maximumInboundRoundTripDelay
     * The maximum inbound stream network round trip delay.
     *
-    * @param Duration $val The value to assign to the maximumInboundRoundTripDelay
+    * @param \DateInterval $val The value to assign to the maximumInboundRoundTripDelay
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -422,15 +422,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the maximumOutboundJitter
     * The maximum outbound stream network jitter.
     *
-    * @return Duration The maximumOutboundJitter
+    * @return \DateInterval|null The maximumOutboundJitter
     */
     public function getMaximumOutboundJitter()
     {
         if (array_key_exists("maximumOutboundJitter", $this->_propDict)) {
-            if (is_a($this->_propDict["maximumOutboundJitter"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["maximumOutboundJitter"], "\DateInterval") || is_null($this->_propDict["maximumOutboundJitter"])) {
                 return $this->_propDict["maximumOutboundJitter"];
             } else {
-                $this->_propDict["maximumOutboundJitter"] = new Duration($this->_propDict["maximumOutboundJitter"]);
+                $this->_propDict["maximumOutboundJitter"] = new \DateInterval($this->_propDict["maximumOutboundJitter"]);
                 return $this->_propDict["maximumOutboundJitter"];
             }
         }
@@ -441,7 +441,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the maximumOutboundJitter
     * The maximum outbound stream network jitter.
     *
-    * @param Duration $val The value to assign to the maximumOutboundJitter
+    * @param \DateInterval $val The value to assign to the maximumOutboundJitter
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -454,7 +454,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the maximumOutboundPacketLossRateInPercentage
     * The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.
     *
-    * @return float The maximumOutboundPacketLossRateInPercentage
+    * @return float|null The maximumOutboundPacketLossRateInPercentage
     */
     public function getMaximumOutboundPacketLossRateInPercentage()
     {
@@ -483,15 +483,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the maximumOutboundRoundTripDelay
     * The maximum outbound stream network round trip delay.
     *
-    * @return Duration The maximumOutboundRoundTripDelay
+    * @return \DateInterval|null The maximumOutboundRoundTripDelay
     */
     public function getMaximumOutboundRoundTripDelay()
     {
         if (array_key_exists("maximumOutboundRoundTripDelay", $this->_propDict)) {
-            if (is_a($this->_propDict["maximumOutboundRoundTripDelay"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["maximumOutboundRoundTripDelay"], "\DateInterval") || is_null($this->_propDict["maximumOutboundRoundTripDelay"])) {
                 return $this->_propDict["maximumOutboundRoundTripDelay"];
             } else {
-                $this->_propDict["maximumOutboundRoundTripDelay"] = new Duration($this->_propDict["maximumOutboundRoundTripDelay"]);
+                $this->_propDict["maximumOutboundRoundTripDelay"] = new \DateInterval($this->_propDict["maximumOutboundRoundTripDelay"]);
                 return $this->_propDict["maximumOutboundRoundTripDelay"];
             }
         }
@@ -502,7 +502,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the maximumOutboundRoundTripDelay
     * The maximum outbound stream network round trip delay.
     *
-    * @param Duration $val The value to assign to the maximumOutboundRoundTripDelay
+    * @param \DateInterval $val The value to assign to the maximumOutboundRoundTripDelay
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -516,15 +516,15 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the mediaDuration
     * The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations.
     *
-    * @return Duration The mediaDuration
+    * @return \DateInterval|null The mediaDuration
     */
     public function getMediaDuration()
     {
         if (array_key_exists("mediaDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaDuration"], "\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["mediaDuration"], "\DateInterval") || is_null($this->_propDict["mediaDuration"])) {
                 return $this->_propDict["mediaDuration"];
             } else {
-                $this->_propDict["mediaDuration"] = new Duration($this->_propDict["mediaDuration"]);
+                $this->_propDict["mediaDuration"] = new \DateInterval($this->_propDict["mediaDuration"]);
                 return $this->_propDict["mediaDuration"];
             }
         }
@@ -535,7 +535,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Sets the mediaDuration
     * The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations.
     *
-    * @param Duration $val The value to assign to the mediaDuration
+    * @param \DateInterval $val The value to assign to the mediaDuration
     *
     * @return TeleconferenceDeviceMediaQuality The TeleconferenceDeviceMediaQuality
     */
@@ -548,7 +548,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the networkLinkSpeedInBytes
     * The network link speed in bytes
     *
-    * @return int The networkLinkSpeedInBytes
+    * @return int|null The networkLinkSpeedInBytes
     */
     public function getNetworkLinkSpeedInBytes()
     {
@@ -576,7 +576,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the outboundPackets
     * The total number of the outbound packets.
     *
-    * @return int The outboundPackets
+    * @return int|null The outboundPackets
     */
     public function getOutboundPackets()
     {
@@ -604,7 +604,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the remoteIPAddress
     * The remote IP address for the media session.
     *
-    * @return string The remoteIPAddress
+    * @return string|null The remoteIPAddress
     */
     public function getRemoteIPAddress()
     {
@@ -632,7 +632,7 @@ class TeleconferenceDeviceMediaQuality extends Entity
     * Gets the remotePort
     * The remote media port.
     *
-    * @return int The remotePort
+    * @return int|null The remotePort
     */
     public function getRemotePort()
     {

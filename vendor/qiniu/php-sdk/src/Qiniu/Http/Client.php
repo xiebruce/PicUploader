@@ -125,25 +125,10 @@ final class Client
         }
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-        $headers = self::parseHeaders(substr($result, 0, $header_size));
+        $headers = Header::parseRawText(substr($result, 0, $header_size));
         $body = substr($result, $header_size);
         curl_close($ch);
         return new Response($code, $duration, $headers, $body, null);
-    }
-
-    private static function parseHeaders($raw)
-    {
-        $headers = array();
-        $headerLines = explode("\r\n", $raw);
-        foreach ($headerLines as $line) {
-            $headerLine = trim($line);
-            $kv = explode(':', $headerLine);
-            if (count($kv) > 1) {
-                $kv[0] =self::ucwordsHyphen($kv[0]);
-                $headers[$kv[0]] = trim($kv[1]);
-            }
-        }
-        return $headers;
     }
 
     private static function escapeQuotes($str)
@@ -151,10 +136,5 @@ final class Client
         $find = array("\\", "\"");
         $replace = array("\\\\", "\\\"");
         return str_replace($find, $replace, $str);
-    }
-    
-    private static function ucwordsHyphen($str)
-    {
-        return str_replace('- ', '-', ucwords(str_replace('-', '- ', $str)));
     }
 }

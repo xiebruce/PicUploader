@@ -27,7 +27,7 @@ class ConditionalAccessDeviceStates extends Entity
     * Gets the excludeStates
     * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
     *
-    * @return string The excludeStates
+    * @return string|null The excludeStates
     */
     public function getExcludeStates()
     {
@@ -55,7 +55,7 @@ class ConditionalAccessDeviceStates extends Entity
     * Gets the includeStates
     * States in the scope of the policy. All is the only allowed value.
     *
-    * @return string The includeStates
+    * @return string|null The includeStates
     */
     public function getIncludeStates()
     {

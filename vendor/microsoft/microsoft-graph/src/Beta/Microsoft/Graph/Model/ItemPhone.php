@@ -28,7 +28,7 @@ class ItemPhone extends ItemFacet
     * Gets the displayName
     * Friendly name the user has assigned this phone number.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class ItemPhone extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Friendly name the user has assigned this phone number.
@@ -52,12 +52,12 @@ class ItemPhone extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the number
     * Phone number provided by the user.
     *
-    * @return string The number
+    * @return string|null The number
     */
     public function getNumber()
     {
@@ -67,7 +67,7 @@ class ItemPhone extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the number
     * Phone number provided by the user.
@@ -81,17 +81,17 @@ class ItemPhone extends ItemFacet
         $this->_propDict["number"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the type
     * The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
     *
-    * @return PhoneType The type
+    * @return PhoneType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PhoneType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PhoneType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PhoneType($this->_propDict["type"]);
@@ -100,7 +100,7 @@ class ItemPhone extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the type
     * The type of phone number within the object. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
@@ -114,5 +114,5 @@ class ItemPhone extends ItemFacet
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
+
 }

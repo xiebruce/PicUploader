@@ -28,12 +28,12 @@ class WindowsPhone81AppX extends MobileLobApp
     * Gets the applicableArchitectures
     * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
     *
-    * @return WindowsArchitecture The applicableArchitectures
+    * @return WindowsArchitecture|null The applicableArchitectures
     */
     public function getApplicableArchitectures()
     {
         if (array_key_exists("applicableArchitectures", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableArchitectures"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
+            if (is_a($this->_propDict["applicableArchitectures"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["applicableArchitectures"])) {
                 return $this->_propDict["applicableArchitectures"];
             } else {
                 $this->_propDict["applicableArchitectures"] = new WindowsArchitecture($this->_propDict["applicableArchitectures"]);
@@ -42,7 +42,7 @@ class WindowsPhone81AppX extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the applicableArchitectures
     * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
@@ -56,12 +56,12 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["applicableArchitectures"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityName
     * The Identity Name.
     *
-    * @return string The identityName
+    * @return string|null The identityName
     */
     public function getIdentityName()
     {
@@ -71,7 +71,7 @@ class WindowsPhone81AppX extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the identityName
     * The Identity Name.
@@ -85,12 +85,12 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["identityName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityPublisherHash
     * The Identity Publisher Hash.
     *
-    * @return string The identityPublisherHash
+    * @return string|null The identityPublisherHash
     */
     public function getIdentityPublisherHash()
     {
@@ -100,7 +100,7 @@ class WindowsPhone81AppX extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the identityPublisherHash
     * The Identity Publisher Hash.
@@ -114,12 +114,12 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["identityPublisherHash"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityResourceIdentifier
     * The Identity Resource Identifier.
     *
-    * @return string The identityResourceIdentifier
+    * @return string|null The identityResourceIdentifier
     */
     public function getIdentityResourceIdentifier()
     {
@@ -129,7 +129,7 @@ class WindowsPhone81AppX extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the identityResourceIdentifier
     * The Identity Resource Identifier.
@@ -143,12 +143,12 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["identityResourceIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityVersion
     * The identity version.
     *
-    * @return string The identityVersion
+    * @return string|null The identityVersion
     */
     public function getIdentityVersion()
     {
@@ -158,7 +158,7 @@ class WindowsPhone81AppX extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the identityVersion
     * The identity version.
@@ -172,17 +172,17 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["identityVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
     *
-    * @return WindowsMinimumOperatingSystem The minimumSupportedOperatingSystem
+    * @return WindowsMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem")) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new WindowsMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -191,7 +191,7 @@ class WindowsPhone81AppX extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
@@ -205,12 +205,12 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the phoneProductIdentifier
     * The Phone Product Identifier.
     *
-    * @return string The phoneProductIdentifier
+    * @return string|null The phoneProductIdentifier
     */
     public function getPhoneProductIdentifier()
     {
@@ -220,7 +220,7 @@ class WindowsPhone81AppX extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the phoneProductIdentifier
     * The Phone Product Identifier.
@@ -234,12 +234,12 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["phoneProductIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the phonePublisherId
     * The Phone Publisher Id.
     *
-    * @return string The phonePublisherId
+    * @return string|null The phonePublisherId
     */
     public function getPhonePublisherId()
     {
@@ -249,7 +249,7 @@ class WindowsPhone81AppX extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the phonePublisherId
     * The Phone Publisher Id.
@@ -263,5 +263,5 @@ class WindowsPhone81AppX extends MobileLobApp
         $this->_propDict["phonePublisherId"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class FilterClause extends Entity
     * Gets the operatorName
     * Name of the operator to be applied to the source and target operands. Must be one of the supported operators. Supported operators can be discovered.
     *
-    * @return string The operatorName
+    * @return string|null The operatorName
     */
     public function getOperatorName()
     {
@@ -55,7 +55,7 @@ class FilterClause extends Entity
     * Gets the sourceOperandName
     * Name of source operand (the operand being tested). The source operand name must match one of the attribute names on the source object.
     *
-    * @return string The sourceOperandName
+    * @return string|null The sourceOperandName
     */
     public function getSourceOperandName()
     {
@@ -84,12 +84,12 @@ class FilterClause extends Entity
     * Gets the targetOperand
     * Values that the source operand will be tested against.
     *
-    * @return FilterOperand The targetOperand
+    * @return FilterOperand|null The targetOperand
     */
     public function getTargetOperand()
     {
         if (array_key_exists("targetOperand", $this->_propDict)) {
-            if (is_a($this->_propDict["targetOperand"], "\Beta\Microsoft\Graph\Model\FilterOperand")) {
+            if (is_a($this->_propDict["targetOperand"], "\Beta\Microsoft\Graph\Model\FilterOperand") || is_null($this->_propDict["targetOperand"])) {
                 return $this->_propDict["targetOperand"];
             } else {
                 $this->_propDict["targetOperand"] = new FilterOperand($this->_propDict["targetOperand"]);

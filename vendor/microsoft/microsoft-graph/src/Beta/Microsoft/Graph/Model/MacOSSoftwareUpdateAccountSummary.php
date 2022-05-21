@@ -28,7 +28,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
     * Gets the deviceId
     * The device ID.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -38,7 +38,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * The device ID.
@@ -52,12 +52,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceName
     * The device name.
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -67,7 +67,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceName
     * The device name.
@@ -81,12 +81,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name of the report
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -96,7 +96,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the report
@@ -110,12 +110,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the failedUpdateCount
     * Number of failed updates on the device.
     *
-    * @return int The failedUpdateCount
+    * @return int|null The failedUpdateCount
     */
     public function getFailedUpdateCount()
     {
@@ -125,7 +125,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedUpdateCount
     * Number of failed updates on the device.
@@ -139,17 +139,17 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["failedUpdateCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastUpdatedDateTime
     * Last date time the report for this device was updated.
     *
-    * @return \DateTime The lastUpdatedDateTime
+    * @return \DateTime|null The lastUpdatedDateTime
     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -158,7 +158,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastUpdatedDateTime
     * Last date time the report for this device was updated.
@@ -172,12 +172,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osVersion
     * The OS version.
     *
-    * @return string The osVersion
+    * @return string|null The osVersion
     */
     public function getOsVersion()
     {
@@ -187,7 +187,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the osVersion
     * The OS version.
@@ -201,12 +201,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["osVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the successfulUpdateCount
     * Number of successful updates on the device.
     *
-    * @return int The successfulUpdateCount
+    * @return int|null The successfulUpdateCount
     */
     public function getSuccessfulUpdateCount()
     {
@@ -216,7 +216,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the successfulUpdateCount
     * Number of successful updates on the device.
@@ -230,12 +230,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["successfulUpdateCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the totalUpdateCount
     * Number of total updates on the device.
     *
-    * @return int The totalUpdateCount
+    * @return int|null The totalUpdateCount
     */
     public function getTotalUpdateCount()
     {
@@ -245,7 +245,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the totalUpdateCount
     * Number of total updates on the device.
@@ -259,12 +259,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["totalUpdateCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * The user ID.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -274,7 +274,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * The user ID.
@@ -288,12 +288,12 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * The user principal name
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -303,7 +303,7 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * The user principal name
@@ -317,13 +317,13 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the categorySummaries
     * Summary of the updates by category.
      *
-     * @return array The categorySummaries
+     * @return array|null The categorySummaries
      */
     public function getCategorySummaries()
     {
@@ -333,19 +333,19 @@ class MacOSSoftwareUpdateAccountSummary extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the categorySummaries
     * Summary of the updates by category.
     *
-    * @param MacOSSoftwareUpdateCategorySummary $val The categorySummaries
+    * @param MacOSSoftwareUpdateCategorySummary[] $val The categorySummaries
     *
     * @return MacOSSoftwareUpdateAccountSummary
     */
     public function setCategorySummaries($val)
     {
-		$this->_propDict["categorySummaries"] = $val;
+        $this->_propDict["categorySummaries"] = $val;
         return $this;
     }
-    
+
 }

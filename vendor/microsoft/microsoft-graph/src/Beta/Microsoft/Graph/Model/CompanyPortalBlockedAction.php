@@ -28,12 +28,12 @@ class CompanyPortalBlockedAction extends Entity
     * Gets the action
     * Device Action. Possible values are: unknown, remove, reset.
     *
-    * @return CompanyPortalAction The action
+    * @return CompanyPortalAction|null The action
     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\CompanyPortalAction")) {
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\CompanyPortalAction") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new CompanyPortalAction($this->_propDict["action"]);
@@ -61,12 +61,12 @@ class CompanyPortalBlockedAction extends Entity
     * Gets the ownerType
     * Device ownership type. Possible values are: unknown, company, personal.
     *
-    * @return OwnerType The ownerType
+    * @return OwnerType|null The ownerType
     */
     public function getOwnerType()
     {
         if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType")) {
+            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType") || is_null($this->_propDict["ownerType"])) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new OwnerType($this->_propDict["ownerType"]);
@@ -94,12 +94,12 @@ class CompanyPortalBlockedAction extends Entity
     * Gets the platform
     * Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
     *
-    * @return DevicePlatformType The platform
+    * @return DevicePlatformType|null The platform
     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType")) {
+            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new DevicePlatformType($this->_propDict["platform"]);

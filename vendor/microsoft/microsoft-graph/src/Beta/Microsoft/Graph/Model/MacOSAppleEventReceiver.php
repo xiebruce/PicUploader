@@ -27,7 +27,7 @@ class MacOSAppleEventReceiver extends Entity
     * Gets the allowed
     * Allow or block this app from receiving Apple events.
     *
-    * @return bool The allowed
+    * @return bool|null The allowed
     */
     public function getAllowed()
     {
@@ -55,7 +55,7 @@ class MacOSAppleEventReceiver extends Entity
     * Gets the codeRequirement
     * Code requirement for the app or binary that receives the Apple Event.
     *
-    * @return string The codeRequirement
+    * @return string|null The codeRequirement
     */
     public function getCodeRequirement()
     {
@@ -83,7 +83,7 @@ class MacOSAppleEventReceiver extends Entity
     * Gets the identifier
     * Bundle ID of the app or file path of the process or executable that receives the Apple Event.
     *
-    * @return string The identifier
+    * @return string|null The identifier
     */
     public function getIdentifier()
     {
@@ -112,12 +112,12 @@ class MacOSAppleEventReceiver extends Entity
     * Gets the identifierType
     * Use bundle ID for an app or path for a process or executable that receives the Apple Event. Possible values are: bundleID, path.
     *
-    * @return MacOSProcessIdentifierType The identifierType
+    * @return MacOSProcessIdentifierType|null The identifierType
     */
     public function getIdentifierType()
     {
         if (array_key_exists("identifierType", $this->_propDict)) {
-            if (is_a($this->_propDict["identifierType"], "\Beta\Microsoft\Graph\Model\MacOSProcessIdentifierType")) {
+            if (is_a($this->_propDict["identifierType"], "\Beta\Microsoft\Graph\Model\MacOSProcessIdentifierType") || is_null($this->_propDict["identifierType"])) {
                 return $this->_propDict["identifierType"];
             } else {
                 $this->_propDict["identifierType"] = new MacOSProcessIdentifierType($this->_propDict["identifierType"]);

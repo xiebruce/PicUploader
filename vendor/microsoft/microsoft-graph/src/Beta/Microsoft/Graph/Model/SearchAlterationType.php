@@ -31,4 +31,5 @@ class SearchAlterationType extends Enum
     */
     const SUGGESTION = "suggestion";
     const MODIFICATION = "modification";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

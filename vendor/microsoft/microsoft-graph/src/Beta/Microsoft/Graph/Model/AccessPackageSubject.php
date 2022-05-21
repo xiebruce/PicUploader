@@ -27,7 +27,7 @@ class AccessPackageSubject extends Entity
     /**
     * Gets the altSecId
     *
-    * @return string The altSecId
+    * @return string|null The altSecId
     */
     public function getAltSecId()
     {
@@ -37,7 +37,7 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the altSecId
     *
@@ -50,11 +50,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["altSecId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the connectedOrganizationId
+    * The identifier of the connected organization of the subject.
     *
-    * @return string The connectedOrganizationId
+    * @return string|null The connectedOrganizationId
     */
     public function getConnectedOrganizationId()
     {
@@ -64,9 +65,10 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the connectedOrganizationId
+    * The identifier of the connected organization of the subject.
     *
     * @param string $val The connectedOrganizationId
     *
@@ -77,12 +79,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["connectedOrganizationId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name of the subject.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -92,7 +94,7 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of the subject.
@@ -106,12 +108,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the email
     * The email address of the subject.
     *
-    * @return string The email
+    * @return string|null The email
     */
     public function getEmail()
     {
@@ -121,7 +123,7 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the email
     * The email address of the subject.
@@ -135,12 +137,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["email"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the objectId
-    * The object ID of the subject.
+    * The object identifier of the subject. null if the subject is not yet a user in the tenant.
     *
-    * @return string The objectId
+    * @return string|null The objectId
     */
     public function getObjectId()
     {
@@ -150,10 +152,10 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the objectId
-    * The object ID of the subject.
+    * The object identifier of the subject. null if the subject is not yet a user in the tenant.
     *
     * @param string $val The objectId
     *
@@ -164,11 +166,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["objectId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the onPremisesSecurityIdentifier
+    * A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
     *
-    * @return string The onPremisesSecurityIdentifier
+    * @return string|null The onPremisesSecurityIdentifier
     */
     public function getOnPremisesSecurityIdentifier()
     {
@@ -178,9 +181,10 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the onPremisesSecurityIdentifier
+    * A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
     *
     * @param string $val The onPremisesSecurityIdentifier
     *
@@ -191,12 +195,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["onPremisesSecurityIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the principalName
     * The principal name, if known, of the subject.
     *
-    * @return string The principalName
+    * @return string|null The principalName
     */
     public function getPrincipalName()
     {
@@ -206,7 +210,7 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the principalName
     * The principal name, if known, of the subject.
@@ -220,12 +224,12 @@ class AccessPackageSubject extends Entity
         $this->_propDict["principalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the type
     * The resource type of the subject.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -235,7 +239,7 @@ class AccessPackageSubject extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the type
     * The resource type of the subject.
@@ -249,16 +253,17 @@ class AccessPackageSubject extends Entity
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the connectedOrganization
+    * The connected organization of the subject. Read-only. Nullable.
     *
-    * @return ConnectedOrganization The connectedOrganization
+    * @return ConnectedOrganization|null The connectedOrganization
     */
     public function getConnectedOrganization()
     {
         if (array_key_exists("connectedOrganization", $this->_propDict)) {
-            if (is_a($this->_propDict["connectedOrganization"], "\Beta\Microsoft\Graph\Model\ConnectedOrganization")) {
+            if (is_a($this->_propDict["connectedOrganization"], "\Beta\Microsoft\Graph\Model\ConnectedOrganization") || is_null($this->_propDict["connectedOrganization"])) {
                 return $this->_propDict["connectedOrganization"];
             } else {
                 $this->_propDict["connectedOrganization"] = new ConnectedOrganization($this->_propDict["connectedOrganization"]);
@@ -267,9 +272,10 @@ class AccessPackageSubject extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the connectedOrganization
+    * The connected organization of the subject. Read-only. Nullable.
     *
     * @param ConnectedOrganization $val The connectedOrganization
     *
@@ -280,5 +286,5 @@ class AccessPackageSubject extends Entity
         $this->_propDict["connectedOrganization"] = $val;
         return $this;
     }
-    
+
 }

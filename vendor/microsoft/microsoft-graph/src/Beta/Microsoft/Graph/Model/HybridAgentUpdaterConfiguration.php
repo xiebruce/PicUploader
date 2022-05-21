@@ -27,7 +27,7 @@ class HybridAgentUpdaterConfiguration extends Entity
     * Gets the allowUpdateConfigurationOverride
     * Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
     *
-    * @return bool The allowUpdateConfigurationOverride
+    * @return bool|null The allowUpdateConfigurationOverride
     */
     public function getAllowUpdateConfigurationOverride()
     {
@@ -56,12 +56,12 @@ class HybridAgentUpdaterConfiguration extends Entity
     * Gets the deferUpdateDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The deferUpdateDateTime
+    * @return \DateTime|null The deferUpdateDateTime
     */
     public function getDeferUpdateDateTime()
     {
         if (array_key_exists("deferUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deferUpdateDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["deferUpdateDateTime"], "\DateTime") || is_null($this->_propDict["deferUpdateDateTime"])) {
                 return $this->_propDict["deferUpdateDateTime"];
             } else {
                 $this->_propDict["deferUpdateDateTime"] = new \DateTime($this->_propDict["deferUpdateDateTime"]);
@@ -88,12 +88,12 @@ class HybridAgentUpdaterConfiguration extends Entity
     /**
     * Gets the updateWindow
     *
-    * @return UpdateWindow The updateWindow
+    * @return UpdateWindow|null The updateWindow
     */
     public function getUpdateWindow()
     {
         if (array_key_exists("updateWindow", $this->_propDict)) {
-            if (is_a($this->_propDict["updateWindow"], "\Beta\Microsoft\Graph\Model\UpdateWindow")) {
+            if (is_a($this->_propDict["updateWindow"], "\Beta\Microsoft\Graph\Model\UpdateWindow") || is_null($this->_propDict["updateWindow"])) {
                 return $this->_propDict["updateWindow"];
             } else {
                 $this->_propDict["updateWindow"] = new UpdateWindow($this->_propDict["updateWindow"]);

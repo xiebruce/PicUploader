@@ -27,7 +27,7 @@ class SearchQuery extends Entity
     * Gets the queryString
     * The search query containing the search terms. Required.
     *
-    * @return string The queryString
+    * @return string|null The queryString
     */
     public function getQueryString()
     {
@@ -51,16 +51,44 @@ class SearchQuery extends Entity
         $this->_propDict["queryString"] = $val;
         return $this;
     }
+    /**
+    * Gets the queryTemplate
+    * Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
+    *
+    * @return string|null The queryTemplate
+    */
+    public function getQueryTemplate()
+    {
+        if (array_key_exists("queryTemplate", $this->_propDict)) {
+            return $this->_propDict["queryTemplate"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the queryTemplate
+    * Provides a way to decorate the query string. Supports both KQL and query variables. Optional.
+    *
+    * @param string $val The value of the queryTemplate
+    *
+    * @return SearchQuery
+    */
+    public function setQueryTemplate($val)
+    {
+        $this->_propDict["queryTemplate"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the query_string
     *
-    * @return SearchQueryString The query_string
+    * @return SearchQueryString|null The query_string
     */
     public function getQuery_string()
     {
         if (array_key_exists("queryString", $this->_propDict)) {
-            if (is_a($this->_propDict["queryString"], "\Beta\Microsoft\Graph\Model\SearchQueryString")) {
+            if (is_a($this->_propDict["queryString"], "\Beta\Microsoft\Graph\Model\SearchQueryString") || is_null($this->_propDict["queryString"])) {
                 return $this->_propDict["queryString"];
             } else {
                 $this->_propDict["queryString"] = new SearchQueryString($this->_propDict["queryString"]);

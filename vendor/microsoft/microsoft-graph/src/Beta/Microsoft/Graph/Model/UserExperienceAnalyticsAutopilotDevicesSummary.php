@@ -27,7 +27,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
     * Gets the devicesNotAutopilotRegistered
     * The count of intune devices that are not autopilot registerd.
     *
-    * @return int The devicesNotAutopilotRegistered
+    * @return int|null The devicesNotAutopilotRegistered
     */
     public function getDevicesNotAutopilotRegistered()
     {
@@ -55,7 +55,7 @@ class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
     * Gets the devicesWithoutAutopilotProfileAssigned
     * The count of intune devices not autopilot profile assigned.
     *
-    * @return int The devicesWithoutAutopilotProfileAssigned
+    * @return int|null The devicesWithoutAutopilotProfileAssigned
     */
     public function getDevicesWithoutAutopilotProfileAssigned()
     {
@@ -77,6 +77,34 @@ class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
     public function setDevicesWithoutAutopilotProfileAssigned($val)
     {
         $this->_propDict["devicesWithoutAutopilotProfileAssigned"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the totalWindows10DevicesWithoutTenantAttached
+    * The count of windows 10 devices that are Intune and Comanaged.
+    *
+    * @return int|null The totalWindows10DevicesWithoutTenantAttached
+    */
+    public function getTotalWindows10DevicesWithoutTenantAttached()
+    {
+        if (array_key_exists("totalWindows10DevicesWithoutTenantAttached", $this->_propDict)) {
+            return $this->_propDict["totalWindows10DevicesWithoutTenantAttached"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the totalWindows10DevicesWithoutTenantAttached
+    * The count of windows 10 devices that are Intune and Comanaged.
+    *
+    * @param int $val The value of the totalWindows10DevicesWithoutTenantAttached
+    *
+    * @return UserExperienceAnalyticsAutopilotDevicesSummary
+    */
+    public function setTotalWindows10DevicesWithoutTenantAttached($val)
+    {
+        $this->_propDict["totalWindows10DevicesWithoutTenantAttached"] = $val;
         return $this;
     }
 }

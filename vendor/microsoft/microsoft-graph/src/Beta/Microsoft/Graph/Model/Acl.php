@@ -26,14 +26,13 @@ class Acl extends Entity
 
     /**
     * Gets the accessType
-    * The access granted to the identity. Possible values are: grant, deny.
     *
-    * @return AccessType The accessType
+    * @return AccessType|null The accessType
     */
     public function getAccessType()
     {
         if (array_key_exists("accessType", $this->_propDict)) {
-            if (is_a($this->_propDict["accessType"], "\Beta\Microsoft\Graph\Model\AccessType")) {
+            if (is_a($this->_propDict["accessType"], "\Beta\Microsoft\Graph\Model\AccessType") || is_null($this->_propDict["accessType"])) {
                 return $this->_propDict["accessType"];
             } else {
                 $this->_propDict["accessType"] = new AccessType($this->_propDict["accessType"]);
@@ -45,7 +44,6 @@ class Acl extends Entity
 
     /**
     * Sets the accessType
-    * The access granted to the identity. Possible values are: grant, deny.
     *
     * @param AccessType $val The value to assign to the accessType
     *
@@ -59,14 +57,13 @@ class Acl extends Entity
 
     /**
     * Gets the identitySource
-    * The source of identity. Possible values are azureActiveDirectory or external.
     *
-    * @return IdentitySourceType The identitySource
+    * @return IdentitySourceType|null The identitySource
     */
     public function getIdentitySource()
     {
         if (array_key_exists("identitySource", $this->_propDict)) {
-            if (is_a($this->_propDict["identitySource"], "\Beta\Microsoft\Graph\Model\IdentitySourceType")) {
+            if (is_a($this->_propDict["identitySource"], "\Beta\Microsoft\Graph\Model\IdentitySourceType") || is_null($this->_propDict["identitySource"])) {
                 return $this->_propDict["identitySource"];
             } else {
                 $this->_propDict["identitySource"] = new IdentitySourceType($this->_propDict["identitySource"]);
@@ -78,7 +75,6 @@ class Acl extends Entity
 
     /**
     * Sets the identitySource
-    * The source of identity. Possible values are azureActiveDirectory or external.
     *
     * @param IdentitySourceType $val The value to assign to the identitySource
     *
@@ -92,14 +88,13 @@ class Acl extends Entity
 
     /**
     * Gets the type
-    * The type of identity. Possible values are: user, group, everyone, everyoneExceptGuests if the identitySource is azureActiveDirectory and just group if the identitySource is external.
     *
-    * @return AclType The type
+    * @return AclType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AclType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AclType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AclType($this->_propDict["type"]);
@@ -111,7 +106,6 @@ class Acl extends Entity
 
     /**
     * Sets the type
-    * The type of identity. Possible values are: user, group, everyone, everyoneExceptGuests if the identitySource is azureActiveDirectory and just group if the identitySource is external.
     *
     * @param AclType $val The value to assign to the type
     *
@@ -124,9 +118,8 @@ class Acl extends Entity
     }
     /**
     * Gets the value
-    * The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -139,7 +132,6 @@ class Acl extends Entity
 
     /**
     * Sets the value
-    * The unique identifer of the identity. In case of Azure Active Directory identities, value is set to the object identifier of the user, group or tenant for types user, group and everyone (and everyoneExceptGuests) respectively. In case of external groups value is set to the ID of the externalGroup.
     *
     * @param string $val The value of the value
     *

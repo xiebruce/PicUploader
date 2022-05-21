@@ -28,7 +28,7 @@ class Program extends Entity
     * Gets the description
     * The description of the program.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class Program extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description of the program.
@@ -52,12 +52,12 @@ class Program extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name of the program.  Required on create.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class Program extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the program.  Required on create.
@@ -81,13 +81,13 @@ class Program extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the controls
     * Controls associated with the program.
      *
-     * @return array The controls
+     * @return array|null The controls
      */
     public function getControls()
     {
@@ -97,19 +97,19 @@ class Program extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the controls
     * Controls associated with the program.
     *
-    * @param ProgramControl $val The controls
+    * @param ProgramControl[] $val The controls
     *
     * @return Program
     */
     public function setControls($val)
     {
-		$this->_propDict["controls"] = $val;
+        $this->_propDict["controls"] = $val;
         return $this;
     }
-    
+
 }

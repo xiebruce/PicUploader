@@ -25,9 +25,9 @@ class SynchronizationJobApplicationParameters extends Entity
 {
     /**
     * Gets the ruleId
-    * The identifier of a the synchronizationRule to be applied.
+    * The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
     *
-    * @return string The ruleId
+    * @return string|null The ruleId
     */
     public function getRuleId()
     {
@@ -40,7 +40,7 @@ class SynchronizationJobApplicationParameters extends Entity
 
     /**
     * Sets the ruleId
-    * The identifier of a the synchronizationRule to be applied.
+    * The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
     *
     * @param string $val The value of the ruleId
     *
@@ -56,12 +56,12 @@ class SynchronizationJobApplicationParameters extends Entity
     * Gets the subjects
     * The identifiers of one or more objects to which a synchronizationJob is to be applied.
     *
-    * @return SynchronizationJobSubject The subjects
+    * @return SynchronizationJobSubject|null The subjects
     */
     public function getSubjects()
     {
         if (array_key_exists("subjects", $this->_propDict)) {
-            if (is_a($this->_propDict["subjects"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject")) {
+            if (is_a($this->_propDict["subjects"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject") || is_null($this->_propDict["subjects"])) {
                 return $this->_propDict["subjects"];
             } else {
                 $this->_propDict["subjects"] = new SynchronizationJobSubject($this->_propDict["subjects"]);

@@ -27,7 +27,7 @@ class RenameAction extends Entity
     * Gets the newName
     * The new name of the item.
     *
-    * @return string The newName
+    * @return string|null The newName
     */
     public function getNewName()
     {
@@ -55,7 +55,7 @@ class RenameAction extends Entity
     * Gets the oldName
     * The previous name of the item.
     *
-    * @return string The oldName
+    * @return string|null The oldName
     */
     public function getOldName()
     {

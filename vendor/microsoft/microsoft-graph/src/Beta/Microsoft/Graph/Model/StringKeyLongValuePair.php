@@ -27,7 +27,7 @@ class StringKeyLongValuePair extends Entity
     * Gets the key
     * Key.
     *
-    * @return string The key
+    * @return string|null The key
     */
     public function getKey()
     {
@@ -55,7 +55,7 @@ class StringKeyLongValuePair extends Entity
     * Gets the value
     * Value.
     *
-    * @return int The value
+    * @return int|null The value
     */
     public function getValue()
     {

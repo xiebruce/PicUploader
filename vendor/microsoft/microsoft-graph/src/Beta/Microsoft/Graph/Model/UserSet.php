@@ -27,7 +27,7 @@ class UserSet extends Entity
     * Gets the isBackup
     * For a user in an approval stage, this property indicates whether the user is a backup fallback approver.
     *
-    * @return bool The isBackup
+    * @return bool|null The isBackup
     */
     public function getIsBackup()
     {

@@ -28,12 +28,12 @@ class OfferShiftRequest extends ScheduleChangeRequest
     * Gets the recipientActionDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The recipientActionDateTime
+    * @return \DateTime|null The recipientActionDateTime
     */
     public function getRecipientActionDateTime()
     {
         if (array_key_exists("recipientActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["recipientActionDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["recipientActionDateTime"], "\DateTime") || is_null($this->_propDict["recipientActionDateTime"])) {
                 return $this->_propDict["recipientActionDateTime"];
             } else {
                 $this->_propDict["recipientActionDateTime"] = new \DateTime($this->_propDict["recipientActionDateTime"]);
@@ -42,7 +42,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
         }
         return null;
     }
-    
+
     /**
     * Sets the recipientActionDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -56,12 +56,12 @@ class OfferShiftRequest extends ScheduleChangeRequest
         $this->_propDict["recipientActionDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the recipientActionMessage
     * Custom message sent by recipient of the offer shift request.
     *
-    * @return string The recipientActionMessage
+    * @return string|null The recipientActionMessage
     */
     public function getRecipientActionMessage()
     {
@@ -71,7 +71,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
             return null;
         }
     }
-    
+
     /**
     * Sets the recipientActionMessage
     * Custom message sent by recipient of the offer shift request.
@@ -85,12 +85,12 @@ class OfferShiftRequest extends ScheduleChangeRequest
         $this->_propDict["recipientActionMessage"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the recipientUserId
     * User id of the recipient of the offer shift request.
     *
-    * @return string The recipientUserId
+    * @return string|null The recipientUserId
     */
     public function getRecipientUserId()
     {
@@ -100,7 +100,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
             return null;
         }
     }
-    
+
     /**
     * Sets the recipientUserId
     * User id of the recipient of the offer shift request.
@@ -114,12 +114,12 @@ class OfferShiftRequest extends ScheduleChangeRequest
         $this->_propDict["recipientUserId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the senderShiftId
     * User id of the sender of the offer shift request.
     *
-    * @return string The senderShiftId
+    * @return string|null The senderShiftId
     */
     public function getSenderShiftId()
     {
@@ -129,7 +129,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
             return null;
         }
     }
-    
+
     /**
     * Sets the senderShiftId
     * User id of the sender of the offer shift request.
@@ -143,5 +143,5 @@ class OfferShiftRequest extends ScheduleChangeRequest
         $this->_propDict["senderShiftId"] = $val;
         return $this;
     }
-    
+
 }

@@ -26,7 +26,7 @@ class Configuration extends Entity
     /**
     * Gets the authorizedAppIds
     *
-    * @return string The authorizedAppIds
+    * @return string|null The authorizedAppIds
     */
     public function getAuthorizedAppIds()
     {
@@ -51,9 +51,8 @@ class Configuration extends Entity
     }
     /**
     * Gets the authorizedApps
-    * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
     *
-    * @return string The authorizedApps
+    * @return string|null The authorizedApps
     */
     public function getAuthorizedApps()
     {
@@ -66,7 +65,6 @@ class Configuration extends Entity
 
     /**
     * Sets the authorizedApps
-    * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
     *
     * @param string $val The value of the authorizedApps
     *

@@ -28,12 +28,12 @@ class ItemActivity extends Entity
     * Gets the access
     * An item was accessed.
     *
-    * @return AccessAction The access
+    * @return AccessAction|null The access
     */
     public function getAccess()
     {
         if (array_key_exists("access", $this->_propDict)) {
-            if (is_a($this->_propDict["access"], "\Beta\Microsoft\Graph\Model\AccessAction")) {
+            if (is_a($this->_propDict["access"], "\Beta\Microsoft\Graph\Model\AccessAction") || is_null($this->_propDict["access"])) {
                 return $this->_propDict["access"];
             } else {
                 $this->_propDict["access"] = new AccessAction($this->_propDict["access"]);
@@ -42,7 +42,7 @@ class ItemActivity extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the access
     * An item was accessed.
@@ -56,17 +56,17 @@ class ItemActivity extends Entity
         $this->_propDict["access"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the activityDateTime
     * Details about when the activity took place. Read-only.
     *
-    * @return \DateTime The activityDateTime
+    * @return \DateTime|null The activityDateTime
     */
     public function getActivityDateTime()
     {
         if (array_key_exists("activityDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["activityDateTime"], "\DateTime") || is_null($this->_propDict["activityDateTime"])) {
                 return $this->_propDict["activityDateTime"];
             } else {
                 $this->_propDict["activityDateTime"] = new \DateTime($this->_propDict["activityDateTime"]);
@@ -75,7 +75,7 @@ class ItemActivity extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the activityDateTime
     * Details about when the activity took place. Read-only.
@@ -89,17 +89,17 @@ class ItemActivity extends Entity
         $this->_propDict["activityDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the actor
     * Identity of who performed the action. Read-only.
     *
-    * @return IdentitySet The actor
+    * @return IdentitySet|null The actor
     */
     public function getActor()
     {
         if (array_key_exists("actor", $this->_propDict)) {
-            if (is_a($this->_propDict["actor"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["actor"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["actor"])) {
                 return $this->_propDict["actor"];
             } else {
                 $this->_propDict["actor"] = new IdentitySet($this->_propDict["actor"]);
@@ -108,7 +108,7 @@ class ItemActivity extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the actor
     * Identity of who performed the action. Read-only.
@@ -122,17 +122,17 @@ class ItemActivity extends Entity
         $this->_propDict["actor"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the driveItem
     * Exposes the driveItem that was the target of this activity.
     *
-    * @return DriveItem The driveItem
+    * @return DriveItem|null The driveItem
     */
     public function getDriveItem()
     {
         if (array_key_exists("driveItem", $this->_propDict)) {
-            if (is_a($this->_propDict["driveItem"], "\Beta\Microsoft\Graph\Model\DriveItem")) {
+            if (is_a($this->_propDict["driveItem"], "\Beta\Microsoft\Graph\Model\DriveItem") || is_null($this->_propDict["driveItem"])) {
                 return $this->_propDict["driveItem"];
             } else {
                 $this->_propDict["driveItem"] = new DriveItem($this->_propDict["driveItem"]);
@@ -141,7 +141,7 @@ class ItemActivity extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the driveItem
     * Exposes the driveItem that was the target of this activity.
@@ -155,5 +155,5 @@ class ItemActivity extends Entity
         $this->_propDict["driveItem"] = $val;
         return $this;
     }
-    
+
 }

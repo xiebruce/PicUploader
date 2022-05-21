@@ -27,7 +27,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_0
     * Windows version 10.0 or later.
     *
-    * @return bool The v10_0
+    * @return bool|null The v10_0
     */
     public function getV10_0()
     {
@@ -55,7 +55,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v8_0
     * Windows version 8.0 or later.
     *
-    * @return bool The v8_0
+    * @return bool|null The v8_0
     */
     public function getV8_0()
     {
@@ -83,7 +83,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v8_1
     * Windows version 8.1 or later.
     *
-    * @return bool The v8_1
+    * @return bool|null The v8_1
     */
     public function getV8_1()
     {

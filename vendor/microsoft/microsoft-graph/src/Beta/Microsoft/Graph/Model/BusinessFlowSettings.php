@@ -26,7 +26,7 @@ class BusinessFlowSettings extends AccessReviewSettings
     /**
     * Gets the durationInDays
     *
-    * @return int The durationInDays
+    * @return int|null The durationInDays
     */
     public function getDurationInDays()
     {

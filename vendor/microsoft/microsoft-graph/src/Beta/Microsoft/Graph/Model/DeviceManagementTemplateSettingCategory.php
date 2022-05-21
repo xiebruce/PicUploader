@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCategory
 {
 
-     /** 
+     /**
      * Gets the recommendedSettings
     * The settings this category contains
      *
-     * @return array The recommendedSettings
+     * @return array|null The recommendedSettings
      */
     public function getRecommendedSettings()
     {
@@ -39,19 +39,19 @@ class DeviceManagementTemplateSettingCategory extends DeviceManagementSettingCat
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the recommendedSettings
     * The settings this category contains
     *
-    * @param DeviceManagementSettingInstance $val The recommendedSettings
+    * @param DeviceManagementSettingInstance[] $val The recommendedSettings
     *
     * @return DeviceManagementTemplateSettingCategory
     */
     public function setRecommendedSettings($val)
     {
-		$this->_propDict["recommendedSettings"] = $val;
+        $this->_propDict["recommendedSettings"] = $val;
         return $this;
     }
-    
+
 }

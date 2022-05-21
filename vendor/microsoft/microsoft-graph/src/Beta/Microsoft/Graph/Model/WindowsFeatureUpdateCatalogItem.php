@@ -28,7 +28,7 @@ class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem
     * Gets the version
     * The feature update version
     *
-    * @return string The version
+    * @return string|null The version
     */
     public function getVersion()
     {
@@ -38,7 +38,7 @@ class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * The feature update version
@@ -52,5 +52,5 @@ class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem
         $this->_propDict["version"] = $val;
         return $this;
     }
-    
+
 }

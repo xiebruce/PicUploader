@@ -26,9 +26,11 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppFileSystemDetection");
     }
 
@@ -36,7 +38,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     * Gets the check32BitOn64System
     * A value indicating whether this file or folder is for checking 32-bit app on 64-bit system
     *
-    * @return bool The check32BitOn64System
+    * @return bool|null The check32BitOn64System
     */
     public function getCheck32BitOn64System()
     {
@@ -65,12 +67,12 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     * Gets the detectionType
     * The file system detection type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
     *
-    * @return Win32LobAppFileSystemDetectionType The detectionType
+    * @return Win32LobAppFileSystemDetectionType|null The detectionType
     */
     public function getDetectionType()
     {
         if (array_key_exists("detectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppFileSystemDetectionType")) {
+            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppFileSystemDetectionType") || is_null($this->_propDict["detectionType"])) {
                 return $this->_propDict["detectionType"];
             } else {
                 $this->_propDict["detectionType"] = new Win32LobAppFileSystemDetectionType($this->_propDict["detectionType"]);
@@ -97,7 +99,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     * Gets the detectionValue
     * The file or folder detection value
     *
-    * @return string The detectionValue
+    * @return string|null The detectionValue
     */
     public function getDetectionValue()
     {
@@ -125,7 +127,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     * Gets the fileOrFolderName
     * The file or folder name to detect Win32 Line of Business (LoB) app
     *
-    * @return string The fileOrFolderName
+    * @return string|null The fileOrFolderName
     */
     public function getFileOrFolderName()
     {
@@ -154,12 +156,12 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     * Gets the operator
     * The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
     *
-    * @return Win32LobAppDetectionOperator The operator
+    * @return Win32LobAppDetectionOperator|null The operator
     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppDetectionOperator")) {
+            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppDetectionOperator") || is_null($this->_propDict["operator"])) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Win32LobAppDetectionOperator($this->_propDict["operator"]);
@@ -186,7 +188,7 @@ class Win32LobAppFileSystemDetection extends Win32LobAppDetection
     * Gets the path
     * The file or folder path to detect Win32 Line of Business (LoB) app
     *
-    * @return string The path
+    * @return string|null The path
     */
     public function getPath()
     {

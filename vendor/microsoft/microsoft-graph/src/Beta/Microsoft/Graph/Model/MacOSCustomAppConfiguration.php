@@ -28,7 +28,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
     * Gets the bundleId
     * Bundle id for targeting.
     *
-    * @return string The bundleId
+    * @return string|null The bundleId
     */
     public function getBundleId()
     {
@@ -38,7 +38,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bundleId
     * Bundle id for targeting.
@@ -52,26 +52,26 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the configurationXml
     * Configuration xml. (UTF8 encoded byte array)
     *
-    * @return \GuzzleHttp\Psr7\Stream The configurationXml
+    * @return \GuzzleHttp\Psr7\Stream|null The configurationXml
     */
     public function getConfigurationXml()
     {
         if (array_key_exists("configurationXml", $this->_propDict)) {
-            if (is_a($this->_propDict["configurationXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["configurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["configurationXml"])) {
                 return $this->_propDict["configurationXml"];
             } else {
-                $this->_propDict["configurationXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["configurationXml"]);
+                $this->_propDict["configurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["configurationXml"]);
                 return $this->_propDict["configurationXml"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the configurationXml
     * Configuration xml. (UTF8 encoded byte array)
@@ -85,12 +85,12 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
         $this->_propDict["configurationXml"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fileName
     * Configuration file name (.plist
     *
-    * @return string The fileName
+    * @return string|null The fileName
     */
     public function getFileName()
     {
@@ -100,7 +100,7 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the fileName
     * Configuration file name (.plist
@@ -114,5 +114,5 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
         $this->_propDict["fileName"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class CompanyDetail extends Entity
     * Gets the address
     * Address of the company.
     *
-    * @return PhysicalAddress The address
+    * @return PhysicalAddress|null The address
     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress")) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["address"])) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PhysicalAddress($this->_propDict["address"]);
@@ -60,7 +60,7 @@ class CompanyDetail extends Entity
     * Gets the department
     * Department Name within a company.
     *
-    * @return string The department
+    * @return string|null The department
     */
     public function getDepartment()
     {
@@ -88,7 +88,7 @@ class CompanyDetail extends Entity
     * Gets the displayName
     * Company name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -116,7 +116,7 @@ class CompanyDetail extends Entity
     * Gets the officeLocation
     * Office Location of the person referred to.
     *
-    * @return string The officeLocation
+    * @return string|null The officeLocation
     */
     public function getOfficeLocation()
     {
@@ -144,7 +144,7 @@ class CompanyDetail extends Entity
     * Gets the pronunciation
     * Pronunciation guide for the company name.
     *
-    * @return string The pronunciation
+    * @return string|null The pronunciation
     */
     public function getPronunciation()
     {
@@ -172,7 +172,7 @@ class CompanyDetail extends Entity
     * Gets the webUrl
     * Link to the company home page.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {

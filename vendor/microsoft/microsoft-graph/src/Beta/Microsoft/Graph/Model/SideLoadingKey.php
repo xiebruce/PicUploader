@@ -28,7 +28,7 @@ class SideLoadingKey extends Entity
     * Gets the description
     * Side Loading Key description displayed to the ITPro Admins..
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Side Loading Key description displayed to the ITPro Admins..
@@ -52,12 +52,12 @@ class SideLoadingKey extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Side Loading Key Name displayed to the ITPro Admins.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Side Loading Key Name displayed to the ITPro Admins.
@@ -81,12 +81,12 @@ class SideLoadingKey extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastUpdatedDateTime
     * Side Loading Key Last Updated Date displayed to the ITPro Admins.
     *
-    * @return string The lastUpdatedDateTime
+    * @return string|null The lastUpdatedDateTime
     */
     public function getLastUpdatedDateTime()
     {
@@ -96,7 +96,7 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the lastUpdatedDateTime
     * Side Loading Key Last Updated Date displayed to the ITPro Admins.
@@ -110,12 +110,12 @@ class SideLoadingKey extends Entity
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalActivation
     * Side Loading Key Total Activation displayed to the ITPro Admins.
     *
-    * @return int The totalActivation
+    * @return int|null The totalActivation
     */
     public function getTotalActivation()
     {
@@ -125,7 +125,7 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the totalActivation
     * Side Loading Key Total Activation displayed to the ITPro Admins.
@@ -139,12 +139,12 @@ class SideLoadingKey extends Entity
         $this->_propDict["totalActivation"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the value
     * Side Loading Key Value, it is 5x5 value, seperated by hiphens.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -154,7 +154,7 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the value
     * Side Loading Key Value, it is 5x5 value, seperated by hiphens.
@@ -168,5 +168,5 @@ class SideLoadingKey extends Entity
         $this->_propDict["value"] = $val;
         return $this;
     }
-    
+
 }

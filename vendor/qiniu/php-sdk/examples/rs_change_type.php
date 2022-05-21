@@ -21,9 +21,11 @@ $bucketManager = new BucketManager($auth, $config);
 // 参考文档：https://developer.qiniu.com/kodo/api/3710/chtype
 
 $key = "qiniu.mp4";
-$fileType = 1; // 0 表示标准存储；1 表示低频存储；2 表示归档存储
+$fileType = 1; // 0 表示标准存储；1 表示低频存储；2 表示归档存储；3 表示深度归档存储
 
-$err = $bucketManager->changeType($bucket, $key, $fileType);
-if ($err) {
-    print_r($err);
+list($ret, $err) = $bucketManager->changeType($bucket, $key, $fileType);
+if ($err != null) {
+    var_dump($err);
+} else {
+    var_dump($ret);
 }

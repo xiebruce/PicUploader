@@ -27,7 +27,7 @@ class TeamFunSettings extends Entity
     * Gets the allowCustomMemes
     * If set to true, enables users to include custom memes.
     *
-    * @return bool The allowCustomMemes
+    * @return bool|null The allowCustomMemes
     */
     public function getAllowCustomMemes()
     {
@@ -55,7 +55,7 @@ class TeamFunSettings extends Entity
     * Gets the allowGiphy
     * If set to true, enables Giphy use.
     *
-    * @return bool The allowGiphy
+    * @return bool|null The allowGiphy
     */
     public function getAllowGiphy()
     {
@@ -83,7 +83,7 @@ class TeamFunSettings extends Entity
     * Gets the allowStickersAndMemes
     * If set to true, enables users to include stickers and memes.
     *
-    * @return bool The allowStickersAndMemes
+    * @return bool|null The allowStickersAndMemes
     */
     public function getAllowStickersAndMemes()
     {
@@ -112,12 +112,12 @@ class TeamFunSettings extends Entity
     * Gets the giphyContentRating
     * Giphy content rating. Possible values are: moderate, strict.
     *
-    * @return GiphyRatingType The giphyContentRating
+    * @return GiphyRatingType|null The giphyContentRating
     */
     public function getGiphyContentRating()
     {
         if (array_key_exists("giphyContentRating", $this->_propDict)) {
-            if (is_a($this->_propDict["giphyContentRating"], "\Beta\Microsoft\Graph\Model\GiphyRatingType")) {
+            if (is_a($this->_propDict["giphyContentRating"], "\Beta\Microsoft\Graph\Model\GiphyRatingType") || is_null($this->_propDict["giphyContentRating"])) {
                 return $this->_propDict["giphyContentRating"];
             } else {
                 $this->_propDict["giphyContentRating"] = new GiphyRatingType($this->_propDict["giphyContentRating"]);

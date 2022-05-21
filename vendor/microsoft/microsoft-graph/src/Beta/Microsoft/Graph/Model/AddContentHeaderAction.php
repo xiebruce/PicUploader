@@ -28,12 +28,12 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the alignment
     * Possible values are: left, right, center.
     *
-    * @return ContentAlignment The alignment
+    * @return ContentAlignment|null The alignment
     */
     public function getAlignment()
     {
         if (array_key_exists("alignment", $this->_propDict)) {
-            if (is_a($this->_propDict["alignment"], "\Beta\Microsoft\Graph\Model\ContentAlignment")) {
+            if (is_a($this->_propDict["alignment"], "\Beta\Microsoft\Graph\Model\ContentAlignment") || is_null($this->_propDict["alignment"])) {
                 return $this->_propDict["alignment"];
             } else {
                 $this->_propDict["alignment"] = new ContentAlignment($this->_propDict["alignment"]);
@@ -60,7 +60,7 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the fontColor
     * Color of the font to use for the header.
     *
-    * @return string The fontColor
+    * @return string|null The fontColor
     */
     public function getFontColor()
     {
@@ -88,7 +88,7 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the fontName
     * Name of the font to use for the header.
     *
-    * @return string The fontName
+    * @return string|null The fontName
     */
     public function getFontName()
     {
@@ -116,7 +116,7 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the fontSize
     * Font size to use for the header.
     *
-    * @return int The fontSize
+    * @return int|null The fontSize
     */
     public function getFontSize()
     {
@@ -144,7 +144,7 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the margin
     * The margin of the header from the top of the document.
     *
-    * @return int The margin
+    * @return int|null The margin
     */
     public function getMargin()
     {
@@ -172,7 +172,7 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the text
     * The contents of the header itself.
     *
-    * @return string The text
+    * @return string|null The text
     */
     public function getText()
     {
@@ -200,7 +200,7 @@ class AddContentHeaderAction extends InformationProtectionAction
     * Gets the uiElementName
     * The name of the UI element where the header should be placed.
     *
-    * @return string The uiElementName
+    * @return string|null The uiElementName
     */
     public function getUiElementName()
     {

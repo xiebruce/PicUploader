@@ -27,7 +27,7 @@ class MeetingCapability extends Entity
     * Gets the allowAnonymousUsersToDialOut
     * Indicates whether anonymous users dialout is allowed in a meeting.
     *
-    * @return bool The allowAnonymousUsersToDialOut
+    * @return bool|null The allowAnonymousUsersToDialOut
     */
     public function getAllowAnonymousUsersToDialOut()
     {
@@ -55,7 +55,7 @@ class MeetingCapability extends Entity
     * Gets the allowAnonymousUsersToStartMeeting
     * Indicates whether anonymous users are allowed to start a meeting.
     *
-    * @return bool The allowAnonymousUsersToStartMeeting
+    * @return bool|null The allowAnonymousUsersToStartMeeting
     */
     public function getAllowAnonymousUsersToStartMeeting()
     {
@@ -84,12 +84,12 @@ class MeetingCapability extends Entity
     * Gets the autoAdmittedUsers
     * Possible values are: everyoneInCompany, everyone.
     *
-    * @return AutoAdmittedUsersType The autoAdmittedUsers
+    * @return AutoAdmittedUsersType|null The autoAdmittedUsers
     */
     public function getAutoAdmittedUsers()
     {
         if (array_key_exists("autoAdmittedUsers", $this->_propDict)) {
-            if (is_a($this->_propDict["autoAdmittedUsers"], "\Beta\Microsoft\Graph\Model\AutoAdmittedUsersType")) {
+            if (is_a($this->_propDict["autoAdmittedUsers"], "\Beta\Microsoft\Graph\Model\AutoAdmittedUsersType") || is_null($this->_propDict["autoAdmittedUsers"])) {
                 return $this->_propDict["autoAdmittedUsers"];
             } else {
                 $this->_propDict["autoAdmittedUsers"] = new AutoAdmittedUsersType($this->_propDict["autoAdmittedUsers"]);

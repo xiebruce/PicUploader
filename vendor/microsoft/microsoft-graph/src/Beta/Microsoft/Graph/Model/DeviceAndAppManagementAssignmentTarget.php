@@ -27,7 +27,7 @@ class DeviceAndAppManagementAssignmentTarget extends Entity
     * Gets the deviceAndAppManagementAssignmentFilterId
     * The Id of the filter for the target assignment.
     *
-    * @return string The deviceAndAppManagementAssignmentFilterId
+    * @return string|null The deviceAndAppManagementAssignmentFilterId
     */
     public function getDeviceAndAppManagementAssignmentFilterId()
     {
@@ -56,12 +56,12 @@ class DeviceAndAppManagementAssignmentTarget extends Entity
     * Gets the deviceAndAppManagementAssignmentFilterType
     * The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
     *
-    * @return DeviceAndAppManagementAssignmentFilterType The deviceAndAppManagementAssignmentFilterType
+    * @return DeviceAndAppManagementAssignmentFilterType|null The deviceAndAppManagementAssignmentFilterType
     */
     public function getDeviceAndAppManagementAssignmentFilterType()
     {
         if (array_key_exists("deviceAndAppManagementAssignmentFilterType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceAndAppManagementAssignmentFilterType"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentFilterType")) {
+            if (is_a($this->_propDict["deviceAndAppManagementAssignmentFilterType"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentFilterType") || is_null($this->_propDict["deviceAndAppManagementAssignmentFilterType"])) {
                 return $this->_propDict["deviceAndAppManagementAssignmentFilterType"];
             } else {
                 $this->_propDict["deviceAndAppManagementAssignmentFilterType"] = new DeviceAndAppManagementAssignmentFilterType($this->_propDict["deviceAndAppManagementAssignmentFilterType"]);

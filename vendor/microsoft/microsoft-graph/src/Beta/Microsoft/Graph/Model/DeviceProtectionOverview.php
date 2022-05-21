@@ -27,7 +27,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the cleanDeviceCount
     * Clean device count.
     *
-    * @return int The cleanDeviceCount
+    * @return int|null The cleanDeviceCount
     */
     public function getCleanDeviceCount()
     {
@@ -55,7 +55,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the criticalFailuresDeviceCount
     * Critical failures device count.
     *
-    * @return int The criticalFailuresDeviceCount
+    * @return int|null The criticalFailuresDeviceCount
     */
     public function getCriticalFailuresDeviceCount()
     {
@@ -83,7 +83,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the inactiveThreatAgentDeviceCount
     * Device with inactive threat agent count
     *
-    * @return int The inactiveThreatAgentDeviceCount
+    * @return int|null The inactiveThreatAgentDeviceCount
     */
     public function getInactiveThreatAgentDeviceCount()
     {
@@ -111,7 +111,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the pendingFullScanDeviceCount
     * Pending full scan device count.
     *
-    * @return int The pendingFullScanDeviceCount
+    * @return int|null The pendingFullScanDeviceCount
     */
     public function getPendingFullScanDeviceCount()
     {
@@ -139,7 +139,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the pendingManualStepsDeviceCount
     * Pending manual steps device count.
     *
-    * @return int The pendingManualStepsDeviceCount
+    * @return int|null The pendingManualStepsDeviceCount
     */
     public function getPendingManualStepsDeviceCount()
     {
@@ -167,7 +167,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the pendingOfflineScanDeviceCount
     * Pending offline scan device count.
     *
-    * @return int The pendingOfflineScanDeviceCount
+    * @return int|null The pendingOfflineScanDeviceCount
     */
     public function getPendingOfflineScanDeviceCount()
     {
@@ -195,7 +195,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the pendingQuickScanDeviceCount
     * Pending quick scan device count. Valid values -2147483648 to 2147483647
     *
-    * @return int The pendingQuickScanDeviceCount
+    * @return int|null The pendingQuickScanDeviceCount
     */
     public function getPendingQuickScanDeviceCount()
     {
@@ -223,7 +223,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the pendingRestartDeviceCount
     * Pending restart device count.
     *
-    * @return int The pendingRestartDeviceCount
+    * @return int|null The pendingRestartDeviceCount
     */
     public function getPendingRestartDeviceCount()
     {
@@ -251,7 +251,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the pendingSignatureUpdateDeviceCount
     * Device with old signature count.
     *
-    * @return int The pendingSignatureUpdateDeviceCount
+    * @return int|null The pendingSignatureUpdateDeviceCount
     */
     public function getPendingSignatureUpdateDeviceCount()
     {
@@ -279,7 +279,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the totalReportedDeviceCount
     * Total device count.
     *
-    * @return int The totalReportedDeviceCount
+    * @return int|null The totalReportedDeviceCount
     */
     public function getTotalReportedDeviceCount()
     {
@@ -307,7 +307,7 @@ class DeviceProtectionOverview extends Entity
     * Gets the unknownStateThreatAgentDeviceCount
     * Device with threat agent state as unknown count.
     *
-    * @return int The unknownStateThreatAgentDeviceCount
+    * @return int|null The unknownStateThreatAgentDeviceCount
     */
     public function getUnknownStateThreatAgentDeviceCount()
     {

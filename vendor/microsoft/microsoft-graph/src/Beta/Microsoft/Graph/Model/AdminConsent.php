@@ -28,12 +28,12 @@ class AdminConsent extends Entity
     * Gets the shareAPNSData
     * The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
     *
-    * @return AdminConsentState The shareAPNSData
+    * @return AdminConsentState|null The shareAPNSData
     */
     public function getShareAPNSData()
     {
         if (array_key_exists("shareAPNSData", $this->_propDict)) {
-            if (is_a($this->_propDict["shareAPNSData"], "\Beta\Microsoft\Graph\Model\AdminConsentState")) {
+            if (is_a($this->_propDict["shareAPNSData"], "\Beta\Microsoft\Graph\Model\AdminConsentState") || is_null($this->_propDict["shareAPNSData"])) {
                 return $this->_propDict["shareAPNSData"];
             } else {
                 $this->_propDict["shareAPNSData"] = new AdminConsentState($this->_propDict["shareAPNSData"]);
@@ -61,12 +61,12 @@ class AdminConsent extends Entity
     * Gets the shareUserExperienceAnalyticsData
     * Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
     *
-    * @return AdminConsentState The shareUserExperienceAnalyticsData
+    * @return AdminConsentState|null The shareUserExperienceAnalyticsData
     */
     public function getShareUserExperienceAnalyticsData()
     {
         if (array_key_exists("shareUserExperienceAnalyticsData", $this->_propDict)) {
-            if (is_a($this->_propDict["shareUserExperienceAnalyticsData"], "\Beta\Microsoft\Graph\Model\AdminConsentState")) {
+            if (is_a($this->_propDict["shareUserExperienceAnalyticsData"], "\Beta\Microsoft\Graph\Model\AdminConsentState") || is_null($this->_propDict["shareUserExperienceAnalyticsData"])) {
                 return $this->_propDict["shareUserExperienceAnalyticsData"];
             } else {
                 $this->_propDict["shareUserExperienceAnalyticsData"] = new AdminConsentState($this->_propDict["shareUserExperienceAnalyticsData"]);

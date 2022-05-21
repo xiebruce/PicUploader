@@ -27,7 +27,7 @@ class SamlSingleSignOnSettings extends Entity
     * Gets the relayState
     * The relative URI the service provider would redirect to after completion of the single sign-on flow.
     *
-    * @return string The relayState
+    * @return string|null The relayState
     */
     public function getRelayState()
     {

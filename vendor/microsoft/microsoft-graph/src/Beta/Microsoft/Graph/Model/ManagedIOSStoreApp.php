@@ -28,12 +28,12 @@ class ManagedIOSStoreApp extends ManagedApp
     * Gets the applicableDeviceType
     * The iOS architecture for which this app can run on.
     *
-    * @return IosDeviceType The applicableDeviceType
+    * @return IosDeviceType|null The applicableDeviceType
     */
     public function getApplicableDeviceType()
     {
         if (array_key_exists("applicableDeviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableDeviceType"], "\Beta\Microsoft\Graph\Model\IosDeviceType")) {
+            if (is_a($this->_propDict["applicableDeviceType"], "\Beta\Microsoft\Graph\Model\IosDeviceType") || is_null($this->_propDict["applicableDeviceType"])) {
                 return $this->_propDict["applicableDeviceType"];
             } else {
                 $this->_propDict["applicableDeviceType"] = new IosDeviceType($this->_propDict["applicableDeviceType"]);
@@ -42,7 +42,7 @@ class ManagedIOSStoreApp extends ManagedApp
         }
         return null;
     }
-    
+
     /**
     * Sets the applicableDeviceType
     * The iOS architecture for which this app can run on.
@@ -56,12 +56,12 @@ class ManagedIOSStoreApp extends ManagedApp
         $this->_propDict["applicableDeviceType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appStoreUrl
     * The Apple AppStoreUrl.
     *
-    * @return string The appStoreUrl
+    * @return string|null The appStoreUrl
     */
     public function getAppStoreUrl()
     {
@@ -71,7 +71,7 @@ class ManagedIOSStoreApp extends ManagedApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appStoreUrl
     * The Apple AppStoreUrl.
@@ -85,12 +85,12 @@ class ManagedIOSStoreApp extends ManagedApp
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bundleId
     * The app's Bundle ID.
     *
-    * @return string The bundleId
+    * @return string|null The bundleId
     */
     public function getBundleId()
     {
@@ -100,7 +100,7 @@ class ManagedIOSStoreApp extends ManagedApp
             return null;
         }
     }
-    
+
     /**
     * Sets the bundleId
     * The app's Bundle ID.
@@ -114,17 +114,17 @@ class ManagedIOSStoreApp extends ManagedApp
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimumSupportedOperatingSystem
     * The value for the minimum supported operating system.
     *
-    * @return IosMinimumOperatingSystem The minimumSupportedOperatingSystem
+    * @return IosMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\IosMinimumOperatingSystem")) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\IosMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new IosMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -133,7 +133,7 @@ class ManagedIOSStoreApp extends ManagedApp
         }
         return null;
     }
-    
+
     /**
     * Sets the minimumSupportedOperatingSystem
     * The value for the minimum supported operating system.
@@ -147,5 +147,5 @@ class ManagedIOSStoreApp extends ManagedApp
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-    
+
 }

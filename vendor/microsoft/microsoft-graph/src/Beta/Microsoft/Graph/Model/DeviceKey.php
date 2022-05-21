@@ -26,7 +26,7 @@ class DeviceKey extends Entity
     /**
     * Gets the deviceId
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -53,15 +53,15 @@ class DeviceKey extends Entity
     /**
     * Gets the keyMaterial
     *
-    * @return \GuzzleHttp\Psr7\Stream The keyMaterial
+    * @return \GuzzleHttp\Psr7\Stream|null The keyMaterial
     */
     public function getKeyMaterial()
     {
         if (array_key_exists("keyMaterial", $this->_propDict)) {
-            if (is_a($this->_propDict["keyMaterial"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["keyMaterial"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["keyMaterial"])) {
                 return $this->_propDict["keyMaterial"];
             } else {
-                $this->_propDict["keyMaterial"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["keyMaterial"]);
+                $this->_propDict["keyMaterial"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["keyMaterial"]);
                 return $this->_propDict["keyMaterial"];
             }
         }
@@ -83,7 +83,7 @@ class DeviceKey extends Entity
     /**
     * Gets the keyType
     *
-    * @return string The keyType
+    * @return string|null The keyType
     */
     public function getKeyType()
     {

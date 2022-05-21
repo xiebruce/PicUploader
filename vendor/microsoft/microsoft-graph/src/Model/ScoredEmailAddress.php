@@ -27,7 +27,7 @@ class ScoredEmailAddress extends Entity
     * Gets the address
     * The email address.
     *
-    * @return string The address
+    * @return string|null The address
     */
     public function getAddress()
     {
@@ -54,7 +54,7 @@ class ScoredEmailAddress extends Entity
     /**
     * Gets the itemId
     *
-    * @return string The itemId
+    * @return string|null The itemId
     */
     public function getItemId()
     {
@@ -81,7 +81,7 @@ class ScoredEmailAddress extends Entity
     * Gets the relevanceScore
     * The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
     *
-    * @return float The relevanceScore
+    * @return float|null The relevanceScore
     */
     public function getRelevanceScore()
     {
@@ -109,12 +109,12 @@ class ScoredEmailAddress extends Entity
     /**
     * Gets the selectionLikelihood
     *
-    * @return SelectionLikelihoodInfo The selectionLikelihood
+    * @return SelectionLikelihoodInfo|null The selectionLikelihood
     */
     public function getSelectionLikelihood()
     {
         if (array_key_exists("selectionLikelihood", $this->_propDict)) {
-            if (is_a($this->_propDict["selectionLikelihood"], "\Microsoft\Graph\Model\SelectionLikelihoodInfo")) {
+            if (is_a($this->_propDict["selectionLikelihood"], "\Microsoft\Graph\Model\SelectionLikelihoodInfo") || is_null($this->_propDict["selectionLikelihood"])) {
                 return $this->_propDict["selectionLikelihood"];
             } else {
                 $this->_propDict["selectionLikelihood"] = new SelectionLikelihoodInfo($this->_propDict["selectionLikelihood"]);

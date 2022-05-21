@@ -1,6 +1,7 @@
 <?php
 namespace Qiniu;
 
+use Qiniu\Http\Header;
 use Qiniu\Zone;
 
 final class Auth
@@ -47,6 +48,80 @@ final class Auth
             $data .= $body;
         }
         return $this->sign($data);
+    }
+
+    /**
+     * @param string $urlString
+     * @param string $method
+     * @param string $body
+     * @param null|Header $headers
+     */
+    public function signQiniuAuthorization($urlString, $method = "GET", $body = "", $headers = null)
+    {
+        $url = parse_url($urlString);
+        if (!$url) {
+            return array(null, new \Exception("parse_url error"));
+        }
+
+        // append method, path and query
+        if ($method === "") {
+            $data = "GET ";
+        } else {
+            $data = $method . " ";
+        }
+        if (isset($url["path"])) {
+            $data .= $url["path"];
+        }
+        if (isset($url["query"])) {
+            $data .= "?" . $url["query"];
+        }
+
+        // append Host
+        $data .= "\n";
+        $data .= "Host: ";
+        if (isset($url["host"])) {
+            $data .= $url["host"];
+        }
+        if (isset($url["port"]) && $url["port"] > 0) {
+            $data .= ":" . $url["port"];
+        }
+
+        // try append content type
+        if ($headers != null && isset($headers["Content-Type"])) {
+            // append content type
+            $data .= "\n";
+            $data .= "Content-Type: " . $headers["Content-Type"];
+        }
+
+        // try append xQiniuHeaders
+        if ($headers != null) {
+            $headerLines = array();
+            $keyPrefix = "X-Qiniu-";
+            foreach ($headers as $k => $v) {
+                if (strlen($k) > strlen($keyPrefix) && strpos($k, $keyPrefix) === 0) {
+                    array_push(
+                        $headerLines,
+                        $k . ": " . $v
+                    );
+                }
+            }
+            if (count($headerLines) > 0) {
+                $data .= "\n";
+                sort($headerLines);
+                $data .= implode("\n", $headerLines);
+            }
+        }
+
+        // append body
+        $data .= "\n\n";
+        if (strlen($body) > 0
+            && isset($headers["Content-Type"])
+            && $headers["Content-Type"] != "application/octet-stream"
+        ) {
+            $data .= $body;
+        }
+
+        return array($this->sign(utf8_encode($data)), null);
     }
 
     public function verifyCallback($contentType, $originAuthorization, $url, $body)
@@ -141,48 +216,16 @@ final class Auth
 
     public function authorizationV2($url, $method, $body = null, $contentType = null)
     {
-        $urlItems = parse_url($url);
-        $host = $urlItems['host'];
-
-        if (isset($urlItems['port'])) {
-            $port = $urlItems['port'];
-        } else {
-            $port = '';
+        $headers = null;
+        $result = array();
+        if ($contentType != null) {
+            $headers = new Header(array(
+                'Content-Type' => array($contentType),
+            ));
+            $result['Content-Type'] = $contentType;
         }
-
-        $path = $urlItems['path'];
-        if (isset($urlItems['query'])) {
-            $query = $urlItems['query'];
-        } else {
-            $query = '';
-        }
-
-        //write request uri
-        $toSignStr = $method . ' ' . $path;
-        if (!empty($query)) {
-            $toSignStr .= '?' . $query;
-        }
-
-        //write host and port
-        $toSignStr .= "\nHost: " . $host;
-        if (!empty($port)) {
-            $toSignStr .= ":" . $port;
-        }
-
-        //write content type
-        if (!empty($contentType)) {
-            $toSignStr .= "\nContent-Type: " . $contentType;
-        }
-
-        $toSignStr .= "\n\n";
-
-        //write body
-        if (!empty($body)) {
-            $toSignStr .= $body;
-        }
-
-        $sign = $this->sign($toSignStr);
-        $auth = 'Qiniu ' . $sign;
-        return array('Authorization' => $auth);
+        list($sign) = $this->signQiniuAuthorization($url, $method, $body, $headers);
+        $result['Authorization'] = 'Qiniu ' . $sign;
+        return $result;
     }
 }

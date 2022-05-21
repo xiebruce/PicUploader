@@ -27,7 +27,7 @@ class ProvisioningStep extends Entity
     * Gets the description
     * Summary of what occurred during the step.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -56,12 +56,12 @@ class ProvisioningStep extends Entity
     * Gets the details
     * Details of what occurred during the step.
     *
-    * @return DetailsInfo The details
+    * @return DetailsInfo|null The details
     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\DetailsInfo")) {
+            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\DetailsInfo") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new DetailsInfo($this->_propDict["details"]);
@@ -88,7 +88,7 @@ class ProvisioningStep extends Entity
     * Gets the name
     * Name of the step.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -117,12 +117,12 @@ class ProvisioningStep extends Entity
     * Gets the provisioningStepType
     * Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
     *
-    * @return ProvisioningStepType The provisioningStepType
+    * @return ProvisioningStepType|null The provisioningStepType
     */
     public function getProvisioningStepType()
     {
         if (array_key_exists("provisioningStepType", $this->_propDict)) {
-            if (is_a($this->_propDict["provisioningStepType"], "\Microsoft\Graph\Model\ProvisioningStepType")) {
+            if (is_a($this->_propDict["provisioningStepType"], "\Microsoft\Graph\Model\ProvisioningStepType") || is_null($this->_propDict["provisioningStepType"])) {
                 return $this->_propDict["provisioningStepType"];
             } else {
                 $this->_propDict["provisioningStepType"] = new ProvisioningStepType($this->_propDict["provisioningStepType"]);
@@ -150,12 +150,12 @@ class ProvisioningStep extends Entity
     * Gets the status
     * Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
     *
-    * @return ProvisioningResult The status
+    * @return ProvisioningResult|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ProvisioningResult")) {
+            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ProvisioningResult") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ProvisioningResult($this->_propDict["status"]);

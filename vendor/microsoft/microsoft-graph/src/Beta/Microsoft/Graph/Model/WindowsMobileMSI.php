@@ -28,7 +28,7 @@ class WindowsMobileMSI extends MobileLobApp
     * Gets the commandLine
     * The command line.
     *
-    * @return string The commandLine
+    * @return string|null The commandLine
     */
     public function getCommandLine()
     {
@@ -38,7 +38,7 @@ class WindowsMobileMSI extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the commandLine
     * The command line.
@@ -52,12 +52,12 @@ class WindowsMobileMSI extends MobileLobApp
         $this->_propDict["commandLine"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityVersion
     * The identity version.
     *
-    * @return string The identityVersion
+    * @return string|null The identityVersion
     */
     public function getIdentityVersion()
     {
@@ -67,7 +67,7 @@ class WindowsMobileMSI extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the identityVersion
     * The identity version.
@@ -81,12 +81,12 @@ class WindowsMobileMSI extends MobileLobApp
         $this->_propDict["identityVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ignoreVersionDetection
     * A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
     *
-    * @return bool The ignoreVersionDetection
+    * @return bool|null The ignoreVersionDetection
     */
     public function getIgnoreVersionDetection()
     {
@@ -96,7 +96,7 @@ class WindowsMobileMSI extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the ignoreVersionDetection
     * A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
@@ -110,12 +110,12 @@ class WindowsMobileMSI extends MobileLobApp
         $this->_propDict["ignoreVersionDetection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the productCode
     * The product code.
     *
-    * @return string The productCode
+    * @return string|null The productCode
     */
     public function getProductCode()
     {
@@ -125,7 +125,7 @@ class WindowsMobileMSI extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the productCode
     * The product code.
@@ -139,12 +139,12 @@ class WindowsMobileMSI extends MobileLobApp
         $this->_propDict["productCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the productVersion
     * The product version of Windows Mobile MSI Line of Business (LoB) app.
     *
-    * @return string The productVersion
+    * @return string|null The productVersion
     */
     public function getProductVersion()
     {
@@ -154,7 +154,7 @@ class WindowsMobileMSI extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the productVersion
     * The product version of Windows Mobile MSI Line of Business (LoB) app.
@@ -168,12 +168,12 @@ class WindowsMobileMSI extends MobileLobApp
         $this->_propDict["productVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the useDeviceContext
     * Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.
     *
-    * @return bool The useDeviceContext
+    * @return bool|null The useDeviceContext
     */
     public function getUseDeviceContext()
     {
@@ -183,7 +183,7 @@ class WindowsMobileMSI extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the useDeviceContext
     * Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.
@@ -197,5 +197,5 @@ class WindowsMobileMSI extends MobileLobApp
         $this->_propDict["useDeviceContext"] = boolval($val);
         return $this;
     }
-    
+
 }

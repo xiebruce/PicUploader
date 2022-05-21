@@ -28,12 +28,12 @@ class IntuneBrand extends Entity
     * Gets the companyPortalBlockedActions
     * Collection of blocked actions on the company portal as per platform and device ownership types.
     *
-    * @return CompanyPortalBlockedAction The companyPortalBlockedActions
+    * @return CompanyPortalBlockedAction|null The companyPortalBlockedActions
     */
     public function getCompanyPortalBlockedActions()
     {
         if (array_key_exists("companyPortalBlockedActions", $this->_propDict)) {
-            if (is_a($this->_propDict["companyPortalBlockedActions"], "\Beta\Microsoft\Graph\Model\CompanyPortalBlockedAction")) {
+            if (is_a($this->_propDict["companyPortalBlockedActions"], "\Beta\Microsoft\Graph\Model\CompanyPortalBlockedAction") || is_null($this->_propDict["companyPortalBlockedActions"])) {
                 return $this->_propDict["companyPortalBlockedActions"];
             } else {
                 $this->_propDict["companyPortalBlockedActions"] = new CompanyPortalBlockedAction($this->_propDict["companyPortalBlockedActions"]);
@@ -60,7 +60,7 @@ class IntuneBrand extends Entity
     * Gets the contactITEmailAddress
     * Email address of the person/organization responsible for IT support.
     *
-    * @return string The contactITEmailAddress
+    * @return string|null The contactITEmailAddress
     */
     public function getContactITEmailAddress()
     {
@@ -88,7 +88,7 @@ class IntuneBrand extends Entity
     * Gets the contactITName
     * Name of the person/organization responsible for IT support.
     *
-    * @return string The contactITName
+    * @return string|null The contactITName
     */
     public function getContactITName()
     {
@@ -116,7 +116,7 @@ class IntuneBrand extends Entity
     * Gets the contactITNotes
     * Text comments regarding the person/organization responsible for IT support.
     *
-    * @return string The contactITNotes
+    * @return string|null The contactITNotes
     */
     public function getContactITNotes()
     {
@@ -144,7 +144,7 @@ class IntuneBrand extends Entity
     * Gets the contactITPhoneNumber
     * Phone number of the person/organization responsible for IT support.
     *
-    * @return string The contactITPhoneNumber
+    * @return string|null The contactITPhoneNumber
     */
     public function getContactITPhoneNumber()
     {
@@ -172,7 +172,7 @@ class IntuneBrand extends Entity
     * Gets the customCanSeePrivacyMessage
     * The custom privacy message used to explain what the organization can see and do on managed devices.
     *
-    * @return string The customCanSeePrivacyMessage
+    * @return string|null The customCanSeePrivacyMessage
     */
     public function getCustomCanSeePrivacyMessage()
     {
@@ -200,7 +200,7 @@ class IntuneBrand extends Entity
     * Gets the customCantSeePrivacyMessage
     * The custom privacy message used to explain what the organization can’t see or do on managed devices.
     *
-    * @return string The customCantSeePrivacyMessage
+    * @return string|null The customCantSeePrivacyMessage
     */
     public function getCustomCantSeePrivacyMessage()
     {
@@ -228,7 +228,7 @@ class IntuneBrand extends Entity
     * Gets the customPrivacyMessage
     * The custom privacy message used to explain what the organization can’t see or do on managed devices.
     *
-    * @return string The customPrivacyMessage
+    * @return string|null The customPrivacyMessage
     */
     public function getCustomPrivacyMessage()
     {
@@ -257,12 +257,12 @@ class IntuneBrand extends Entity
     * Gets the darkBackgroundLogo
     * Logo image displayed in Company Portal apps which have a dark background behind the logo.
     *
-    * @return MimeContent The darkBackgroundLogo
+    * @return MimeContent|null The darkBackgroundLogo
     */
     public function getDarkBackgroundLogo()
     {
         if (array_key_exists("darkBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["darkBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
+            if (is_a($this->_propDict["darkBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["darkBackgroundLogo"])) {
                 return $this->_propDict["darkBackgroundLogo"];
             } else {
                 $this->_propDict["darkBackgroundLogo"] = new MimeContent($this->_propDict["darkBackgroundLogo"]);
@@ -289,7 +289,7 @@ class IntuneBrand extends Entity
     * Gets the disableClientTelemetry
     * Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
     *
-    * @return bool The disableClientTelemetry
+    * @return bool|null The disableClientTelemetry
     */
     public function getDisableClientTelemetry()
     {
@@ -317,7 +317,7 @@ class IntuneBrand extends Entity
     * Gets the displayName
     * Company/organization name that is displayed to end users.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -346,12 +346,12 @@ class IntuneBrand extends Entity
     * Gets the enrollmentAvailability
     * Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
     *
-    * @return EnrollmentAvailabilityOptions The enrollmentAvailability
+    * @return EnrollmentAvailabilityOptions|null The enrollmentAvailability
     */
     public function getEnrollmentAvailability()
     {
         if (array_key_exists("enrollmentAvailability", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions")) {
+            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions") || is_null($this->_propDict["enrollmentAvailability"])) {
                 return $this->_propDict["enrollmentAvailability"];
             } else {
                 $this->_propDict["enrollmentAvailability"] = new EnrollmentAvailabilityOptions($this->_propDict["enrollmentAvailability"]);
@@ -378,7 +378,7 @@ class IntuneBrand extends Entity
     * Gets the isFactoryResetDisabled
     * Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
     *
-    * @return bool The isFactoryResetDisabled
+    * @return bool|null The isFactoryResetDisabled
     */
     public function getIsFactoryResetDisabled()
     {
@@ -406,7 +406,7 @@ class IntuneBrand extends Entity
     * Gets the isRemoveDeviceDisabled
     * Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
     *
-    * @return bool The isRemoveDeviceDisabled
+    * @return bool|null The isRemoveDeviceDisabled
     */
     public function getIsRemoveDeviceDisabled()
     {
@@ -435,12 +435,12 @@ class IntuneBrand extends Entity
     * Gets the landingPageCustomizedImage
     * Customized image displayed in Company Portal app landing page
     *
-    * @return MimeContent The landingPageCustomizedImage
+    * @return MimeContent|null The landingPageCustomizedImage
     */
     public function getLandingPageCustomizedImage()
     {
         if (array_key_exists("landingPageCustomizedImage", $this->_propDict)) {
-            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
+            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["landingPageCustomizedImage"])) {
                 return $this->_propDict["landingPageCustomizedImage"];
             } else {
                 $this->_propDict["landingPageCustomizedImage"] = new MimeContent($this->_propDict["landingPageCustomizedImage"]);
@@ -468,12 +468,12 @@ class IntuneBrand extends Entity
     * Gets the lightBackgroundLogo
     * Logo image displayed in Company Portal apps which have a light background behind the logo.
     *
-    * @return MimeContent The lightBackgroundLogo
+    * @return MimeContent|null The lightBackgroundLogo
     */
     public function getLightBackgroundLogo()
     {
         if (array_key_exists("lightBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
+            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["lightBackgroundLogo"])) {
                 return $this->_propDict["lightBackgroundLogo"];
             } else {
                 $this->_propDict["lightBackgroundLogo"] = new MimeContent($this->_propDict["lightBackgroundLogo"]);
@@ -500,7 +500,7 @@ class IntuneBrand extends Entity
     * Gets the onlineSupportSiteName
     * Display name of the company/organization’s IT helpdesk site.
     *
-    * @return string The onlineSupportSiteName
+    * @return string|null The onlineSupportSiteName
     */
     public function getOnlineSupportSiteName()
     {
@@ -528,7 +528,7 @@ class IntuneBrand extends Entity
     * Gets the onlineSupportSiteUrl
     * URL to the company/organization’s IT helpdesk site.
     *
-    * @return string The onlineSupportSiteUrl
+    * @return string|null The onlineSupportSiteUrl
     */
     public function getOnlineSupportSiteUrl()
     {
@@ -556,7 +556,7 @@ class IntuneBrand extends Entity
     * Gets the privacyUrl
     * URL to the company/organization’s privacy policy.
     *
-    * @return string The privacyUrl
+    * @return string|null The privacyUrl
     */
     public function getPrivacyUrl()
     {
@@ -584,7 +584,7 @@ class IntuneBrand extends Entity
     * Gets the roleScopeTagIds
     * List of scope tags assigned to the default branding profile
     *
-    * @return string The roleScopeTagIds
+    * @return string|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -612,7 +612,7 @@ class IntuneBrand extends Entity
     * Gets the sendDeviceOwnershipChangePushNotification
     * Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
     *
-    * @return bool The sendDeviceOwnershipChangePushNotification
+    * @return bool|null The sendDeviceOwnershipChangePushNotification
     */
     public function getSendDeviceOwnershipChangePushNotification()
     {
@@ -640,7 +640,7 @@ class IntuneBrand extends Entity
     * Gets the showAzureADEnterpriseApps
     * Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
     *
-    * @return bool The showAzureADEnterpriseApps
+    * @return bool|null The showAzureADEnterpriseApps
     */
     public function getShowAzureADEnterpriseApps()
     {
@@ -668,7 +668,7 @@ class IntuneBrand extends Entity
     * Gets the showDisplayNameNextToLogo
     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
     *
-    * @return bool The showDisplayNameNextToLogo
+    * @return bool|null The showDisplayNameNextToLogo
     */
     public function getShowDisplayNameNextToLogo()
     {
@@ -696,7 +696,7 @@ class IntuneBrand extends Entity
     * Gets the showLogo
     * Boolean that represents whether the administrator-supplied logo images are shown or not shown.
     *
-    * @return bool The showLogo
+    * @return bool|null The showLogo
     */
     public function getShowLogo()
     {
@@ -724,7 +724,7 @@ class IntuneBrand extends Entity
     * Gets the showNameNextToLogo
     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
     *
-    * @return bool The showNameNextToLogo
+    * @return bool|null The showNameNextToLogo
     */
     public function getShowNameNextToLogo()
     {
@@ -752,7 +752,7 @@ class IntuneBrand extends Entity
     * Gets the showOfficeWebApps
     * Boolean that indicates if Office WebApps will be shown in Company Portal
     *
-    * @return bool The showOfficeWebApps
+    * @return bool|null The showOfficeWebApps
     */
     public function getShowOfficeWebApps()
     {
@@ -781,12 +781,12 @@ class IntuneBrand extends Entity
     * Gets the themeColor
     * Primary theme color used in the Company Portal applications and web portal.
     *
-    * @return RgbColor The themeColor
+    * @return RgbColor|null The themeColor
     */
     public function getThemeColor()
     {
         if (array_key_exists("themeColor", $this->_propDict)) {
-            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor")) {
+            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor") || is_null($this->_propDict["themeColor"])) {
                 return $this->_propDict["themeColor"];
             } else {
                 $this->_propDict["themeColor"] = new RgbColor($this->_propDict["themeColor"]);

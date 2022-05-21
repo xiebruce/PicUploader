@@ -1,5 +1,20 @@
 # Changelog
 
+## 7.5.0 (2022-04-18)
+* 对象存储，新增支持 [深度归档存储类型](https://developer.qiniu.com/kodo/3956/kodo-category#deep_archive)
+
+## 7.4.3 (2022-04-01)
+* 优化签名算法逻辑
+
+## 7.4.2（2022-03-01）
+* 修复已知关于请求 Header 处理不当问题，比如没有处理为大小写不敏感等问题
+
+## 7.4.1（2021-09-24）
+* 修复了 分片上传 v2 已知问题，明确给出了参数不合理情况下对应的错误提示信息
+
+## 7.4.0 (2021-07-19)
+* 【对象存储】支持 [分片上传 v2](https://developer.qiniu.com/kodo/7458/multipartupload) 和 断点续传，使用方式见 [开发者文档](https://developer.qiniu.com/kodo/1241/php#resume-upload-file)
+
 ## 7.3.0 (2020-09-24)
 ### 新增
 * 【对象存储】增加异步抓取方法与demo

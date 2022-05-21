@@ -28,7 +28,7 @@ class DomainDnsTxtRecord extends DomainDnsRecord
     * Gets the text
     * Value used when configuring the text property at the DNS host.
     *
-    * @return string The text
+    * @return string|null The text
     */
     public function getText()
     {
@@ -38,7 +38,7 @@ class DomainDnsTxtRecord extends DomainDnsRecord
             return null;
         }
     }
-    
+
     /**
     * Sets the text
     * Value used when configuring the text property at the DNS host.
@@ -52,5 +52,5 @@ class DomainDnsTxtRecord extends DomainDnsRecord
         $this->_propDict["text"] = $val;
         return $this;
     }
-    
+
 }

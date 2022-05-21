@@ -28,10 +28,10 @@ class Entity implements \JsonSerializable
     * The array of properties available
     * to the model
     *
-    * @var array(string => string)
+    * @var array $_propDict
     */
     protected $_propDict;
-    
+
     /**
     * Construct a new Entity
     *
@@ -39,7 +39,10 @@ class Entity implements \JsonSerializable
     */
     function __construct($propDict = array())
     {
-		$this->_propDict = $propDict;
+        if (!is_array($propDict)) {
+           $propDict = array();
+        }
+        $this->_propDict = $propDict;
     }
 
     /**
@@ -51,12 +54,12 @@ class Entity implements \JsonSerializable
     {
         return $this->_propDict;
     }
-    
+
     /**
     * Gets the id
     * Read-only.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -66,7 +69,7 @@ class Entity implements \JsonSerializable
             return null;
         }
     }
-    
+
     /**
     * Sets the id
     * Read-only.
@@ -80,21 +83,24 @@ class Entity implements \JsonSerializable
         $this->_propDict["id"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
-    
+
     /**
     * Sets the ODataType
     *
-    * @param string The ODataType
+    * @param string $val The ODataType
     *
     * @return Entity
     */
@@ -103,10 +109,10 @@ class Entity implements \JsonSerializable
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-    
+
     /**
     * Serializes the object by property array
-	* Manually serialize DateTime into RFC3339 format
+    * Manually serialize DateTime into RFC3339 format
     *
     * @return array The list of properties
     */
@@ -118,6 +124,8 @@ class Entity implements \JsonSerializable
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
             } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_a($val, "\Entity")) {
+                $serializableProperties[$property] = $val->jsonSerialize();
             }
         }
         return $serializableProperties;

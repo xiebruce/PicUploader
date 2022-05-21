@@ -27,7 +27,7 @@ class ConditionalAccessSessionControl extends Entity
     * Gets the isEnabled
     * Specifies whether the session control is enabled.
     *
-    * @return bool The isEnabled
+    * @return bool|null The isEnabled
     */
     public function getIsEnabled()
     {

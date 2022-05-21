@@ -28,7 +28,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
     * Gets the connectAutomatically
     * Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
     *
-    * @return bool The connectAutomatically
+    * @return bool|null The connectAutomatically
     */
     public function getConnectAutomatically()
     {
@@ -38,7 +38,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectAutomatically
     * Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
@@ -52,12 +52,12 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["connectAutomatically"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the connectWhenNetworkNameIsHidden
     * When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
     *
-    * @return bool The connectWhenNetworkNameIsHidden
+    * @return bool|null The connectWhenNetworkNameIsHidden
     */
     public function getConnectWhenNetworkNameIsHidden()
     {
@@ -67,7 +67,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectWhenNetworkNameIsHidden
     * When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
@@ -81,12 +81,12 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["connectWhenNetworkNameIsHidden"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the networkName
     * Network Name
     *
-    * @return string The networkName
+    * @return string|null The networkName
     */
     public function getNetworkName()
     {
@@ -96,7 +96,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the networkName
     * Network Name
@@ -110,12 +110,12 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["networkName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the preSharedKey
     * This is the pre-shared key for WPA Personal Wi-Fi network.
     *
-    * @return string The preSharedKey
+    * @return string|null The preSharedKey
     */
     public function getPreSharedKey()
     {
@@ -125,7 +125,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the preSharedKey
     * This is the pre-shared key for WPA Personal Wi-Fi network.
@@ -139,12 +139,12 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["preSharedKey"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the preSharedKeyIsSet
     * This is the pre-shared key for WPA Personal Wi-Fi network.
     *
-    * @return bool The preSharedKeyIsSet
+    * @return bool|null The preSharedKeyIsSet
     */
     public function getPreSharedKeyIsSet()
     {
@@ -154,7 +154,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the preSharedKeyIsSet
     * This is the pre-shared key for WPA Personal Wi-Fi network.
@@ -168,12 +168,12 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["preSharedKeyIsSet"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the ssid
     * This is the name of the Wi-Fi network that is broadcast to all devices.
     *
-    * @return string The ssid
+    * @return string|null The ssid
     */
     public function getSsid()
     {
@@ -183,7 +183,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the ssid
     * This is the name of the Wi-Fi network that is broadcast to all devices.
@@ -197,17 +197,17 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["ssid"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the wiFiSecurityType
     * Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
     *
-    * @return AndroidDeviceOwnerWiFiSecurityType The wiFiSecurityType
+    * @return AndroidDeviceOwnerWiFiSecurityType|null The wiFiSecurityType
     */
     public function getWiFiSecurityType()
     {
         if (array_key_exists("wiFiSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerWiFiSecurityType")) {
+            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerWiFiSecurityType") || is_null($this->_propDict["wiFiSecurityType"])) {
                 return $this->_propDict["wiFiSecurityType"];
             } else {
                 $this->_propDict["wiFiSecurityType"] = new AndroidDeviceOwnerWiFiSecurityType($this->_propDict["wiFiSecurityType"]);
@@ -216,7 +216,7 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the wiFiSecurityType
     * Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wep, wpaPersonal, wpaEnterprise.
@@ -230,5 +230,5 @@ class AndroidDeviceOwnerWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["wiFiSecurityType"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowAutoFilter
     * Represents the worksheet protection option of allowing using auto filter feature.
     *
-    * @return bool The allowAutoFilter
+    * @return bool|null The allowAutoFilter
     */
     public function getAllowAutoFilter()
     {
@@ -55,7 +55,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowDeleteColumns
     * Represents the worksheet protection option of allowing deleting columns.
     *
-    * @return bool The allowDeleteColumns
+    * @return bool|null The allowDeleteColumns
     */
     public function getAllowDeleteColumns()
     {
@@ -83,7 +83,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowDeleteRows
     * Represents the worksheet protection option of allowing deleting rows.
     *
-    * @return bool The allowDeleteRows
+    * @return bool|null The allowDeleteRows
     */
     public function getAllowDeleteRows()
     {
@@ -111,7 +111,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowFormatCells
     * Represents the worksheet protection option of allowing formatting cells.
     *
-    * @return bool The allowFormatCells
+    * @return bool|null The allowFormatCells
     */
     public function getAllowFormatCells()
     {
@@ -139,7 +139,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowFormatColumns
     * Represents the worksheet protection option of allowing formatting columns.
     *
-    * @return bool The allowFormatColumns
+    * @return bool|null The allowFormatColumns
     */
     public function getAllowFormatColumns()
     {
@@ -167,7 +167,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowFormatRows
     * Represents the worksheet protection option of allowing formatting rows.
     *
-    * @return bool The allowFormatRows
+    * @return bool|null The allowFormatRows
     */
     public function getAllowFormatRows()
     {
@@ -195,7 +195,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowInsertColumns
     * Represents the worksheet protection option of allowing inserting columns.
     *
-    * @return bool The allowInsertColumns
+    * @return bool|null The allowInsertColumns
     */
     public function getAllowInsertColumns()
     {
@@ -223,7 +223,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowInsertHyperlinks
     * Represents the worksheet protection option of allowing inserting hyperlinks.
     *
-    * @return bool The allowInsertHyperlinks
+    * @return bool|null The allowInsertHyperlinks
     */
     public function getAllowInsertHyperlinks()
     {
@@ -251,7 +251,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowInsertRows
     * Represents the worksheet protection option of allowing inserting rows.
     *
-    * @return bool The allowInsertRows
+    * @return bool|null The allowInsertRows
     */
     public function getAllowInsertRows()
     {
@@ -279,7 +279,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowPivotTables
     * Represents the worksheet protection option of allowing using pivot table feature.
     *
-    * @return bool The allowPivotTables
+    * @return bool|null The allowPivotTables
     */
     public function getAllowPivotTables()
     {
@@ -307,7 +307,7 @@ class WorkbookWorksheetProtectionOptions extends Entity
     * Gets the allowSort
     * Represents the worksheet protection option of allowing using sort feature.
     *
-    * @return bool The allowSort
+    * @return bool|null The allowSort
     */
     public function getAllowSort()
     {

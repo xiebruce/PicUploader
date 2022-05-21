@@ -27,7 +27,7 @@ class MacOSKernelExtension extends Entity
     * Gets the bundleId
     * Bundle ID of the kernel extension.
     *
-    * @return string The bundleId
+    * @return string|null The bundleId
     */
     public function getBundleId()
     {
@@ -55,7 +55,7 @@ class MacOSKernelExtension extends Entity
     * Gets the teamIdentifier
     * The team identifier that was used to sign the kernel extension.
     *
-    * @return string The teamIdentifier
+    * @return string|null The teamIdentifier
     */
     public function getTeamIdentifier()
     {

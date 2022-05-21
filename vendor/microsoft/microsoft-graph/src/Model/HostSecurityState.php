@@ -27,7 +27,7 @@ class HostSecurityState extends Entity
     * Gets the fqdn
     * Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com).
     *
-    * @return string The fqdn
+    * @return string|null The fqdn
     */
     public function getFqdn()
     {
@@ -54,7 +54,7 @@ class HostSecurityState extends Entity
     /**
     * Gets the isAzureAdJoined
     *
-    * @return bool The isAzureAdJoined
+    * @return bool|null The isAzureAdJoined
     */
     public function getIsAzureAdJoined()
     {
@@ -80,7 +80,7 @@ class HostSecurityState extends Entity
     /**
     * Gets the isAzureAdRegistered
     *
-    * @return bool The isAzureAdRegistered
+    * @return bool|null The isAzureAdRegistered
     */
     public function getIsAzureAdRegistered()
     {
@@ -107,7 +107,7 @@ class HostSecurityState extends Entity
     * Gets the isHybridAzureDomainJoined
     * True if the host is domain joined to an on-premises Active Directory domain.
     *
-    * @return bool The isHybridAzureDomainJoined
+    * @return bool|null The isHybridAzureDomainJoined
     */
     public function getIsHybridAzureDomainJoined()
     {
@@ -135,7 +135,7 @@ class HostSecurityState extends Entity
     * Gets the netBiosName
     * The local host name, without the DNS domain name.
     *
-    * @return string The netBiosName
+    * @return string|null The netBiosName
     */
     public function getNetBiosName()
     {
@@ -163,7 +163,7 @@ class HostSecurityState extends Entity
     * Gets the os
     * Host Operating System. (For example, Windows10, MacOS, RHEL, etc.).
     *
-    * @return string The os
+    * @return string|null The os
     */
     public function getOs()
     {
@@ -191,7 +191,7 @@ class HostSecurityState extends Entity
     * Gets the privateIpAddress
     * Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert.
     *
-    * @return string The privateIpAddress
+    * @return string|null The privateIpAddress
     */
     public function getPrivateIpAddress()
     {
@@ -219,7 +219,7 @@ class HostSecurityState extends Entity
     * Gets the publicIpAddress
     * Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert.
     *
-    * @return string The publicIpAddress
+    * @return string|null The publicIpAddress
     */
     public function getPublicIpAddress()
     {
@@ -247,7 +247,7 @@ class HostSecurityState extends Entity
     * Gets the riskScore
     * Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage.
     *
-    * @return string The riskScore
+    * @return string|null The riskScore
     */
     public function getRiskScore()
     {

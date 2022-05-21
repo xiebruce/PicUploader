@@ -28,7 +28,7 @@ class CountryNamedLocation extends NamedLocation
     * Gets the countriesAndRegions
     * List of countries and/or regions in two-letter format specified by ISO 3166-2.
     *
-    * @return string The countriesAndRegions
+    * @return string|null The countriesAndRegions
     */
     public function getCountriesAndRegions()
     {
@@ -38,7 +38,7 @@ class CountryNamedLocation extends NamedLocation
             return null;
         }
     }
-    
+
     /**
     * Sets the countriesAndRegions
     * List of countries and/or regions in two-letter format specified by ISO 3166-2.
@@ -52,12 +52,45 @@ class CountryNamedLocation extends NamedLocation
         $this->_propDict["countriesAndRegions"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the countryLookupMethod
+    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.
+    *
+    * @return CountryLookupMethodType|null The countryLookupMethod
+    */
+    public function getCountryLookupMethod()
+    {
+        if (array_key_exists("countryLookupMethod", $this->_propDict)) {
+            if (is_a($this->_propDict["countryLookupMethod"], "\Beta\Microsoft\Graph\Model\CountryLookupMethodType") || is_null($this->_propDict["countryLookupMethod"])) {
+                return $this->_propDict["countryLookupMethod"];
+            } else {
+                $this->_propDict["countryLookupMethod"] = new CountryLookupMethodType($this->_propDict["countryLookupMethod"]);
+                return $this->_propDict["countryLookupMethod"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the countryLookupMethod
+    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.
+    *
+    * @param CountryLookupMethodType $val The countryLookupMethod
+    *
+    * @return CountryNamedLocation
+    */
+    public function setCountryLookupMethod($val)
+    {
+        $this->_propDict["countryLookupMethod"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the includeUnknownCountriesAndRegions
-    * True if IP addresses that don't map to a country or region should be included in the named location.
+    * true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
     *
-    * @return bool The includeUnknownCountriesAndRegions
+    * @return bool|null The includeUnknownCountriesAndRegions
     */
     public function getIncludeUnknownCountriesAndRegions()
     {
@@ -67,10 +100,10 @@ class CountryNamedLocation extends NamedLocation
             return null;
         }
     }
-    
+
     /**
     * Sets the includeUnknownCountriesAndRegions
-    * True if IP addresses that don't map to a country or region should be included in the named location.
+    * true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
     *
     * @param bool $val The includeUnknownCountriesAndRegions
     *
@@ -81,5 +114,5 @@ class CountryNamedLocation extends NamedLocation
         $this->_propDict["includeUnknownCountriesAndRegions"] = boolval($val);
         return $this;
     }
-    
+
 }

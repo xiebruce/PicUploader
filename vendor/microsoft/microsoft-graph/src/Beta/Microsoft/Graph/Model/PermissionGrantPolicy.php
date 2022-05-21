@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class PermissionGrantPolicy extends PolicyBase
 {
 
-     /** 
+     /**
      * Gets the excludes
     * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
      *
-     * @return array The excludes
+     * @return array|null The excludes
      */
     public function getExcludes()
     {
@@ -39,27 +39,27 @@ class PermissionGrantPolicy extends PolicyBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the excludes
     * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
     *
-    * @param PermissionGrantConditionSet $val The excludes
+    * @param PermissionGrantConditionSet[] $val The excludes
     *
     * @return PermissionGrantPolicy
     */
     public function setExcludes($val)
     {
-		$this->_propDict["excludes"] = $val;
+        $this->_propDict["excludes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the includes
     * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
      *
-     * @return array The includes
+     * @return array|null The includes
      */
     public function getIncludes()
     {
@@ -69,19 +69,19 @@ class PermissionGrantPolicy extends PolicyBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the includes
     * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
     *
-    * @param PermissionGrantConditionSet $val The includes
+    * @param PermissionGrantConditionSet[] $val The includes
     *
     * @return PermissionGrantPolicy
     */
     public function setIncludes($val)
     {
-		$this->_propDict["includes"] = $val;
+        $this->_propDict["includes"] = $val;
         return $this;
     }
-    
+
 }

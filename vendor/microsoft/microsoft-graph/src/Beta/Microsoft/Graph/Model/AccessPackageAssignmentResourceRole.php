@@ -28,7 +28,7 @@ class AccessPackageAssignmentResourceRole extends Entity
     * Gets the originId
     * A unique identifier relative to the origin system, corresponding to the originId property of the accessPackageResourceRole.
     *
-    * @return string The originId
+    * @return string|null The originId
     */
     public function getOriginId()
     {
@@ -38,7 +38,7 @@ class AccessPackageAssignmentResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the originId
     * A unique identifier relative to the origin system, corresponding to the originId property of the accessPackageResourceRole.
@@ -52,12 +52,12 @@ class AccessPackageAssignmentResourceRole extends Entity
         $this->_propDict["originId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the originSystem
     * The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
     *
-    * @return string The originSystem
+    * @return string|null The originSystem
     */
     public function getOriginSystem()
     {
@@ -67,7 +67,7 @@ class AccessPackageAssignmentResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the originSystem
     * The system where the role assignment is to be created or has been created for an access package assignment, such as SharePointOnline, AadGroup or AadApplication, corresponding to the originSystem property of the accessPackageResourceRole.
@@ -81,12 +81,12 @@ class AccessPackageAssignmentResourceRole extends Entity
         $this->_propDict["originSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -96,7 +96,7 @@ class AccessPackageAssignmentResourceRole extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     * The value is PendingFulfillment when the access package assignment has not yet been delivered to the origin system, and Fulfilled when the access package assignment has been delivered to the origin system.
@@ -110,13 +110,13 @@ class AccessPackageAssignmentResourceRole extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignments
     * The access package assignments resulting in this role assignment. Read-only. Nullable.
      *
-     * @return array The accessPackageAssignments
+     * @return array|null The accessPackageAssignments
      */
     public function getAccessPackageAssignments()
     {
@@ -126,31 +126,31 @@ class AccessPackageAssignmentResourceRole extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignments
     * The access package assignments resulting in this role assignment. Read-only. Nullable.
     *
-    * @param AccessPackageAssignment $val The accessPackageAssignments
+    * @param AccessPackageAssignment[] $val The accessPackageAssignments
     *
     * @return AccessPackageAssignmentResourceRole
     */
     public function setAccessPackageAssignments($val)
     {
-		$this->_propDict["accessPackageAssignments"] = $val;
+        $this->_propDict["accessPackageAssignments"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageResourceRole
     * Read-only. Nullable.
     *
-    * @return AccessPackageResourceRole The accessPackageResourceRole
+    * @return AccessPackageResourceRole|null The accessPackageResourceRole
     */
     public function getAccessPackageResourceRole()
     {
         if (array_key_exists("accessPackageResourceRole", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole")) {
+            if (is_a($this->_propDict["accessPackageResourceRole"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceRole") || is_null($this->_propDict["accessPackageResourceRole"])) {
                 return $this->_propDict["accessPackageResourceRole"];
             } else {
                 $this->_propDict["accessPackageResourceRole"] = new AccessPackageResourceRole($this->_propDict["accessPackageResourceRole"]);
@@ -159,7 +159,7 @@ class AccessPackageAssignmentResourceRole extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageResourceRole
     * Read-only. Nullable.
@@ -173,17 +173,17 @@ class AccessPackageAssignmentResourceRole extends Entity
         $this->_propDict["accessPackageResourceRole"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageResourceScope
     * Read-only. Nullable.
     *
-    * @return AccessPackageResourceScope The accessPackageResourceScope
+    * @return AccessPackageResourceScope|null The accessPackageResourceScope
     */
     public function getAccessPackageResourceScope()
     {
         if (array_key_exists("accessPackageResourceScope", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope")) {
+            if (is_a($this->_propDict["accessPackageResourceScope"], "\Beta\Microsoft\Graph\Model\AccessPackageResourceScope") || is_null($this->_propDict["accessPackageResourceScope"])) {
                 return $this->_propDict["accessPackageResourceScope"];
             } else {
                 $this->_propDict["accessPackageResourceScope"] = new AccessPackageResourceScope($this->_propDict["accessPackageResourceScope"]);
@@ -192,7 +192,7 @@ class AccessPackageAssignmentResourceRole extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageResourceScope
     * Read-only. Nullable.
@@ -206,17 +206,17 @@ class AccessPackageAssignmentResourceRole extends Entity
         $this->_propDict["accessPackageResourceScope"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageSubject
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
     *
-    * @return AccessPackageSubject The accessPackageSubject
+    * @return AccessPackageSubject|null The accessPackageSubject
     */
     public function getAccessPackageSubject()
     {
         if (array_key_exists("accessPackageSubject", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageSubject"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject")) {
+            if (is_a($this->_propDict["accessPackageSubject"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject") || is_null($this->_propDict["accessPackageSubject"])) {
                 return $this->_propDict["accessPackageSubject"];
             } else {
                 $this->_propDict["accessPackageSubject"] = new AccessPackageSubject($this->_propDict["accessPackageSubject"]);
@@ -225,10 +225,10 @@ class AccessPackageAssignmentResourceRole extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageSubject
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on objectId and $expand query parameters.
     *
     * @param AccessPackageSubject $val The accessPackageSubject
     *
@@ -239,5 +239,5 @@ class AccessPackageAssignmentResourceRole extends Entity
         $this->_propDict["accessPackageSubject"] = $val;
         return $this;
     }
-    
+
 }

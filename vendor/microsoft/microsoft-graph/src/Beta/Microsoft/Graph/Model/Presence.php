@@ -28,7 +28,7 @@ class Presence extends Entity
     * Gets the activity
     * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
     *
-    * @return string The activity
+    * @return string|null The activity
     */
     public function getActivity()
     {
@@ -38,7 +38,7 @@ class Presence extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activity
     * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
@@ -52,12 +52,12 @@ class Presence extends Entity
         $this->_propDict["activity"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the availability
     * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
     *
-    * @return string The availability
+    * @return string|null The availability
     */
     public function getAvailability()
     {
@@ -67,7 +67,7 @@ class Presence extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the availability
     * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
@@ -81,17 +81,17 @@ class Presence extends Entity
         $this->_propDict["availability"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the outOfOfficeSettings
     * The out of office settings for a user.
     *
-    * @return OutOfOfficeSettings The outOfOfficeSettings
+    * @return OutOfOfficeSettings|null The outOfOfficeSettings
     */
     public function getOutOfOfficeSettings()
     {
         if (array_key_exists("outOfOfficeSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["outOfOfficeSettings"], "\Beta\Microsoft\Graph\Model\OutOfOfficeSettings")) {
+            if (is_a($this->_propDict["outOfOfficeSettings"], "\Beta\Microsoft\Graph\Model\OutOfOfficeSettings") || is_null($this->_propDict["outOfOfficeSettings"])) {
                 return $this->_propDict["outOfOfficeSettings"];
             } else {
                 $this->_propDict["outOfOfficeSettings"] = new OutOfOfficeSettings($this->_propDict["outOfOfficeSettings"]);
@@ -100,7 +100,7 @@ class Presence extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the outOfOfficeSettings
     * The out of office settings for a user.
@@ -114,5 +114,5 @@ class Presence extends Entity
         $this->_propDict["outOfOfficeSettings"] = $val;
         return $this;
     }
-    
+
 }

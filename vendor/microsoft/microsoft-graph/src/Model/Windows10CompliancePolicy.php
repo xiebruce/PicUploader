@@ -28,7 +28,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
     * Gets the bitLockerEnabled
     * Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled
     *
-    * @return bool The bitLockerEnabled
+    * @return bool|null The bitLockerEnabled
     */
     public function getBitLockerEnabled()
     {
@@ -38,7 +38,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerEnabled
     * Require devices to be reported healthy by Windows Device Health Attestation - bit locker is enabled
@@ -52,12 +52,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["bitLockerEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the codeIntegrityEnabled
     * Require devices to be reported as healthy by Windows Device Health Attestation.
     *
-    * @return bool The codeIntegrityEnabled
+    * @return bool|null The codeIntegrityEnabled
     */
     public function getCodeIntegrityEnabled()
     {
@@ -67,7 +67,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the codeIntegrityEnabled
     * Require devices to be reported as healthy by Windows Device Health Attestation.
@@ -81,12 +81,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["codeIntegrityEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the earlyLaunchAntiMalwareDriverEnabled
     * Require devices to be reported as healthy by Windows Device Health Attestation - early launch antimalware driver is enabled.
     *
-    * @return bool The earlyLaunchAntiMalwareDriverEnabled
+    * @return bool|null The earlyLaunchAntiMalwareDriverEnabled
     */
     public function getEarlyLaunchAntiMalwareDriverEnabled()
     {
@@ -96,7 +96,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the earlyLaunchAntiMalwareDriverEnabled
     * Require devices to be reported as healthy by Windows Device Health Attestation - early launch antimalware driver is enabled.
@@ -110,12 +110,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["earlyLaunchAntiMalwareDriverEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the mobileOsMaximumVersion
     * Maximum Windows Phone version.
     *
-    * @return string The mobileOsMaximumVersion
+    * @return string|null The mobileOsMaximumVersion
     */
     public function getMobileOsMaximumVersion()
     {
@@ -125,7 +125,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the mobileOsMaximumVersion
     * Maximum Windows Phone version.
@@ -139,12 +139,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["mobileOsMaximumVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mobileOsMinimumVersion
     * Minimum Windows Phone version.
     *
-    * @return string The mobileOsMinimumVersion
+    * @return string|null The mobileOsMinimumVersion
     */
     public function getMobileOsMinimumVersion()
     {
@@ -154,7 +154,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the mobileOsMinimumVersion
     * Minimum Windows Phone version.
@@ -168,12 +168,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["mobileOsMinimumVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osMaximumVersion
     * Maximum Windows 10 version.
     *
-    * @return string The osMaximumVersion
+    * @return string|null The osMaximumVersion
     */
     public function getOsMaximumVersion()
     {
@@ -183,7 +183,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the osMaximumVersion
     * Maximum Windows 10 version.
@@ -197,12 +197,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["osMaximumVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osMinimumVersion
     * Minimum Windows 10 version.
     *
-    * @return string The osMinimumVersion
+    * @return string|null The osMinimumVersion
     */
     public function getOsMinimumVersion()
     {
@@ -212,7 +212,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the osMinimumVersion
     * Minimum Windows 10 version.
@@ -226,12 +226,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["osMinimumVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the passwordBlockSimple
     * Indicates whether or not to block simple password.
     *
-    * @return bool The passwordBlockSimple
+    * @return bool|null The passwordBlockSimple
     */
     public function getPasswordBlockSimple()
     {
@@ -241,7 +241,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordBlockSimple
     * Indicates whether or not to block simple password.
@@ -255,12 +255,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordBlockSimple"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordExpirationDays
     * The password expiration in days.
     *
-    * @return int The passwordExpirationDays
+    * @return int|null The passwordExpirationDays
     */
     public function getPasswordExpirationDays()
     {
@@ -270,7 +270,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordExpirationDays
     * The password expiration in days.
@@ -284,12 +284,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordExpirationDays"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordMinimumCharacterSetCount
     * The number of character sets required in the password.
     *
-    * @return int The passwordMinimumCharacterSetCount
+    * @return int|null The passwordMinimumCharacterSetCount
     */
     public function getPasswordMinimumCharacterSetCount()
     {
@@ -299,7 +299,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordMinimumCharacterSetCount
     * The number of character sets required in the password.
@@ -313,12 +313,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordMinimumCharacterSetCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordMinimumLength
     * The minimum password length.
     *
-    * @return int The passwordMinimumLength
+    * @return int|null The passwordMinimumLength
     */
     public function getPasswordMinimumLength()
     {
@@ -328,7 +328,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordMinimumLength
     * The minimum password length.
@@ -342,12 +342,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordMinimumLength"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordMinutesOfInactivityBeforeLock
     * Minutes of inactivity before a password is required.
     *
-    * @return int The passwordMinutesOfInactivityBeforeLock
+    * @return int|null The passwordMinutesOfInactivityBeforeLock
     */
     public function getPasswordMinutesOfInactivityBeforeLock()
     {
@@ -357,7 +357,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordMinutesOfInactivityBeforeLock
     * Minutes of inactivity before a password is required.
@@ -371,12 +371,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordMinutesOfInactivityBeforeLock"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordPreviousPasswordBlockCount
     * The number of previous passwords to prevent re-use of.
     *
-    * @return int The passwordPreviousPasswordBlockCount
+    * @return int|null The passwordPreviousPasswordBlockCount
     */
     public function getPasswordPreviousPasswordBlockCount()
     {
@@ -386,7 +386,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordPreviousPasswordBlockCount
     * The number of previous passwords to prevent re-use of.
@@ -400,12 +400,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordPreviousPasswordBlockCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordRequired
     * Require a password to unlock Windows device.
     *
-    * @return bool The passwordRequired
+    * @return bool|null The passwordRequired
     */
     public function getPasswordRequired()
     {
@@ -415,7 +415,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordRequired
     * Require a password to unlock Windows device.
@@ -429,12 +429,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordRequired"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordRequiredToUnlockFromIdle
     * Require a password to unlock an idle device.
     *
-    * @return bool The passwordRequiredToUnlockFromIdle
+    * @return bool|null The passwordRequiredToUnlockFromIdle
     */
     public function getPasswordRequiredToUnlockFromIdle()
     {
@@ -444,7 +444,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the passwordRequiredToUnlockFromIdle
     * Require a password to unlock an idle device.
@@ -458,17 +458,17 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordRequiredToUnlockFromIdle"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the passwordRequiredType
     * The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
     *
-    * @return RequiredPasswordType The passwordRequiredType
+    * @return RequiredPasswordType|null The passwordRequiredType
     */
     public function getPasswordRequiredType()
     {
         if (array_key_exists("passwordRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordRequiredType"], "\Microsoft\Graph\Model\RequiredPasswordType")) {
+            if (is_a($this->_propDict["passwordRequiredType"], "\Microsoft\Graph\Model\RequiredPasswordType") || is_null($this->_propDict["passwordRequiredType"])) {
                 return $this->_propDict["passwordRequiredType"];
             } else {
                 $this->_propDict["passwordRequiredType"] = new RequiredPasswordType($this->_propDict["passwordRequiredType"]);
@@ -477,7 +477,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         }
         return null;
     }
-    
+
     /**
     * Sets the passwordRequiredType
     * The required password type. Possible values are: deviceDefault, alphanumeric, numeric.
@@ -491,12 +491,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["passwordRequiredType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the requireHealthyDeviceReport
     * Require devices to be reported as healthy by Windows Device Health Attestation.
     *
-    * @return bool The requireHealthyDeviceReport
+    * @return bool|null The requireHealthyDeviceReport
     */
     public function getRequireHealthyDeviceReport()
     {
@@ -506,7 +506,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the requireHealthyDeviceReport
     * Require devices to be reported as healthy by Windows Device Health Attestation.
@@ -520,12 +520,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["requireHealthyDeviceReport"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the secureBootEnabled
     * Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled.
     *
-    * @return bool The secureBootEnabled
+    * @return bool|null The secureBootEnabled
     */
     public function getSecureBootEnabled()
     {
@@ -535,7 +535,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the secureBootEnabled
     * Require devices to be reported as healthy by Windows Device Health Attestation - secure boot is enabled.
@@ -549,12 +549,12 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["secureBootEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the storageRequireEncryption
     * Require encryption on windows devices.
     *
-    * @return bool The storageRequireEncryption
+    * @return bool|null The storageRequireEncryption
     */
     public function getStorageRequireEncryption()
     {
@@ -564,7 +564,7 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-    
+
     /**
     * Sets the storageRequireEncryption
     * Require encryption on windows devices.
@@ -578,5 +578,5 @@ class Windows10CompliancePolicy extends DeviceCompliancePolicy
         $this->_propDict["storageRequireEncryption"] = boolval($val);
         return $this;
     }
-    
+
 }

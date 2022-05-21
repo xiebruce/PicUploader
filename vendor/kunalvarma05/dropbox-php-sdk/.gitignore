@@ -3,3 +3,4 @@ index.php
 /vendor/
 composer.lock
 /.idea
+.php_cs.cache

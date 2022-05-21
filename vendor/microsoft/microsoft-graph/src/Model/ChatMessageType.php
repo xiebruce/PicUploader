@@ -33,4 +33,5 @@ class ChatMessageType extends Enum
     const CHAT_EVENT = "chatEvent";
     const TYPING = "typing";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const SYSTEM_EVENT_MESSAGE = "systemEventMessage";
 }

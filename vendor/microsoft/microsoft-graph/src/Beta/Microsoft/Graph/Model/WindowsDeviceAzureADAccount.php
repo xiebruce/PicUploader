@@ -27,7 +27,7 @@ class WindowsDeviceAzureADAccount extends WindowsDeviceAccount
     * Gets the userPrincipalName
     * Not yet documented
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

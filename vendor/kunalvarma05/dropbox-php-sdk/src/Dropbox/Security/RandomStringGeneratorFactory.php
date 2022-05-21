@@ -57,7 +57,7 @@ class RandomStringGeneratorFactory
     protected static function defaultRandomStringGenerator()
     {
         //Mcrypt
-        if (function_exists('mcrypt_create_iv')) {
+        if (function_exists('mcrypt_create_iv') && version_compare(PHP_VERSION, '7.1', '<')) {
             return new McryptRandomStringGenerator();
         }
 

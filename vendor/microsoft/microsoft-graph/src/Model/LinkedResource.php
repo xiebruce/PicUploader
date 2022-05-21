@@ -28,7 +28,7 @@ class LinkedResource extends Entity
     * Gets the applicationName
     * Field indicating the app name of the source that is sending the linkedResource.
     *
-    * @return string The applicationName
+    * @return string|null The applicationName
     */
     public function getApplicationName()
     {
@@ -38,7 +38,7 @@ class LinkedResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationName
     * Field indicating the app name of the source that is sending the linkedResource.
@@ -52,12 +52,12 @@ class LinkedResource extends Entity
         $this->_propDict["applicationName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Field indicating the title of the linkedResource.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class LinkedResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Field indicating the title of the linkedResource.
@@ -81,12 +81,12 @@ class LinkedResource extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the externalId
     * Id of the object that is associated with this task on the third-party/partner system.
     *
-    * @return string The externalId
+    * @return string|null The externalId
     */
     public function getExternalId()
     {
@@ -96,7 +96,7 @@ class LinkedResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the externalId
     * Id of the object that is associated with this task on the third-party/partner system.
@@ -110,12 +110,12 @@ class LinkedResource extends Entity
         $this->_propDict["externalId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * Deep link to the linkedResource.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -125,7 +125,7 @@ class LinkedResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * Deep link to the linkedResource.
@@ -139,5 +139,5 @@ class LinkedResource extends Entity
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

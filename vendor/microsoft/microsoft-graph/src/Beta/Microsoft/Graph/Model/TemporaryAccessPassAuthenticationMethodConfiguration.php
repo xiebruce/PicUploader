@@ -27,7 +27,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
     /**
     * Gets the defaultLength
     *
-    * @return int The defaultLength
+    * @return int|null The defaultLength
     */
     public function getDefaultLength()
     {
@@ -37,7 +37,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultLength
     *
@@ -50,11 +50,11 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
         $this->_propDict["defaultLength"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defaultLifetimeInMinutes
     *
-    * @return int The defaultLifetimeInMinutes
+    * @return int|null The defaultLifetimeInMinutes
     */
     public function getDefaultLifetimeInMinutes()
     {
@@ -64,7 +64,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultLifetimeInMinutes
     *
@@ -77,11 +77,11 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
         $this->_propDict["defaultLifetimeInMinutes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isUsableOnce
     *
-    * @return bool The isUsableOnce
+    * @return bool|null The isUsableOnce
     */
     public function getIsUsableOnce()
     {
@@ -91,7 +91,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
             return null;
         }
     }
-    
+
     /**
     * Sets the isUsableOnce
     *
@@ -104,11 +104,11 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
         $this->_propDict["isUsableOnce"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the maximumLifetimeInMinutes
     *
-    * @return int The maximumLifetimeInMinutes
+    * @return int|null The maximumLifetimeInMinutes
     */
     public function getMaximumLifetimeInMinutes()
     {
@@ -118,7 +118,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
             return null;
         }
     }
-    
+
     /**
     * Sets the maximumLifetimeInMinutes
     *
@@ -131,11 +131,11 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
         $this->_propDict["maximumLifetimeInMinutes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the minimumLifetimeInMinutes
     *
-    * @return int The minimumLifetimeInMinutes
+    * @return int|null The minimumLifetimeInMinutes
     */
     public function getMinimumLifetimeInMinutes()
     {
@@ -145,7 +145,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumLifetimeInMinutes
     *
@@ -158,12 +158,12 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
         $this->_propDict["minimumLifetimeInMinutes"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the includeTargets
      *
-     * @return array The includeTargets
+     * @return array|null The includeTargets
      */
     public function getIncludeTargets()
     {
@@ -173,18 +173,18 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the includeTargets
     *
-    * @param AuthenticationMethodTarget $val The includeTargets
+    * @param AuthenticationMethodTarget[] $val The includeTargets
     *
     * @return TemporaryAccessPassAuthenticationMethodConfiguration
     */
     public function setIncludeTargets($val)
     {
-		$this->_propDict["includeTargets"] = $val;
+        $this->_propDict["includeTargets"] = $val;
         return $this;
     }
-    
+
 }

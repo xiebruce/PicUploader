@@ -28,21 +28,21 @@ class SymantecCodeSigningCertificate extends Entity
     * Gets the content
     * The Windows Symantec Code-Signing Certificate in the raw data format.
     *
-    * @return \GuzzleHttp\Psr7\Stream The content
+    * @return \GuzzleHttp\Psr7\Stream|null The content
     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["content"]);
+                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the content
     * The Windows Symantec Code-Signing Certificate in the raw data format.
@@ -56,17 +56,17 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the expirationDateTime
     * The Cert Expiration Date.
     *
-    * @return \DateTime The expirationDateTime
+    * @return \DateTime|null The expirationDateTime
     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -75,7 +75,7 @@ class SymantecCodeSigningCertificate extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the expirationDateTime
     * The Cert Expiration Date.
@@ -89,12 +89,12 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["expirationDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the issuer
     * The Issuer value for the cert.
     *
-    * @return string The issuer
+    * @return string|null The issuer
     */
     public function getIssuer()
     {
@@ -104,7 +104,7 @@ class SymantecCodeSigningCertificate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the issuer
     * The Issuer value for the cert.
@@ -118,12 +118,12 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["issuer"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the issuerName
     * The Issuer Name for the cert.
     *
-    * @return string The issuerName
+    * @return string|null The issuerName
     */
     public function getIssuerName()
     {
@@ -133,7 +133,7 @@ class SymantecCodeSigningCertificate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the issuerName
     * The Issuer Name for the cert.
@@ -147,12 +147,12 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["issuerName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the password
     * The Password required for .pfx file.
     *
-    * @return string The password
+    * @return string|null The password
     */
     public function getPassword()
     {
@@ -162,7 +162,7 @@ class SymantecCodeSigningCertificate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the password
     * The Password required for .pfx file.
@@ -176,17 +176,17 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["password"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * The Cert Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
     *
-    * @return CertificateStatus The status
+    * @return CertificateStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CertificateStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\CertificateStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new CertificateStatus($this->_propDict["status"]);
@@ -195,7 +195,7 @@ class SymantecCodeSigningCertificate extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * The Cert Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
@@ -209,12 +209,12 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subject
     * The Subject value for the cert.
     *
-    * @return string The subject
+    * @return string|null The subject
     */
     public function getSubject()
     {
@@ -224,7 +224,7 @@ class SymantecCodeSigningCertificate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the subject
     * The Subject value for the cert.
@@ -238,12 +238,12 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["subject"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subjectName
     * The Subject Name for the cert.
     *
-    * @return string The subjectName
+    * @return string|null The subjectName
     */
     public function getSubjectName()
     {
@@ -253,7 +253,7 @@ class SymantecCodeSigningCertificate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the subjectName
     * The Subject Name for the cert.
@@ -267,17 +267,17 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["subjectName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the uploadDateTime
     * The Type of the CodeSigning Cert as Symantec Cert.
     *
-    * @return \DateTime The uploadDateTime
+    * @return \DateTime|null The uploadDateTime
     */
     public function getUploadDateTime()
     {
         if (array_key_exists("uploadDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["uploadDateTime"], "\DateTime") || is_null($this->_propDict["uploadDateTime"])) {
                 return $this->_propDict["uploadDateTime"];
             } else {
                 $this->_propDict["uploadDateTime"] = new \DateTime($this->_propDict["uploadDateTime"]);
@@ -286,7 +286,7 @@ class SymantecCodeSigningCertificate extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the uploadDateTime
     * The Type of the CodeSigning Cert as Symantec Cert.
@@ -300,5 +300,5 @@ class SymantecCodeSigningCertificate extends Entity
         $this->_propDict["uploadDateTime"] = $val;
         return $this;
     }
-    
+
 }

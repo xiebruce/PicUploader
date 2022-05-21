@@ -27,7 +27,7 @@ class InsightIdentity extends Entity
     * Gets the address
     * The email address of the user who shared the item.
     *
-    * @return string The address
+    * @return string|null The address
     */
     public function getAddress()
     {
@@ -55,7 +55,7 @@ class InsightIdentity extends Entity
     * Gets the displayName
     * The display name of the user who shared the item.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -83,7 +83,7 @@ class InsightIdentity extends Entity
     * Gets the id
     * The id of the user who shared the item.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {

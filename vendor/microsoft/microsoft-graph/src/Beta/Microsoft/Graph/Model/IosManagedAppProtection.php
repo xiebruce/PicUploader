@@ -28,7 +28,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
     * Gets the allowedIosDeviceModels
     * Semicolon seperated list of device models allowed, as a string, for the managed app to work.
     *
-    * @return string The allowedIosDeviceModels
+    * @return string|null The allowedIosDeviceModels
     */
     public function getAllowedIosDeviceModels()
     {
@@ -38,7 +38,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the allowedIosDeviceModels
     * Semicolon seperated list of device models allowed, as a string, for the managed app to work.
@@ -52,17 +52,17 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["allowedIosDeviceModels"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appActionIfIosDeviceModelNotAllowed
     * Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn.
     *
-    * @return ManagedAppRemediationAction The appActionIfIosDeviceModelNotAllowed
+    * @return ManagedAppRemediationAction|null The appActionIfIosDeviceModelNotAllowed
     */
     public function getAppActionIfIosDeviceModelNotAllowed()
     {
         if (array_key_exists("appActionIfIosDeviceModelNotAllowed", $this->_propDict)) {
-            if (is_a($this->_propDict["appActionIfIosDeviceModelNotAllowed"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction")) {
+            if (is_a($this->_propDict["appActionIfIosDeviceModelNotAllowed"], "\Beta\Microsoft\Graph\Model\ManagedAppRemediationAction") || is_null($this->_propDict["appActionIfIosDeviceModelNotAllowed"])) {
                 return $this->_propDict["appActionIfIosDeviceModelNotAllowed"];
             } else {
                 $this->_propDict["appActionIfIosDeviceModelNotAllowed"] = new ManagedAppRemediationAction($this->_propDict["appActionIfIosDeviceModelNotAllowed"]);
@@ -71,7 +71,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         }
         return null;
     }
-    
+
     /**
     * Sets the appActionIfIosDeviceModelNotAllowed
     * Defines a managed app behavior, either block or wipe, if the specified device model is not allowed. Possible values are: block, wipe, warn.
@@ -85,17 +85,17 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["appActionIfIosDeviceModelNotAllowed"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appDataEncryptionType
     * Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
     *
-    * @return ManagedAppDataEncryptionType The appDataEncryptionType
+    * @return ManagedAppDataEncryptionType|null The appDataEncryptionType
     */
     public function getAppDataEncryptionType()
     {
         if (array_key_exists("appDataEncryptionType", $this->_propDict)) {
-            if (is_a($this->_propDict["appDataEncryptionType"], "\Beta\Microsoft\Graph\Model\ManagedAppDataEncryptionType")) {
+            if (is_a($this->_propDict["appDataEncryptionType"], "\Beta\Microsoft\Graph\Model\ManagedAppDataEncryptionType") || is_null($this->_propDict["appDataEncryptionType"])) {
                 return $this->_propDict["appDataEncryptionType"];
             } else {
                 $this->_propDict["appDataEncryptionType"] = new ManagedAppDataEncryptionType($this->_propDict["appDataEncryptionType"]);
@@ -104,7 +104,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         }
         return null;
     }
-    
+
     /**
     * Sets the appDataEncryptionType
     * Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
@@ -118,12 +118,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["appDataEncryptionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the customBrowserProtocol
     * A custom browser protocol to open weblink on iOS.
     *
-    * @return string The customBrowserProtocol
+    * @return string|null The customBrowserProtocol
     */
     public function getCustomBrowserProtocol()
     {
@@ -133,7 +133,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the customBrowserProtocol
     * A custom browser protocol to open weblink on iOS.
@@ -147,12 +147,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["customBrowserProtocol"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the customDialerAppProtocol
     * Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
     *
-    * @return string The customDialerAppProtocol
+    * @return string|null The customDialerAppProtocol
     */
     public function getCustomDialerAppProtocol()
     {
@@ -162,7 +162,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the customDialerAppProtocol
     * Protocol of a custom dialer app to click-to-open a phone number on iOS, for example, skype:.
@@ -176,12 +176,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["customDialerAppProtocol"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deployedAppCount
     * Count of apps to which the current policy is deployed.
     *
-    * @return int The deployedAppCount
+    * @return int|null The deployedAppCount
     */
     public function getDeployedAppCount()
     {
@@ -191,7 +191,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the deployedAppCount
     * Count of apps to which the current policy is deployed.
@@ -205,12 +205,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["deployedAppCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the disableProtectionOfManagedOutboundOpenInData
     * Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.
     *
-    * @return bool The disableProtectionOfManagedOutboundOpenInData
+    * @return bool|null The disableProtectionOfManagedOutboundOpenInData
     */
     public function getDisableProtectionOfManagedOutboundOpenInData()
     {
@@ -220,7 +220,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the disableProtectionOfManagedOutboundOpenInData
     * Disable protection of data transferred to other apps through IOS OpenIn option. This setting is only allowed to be True when AllowedOutboundDataTransferDestinations is set to ManagedApps.
@@ -234,13 +234,13 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["disableProtectionOfManagedOutboundOpenInData"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the exemptedAppProtocols
     * Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
      *
-     * @return array The exemptedAppProtocols
+     * @return array|null The exemptedAppProtocols
      */
     public function getExemptedAppProtocols()
     {
@@ -250,26 +250,55 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the exemptedAppProtocols
     * Apps in this list will be exempt from the policy and will be able to receive data from managed apps.
     *
-    * @param KeyValuePair $val The exemptedAppProtocols
+    * @param KeyValuePair[] $val The exemptedAppProtocols
     *
     * @return IosManagedAppProtection
     */
     public function setExemptedAppProtocols($val)
     {
-		$this->_propDict["exemptedAppProtocols"] = $val;
+        $this->_propDict["exemptedAppProtocols"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the exemptedUniversalLinks
+    * A list of custom urls that are allowed to invocate an unmanaged app
+    *
+    * @return string|null The exemptedUniversalLinks
+    */
+    public function getExemptedUniversalLinks()
+    {
+        if (array_key_exists("exemptedUniversalLinks", $this->_propDict)) {
+            return $this->_propDict["exemptedUniversalLinks"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the exemptedUniversalLinks
+    * A list of custom urls that are allowed to invocate an unmanaged app
+    *
+    * @param string $val The exemptedUniversalLinks
+    *
+    * @return IosManagedAppProtection
+    */
+    public function setExemptedUniversalLinks($val)
+    {
+        $this->_propDict["exemptedUniversalLinks"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the faceIdBlocked
     * Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
     *
-    * @return bool The faceIdBlocked
+    * @return bool|null The faceIdBlocked
     */
     public function getFaceIdBlocked()
     {
@@ -279,7 +308,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the faceIdBlocked
     * Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.
@@ -293,12 +322,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["faceIdBlocked"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the filterOpenInToOnlyManagedApps
     * Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
     *
-    * @return bool The filterOpenInToOnlyManagedApps
+    * @return bool|null The filterOpenInToOnlyManagedApps
     */
     public function getFilterOpenInToOnlyManagedApps()
     {
@@ -308,7 +337,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the filterOpenInToOnlyManagedApps
     * Defines if open-in operation is supported from the managed app to the filesharing locations selected. This setting only applies when AllowedOutboundDataTransferDestinations is set to ManagedApps and DisableProtectionOfManagedOutboundOpenInData is set to False.
@@ -322,12 +351,41 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["filterOpenInToOnlyManagedApps"] = boolval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the managedUniversalLinks
+    * A list of custom urls that are allowed to invocate a managed app
+    *
+    * @return string|null The managedUniversalLinks
+    */
+    public function getManagedUniversalLinks()
+    {
+        if (array_key_exists("managedUniversalLinks", $this->_propDict)) {
+            return $this->_propDict["managedUniversalLinks"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the managedUniversalLinks
+    * A list of custom urls that are allowed to invocate a managed app
+    *
+    * @param string $val The managedUniversalLinks
+    *
+    * @return IosManagedAppProtection
+    */
+    public function setManagedUniversalLinks($val)
+    {
+        $this->_propDict["managedUniversalLinks"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the minimumRequiredSdkVersion
     * Versions less than the specified version will block the managed app from accessing company data.
     *
-    * @return string The minimumRequiredSdkVersion
+    * @return string|null The minimumRequiredSdkVersion
     */
     public function getMinimumRequiredSdkVersion()
     {
@@ -337,7 +395,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumRequiredSdkVersion
     * Versions less than the specified version will block the managed app from accessing company data.
@@ -351,12 +409,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["minimumRequiredSdkVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimumWipeSdkVersion
     * Versions less than the specified version will block the managed app from accessing company data.
     *
-    * @return string The minimumWipeSdkVersion
+    * @return string|null The minimumWipeSdkVersion
     */
     public function getMinimumWipeSdkVersion()
     {
@@ -366,7 +424,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumWipeSdkVersion
     * Versions less than the specified version will block the managed app from accessing company data.
@@ -380,12 +438,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["minimumWipeSdkVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the protectInboundDataFromUnknownSources
     * Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps.
     *
-    * @return bool The protectInboundDataFromUnknownSources
+    * @return bool|null The protectInboundDataFromUnknownSources
     */
     public function getProtectInboundDataFromUnknownSources()
     {
@@ -395,7 +453,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the protectInboundDataFromUnknownSources
     * Protect incoming data from unknown source. This setting is only allowed to be True when AllowedInboundDataTransferSources is set to AllApps.
@@ -409,12 +467,12 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["protectInboundDataFromUnknownSources"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the thirdPartyKeyboardsBlocked
     * Defines if third party keyboards are allowed while accessing a managed app
     *
-    * @return bool The thirdPartyKeyboardsBlocked
+    * @return bool|null The thirdPartyKeyboardsBlocked
     */
     public function getThirdPartyKeyboardsBlocked()
     {
@@ -424,7 +482,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
+
     /**
     * Sets the thirdPartyKeyboardsBlocked
     * Defines if third party keyboards are allowed while accessing a managed app
@@ -438,13 +496,13 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["thirdPartyKeyboardsBlocked"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the apps
     * List of apps to which the policy is deployed.
      *
-     * @return array The apps
+     * @return array|null The apps
      */
     public function getApps()
     {
@@ -454,31 +512,31 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the apps
     * List of apps to which the policy is deployed.
     *
-    * @param ManagedMobileApp $val The apps
+    * @param ManagedMobileApp[] $val The apps
     *
     * @return IosManagedAppProtection
     */
     public function setApps($val)
     {
-		$this->_propDict["apps"] = $val;
+        $this->_propDict["apps"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deploymentSummary
     * Navigation property to deployment summary of the configuration.
     *
-    * @return ManagedAppPolicyDeploymentSummary The deploymentSummary
+    * @return ManagedAppPolicyDeploymentSummary|null The deploymentSummary
     */
     public function getDeploymentSummary()
     {
         if (array_key_exists("deploymentSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentSummary"], "\Beta\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary")) {
+            if (is_a($this->_propDict["deploymentSummary"], "\Beta\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary") || is_null($this->_propDict["deploymentSummary"])) {
                 return $this->_propDict["deploymentSummary"];
             } else {
                 $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);
@@ -487,7 +545,7 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         }
         return null;
     }
-    
+
     /**
     * Sets the deploymentSummary
     * Navigation property to deployment summary of the configuration.
@@ -501,5 +559,5 @@ class IosManagedAppProtection extends TargetedManagedAppProtection
         $this->_propDict["deploymentSummary"] = $val;
         return $this;
     }
-    
+
 }

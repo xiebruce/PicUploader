@@ -39,4 +39,7 @@ class DeviceEnrollmentType extends Enum
     const WINDOWS_AUTO_ENROLLMENT = "windowsAutoEnrollment";
     const WINDOWS_BULK_AZURE_DOMAIN_JOIN = "windowsBulkAzureDomainJoin";
     const WINDOWS_CO_MANAGEMENT = "windowsCoManagement";
+    const WINDOWS_AZURE_AD_JOIN_USING_DEVICE_AUTH = "windowsAzureADJoinUsingDeviceAuth";
+    const APPLE_USER_ENROLLMENT = "appleUserEnrollment";
+    const APPLE_USER_ENROLLMENT_WITH_SERVICE_ACCOUNT = "appleUserEnrollmentWithServiceAccount";
 }

@@ -28,7 +28,7 @@ class OpenSslRandomStringGenerator implements RandomStringGeneratorInterface
             throw new DropboxClientException(
                 static::ERROR_MESSAGE .
                 'The function openssl_random_pseudo_bytes() does not exist.'
-                );
+            );
         }
     }
 

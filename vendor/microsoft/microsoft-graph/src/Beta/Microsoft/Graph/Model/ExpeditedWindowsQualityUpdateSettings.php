@@ -27,7 +27,7 @@ class ExpeditedWindowsQualityUpdateSettings extends Entity
     * Gets the daysUntilForcedReboot
     * The number of days after installation that forced reboot will happen.
     *
-    * @return int The daysUntilForcedReboot
+    * @return int|null The daysUntilForcedReboot
     */
     public function getDaysUntilForcedReboot()
     {
@@ -55,7 +55,7 @@ class ExpeditedWindowsQualityUpdateSettings extends Entity
     * Gets the qualityUpdateRelease
     * The release date to identify a quality update.
     *
-    * @return string The qualityUpdateRelease
+    * @return string|null The qualityUpdateRelease
     */
     public function getQualityUpdateRelease()
     {

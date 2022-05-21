@@ -25,10 +25,10 @@ namespace Beta\Microsoft\Graph\Model;
 class External extends Entity
 {
 
-     /** 
+     /**
      * Gets the connections
      *
-     * @return array The connections
+     * @return array|null The connections
      */
     public function getConnections()
     {
@@ -38,18 +38,18 @@ class External extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the connections
     *
-    * @param ExternalConnection $val The connections
+    * @param ExternalConnection[] $val The connections
     *
     * @return External
     */
     public function setConnections($val)
     {
-		$this->_propDict["connections"] = $val;
+        $this->_propDict["connections"] = $val;
         return $this;
     }
-    
+
 }

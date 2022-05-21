@@ -26,7 +26,7 @@ class MarkContent extends LabelActionBase
     /**
     * Gets the fontColor
     *
-    * @return string The fontColor
+    * @return string|null The fontColor
     */
     public function getFontColor()
     {
@@ -52,7 +52,7 @@ class MarkContent extends LabelActionBase
     /**
     * Gets the fontSize
     *
-    * @return int The fontSize
+    * @return int|null The fontSize
     */
     public function getFontSize()
     {
@@ -78,7 +78,7 @@ class MarkContent extends LabelActionBase
     /**
     * Gets the text
     *
-    * @return string The text
+    * @return string|null The text
     */
     public function getText()
     {

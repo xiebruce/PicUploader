@@ -28,12 +28,12 @@ class IosSingleSignOnSettings extends Entity
     * Gets the allowedAppsList
     * List of app identifiers that are allowed to use this login. If this field is omitted, the login applies to all applications on the device. This collection can contain a maximum of 500 elements.
     *
-    * @return AppListItem The allowedAppsList
+    * @return AppListItem|null The allowedAppsList
     */
     public function getAllowedAppsList()
     {
         if (array_key_exists("allowedAppsList", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedAppsList"], "\Beta\Microsoft\Graph\Model\AppListItem")) {
+            if (is_a($this->_propDict["allowedAppsList"], "\Beta\Microsoft\Graph\Model\AppListItem") || is_null($this->_propDict["allowedAppsList"])) {
                 return $this->_propDict["allowedAppsList"];
             } else {
                 $this->_propDict["allowedAppsList"] = new AppListItem($this->_propDict["allowedAppsList"]);
@@ -60,7 +60,7 @@ class IosSingleSignOnSettings extends Entity
     * Gets the allowedUrls
     * List of HTTP URLs that must be matched in order to use this login. With iOS 9.0 or later, a wildcard characters may be used.
     *
-    * @return string The allowedUrls
+    * @return string|null The allowedUrls
     */
     public function getAllowedUrls()
     {
@@ -88,7 +88,7 @@ class IosSingleSignOnSettings extends Entity
     * Gets the displayName
     * The display name of login settings shown on the receiving device.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -116,7 +116,7 @@ class IosSingleSignOnSettings extends Entity
     * Gets the kerberosPrincipalName
     * A Kerberos principal name. If not provided, the user is prompted for one during profile installation.
     *
-    * @return string The kerberosPrincipalName
+    * @return string|null The kerberosPrincipalName
     */
     public function getKerberosPrincipalName()
     {
@@ -144,7 +144,7 @@ class IosSingleSignOnSettings extends Entity
     * Gets the kerberosRealm
     * A Kerberos realm name. Case sensitive.
     *
-    * @return string The kerberosRealm
+    * @return string|null The kerberosRealm
     */
     public function getKerberosRealm()
     {

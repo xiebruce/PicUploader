@@ -28,7 +28,7 @@ class PrinterCreateOperation extends PrintOperation
     * Gets the certificate
     * The signed certificate created during the registration process. Read-only.
     *
-    * @return string The certificate
+    * @return string|null The certificate
     */
     public function getCertificate()
     {
@@ -38,7 +38,7 @@ class PrinterCreateOperation extends PrintOperation
             return null;
         }
     }
-    
+
     /**
     * Sets the certificate
     * The signed certificate created during the registration process. Read-only.
@@ -52,17 +52,17 @@ class PrinterCreateOperation extends PrintOperation
         $this->_propDict["certificate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the printer
     * The created printer entity. Read-only.
     *
-    * @return Printer The printer
+    * @return Printer|null The printer
     */
     public function getPrinter()
     {
         if (array_key_exists("printer", $this->_propDict)) {
-            if (is_a($this->_propDict["printer"], "\Microsoft\Graph\Model\Printer")) {
+            if (is_a($this->_propDict["printer"], "\Microsoft\Graph\Model\Printer") || is_null($this->_propDict["printer"])) {
                 return $this->_propDict["printer"];
             } else {
                 $this->_propDict["printer"] = new Printer($this->_propDict["printer"]);
@@ -71,7 +71,7 @@ class PrinterCreateOperation extends PrintOperation
         }
         return null;
     }
-    
+
     /**
     * Sets the printer
     * The created printer entity. Read-only.
@@ -85,5 +85,5 @@ class PrinterCreateOperation extends PrintOperation
         $this->_propDict["printer"] = $val;
         return $this;
     }
-    
+
 }

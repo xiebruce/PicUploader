@@ -28,12 +28,12 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the dependedOnBy
     * List of Settings that depends on this option
     *
-    * @return DeviceManagementConfigurationSettingDependedOnBy The dependedOnBy
+    * @return DeviceManagementConfigurationSettingDependedOnBy|null The dependedOnBy
     */
     public function getDependedOnBy()
     {
         if (array_key_exists("dependedOnBy", $this->_propDict)) {
-            if (is_a($this->_propDict["dependedOnBy"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingDependedOnBy")) {
+            if (is_a($this->_propDict["dependedOnBy"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingDependedOnBy") || is_null($this->_propDict["dependedOnBy"])) {
                 return $this->_propDict["dependedOnBy"];
             } else {
                 $this->_propDict["dependedOnBy"] = new DeviceManagementConfigurationSettingDependedOnBy($this->_propDict["dependedOnBy"]);
@@ -61,12 +61,12 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the dependentOn
     * List of dependent settings for this option
     *
-    * @return DeviceManagementConfigurationDependentOn The dependentOn
+    * @return DeviceManagementConfigurationDependentOn|null The dependentOn
     */
     public function getDependentOn()
     {
         if (array_key_exists("dependentOn", $this->_propDict)) {
-            if (is_a($this->_propDict["dependentOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationDependentOn")) {
+            if (is_a($this->_propDict["dependentOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationDependentOn") || is_null($this->_propDict["dependentOn"])) {
                 return $this->_propDict["dependentOn"];
             } else {
                 $this->_propDict["dependentOn"] = new DeviceManagementConfigurationDependentOn($this->_propDict["dependentOn"]);
@@ -93,7 +93,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the description
     * Description of the option
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -121,7 +121,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the displayName
     * Friendly name of the option
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -149,7 +149,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the helpText
     * Help text of the option
     *
-    * @return string The helpText
+    * @return string|null The helpText
     */
     public function getHelpText()
     {
@@ -177,7 +177,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the itemId
     * Identifier of option
     *
-    * @return string The itemId
+    * @return string|null The itemId
     */
     public function getItemId()
     {
@@ -205,7 +205,7 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the name
     * Name of the option
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -234,12 +234,12 @@ class DeviceManagementConfigurationOptionDefinition extends Entity
     * Gets the optionValue
     * Value of the option
     *
-    * @return DeviceManagementConfigurationSettingValue The optionValue
+    * @return DeviceManagementConfigurationSettingValue|null The optionValue
     */
     public function getOptionValue()
     {
         if (array_key_exists("optionValue", $this->_propDict)) {
-            if (is_a($this->_propDict["optionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValue")) {
+            if (is_a($this->_propDict["optionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingValue") || is_null($this->_propDict["optionValue"])) {
                 return $this->_propDict["optionValue"];
             } else {
                 $this->_propDict["optionValue"] = new DeviceManagementConfigurationSettingValue($this->_propDict["optionValue"]);

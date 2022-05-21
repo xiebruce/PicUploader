@@ -29,8 +29,9 @@ class LongRunningOperationStatus extends Enum
     /**
     * The Enum LongRunningOperationStatus
     */
-    const NOTSTARTED = "notstarted";
+    const NOT_STARTED = "notStarted";
     const RUNNING = "running";
     const SUCCEEDED = "succeeded";
     const FAILED = "failed";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

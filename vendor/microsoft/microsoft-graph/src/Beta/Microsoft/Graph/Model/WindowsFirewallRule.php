@@ -28,12 +28,12 @@ class WindowsFirewallRule extends Entity
     * Gets the action
     * The action the rule enforces. If not specified, the default is Allowed. Possible values are: notConfigured, blocked, allowed.
     *
-    * @return StateManagementSetting The action
+    * @return StateManagementSetting|null The action
     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\StateManagementSetting")) {
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new StateManagementSetting($this->_propDict["action"]);
@@ -60,7 +60,7 @@ class WindowsFirewallRule extends Entity
     * Gets the description
     * The description of the rule.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -88,7 +88,7 @@ class WindowsFirewallRule extends Entity
     * Gets the displayName
     * The display name of the rule. Does not need to be unique.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -117,12 +117,12 @@ class WindowsFirewallRule extends Entity
     * Gets the edgeTraversal
     * Indicates whether edge traversal is enabled or disabled for this rule. The EdgeTraversal setting indicates that specific inbound traffic is allowed to tunnel through NATs and other edge devices using the Teredo tunneling technology. In order for this setting to work correctly, the application or service with the inbound firewall rule needs to support IPv6. The primary application of this setting allows listeners on the host to be globally addressable through a Teredo IPv6 address. New rules have the EdgeTraversal property disabled by default. Possible values are: notConfigured, blocked, allowed.
     *
-    * @return StateManagementSetting The edgeTraversal
+    * @return StateManagementSetting|null The edgeTraversal
     */
     public function getEdgeTraversal()
     {
         if (array_key_exists("edgeTraversal", $this->_propDict)) {
-            if (is_a($this->_propDict["edgeTraversal"], "\Beta\Microsoft\Graph\Model\StateManagementSetting")) {
+            if (is_a($this->_propDict["edgeTraversal"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["edgeTraversal"])) {
                 return $this->_propDict["edgeTraversal"];
             } else {
                 $this->_propDict["edgeTraversal"] = new StateManagementSetting($this->_propDict["edgeTraversal"]);
@@ -149,7 +149,7 @@ class WindowsFirewallRule extends Entity
     * Gets the filePath
     * The full file path of an app that's affected by the firewall rule.
     *
-    * @return string The filePath
+    * @return string|null The filePath
     */
     public function getFilePath()
     {
@@ -178,12 +178,12 @@ class WindowsFirewallRule extends Entity
     * Gets the interfaceTypes
     * The interface types of the rule. Possible values are: notConfigured, remoteAccess, wireless, lan.
     *
-    * @return WindowsFirewallRuleInterfaceTypes The interfaceTypes
+    * @return WindowsFirewallRuleInterfaceTypes|null The interfaceTypes
     */
     public function getInterfaceTypes()
     {
         if (array_key_exists("interfaceTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["interfaceTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleInterfaceTypes")) {
+            if (is_a($this->_propDict["interfaceTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleInterfaceTypes") || is_null($this->_propDict["interfaceTypes"])) {
                 return $this->_propDict["interfaceTypes"];
             } else {
                 $this->_propDict["interfaceTypes"] = new WindowsFirewallRuleInterfaceTypes($this->_propDict["interfaceTypes"]);
@@ -210,7 +210,7 @@ class WindowsFirewallRule extends Entity
     * Gets the localAddressRanges
     * List of local addresses covered by the rule. Default is any address. Valid tokens include:'' indicates any local address. If present, this must be the only token included.A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.A valid IPv6 address.An IPv4 address range in the format of 'start address - end address' with no spaces included.An IPv6 address range in the format of 'start address - end address' with no spaces included.
     *
-    * @return string The localAddressRanges
+    * @return string|null The localAddressRanges
     */
     public function getLocalAddressRanges()
     {
@@ -238,7 +238,7 @@ class WindowsFirewallRule extends Entity
     * Gets the localPortRanges
     * List of local port ranges. For example, '100-120', '200', '300-320'. If not specified, the default is All.
     *
-    * @return string The localPortRanges
+    * @return string|null The localPortRanges
     */
     public function getLocalPortRanges()
     {
@@ -266,7 +266,7 @@ class WindowsFirewallRule extends Entity
     * Gets the localUserAuthorizations
     * Specifies the list of authorized local users for the app container. This is a string in Security Descriptor Definition Language (SDDL) format.
     *
-    * @return string The localUserAuthorizations
+    * @return string|null The localUserAuthorizations
     */
     public function getLocalUserAuthorizations()
     {
@@ -294,7 +294,7 @@ class WindowsFirewallRule extends Entity
     * Gets the packageFamilyName
     * The package family name of a Microsoft Store application that's affected by the firewall rule.
     *
-    * @return string The packageFamilyName
+    * @return string|null The packageFamilyName
     */
     public function getPackageFamilyName()
     {
@@ -323,12 +323,12 @@ class WindowsFirewallRule extends Entity
     * Gets the profileTypes
     * Specifies the profiles to which the rule belongs. If not specified, the default is All. Possible values are: notConfigured, domain, private, public.
     *
-    * @return WindowsFirewallRuleNetworkProfileTypes The profileTypes
+    * @return WindowsFirewallRuleNetworkProfileTypes|null The profileTypes
     */
     public function getProfileTypes()
     {
         if (array_key_exists("profileTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["profileTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleNetworkProfileTypes")) {
+            if (is_a($this->_propDict["profileTypes"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleNetworkProfileTypes") || is_null($this->_propDict["profileTypes"])) {
                 return $this->_propDict["profileTypes"];
             } else {
                 $this->_propDict["profileTypes"] = new WindowsFirewallRuleNetworkProfileTypes($this->_propDict["profileTypes"]);
@@ -355,7 +355,7 @@ class WindowsFirewallRule extends Entity
     * Gets the protocol
     * 0-255 number representing the IP protocol (TCP = 6, UDP = 17). If not specified, the default is All. Valid values 0 to 255
     *
-    * @return int The protocol
+    * @return int|null The protocol
     */
     public function getProtocol()
     {
@@ -383,7 +383,7 @@ class WindowsFirewallRule extends Entity
     * Gets the remoteAddressRanges
     * List of tokens specifying the remote addresses covered by the rule. Tokens are case insensitive. Default is any address. Valid tokens include:'' indicates any remote address. If present, this must be the only token included.'Defaultgateway''DHCP''DNS''WINS''Intranet' (supported on Windows versions 1809+)'RmtIntranet' (supported on Windows versions 1809+)'Internet' (supported on Windows versions 1809+)'Ply2Renders' (supported on Windows versions 1809+)'LocalSubnet' indicates any local address on the local subnet.A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.A valid IPv6 address.An IPv4 address range in the format of 'start address - end address' with no spaces included.An IPv6 address range in the format of 'start address - end address' with no spaces included.
     *
-    * @return string The remoteAddressRanges
+    * @return string|null The remoteAddressRanges
     */
     public function getRemoteAddressRanges()
     {
@@ -411,7 +411,7 @@ class WindowsFirewallRule extends Entity
     * Gets the remotePortRanges
     * List of remote port ranges. For example, '100-120', '200', '300-320'. If not specified, the default is All.
     *
-    * @return string The remotePortRanges
+    * @return string|null The remotePortRanges
     */
     public function getRemotePortRanges()
     {
@@ -439,7 +439,7 @@ class WindowsFirewallRule extends Entity
     * Gets the serviceName
     * The name used in cases when a service, not an application, is sending or receiving traffic.
     *
-    * @return string The serviceName
+    * @return string|null The serviceName
     */
     public function getServiceName()
     {
@@ -468,12 +468,12 @@ class WindowsFirewallRule extends Entity
     * Gets the trafficDirection
     * The traffic direction that the rule is enabled for. If not specified, the default is Out. Possible values are: notConfigured, out, in.
     *
-    * @return WindowsFirewallRuleTrafficDirectionType The trafficDirection
+    * @return WindowsFirewallRuleTrafficDirectionType|null The trafficDirection
     */
     public function getTrafficDirection()
     {
         if (array_key_exists("trafficDirection", $this->_propDict)) {
-            if (is_a($this->_propDict["trafficDirection"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleTrafficDirectionType")) {
+            if (is_a($this->_propDict["trafficDirection"], "\Beta\Microsoft\Graph\Model\WindowsFirewallRuleTrafficDirectionType") || is_null($this->_propDict["trafficDirection"])) {
                 return $this->_propDict["trafficDirection"];
             } else {
                 $this->_propDict["trafficDirection"] = new WindowsFirewallRuleTrafficDirectionType($this->_propDict["trafficDirection"]);

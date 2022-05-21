@@ -28,12 +28,12 @@ class RegistryKeyState extends Entity
     * Gets the hive
     * A Windows registry hive : HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_LOCAL_MACHINE/SAM HKEY_LOCAL_MACHINE/Security HKEY_LOCAL_MACHINE/Software HKEY_LOCAL_MACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault.
     *
-    * @return RegistryHive The hive
+    * @return RegistryHive|null The hive
     */
     public function getHive()
     {
         if (array_key_exists("hive", $this->_propDict)) {
-            if (is_a($this->_propDict["hive"], "\Microsoft\Graph\Model\RegistryHive")) {
+            if (is_a($this->_propDict["hive"], "\Microsoft\Graph\Model\RegistryHive") || is_null($this->_propDict["hive"])) {
                 return $this->_propDict["hive"];
             } else {
                 $this->_propDict["hive"] = new RegistryHive($this->_propDict["hive"]);
@@ -60,7 +60,7 @@ class RegistryKeyState extends Entity
     * Gets the key
     * Current (i.e. changed) registry key (excludes HIVE).
     *
-    * @return string The key
+    * @return string|null The key
     */
     public function getKey()
     {
@@ -88,7 +88,7 @@ class RegistryKeyState extends Entity
     * Gets the oldKey
     * Previous (i.e. before changed) registry key (excludes HIVE).
     *
-    * @return string The oldKey
+    * @return string|null The oldKey
     */
     public function getOldKey()
     {
@@ -116,7 +116,7 @@ class RegistryKeyState extends Entity
     * Gets the oldValueData
     * Previous (i.e. before changed) registry key value data (contents).
     *
-    * @return string The oldValueData
+    * @return string|null The oldValueData
     */
     public function getOldValueData()
     {
@@ -144,7 +144,7 @@ class RegistryKeyState extends Entity
     * Gets the oldValueName
     * Previous (i.e. before changed) registry key value name.
     *
-    * @return string The oldValueName
+    * @return string|null The oldValueName
     */
     public function getOldValueName()
     {
@@ -173,12 +173,12 @@ class RegistryKeyState extends Entity
     * Gets the operation
     * Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete.
     *
-    * @return RegistryOperation The operation
+    * @return RegistryOperation|null The operation
     */
     public function getOperation()
     {
         if (array_key_exists("operation", $this->_propDict)) {
-            if (is_a($this->_propDict["operation"], "\Microsoft\Graph\Model\RegistryOperation")) {
+            if (is_a($this->_propDict["operation"], "\Microsoft\Graph\Model\RegistryOperation") || is_null($this->_propDict["operation"])) {
                 return $this->_propDict["operation"];
             } else {
                 $this->_propDict["operation"] = new RegistryOperation($this->_propDict["operation"]);
@@ -205,7 +205,7 @@ class RegistryKeyState extends Entity
     * Gets the processId
     * Process ID (PID) of the process that modified the registry key (process details will appear in the alert 'processes' collection).
     *
-    * @return int The processId
+    * @return int|null The processId
     */
     public function getProcessId()
     {
@@ -233,7 +233,7 @@ class RegistryKeyState extends Entity
     * Gets the valueData
     * Current (i.e. changed) registry key value data (contents).
     *
-    * @return string The valueData
+    * @return string|null The valueData
     */
     public function getValueData()
     {
@@ -261,7 +261,7 @@ class RegistryKeyState extends Entity
     * Gets the valueName
     * Current (i.e. changed) registry key value name
     *
-    * @return string The valueName
+    * @return string|null The valueName
     */
     public function getValueName()
     {
@@ -290,12 +290,12 @@ class RegistryKeyState extends Entity
     * Gets the valueType
     * Registry key value type REG_BINARY REG_DWORD REG_DWORD_LITTLE_ENDIAN REG_DWORD_BIG_ENDIANREG_EXPAND_SZ REG_LINK REG_MULTI_SZ REG_NONE REG_QWORD REG_QWORD_LITTLE_ENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz.
     *
-    * @return RegistryValueType The valueType
+    * @return RegistryValueType|null The valueType
     */
     public function getValueType()
     {
         if (array_key_exists("valueType", $this->_propDict)) {
-            if (is_a($this->_propDict["valueType"], "\Microsoft\Graph\Model\RegistryValueType")) {
+            if (is_a($this->_propDict["valueType"], "\Microsoft\Graph\Model\RegistryValueType") || is_null($this->_propDict["valueType"])) {
                 return $this->_propDict["valueType"];
             } else {
                 $this->_propDict["valueType"] = new RegistryValueType($this->_propDict["valueType"]);

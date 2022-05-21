@@ -27,7 +27,7 @@ class SecurityResource extends Entity
     * Gets the resource
     * Name of the resource that is related to current alert. Required.
     *
-    * @return string The resource
+    * @return string|null The resource
     */
     public function getResource()
     {
@@ -56,12 +56,12 @@ class SecurityResource extends Entity
     * Gets the resourceType
     * Represents type of security resources related to an alert. Possible values are: attacked, related.
     *
-    * @return SecurityResourceType The resourceType
+    * @return SecurityResourceType|null The resourceType
     */
     public function getResourceType()
     {
         if (array_key_exists("resourceType", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceType"], "\Microsoft\Graph\Model\SecurityResourceType")) {
+            if (is_a($this->_propDict["resourceType"], "\Microsoft\Graph\Model\SecurityResourceType") || is_null($this->_propDict["resourceType"])) {
                 return $this->_propDict["resourceType"];
             } else {
                 $this->_propDict["resourceType"] = new SecurityResourceType($this->_propDict["resourceType"]);

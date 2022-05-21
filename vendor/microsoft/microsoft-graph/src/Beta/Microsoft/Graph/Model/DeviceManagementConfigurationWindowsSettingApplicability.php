@@ -27,7 +27,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the configurationServiceProviderVersion
     * Version of CSP setting is a part of
     *
-    * @return string The configurationServiceProviderVersion
+    * @return string|null The configurationServiceProviderVersion
     */
     public function getConfigurationServiceProviderVersion()
     {
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the maximumSupportedVersion
     * Maximum supported version of Windows
     *
-    * @return string The maximumSupportedVersion
+    * @return string|null The maximumSupportedVersion
     */
     public function getMaximumSupportedVersion()
     {
@@ -83,7 +83,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the minimumSupportedVersion
     * Minimum supported version of Windows
     *
-    * @return string The minimumSupportedVersion
+    * @return string|null The minimumSupportedVersion
     */
     public function getMinimumSupportedVersion()
     {
@@ -112,12 +112,12 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the requiredAzureAdTrustType
     * Required AzureAD trust type. Possible values are: none, azureAdJoined, addWorkAccount, mdmOnly.
     *
-    * @return DeviceManagementConfigurationAzureAdTrustType The requiredAzureAdTrustType
+    * @return DeviceManagementConfigurationAzureAdTrustType|null The requiredAzureAdTrustType
     */
     public function getRequiredAzureAdTrustType()
     {
         if (array_key_exists("requiredAzureAdTrustType", $this->_propDict)) {
-            if (is_a($this->_propDict["requiredAzureAdTrustType"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationAzureAdTrustType")) {
+            if (is_a($this->_propDict["requiredAzureAdTrustType"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationAzureAdTrustType") || is_null($this->_propDict["requiredAzureAdTrustType"])) {
                 return $this->_propDict["requiredAzureAdTrustType"];
             } else {
                 $this->_propDict["requiredAzureAdTrustType"] = new DeviceManagementConfigurationAzureAdTrustType($this->_propDict["requiredAzureAdTrustType"]);
@@ -144,7 +144,7 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the requiresAzureAd
     * AzureAD setting requirement
     *
-    * @return bool The requiresAzureAd
+    * @return bool|null The requiresAzureAd
     */
     public function getRequiresAzureAd()
     {
@@ -173,12 +173,12 @@ class DeviceManagementConfigurationWindowsSettingApplicability extends DeviceMan
     * Gets the windowsSkus
     * List of Windows SKUs that the setting is applicable for
     *
-    * @return DeviceManagementConfigurationWindowsSkus The windowsSkus
+    * @return DeviceManagementConfigurationWindowsSkus|null The windowsSkus
     */
     public function getWindowsSkus()
     {
         if (array_key_exists("windowsSkus", $this->_propDict)) {
-            if (is_a($this->_propDict["windowsSkus"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus")) {
+            if (is_a($this->_propDict["windowsSkus"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationWindowsSkus") || is_null($this->_propDict["windowsSkus"])) {
                 return $this->_propDict["windowsSkus"];
             } else {
                 $this->_propDict["windowsSkus"] = new DeviceManagementConfigurationWindowsSkus($this->_propDict["windowsSkus"]);

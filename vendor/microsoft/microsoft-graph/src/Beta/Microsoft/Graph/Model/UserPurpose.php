@@ -12,6 +12,9 @@
 * @link      https://graph.microsoft.com
 */
 namespace Beta\Microsoft\Graph\Model;
+
+use Microsoft\Graph\Core\Enum;
+
 /**
 * UserPurpose class
 *
@@ -21,39 +24,17 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class UserPurpose extends Entity
+class UserPurpose extends Enum
 {
-
     /**
-    * Gets the value
-    * Represents the user's recipient or mailbox type in Exchange Online. Possible values are: unknown, user, linked, shared, room, equipment, and others. See the next section for more information.
-    *
-    * @return MailboxRecipientType The value
+    * The Enum UserPurpose
     */
-    public function getValue()
-    {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\MailboxRecipientType")) {
-                return $this->_propDict["value"];
-            } else {
-                $this->_propDict["value"] = new MailboxRecipientType($this->_propDict["value"]);
-                return $this->_propDict["value"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the value
-    * Represents the user's recipient or mailbox type in Exchange Online. Possible values are: unknown, user, linked, shared, room, equipment, and others. See the next section for more information.
-    *
-    * @param MailboxRecipientType $val The value to assign to the value
-    *
-    * @return UserPurpose The UserPurpose
-    */
-    public function setValue($val)
-    {
-        $this->_propDict["value"] = $val;
-         return $this;
-    }
+    const UNKNOWN = "unknown";
+    const USER = "user";
+    const LINKED = "linked";
+    const SHARED = "shared";
+    const ROOM = "room";
+    const EQUIPMENT = "equipment";
+    const OTHERS = "others";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

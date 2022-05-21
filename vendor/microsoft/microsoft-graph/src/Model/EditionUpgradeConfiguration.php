@@ -28,7 +28,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
     * Gets the license
     * Edition Upgrade License File Content.
     *
-    * @return string The license
+    * @return string|null The license
     */
     public function getLicense()
     {
@@ -38,7 +38,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the license
     * Edition Upgrade License File Content.
@@ -52,17 +52,17 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
         $this->_propDict["license"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the licenseType
     * Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
     *
-    * @return EditionUpgradeLicenseType The licenseType
+    * @return EditionUpgradeLicenseType|null The licenseType
     */
     public function getLicenseType()
     {
         if (array_key_exists("licenseType", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseType"], "\Microsoft\Graph\Model\EditionUpgradeLicenseType")) {
+            if (is_a($this->_propDict["licenseType"], "\Microsoft\Graph\Model\EditionUpgradeLicenseType") || is_null($this->_propDict["licenseType"])) {
                 return $this->_propDict["licenseType"];
             } else {
                 $this->_propDict["licenseType"] = new EditionUpgradeLicenseType($this->_propDict["licenseType"]);
@@ -71,7 +71,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the licenseType
     * Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
@@ -85,12 +85,12 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
         $this->_propDict["licenseType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the productKey
     * Edition Upgrade Product Key.
     *
-    * @return string The productKey
+    * @return string|null The productKey
     */
     public function getProductKey()
     {
@@ -100,7 +100,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the productKey
     * Edition Upgrade Product Key.
@@ -114,17 +114,17 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
         $this->_propDict["productKey"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetEdition
     * Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
     *
-    * @return Windows10EditionType The targetEdition
+    * @return Windows10EditionType|null The targetEdition
     */
     public function getTargetEdition()
     {
         if (array_key_exists("targetEdition", $this->_propDict)) {
-            if (is_a($this->_propDict["targetEdition"], "\Microsoft\Graph\Model\Windows10EditionType")) {
+            if (is_a($this->_propDict["targetEdition"], "\Microsoft\Graph\Model\Windows10EditionType") || is_null($this->_propDict["targetEdition"])) {
                 return $this->_propDict["targetEdition"];
             } else {
                 $this->_propDict["targetEdition"] = new Windows10EditionType($this->_propDict["targetEdition"]);
@@ -133,7 +133,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the targetEdition
     * Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
@@ -147,5 +147,5 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
         $this->_propDict["targetEdition"] = $val;
         return $this;
     }
-    
+
 }

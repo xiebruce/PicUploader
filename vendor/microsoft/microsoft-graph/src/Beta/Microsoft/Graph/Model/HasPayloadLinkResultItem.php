@@ -27,7 +27,7 @@ class HasPayloadLinkResultItem extends Entity
     * Gets the error
     * Exception information indicates if check for this item was successful or not.Empty string for no error.
     *
-    * @return string The error
+    * @return string|null The error
     */
     public function getError()
     {
@@ -55,7 +55,7 @@ class HasPayloadLinkResultItem extends Entity
     * Gets the hasLink
     * Indicate whether a payload has any link or not.
     *
-    * @return bool The hasLink
+    * @return bool|null The hasLink
     */
     public function getHasLink()
     {
@@ -83,7 +83,7 @@ class HasPayloadLinkResultItem extends Entity
     * Gets the payloadId
     * Key of the Payload, In the format of Guid.
     *
-    * @return string The payloadId
+    * @return string|null The payloadId
     */
     public function getPayloadId()
     {
@@ -112,12 +112,12 @@ class HasPayloadLinkResultItem extends Entity
     * Gets the sources
     * The reason where the link comes from.
     *
-    * @return DeviceAndAppManagementAssignmentSource The sources
+    * @return DeviceAndAppManagementAssignmentSource|null The sources
     */
     public function getSources()
     {
         if (array_key_exists("sources", $this->_propDict)) {
-            if (is_a($this->_propDict["sources"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource")) {
+            if (is_a($this->_propDict["sources"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource") || is_null($this->_propDict["sources"])) {
                 return $this->_propDict["sources"];
             } else {
                 $this->_propDict["sources"] = new DeviceAndAppManagementAssignmentSource($this->_propDict["sources"]);

@@ -28,12 +28,12 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule
     * Gets the time
     * At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
     *
-    * @return TimeOfDay The time
+    * @return TimeOfDay|null The time
     */
     public function getTime()
     {
         if (array_key_exists("time", $this->_propDict)) {
-            if (is_a($this->_propDict["time"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["time"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["time"])) {
                 return $this->_propDict["time"];
             } else {
                 $this->_propDict["time"] = new TimeOfDay($this->_propDict["time"]);
@@ -60,7 +60,7 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule
     * Gets the useUtc
     * Indicate if the time is Utc or client local time.
     *
-    * @return bool The useUtc
+    * @return bool|null The useUtc
     */
     public function getUseUtc()
     {

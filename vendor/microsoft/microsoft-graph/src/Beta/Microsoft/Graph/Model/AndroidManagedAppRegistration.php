@@ -28,7 +28,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration
     * Gets the patchVersion
     * The patch version for the current android app registration
     *
-    * @return string The patchVersion
+    * @return string|null The patchVersion
     */
     public function getPatchVersion()
     {
@@ -38,7 +38,7 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration
             return null;
         }
     }
-    
+
     /**
     * Sets the patchVersion
     * The patch version for the current android app registration
@@ -52,5 +52,5 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration
         $this->_propDict["patchVersion"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
     * Gets the configurationManagerAgentCommandLineArgument
     * CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
     *
-    * @return string The configurationManagerAgentCommandLineArgument
+    * @return string|null The configurationManagerAgentCommandLineArgument
     */
     public function getConfigurationManagerAgentCommandLineArgument()
     {
@@ -38,7 +38,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
             return null;
         }
     }
-    
+
     /**
     * Sets the configurationManagerAgentCommandLineArgument
     * CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
@@ -52,12 +52,12 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
         $this->_propDict["configurationManagerAgentCommandLineArgument"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the installConfigurationManagerAgent
     * CoManagement Authority configuration InstallConfigurationManagerAgent
     *
-    * @return bool The installConfigurationManagerAgent
+    * @return bool|null The installConfigurationManagerAgent
     */
     public function getInstallConfigurationManagerAgent()
     {
@@ -67,7 +67,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
             return null;
         }
     }
-    
+
     /**
     * Sets the installConfigurationManagerAgent
     * CoManagement Authority configuration InstallConfigurationManagerAgent
@@ -81,12 +81,12 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
         $this->_propDict["installConfigurationManagerAgent"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the managedDeviceAuthority
     * CoManagement Authority configuration ManagedDeviceAuthority
     *
-    * @return int The managedDeviceAuthority
+    * @return int|null The managedDeviceAuthority
     */
     public function getManagedDeviceAuthority()
     {
@@ -96,7 +96,7 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
             return null;
         }
     }
-    
+
     /**
     * Sets the managedDeviceAuthority
     * CoManagement Authority configuration ManagedDeviceAuthority
@@ -110,5 +110,5 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
         $this->_propDict["managedDeviceAuthority"] = intval($val);
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseCloudResources
     * Contains a list of enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy. This collection can contain a maximum of 500 elements.
     *
-    * @return ProxiedDomain The enterpriseCloudResources
+    * @return ProxiedDomain|null The enterpriseCloudResources
     */
     public function getEnterpriseCloudResources()
     {
         if (array_key_exists("enterpriseCloudResources", $this->_propDict)) {
-            if (is_a($this->_propDict["enterpriseCloudResources"], "\Beta\Microsoft\Graph\Model\ProxiedDomain")) {
+            if (is_a($this->_propDict["enterpriseCloudResources"], "\Beta\Microsoft\Graph\Model\ProxiedDomain") || is_null($this->_propDict["enterpriseCloudResources"])) {
                 return $this->_propDict["enterpriseCloudResources"];
             } else {
                 $this->_propDict["enterpriseCloudResources"] = new ProxiedDomain($this->_propDict["enterpriseCloudResources"]);
@@ -60,7 +60,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseInternalProxyServers
     * This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseCloudResources policy to force traffic to the matched cloud resources through these proxies.
     *
-    * @return string The enterpriseInternalProxyServers
+    * @return string|null The enterpriseInternalProxyServers
     */
     public function getEnterpriseInternalProxyServers()
     {
@@ -89,12 +89,12 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseIPRanges
     * Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to. This collection can contain a maximum of 500 elements.
     *
-    * @return IpRange The enterpriseIPRanges
+    * @return IpRange|null The enterpriseIPRanges
     */
     public function getEnterpriseIPRanges()
     {
         if (array_key_exists("enterpriseIPRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["enterpriseIPRanges"], "\Beta\Microsoft\Graph\Model\IpRange")) {
+            if (is_a($this->_propDict["enterpriseIPRanges"], "\Beta\Microsoft\Graph\Model\IpRange") || is_null($this->_propDict["enterpriseIPRanges"])) {
                 return $this->_propDict["enterpriseIPRanges"];
             } else {
                 $this->_propDict["enterpriseIPRanges"] = new IpRange($this->_propDict["enterpriseIPRanges"]);
@@ -121,7 +121,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseIPRangesAreAuthoritative
     * Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false.
     *
-    * @return bool The enterpriseIPRangesAreAuthoritative
+    * @return bool|null The enterpriseIPRangesAreAuthoritative
     */
     public function getEnterpriseIPRangesAreAuthoritative()
     {
@@ -149,7 +149,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseNetworkDomainNames
     * This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected. These locations will be considered a safe destination for enterprise data to be shared to.
     *
-    * @return string The enterpriseNetworkDomainNames
+    * @return string|null The enterpriseNetworkDomainNames
     */
     public function getEnterpriseNetworkDomainNames()
     {
@@ -177,7 +177,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseProxyServers
     * This is a list of proxy servers. Any server not on this list is considered non-enterprise.
     *
-    * @return string The enterpriseProxyServers
+    * @return string|null The enterpriseProxyServers
     */
     public function getEnterpriseProxyServers()
     {
@@ -205,7 +205,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the enterpriseProxyServersAreAuthoritative
     * Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false
     *
-    * @return bool The enterpriseProxyServersAreAuthoritative
+    * @return bool|null The enterpriseProxyServersAreAuthoritative
     */
     public function getEnterpriseProxyServersAreAuthoritative()
     {
@@ -233,7 +233,7 @@ class WindowsNetworkIsolationPolicy extends Entity
     * Gets the neutralDomainResources
     * List of domain names that can used for work or personal resource.
     *
-    * @return string The neutralDomainResources
+    * @return string|null The neutralDomainResources
     */
     public function getNeutralDomainResources()
     {

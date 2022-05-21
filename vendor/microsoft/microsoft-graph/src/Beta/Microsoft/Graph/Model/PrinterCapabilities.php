@@ -27,7 +27,7 @@ class PrinterCapabilities extends Entity
     * Gets the bottomMargins
     * A list of supported bottom margins(in microns) for the printer.
     *
-    * @return int The bottomMargins
+    * @return int|null The bottomMargins
     */
     public function getBottomMargins()
     {
@@ -55,7 +55,7 @@ class PrinterCapabilities extends Entity
     * Gets the collation
     * True if the printer supports collating when printing muliple copies of a multi-page document; false otherwise.
     *
-    * @return bool The collation
+    * @return bool|null The collation
     */
     public function getCollation()
     {
@@ -84,12 +84,12 @@ class PrinterCapabilities extends Entity
     * Gets the colorModes
     * The color modes supported by the printer. Valid values are described in the following table.
     *
-    * @return PrintColorMode The colorModes
+    * @return PrintColorMode|null The colorModes
     */
     public function getColorModes()
     {
         if (array_key_exists("colorModes", $this->_propDict)) {
-            if (is_a($this->_propDict["colorModes"], "\Beta\Microsoft\Graph\Model\PrintColorMode")) {
+            if (is_a($this->_propDict["colorModes"], "\Beta\Microsoft\Graph\Model\PrintColorMode") || is_null($this->_propDict["colorModes"])) {
                 return $this->_propDict["colorModes"];
             } else {
                 $this->_propDict["colorModes"] = new PrintColorMode($this->_propDict["colorModes"]);
@@ -116,7 +116,7 @@ class PrinterCapabilities extends Entity
     * Gets the contentTypes
     * A list of supported content (MIME) types that the printer supports. It is not guaranteed that the Universal Print service supports printing all of these MIME types.
     *
-    * @return string The contentTypes
+    * @return string|null The contentTypes
     */
     public function getContentTypes()
     {
@@ -145,12 +145,12 @@ class PrinterCapabilities extends Entity
     * Gets the copiesPerJob
     * The range of copies per job supported by the printer.
     *
-    * @return IntegerRange The copiesPerJob
+    * @return IntegerRange|null The copiesPerJob
     */
     public function getCopiesPerJob()
     {
         if (array_key_exists("copiesPerJob", $this->_propDict)) {
-            if (is_a($this->_propDict["copiesPerJob"], "\Beta\Microsoft\Graph\Model\IntegerRange")) {
+            if (is_a($this->_propDict["copiesPerJob"], "\Beta\Microsoft\Graph\Model\IntegerRange") || is_null($this->_propDict["copiesPerJob"])) {
                 return $this->_propDict["copiesPerJob"];
             } else {
                 $this->_propDict["copiesPerJob"] = new IntegerRange($this->_propDict["copiesPerJob"]);
@@ -177,7 +177,7 @@ class PrinterCapabilities extends Entity
     * Gets the dpis
     * The list of print resolutions in DPI that are supported by the printer.
     *
-    * @return int The dpis
+    * @return int|null The dpis
     */
     public function getDpis()
     {
@@ -206,12 +206,12 @@ class PrinterCapabilities extends Entity
     * Gets the duplexModes
     * The list of duplex modes that are supported by the printer. Valid values are described in the following table.
     *
-    * @return PrintDuplexMode The duplexModes
+    * @return PrintDuplexMode|null The duplexModes
     */
     public function getDuplexModes()
     {
         if (array_key_exists("duplexModes", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexModes"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode")) {
+            if (is_a($this->_propDict["duplexModes"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode") || is_null($this->_propDict["duplexModes"])) {
                 return $this->_propDict["duplexModes"];
             } else {
                 $this->_propDict["duplexModes"] = new PrintDuplexMode($this->_propDict["duplexModes"]);
@@ -238,12 +238,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the feedDirections
     *
-    * @return PrinterFeedDirection The feedDirections
+    * @return PrinterFeedDirection|null The feedDirections
     */
     public function getFeedDirections()
     {
         if (array_key_exists("feedDirections", $this->_propDict)) {
-            if (is_a($this->_propDict["feedDirections"], "\Beta\Microsoft\Graph\Model\PrinterFeedDirection")) {
+            if (is_a($this->_propDict["feedDirections"], "\Beta\Microsoft\Graph\Model\PrinterFeedDirection") || is_null($this->_propDict["feedDirections"])) {
                 return $this->_propDict["feedDirections"];
             } else {
                 $this->_propDict["feedDirections"] = new PrinterFeedDirection($this->_propDict["feedDirections"]);
@@ -270,12 +270,12 @@ class PrinterCapabilities extends Entity
     * Gets the feedOrientations
     * The list of feed orientations that are supported by the printer.
     *
-    * @return PrinterFeedOrientation The feedOrientations
+    * @return PrinterFeedOrientation|null The feedOrientations
     */
     public function getFeedOrientations()
     {
         if (array_key_exists("feedOrientations", $this->_propDict)) {
-            if (is_a($this->_propDict["feedOrientations"], "\Beta\Microsoft\Graph\Model\PrinterFeedOrientation")) {
+            if (is_a($this->_propDict["feedOrientations"], "\Beta\Microsoft\Graph\Model\PrinterFeedOrientation") || is_null($this->_propDict["feedOrientations"])) {
                 return $this->_propDict["feedOrientations"];
             } else {
                 $this->_propDict["feedOrientations"] = new PrinterFeedOrientation($this->_propDict["feedOrientations"]);
@@ -303,12 +303,12 @@ class PrinterCapabilities extends Entity
     * Gets the finishings
     * Finishing processes the printer supports for a printed document.
     *
-    * @return PrintFinishing The finishings
+    * @return PrintFinishing|null The finishings
     */
     public function getFinishings()
     {
         if (array_key_exists("finishings", $this->_propDict)) {
-            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing")) {
+            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing") || is_null($this->_propDict["finishings"])) {
                 return $this->_propDict["finishings"];
             } else {
                 $this->_propDict["finishings"] = new PrintFinishing($this->_propDict["finishings"]);
@@ -335,7 +335,7 @@ class PrinterCapabilities extends Entity
     * Gets the inputBins
     * Supported input bins for the printer.
     *
-    * @return string The inputBins
+    * @return string|null The inputBins
     */
     public function getInputBins()
     {
@@ -363,7 +363,7 @@ class PrinterCapabilities extends Entity
     * Gets the isColorPrintingSupported
     * True if color printing is supported by the printer; false otherwise. Read-only.
     *
-    * @return bool The isColorPrintingSupported
+    * @return bool|null The isColorPrintingSupported
     */
     public function getIsColorPrintingSupported()
     {
@@ -391,7 +391,7 @@ class PrinterCapabilities extends Entity
     * Gets the isPageRangeSupported
     * True if the printer supports printing by page ranges; false otherwise.
     *
-    * @return bool The isPageRangeSupported
+    * @return bool|null The isPageRangeSupported
     */
     public function getIsPageRangeSupported()
     {
@@ -419,7 +419,7 @@ class PrinterCapabilities extends Entity
     * Gets the leftMargins
     * A list of supported left margins(in microns) for the printer.
     *
-    * @return int The leftMargins
+    * @return int|null The leftMargins
     */
     public function getLeftMargins()
     {
@@ -447,7 +447,7 @@ class PrinterCapabilities extends Entity
     * Gets the mediaColors
     * The media (i.e., paper) colors supported by the printer.
     *
-    * @return string The mediaColors
+    * @return string|null The mediaColors
     */
     public function getMediaColors()
     {
@@ -473,9 +473,9 @@ class PrinterCapabilities extends Entity
     }
     /**
     * Gets the mediaSizes
-    * The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes, along with any custom sizes supported by the associated printer.
+    * The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
     *
-    * @return string The mediaSizes
+    * @return string|null The mediaSizes
     */
     public function getMediaSizes()
     {
@@ -488,7 +488,7 @@ class PrinterCapabilities extends Entity
 
     /**
     * Sets the mediaSizes
-    * The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes, along with any custom sizes supported by the associated printer.
+    * The media sizes supported by the printer. Supports standard size names for ISO and ANSI media sizes. Valid values are in the following table.
     *
     * @param string $val The value of the mediaSizes
     *
@@ -501,9 +501,9 @@ class PrinterCapabilities extends Entity
     }
     /**
     * Gets the mediaTypes
-    * The media types supported by the printer. Valid values are described in the following table.
+    * The media types supported by the printer.
     *
-    * @return string The mediaTypes
+    * @return string|null The mediaTypes
     */
     public function getMediaTypes()
     {
@@ -516,7 +516,7 @@ class PrinterCapabilities extends Entity
 
     /**
     * Sets the mediaTypes
-    * The media types supported by the printer. Valid values are described in the following table.
+    * The media types supported by the printer.
     *
     * @param string $val The value of the mediaTypes
     *
@@ -532,12 +532,12 @@ class PrinterCapabilities extends Entity
     * Gets the multipageLayouts
     * The presentation directions supported by the printer. Supported values are described in the following table.
     *
-    * @return PrintMultipageLayout The multipageLayouts
+    * @return PrintMultipageLayout|null The multipageLayouts
     */
     public function getMultipageLayouts()
     {
         if (array_key_exists("multipageLayouts", $this->_propDict)) {
-            if (is_a($this->_propDict["multipageLayouts"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout")) {
+            if (is_a($this->_propDict["multipageLayouts"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout") || is_null($this->_propDict["multipageLayouts"])) {
                 return $this->_propDict["multipageLayouts"];
             } else {
                 $this->_propDict["multipageLayouts"] = new PrintMultipageLayout($this->_propDict["multipageLayouts"]);
@@ -565,12 +565,12 @@ class PrinterCapabilities extends Entity
     * Gets the orientations
     * The print orientations supported by the printer. Valid values are described in the following table.
     *
-    * @return PrintOrientation The orientations
+    * @return PrintOrientation|null The orientations
     */
     public function getOrientations()
     {
         if (array_key_exists("orientations", $this->_propDict)) {
-            if (is_a($this->_propDict["orientations"], "\Beta\Microsoft\Graph\Model\PrintOrientation")) {
+            if (is_a($this->_propDict["orientations"], "\Beta\Microsoft\Graph\Model\PrintOrientation") || is_null($this->_propDict["orientations"])) {
                 return $this->_propDict["orientations"];
             } else {
                 $this->_propDict["orientations"] = new PrintOrientation($this->_propDict["orientations"]);
@@ -597,7 +597,7 @@ class PrinterCapabilities extends Entity
     * Gets the outputBins
     * The printer's supported output bins (trays).
     *
-    * @return string The outputBins
+    * @return string|null The outputBins
     */
     public function getOutputBins()
     {
@@ -625,7 +625,7 @@ class PrinterCapabilities extends Entity
     * Gets the pagesPerSheet
     * Supported number of Input Pages to impose upon a single Impression.
     *
-    * @return int The pagesPerSheet
+    * @return int|null The pagesPerSheet
     */
     public function getPagesPerSheet()
     {
@@ -654,12 +654,12 @@ class PrinterCapabilities extends Entity
     * Gets the qualities
     * The print qualities supported by the printer.
     *
-    * @return PrintQuality The qualities
+    * @return PrintQuality|null The qualities
     */
     public function getQualities()
     {
         if (array_key_exists("qualities", $this->_propDict)) {
-            if (is_a($this->_propDict["qualities"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
+            if (is_a($this->_propDict["qualities"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["qualities"])) {
                 return $this->_propDict["qualities"];
             } else {
                 $this->_propDict["qualities"] = new PrintQuality($this->_propDict["qualities"]);
@@ -686,7 +686,7 @@ class PrinterCapabilities extends Entity
     * Gets the rightMargins
     * A list of supported right margins(in microns) for the printer.
     *
-    * @return int The rightMargins
+    * @return int|null The rightMargins
     */
     public function getRightMargins()
     {
@@ -715,12 +715,12 @@ class PrinterCapabilities extends Entity
     * Gets the scalings
     * Supported print scalings.
     *
-    * @return PrintScaling The scalings
+    * @return PrintScaling|null The scalings
     */
     public function getScalings()
     {
         if (array_key_exists("scalings", $this->_propDict)) {
-            if (is_a($this->_propDict["scalings"], "\Beta\Microsoft\Graph\Model\PrintScaling")) {
+            if (is_a($this->_propDict["scalings"], "\Beta\Microsoft\Graph\Model\PrintScaling") || is_null($this->_propDict["scalings"])) {
                 return $this->_propDict["scalings"];
             } else {
                 $this->_propDict["scalings"] = new PrintScaling($this->_propDict["scalings"]);
@@ -747,12 +747,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedColorConfigurations
     *
-    * @return PrintColorConfiguration The supportedColorConfigurations
+    * @return PrintColorConfiguration|null The supportedColorConfigurations
     */
     public function getSupportedColorConfigurations()
     {
         if (array_key_exists("supportedColorConfigurations", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedColorConfigurations"], "\Beta\Microsoft\Graph\Model\PrintColorConfiguration")) {
+            if (is_a($this->_propDict["supportedColorConfigurations"], "\Beta\Microsoft\Graph\Model\PrintColorConfiguration") || is_null($this->_propDict["supportedColorConfigurations"])) {
                 return $this->_propDict["supportedColorConfigurations"];
             } else {
                 $this->_propDict["supportedColorConfigurations"] = new PrintColorConfiguration($this->_propDict["supportedColorConfigurations"]);
@@ -778,12 +778,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedCopiesPerJob
     *
-    * @return IntegerRange The supportedCopiesPerJob
+    * @return IntegerRange|null The supportedCopiesPerJob
     */
     public function getSupportedCopiesPerJob()
     {
         if (array_key_exists("supportedCopiesPerJob", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedCopiesPerJob"], "\Beta\Microsoft\Graph\Model\IntegerRange")) {
+            if (is_a($this->_propDict["supportedCopiesPerJob"], "\Beta\Microsoft\Graph\Model\IntegerRange") || is_null($this->_propDict["supportedCopiesPerJob"])) {
                 return $this->_propDict["supportedCopiesPerJob"];
             } else {
                 $this->_propDict["supportedCopiesPerJob"] = new IntegerRange($this->_propDict["supportedCopiesPerJob"]);
@@ -808,7 +808,7 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedDocumentMimeTypes
     *
-    * @return string The supportedDocumentMimeTypes
+    * @return string|null The supportedDocumentMimeTypes
     */
     public function getSupportedDocumentMimeTypes()
     {
@@ -835,12 +835,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedDuplexConfigurations
     *
-    * @return PrintDuplexConfiguration The supportedDuplexConfigurations
+    * @return PrintDuplexConfiguration|null The supportedDuplexConfigurations
     */
     public function getSupportedDuplexConfigurations()
     {
         if (array_key_exists("supportedDuplexConfigurations", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedDuplexConfigurations"], "\Beta\Microsoft\Graph\Model\PrintDuplexConfiguration")) {
+            if (is_a($this->_propDict["supportedDuplexConfigurations"], "\Beta\Microsoft\Graph\Model\PrintDuplexConfiguration") || is_null($this->_propDict["supportedDuplexConfigurations"])) {
                 return $this->_propDict["supportedDuplexConfigurations"];
             } else {
                 $this->_propDict["supportedDuplexConfigurations"] = new PrintDuplexConfiguration($this->_propDict["supportedDuplexConfigurations"]);
@@ -866,12 +866,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedFinishings
     *
-    * @return PrintFinishing The supportedFinishings
+    * @return PrintFinishing|null The supportedFinishings
     */
     public function getSupportedFinishings()
     {
         if (array_key_exists("supportedFinishings", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedFinishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing")) {
+            if (is_a($this->_propDict["supportedFinishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing") || is_null($this->_propDict["supportedFinishings"])) {
                 return $this->_propDict["supportedFinishings"];
             } else {
                 $this->_propDict["supportedFinishings"] = new PrintFinishing($this->_propDict["supportedFinishings"]);
@@ -896,7 +896,7 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedMediaColors
     *
-    * @return string The supportedMediaColors
+    * @return string|null The supportedMediaColors
     */
     public function getSupportedMediaColors()
     {
@@ -922,7 +922,7 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedMediaSizes
     *
-    * @return string The supportedMediaSizes
+    * @return string|null The supportedMediaSizes
     */
     public function getSupportedMediaSizes()
     {
@@ -949,12 +949,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedMediaTypes
     *
-    * @return PrintMediaType The supportedMediaTypes
+    * @return PrintMediaType|null The supportedMediaTypes
     */
     public function getSupportedMediaTypes()
     {
         if (array_key_exists("supportedMediaTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedMediaTypes"], "\Beta\Microsoft\Graph\Model\PrintMediaType")) {
+            if (is_a($this->_propDict["supportedMediaTypes"], "\Beta\Microsoft\Graph\Model\PrintMediaType") || is_null($this->_propDict["supportedMediaTypes"])) {
                 return $this->_propDict["supportedMediaTypes"];
             } else {
                 $this->_propDict["supportedMediaTypes"] = new PrintMediaType($this->_propDict["supportedMediaTypes"]);
@@ -980,12 +980,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedOrientations
     *
-    * @return PrintOrientation The supportedOrientations
+    * @return PrintOrientation|null The supportedOrientations
     */
     public function getSupportedOrientations()
     {
         if (array_key_exists("supportedOrientations", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedOrientations"], "\Beta\Microsoft\Graph\Model\PrintOrientation")) {
+            if (is_a($this->_propDict["supportedOrientations"], "\Beta\Microsoft\Graph\Model\PrintOrientation") || is_null($this->_propDict["supportedOrientations"])) {
                 return $this->_propDict["supportedOrientations"];
             } else {
                 $this->_propDict["supportedOrientations"] = new PrintOrientation($this->_propDict["supportedOrientations"]);
@@ -1010,7 +1010,7 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedOutputBins
     *
-    * @return string The supportedOutputBins
+    * @return string|null The supportedOutputBins
     */
     public function getSupportedOutputBins()
     {
@@ -1037,12 +1037,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedPagesPerSheet
     *
-    * @return IntegerRange The supportedPagesPerSheet
+    * @return IntegerRange|null The supportedPagesPerSheet
     */
     public function getSupportedPagesPerSheet()
     {
         if (array_key_exists("supportedPagesPerSheet", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedPagesPerSheet"], "\Beta\Microsoft\Graph\Model\IntegerRange")) {
+            if (is_a($this->_propDict["supportedPagesPerSheet"], "\Beta\Microsoft\Graph\Model\IntegerRange") || is_null($this->_propDict["supportedPagesPerSheet"])) {
                 return $this->_propDict["supportedPagesPerSheet"];
             } else {
                 $this->_propDict["supportedPagesPerSheet"] = new IntegerRange($this->_propDict["supportedPagesPerSheet"]);
@@ -1068,12 +1068,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedPresentationDirections
     *
-    * @return PrintPresentationDirection The supportedPresentationDirections
+    * @return PrintPresentationDirection|null The supportedPresentationDirections
     */
     public function getSupportedPresentationDirections()
     {
         if (array_key_exists("supportedPresentationDirections", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedPresentationDirections"], "\Beta\Microsoft\Graph\Model\PrintPresentationDirection")) {
+            if (is_a($this->_propDict["supportedPresentationDirections"], "\Beta\Microsoft\Graph\Model\PrintPresentationDirection") || is_null($this->_propDict["supportedPresentationDirections"])) {
                 return $this->_propDict["supportedPresentationDirections"];
             } else {
                 $this->_propDict["supportedPresentationDirections"] = new PrintPresentationDirection($this->_propDict["supportedPresentationDirections"]);
@@ -1099,12 +1099,12 @@ class PrinterCapabilities extends Entity
     /**
     * Gets the supportedPrintQualities
     *
-    * @return PrintQuality The supportedPrintQualities
+    * @return PrintQuality|null The supportedPrintQualities
     */
     public function getSupportedPrintQualities()
     {
         if (array_key_exists("supportedPrintQualities", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedPrintQualities"], "\Beta\Microsoft\Graph\Model\PrintQuality")) {
+            if (is_a($this->_propDict["supportedPrintQualities"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["supportedPrintQualities"])) {
                 return $this->_propDict["supportedPrintQualities"];
             } else {
                 $this->_propDict["supportedPrintQualities"] = new PrintQuality($this->_propDict["supportedPrintQualities"]);
@@ -1130,7 +1130,7 @@ class PrinterCapabilities extends Entity
     * Gets the supportsFitPdfToPage
     * True if the printer supports scaling PDF pages to match the print media size; false otherwise.
     *
-    * @return bool The supportsFitPdfToPage
+    * @return bool|null The supportsFitPdfToPage
     */
     public function getSupportsFitPdfToPage()
     {
@@ -1158,7 +1158,7 @@ class PrinterCapabilities extends Entity
     * Gets the topMargins
     * A list of supported top margins(in microns) for the printer.
     *
-    * @return int The topMargins
+    * @return int|null The topMargins
     */
     public function getTopMargins()
     {

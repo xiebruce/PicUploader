@@ -28,7 +28,7 @@ class ProfilePhoto extends Entity
     * Gets the height
     * The height of the photo. Read-only.
     *
-    * @return int The height
+    * @return int|null The height
     */
     public function getHeight()
     {
@@ -38,7 +38,7 @@ class ProfilePhoto extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the height
     * The height of the photo. Read-only.
@@ -52,12 +52,12 @@ class ProfilePhoto extends Entity
         $this->_propDict["height"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the width
     * The width of the photo. Read-only.
     *
-    * @return int The width
+    * @return int|null The width
     */
     public function getWidth()
     {
@@ -67,7 +67,7 @@ class ProfilePhoto extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the width
     * The width of the photo. Read-only.
@@ -81,5 +81,5 @@ class ProfilePhoto extends Entity
         $this->_propDict["width"] = intval($val);
         return $this;
     }
-    
+
 }

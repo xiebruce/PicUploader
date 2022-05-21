@@ -28,12 +28,12 @@ class DeviceManagementResourceAccessProfileBase extends Entity
     * Gets the creationDateTime
     * DateTime profile was created
     *
-    * @return \DateTime The creationDateTime
+    * @return \DateTime|null The creationDateTime
     */
     public function getCreationDateTime()
     {
         if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -42,7 +42,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the creationDateTime
     * DateTime profile was created
@@ -56,12 +56,12 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Profile description
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -71,7 +71,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Profile description
@@ -85,12 +85,12 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Profile display name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -100,7 +100,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Profile display name
@@ -114,17 +114,17 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * DateTime profile was last modified
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -133,7 +133,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * DateTime profile was last modified
@@ -147,12 +147,12 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleScopeTagIds
     * Scope Tags
     *
-    * @return string The roleScopeTagIds
+    * @return string|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -162,7 +162,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the roleScopeTagIds
     * Scope Tags
@@ -176,12 +176,12 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the version
     * Version of the profile
     *
-    * @return int The version
+    * @return int|null The version
     */
     public function getVersion()
     {
@@ -191,7 +191,7 @@ class DeviceManagementResourceAccessProfileBase extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * Version of the profile
@@ -205,13 +205,13 @@ class DeviceManagementResourceAccessProfileBase extends Entity
         $this->_propDict["version"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * The list of assignments for the device configuration profile.
      *
-     * @return array The assignments
+     * @return array|null The assignments
      */
     public function getAssignments()
     {
@@ -221,19 +221,19 @@ class DeviceManagementResourceAccessProfileBase extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * The list of assignments for the device configuration profile.
     *
-    * @param DeviceManagementResourceAccessProfileAssignment $val The assignments
+    * @param DeviceManagementResourceAccessProfileAssignment[] $val The assignments
     *
     * @return DeviceManagementResourceAccessProfileBase
     */
     public function setAssignments($val)
     {
-		$this->_propDict["assignments"] = $val;
+        $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
+
 }

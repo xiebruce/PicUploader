@@ -28,12 +28,12 @@ class RecommendLabelAction extends InformationProtectionAction
     * Gets the actions
     * Actions to take if the label is accepted by the user.
     *
-    * @return InformationProtectionAction The actions
+    * @return InformationProtectionAction|null The actions
     */
     public function getActions()
     {
         if (array_key_exists("actions", $this->_propDict)) {
-            if (is_a($this->_propDict["actions"], "\Beta\Microsoft\Graph\Model\InformationProtectionAction")) {
+            if (is_a($this->_propDict["actions"], "\Beta\Microsoft\Graph\Model\InformationProtectionAction") || is_null($this->_propDict["actions"])) {
                 return $this->_propDict["actions"];
             } else {
                 $this->_propDict["actions"] = new InformationProtectionAction($this->_propDict["actions"]);
@@ -61,12 +61,12 @@ class RecommendLabelAction extends InformationProtectionAction
     * Gets the actionSource
     * Possible values are: manual, automatic, recommended, default.
     *
-    * @return ActionSource The actionSource
+    * @return ActionSource|null The actionSource
     */
     public function getActionSource()
     {
         if (array_key_exists("actionSource", $this->_propDict)) {
-            if (is_a($this->_propDict["actionSource"], "\Beta\Microsoft\Graph\Model\ActionSource")) {
+            if (is_a($this->_propDict["actionSource"], "\Beta\Microsoft\Graph\Model\ActionSource") || is_null($this->_propDict["actionSource"])) {
                 return $this->_propDict["actionSource"];
             } else {
                 $this->_propDict["actionSource"] = new ActionSource($this->_propDict["actionSource"]);
@@ -94,12 +94,12 @@ class RecommendLabelAction extends InformationProtectionAction
     * Gets the label
     * The label that is being recommended.
     *
-    * @return LabelDetails The label
+    * @return LabelDetails|null The label
     */
     public function getLabel()
     {
         if (array_key_exists("label", $this->_propDict)) {
-            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails")) {
+            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails") || is_null($this->_propDict["label"])) {
                 return $this->_propDict["label"];
             } else {
                 $this->_propDict["label"] = new LabelDetails($this->_propDict["label"]);
@@ -126,7 +126,7 @@ class RecommendLabelAction extends InformationProtectionAction
     * Gets the responsibleSensitiveTypeIds
     * The sensitive information type GUIDs that caused the recommendation to be given.
     *
-    * @return string The responsibleSensitiveTypeIds
+    * @return string|null The responsibleSensitiveTypeIds
     */
     public function getResponsibleSensitiveTypeIds()
     {

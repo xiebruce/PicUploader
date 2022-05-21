@@ -27,7 +27,7 @@ class LocalizedDescription extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the description
     * The description in the localized language.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -55,7 +55,7 @@ class LocalizedDescription extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the languageTag
     * The language tag for the label.
     *
-    * @return string The languageTag
+    * @return string|null The languageTag
     */
     public function getLanguageTag()
     {

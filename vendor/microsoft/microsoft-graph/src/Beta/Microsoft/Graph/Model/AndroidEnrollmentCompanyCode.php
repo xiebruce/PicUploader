@@ -27,7 +27,7 @@ class AndroidEnrollmentCompanyCode extends Entity
     * Gets the enrollmentToken
     * Enrollment Token used by the User to enroll their device.
     *
-    * @return string The enrollmentToken
+    * @return string|null The enrollmentToken
     */
     public function getEnrollmentToken()
     {
@@ -55,7 +55,7 @@ class AndroidEnrollmentCompanyCode extends Entity
     * Gets the qrCodeContent
     * String used to generate a QR code for the token.
     *
-    * @return string The qrCodeContent
+    * @return string|null The qrCodeContent
     */
     public function getQrCodeContent()
     {
@@ -84,12 +84,12 @@ class AndroidEnrollmentCompanyCode extends Entity
     * Gets the qrCodeImage
     * Generated QR code for the token.
     *
-    * @return MimeContent The qrCodeImage
+    * @return MimeContent|null The qrCodeImage
     */
     public function getQrCodeImage()
     {
         if (array_key_exists("qrCodeImage", $this->_propDict)) {
-            if (is_a($this->_propDict["qrCodeImage"], "\Beta\Microsoft\Graph\Model\MimeContent")) {
+            if (is_a($this->_propDict["qrCodeImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["qrCodeImage"])) {
                 return $this->_propDict["qrCodeImage"];
             } else {
                 $this->_propDict["qrCodeImage"] = new MimeContent($this->_propDict["qrCodeImage"]);

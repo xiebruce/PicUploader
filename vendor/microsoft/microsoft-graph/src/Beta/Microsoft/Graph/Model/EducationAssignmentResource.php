@@ -26,9 +26,9 @@ class EducationAssignmentResource extends Entity
 {
     /**
     * Gets the distributeForStudentWork
-    * Indicates whether this resource should be copied to each student submission for modification and submission.
+    * Indicates whether this resource should be copied to each student submission for modification and submission. Required
     *
-    * @return bool The distributeForStudentWork
+    * @return bool|null The distributeForStudentWork
     */
     public function getDistributeForStudentWork()
     {
@@ -38,10 +38,10 @@ class EducationAssignmentResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the distributeForStudentWork
-    * Indicates whether this resource should be copied to each student submission for modification and submission.
+    * Indicates whether this resource should be copied to each student submission for modification and submission. Required
     *
     * @param bool $val The distributeForStudentWork
     *
@@ -52,17 +52,17 @@ class EducationAssignmentResource extends Entity
         $this->_propDict["distributeForStudentWork"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the resource
     * Resource object that has been associated with this assignment.
     *
-    * @return EducationResource The resource
+    * @return EducationResource|null The resource
     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\EducationResource")) {
+            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\EducationResource") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new EducationResource($this->_propDict["resource"]);
@@ -71,7 +71,7 @@ class EducationAssignmentResource extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resource
     * Resource object that has been associated with this assignment.
@@ -85,5 +85,5 @@ class EducationAssignmentResource extends Entity
         $this->_propDict["resource"] = $val;
         return $this;
     }
-    
+
 }

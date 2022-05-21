@@ -28,12 +28,12 @@ class AndroidPermissionAction extends Entity
     * Gets the action
     * Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
     *
-    * @return AndroidPermissionActionType The action
+    * @return AndroidPermissionActionType|null The action
     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\AndroidPermissionActionType")) {
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\AndroidPermissionActionType") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new AndroidPermissionActionType($this->_propDict["action"]);
@@ -60,7 +60,7 @@ class AndroidPermissionAction extends Entity
     * Gets the permission
     * Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
     *
-    * @return string The permission
+    * @return string|null The permission
     */
     public function getPermission()
     {

@@ -1,9 +1,7 @@
 <?php
-
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
 use Microsoft\Graph\Core\GraphConstants;
-use Microsoft\Graph\Exception\GraphException;
 use Microsoft\Graph\Graph;
 use Microsoft\Graph\Http\GraphRequest;
 use Microsoft\Graph\Http\Test\MockClientFactory;
@@ -170,6 +168,11 @@ class GraphRequestTest extends TestCase
                          ->executeAsync($this->client);
         $this->assertInstanceOf(GuzzleHttp\Promise\PromiseInterface::class, $promise);
 
+        $promise = $this->requests[0]
+                         ->executeAsync($this->client);
+        $promise2 = $this->requests[2]
+                          ->executeAsync($this->client);
+
         $response = \GuzzleHttp\Promise\unwrap(array($promise));
         foreach ($response as $responseItem) {
             $this->assertInstanceOf(Microsoft\Graph\Http\GraphResponse::class, $responseItem);
@@ -204,7 +207,7 @@ class GraphRequestTest extends TestCase
 
     public function testExecuteWith4xxResponse()
     {
-        $this->expectException(GraphException::class);
+        $this->expectException(GuzzleHttp\Exception\ClientException::class);
         $mockResponse = array(new Response(400));
         $client = MockClientFactory::create(['http_errors' => true], $mockResponse);
         $this->requests[0]->execute($client);
@@ -212,12 +215,12 @@ class GraphRequestTest extends TestCase
 
     public function testExecuteWith5xxResponse()
     {
-        $this->expectException(GraphException::class);
+        $this->expectException(GuzzleHttp\Exception\ServerException::class);
         $mockResponse = array(new Response(500));
         $client = MockClientFactory::create(['http_errors' => true], $mockResponse);
         $this->requests[0]->execute($client);
     }
-    
+
     public function testExecuteAsyncWithBadResponseTriggersNotice()
     {
         $this->expectNotice();

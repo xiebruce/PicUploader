@@ -28,7 +28,7 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyPresentation
     * Gets the defaultChecked
     * Default value for the check box. The default value is false.
     *
-    * @return bool The defaultChecked
+    * @return bool|null The defaultChecked
     */
     public function getDefaultChecked()
     {
@@ -38,7 +38,7 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultChecked
     * Default value for the check box. The default value is false.
@@ -52,5 +52,5 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyPresentation
         $this->_propDict["defaultChecked"] = boolval($val);
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
     * Gets the averageInboundBitRate
     * The average inbound stream video bit rate per second.
     *
-    * @return float The averageInboundBitRate
+    * @return float|null The averageInboundBitRate
     */
     public function getAverageInboundBitRate()
     {
@@ -55,7 +55,7 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
     * Gets the averageInboundFrameRate
     * The average inbound stream video frame rate per second.
     *
-    * @return float The averageInboundFrameRate
+    * @return float|null The averageInboundFrameRate
     */
     public function getAverageInboundFrameRate()
     {
@@ -83,7 +83,7 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
     * Gets the averageOutboundBitRate
     * The average outbound stream video bit rate per second.
     *
-    * @return float The averageOutboundBitRate
+    * @return float|null The averageOutboundBitRate
     */
     public function getAverageOutboundBitRate()
     {
@@ -111,7 +111,7 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
     * Gets the averageOutboundFrameRate
     * The average outbound stream video frame rate per second.
     *
-    * @return float The averageOutboundFrameRate
+    * @return float|null The averageOutboundFrameRate
     */
     public function getAverageOutboundFrameRate()
     {

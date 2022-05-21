@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class ComplianceManagementPartner extends Entity
 {
 
-     /** 
+     /**
      * Gets the androidEnrollmentAssignments
     * User groups which enroll Android devices through partner.
      *
-     * @return array The androidEnrollmentAssignments
+     * @return array|null The androidEnrollmentAssignments
      */
     public function getAndroidEnrollmentAssignments()
     {
@@ -39,26 +39,26 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the androidEnrollmentAssignments
     * User groups which enroll Android devices through partner.
     *
-    * @param ComplianceManagementPartnerAssignment $val The androidEnrollmentAssignments
+    * @param ComplianceManagementPartnerAssignment[] $val The androidEnrollmentAssignments
     *
     * @return ComplianceManagementPartner
     */
     public function setAndroidEnrollmentAssignments($val)
     {
-		$this->_propDict["androidEnrollmentAssignments"] = $val;
+        $this->_propDict["androidEnrollmentAssignments"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the androidOnboarded
     * Partner onboarded for Android devices.
     *
-    * @return bool The androidOnboarded
+    * @return bool|null The androidOnboarded
     */
     public function getAndroidOnboarded()
     {
@@ -68,7 +68,7 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the androidOnboarded
     * Partner onboarded for Android devices.
@@ -82,12 +82,12 @@ class ComplianceManagementPartner extends Entity
         $this->_propDict["androidOnboarded"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Partner display name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -97,7 +97,7 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Partner display name
@@ -111,13 +111,13 @@ class ComplianceManagementPartner extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the iosEnrollmentAssignments
     * User groups which enroll ios devices through partner.
      *
-     * @return array The iosEnrollmentAssignments
+     * @return array|null The iosEnrollmentAssignments
      */
     public function getIosEnrollmentAssignments()
     {
@@ -127,26 +127,26 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the iosEnrollmentAssignments
     * User groups which enroll ios devices through partner.
     *
-    * @param ComplianceManagementPartnerAssignment $val The iosEnrollmentAssignments
+    * @param ComplianceManagementPartnerAssignment[] $val The iosEnrollmentAssignments
     *
     * @return ComplianceManagementPartner
     */
     public function setIosEnrollmentAssignments($val)
     {
-		$this->_propDict["iosEnrollmentAssignments"] = $val;
+        $this->_propDict["iosEnrollmentAssignments"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the iosOnboarded
     * Partner onboarded for ios devices.
     *
-    * @return bool The iosOnboarded
+    * @return bool|null The iosOnboarded
     */
     public function getIosOnboarded()
     {
@@ -156,7 +156,7 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the iosOnboarded
     * Partner onboarded for ios devices.
@@ -170,17 +170,17 @@ class ComplianceManagementPartner extends Entity
         $this->_propDict["iosOnboarded"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastHeartbeatDateTime
     * Timestamp of last heartbeat after admin onboarded to the compliance management partner
     *
-    * @return \DateTime The lastHeartbeatDateTime
+    * @return \DateTime|null The lastHeartbeatDateTime
     */
     public function getLastHeartbeatDateTime()
     {
         if (array_key_exists("lastHeartbeatDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastHeartbeatDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastHeartbeatDateTime"], "\DateTime") || is_null($this->_propDict["lastHeartbeatDateTime"])) {
                 return $this->_propDict["lastHeartbeatDateTime"];
             } else {
                 $this->_propDict["lastHeartbeatDateTime"] = new \DateTime($this->_propDict["lastHeartbeatDateTime"]);
@@ -189,7 +189,7 @@ class ComplianceManagementPartner extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastHeartbeatDateTime
     * Timestamp of last heartbeat after admin onboarded to the compliance management partner
@@ -203,13 +203,13 @@ class ComplianceManagementPartner extends Entity
         $this->_propDict["lastHeartbeatDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the macOsEnrollmentAssignments
     * User groups which enroll Mac devices through partner.
      *
-     * @return array The macOsEnrollmentAssignments
+     * @return array|null The macOsEnrollmentAssignments
      */
     public function getMacOsEnrollmentAssignments()
     {
@@ -219,26 +219,26 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the macOsEnrollmentAssignments
     * User groups which enroll Mac devices through partner.
     *
-    * @param ComplianceManagementPartnerAssignment $val The macOsEnrollmentAssignments
+    * @param ComplianceManagementPartnerAssignment[] $val The macOsEnrollmentAssignments
     *
     * @return ComplianceManagementPartner
     */
     public function setMacOsEnrollmentAssignments($val)
     {
-		$this->_propDict["macOsEnrollmentAssignments"] = $val;
+        $this->_propDict["macOsEnrollmentAssignments"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the macOsOnboarded
     * Partner onboarded for Mac devices.
     *
-    * @return bool The macOsOnboarded
+    * @return bool|null The macOsOnboarded
     */
     public function getMacOsOnboarded()
     {
@@ -248,7 +248,7 @@ class ComplianceManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the macOsOnboarded
     * Partner onboarded for Mac devices.
@@ -262,17 +262,17 @@ class ComplianceManagementPartner extends Entity
         $this->_propDict["macOsOnboarded"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the partnerState
     * Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
     *
-    * @return DeviceManagementPartnerTenantState The partnerState
+    * @return DeviceManagementPartnerTenantState|null The partnerState
     */
     public function getPartnerState()
     {
         if (array_key_exists("partnerState", $this->_propDict)) {
-            if (is_a($this->_propDict["partnerState"], "\Microsoft\Graph\Model\DeviceManagementPartnerTenantState")) {
+            if (is_a($this->_propDict["partnerState"], "\Microsoft\Graph\Model\DeviceManagementPartnerTenantState") || is_null($this->_propDict["partnerState"])) {
                 return $this->_propDict["partnerState"];
             } else {
                 $this->_propDict["partnerState"] = new DeviceManagementPartnerTenantState($this->_propDict["partnerState"]);
@@ -281,7 +281,7 @@ class ComplianceManagementPartner extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the partnerState
     * Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.
@@ -295,5 +295,5 @@ class ComplianceManagementPartner extends Entity
         $this->_propDict["partnerState"] = $val;
         return $this;
     }
-    
+
 }

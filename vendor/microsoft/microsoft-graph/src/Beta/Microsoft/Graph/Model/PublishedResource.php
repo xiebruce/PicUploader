@@ -28,7 +28,7 @@ class PublishedResource extends Entity
     * Gets the displayName
     * Display Name of the publishedResource.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class PublishedResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Display Name of the publishedResource.
@@ -52,17 +52,17 @@ class PublishedResource extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publishingType
     * Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
     *
-    * @return OnPremisesPublishingType The publishingType
+    * @return OnPremisesPublishingType|null The publishingType
     */
     public function getPublishingType()
     {
         if (array_key_exists("publishingType", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingType"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingType")) {
+            if (is_a($this->_propDict["publishingType"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingType") || is_null($this->_propDict["publishingType"])) {
                 return $this->_propDict["publishingType"];
             } else {
                 $this->_propDict["publishingType"] = new OnPremisesPublishingType($this->_propDict["publishingType"]);
@@ -71,7 +71,7 @@ class PublishedResource extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the publishingType
     * Possible values are: applicationProxy, exchangeOnline, authentication, provisioning, adAdministration.
@@ -85,12 +85,12 @@ class PublishedResource extends Entity
         $this->_propDict["publishingType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceName
     * Name of the publishedResource.
     *
-    * @return string The resourceName
+    * @return string|null The resourceName
     */
     public function getResourceName()
     {
@@ -100,7 +100,7 @@ class PublishedResource extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the resourceName
     * Name of the publishedResource.
@@ -114,13 +114,13 @@ class PublishedResource extends Entity
         $this->_propDict["resourceName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agentGroups
     * List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
      *
-     * @return array The agentGroups
+     * @return array|null The agentGroups
      */
     public function getAgentGroups()
     {
@@ -130,19 +130,19 @@ class PublishedResource extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the agentGroups
     * List of onPremisesAgentGroups that a publishedResource is assigned to. Read-only. Nullable.
     *
-    * @param OnPremisesAgentGroup $val The agentGroups
+    * @param OnPremisesAgentGroup[] $val The agentGroups
     *
     * @return PublishedResource
     */
     public function setAgentGroups($val)
     {
-		$this->_propDict["agentGroups"] = $val;
+        $this->_propDict["agentGroups"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class SecurityActionState extends Entity
     * Gets the appId
     * The Application ID of the calling application that submitted an update (PATCH) to the action. The appId should be extracted from the auth token and not entered manually by the calling application.
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -56,12 +56,12 @@ class SecurityActionState extends Entity
     * Gets the status
     * Status of the securityAction in this update. Possible values are: NotStarted, Running, Completed, Failed.
     *
-    * @return OperationStatus The status
+    * @return OperationStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\OperationStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\OperationStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new OperationStatus($this->_propDict["status"]);
@@ -89,12 +89,12 @@ class SecurityActionState extends Entity
     * Gets the updatedDateTime
     * Timestamp when the actionState was updated. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The updatedDateTime
+    * @return \DateTime|null The updatedDateTime
     */
     public function getUpdatedDateTime()
     {
         if (array_key_exists("updatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["updatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["updatedDateTime"], "\DateTime") || is_null($this->_propDict["updatedDateTime"])) {
                 return $this->_propDict["updatedDateTime"];
             } else {
                 $this->_propDict["updatedDateTime"] = new \DateTime($this->_propDict["updatedDateTime"]);
@@ -121,7 +121,7 @@ class SecurityActionState extends Entity
     * Gets the user
     * The user principal name of the signed-in user that submitted an update (PATCH) to the action. The user should be extracted from the auth token and not entered manually by the calling application.
     *
-    * @return string The user
+    * @return string|null The user
     */
     public function getUser()
     {

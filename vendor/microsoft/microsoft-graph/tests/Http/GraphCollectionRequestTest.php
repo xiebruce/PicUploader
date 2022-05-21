@@ -15,7 +15,7 @@ class GraphCollectionRequestTest extends TestCase
         $this->collectionRequest->setReturnType(Model\User::class);
         $this->collectionRequest->setPageSize(2);
 
-        $body = json_encode(array('body' => 'content', '@odata.nextLink' => 'url/version/endpoint?skiptoken=link'));
+        $body = json_encode(array('body' => 'content', '@odata.nextLink' => 'https://url/version/endpoint?skiptoken=link'));
         $body2 = json_encode(array('body' => 'content'));
         $mock = new GuzzleHttp\Handler\MockHandler([
             new GuzzleHttp\Psr7\Response(200, ['foo' => 'bar'], $body),
@@ -57,7 +57,7 @@ class GraphCollectionRequestTest extends TestCase
         $this->assertInstanceOf(Microsoft\Graph\Model\User::class, $result);
     }
 
-    public function testEndpointManipulation()
+    public function testEndpointManipulationWithoutNextLink()
     {
         //Page should be 1
         $this->assertFalse($this->collectionRequest->isEnd());
@@ -70,5 +70,15 @@ class GraphCollectionRequestTest extends TestCase
 
         $requestUrl = $this->reflectedRequestUrlHandler->invokeArgs($this->collectionRequest, array());
         $this->assertEquals('version/endpoint?$top=2', $requestUrl);
+    }
+
+    public function testEndpointManipulationWhenNextLinkExists()
+    {
+        $this->collectionRequest->setPageCallInfo();
+        $response = $this->collectionRequest->execute($this->client);
+        $this->collectionRequest->processPageCallReturn($response);
+        $this->collectionRequest->setPageCallInfo();
+        $requestUrl = $this->reflectedRequestUrlHandler->invokeArgs($this->collectionRequest, array());
+        $this->assertEquals('version/endpoint?skiptoken=link', $requestUrl);
     }
 }

@@ -27,7 +27,7 @@ class DeviceManagementConfigurationSettingInstance extends Entity
     * Gets the settingDefinitionId
     * Setting Definition Id
     *
-    * @return string The settingDefinitionId
+    * @return string|null The settingDefinitionId
     */
     public function getSettingDefinitionId()
     {
@@ -50,5 +50,38 @@ class DeviceManagementConfigurationSettingInstance extends Entity
     {
         $this->_propDict["settingDefinitionId"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the settingInstanceTemplateReference
+    * Setting Instance Template Reference
+    *
+    * @return DeviceManagementConfigurationSettingInstanceTemplateReference|null The settingInstanceTemplateReference
+    */
+    public function getSettingInstanceTemplateReference()
+    {
+        if (array_key_exists("settingInstanceTemplateReference", $this->_propDict)) {
+            if (is_a($this->_propDict["settingInstanceTemplateReference"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplateReference") || is_null($this->_propDict["settingInstanceTemplateReference"])) {
+                return $this->_propDict["settingInstanceTemplateReference"];
+            } else {
+                $this->_propDict["settingInstanceTemplateReference"] = new DeviceManagementConfigurationSettingInstanceTemplateReference($this->_propDict["settingInstanceTemplateReference"]);
+                return $this->_propDict["settingInstanceTemplateReference"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the settingInstanceTemplateReference
+    * Setting Instance Template Reference
+    *
+    * @param DeviceManagementConfigurationSettingInstanceTemplateReference $val The value to assign to the settingInstanceTemplateReference
+    *
+    * @return DeviceManagementConfigurationSettingInstance The DeviceManagementConfigurationSettingInstance
+    */
+    public function setSettingInstanceTemplateReference($val)
+    {
+        $this->_propDict["settingInstanceTemplateReference"] = $val;
+         return $this;
     }
 }

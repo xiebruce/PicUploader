@@ -68,7 +68,7 @@ class OAuth2Client
      */
     protected function buildUrl($endpoint = '', array $params = [])
     {
-        $queryParams = http_build_query($params);
+        $queryParams = http_build_query($params, '', '&');
         return static::BASE_URL . $endpoint . '?' . $queryParams;
     }
 
@@ -115,7 +115,7 @@ class OAuth2Client
             'state' => $state,
             ], $params);
 
-        if(!is_null($redirectUri)) {
+        if (!is_null($redirectUri)) {
             $params['redirect_uri'] = $redirectUri;
         }
 
@@ -125,11 +125,12 @@ class OAuth2Client
     /**
      * Get Access Token
      *
-     * @param  string $code        Authorization Code
+     * @param  string $code Authorization Code
      * @param  string $redirectUri Redirect URI used while getAuthorizationUrl
-     * @param  string $grant_type  Grant Type ['authorization_code']
+     * @param  string $grant_type Grant Type ['authorization_code']
      *
      * @return array
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getAccessToken($code, $redirectUri = null, $grant_type = 'authorization_code')
     {
@@ -142,7 +143,7 @@ class OAuth2Client
         'redirect_uri' => $redirectUri
         ];
 
-        $params = http_build_query($params);
+        $params = http_build_query($params, '', '&');
 
         $apiUrl = static::AUTH_TOKEN_URL;
         $uri = $apiUrl . "?" . $params;
@@ -165,6 +166,7 @@ class OAuth2Client
      * Disables the access token
      *
      * @return void
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function revokeAccessToken()
     {

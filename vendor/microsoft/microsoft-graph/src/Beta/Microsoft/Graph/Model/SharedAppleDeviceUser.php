@@ -27,7 +27,7 @@ class SharedAppleDeviceUser extends Entity
     * Gets the dataQuota
     * Data quota
     *
-    * @return int The dataQuota
+    * @return int|null The dataQuota
     */
     public function getDataQuota()
     {
@@ -55,7 +55,7 @@ class SharedAppleDeviceUser extends Entity
     * Gets the dataToSync
     * Data to sync
     *
-    * @return bool The dataToSync
+    * @return bool|null The dataToSync
     */
     public function getDataToSync()
     {
@@ -83,7 +83,7 @@ class SharedAppleDeviceUser extends Entity
     * Gets the dataUsed
     * Data quota
     *
-    * @return int The dataUsed
+    * @return int|null The dataUsed
     */
     public function getDataUsed()
     {
@@ -111,7 +111,7 @@ class SharedAppleDeviceUser extends Entity
     * Gets the userPrincipalName
     * User name
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

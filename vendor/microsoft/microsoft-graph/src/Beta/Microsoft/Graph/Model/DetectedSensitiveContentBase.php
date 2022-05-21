@@ -26,7 +26,7 @@ class DetectedSensitiveContentBase extends Entity
     /**
     * Gets the confidence
     *
-    * @return int The confidence
+    * @return int|null The confidence
     */
     public function getConfidence()
     {
@@ -52,7 +52,7 @@ class DetectedSensitiveContentBase extends Entity
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -78,7 +78,7 @@ class DetectedSensitiveContentBase extends Entity
     /**
     * Gets the id
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -104,7 +104,7 @@ class DetectedSensitiveContentBase extends Entity
     /**
     * Gets the recommendedConfidence
     *
-    * @return int The recommendedConfidence
+    * @return int|null The recommendedConfidence
     */
     public function getRecommendedConfidence()
     {
@@ -130,7 +130,7 @@ class DetectedSensitiveContentBase extends Entity
     /**
     * Gets the uniqueCount
     *
-    * @return int The uniqueCount
+    * @return int|null The uniqueCount
     */
     public function getUniqueCount()
     {

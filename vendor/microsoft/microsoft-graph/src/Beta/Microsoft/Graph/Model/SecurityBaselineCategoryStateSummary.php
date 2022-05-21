@@ -28,7 +28,7 @@ class SecurityBaselineCategoryStateSummary extends SecurityBaselineStateSummary
     * Gets the displayName
     * The category name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class SecurityBaselineCategoryStateSummary extends SecurityBaselineStateSummary
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The category name
@@ -52,5 +52,5 @@ class SecurityBaselineCategoryStateSummary extends SecurityBaselineStateSummary
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
 }

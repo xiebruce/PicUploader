@@ -26,14 +26,14 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Gets the app
-    * If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
+    * If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
     *
-    * @return AppIdentity The app
+    * @return AppIdentity|null The app
     */
     public function getApp()
     {
         if (array_key_exists("app", $this->_propDict)) {
-            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\AppIdentity")) {
+            if (is_a($this->_propDict["app"], "\Beta\Microsoft\Graph\Model\AppIdentity") || is_null($this->_propDict["app"])) {
                 return $this->_propDict["app"];
             } else {
                 $this->_propDict["app"] = new AppIdentity($this->_propDict["app"]);
@@ -45,7 +45,7 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Sets the app
-    * If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
+    * If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
     *
     * @param AppIdentity $val The value to assign to the app
     *
@@ -59,17 +59,17 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Gets the user
-    * If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
+    * If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
     *
-    * @return UserIdentity The user
+    * @return AuditUserIdentity|null The user
     */
     public function getUser()
     {
         if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
+            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\AuditUserIdentity") || is_null($this->_propDict["user"])) {
                 return $this->_propDict["user"];
             } else {
-                $this->_propDict["user"] = new UserIdentity($this->_propDict["user"]);
+                $this->_propDict["user"] = new AuditUserIdentity($this->_propDict["user"]);
                 return $this->_propDict["user"];
             }
         }
@@ -78,9 +78,9 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Sets the user
-    * If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
+    * If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
     *
-    * @param UserIdentity $val The value to assign to the user
+    * @param AuditUserIdentity $val The value to assign to the user
     *
     * @return AuditActivityInitiator The AuditActivityInitiator
     */

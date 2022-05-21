@@ -69,17 +69,12 @@ class OssClientMultipartUploadTest extends TestOssClientBase
         $object = "mpu/multipart-test.txt";
         $copiedObject = "mpu/multipart-test.txt.copied";
         $this->ossClient->putObject($this->bucket, $copiedObject, file_get_contents(__FILE__));
-        /**
-         *  step 1. 初始化一个分块上传事件, 也就是初始化上传Multipart, 获取upload id
-         */
         try {
             $upload_id = $this->ossClient->initiateMultipartUpload($this->bucket, $object);
         } catch (OssException $e) {
             $this->assertFalse(true);
         }
-        /*
-         * step 2. uploadPartCopy
-         */
+
         $copyId = 1;
         $eTag = $this->ossClient->uploadPartCopy($this->bucket, $copiedObject, $this->bucket, $object, $copyId, $upload_id);
         $upload_parts[] = array(
@@ -94,9 +89,6 @@ class OssClientMultipartUploadTest extends TestOssClientBase
             $this->assertTrue(false);
         }
 
-        /**
-         * step 3.
-         */
         try {
             $this->ossClient->completeMultipartUpload($this->bucket, $object, $upload_id, $upload_parts);
         } catch (OssException $e) {
@@ -113,9 +105,6 @@ class OssClientMultipartUploadTest extends TestOssClientBase
         $object = "mpu/multipart-test.txt";
         $copiedObject = "mpu/multipart-test.txt.range.copied";
         $this->ossClient->putObject($this->bucket, $copiedObject, file_get_contents(__FILE__));
-        /**
-         *  step 1. 初始化一个分块上传事件, 也就是初始化上传Multipart, 获取upload id
-         */
         try {
             $upload_id = $this->ossClient->initiateMultipartUpload($this->bucket, $object);
         } catch (OssException $e) {
@@ -142,9 +131,6 @@ class OssClientMultipartUploadTest extends TestOssClientBase
             $this->assertTrue(false);
         }
 
-        /**
-         * step 3.
-         */
         try {
             $this->ossClient->completeMultipartUpload($this->bucket, $object, $upload_id, $upload_parts);
         } catch (OssException $e) {
@@ -159,20 +145,14 @@ class OssClientMultipartUploadTest extends TestOssClientBase
     public function testAbortMultipartUpload()
     {
         $object = "mpu/multipart-test.txt";
-        /**
-         *  step 1. 初始化一个分块上传事件, 也就是初始化上传Multipart, 获取upload id
-         */
         try {
             $upload_id = $this->ossClient->initiateMultipartUpload($this->bucket, $object);
         } catch (OssException $e) {
             $this->assertFalse(true);
         }
-        /*
-         * step 2. 上传分片
-         */
         $part_size = 10 * 1024 * 1024;
         $upload_file = __FILE__;
-        $upload_filesize = filesize($upload_file);
+        $upload_filesize = sprintf('%u',filesize($upload_file));
         $pieces = $this->ossClient->generateMultiuploadParts($upload_filesize, $part_size);
         $response_upload_part = array();
         $upload_position = 0;
@@ -244,20 +224,14 @@ class OssClientMultipartUploadTest extends TestOssClientBase
     public function testPutObjectByRawApis()
     {
         $object = "mpu/multipart-test.txt";
-        /**
-         *  step 1. 初始化一个分块上传事件, 也就是初始化上传Multipart, 获取upload id
-         */
         try {
             $upload_id = $this->ossClient->initiateMultipartUpload($this->bucket, $object);
         } catch (OssException $e) {
             $this->assertFalse(true);
         }
-        /*
-         * step 2. 上传分片
-         */
         $part_size = 10 * 1024 * 1024;
         $upload_file = __FILE__;
-        $upload_filesize = filesize($upload_file);
+        $upload_filesize = sprintf('%u',filesize($upload_file));
         $pieces = $this->ossClient->generateMultiuploadParts($upload_filesize, $part_size);
         $response_upload_part = array();
         $upload_position = 0;
@@ -330,6 +304,7 @@ class OssClientMultipartUploadTest extends TestOssClientBase
 
         try {
             $this->ossClient->multiuploadFile($this->bucket, $object, $file, $options);
+            $this->assertFalse(false);
         } catch (OssException $e) {
             $this->assertFalse(true);
         }
@@ -343,6 +318,7 @@ class OssClientMultipartUploadTest extends TestOssClientBase
     
     	try {
     		$this->ossClient->multiuploadFile($this->bucket, $object, $file, $options);
+            $this->assertFalse(false);
     	} catch (OssException $e) {
     		$this->assertFalse(true);
     	}
@@ -385,6 +361,7 @@ class OssClientMultipartUploadTest extends TestOssClientBase
     
     	try {
             $this->ossClient->multiuploadFile($this->bucket, $object, $file);
+            $this->assertTrue(false);
     	} catch (OssException $e) {
             $this->assertTrue(true);
             if (strpos($e, "parameter invalid, file is empty") == false)
@@ -413,11 +390,89 @@ class OssClientMultipartUploadTest extends TestOssClientBase
             $listMultipartUploadInfo = $this->ossClient->completeMultipartUpload($this->bucket, $object, $uploadId, null);
             $this->assertTrue(false);
         } catch (OssException $e) {
-            $this->assertTrue(true);
-            if (strpos($e, "listParts must be array type") == false)
-            {
-                $this->assertTrue(false);
-            }   
+            $this->assertEquals('NoSuchUpload', $e->getErrorCode());
         }
     }
+
+    public function testCompleteMultipartUploadWithEmptyArray(){
+        $object = 'multipart-test-complete.txt';
+        try {
+            $uploadId = $this->ossClient->initiateMultipartUpload($this->bucket, $object);
+            $listMultipartUploadInfo = $this->ossClient->completeMultipartUpload($this->bucket, $object, $uploadId, array());
+            var_dump($listMultipartUploadInfo);
+            $this->assertNotNull($listMultipartUploadInfo);
+        } catch (OssException $e) {
+            $this->assertFalse(true);
+        }
+
+    }
+
+
+    public function testCompleteMultipartUploadWithNull(){
+        $object = "mpu/multipart-test.txt";
+        try {
+            $upload_id = $this->ossClient->initiateMultipartUpload($this->bucket, $object);
+        } catch (OssException $e) {
+            $this->assertFalse(true);
+        }
+
+        $part_size = 5 * 1024 * 1024;
+        $upload_file = __FILE__;
+        $upload_filesize = sprintf('%u',filesize($upload_file));
+        $pieces = $this->ossClient->generateMultiuploadParts($upload_filesize, $part_size);
+        $response_upload_part = array();
+        $upload_position = 0;
+        $is_check_md5 = true;
+        foreach ($pieces as $i => $piece) {
+            $from_pos = $upload_position + (integer)$piece[OssClient::OSS_SEEK_TO];
+            $to_pos = (integer)$piece[OssClient::OSS_LENGTH] + $from_pos - 1;
+            $up_options = array(
+                OssClient::OSS_FILE_UPLOAD => $upload_file,
+                OssClient::OSS_PART_NUM => ($i + 1),
+                OssClient::OSS_SEEK_TO => $from_pos,
+                OssClient::OSS_LENGTH => $to_pos - $from_pos + 1,
+                OssClient::OSS_CHECK_MD5 => $is_check_md5,
+            );
+            if ($is_check_md5) {
+                $content_md5 = OssUtil::getMd5SumForFile($upload_file, $from_pos, $to_pos);
+                $up_options[OssClient::OSS_CONTENT_MD5] = $content_md5;
+            }
+            try {
+                $response_upload_part[] = $this->ossClient->uploadPart($this->bucket, $object, $upload_id, $up_options);
+            } catch (OssException $e) {
+                $this->assertFalse(true);
+            }
+        }
+        $upload_parts = array();
+        foreach ($response_upload_part as $i => $eTag) {
+            $upload_parts[] = array(
+                'PartNumber' => ($i + 1),
+                'ETag' => $eTag,
+            );
+        }
+
+        try {
+            $listPartsInfo = $this->ossClient->listParts($this->bucket, $object, $upload_id);
+            $this->assertNotNull($listPartsInfo);
+        } catch (OssException $e) {
+            $this->assertTrue(false);
+        }
+
+        $options['headers'] = array(
+            'x-oss-forbid-overwrite' => 'false',
+            'x-oss-complete-all'=> 'yes'
+        );
+
+        try {
+            $result = $this->ossClient->completeMultipartUpload($this->bucket, $object, $upload_id, null,$options);
+            var_dump($result);
+            $this->assertNotNull($result);
+        } catch (OssException $e) {
+            $this->assertTrue(false);
+        }
+
+    }
+
+
+
 }

@@ -28,12 +28,12 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
     * Gets the certificateValidityPeriodScale
     * Scale for the Certificate Validity Period. Possible values are: days, months, years.
     *
-    * @return CertificateValidityPeriodScale The certificateValidityPeriodScale
+    * @return CertificateValidityPeriodScale|null The certificateValidityPeriodScale
     */
     public function getCertificateValidityPeriodScale()
     {
         if (array_key_exists("certificateValidityPeriodScale", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale")) {
+            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale") || is_null($this->_propDict["certificateValidityPeriodScale"])) {
                 return $this->_propDict["certificateValidityPeriodScale"];
             } else {
                 $this->_propDict["certificateValidityPeriodScale"] = new CertificateValidityPeriodScale($this->_propDict["certificateValidityPeriodScale"]);
@@ -42,7 +42,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the certificateValidityPeriodScale
     * Scale for the Certificate Validity Period. Possible values are: days, months, years.
@@ -56,12 +56,12 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["certificateValidityPeriodScale"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the certificateValidityPeriodValue
     * Value for the Certificate Validtiy Period.
     *
-    * @return int The certificateValidityPeriodValue
+    * @return int|null The certificateValidityPeriodValue
     */
     public function getCertificateValidityPeriodValue()
     {
@@ -71,7 +71,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the certificateValidityPeriodValue
     * Value for the Certificate Validtiy Period.
@@ -85,13 +85,13 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["certificateValidityPeriodValue"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *
-     * @return array The extendedKeyUsages
+     * @return array|null The extendedKeyUsages
      */
     public function getExtendedKeyUsages()
     {
@@ -101,31 +101,31 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
     *
-    * @param ExtendedKeyUsage $val The extendedKeyUsages
+    * @param ExtendedKeyUsage[] $val The extendedKeyUsages
     *
     * @return WindowsPhone81CertificateProfileBase
     */
     public function setExtendedKeyUsages($val)
     {
-		$this->_propDict["extendedKeyUsages"] = $val;
+        $this->_propDict["extendedKeyUsages"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the keyStorageProvider
     * Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
     *
-    * @return KeyStorageProviderOption The keyStorageProvider
+    * @return KeyStorageProviderOption|null The keyStorageProvider
     */
     public function getKeyStorageProvider()
     {
         if (array_key_exists("keyStorageProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption")) {
+            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption") || is_null($this->_propDict["keyStorageProvider"])) {
                 return $this->_propDict["keyStorageProvider"];
             } else {
                 $this->_propDict["keyStorageProvider"] = new KeyStorageProviderOption($this->_propDict["keyStorageProvider"]);
@@ -134,7 +134,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the keyStorageProvider
     * Key Storage Provider (KSP). Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
@@ -148,12 +148,12 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["keyStorageProvider"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the renewalThresholdPercentage
     * Certificate renewal threshold percentage.
     *
-    * @return int The renewalThresholdPercentage
+    * @return int|null The renewalThresholdPercentage
     */
     public function getRenewalThresholdPercentage()
     {
@@ -163,7 +163,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the renewalThresholdPercentage
     * Certificate renewal threshold percentage.
@@ -177,17 +177,17 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["renewalThresholdPercentage"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the subjectAlternativeNameType
     * Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
     *
-    * @return SubjectAlternativeNameType The subjectAlternativeNameType
+    * @return SubjectAlternativeNameType|null The subjectAlternativeNameType
     */
     public function getSubjectAlternativeNameType()
     {
         if (array_key_exists("subjectAlternativeNameType", $this->_propDict)) {
-            if (is_a($this->_propDict["subjectAlternativeNameType"], "\Beta\Microsoft\Graph\Model\SubjectAlternativeNameType")) {
+            if (is_a($this->_propDict["subjectAlternativeNameType"], "\Beta\Microsoft\Graph\Model\SubjectAlternativeNameType") || is_null($this->_propDict["subjectAlternativeNameType"])) {
                 return $this->_propDict["subjectAlternativeNameType"];
             } else {
                 $this->_propDict["subjectAlternativeNameType"] = new SubjectAlternativeNameType($this->_propDict["subjectAlternativeNameType"]);
@@ -196,7 +196,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the subjectAlternativeNameType
     * Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
@@ -210,17 +210,17 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["subjectAlternativeNameType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subjectNameFormat
     * Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
     *
-    * @return SubjectNameFormat The subjectNameFormat
+    * @return SubjectNameFormat|null The subjectNameFormat
     */
     public function getSubjectNameFormat()
     {
         if (array_key_exists("subjectNameFormat", $this->_propDict)) {
-            if (is_a($this->_propDict["subjectNameFormat"], "\Beta\Microsoft\Graph\Model\SubjectNameFormat")) {
+            if (is_a($this->_propDict["subjectNameFormat"], "\Beta\Microsoft\Graph\Model\SubjectNameFormat") || is_null($this->_propDict["subjectNameFormat"])) {
                 return $this->_propDict["subjectNameFormat"];
             } else {
                 $this->_propDict["subjectNameFormat"] = new SubjectNameFormat($this->_propDict["subjectNameFormat"]);
@@ -229,7 +229,7 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the subjectNameFormat
     * Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
@@ -243,5 +243,5 @@ class WindowsPhone81CertificateProfileBase extends DeviceConfiguration
         $this->_propDict["subjectNameFormat"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class MetricTimeSeriesDataPoint extends Entity
     * Gets the dateTime
     * Time of the metric time series data point
     *
-    * @return \DateTime The dateTime
+    * @return \DateTime|null The dateTime
     */
     public function getDateTime()
     {
         if (array_key_exists("dateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["dateTime"], "\DateTime") || is_null($this->_propDict["dateTime"])) {
                 return $this->_propDict["dateTime"];
             } else {
                 $this->_propDict["dateTime"] = new \DateTime($this->_propDict["dateTime"]);
@@ -60,7 +60,7 @@ class MetricTimeSeriesDataPoint extends Entity
     * Gets the value
     * Value of the metric time series data point
     *
-    * @return int The value
+    * @return int|null The value
     */
     public function getValue()
     {

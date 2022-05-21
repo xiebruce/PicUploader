@@ -27,7 +27,7 @@ class VppLicensingType extends Entity
     * Gets the supportsDeviceLicensing
     * Whether the program supports the device licensing type.
     *
-    * @return bool The supportsDeviceLicensing
+    * @return bool|null The supportsDeviceLicensing
     */
     public function getSupportsDeviceLicensing()
     {
@@ -55,7 +55,7 @@ class VppLicensingType extends Entity
     * Gets the supportsUserLicensing
     * Whether the program supports the user licensing type.
     *
-    * @return bool The supportsUserLicensing
+    * @return bool|null The supportsUserLicensing
     */
     public function getSupportsUserLicensing()
     {

@@ -27,7 +27,7 @@ class ApprovalStage extends Entity
     * Gets the approvalStageTimeOutInDays
     * The number of days that a request can be pending a response before it is automatically denied.
     *
-    * @return int The approvalStageTimeOutInDays
+    * @return int|null The approvalStageTimeOutInDays
     */
     public function getApprovalStageTimeOutInDays()
     {
@@ -54,14 +54,14 @@ class ApprovalStage extends Entity
 
     /**
     * Gets the escalationApprovers
-    * If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
+    * If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers are not required for the stage, the value of this property should be an empty collection.
     *
-    * @return UserSet The escalationApprovers
+    * @return UserSet|null The escalationApprovers
     */
     public function getEscalationApprovers()
     {
         if (array_key_exists("escalationApprovers", $this->_propDict)) {
-            if (is_a($this->_propDict["escalationApprovers"], "\Beta\Microsoft\Graph\Model\UserSet")) {
+            if (is_a($this->_propDict["escalationApprovers"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["escalationApprovers"])) {
                 return $this->_propDict["escalationApprovers"];
             } else {
                 $this->_propDict["escalationApprovers"] = new UserSet($this->_propDict["escalationApprovers"]);
@@ -73,7 +73,7 @@ class ApprovalStage extends Entity
 
     /**
     * Sets the escalationApprovers
-    * If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
+    * If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. This can be a collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.  When creating or updating a policy, if there are no escalation approvers, or escalation approvers are not required for the stage, the value of this property should be an empty collection.
     *
     * @param UserSet $val The value to assign to the escalationApprovers
     *
@@ -88,7 +88,7 @@ class ApprovalStage extends Entity
     * Gets the escalationTimeInMinutes
     * If escalation is required, the time a request can be pending a response from a primary approver.
     *
-    * @return int The escalationTimeInMinutes
+    * @return int|null The escalationTimeInMinutes
     */
     public function getEscalationTimeInMinutes()
     {
@@ -116,7 +116,7 @@ class ApprovalStage extends Entity
     * Gets the isApproverJustificationRequired
     * Indicates whether the approver is required to provide a justification for approving a request.
     *
-    * @return bool The isApproverJustificationRequired
+    * @return bool|null The isApproverJustificationRequired
     */
     public function getIsApproverJustificationRequired()
     {
@@ -144,7 +144,7 @@ class ApprovalStage extends Entity
     * Gets the isEscalationEnabled
     * If true, then one or more escalation approvers are configured in this approval stage.
     *
-    * @return bool The isEscalationEnabled
+    * @return bool|null The isEscalationEnabled
     */
     public function getIsEscalationEnabled()
     {
@@ -171,14 +171,14 @@ class ApprovalStage extends Entity
 
     /**
     * Gets the primaryApprovers
-    * The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
+    * The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection.
     *
-    * @return UserSet The primaryApprovers
+    * @return UserSet|null The primaryApprovers
     */
     public function getPrimaryApprovers()
     {
         if (array_key_exists("primaryApprovers", $this->_propDict)) {
-            if (is_a($this->_propDict["primaryApprovers"], "\Beta\Microsoft\Graph\Model\UserSet")) {
+            if (is_a($this->_propDict["primaryApprovers"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["primaryApprovers"])) {
                 return $this->_propDict["primaryApprovers"];
             } else {
                 $this->_propDict["primaryApprovers"] = new UserSet($this->_propDict["primaryApprovers"]);
@@ -190,7 +190,7 @@ class ApprovalStage extends Entity
 
     /**
     * Sets the primaryApprovers
-    * The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors.
+    * The users who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors and externalSponsors. When creating or updating a policy, include at least one userSet in this collection.
     *
     * @param UserSet $val The value to assign to the primaryApprovers
     *

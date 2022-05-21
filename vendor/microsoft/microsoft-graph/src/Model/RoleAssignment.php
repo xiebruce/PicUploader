@@ -28,7 +28,7 @@ class RoleAssignment extends Entity
     * Gets the description
     * Description of the Role Assignment.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the Role Assignment.
@@ -52,12 +52,12 @@ class RoleAssignment extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display or friendly name of the role Assignment.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display or friendly name of the role Assignment.
@@ -81,12 +81,12 @@ class RoleAssignment extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceScopes
     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
     *
-    * @return string The resourceScopes
+    * @return string|null The resourceScopes
     */
     public function getResourceScopes()
     {
@@ -96,7 +96,7 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the resourceScopes
     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
@@ -110,17 +110,17 @@ class RoleAssignment extends Entity
         $this->_propDict["resourceScopes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the roleDefinition
     * Role definition this assignment is part of.
     *
-    * @return RoleDefinition The roleDefinition
+    * @return RoleDefinition|null The roleDefinition
     */
     public function getRoleDefinition()
     {
         if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Microsoft\Graph\Model\RoleDefinition")) {
+            if (is_a($this->_propDict["roleDefinition"], "\Microsoft\Graph\Model\RoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new RoleDefinition($this->_propDict["roleDefinition"]);
@@ -129,7 +129,7 @@ class RoleAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the roleDefinition
     * Role definition this assignment is part of.
@@ -143,5 +143,5 @@ class RoleAssignment extends Entity
         $this->_propDict["roleDefinition"] = $val;
         return $this;
     }
-    
+
 }

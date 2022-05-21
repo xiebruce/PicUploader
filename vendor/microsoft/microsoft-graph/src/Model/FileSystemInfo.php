@@ -28,12 +28,12 @@ class FileSystemInfo extends Entity
     * Gets the createdDateTime
     * The UTC date and time the file was created on a client.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -61,12 +61,12 @@ class FileSystemInfo extends Entity
     * Gets the lastAccessedDateTime
     * The UTC date and time the file was last accessed. Available for the recent file list only.
     *
-    * @return \DateTime The lastAccessedDateTime
+    * @return \DateTime|null The lastAccessedDateTime
     */
     public function getLastAccessedDateTime()
     {
         if (array_key_exists("lastAccessedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAccessedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastAccessedDateTime"], "\DateTime") || is_null($this->_propDict["lastAccessedDateTime"])) {
                 return $this->_propDict["lastAccessedDateTime"];
             } else {
                 $this->_propDict["lastAccessedDateTime"] = new \DateTime($this->_propDict["lastAccessedDateTime"]);
@@ -94,12 +94,12 @@ class FileSystemInfo extends Entity
     * Gets the lastModifiedDateTime
     * The UTC date and time the file was last modified on a client.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);

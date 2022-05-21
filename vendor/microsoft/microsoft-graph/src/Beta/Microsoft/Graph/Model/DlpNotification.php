@@ -26,7 +26,7 @@ class DlpNotification extends Entity
     /**
     * Gets the author
     *
-    * @return string The author
+    * @return string|null The author
     */
     public function getAuthor()
     {

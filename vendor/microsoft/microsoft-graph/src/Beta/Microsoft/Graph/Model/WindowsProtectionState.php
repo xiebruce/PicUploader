@@ -28,7 +28,7 @@ class WindowsProtectionState extends Entity
     * Gets the antiMalwareVersion
     * Current anti malware version
     *
-    * @return string The antiMalwareVersion
+    * @return string|null The antiMalwareVersion
     */
     public function getAntiMalwareVersion()
     {
@@ -38,7 +38,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the antiMalwareVersion
     * Current anti malware version
@@ -52,17 +52,17 @@ class WindowsProtectionState extends Entity
         $this->_propDict["antiMalwareVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceState
     * Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
     *
-    * @return WindowsDeviceHealthState The deviceState
+    * @return WindowsDeviceHealthState|null The deviceState
     */
     public function getDeviceState()
     {
         if (array_key_exists("deviceState", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceState"], "\Beta\Microsoft\Graph\Model\WindowsDeviceHealthState")) {
+            if (is_a($this->_propDict["deviceState"], "\Beta\Microsoft\Graph\Model\WindowsDeviceHealthState") || is_null($this->_propDict["deviceState"])) {
                 return $this->_propDict["deviceState"];
             } else {
                 $this->_propDict["deviceState"] = new WindowsDeviceHealthState($this->_propDict["deviceState"]);
@@ -71,7 +71,7 @@ class WindowsProtectionState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceState
     * Computer's state (like clean or pending full scan or pending reboot etc). Possible values are: clean, fullScanPending, rebootPending, manualStepsPending, offlineScanPending, critical.
@@ -85,12 +85,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["deviceState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the engineVersion
     * Current endpoint protection engine's version
     *
-    * @return string The engineVersion
+    * @return string|null The engineVersion
     */
     public function getEngineVersion()
     {
@@ -100,7 +100,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the engineVersion
     * Current endpoint protection engine's version
@@ -114,12 +114,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["engineVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fullScanOverdue
     * Full scan overdue or not?
     *
-    * @return bool The fullScanOverdue
+    * @return bool|null The fullScanOverdue
     */
     public function getFullScanOverdue()
     {
@@ -129,7 +129,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the fullScanOverdue
     * Full scan overdue or not?
@@ -143,12 +143,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["fullScanOverdue"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the fullScanRequired
     * Full scan required or not?
     *
-    * @return bool The fullScanRequired
+    * @return bool|null The fullScanRequired
     */
     public function getFullScanRequired()
     {
@@ -158,7 +158,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the fullScanRequired
     * Full scan required or not?
@@ -172,12 +172,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["fullScanRequired"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isVirtualMachine
     * Indicates whether the device is a virtual machine.
     *
-    * @return bool The isVirtualMachine
+    * @return bool|null The isVirtualMachine
     */
     public function getIsVirtualMachine()
     {
@@ -187,7 +187,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isVirtualMachine
     * Indicates whether the device is a virtual machine.
@@ -201,17 +201,17 @@ class WindowsProtectionState extends Entity
         $this->_propDict["isVirtualMachine"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastFullScanDateTime
     * Last quick scan datetime
     *
-    * @return \DateTime The lastFullScanDateTime
+    * @return \DateTime|null The lastFullScanDateTime
     */
     public function getLastFullScanDateTime()
     {
         if (array_key_exists("lastFullScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastFullScanDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastFullScanDateTime"], "\DateTime") || is_null($this->_propDict["lastFullScanDateTime"])) {
                 return $this->_propDict["lastFullScanDateTime"];
             } else {
                 $this->_propDict["lastFullScanDateTime"] = new \DateTime($this->_propDict["lastFullScanDateTime"]);
@@ -220,7 +220,7 @@ class WindowsProtectionState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastFullScanDateTime
     * Last quick scan datetime
@@ -234,12 +234,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["lastFullScanDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastFullScanSignatureVersion
     * Last full scan signature version
     *
-    * @return string The lastFullScanSignatureVersion
+    * @return string|null The lastFullScanSignatureVersion
     */
     public function getLastFullScanSignatureVersion()
     {
@@ -249,7 +249,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the lastFullScanSignatureVersion
     * Last full scan signature version
@@ -263,17 +263,17 @@ class WindowsProtectionState extends Entity
         $this->_propDict["lastFullScanSignatureVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastQuickScanDateTime
     * Last quick scan datetime
     *
-    * @return \DateTime The lastQuickScanDateTime
+    * @return \DateTime|null The lastQuickScanDateTime
     */
     public function getLastQuickScanDateTime()
     {
         if (array_key_exists("lastQuickScanDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastQuickScanDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastQuickScanDateTime"], "\DateTime") || is_null($this->_propDict["lastQuickScanDateTime"])) {
                 return $this->_propDict["lastQuickScanDateTime"];
             } else {
                 $this->_propDict["lastQuickScanDateTime"] = new \DateTime($this->_propDict["lastQuickScanDateTime"]);
@@ -282,7 +282,7 @@ class WindowsProtectionState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastQuickScanDateTime
     * Last quick scan datetime
@@ -296,12 +296,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["lastQuickScanDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastQuickScanSignatureVersion
     * Last quick scan signature version
     *
-    * @return string The lastQuickScanSignatureVersion
+    * @return string|null The lastQuickScanSignatureVersion
     */
     public function getLastQuickScanSignatureVersion()
     {
@@ -311,7 +311,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the lastQuickScanSignatureVersion
     * Last quick scan signature version
@@ -325,17 +325,17 @@ class WindowsProtectionState extends Entity
         $this->_propDict["lastQuickScanSignatureVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastReportedDateTime
     * Last device health status reported time
     *
-    * @return \DateTime The lastReportedDateTime
+    * @return \DateTime|null The lastReportedDateTime
     */
     public function getLastReportedDateTime()
     {
         if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -344,7 +344,7 @@ class WindowsProtectionState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastReportedDateTime
     * Last device health status reported time
@@ -358,12 +358,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["lastReportedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the malwareProtectionEnabled
     * Anti malware is enabled or not
     *
-    * @return bool The malwareProtectionEnabled
+    * @return bool|null The malwareProtectionEnabled
     */
     public function getMalwareProtectionEnabled()
     {
@@ -373,7 +373,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the malwareProtectionEnabled
     * Anti malware is enabled or not
@@ -387,12 +387,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["malwareProtectionEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the networkInspectionSystemEnabled
     * Network inspection system enabled or not?
     *
-    * @return bool The networkInspectionSystemEnabled
+    * @return bool|null The networkInspectionSystemEnabled
     */
     public function getNetworkInspectionSystemEnabled()
     {
@@ -402,7 +402,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the networkInspectionSystemEnabled
     * Network inspection system enabled or not?
@@ -416,17 +416,17 @@ class WindowsProtectionState extends Entity
         $this->_propDict["networkInspectionSystemEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the productStatus
     * Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
     *
-    * @return WindowsDefenderProductStatus The productStatus
+    * @return WindowsDefenderProductStatus|null The productStatus
     */
     public function getProductStatus()
     {
         if (array_key_exists("productStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["productStatus"], "\Beta\Microsoft\Graph\Model\WindowsDefenderProductStatus")) {
+            if (is_a($this->_propDict["productStatus"], "\Beta\Microsoft\Graph\Model\WindowsDefenderProductStatus") || is_null($this->_propDict["productStatus"])) {
                 return $this->_propDict["productStatus"];
             } else {
                 $this->_propDict["productStatus"] = new WindowsDefenderProductStatus($this->_propDict["productStatus"]);
@@ -435,7 +435,7 @@ class WindowsProtectionState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the productStatus
     * Product Status of Windows Defender Antivirus. Possible values are: noStatus, serviceNotRunning, serviceStartedWithoutMalwareProtection, pendingFullScanDueToThreatAction, pendingRebootDueToThreatAction, pendingManualStepsDueToThreatAction, avSignaturesOutOfDate, asSignaturesOutOfDate, noQuickScanHappenedForSpecifiedPeriod, noFullScanHappenedForSpecifiedPeriod, systemInitiatedScanInProgress, systemInitiatedCleanInProgress, samplesPendingSubmission, productRunningInEvaluationMode, productRunningInNonGenuineMode, productExpired, offlineScanRequired, serviceShutdownAsPartOfSystemShutdown, threatRemediationFailedCritically, threatRemediationFailedNonCritically, noStatusFlagsSet, platformOutOfDate, platformUpdateInProgress, platformAboutToBeOutdated, signatureOrPlatformEndOfLifeIsPastOrIsImpending, windowsSModeSignaturesInUseOnNonWin10SInstall.
@@ -449,12 +449,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["productStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the quickScanOverdue
     * Quick scan overdue or not?
     *
-    * @return bool The quickScanOverdue
+    * @return bool|null The quickScanOverdue
     */
     public function getQuickScanOverdue()
     {
@@ -464,7 +464,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the quickScanOverdue
     * Quick scan overdue or not?
@@ -478,12 +478,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["quickScanOverdue"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the realTimeProtectionEnabled
     * Real time protection is enabled or not?
     *
-    * @return bool The realTimeProtectionEnabled
+    * @return bool|null The realTimeProtectionEnabled
     */
     public function getRealTimeProtectionEnabled()
     {
@@ -493,7 +493,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the realTimeProtectionEnabled
     * Real time protection is enabled or not?
@@ -507,12 +507,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["realTimeProtectionEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the rebootRequired
     * Reboot required or not?
     *
-    * @return bool The rebootRequired
+    * @return bool|null The rebootRequired
     */
     public function getRebootRequired()
     {
@@ -522,7 +522,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the rebootRequired
     * Reboot required or not?
@@ -536,12 +536,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["rebootRequired"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the signatureUpdateOverdue
     * Signature out of date or not?
     *
-    * @return bool The signatureUpdateOverdue
+    * @return bool|null The signatureUpdateOverdue
     */
     public function getSignatureUpdateOverdue()
     {
@@ -551,7 +551,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the signatureUpdateOverdue
     * Signature out of date or not?
@@ -565,12 +565,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["signatureUpdateOverdue"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the signatureVersion
     * Current malware definitions version
     *
-    * @return string The signatureVersion
+    * @return string|null The signatureVersion
     */
     public function getSignatureVersion()
     {
@@ -580,7 +580,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the signatureVersion
     * Current malware definitions version
@@ -594,12 +594,12 @@ class WindowsProtectionState extends Entity
         $this->_propDict["signatureVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tamperProtectionEnabled
     * Indicates whether the Windows Defender tamper protection feature is enabled.
     *
-    * @return bool The tamperProtectionEnabled
+    * @return bool|null The tamperProtectionEnabled
     */
     public function getTamperProtectionEnabled()
     {
@@ -609,7 +609,7 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the tamperProtectionEnabled
     * Indicates whether the Windows Defender tamper protection feature is enabled.
@@ -623,13 +623,13 @@ class WindowsProtectionState extends Entity
         $this->_propDict["tamperProtectionEnabled"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the detectedMalwareState
     * Device malware list
      *
-     * @return array The detectedMalwareState
+     * @return array|null The detectedMalwareState
      */
     public function getDetectedMalwareState()
     {
@@ -639,19 +639,19 @@ class WindowsProtectionState extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the detectedMalwareState
     * Device malware list
     *
-    * @param WindowsDeviceMalwareState $val The detectedMalwareState
+    * @param WindowsDeviceMalwareState[] $val The detectedMalwareState
     *
     * @return WindowsProtectionState
     */
     public function setDetectedMalwareState($val)
     {
-		$this->_propDict["detectedMalwareState"] = $val;
+        $this->_propDict["detectedMalwareState"] = $val;
         return $this;
     }
-    
+
 }

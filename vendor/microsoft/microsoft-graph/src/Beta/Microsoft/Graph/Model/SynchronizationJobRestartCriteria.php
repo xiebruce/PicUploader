@@ -28,12 +28,12 @@ class SynchronizationJobRestartCriteria extends Entity
     * Gets the resetScope
     * Comma-separated combination of the following values: Full, QuarantineState, Watermark, Escrows, ConnectorDataStore. Use Full if you want all of the options.
     *
-    * @return SynchronizationJobRestartScope The resetScope
+    * @return SynchronizationJobRestartScope|null The resetScope
     */
     public function getResetScope()
     {
         if (array_key_exists("resetScope", $this->_propDict)) {
-            if (is_a($this->_propDict["resetScope"], "\Beta\Microsoft\Graph\Model\SynchronizationJobRestartScope")) {
+            if (is_a($this->_propDict["resetScope"], "\Beta\Microsoft\Graph\Model\SynchronizationJobRestartScope") || is_null($this->_propDict["resetScope"])) {
                 return $this->_propDict["resetScope"];
             } else {
                 $this->_propDict["resetScope"] = new SynchronizationJobRestartScope($this->_propDict["resetScope"]);

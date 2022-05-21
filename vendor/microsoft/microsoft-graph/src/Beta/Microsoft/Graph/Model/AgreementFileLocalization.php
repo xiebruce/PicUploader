@@ -25,10 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class AgreementFileLocalization extends AgreementFileProperties
 {
 
-     /** 
+     /**
      * Gets the versions
+    * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
      *
-     * @return array The versions
+     * @return array|null The versions
      */
     public function getVersions()
     {
@@ -38,18 +39,19 @@ class AgreementFileLocalization extends AgreementFileProperties
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the versions
+    * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
     *
-    * @param AgreementFileVersion $val The versions
+    * @param AgreementFileVersion[] $val The versions
     *
     * @return AgreementFileLocalization
     */
     public function setVersions($val)
     {
-		$this->_propDict["versions"] = $val;
+        $this->_propDict["versions"] = $val;
         return $this;
     }
-    
+
 }

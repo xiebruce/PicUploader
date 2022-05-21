@@ -27,7 +27,7 @@ class WindowsDeviceADAccount extends WindowsDeviceAccount
     * Gets the domainName
     * Not yet documented
     *
-    * @return string The domainName
+    * @return string|null The domainName
     */
     public function getDomainName()
     {
@@ -55,7 +55,7 @@ class WindowsDeviceADAccount extends WindowsDeviceAccount
     * Gets the userName
     * Not yet documented
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {

@@ -32,4 +32,7 @@ class WindowsAutopilotDeviceType extends Enum
     const WINDOWS_PC = "windowsPc";
     const SURFACE_HUB2 = "surfaceHub2";
     const HOLO_LENS = "holoLens";
+    const SURFACE_HUB2_S = "surfaceHub2S";
+    const VIRTUAL_MACHINE = "virtualMachine";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

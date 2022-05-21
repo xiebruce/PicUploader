@@ -25,10 +25,10 @@ namespace Microsoft\Graph\Model;
 class AppCatalogs extends Entity
 {
 
-     /** 
+     /**
      * Gets the teamsApps
      *
-     * @return array The teamsApps
+     * @return array|null The teamsApps
      */
     public function getTeamsApps()
     {
@@ -38,18 +38,18 @@ class AppCatalogs extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the teamsApps
     *
-    * @param TeamsApp $val The teamsApps
+    * @param TeamsApp[] $val The teamsApps
     *
     * @return AppCatalogs
     */
     public function setTeamsApps($val)
     {
-		$this->_propDict["teamsApps"] = $val;
+        $this->_propDict["teamsApps"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class RecordingInfo extends Entity
     * Gets the initiator
     * The identities of recording initiator.
     *
-    * @return IdentitySet The initiator
+    * @return IdentitySet|null The initiator
     */
     public function getInitiator()
     {
         if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["initiator"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -61,12 +61,12 @@ class RecordingInfo extends Entity
     * Gets the recordingStatus
     * Possible values are: unknown, notRecording, recording, or failed.
     *
-    * @return RecordingStatus The recordingStatus
+    * @return RecordingStatus|null The recordingStatus
     */
     public function getRecordingStatus()
     {
         if (array_key_exists("recordingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["recordingStatus"], "\Microsoft\Graph\Model\RecordingStatus")) {
+            if (is_a($this->_propDict["recordingStatus"], "\Microsoft\Graph\Model\RecordingStatus") || is_null($this->_propDict["recordingStatus"])) {
                 return $this->_propDict["recordingStatus"];
             } else {
                 $this->_propDict["recordingStatus"] = new RecordingStatus($this->_propDict["recordingStatus"]);

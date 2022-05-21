@@ -26,9 +26,11 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deliveryOptimizationBandwidthHoursWithPercentage");
     }
 
@@ -37,12 +39,12 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     * Gets the bandwidthBackgroundPercentageHours
     * Background download percentage hours.
     *
-    * @return DeliveryOptimizationBandwidthBusinessHoursLimit The bandwidthBackgroundPercentageHours
+    * @return DeliveryOptimizationBandwidthBusinessHoursLimit|null The bandwidthBackgroundPercentageHours
     */
     public function getBandwidthBackgroundPercentageHours()
     {
         if (array_key_exists("bandwidthBackgroundPercentageHours", $this->_propDict)) {
-            if (is_a($this->_propDict["bandwidthBackgroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit")) {
+            if (is_a($this->_propDict["bandwidthBackgroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit") || is_null($this->_propDict["bandwidthBackgroundPercentageHours"])) {
                 return $this->_propDict["bandwidthBackgroundPercentageHours"];
             } else {
                 $this->_propDict["bandwidthBackgroundPercentageHours"] = new DeliveryOptimizationBandwidthBusinessHoursLimit($this->_propDict["bandwidthBackgroundPercentageHours"]);
@@ -70,12 +72,12 @@ class DeliveryOptimizationBandwidthHoursWithPercentage extends DeliveryOptimizat
     * Gets the bandwidthForegroundPercentageHours
     * Foreground download percentage hours.
     *
-    * @return DeliveryOptimizationBandwidthBusinessHoursLimit The bandwidthForegroundPercentageHours
+    * @return DeliveryOptimizationBandwidthBusinessHoursLimit|null The bandwidthForegroundPercentageHours
     */
     public function getBandwidthForegroundPercentageHours()
     {
         if (array_key_exists("bandwidthForegroundPercentageHours", $this->_propDict)) {
-            if (is_a($this->_propDict["bandwidthForegroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit")) {
+            if (is_a($this->_propDict["bandwidthForegroundPercentageHours"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationBandwidthBusinessHoursLimit") || is_null($this->_propDict["bandwidthForegroundPercentageHours"])) {
                 return $this->_propDict["bandwidthForegroundPercentageHours"];
             } else {
                 $this->_propDict["bandwidthForegroundPercentageHours"] = new DeliveryOptimizationBandwidthBusinessHoursLimit($this->_propDict["bandwidthForegroundPercentageHours"]);

@@ -63,6 +63,9 @@ class SynchronizationSecret extends Enum
     const OAUTH2_AUTHORIZATION_CODE = "oauth2AuthorizationCode";
     const OAUTH2_REDIRECT_URI = "oauth2RedirectUri";
     const APPLICATION_TEMPLATE_IDENTIFIER = "applicationTemplateIdentifier";
+    const OAUTH2_TOKEN_EXCHANGE_URI = "oauth2TokenExchangeUri";
+    const OAUTH2_AUTHORIZATION_URI = "oauth2AuthorizationUri";
+    const AUTHENTICATION_TYPE = "authenticationType";
     const SERVER = "server";
     const PERFORM_INBOUND_ENTITLEMENT_GRANTS = "performInboundEntitlementGrants";
     const HARD_DELETES_ENABLED = "hardDeletesEnabled";
@@ -70,4 +73,5 @@ class SynchronizationSecret extends Enum
     const SYNC_AGENT_AD_CONTAINER = "syncAgentADContainer";
     const VALIDATE_DOMAIN = "validateDomain";
     const TEST_REFERENCES = "testReferences";
+    const CONNECTION_STRING = "connectionString";
 }

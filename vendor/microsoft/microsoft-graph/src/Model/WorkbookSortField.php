@@ -27,7 +27,7 @@ class WorkbookSortField extends Entity
     * Gets the ascending
     * Represents whether the sorting is done in an ascending fashion.
     *
-    * @return bool The ascending
+    * @return bool|null The ascending
     */
     public function getAscending()
     {
@@ -55,7 +55,7 @@ class WorkbookSortField extends Entity
     * Gets the color
     * Represents the color that is the target of the condition if the sorting is on font or cell color.
     *
-    * @return string The color
+    * @return string|null The color
     */
     public function getColor()
     {
@@ -83,7 +83,7 @@ class WorkbookSortField extends Entity
     * Gets the dataOption
     * Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
     *
-    * @return string The dataOption
+    * @return string|null The dataOption
     */
     public function getDataOption()
     {
@@ -112,12 +112,12 @@ class WorkbookSortField extends Entity
     * Gets the icon
     * Represents the icon that is the target of the condition if the sorting is on the cell's icon.
     *
-    * @return WorkbookIcon The icon
+    * @return WorkbookIcon|null The icon
     */
     public function getIcon()
     {
         if (array_key_exists("icon", $this->_propDict)) {
-            if (is_a($this->_propDict["icon"], "\Microsoft\Graph\Model\WorkbookIcon")) {
+            if (is_a($this->_propDict["icon"], "\Microsoft\Graph\Model\WorkbookIcon") || is_null($this->_propDict["icon"])) {
                 return $this->_propDict["icon"];
             } else {
                 $this->_propDict["icon"] = new WorkbookIcon($this->_propDict["icon"]);
@@ -144,7 +144,7 @@ class WorkbookSortField extends Entity
     * Gets the key
     * Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row).
     *
-    * @return int The key
+    * @return int|null The key
     */
     public function getKey()
     {
@@ -172,7 +172,7 @@ class WorkbookSortField extends Entity
     * Gets the sortOn
     * Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
     *
-    * @return string The sortOn
+    * @return string|null The sortOn
     */
     public function getSortOn()
     {

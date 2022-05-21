@@ -27,12 +27,12 @@ class DlpEvaluationInput extends Entity
     /**
     * Gets the accessScope
     *
-    * @return AccessScope The accessScope
+    * @return AccessScope|null The accessScope
     */
     public function getAccessScope()
     {
         if (array_key_exists("accessScope", $this->_propDict)) {
-            if (is_a($this->_propDict["accessScope"], "\Beta\Microsoft\Graph\Model\AccessScope")) {
+            if (is_a($this->_propDict["accessScope"], "\Beta\Microsoft\Graph\Model\AccessScope") || is_null($this->_propDict["accessScope"])) {
                 return $this->_propDict["accessScope"];
             } else {
                 $this->_propDict["accessScope"] = new AccessScope($this->_propDict["accessScope"]);
@@ -58,12 +58,12 @@ class DlpEvaluationInput extends Entity
     /**
     * Gets the currentLabel
     *
-    * @return CurrentLabel The currentLabel
+    * @return CurrentLabel|null The currentLabel
     */
     public function getCurrentLabel()
     {
         if (array_key_exists("currentLabel", $this->_propDict)) {
-            if (is_a($this->_propDict["currentLabel"], "\Beta\Microsoft\Graph\Model\CurrentLabel")) {
+            if (is_a($this->_propDict["currentLabel"], "\Beta\Microsoft\Graph\Model\CurrentLabel") || is_null($this->_propDict["currentLabel"])) {
                 return $this->_propDict["currentLabel"];
             } else {
                 $this->_propDict["currentLabel"] = new CurrentLabel($this->_propDict["currentLabel"]);
@@ -89,12 +89,12 @@ class DlpEvaluationInput extends Entity
     /**
     * Gets the discoveredSensitiveTypes
     *
-    * @return DiscoveredSensitiveType The discoveredSensitiveTypes
+    * @return DiscoveredSensitiveType|null The discoveredSensitiveTypes
     */
     public function getDiscoveredSensitiveTypes()
     {
         if (array_key_exists("discoveredSensitiveTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["discoveredSensitiveTypes"], "\Beta\Microsoft\Graph\Model\DiscoveredSensitiveType")) {
+            if (is_a($this->_propDict["discoveredSensitiveTypes"], "\Beta\Microsoft\Graph\Model\DiscoveredSensitiveType") || is_null($this->_propDict["discoveredSensitiveTypes"])) {
                 return $this->_propDict["discoveredSensitiveTypes"];
             } else {
                 $this->_propDict["discoveredSensitiveTypes"] = new DiscoveredSensitiveType($this->_propDict["discoveredSensitiveTypes"]);

@@ -26,9 +26,11 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppPowerShellScriptRule");
     }
 
@@ -36,7 +38,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the comparisonValue
     * The script output comparison value. Do not specify a value if the rule is used for detection.
     *
-    * @return string The comparisonValue
+    * @return string|null The comparisonValue
     */
     public function getComparisonValue()
     {
@@ -64,7 +66,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the displayName
     * The display name for the rule. Do not specify this value if the rule is used for detection.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -92,7 +94,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the enforceSignatureCheck
     * A value indicating whether a signature check is enforced.
     *
-    * @return bool The enforceSignatureCheck
+    * @return bool|null The enforceSignatureCheck
     */
     public function getEnforceSignatureCheck()
     {
@@ -121,12 +123,12 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the operationType
     * The script output comparison operation type. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, string, dateTime, integer, float, version, boolean.
     *
-    * @return Win32LobAppPowerShellScriptRuleOperationType The operationType
+    * @return Win32LobAppPowerShellScriptRuleOperationType|null The operationType
     */
     public function getOperationType()
     {
         if (array_key_exists("operationType", $this->_propDict)) {
-            if (is_a($this->_propDict["operationType"], "\Microsoft\Graph\Model\Win32LobAppPowerShellScriptRuleOperationType")) {
+            if (is_a($this->_propDict["operationType"], "\Microsoft\Graph\Model\Win32LobAppPowerShellScriptRuleOperationType") || is_null($this->_propDict["operationType"])) {
                 return $this->_propDict["operationType"];
             } else {
                 $this->_propDict["operationType"] = new Win32LobAppPowerShellScriptRuleOperationType($this->_propDict["operationType"]);
@@ -154,12 +156,12 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the operator
     * The script output operator. Use NotConfigured (the default value) if the rule is used for detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
     *
-    * @return Win32LobAppRuleOperator The operator
+    * @return Win32LobAppRuleOperator|null The operator
     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Microsoft\Graph\Model\Win32LobAppRuleOperator")) {
+            if (is_a($this->_propDict["operator"], "\Microsoft\Graph\Model\Win32LobAppRuleOperator") || is_null($this->_propDict["operator"])) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Win32LobAppRuleOperator($this->_propDict["operator"]);
@@ -186,7 +188,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the runAs32Bit
     * A value indicating whether the script should run as 32-bit.
     *
-    * @return bool The runAs32Bit
+    * @return bool|null The runAs32Bit
     */
     public function getRunAs32Bit()
     {
@@ -215,12 +217,12 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the runAsAccount
     * The execution context of the script. Do not specify this value if the rule is used for detection. Script detection rules will run in the same context as the associated app install context. Possible values are: system, user.
     *
-    * @return RunAsAccountType The runAsAccount
+    * @return RunAsAccountType|null The runAsAccount
     */
     public function getRunAsAccount()
     {
         if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Microsoft\Graph\Model\RunAsAccountType")) {
+            if (is_a($this->_propDict["runAsAccount"], "\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);
@@ -247,7 +249,7 @@ class Win32LobAppPowerShellScriptRule extends Win32LobAppRule
     * Gets the scriptContent
     * The base64-encoded script content.
     *
-    * @return string The scriptContent
+    * @return string|null The scriptContent
     */
     public function getScriptContent()
     {

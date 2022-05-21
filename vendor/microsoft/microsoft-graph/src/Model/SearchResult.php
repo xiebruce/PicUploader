@@ -27,7 +27,7 @@ class SearchResult extends Entity
     * Gets the onClickTelemetryUrl
     * A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.
     *
-    * @return string The onClickTelemetryUrl
+    * @return string|null The onClickTelemetryUrl
     */
     public function getOnClickTelemetryUrl()
     {

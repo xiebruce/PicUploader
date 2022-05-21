@@ -28,7 +28,7 @@ class ItemEmail extends ItemFacet
     * Gets the address
     * The email address itself.
     *
-    * @return string The address
+    * @return string|null The address
     */
     public function getAddress()
     {
@@ -38,7 +38,7 @@ class ItemEmail extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the address
     * The email address itself.
@@ -52,12 +52,12 @@ class ItemEmail extends ItemFacet
         $this->_propDict["address"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name or label a user has associated with a particular email address.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class ItemEmail extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name or label a user has associated with a particular email address.
@@ -81,17 +81,17 @@ class ItemEmail extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the type
     * The type of email address. Possible values are: unknown, work, personal, main, other.
     *
-    * @return EmailType The type
+    * @return EmailType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\EmailType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\EmailType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new EmailType($this->_propDict["type"]);
@@ -100,7 +100,7 @@ class ItemEmail extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the type
     * The type of email address. Possible values are: unknown, work, personal, main, other.
@@ -114,5 +114,5 @@ class ItemEmail extends ItemFacet
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
+
 }

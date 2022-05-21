@@ -27,7 +27,7 @@ class Phone extends Entity
     * Gets the number
     * The phone number.
     *
-    * @return string The number
+    * @return string|null The number
     */
     public function getNumber()
     {
@@ -56,12 +56,12 @@ class Phone extends Entity
     * Gets the type
     * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
     *
-    * @return PhoneType The type
+    * @return PhoneType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PhoneType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PhoneType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PhoneType($this->_propDict["type"]);

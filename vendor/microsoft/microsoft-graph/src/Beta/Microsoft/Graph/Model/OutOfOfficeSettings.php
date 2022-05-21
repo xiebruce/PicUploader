@@ -27,7 +27,7 @@ class OutOfOfficeSettings extends Entity
     * Gets the isOutOfOffice
     * True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false.
     *
-    * @return bool The isOutOfOffice
+    * @return bool|null The isOutOfOffice
     */
     public function getIsOutOfOffice()
     {
@@ -55,7 +55,7 @@ class OutOfOfficeSettings extends Entity
     * Gets the message
     * The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office).
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {

@@ -28,12 +28,12 @@ class CryptographySuite extends Entity
     * Gets the authenticationTransformConstants
     * Authentication Transform Constants. Possible values are: md5_96, sha1_96, sha_256_128, aes128Gcm, aes192Gcm, aes256Gcm.
     *
-    * @return AuthenticationTransformConstant The authenticationTransformConstants
+    * @return AuthenticationTransformConstant|null The authenticationTransformConstants
     */
     public function getAuthenticationTransformConstants()
     {
         if (array_key_exists("authenticationTransformConstants", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationTransformConstants"], "\Beta\Microsoft\Graph\Model\AuthenticationTransformConstant")) {
+            if (is_a($this->_propDict["authenticationTransformConstants"], "\Beta\Microsoft\Graph\Model\AuthenticationTransformConstant") || is_null($this->_propDict["authenticationTransformConstants"])) {
                 return $this->_propDict["authenticationTransformConstants"];
             } else {
                 $this->_propDict["authenticationTransformConstants"] = new AuthenticationTransformConstant($this->_propDict["authenticationTransformConstants"]);
@@ -59,14 +59,14 @@ class CryptographySuite extends Entity
 
     /**
     * Gets the cipherTransformConstants
-    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
-    * @return VpnEncryptionAlgorithmType The cipherTransformConstants
+    * @return VpnEncryptionAlgorithmType|null The cipherTransformConstants
     */
     public function getCipherTransformConstants()
     {
         if (array_key_exists("cipherTransformConstants", $this->_propDict)) {
-            if (is_a($this->_propDict["cipherTransformConstants"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType")) {
+            if (is_a($this->_propDict["cipherTransformConstants"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType") || is_null($this->_propDict["cipherTransformConstants"])) {
                 return $this->_propDict["cipherTransformConstants"];
             } else {
                 $this->_propDict["cipherTransformConstants"] = new VpnEncryptionAlgorithmType($this->_propDict["cipherTransformConstants"]);
@@ -78,7 +78,7 @@ class CryptographySuite extends Entity
 
     /**
     * Sets the cipherTransformConstants
-    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Cipher Transform Constants. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @param VpnEncryptionAlgorithmType $val The value to assign to the cipherTransformConstants
     *
@@ -94,12 +94,12 @@ class CryptographySuite extends Entity
     * Gets the dhGroup
     * Diffie Hellman Group. Possible values are: group1, group2, group14, ecp256, ecp384, group24.
     *
-    * @return DiffieHellmanGroup The dhGroup
+    * @return DiffieHellmanGroup|null The dhGroup
     */
     public function getDhGroup()
     {
         if (array_key_exists("dhGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["dhGroup"], "\Beta\Microsoft\Graph\Model\DiffieHellmanGroup")) {
+            if (is_a($this->_propDict["dhGroup"], "\Beta\Microsoft\Graph\Model\DiffieHellmanGroup") || is_null($this->_propDict["dhGroup"])) {
                 return $this->_propDict["dhGroup"];
             } else {
                 $this->_propDict["dhGroup"] = new DiffieHellmanGroup($this->_propDict["dhGroup"]);
@@ -125,14 +125,14 @@ class CryptographySuite extends Entity
 
     /**
     * Gets the encryptionMethod
-    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
-    * @return VpnEncryptionAlgorithmType The encryptionMethod
+    * @return VpnEncryptionAlgorithmType|null The encryptionMethod
     */
     public function getEncryptionMethod()
     {
         if (array_key_exists("encryptionMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType")) {
+            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType") || is_null($this->_propDict["encryptionMethod"])) {
                 return $this->_propDict["encryptionMethod"];
             } else {
                 $this->_propDict["encryptionMethod"] = new VpnEncryptionAlgorithmType($this->_propDict["encryptionMethod"]);
@@ -144,7 +144,7 @@ class CryptographySuite extends Entity
 
     /**
     * Sets the encryptionMethod
-    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption Method. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @param VpnEncryptionAlgorithmType $val The value to assign to the encryptionMethod
     *
@@ -160,12 +160,12 @@ class CryptographySuite extends Entity
     * Gets the integrityCheckMethod
     * Integrity Check Method. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
     *
-    * @return VpnIntegrityAlgorithmType The integrityCheckMethod
+    * @return VpnIntegrityAlgorithmType|null The integrityCheckMethod
     */
     public function getIntegrityCheckMethod()
     {
         if (array_key_exists("integrityCheckMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["integrityCheckMethod"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType")) {
+            if (is_a($this->_propDict["integrityCheckMethod"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType") || is_null($this->_propDict["integrityCheckMethod"])) {
                 return $this->_propDict["integrityCheckMethod"];
             } else {
                 $this->_propDict["integrityCheckMethod"] = new VpnIntegrityAlgorithmType($this->_propDict["integrityCheckMethod"]);
@@ -193,12 +193,12 @@ class CryptographySuite extends Entity
     * Gets the pfsGroup
     * Perfect Forward Secrecy Group. Possible values are: pfs1, pfs2, pfs2048, ecp256, ecp384, pfsMM, pfs24.
     *
-    * @return PerfectForwardSecrecyGroup The pfsGroup
+    * @return PerfectForwardSecrecyGroup|null The pfsGroup
     */
     public function getPfsGroup()
     {
         if (array_key_exists("pfsGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["pfsGroup"], "\Beta\Microsoft\Graph\Model\PerfectForwardSecrecyGroup")) {
+            if (is_a($this->_propDict["pfsGroup"], "\Beta\Microsoft\Graph\Model\PerfectForwardSecrecyGroup") || is_null($this->_propDict["pfsGroup"])) {
                 return $this->_propDict["pfsGroup"];
             } else {
                 $this->_propDict["pfsGroup"] = new PerfectForwardSecrecyGroup($this->_propDict["pfsGroup"]);

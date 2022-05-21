@@ -28,15 +28,15 @@ class WindowsInformationProtectionDataRecoveryCertificate extends Entity
     * Gets the certificate
     * Data recovery Certificate
     *
-    * @return \GuzzleHttp\Psr7\Stream The certificate
+    * @return \GuzzleHttp\Psr7\Stream|null The certificate
     */
     public function getCertificate()
     {
         if (array_key_exists("certificate", $this->_propDict)) {
-            if (is_a($this->_propDict["certificate"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["certificate"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["certificate"])) {
                 return $this->_propDict["certificate"];
             } else {
-                $this->_propDict["certificate"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["certificate"]);
+                $this->_propDict["certificate"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["certificate"]);
                 return $this->_propDict["certificate"];
             }
         }
@@ -60,7 +60,7 @@ class WindowsInformationProtectionDataRecoveryCertificate extends Entity
     * Gets the description
     * Data recovery Certificate description
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -89,12 +89,12 @@ class WindowsInformationProtectionDataRecoveryCertificate extends Entity
     * Gets the expirationDateTime
     * Data recovery Certificate expiration datetime
     *
-    * @return \DateTime The expirationDateTime
+    * @return \DateTime|null The expirationDateTime
     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -121,7 +121,7 @@ class WindowsInformationProtectionDataRecoveryCertificate extends Entity
     * Gets the subjectName
     * Data recovery Certificate subject name
     *
-    * @return string The subjectName
+    * @return string|null The subjectName
     */
     public function getSubjectName()
     {

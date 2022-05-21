@@ -27,7 +27,7 @@ class TeamGuestSettings extends Entity
     * Gets the allowCreateUpdateChannels
     * If set to true, guests can add and update channels.
     *
-    * @return bool The allowCreateUpdateChannels
+    * @return bool|null The allowCreateUpdateChannels
     */
     public function getAllowCreateUpdateChannels()
     {
@@ -55,7 +55,7 @@ class TeamGuestSettings extends Entity
     * Gets the allowDeleteChannels
     * If set to true, guests can delete channels.
     *
-    * @return bool The allowDeleteChannels
+    * @return bool|null The allowDeleteChannels
     */
     public function getAllowDeleteChannels()
     {

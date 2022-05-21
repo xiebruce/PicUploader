@@ -25,10 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class AgreementFile extends AgreementFileProperties
 {
 
-     /** 
+     /**
      * Gets the localizations
+    * The localized version of the terms of use agreement files attached to the agreement.
      *
-     * @return array The localizations
+     * @return array|null The localizations
      */
     public function getLocalizations()
     {
@@ -38,18 +39,19 @@ class AgreementFile extends AgreementFileProperties
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the localizations
+    * The localized version of the terms of use agreement files attached to the agreement.
     *
-    * @param AgreementFileLocalization $val The localizations
+    * @param AgreementFileLocalization[] $val The localizations
     *
     * @return AgreementFile
     */
     public function setLocalizations($val)
     {
-		$this->_propDict["localizations"] = $val;
+        $this->_propDict["localizations"] = $val;
         return $this;
     }
-    
+
 }

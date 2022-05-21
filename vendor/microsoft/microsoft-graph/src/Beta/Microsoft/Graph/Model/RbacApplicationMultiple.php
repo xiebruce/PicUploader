@@ -25,10 +25,10 @@ namespace Beta\Microsoft\Graph\Model;
 class RbacApplicationMultiple extends Entity
 {
 
-     /** 
+     /**
      * Gets the resourceNamespaces
      *
-     * @return array The resourceNamespaces
+     * @return array|null The resourceNamespaces
      */
     public function getResourceNamespaces()
     {
@@ -38,25 +38,25 @@ class RbacApplicationMultiple extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the resourceNamespaces
     *
-    * @param UnifiedRbacResourceNamespace $val The resourceNamespaces
+    * @param UnifiedRbacResourceNamespace[] $val The resourceNamespaces
     *
     * @return RbacApplicationMultiple
     */
     public function setResourceNamespaces($val)
     {
-		$this->_propDict["resourceNamespaces"] = $val;
+        $this->_propDict["resourceNamespaces"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the roleAssignments
      *
-     * @return array The roleAssignments
+     * @return array|null The roleAssignments
      */
     public function getRoleAssignments()
     {
@@ -66,25 +66,25 @@ class RbacApplicationMultiple extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the roleAssignments
     *
-    * @param UnifiedRoleAssignmentMultiple $val The roleAssignments
+    * @param UnifiedRoleAssignmentMultiple[] $val The roleAssignments
     *
     * @return RbacApplicationMultiple
     */
     public function setRoleAssignments($val)
     {
-		$this->_propDict["roleAssignments"] = $val;
+        $this->_propDict["roleAssignments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the roleDefinitions
      *
-     * @return array The roleDefinitions
+     * @return array|null The roleDefinitions
      */
     public function getRoleDefinitions()
     {
@@ -94,18 +94,18 @@ class RbacApplicationMultiple extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the roleDefinitions
     *
-    * @param UnifiedRoleDefinition $val The roleDefinitions
+    * @param UnifiedRoleDefinition[] $val The roleDefinitions
     *
     * @return RbacApplicationMultiple
     */
     public function setRoleDefinitions($val)
     {
-		$this->_propDict["roleDefinitions"] = $val;
+        $this->_propDict["roleDefinitions"] = $val;
         return $this;
     }
-    
+
 }

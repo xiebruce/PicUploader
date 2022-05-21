@@ -27,7 +27,7 @@ class BucketAggregationDefinition extends Entity
     * Gets the isDescending
     * True to specify the sort order as descending. The default is false, with the sort order as ascending. Optional.
     *
-    * @return bool The isDescending
+    * @return bool|null The isDescending
     */
     public function getIsDescending()
     {
@@ -55,7 +55,7 @@ class BucketAggregationDefinition extends Entity
     * Gets the minimumCount
     * The minimum number of items that should be present in the aggregation to be returned in a bucket. Optional.
     *
-    * @return int The minimumCount
+    * @return int|null The minimumCount
     */
     public function getMinimumCount()
     {
@@ -83,7 +83,7 @@ class BucketAggregationDefinition extends Entity
     * Gets the prefixFilter
     * A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional.
     *
-    * @return string The prefixFilter
+    * @return string|null The prefixFilter
     */
     public function getPrefixFilter()
     {
@@ -112,12 +112,12 @@ class BucketAggregationDefinition extends Entity
     * Gets the ranges
     * Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional.
     *
-    * @return BucketAggregationRange The ranges
+    * @return BucketAggregationRange|null The ranges
     */
     public function getRanges()
     {
         if (array_key_exists("ranges", $this->_propDict)) {
-            if (is_a($this->_propDict["ranges"], "\Beta\Microsoft\Graph\Model\BucketAggregationRange")) {
+            if (is_a($this->_propDict["ranges"], "\Beta\Microsoft\Graph\Model\BucketAggregationRange") || is_null($this->_propDict["ranges"])) {
                 return $this->_propDict["ranges"];
             } else {
                 $this->_propDict["ranges"] = new BucketAggregationRange($this->_propDict["ranges"]);
@@ -145,12 +145,12 @@ class BucketAggregationDefinition extends Entity
     * Gets the sortBy
     * The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.
     *
-    * @return BucketAggregationSortProperty The sortBy
+    * @return BucketAggregationSortProperty|null The sortBy
     */
     public function getSortBy()
     {
         if (array_key_exists("sortBy", $this->_propDict)) {
-            if (is_a($this->_propDict["sortBy"], "\Beta\Microsoft\Graph\Model\BucketAggregationSortProperty")) {
+            if (is_a($this->_propDict["sortBy"], "\Beta\Microsoft\Graph\Model\BucketAggregationSortProperty") || is_null($this->_propDict["sortBy"])) {
                 return $this->_propDict["sortBy"];
             } else {
                 $this->_propDict["sortBy"] = new BucketAggregationSortProperty($this->_propDict["sortBy"]);

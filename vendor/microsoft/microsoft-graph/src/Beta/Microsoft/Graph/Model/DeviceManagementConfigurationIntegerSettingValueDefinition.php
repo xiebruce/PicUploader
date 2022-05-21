@@ -27,7 +27,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
     * Gets the maximumValue
     * Maximum allowed value of the integer
     *
-    * @return int The maximumValue
+    * @return int|null The maximumValue
     */
     public function getMaximumValue()
     {
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationIntegerSettingValueDefinition extends DeviceM
     * Gets the minimumValue
     * Minimum allowed value of the integer
     *
-    * @return int The minimumValue
+    * @return int|null The minimumValue
     */
     public function getMinimumValue()
     {

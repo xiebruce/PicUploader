@@ -25,8 +25,9 @@ class SearchAlteration extends Entity
 {
     /**
     * Gets the alteredHighlightedQueryString
+    * Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)
     *
-    * @return string The alteredHighlightedQueryString
+    * @return string|null The alteredHighlightedQueryString
     */
     public function getAlteredHighlightedQueryString()
     {
@@ -39,6 +40,7 @@ class SearchAlteration extends Entity
 
     /**
     * Sets the alteredHighlightedQueryString
+    * Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)
     *
     * @param string $val The value of the alteredHighlightedQueryString
     *
@@ -51,8 +53,9 @@ class SearchAlteration extends Entity
     }
     /**
     * Gets the alteredQueryString
+    * Defines the altered query string with spelling correction.
     *
-    * @return string The alteredQueryString
+    * @return string|null The alteredQueryString
     */
     public function getAlteredQueryString()
     {
@@ -65,6 +68,7 @@ class SearchAlteration extends Entity
 
     /**
     * Sets the alteredQueryString
+    * Defines the altered query string with spelling correction.
     *
     * @param string $val The value of the alteredQueryString
     *
@@ -78,13 +82,14 @@ class SearchAlteration extends Entity
 
     /**
     * Gets the alteredQueryTokens
+    * Represents changed segments with respect to original query.
     *
-    * @return AlteredQueryToken The alteredQueryTokens
+    * @return AlteredQueryToken|null The alteredQueryTokens
     */
     public function getAlteredQueryTokens()
     {
         if (array_key_exists("alteredQueryTokens", $this->_propDict)) {
-            if (is_a($this->_propDict["alteredQueryTokens"], "\Beta\Microsoft\Graph\Model\AlteredQueryToken")) {
+            if (is_a($this->_propDict["alteredQueryTokens"], "\Beta\Microsoft\Graph\Model\AlteredQueryToken") || is_null($this->_propDict["alteredQueryTokens"])) {
                 return $this->_propDict["alteredQueryTokens"];
             } else {
                 $this->_propDict["alteredQueryTokens"] = new AlteredQueryToken($this->_propDict["alteredQueryTokens"]);
@@ -96,6 +101,7 @@ class SearchAlteration extends Entity
 
     /**
     * Sets the alteredQueryTokens
+    * Represents changed segments with respect to original query.
     *
     * @param AlteredQueryToken $val The value to assign to the alteredQueryTokens
     *

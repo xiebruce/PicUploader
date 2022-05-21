@@ -28,7 +28,7 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue
     * Gets the value
     * A string value for the associated presentation.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -38,7 +38,7 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue
             return null;
         }
     }
-    
+
     /**
     * Sets the value
     * A string value for the associated presentation.
@@ -52,5 +52,5 @@ class GroupPolicyPresentationValueText extends GroupPolicyPresentationValue
         $this->_propDict["value"] = $val;
         return $this;
     }
-    
+
 }

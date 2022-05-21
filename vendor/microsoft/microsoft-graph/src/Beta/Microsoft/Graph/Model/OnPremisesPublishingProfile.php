@@ -28,12 +28,12 @@ class OnPremisesPublishingProfile extends Entity
     * Gets the hybridAgentUpdaterConfiguration
     * Represents a hybridAgentUpdaterConfiguration object.
     *
-    * @return HybridAgentUpdaterConfiguration The hybridAgentUpdaterConfiguration
+    * @return HybridAgentUpdaterConfiguration|null The hybridAgentUpdaterConfiguration
     */
     public function getHybridAgentUpdaterConfiguration()
     {
         if (array_key_exists("hybridAgentUpdaterConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["hybridAgentUpdaterConfiguration"], "\Beta\Microsoft\Graph\Model\HybridAgentUpdaterConfiguration")) {
+            if (is_a($this->_propDict["hybridAgentUpdaterConfiguration"], "\Beta\Microsoft\Graph\Model\HybridAgentUpdaterConfiguration") || is_null($this->_propDict["hybridAgentUpdaterConfiguration"])) {
                 return $this->_propDict["hybridAgentUpdaterConfiguration"];
             } else {
                 $this->_propDict["hybridAgentUpdaterConfiguration"] = new HybridAgentUpdaterConfiguration($this->_propDict["hybridAgentUpdaterConfiguration"]);
@@ -42,7 +42,7 @@ class OnPremisesPublishingProfile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the hybridAgentUpdaterConfiguration
     * Represents a hybridAgentUpdaterConfiguration object.
@@ -56,12 +56,12 @@ class OnPremisesPublishingProfile extends Entity
         $this->_propDict["hybridAgentUpdaterConfiguration"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isEnabled
     * Represents if Azure AD Application Proxy is enabled for the tenant.
     *
-    * @return bool The isEnabled
+    * @return bool|null The isEnabled
     */
     public function getIsEnabled()
     {
@@ -71,7 +71,7 @@ class OnPremisesPublishingProfile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isEnabled
     * Represents if Azure AD Application Proxy is enabled for the tenant.
@@ -85,13 +85,13 @@ class OnPremisesPublishingProfile extends Entity
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agentGroups
     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
      *
-     * @return array The agentGroups
+     * @return array|null The agentGroups
      */
     public function getAgentGroups()
     {
@@ -101,27 +101,27 @@ class OnPremisesPublishingProfile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the agentGroups
     * List of existing onPremisesAgentGroup objects. Read-only. Nullable.
     *
-    * @param OnPremisesAgentGroup $val The agentGroups
+    * @param OnPremisesAgentGroup[] $val The agentGroups
     *
     * @return OnPremisesPublishingProfile
     */
     public function setAgentGroups($val)
     {
-		$this->_propDict["agentGroups"] = $val;
+        $this->_propDict["agentGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agents
     * List of existing onPremisesAgent objects. Read-only. Nullable.
      *
-     * @return array The agents
+     * @return array|null The agents
      */
     public function getAgents()
     {
@@ -131,27 +131,27 @@ class OnPremisesPublishingProfile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the agents
     * List of existing onPremisesAgent objects. Read-only. Nullable.
     *
-    * @param OnPremisesAgent $val The agents
+    * @param OnPremisesAgent[] $val The agents
     *
     * @return OnPremisesPublishingProfile
     */
     public function setAgents($val)
     {
-		$this->_propDict["agents"] = $val;
+        $this->_propDict["agents"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the connectorGroups
     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
      *
-     * @return array The connectorGroups
+     * @return array|null The connectorGroups
      */
     public function getConnectorGroups()
     {
@@ -161,27 +161,27 @@ class OnPremisesPublishingProfile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the connectorGroups
     * List of existing connectorGroup objects for applications published through Application Proxy. Read-only. Nullable.
     *
-    * @param ConnectorGroup $val The connectorGroups
+    * @param ConnectorGroup[] $val The connectorGroups
     *
     * @return OnPremisesPublishingProfile
     */
     public function setConnectorGroups($val)
     {
-		$this->_propDict["connectorGroups"] = $val;
+        $this->_propDict["connectorGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the connectors
     * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
      *
-     * @return array The connectors
+     * @return array|null The connectors
      */
     public function getConnectors()
     {
@@ -191,27 +191,27 @@ class OnPremisesPublishingProfile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the connectors
     * List of existing connector objects for applications published through Application Proxy. Read-only. Nullable.
     *
-    * @param Connector $val The connectors
+    * @param Connector[] $val The connectors
     *
     * @return OnPremisesPublishingProfile
     */
     public function setConnectors($val)
     {
-		$this->_propDict["connectors"] = $val;
+        $this->_propDict["connectors"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the publishedResources
     * List of existing publishedResource objects. Read-only. Nullable.
      *
-     * @return array The publishedResources
+     * @return array|null The publishedResources
      */
     public function getPublishedResources()
     {
@@ -221,19 +221,19 @@ class OnPremisesPublishingProfile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the publishedResources
     * List of existing publishedResource objects. Read-only. Nullable.
     *
-    * @param PublishedResource $val The publishedResources
+    * @param PublishedResource[] $val The publishedResources
     *
     * @return OnPremisesPublishingProfile
     */
     public function setPublishedResources($val)
     {
-		$this->_propDict["publishedResources"] = $val;
+        $this->_propDict["publishedResources"] = $val;
         return $this;
     }
-    
+
 }

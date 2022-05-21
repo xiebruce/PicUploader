@@ -27,7 +27,7 @@ class Printer extends PrinterBase
     /**
     * Gets the acceptingJobs
     *
-    * @return bool The acceptingJobs
+    * @return bool|null The acceptingJobs
     */
     public function getAcceptingJobs()
     {
@@ -37,7 +37,7 @@ class Printer extends PrinterBase
             return null;
         }
     }
-    
+
     /**
     * Sets the acceptingJobs
     *
@@ -50,12 +50,12 @@ class Printer extends PrinterBase
         $this->_propDict["acceptingJobs"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the hasPhysicalDevice
     * True if the printer has a physical device for printing. Read-only.
     *
-    * @return bool The hasPhysicalDevice
+    * @return bool|null The hasPhysicalDevice
     */
     public function getHasPhysicalDevice()
     {
@@ -65,7 +65,7 @@ class Printer extends PrinterBase
             return null;
         }
     }
-    
+
     /**
     * Sets the hasPhysicalDevice
     * True if the printer has a physical device for printing. Read-only.
@@ -79,12 +79,12 @@ class Printer extends PrinterBase
         $this->_propDict["hasPhysicalDevice"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isShared
     * True if the printer is shared; false otherwise. Read-only.
     *
-    * @return bool The isShared
+    * @return bool|null The isShared
     */
     public function getIsShared()
     {
@@ -94,7 +94,7 @@ class Printer extends PrinterBase
             return null;
         }
     }
-    
+
     /**
     * Sets the isShared
     * True if the printer is shared; false otherwise. Read-only.
@@ -108,17 +108,17 @@ class Printer extends PrinterBase
         $this->_propDict["isShared"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastSeenDateTime
     * The most recent dateTimeOffset when a printer interacted with Universal Print. Read-only.
     *
-    * @return \DateTime The lastSeenDateTime
+    * @return \DateTime|null The lastSeenDateTime
     */
     public function getLastSeenDateTime()
     {
         if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -127,7 +127,7 @@ class Printer extends PrinterBase
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSeenDateTime
     * The most recent dateTimeOffset when a printer interacted with Universal Print. Read-only.
@@ -141,17 +141,17 @@ class Printer extends PrinterBase
         $this->_propDict["lastSeenDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the registeredDateTime
     * The DateTimeOffset when the printer was registered. Read-only.
     *
-    * @return \DateTime The registeredDateTime
+    * @return \DateTime|null The registeredDateTime
     */
     public function getRegisteredDateTime()
     {
         if (array_key_exists("registeredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["registeredDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["registeredDateTime"], "\DateTime") || is_null($this->_propDict["registeredDateTime"])) {
                 return $this->_propDict["registeredDateTime"];
             } else {
                 $this->_propDict["registeredDateTime"] = new \DateTime($this->_propDict["registeredDateTime"]);
@@ -160,7 +160,7 @@ class Printer extends PrinterBase
         }
         return null;
     }
-    
+
     /**
     * Sets the registeredDateTime
     * The DateTimeOffset when the printer was registered. Read-only.
@@ -174,13 +174,13 @@ class Printer extends PrinterBase
         $this->_propDict["registeredDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the connectors
     * The connectors that are associated with the printer.
      *
-     * @return array The connectors
+     * @return array|null The connectors
      */
     public function getConnectors()
     {
@@ -190,30 +190,30 @@ class Printer extends PrinterBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the connectors
     * The connectors that are associated with the printer.
     *
-    * @param PrintConnector $val The connectors
+    * @param PrintConnector[] $val The connectors
     *
     * @return Printer
     */
     public function setConnectors($val)
     {
-		$this->_propDict["connectors"] = $val;
+        $this->_propDict["connectors"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the share
     *
-    * @return PrinterShare The share
+    * @return PrinterShare|null The share
     */
     public function getShare()
     {
         if (array_key_exists("share", $this->_propDict)) {
-            if (is_a($this->_propDict["share"], "\Beta\Microsoft\Graph\Model\PrinterShare")) {
+            if (is_a($this->_propDict["share"], "\Beta\Microsoft\Graph\Model\PrinterShare") || is_null($this->_propDict["share"])) {
                 return $this->_propDict["share"];
             } else {
                 $this->_propDict["share"] = new PrinterShare($this->_propDict["share"]);
@@ -222,7 +222,7 @@ class Printer extends PrinterBase
         }
         return null;
     }
-    
+
     /**
     * Sets the share
     *
@@ -235,13 +235,13 @@ class Printer extends PrinterBase
         $this->_propDict["share"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the shares
     * The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
      *
-     * @return array The shares
+     * @return array|null The shares
      */
     public function getShares()
     {
@@ -251,27 +251,27 @@ class Printer extends PrinterBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the shares
     * The list of printerShares that are associated with the printer. Currently, only one printerShare can be associated with the printer. Read-only. Nullable.
     *
-    * @param PrinterShare $val The shares
+    * @param PrinterShare[] $val The shares
     *
     * @return Printer
     */
     public function setShares($val)
     {
-		$this->_propDict["shares"] = $val;
+        $this->_propDict["shares"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the taskTriggers
     * A list of task triggers that are associated with the printer.
      *
-     * @return array The taskTriggers
+     * @return array|null The taskTriggers
      */
     public function getTaskTriggers()
     {
@@ -281,19 +281,19 @@ class Printer extends PrinterBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the taskTriggers
     * A list of task triggers that are associated with the printer.
     *
-    * @param PrintTaskTrigger $val The taskTriggers
+    * @param PrintTaskTrigger[] $val The taskTriggers
     *
     * @return Printer
     */
     public function setTaskTriggers($val)
     {
-		$this->_propDict["taskTriggers"] = $val;
+        $this->_propDict["taskTriggers"] = $val;
         return $this;
     }
-    
+
 }

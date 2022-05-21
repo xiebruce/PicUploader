@@ -28,7 +28,7 @@ class IosVppEBook extends ManagedEBook
     * Gets the appleId
     * The Apple ID associated with Vpp token.
     *
-    * @return string The appleId
+    * @return string|null The appleId
     */
     public function getAppleId()
     {
@@ -38,7 +38,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the appleId
     * The Apple ID associated with Vpp token.
@@ -52,12 +52,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["appleId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the genres
     * Genres.
     *
-    * @return string The genres
+    * @return string|null The genres
     */
     public function getGenres()
     {
@@ -67,7 +67,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the genres
     * Genres.
@@ -81,12 +81,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["genres"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the language
     * Language.
     *
-    * @return string The language
+    * @return string|null The language
     */
     public function getLanguage()
     {
@@ -96,7 +96,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the language
     * Language.
@@ -110,12 +110,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["language"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the seller
     * Seller.
     *
-    * @return string The seller
+    * @return string|null The seller
     */
     public function getSeller()
     {
@@ -125,7 +125,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the seller
     * Seller.
@@ -139,12 +139,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["seller"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalLicenseCount
     * Total license count.
     *
-    * @return int The totalLicenseCount
+    * @return int|null The totalLicenseCount
     */
     public function getTotalLicenseCount()
     {
@@ -154,7 +154,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the totalLicenseCount
     * Total license count.
@@ -168,12 +168,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the usedLicenseCount
     * Used license count.
     *
-    * @return int The usedLicenseCount
+    * @return int|null The usedLicenseCount
     */
     public function getUsedLicenseCount()
     {
@@ -183,7 +183,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the usedLicenseCount
     * Used license count.
@@ -197,12 +197,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the vppOrganizationName
     * The Vpp token's organization name.
     *
-    * @return string The vppOrganizationName
+    * @return string|null The vppOrganizationName
     */
     public function getVppOrganizationName()
     {
@@ -212,7 +212,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the vppOrganizationName
     * The Vpp token's organization name.
@@ -226,12 +226,12 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["vppOrganizationName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vppTokenId
     * The Vpp token ID.
     *
-    * @return string The vppTokenId
+    * @return string|null The vppTokenId
     */
     public function getVppTokenId()
     {
@@ -241,7 +241,7 @@ class IosVppEBook extends ManagedEBook
             return null;
         }
     }
-    
+
     /**
     * Sets the vppTokenId
     * The Vpp token ID.
@@ -255,5 +255,5 @@ class IosVppEBook extends ManagedEBook
         $this->_propDict["vppTokenId"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,12 +27,12 @@ class ScheduleEntity extends Entity
     /**
     * Gets the endDateTime
     *
-    * @return \DateTime The endDateTime
+    * @return \DateTime|null The endDateTime
     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -58,12 +58,12 @@ class ScheduleEntity extends Entity
     /**
     * Gets the startDateTime
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -89,12 +89,12 @@ class ScheduleEntity extends Entity
     /**
     * Gets the theme
     *
-    * @return ScheduleEntityTheme The theme
+    * @return ScheduleEntityTheme|null The theme
     */
     public function getTheme()
     {
         if (array_key_exists("theme", $this->_propDict)) {
-            if (is_a($this->_propDict["theme"], "\Microsoft\Graph\Model\ScheduleEntityTheme")) {
+            if (is_a($this->_propDict["theme"], "\Microsoft\Graph\Model\ScheduleEntityTheme") || is_null($this->_propDict["theme"])) {
                 return $this->_propDict["theme"];
             } else {
                 $this->_propDict["theme"] = new ScheduleEntityTheme($this->_propDict["theme"]);

@@ -28,7 +28,7 @@ class FeatureRolloutPolicy extends Entity
     * Gets the description
     * A description for this feature rollout policy.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * A description for this feature rollout policy.
@@ -52,12 +52,12 @@ class FeatureRolloutPolicy extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name for this  feature rollout policy.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name for this  feature rollout policy.
@@ -81,17 +81,17 @@ class FeatureRolloutPolicy extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the feature
     * Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
     *
-    * @return StagedFeatureName The feature
+    * @return StagedFeatureName|null The feature
     */
     public function getFeature()
     {
         if (array_key_exists("feature", $this->_propDict)) {
-            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\StagedFeatureName")) {
+            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\StagedFeatureName") || is_null($this->_propDict["feature"])) {
                 return $this->_propDict["feature"];
             } else {
                 $this->_propDict["feature"] = new StagedFeatureName($this->_propDict["feature"]);
@@ -100,7 +100,7 @@ class FeatureRolloutPolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the feature
     * Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
@@ -114,12 +114,12 @@ class FeatureRolloutPolicy extends Entity
         $this->_propDict["feature"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isAppliedToOrganization
     * Indicates whether this feature rollout policy should be applied to the entire organization.
     *
-    * @return bool The isAppliedToOrganization
+    * @return bool|null The isAppliedToOrganization
     */
     public function getIsAppliedToOrganization()
     {
@@ -129,7 +129,7 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isAppliedToOrganization
     * Indicates whether this feature rollout policy should be applied to the entire organization.
@@ -143,12 +143,12 @@ class FeatureRolloutPolicy extends Entity
         $this->_propDict["isAppliedToOrganization"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isEnabled
     * Indicates whether the feature rollout is enabled.
     *
-    * @return bool The isEnabled
+    * @return bool|null The isEnabled
     */
     public function getIsEnabled()
     {
@@ -158,7 +158,7 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isEnabled
     * Indicates whether the feature rollout is enabled.
@@ -172,13 +172,13 @@ class FeatureRolloutPolicy extends Entity
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the appliesTo
     * Nullable. Specifies a list of directoryObjects that feature is enabled for.
      *
-     * @return array The appliesTo
+     * @return array|null The appliesTo
      */
     public function getAppliesTo()
     {
@@ -188,19 +188,19 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the appliesTo
     * Nullable. Specifies a list of directoryObjects that feature is enabled for.
     *
-    * @param DirectoryObject $val The appliesTo
+    * @param DirectoryObject[] $val The appliesTo
     *
     * @return FeatureRolloutPolicy
     */
     public function setAppliesTo($val)
     {
-		$this->_propDict["appliesTo"] = $val;
+        $this->_propDict["appliesTo"] = $val;
         return $this;
     }
-    
+
 }

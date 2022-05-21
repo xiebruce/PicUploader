@@ -28,7 +28,7 @@ class Mention extends Entity
     * Gets the application
     * The name of the application where the mention is created. Optional. Not used and defaulted as null for message.
     *
-    * @return string The application
+    * @return string|null The application
     */
     public function getApplication()
     {
@@ -38,7 +38,7 @@ class Mention extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the application
     * The name of the application where the mention is created. Optional. Not used and defaulted as null for message.
@@ -52,12 +52,12 @@ class Mention extends Entity
         $this->_propDict["application"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clientReference
     * A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message.
     *
-    * @return string The clientReference
+    * @return string|null The clientReference
     */
     public function getClientReference()
     {
@@ -67,7 +67,7 @@ class Mention extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the clientReference
     * A unique identifier that represents a parent of the resource instance. Optional. Not used and defaulted as null for message.
@@ -81,17 +81,17 @@ class Mention extends Entity
         $this->_propDict["clientReference"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdBy
     * The email information of the user who made the mention.
     *
-    * @return EmailAddress The createdBy
+    * @return EmailAddress|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
+            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new EmailAddress($this->_propDict["createdBy"]);
@@ -100,7 +100,7 @@ class Mention extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdBy
     * The email information of the user who made the mention.
@@ -114,17 +114,17 @@ class Mention extends Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The date and time that the mention is created on the client.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -133,7 +133,7 @@ class Mention extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The date and time that the mention is created on the client.
@@ -147,12 +147,12 @@ class Mention extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deepLink
     * A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message.
     *
-    * @return string The deepLink
+    * @return string|null The deepLink
     */
     public function getDeepLink()
     {
@@ -162,7 +162,7 @@ class Mention extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deepLink
     * A deep web link to the context of the mention in the resource instance. Optional. Not used and defaulted as null for message.
@@ -176,17 +176,17 @@ class Mention extends Entity
         $this->_propDict["deepLink"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mentioned
     * The email information of the mentioned person. Required.
     *
-    * @return EmailAddress The mentioned
+    * @return EmailAddress|null The mentioned
     */
     public function getMentioned()
     {
         if (array_key_exists("mentioned", $this->_propDict)) {
-            if (is_a($this->_propDict["mentioned"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
+            if (is_a($this->_propDict["mentioned"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["mentioned"])) {
                 return $this->_propDict["mentioned"];
             } else {
                 $this->_propDict["mentioned"] = new EmailAddress($this->_propDict["mentioned"]);
@@ -195,7 +195,7 @@ class Mention extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the mentioned
     * The email information of the mentioned person. Required.
@@ -209,12 +209,12 @@ class Mention extends Entity
         $this->_propDict["mentioned"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mentionText
     * Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead.
     *
-    * @return string The mentionText
+    * @return string|null The mentionText
     */
     public function getMentionText()
     {
@@ -224,7 +224,7 @@ class Mention extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mentionText
     * Optional. Not used and defaulted as null for message. To get the mentions in a message, see the bodyPreview property of the message instead.
@@ -238,17 +238,17 @@ class Mention extends Entity
         $this->_propDict["mentionText"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serverCreatedDateTime
     * The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
     *
-    * @return \DateTime The serverCreatedDateTime
+    * @return \DateTime|null The serverCreatedDateTime
     */
     public function getServerCreatedDateTime()
     {
         if (array_key_exists("serverCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["serverCreatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["serverCreatedDateTime"], "\DateTime") || is_null($this->_propDict["serverCreatedDateTime"])) {
                 return $this->_propDict["serverCreatedDateTime"];
             } else {
                 $this->_propDict["serverCreatedDateTime"] = new \DateTime($this->_propDict["serverCreatedDateTime"]);
@@ -257,7 +257,7 @@ class Mention extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the serverCreatedDateTime
     * The date and time that the mention is created on the server. Optional. Not used and defaulted as null for message.
@@ -271,5 +271,5 @@ class Mention extends Entity
         $this->_propDict["serverCreatedDateTime"] = $val;
         return $this;
     }
-    
+
 }

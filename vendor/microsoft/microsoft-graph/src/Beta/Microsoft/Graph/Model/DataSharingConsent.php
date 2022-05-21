@@ -28,12 +28,12 @@ class DataSharingConsent extends Entity
     * Gets the grantDateTime
     * The time consent was granted for this account
     *
-    * @return \DateTime The grantDateTime
+    * @return \DateTime|null The grantDateTime
     */
     public function getGrantDateTime()
     {
         if (array_key_exists("grantDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["grantDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["grantDateTime"], "\DateTime") || is_null($this->_propDict["grantDateTime"])) {
                 return $this->_propDict["grantDateTime"];
             } else {
                 $this->_propDict["grantDateTime"] = new \DateTime($this->_propDict["grantDateTime"]);
@@ -42,7 +42,7 @@ class DataSharingConsent extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the grantDateTime
     * The time consent was granted for this account
@@ -56,12 +56,12 @@ class DataSharingConsent extends Entity
         $this->_propDict["grantDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the granted
     * The granted state for the data sharing consent
     *
-    * @return bool The granted
+    * @return bool|null The granted
     */
     public function getGranted()
     {
@@ -71,7 +71,7 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the granted
     * The granted state for the data sharing consent
@@ -85,12 +85,12 @@ class DataSharingConsent extends Entity
         $this->_propDict["granted"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the grantedByUpn
     * The Upn of the user that granted consent for this account
     *
-    * @return string The grantedByUpn
+    * @return string|null The grantedByUpn
     */
     public function getGrantedByUpn()
     {
@@ -100,7 +100,7 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the grantedByUpn
     * The Upn of the user that granted consent for this account
@@ -114,12 +114,12 @@ class DataSharingConsent extends Entity
         $this->_propDict["grantedByUpn"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the grantedByUserId
     * The UserId of the user that granted consent for this account
     *
-    * @return string The grantedByUserId
+    * @return string|null The grantedByUserId
     */
     public function getGrantedByUserId()
     {
@@ -129,7 +129,7 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the grantedByUserId
     * The UserId of the user that granted consent for this account
@@ -143,12 +143,12 @@ class DataSharingConsent extends Entity
         $this->_propDict["grantedByUserId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serviceDisplayName
     * The display name of the service work flow
     *
-    * @return string The serviceDisplayName
+    * @return string|null The serviceDisplayName
     */
     public function getServiceDisplayName()
     {
@@ -158,7 +158,7 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the serviceDisplayName
     * The display name of the service work flow
@@ -172,12 +172,12 @@ class DataSharingConsent extends Entity
         $this->_propDict["serviceDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the termsUrl
     * The TermsUrl for the data sharing consent
     *
-    * @return string The termsUrl
+    * @return string|null The termsUrl
     */
     public function getTermsUrl()
     {
@@ -187,7 +187,7 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the termsUrl
     * The TermsUrl for the data sharing consent
@@ -201,5 +201,5 @@ class DataSharingConsent extends Entity
         $this->_propDict["termsUrl"] = $val;
         return $this;
     }
-    
+
 }

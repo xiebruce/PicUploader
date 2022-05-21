@@ -26,7 +26,7 @@ class ClassificationInnerError extends Entity
     /**
     * Gets the activityId
     *
-    * @return string The activityId
+    * @return string|null The activityId
     */
     public function getActivityId()
     {
@@ -52,7 +52,7 @@ class ClassificationInnerError extends Entity
     /**
     * Gets the clientRequestId
     *
-    * @return string The clientRequestId
+    * @return string|null The clientRequestId
     */
     public function getClientRequestId()
     {
@@ -78,7 +78,7 @@ class ClassificationInnerError extends Entity
     /**
     * Gets the code
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -105,12 +105,12 @@ class ClassificationInnerError extends Entity
     /**
     * Gets the errorDateTime
     *
-    * @return \DateTime The errorDateTime
+    * @return \DateTime|null The errorDateTime
     */
     public function getErrorDateTime()
     {
         if (array_key_exists("errorDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["errorDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["errorDateTime"], "\DateTime") || is_null($this->_propDict["errorDateTime"])) {
                 return $this->_propDict["errorDateTime"];
             } else {
                 $this->_propDict["errorDateTime"] = new \DateTime($this->_propDict["errorDateTime"]);

@@ -28,7 +28,7 @@ class UrlAssessmentRequest extends ThreatAssessmentRequest
     * Gets the url
     * The URL string.
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {
@@ -38,7 +38,7 @@ class UrlAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-    
+
     /**
     * Sets the url
     * The URL string.
@@ -52,5 +52,5 @@ class UrlAssessmentRequest extends ThreatAssessmentRequest
         $this->_propDict["url"] = $val;
         return $this;
     }
-    
+
 }

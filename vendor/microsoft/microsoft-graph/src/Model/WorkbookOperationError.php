@@ -27,7 +27,7 @@ class WorkbookOperationError extends Entity
     * Gets the code
     * The error code.
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -55,12 +55,12 @@ class WorkbookOperationError extends Entity
     /**
     * Gets the innerError
     *
-    * @return WorkbookOperationError The innerError
+    * @return WorkbookOperationError|null The innerError
     */
     public function getInnerError()
     {
         if (array_key_exists("innerError", $this->_propDict)) {
-            if (is_a($this->_propDict["innerError"], "\Microsoft\Graph\Model\WorkbookOperationError")) {
+            if (is_a($this->_propDict["innerError"], "\Microsoft\Graph\Model\WorkbookOperationError") || is_null($this->_propDict["innerError"])) {
                 return $this->_propDict["innerError"];
             } else {
                 $this->_propDict["innerError"] = new WorkbookOperationError($this->_propDict["innerError"]);
@@ -86,7 +86,7 @@ class WorkbookOperationError extends Entity
     * Gets the message
     * The error message.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {

@@ -28,12 +28,12 @@ class WebPart extends Entity
     * Gets the data
     * The required properties for the webPart (varies by webPart)
     *
-    * @return SitePageData The data
+    * @return SitePageData|null The data
     */
     public function getData()
     {
         if (array_key_exists("data", $this->_propDict)) {
-            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\SitePageData")) {
+            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\SitePageData") || is_null($this->_propDict["data"])) {
                 return $this->_propDict["data"];
             } else {
                 $this->_propDict["data"] = new SitePageData($this->_propDict["data"]);
@@ -60,7 +60,7 @@ class WebPart extends Entity
     * Gets the type
     * A unique identifier specifying the webPart type. Read-only.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {

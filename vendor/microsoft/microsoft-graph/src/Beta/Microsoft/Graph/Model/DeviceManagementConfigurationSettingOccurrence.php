@@ -27,7 +27,7 @@ class DeviceManagementConfigurationSettingOccurrence extends Entity
     * Gets the maxDeviceOccurrence
     * Maximum times setting can be set on device.
     *
-    * @return int The maxDeviceOccurrence
+    * @return int|null The maxDeviceOccurrence
     */
     public function getMaxDeviceOccurrence()
     {
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationSettingOccurrence extends Entity
     * Gets the minDeviceOccurrence
     * Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
     *
-    * @return int The minDeviceOccurrence
+    * @return int|null The minDeviceOccurrence
     */
     public function getMinDeviceOccurrence()
     {

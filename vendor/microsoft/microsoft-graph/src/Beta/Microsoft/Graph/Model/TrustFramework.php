@@ -28,10 +28,10 @@ class TrustFramework implements \JsonSerializable
     * The array of properties available
     * to the model
     *
-    * @var array(string => string)
+    * @var array $_propDict
     */
     protected $_propDict;
-    
+
     /**
     * Construct a new TrustFramework
     *
@@ -39,7 +39,10 @@ class TrustFramework implements \JsonSerializable
     */
     function __construct($propDict = array())
     {
-		$this->_propDict = $propDict;
+        if (!is_array($propDict)) {
+           $propDict = array();
+        }
+        $this->_propDict = $propDict;
     }
 
     /**
@@ -51,12 +54,12 @@ class TrustFramework implements \JsonSerializable
     {
         return $this->_propDict;
     }
-    
 
-     /** 
+
+     /**
      * Gets the keySets
      *
-     * @return array The keySets
+     * @return array|null The keySets
      */
     public function getKeySets()
     {
@@ -66,25 +69,25 @@ class TrustFramework implements \JsonSerializable
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the keySets
     *
-    * @param TrustFrameworkKeySet $val The keySets
+    * @param TrustFrameworkKeySet[] $val The keySets
     *
     * @return TrustFramework
     */
     public function setKeySets($val)
     {
-		$this->_propDict["keySets"] = $val;
+        $this->_propDict["keySets"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the policies
      *
-     * @return array The policies
+     * @return array|null The policies
      */
     public function getPolicies()
     {
@@ -94,46 +97,49 @@ class TrustFramework implements \JsonSerializable
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the policies
     *
-    * @param TrustFrameworkPolicy $val The policies
+    * @param TrustFrameworkPolicy[] $val The policies
     *
     * @return TrustFramework
     */
     public function setPolicies($val)
     {
-		$this->_propDict["policies"] = $val;
+        $this->_propDict["policies"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
-    
+
     /**
     * Sets the ODataType
     *
-    * @param string The ODataType
+    * @param string $val The ODataType
     *
-    * @return Entity
+    * @return TrustFramework
     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-    
+
     /**
     * Serializes the object by property array
-	* Manually serialize DateTime into RFC3339 format
+    * Manually serialize DateTime into RFC3339 format
     *
     * @return array The list of properties
     */
@@ -145,6 +151,8 @@ class TrustFramework implements \JsonSerializable
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
             } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_a($val, "\Entity")) {
+                $serializableProperties[$property] = $val->jsonSerialize();
             }
         }
         return $serializableProperties;

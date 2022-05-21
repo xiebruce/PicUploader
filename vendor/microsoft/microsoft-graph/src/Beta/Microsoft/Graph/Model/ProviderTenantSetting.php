@@ -27,7 +27,7 @@ class ProviderTenantSetting extends Entity
     /**
     * Gets the azureTenantId
     *
-    * @return string The azureTenantId
+    * @return string|null The azureTenantId
     */
     public function getAzureTenantId()
     {
@@ -37,7 +37,7 @@ class ProviderTenantSetting extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureTenantId
     *
@@ -50,11 +50,11 @@ class ProviderTenantSetting extends Entity
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the enabled
     *
-    * @return bool The enabled
+    * @return bool|null The enabled
     */
     public function getEnabled()
     {
@@ -64,7 +64,7 @@ class ProviderTenantSetting extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the enabled
     *
@@ -77,16 +77,16 @@ class ProviderTenantSetting extends Entity
         $this->_propDict["enabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -95,7 +95,7 @@ class ProviderTenantSetting extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -108,11 +108,11 @@ class ProviderTenantSetting extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the provider
     *
-    * @return string The provider
+    * @return string|null The provider
     */
     public function getProvider()
     {
@@ -122,7 +122,7 @@ class ProviderTenantSetting extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the provider
     *
@@ -135,11 +135,11 @@ class ProviderTenantSetting extends Entity
         $this->_propDict["provider"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the vendor
     *
-    * @return string The vendor
+    * @return string|null The vendor
     */
     public function getVendor()
     {
@@ -149,7 +149,7 @@ class ProviderTenantSetting extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the vendor
     *
@@ -162,5 +162,5 @@ class ProviderTenantSetting extends Entity
         $this->_propDict["vendor"] = $val;
         return $this;
     }
-    
+
 }

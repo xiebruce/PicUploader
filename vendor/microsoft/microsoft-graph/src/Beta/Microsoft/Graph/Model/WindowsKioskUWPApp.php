@@ -27,7 +27,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase
     * Gets the appId
     * This references an Intune App that will be target to the same assignments as Kiosk configuration
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -55,7 +55,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase
     * Gets the appUserModelId
     * This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
     *
-    * @return string The appUserModelId
+    * @return string|null The appUserModelId
     */
     public function getAppUserModelId()
     {
@@ -83,7 +83,7 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase
     * Gets the containedAppId
     * This references an contained App from an Intune App
     *
-    * @return string The containedAppId
+    * @return string|null The containedAppId
     */
     public function getContainedAppId()
     {

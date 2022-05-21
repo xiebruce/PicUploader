@@ -27,7 +27,7 @@ class ProxiedDomain extends Entity
     * Gets the ipAddressOrFQDN
     * The IP address or FQDN
     *
-    * @return string The ipAddressOrFQDN
+    * @return string|null The ipAddressOrFQDN
     */
     public function getIpAddressOrFQDN()
     {
@@ -55,7 +55,7 @@ class ProxiedDomain extends Entity
     * Gets the proxy
     * Proxy IP or FQDN
     *
-    * @return string The proxy
+    * @return string|null The proxy
     */
     public function getProxy()
     {

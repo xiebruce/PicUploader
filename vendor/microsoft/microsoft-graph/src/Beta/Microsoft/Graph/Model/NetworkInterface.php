@@ -27,7 +27,7 @@ class NetworkInterface extends Entity
     * Gets the description
     * Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection &amp;lt;#&amp;gt;, etc.).
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -55,7 +55,7 @@ class NetworkInterface extends Entity
     * Gets the ipV4Address
     * Last IPv4 address associated with this NIC.
     *
-    * @return string The ipV4Address
+    * @return string|null The ipV4Address
     */
     public function getIpV4Address()
     {
@@ -83,7 +83,7 @@ class NetworkInterface extends Entity
     * Gets the ipV6Address
     * Last Public (aka global) IPv6 address associated with this NIC.
     *
-    * @return string The ipV6Address
+    * @return string|null The ipV6Address
     */
     public function getIpV6Address()
     {
@@ -111,7 +111,7 @@ class NetworkInterface extends Entity
     * Gets the localIpV6Address
     * Last local (link-local or site-local) IPv6 address associated with this NIC.
     *
-    * @return string The localIpV6Address
+    * @return string|null The localIpV6Address
     */
     public function getLocalIpV6Address()
     {
@@ -139,7 +139,7 @@ class NetworkInterface extends Entity
     * Gets the macAddress
     * MAC address of the NIC on this host.
     *
-    * @return string The macAddress
+    * @return string|null The macAddress
     */
     public function getMacAddress()
     {

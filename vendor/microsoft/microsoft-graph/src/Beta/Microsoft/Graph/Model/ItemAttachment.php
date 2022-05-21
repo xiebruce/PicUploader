@@ -28,12 +28,12 @@ class ItemAttachment extends Attachment
     * Gets the item
     * The attached contact, message or event. Navigation property.
     *
-    * @return OutlookItem The item
+    * @return OutlookItem|null The item
     */
     public function getItem()
     {
         if (array_key_exists("item", $this->_propDict)) {
-            if (is_a($this->_propDict["item"], "\Beta\Microsoft\Graph\Model\OutlookItem")) {
+            if (is_a($this->_propDict["item"], "\Beta\Microsoft\Graph\Model\OutlookItem") || is_null($this->_propDict["item"])) {
                 return $this->_propDict["item"];
             } else {
                 $this->_propDict["item"] = new OutlookItem($this->_propDict["item"]);
@@ -42,7 +42,7 @@ class ItemAttachment extends Attachment
         }
         return null;
     }
-    
+
     /**
     * Sets the item
     * The attached contact, message or event. Navigation property.
@@ -56,5 +56,5 @@ class ItemAttachment extends Attachment
         $this->_propDict["item"] = $val;
         return $this;
     }
-    
+
 }

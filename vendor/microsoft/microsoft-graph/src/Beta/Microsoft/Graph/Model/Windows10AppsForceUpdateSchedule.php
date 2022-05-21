@@ -28,12 +28,12 @@ class Windows10AppsForceUpdateSchedule extends Entity
     * Gets the recurrence
     * Recurrence schedule. Possible values are: none, daily, weekly, monthly.
     *
-    * @return Windows10AppsUpdateRecurrence The recurrence
+    * @return Windows10AppsUpdateRecurrence|null The recurrence
     */
     public function getRecurrence()
     {
         if (array_key_exists("recurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\Windows10AppsUpdateRecurrence")) {
+            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\Windows10AppsUpdateRecurrence") || is_null($this->_propDict["recurrence"])) {
                 return $this->_propDict["recurrence"];
             } else {
                 $this->_propDict["recurrence"] = new Windows10AppsUpdateRecurrence($this->_propDict["recurrence"]);
@@ -60,7 +60,7 @@ class Windows10AppsForceUpdateSchedule extends Entity
     * Gets the runImmediatelyIfAfterStartDateTime
     * If true, runs the task immediately if StartDateTime is in the past, else, runs at the next recurrence.
     *
-    * @return bool The runImmediatelyIfAfterStartDateTime
+    * @return bool|null The runImmediatelyIfAfterStartDateTime
     */
     public function getRunImmediatelyIfAfterStartDateTime()
     {
@@ -89,12 +89,12 @@ class Windows10AppsForceUpdateSchedule extends Entity
     * Gets the startDateTime
     * The start time for the force restart.
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);

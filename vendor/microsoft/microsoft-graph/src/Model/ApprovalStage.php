@@ -28,7 +28,7 @@ class ApprovalStage extends Entity
     * Gets the assignedToMe
     * Indicates whether the stage is assigned to the calling user to review. Read-only.
     *
-    * @return bool The assignedToMe
+    * @return bool|null The assignedToMe
     */
     public function getAssignedToMe()
     {
@@ -38,7 +38,7 @@ class ApprovalStage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the assignedToMe
     * Indicates whether the stage is assigned to the calling user to review. Read-only.
@@ -52,12 +52,12 @@ class ApprovalStage extends Entity
         $this->_propDict["assignedToMe"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The label provided by the policy creator to identify an approval stage. Read-only.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class ApprovalStage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The label provided by the policy creator to identify an approval stage. Read-only.
@@ -81,12 +81,12 @@ class ApprovalStage extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the justification
     * The justification associated with the approval stage decision.
     *
-    * @return string The justification
+    * @return string|null The justification
     */
     public function getJustification()
     {
@@ -96,7 +96,7 @@ class ApprovalStage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the justification
     * The justification associated with the approval stage decision.
@@ -110,17 +110,17 @@ class ApprovalStage extends Entity
         $this->_propDict["justification"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewedBy
     * The identifier of the reviewer. Read-only.
     *
-    * @return Identity The reviewedBy
+    * @return Identity|null The reviewedBy
     */
     public function getReviewedBy()
     {
         if (array_key_exists("reviewedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewedBy"], "\Microsoft\Graph\Model\Identity")) {
+            if (is_a($this->_propDict["reviewedBy"], "\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["reviewedBy"])) {
                 return $this->_propDict["reviewedBy"];
             } else {
                 $this->_propDict["reviewedBy"] = new Identity($this->_propDict["reviewedBy"]);
@@ -129,7 +129,7 @@ class ApprovalStage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reviewedBy
     * The identifier of the reviewer. Read-only.
@@ -143,17 +143,17 @@ class ApprovalStage extends Entity
         $this->_propDict["reviewedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewedDateTime
     * The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
-    * @return \DateTime The reviewedDateTime
+    * @return \DateTime|null The reviewedDateTime
     */
     public function getReviewedDateTime()
     {
         if (array_key_exists("reviewedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["reviewedDateTime"], "\DateTime") || is_null($this->_propDict["reviewedDateTime"])) {
                 return $this->_propDict["reviewedDateTime"];
             } else {
                 $this->_propDict["reviewedDateTime"] = new \DateTime($this->_propDict["reviewedDateTime"]);
@@ -162,7 +162,7 @@ class ApprovalStage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reviewedDateTime
     * The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
@@ -176,12 +176,12 @@ class ApprovalStage extends Entity
         $this->_propDict["reviewedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewResult
     * The result of this approval record. Possible values include: NotReviewed, Approved, Denied.
     *
-    * @return string The reviewResult
+    * @return string|null The reviewResult
     */
     public function getReviewResult()
     {
@@ -191,7 +191,7 @@ class ApprovalStage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reviewResult
     * The result of this approval record. Possible values include: NotReviewed, Approved, Denied.
@@ -205,12 +205,12 @@ class ApprovalStage extends Entity
         $this->_propDict["reviewResult"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * The stage status. Possible values: InProgress, Initializing, Completed, Expired. Read-only.
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -220,7 +220,7 @@ class ApprovalStage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     * The stage status. Possible values: InProgress, Initializing, Completed, Expired. Read-only.
@@ -234,5 +234,5 @@ class ApprovalStage extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
 }

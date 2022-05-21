@@ -27,7 +27,7 @@ class ConditionalAccessLocations extends Entity
     * Gets the excludeLocations
     * Location IDs excluded from scope of policy.
     *
-    * @return string The excludeLocations
+    * @return string|null The excludeLocations
     */
     public function getExcludeLocations()
     {
@@ -55,7 +55,7 @@ class ConditionalAccessLocations extends Entity
     * Gets the includeLocations
     * Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
     *
-    * @return string The includeLocations
+    * @return string|null The includeLocations
     */
     public function getIncludeLocations()
     {

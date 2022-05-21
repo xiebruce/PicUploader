@@ -26,43 +26,40 @@ class OmaSettingFloatingPoint extends OmaSetting
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.omaSettingFloatingPoint");
     }
-
 
     /**
     * Gets the value
     * Value.
     *
-    * @return Single The value
+    * @return float|null The value
     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\Single")) {
-                return $this->_propDict["value"];
-            } else {
-                $this->_propDict["value"] = new Single($this->_propDict["value"]);
-                return $this->_propDict["value"];
-            }
+            return $this->_propDict["value"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
     * Sets the value
     * Value.
     *
-    * @param Single $val The value to assign to the value
+    * @param float $val The value of the value
     *
-    * @return OmaSettingFloatingPoint The OmaSettingFloatingPoint
+    * @return OmaSettingFloatingPoint
     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -25,10 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class EntitlementManagement extends Entity
 {
 
-     /** 
+     /**
      * Gets the accessPackageAssignmentApprovals
+    * Approval stages for assignment requests.
      *
-     * @return array The accessPackageAssignmentApprovals
+     * @return array|null The accessPackageAssignmentApprovals
      */
     public function getAccessPackageAssignmentApprovals()
     {
@@ -38,25 +39,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignmentApprovals
+    * Approval stages for assignment requests.
     *
-    * @param Approval $val The accessPackageAssignmentApprovals
+    * @param Approval[] $val The accessPackageAssignmentApprovals
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageAssignmentApprovals($val)
     {
-		$this->_propDict["accessPackageAssignmentApprovals"] = $val;
+        $this->_propDict["accessPackageAssignmentApprovals"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignmentPolicies
+    * Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
      *
-     * @return array The accessPackageAssignmentPolicies
+     * @return array|null The accessPackageAssignmentPolicies
      */
     public function getAccessPackageAssignmentPolicies()
     {
@@ -66,25 +69,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignmentPolicies
+    * Represents the policy that governs which subjects can request or be assigned an access package via an access package assignment.
     *
-    * @param AccessPackageAssignmentPolicy $val The accessPackageAssignmentPolicies
+    * @param AccessPackageAssignmentPolicy[] $val The accessPackageAssignmentPolicies
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageAssignmentPolicies($val)
     {
-		$this->_propDict["accessPackageAssignmentPolicies"] = $val;
+        $this->_propDict["accessPackageAssignmentPolicies"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignmentRequests
+    * Represents access package assignment requests created by or on behalf of a user.
      *
-     * @return array The accessPackageAssignmentRequests
+     * @return array|null The accessPackageAssignmentRequests
      */
     public function getAccessPackageAssignmentRequests()
     {
@@ -94,25 +99,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignmentRequests
+    * Represents access package assignment requests created by or on behalf of a user.
     *
-    * @param AccessPackageAssignmentRequest $val The accessPackageAssignmentRequests
+    * @param AccessPackageAssignmentRequest[] $val The accessPackageAssignmentRequests
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageAssignmentRequests($val)
     {
-		$this->_propDict["accessPackageAssignmentRequests"] = $val;
+        $this->_propDict["accessPackageAssignmentRequests"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignmentResourceRoles
+    * Represents the resource-specific role which a subject has been assigned through an access package assignment.
      *
-     * @return array The accessPackageAssignmentResourceRoles
+     * @return array|null The accessPackageAssignmentResourceRoles
      */
     public function getAccessPackageAssignmentResourceRoles()
     {
@@ -122,25 +129,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignmentResourceRoles
+    * Represents the resource-specific role which a subject has been assigned through an access package assignment.
     *
-    * @param AccessPackageAssignmentResourceRole $val The accessPackageAssignmentResourceRoles
+    * @param AccessPackageAssignmentResourceRole[] $val The accessPackageAssignmentResourceRoles
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageAssignmentResourceRoles($val)
     {
-		$this->_propDict["accessPackageAssignmentResourceRoles"] = $val;
+        $this->_propDict["accessPackageAssignmentResourceRoles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignments
+    * Represents the grant of an access package to a subject (user or group).
      *
-     * @return array The accessPackageAssignments
+     * @return array|null The accessPackageAssignments
      */
     public function getAccessPackageAssignments()
     {
@@ -150,25 +159,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignments
+    * Represents the grant of an access package to a subject (user or group).
     *
-    * @param AccessPackageAssignment $val The accessPackageAssignments
+    * @param AccessPackageAssignment[] $val The accessPackageAssignments
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageAssignments($val)
     {
-		$this->_propDict["accessPackageAssignments"] = $val;
+        $this->_propDict["accessPackageAssignments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageCatalogs
+    * Represents a group of access packages.
      *
-     * @return array The accessPackageCatalogs
+     * @return array|null The accessPackageCatalogs
      */
     public function getAccessPackageCatalogs()
     {
@@ -178,25 +189,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageCatalogs
+    * Represents a group of access packages.
     *
-    * @param AccessPackageCatalog $val The accessPackageCatalogs
+    * @param AccessPackageCatalog[] $val The accessPackageCatalogs
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageCatalogs($val)
     {
-		$this->_propDict["accessPackageCatalogs"] = $val;
+        $this->_propDict["accessPackageCatalogs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageResourceEnvironments
+    * A reference to the geolocation environment in which a resource is located.
      *
-     * @return array The accessPackageResourceEnvironments
+     * @return array|null The accessPackageResourceEnvironments
      */
     public function getAccessPackageResourceEnvironments()
     {
@@ -206,25 +219,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageResourceEnvironments
+    * A reference to the geolocation environment in which a resource is located.
     *
-    * @param AccessPackageResourceEnvironment $val The accessPackageResourceEnvironments
+    * @param AccessPackageResourceEnvironment[] $val The accessPackageResourceEnvironments
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageResourceEnvironments($val)
     {
-		$this->_propDict["accessPackageResourceEnvironments"] = $val;
+        $this->_propDict["accessPackageResourceEnvironments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageResourceRequests
+    * Represents a request to add or remove a resource to or from a catalog respectively.
      *
-     * @return array The accessPackageResourceRequests
+     * @return array|null The accessPackageResourceRequests
      */
     public function getAccessPackageResourceRequests()
     {
@@ -234,25 +249,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageResourceRequests
+    * Represents a request to add or remove a resource to or from a catalog respectively.
     *
-    * @param AccessPackageResourceRequest $val The accessPackageResourceRequests
+    * @param AccessPackageResourceRequest[] $val The accessPackageResourceRequests
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageResourceRequests($val)
     {
-		$this->_propDict["accessPackageResourceRequests"] = $val;
+        $this->_propDict["accessPackageResourceRequests"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageResourceRoleScopes
+    * A reference to both a scope within a resource, and a role in that resource for that scope.
      *
-     * @return array The accessPackageResourceRoleScopes
+     * @return array|null The accessPackageResourceRoleScopes
      */
     public function getAccessPackageResourceRoleScopes()
     {
@@ -262,25 +279,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageResourceRoleScopes
+    * A reference to both a scope within a resource, and a role in that resource for that scope.
     *
-    * @param AccessPackageResourceRoleScope $val The accessPackageResourceRoleScopes
+    * @param AccessPackageResourceRoleScope[] $val The accessPackageResourceRoleScopes
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageResourceRoleScopes($val)
     {
-		$this->_propDict["accessPackageResourceRoleScopes"] = $val;
+        $this->_propDict["accessPackageResourceRoleScopes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageResources
+    * A reference to a resource associated with an access package catalog.
      *
-     * @return array The accessPackageResources
+     * @return array|null The accessPackageResources
      */
     public function getAccessPackageResources()
     {
@@ -290,25 +309,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageResources
+    * A reference to a resource associated with an access package catalog.
     *
-    * @param AccessPackageResource $val The accessPackageResources
+    * @param AccessPackageResource[] $val The accessPackageResources
     *
     * @return EntitlementManagement
     */
     public function setAccessPackageResources($val)
     {
-		$this->_propDict["accessPackageResources"] = $val;
+        $this->_propDict["accessPackageResources"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackages
+    * Represents access package objects.
      *
-     * @return array The accessPackages
+     * @return array|null The accessPackages
      */
     public function getAccessPackages()
     {
@@ -318,25 +339,27 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackages
+    * Represents access package objects.
     *
-    * @param AccessPackage $val The accessPackages
+    * @param AccessPackage[] $val The accessPackages
     *
     * @return EntitlementManagement
     */
     public function setAccessPackages($val)
     {
-		$this->_propDict["accessPackages"] = $val;
+        $this->_propDict["accessPackages"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the connectedOrganizations
+    * Represents references to a directory or domain of another organization whose users can request access.
      *
-     * @return array The connectedOrganizations
+     * @return array|null The connectedOrganizations
      */
     public function getConnectedOrganizations()
     {
@@ -346,29 +369,31 @@ class EntitlementManagement extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the connectedOrganizations
+    * Represents references to a directory or domain of another organization whose users can request access.
     *
-    * @param ConnectedOrganization $val The connectedOrganizations
+    * @param ConnectedOrganization[] $val The connectedOrganizations
     *
     * @return EntitlementManagement
     */
     public function setConnectedOrganizations($val)
     {
-		$this->_propDict["connectedOrganizations"] = $val;
+        $this->_propDict["connectedOrganizations"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settings
+    * Represents the settings that control the behavior of Azure AD entitlement management.
     *
-    * @return EntitlementManagementSettings The settings
+    * @return EntitlementManagementSettings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\EntitlementManagementSettings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\EntitlementManagementSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new EntitlementManagementSettings($this->_propDict["settings"]);
@@ -377,9 +402,10 @@ class EntitlementManagement extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
+    * Represents the settings that control the behavior of Azure AD entitlement management.
     *
     * @param EntitlementManagementSettings $val The settings
     *
@@ -390,5 +416,5 @@ class EntitlementManagement extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

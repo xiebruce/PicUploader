@@ -28,10 +28,10 @@ class RoleManagement implements \JsonSerializable
     * The array of properties available
     * to the model
     *
-    * @var array(string => string)
+    * @var array $_propDict
     */
     protected $_propDict;
-    
+
     /**
     * Construct a new RoleManagement
     *
@@ -39,7 +39,10 @@ class RoleManagement implements \JsonSerializable
     */
     function __construct($propDict = array())
     {
-		$this->_propDict = $propDict;
+        if (!is_array($propDict)) {
+           $propDict = array();
+        }
+        $this->_propDict = $propDict;
     }
 
     /**
@@ -51,33 +54,102 @@ class RoleManagement implements \JsonSerializable
     {
         return $this->_propDict;
     }
-    
+
+    /**
+    * Gets the directory
+    * Read-only. Nullable.
+    *
+    * @return RbacApplication|null The directory
+    */
+    public function getDirectory()
+    {
+        if (array_key_exists("directory", $this->_propDict)) {
+            if (is_a($this->_propDict["directory"], "\Microsoft\Graph\Model\RbacApplication") || is_null($this->_propDict["directory"])) {
+                return $this->_propDict["directory"];
+            } else {
+                $this->_propDict["directory"] = new RbacApplication($this->_propDict["directory"]);
+                return $this->_propDict["directory"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the directory
+    * Read-only. Nullable.
+    *
+    * @param RbacApplication $val The directory
+    *
+    * @return RoleManagement
+    */
+    public function setDirectory($val)
+    {
+        $this->_propDict["directory"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the entitlementManagement
+    * Container for roles and assignments for entitlement management resources.
+    *
+    * @return RbacApplication|null The entitlementManagement
+    */
+    public function getEntitlementManagement()
+    {
+        if (array_key_exists("entitlementManagement", $this->_propDict)) {
+            if (is_a($this->_propDict["entitlementManagement"], "\Microsoft\Graph\Model\RbacApplication") || is_null($this->_propDict["entitlementManagement"])) {
+                return $this->_propDict["entitlementManagement"];
+            } else {
+                $this->_propDict["entitlementManagement"] = new RbacApplication($this->_propDict["entitlementManagement"]);
+                return $this->_propDict["entitlementManagement"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the entitlementManagement
+    * Container for roles and assignments for entitlement management resources.
+    *
+    * @param RbacApplication $val The entitlementManagement
+    *
+    * @return RoleManagement
+    */
+    public function setEntitlementManagement($val)
+    {
+        $this->_propDict["entitlementManagement"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the ODataType
     *
-    * @return string The ODataType
+    * @return string|null The ODataType
     */
     public function getODataType()
     {
-        return $this->_propDict["@odata.type"];
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
     }
-    
+
     /**
     * Sets the ODataType
     *
-    * @param string The ODataType
+    * @param string $val The ODataType
     *
-    * @return Entity
+    * @return RoleManagement
     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-    
+
     /**
     * Serializes the object by property array
-	* Manually serialize DateTime into RFC3339 format
+    * Manually serialize DateTime into RFC3339 format
     *
     * @return array The list of properties
     */
@@ -89,6 +161,8 @@ class RoleManagement implements \JsonSerializable
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
             } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
                 $serializableProperties[$property] = $val->value();
+            } else if (is_a($val, "\Entity")) {
+                $serializableProperties[$property] = $val->jsonSerialize();
             }
         }
         return $serializableProperties;

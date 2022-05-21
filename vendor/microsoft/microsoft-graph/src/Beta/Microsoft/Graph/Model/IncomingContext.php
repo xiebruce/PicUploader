@@ -27,7 +27,7 @@ class IncomingContext extends Entity
     * Gets the observedParticipantId
     * The id of the participant that is under observation. Read-only.
     *
-    * @return string The observedParticipantId
+    * @return string|null The observedParticipantId
     */
     public function getObservedParticipantId()
     {
@@ -56,12 +56,12 @@ class IncomingContext extends Entity
     * Gets the onBehalfOf
     * The identity that the call is happening on behalf of.
     *
-    * @return IdentitySet The onBehalfOf
+    * @return IdentitySet|null The onBehalfOf
     */
     public function getOnBehalfOf()
     {
         if (array_key_exists("onBehalfOf", $this->_propDict)) {
-            if (is_a($this->_propDict["onBehalfOf"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["onBehalfOf"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["onBehalfOf"])) {
                 return $this->_propDict["onBehalfOf"];
             } else {
                 $this->_propDict["onBehalfOf"] = new IdentitySet($this->_propDict["onBehalfOf"]);
@@ -88,7 +88,7 @@ class IncomingContext extends Entity
     * Gets the sourceParticipantId
     * The id of the participant that triggered the incoming call. Read-only.
     *
-    * @return string The sourceParticipantId
+    * @return string|null The sourceParticipantId
     */
     public function getSourceParticipantId()
     {
@@ -117,12 +117,12 @@ class IncomingContext extends Entity
     * Gets the transferor
     * The identity that transferred the call.
     *
-    * @return IdentitySet The transferor
+    * @return IdentitySet|null The transferor
     */
     public function getTransferor()
     {
         if (array_key_exists("transferor", $this->_propDict)) {
-            if (is_a($this->_propDict["transferor"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["transferor"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["transferor"])) {
                 return $this->_propDict["transferor"];
             } else {
                 $this->_propDict["transferor"] = new IdentitySet($this->_propDict["transferor"]);

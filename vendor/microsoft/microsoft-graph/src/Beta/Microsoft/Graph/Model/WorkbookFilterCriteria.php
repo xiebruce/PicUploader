@@ -26,7 +26,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the color
     *
-    * @return string The color
+    * @return string|null The color
     */
     public function getColor()
     {
@@ -52,7 +52,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the criterion1
     *
-    * @return string The criterion1
+    * @return string|null The criterion1
     */
     public function getCriterion1()
     {
@@ -78,7 +78,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the criterion2
     *
-    * @return string The criterion2
+    * @return string|null The criterion2
     */
     public function getCriterion2()
     {
@@ -104,7 +104,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the dynamicCriteria
     *
-    * @return string The dynamicCriteria
+    * @return string|null The dynamicCriteria
     */
     public function getDynamicCriteria()
     {
@@ -130,7 +130,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the filterOn
     *
-    * @return string The filterOn
+    * @return string|null The filterOn
     */
     public function getFilterOn()
     {
@@ -157,12 +157,12 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the icon
     *
-    * @return WorkbookIcon The icon
+    * @return WorkbookIcon|null The icon
     */
     public function getIcon()
     {
         if (array_key_exists("icon", $this->_propDict)) {
-            if (is_a($this->_propDict["icon"], "\Beta\Microsoft\Graph\Model\WorkbookIcon")) {
+            if (is_a($this->_propDict["icon"], "\Beta\Microsoft\Graph\Model\WorkbookIcon") || is_null($this->_propDict["icon"])) {
                 return $this->_propDict["icon"];
             } else {
                 $this->_propDict["icon"] = new WorkbookIcon($this->_propDict["icon"]);
@@ -187,7 +187,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the operator
     *
-    * @return string The operator
+    * @return string|null The operator
     */
     public function getOperator()
     {
@@ -213,7 +213,7 @@ class WorkbookFilterCriteria extends Entity
     /**
     * Gets the values
     *
-    * @return string The values
+    * @return string|null The values
     */
     public function getValues()
     {

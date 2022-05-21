@@ -30,7 +30,11 @@ class DeviceManagementConfigurationPlatforms extends Enum
     * The Enum DeviceManagementConfigurationPlatforms
     */
     const NONE = "none";
+    const ANDROID = "android";
+    const I_OS = "iOS";
     const MAC_OS = "macOS";
     const WINDOWS10_X = "windows10X";
     const WINDOWS10 = "windows10";
+    const LINUX = "linux";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

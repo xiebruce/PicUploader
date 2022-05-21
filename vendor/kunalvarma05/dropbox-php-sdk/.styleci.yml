@@ -1,6 +1,20 @@
-preset: laravel
-
-linting: true
-
+risky: false
+version: 7.4
+preset: psr2
+tab-width: 4
+use-tabs: false
 disabled:
-  - single_class_element_per_statement
+    - single_class_element_per_statement
+finder:
+    exclude:
+        - "modules"
+        - "node_modules"
+        - "nova"
+        - "nova-components"
+        - "storage"
+        - "spark"
+        - "vendor"
+    name: "*.php"
+    not-name:
+        - "*.blade.php"
+        - "_ide_helper.php"

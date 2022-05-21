@@ -28,7 +28,7 @@ class AndroidForWorkApp extends MobileApp
     * Gets the appIdentifier
     * The Identity Name.
     *
-    * @return string The appIdentifier
+    * @return string|null The appIdentifier
     */
     public function getAppIdentifier()
     {
@@ -38,7 +38,7 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appIdentifier
     * The Identity Name.
@@ -52,12 +52,12 @@ class AndroidForWorkApp extends MobileApp
         $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appStoreUrl
     * The Play for Work Store app URL.
     *
-    * @return string The appStoreUrl
+    * @return string|null The appStoreUrl
     */
     public function getAppStoreUrl()
     {
@@ -67,7 +67,7 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appStoreUrl
     * The Play for Work Store app URL.
@@ -81,12 +81,12 @@ class AndroidForWorkApp extends MobileApp
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the packageId
     * The package identifier.
     *
-    * @return string The packageId
+    * @return string|null The packageId
     */
     public function getPackageId()
     {
@@ -96,7 +96,7 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the packageId
     * The package identifier.
@@ -110,12 +110,12 @@ class AndroidForWorkApp extends MobileApp
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalLicenseCount
     * The total number of VPP licenses.
     *
-    * @return int The totalLicenseCount
+    * @return int|null The totalLicenseCount
     */
     public function getTotalLicenseCount()
     {
@@ -125,7 +125,7 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the totalLicenseCount
     * The total number of VPP licenses.
@@ -139,12 +139,12 @@ class AndroidForWorkApp extends MobileApp
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the usedLicenseCount
     * The number of VPP licenses in use.
     *
-    * @return int The usedLicenseCount
+    * @return int|null The usedLicenseCount
     */
     public function getUsedLicenseCount()
     {
@@ -154,7 +154,7 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the usedLicenseCount
     * The number of VPP licenses in use.
@@ -168,5 +168,5 @@ class AndroidForWorkApp extends MobileApp
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-    
+
 }

@@ -25,9 +25,9 @@ class AppliedConditionalAccessPolicy extends Entity
 {
     /**
     * Gets the displayName
-    * Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
+    * Name of the conditional access policy.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -40,7 +40,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the displayName
-    * Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
+    * Name of the conditional access policy.
     *
     * @param string $val The value of the displayName
     *
@@ -55,7 +55,7 @@ class AppliedConditionalAccessPolicy extends Entity
     * Gets the enforcedGrantControls
     * Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
     *
-    * @return string The enforcedGrantControls
+    * @return string|null The enforcedGrantControls
     */
     public function getEnforcedGrantControls()
     {
@@ -83,7 +83,7 @@ class AppliedConditionalAccessPolicy extends Entity
     * Gets the enforcedSessionControls
     * Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
     *
-    * @return string The enforcedSessionControls
+    * @return string|null The enforcedSessionControls
     */
     public function getEnforcedSessionControls()
     {
@@ -111,7 +111,7 @@ class AppliedConditionalAccessPolicy extends Entity
     * Gets the id
     * Identifier of the conditional access policy.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -138,14 +138,14 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Gets the result
-    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted
+    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
     *
-    * @return AppliedConditionalAccessPolicyResult The result
+    * @return AppliedConditionalAccessPolicyResult|null The result
     */
     public function getResult()
     {
         if (array_key_exists("result", $this->_propDict)) {
-            if (is_a($this->_propDict["result"], "\Microsoft\Graph\Model\AppliedConditionalAccessPolicyResult")) {
+            if (is_a($this->_propDict["result"], "\Microsoft\Graph\Model\AppliedConditionalAccessPolicyResult") || is_null($this->_propDict["result"])) {
                 return $this->_propDict["result"];
             } else {
                 $this->_propDict["result"] = new AppliedConditionalAccessPolicyResult($this->_propDict["result"]);
@@ -157,7 +157,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the result
-    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted
+    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted.
     *
     * @param AppliedConditionalAccessPolicyResult $val The value to assign to the result
     *

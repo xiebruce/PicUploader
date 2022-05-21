@@ -27,7 +27,7 @@ class OutlookGeoCoordinates extends Entity
     * Gets the accuracy
     * The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.
     *
-    * @return float The accuracy
+    * @return float|null The accuracy
     */
     public function getAccuracy()
     {
@@ -55,7 +55,7 @@ class OutlookGeoCoordinates extends Entity
     * Gets the altitude
     * The altitude of the location.
     *
-    * @return float The altitude
+    * @return float|null The altitude
     */
     public function getAltitude()
     {
@@ -83,7 +83,7 @@ class OutlookGeoCoordinates extends Entity
     * Gets the altitudeAccuracy
     * The accuracy of the altitude.
     *
-    * @return float The altitudeAccuracy
+    * @return float|null The altitudeAccuracy
     */
     public function getAltitudeAccuracy()
     {
@@ -111,7 +111,7 @@ class OutlookGeoCoordinates extends Entity
     * Gets the latitude
     * The latitude of the location.
     *
-    * @return float The latitude
+    * @return float|null The latitude
     */
     public function getLatitude()
     {
@@ -139,7 +139,7 @@ class OutlookGeoCoordinates extends Entity
     * Gets the longitude
     * The longitude of the location.
     *
-    * @return float The longitude
+    * @return float|null The longitude
     */
     public function getLongitude()
     {

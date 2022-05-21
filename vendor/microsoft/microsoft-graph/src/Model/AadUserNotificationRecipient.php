@@ -27,7 +27,7 @@ class AadUserNotificationRecipient extends TeamworkNotificationRecipient
     * Gets the userId
     * Azure AD user identifier. Use the List users method to get this ID.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {

@@ -27,7 +27,7 @@ class MacOSLobChildApp extends Entity
     * Gets the buildNumber
     * The build number of MacOS Line of Business (LoB) app.
     *
-    * @return string The buildNumber
+    * @return string|null The buildNumber
     */
     public function getBuildNumber()
     {
@@ -55,7 +55,7 @@ class MacOSLobChildApp extends Entity
     * Gets the bundleId
     * The Identity Name.
     *
-    * @return string The bundleId
+    * @return string|null The bundleId
     */
     public function getBundleId()
     {
@@ -83,7 +83,7 @@ class MacOSLobChildApp extends Entity
     * Gets the versionNumber
     * The version number of MacOS Line of Business (LoB) app.
     *
-    * @return string The versionNumber
+    * @return string|null The versionNumber
     */
     public function getVersionNumber()
     {

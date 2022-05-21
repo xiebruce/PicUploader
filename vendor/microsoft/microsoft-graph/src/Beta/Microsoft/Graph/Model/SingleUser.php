@@ -27,7 +27,7 @@ class SingleUser extends UserSet
     * Gets the description
     * The name of the user in Azure AD. Read only.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -55,7 +55,7 @@ class SingleUser extends UserSet
     * Gets the id
     * The ID of the user in Azure AD.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {

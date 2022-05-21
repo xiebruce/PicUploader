@@ -28,7 +28,7 @@ class TelecomExpenseManagementPartner extends Entity
     * Gets the appAuthorized
     * Whether the partner's AAD app has been authorized to access Intune.
     *
-    * @return bool The appAuthorized
+    * @return bool|null The appAuthorized
     */
     public function getAppAuthorized()
     {
@@ -38,7 +38,7 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appAuthorized
     * Whether the partner's AAD app has been authorized to access Intune.
@@ -52,12 +52,12 @@ class TelecomExpenseManagementPartner extends Entity
         $this->_propDict["appAuthorized"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Display name of the TEM partner.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Display name of the TEM partner.
@@ -81,12 +81,12 @@ class TelecomExpenseManagementPartner extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the enabled
     * Whether Intune's connection to the TEM service is currently enabled or disabled.
     *
-    * @return bool The enabled
+    * @return bool|null The enabled
     */
     public function getEnabled()
     {
@@ -96,7 +96,7 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the enabled
     * Whether Intune's connection to the TEM service is currently enabled or disabled.
@@ -110,17 +110,17 @@ class TelecomExpenseManagementPartner extends Entity
         $this->_propDict["enabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastConnectionDateTime
     * Timestamp of the last request sent to Intune by the TEM partner.
     *
-    * @return \DateTime The lastConnectionDateTime
+    * @return \DateTime|null The lastConnectionDateTime
     */
     public function getLastConnectionDateTime()
     {
         if (array_key_exists("lastConnectionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
                 return $this->_propDict["lastConnectionDateTime"];
             } else {
                 $this->_propDict["lastConnectionDateTime"] = new \DateTime($this->_propDict["lastConnectionDateTime"]);
@@ -129,7 +129,7 @@ class TelecomExpenseManagementPartner extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastConnectionDateTime
     * Timestamp of the last request sent to Intune by the TEM partner.
@@ -143,12 +143,12 @@ class TelecomExpenseManagementPartner extends Entity
         $this->_propDict["lastConnectionDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the url
     * URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {
@@ -158,7 +158,7 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the url
     * URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
@@ -172,5 +172,5 @@ class TelecomExpenseManagementPartner extends Entity
         $this->_propDict["url"] = $val;
         return $this;
     }
-    
+
 }

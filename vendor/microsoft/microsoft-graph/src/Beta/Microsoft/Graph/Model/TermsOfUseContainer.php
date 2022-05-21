@@ -25,10 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class TermsOfUseContainer extends Entity
 {
 
-     /** 
+     /**
      * Gets the agreementAcceptances
+    * Represents the current status of a user's response to a company's customizable terms of use agreement.
      *
-     * @return array The agreementAcceptances
+     * @return array|null The agreementAcceptances
      */
     public function getAgreementAcceptances()
     {
@@ -38,25 +39,27 @@ class TermsOfUseContainer extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the agreementAcceptances
+    * Represents the current status of a user's response to a company's customizable terms of use agreement.
     *
-    * @param AgreementAcceptance $val The agreementAcceptances
+    * @param AgreementAcceptance[] $val The agreementAcceptances
     *
     * @return TermsOfUseContainer
     */
     public function setAgreementAcceptances($val)
     {
-		$this->_propDict["agreementAcceptances"] = $val;
+        $this->_propDict["agreementAcceptances"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the agreements
+    * Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
      *
-     * @return array The agreements
+     * @return array|null The agreements
      */
     public function getAgreements()
     {
@@ -66,18 +69,19 @@ class TermsOfUseContainer extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the agreements
+    * Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).
     *
-    * @param Agreement $val The agreements
+    * @param Agreement[] $val The agreements
     *
     * @return TermsOfUseContainer
     */
     public function setAgreements($val)
     {
-		$this->_propDict["agreements"] = $val;
+        $this->_propDict["agreements"] = $val;
         return $this;
     }
-    
+
 }

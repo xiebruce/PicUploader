@@ -27,7 +27,7 @@ class UserIdentity extends Identity
     * Gets the ipAddress
     * Indicates the client IP address used by user performing the activity (audit log only).
     *
-    * @return string The ipAddress
+    * @return string|null The ipAddress
     */
     public function getIpAddress()
     {
@@ -55,7 +55,7 @@ class UserIdentity extends Identity
     * Gets the userPrincipalName
     * The userPrincipalName attribute of the user.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {

@@ -27,7 +27,7 @@ class SynchronizationRule extends Entity
     * Gets the editable
     * true if the synchronization rule can be customized; false if this rule is read-only and should not be changed.
     *
-    * @return bool The editable
+    * @return bool|null The editable
     */
     public function getEditable()
     {
@@ -55,7 +55,7 @@ class SynchronizationRule extends Entity
     * Gets the id
     * Synchronization rule identifier. Must be one of the identifiers recognized by the synchronization engine. Supported rule identifiers can be found in the synchronization template returned by the API.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -84,12 +84,12 @@ class SynchronizationRule extends Entity
     * Gets the metadata
     * Additional extension properties. Unless instructed explicitly by the support team, metadata values should not be changed.
     *
-    * @return StringKeyStringValuePair The metadata
+    * @return StringKeyStringValuePair|null The metadata
     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\StringKeyStringValuePair")) {
+            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\StringKeyStringValuePair") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new StringKeyStringValuePair($this->_propDict["metadata"]);
@@ -116,7 +116,7 @@ class SynchronizationRule extends Entity
     * Gets the name
     * Human-readable name of the synchronization rule. Not nullable.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -145,12 +145,12 @@ class SynchronizationRule extends Entity
     * Gets the objectMappings
     * Collection of object mappings supported by the rule. Tells the synchronization engine which objects should be synchronized.
     *
-    * @return ObjectMapping The objectMappings
+    * @return ObjectMapping|null The objectMappings
     */
     public function getObjectMappings()
     {
         if (array_key_exists("objectMappings", $this->_propDict)) {
-            if (is_a($this->_propDict["objectMappings"], "\Beta\Microsoft\Graph\Model\ObjectMapping")) {
+            if (is_a($this->_propDict["objectMappings"], "\Beta\Microsoft\Graph\Model\ObjectMapping") || is_null($this->_propDict["objectMappings"])) {
                 return $this->_propDict["objectMappings"];
             } else {
                 $this->_propDict["objectMappings"] = new ObjectMapping($this->_propDict["objectMappings"]);
@@ -177,7 +177,7 @@ class SynchronizationRule extends Entity
     * Gets the priority
     * Priority relative to other rules in the synchronizationSchema. Rules with the lowest priority number will be processed first.
     *
-    * @return int The priority
+    * @return int|null The priority
     */
     public function getPriority()
     {
@@ -205,7 +205,7 @@ class SynchronizationRule extends Entity
     * Gets the sourceDirectoryName
     * Name of the source directory. Must match one of the directory definitions in synchronizationSchema.
     *
-    * @return string The sourceDirectoryName
+    * @return string|null The sourceDirectoryName
     */
     public function getSourceDirectoryName()
     {
@@ -233,7 +233,7 @@ class SynchronizationRule extends Entity
     * Gets the targetDirectoryName
     * Name of the target directory. Must match one of the directory definitions in synchronizationSchema.
     *
-    * @return string The targetDirectoryName
+    * @return string|null The targetDirectoryName
     */
     public function getTargetDirectoryName()
     {

@@ -28,12 +28,12 @@ class MacOSMicrosoftEdgeApp extends MobileApp
     * Gets the channel
     * The channel to install on target devices. Possible values are: dev, beta, stable.
     *
-    * @return MicrosoftEdgeChannel The channel
+    * @return MicrosoftEdgeChannel|null The channel
     */
     public function getChannel()
     {
         if (array_key_exists("channel", $this->_propDict)) {
-            if (is_a($this->_propDict["channel"], "\Beta\Microsoft\Graph\Model\MicrosoftEdgeChannel")) {
+            if (is_a($this->_propDict["channel"], "\Beta\Microsoft\Graph\Model\MicrosoftEdgeChannel") || is_null($this->_propDict["channel"])) {
                 return $this->_propDict["channel"];
             } else {
                 $this->_propDict["channel"] = new MicrosoftEdgeChannel($this->_propDict["channel"]);
@@ -42,7 +42,7 @@ class MacOSMicrosoftEdgeApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the channel
     * The channel to install on target devices. Possible values are: dev, beta, stable.
@@ -56,5 +56,5 @@ class MacOSMicrosoftEdgeApp extends MobileApp
         $this->_propDict["channel"] = $val;
         return $this;
     }
-    
+
 }

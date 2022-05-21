@@ -27,7 +27,7 @@ class ExternalLink extends Entity
     * Gets the href
     * The url of the link.
     *
-    * @return string The href
+    * @return string|null The href
     */
     public function getHref()
     {

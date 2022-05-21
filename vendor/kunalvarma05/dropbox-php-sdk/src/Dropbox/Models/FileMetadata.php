@@ -12,6 +12,13 @@ class FileMetadata extends BaseModel
     protected $id;
 
     /**
+     * Object type
+     *
+     * @var string
+     */
+    protected $tag;
+
+    /**
      * The last component of the path (including extension).
      *
      * @var string
@@ -100,6 +107,7 @@ class FileMetadata extends BaseModel
     {
         parent::__construct($data);
         $this->id = $this->getDataProperty('id');
+        $this->tag = $this->getDataProperty('.tag');
         $this->rev = $this->getDataProperty('rev');
         $this->name = $this->getDataProperty('name');
         $this->size = $this->getDataProperty('size');
@@ -130,6 +138,16 @@ class FileMetadata extends BaseModel
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Get the '.tag' property of the file model.
+     *
+     * @return string
+     */
+    public function getTag()
+    {
+        return $this->tag;
     }
 
     /**

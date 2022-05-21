@@ -932,6 +932,20 @@ namespace Cloudinary {
         }
 
         /**
+         * Should parse usage limits
+         *
+         * @throws Api\GeneralError
+         */
+        public function test_response_limits()
+        {
+            $result = $this->api->ping();
+
+            self::assertNotEmpty($result->rate_limit_allowed);
+            self::assertNotEmpty($result->rate_limit_reset_at);
+            self::assertNotEmpty($result->rate_limit_remaining);
+        }
+
+        /**
          * Should allow deleting all resources
          *
          * @throws Api\GeneralError

@@ -28,12 +28,12 @@ class MeetingParticipantInfo extends Entity
     * Gets the identity
     * Identity information of the participant.
     *
-    * @return IdentitySet The identity
+    * @return IdentitySet|null The identity
     */
     public function getIdentity()
     {
         if (array_key_exists("identity", $this->_propDict)) {
-            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["identity"])) {
                 return $this->_propDict["identity"];
             } else {
                 $this->_propDict["identity"] = new IdentitySet($this->_propDict["identity"]);
@@ -59,14 +59,14 @@ class MeetingParticipantInfo extends Entity
 
     /**
     * Gets the role
-    * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+    * Specifies the participant's role in the meeting.
     *
-    * @return OnlineMeetingRole The role
+    * @return OnlineMeetingRole|null The role
     */
     public function getRole()
     {
         if (array_key_exists("role", $this->_propDict)) {
-            if (is_a($this->_propDict["role"], "\Beta\Microsoft\Graph\Model\OnlineMeetingRole")) {
+            if (is_a($this->_propDict["role"], "\Beta\Microsoft\Graph\Model\OnlineMeetingRole") || is_null($this->_propDict["role"])) {
                 return $this->_propDict["role"];
             } else {
                 $this->_propDict["role"] = new OnlineMeetingRole($this->_propDict["role"]);
@@ -78,7 +78,7 @@ class MeetingParticipantInfo extends Entity
 
     /**
     * Sets the role
-    * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+    * Specifies the participant's role in the meeting.
     *
     * @param OnlineMeetingRole $val The value to assign to the role
     *
@@ -93,7 +93,7 @@ class MeetingParticipantInfo extends Entity
     * Gets the upn
     * User principal name of the participant.
     *
-    * @return string The upn
+    * @return string|null The upn
     */
     public function getUpn()
     {

@@ -28,7 +28,7 @@ class AccessReviewDecision extends Entity
     * Gets the accessRecommendation
     * The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
     *
-    * @return string The accessRecommendation
+    * @return string|null The accessRecommendation
     */
     public function getAccessRecommendation()
     {
@@ -38,7 +38,7 @@ class AccessReviewDecision extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the accessRecommendation
     * The feature- generated recommendation shown to the reviewer, one of Approve, Deny or NotAvailable.
@@ -52,12 +52,12 @@ class AccessReviewDecision extends Entity
         $this->_propDict["accessRecommendation"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessReviewId
     * The feature-generated id of the access review.
     *
-    * @return string The accessReviewId
+    * @return string|null The accessReviewId
     */
     public function getAccessReviewId()
     {
@@ -67,7 +67,7 @@ class AccessReviewDecision extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the accessReviewId
     * The feature-generated id of the access review.
@@ -81,17 +81,17 @@ class AccessReviewDecision extends Entity
         $this->_propDict["accessReviewId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appliedBy
     * When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
     *
-    * @return UserIdentity The appliedBy
+    * @return UserIdentity|null The appliedBy
     */
     public function getAppliedBy()
     {
         if (array_key_exists("appliedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["appliedBy"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
+            if (is_a($this->_propDict["appliedBy"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["appliedBy"])) {
                 return $this->_propDict["appliedBy"];
             } else {
                 $this->_propDict["appliedBy"] = new UserIdentity($this->_propDict["appliedBy"]);
@@ -100,7 +100,7 @@ class AccessReviewDecision extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the appliedBy
     * When the review completes, if the results were manually applied, the user identity of the user who applied the decision. If the review was auto-applied, the userPrincipalName is empty.
@@ -114,17 +114,17 @@ class AccessReviewDecision extends Entity
         $this->_propDict["appliedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the appliedDateTime
     * The date and time when the review decision was applied.
     *
-    * @return \DateTime The appliedDateTime
+    * @return \DateTime|null The appliedDateTime
     */
     public function getAppliedDateTime()
     {
         if (array_key_exists("appliedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["appliedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["appliedDateTime"], "\DateTime") || is_null($this->_propDict["appliedDateTime"])) {
                 return $this->_propDict["appliedDateTime"];
             } else {
                 $this->_propDict["appliedDateTime"] = new \DateTime($this->_propDict["appliedDateTime"]);
@@ -133,7 +133,7 @@ class AccessReviewDecision extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the appliedDateTime
     * The date and time when the review decision was applied.
@@ -147,12 +147,12 @@ class AccessReviewDecision extends Entity
         $this->_propDict["appliedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applyResult
     * The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
     *
-    * @return string The applyResult
+    * @return string|null The applyResult
     */
     public function getApplyResult()
     {
@@ -162,7 +162,7 @@ class AccessReviewDecision extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the applyResult
     * The outcome of applying the decision, one of NotApplied, Success, Failed, NotFound or NotSupported.
@@ -176,12 +176,12 @@ class AccessReviewDecision extends Entity
         $this->_propDict["applyResult"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the justification
     * The reviewer's business justification, if supplied.
     *
-    * @return string The justification
+    * @return string|null The justification
     */
     public function getJustification()
     {
@@ -191,7 +191,7 @@ class AccessReviewDecision extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the justification
     * The reviewer's business justification, if supplied.
@@ -205,17 +205,17 @@ class AccessReviewDecision extends Entity
         $this->_propDict["justification"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewedBy
     * The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty.
     *
-    * @return UserIdentity The reviewedBy
+    * @return UserIdentity|null The reviewedBy
     */
     public function getReviewedBy()
     {
         if (array_key_exists("reviewedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewedBy"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
+            if (is_a($this->_propDict["reviewedBy"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["reviewedBy"])) {
                 return $this->_propDict["reviewedBy"];
             } else {
                 $this->_propDict["reviewedBy"] = new UserIdentity($this->_propDict["reviewedBy"]);
@@ -224,7 +224,7 @@ class AccessReviewDecision extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reviewedBy
     * The identity of the reviewer. If the recommendation was used as the review, the userPrincipalName is empty.
@@ -238,16 +238,16 @@ class AccessReviewDecision extends Entity
         $this->_propDict["reviewedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewedDateTime
     *
-    * @return \DateTime The reviewedDateTime
+    * @return \DateTime|null The reviewedDateTime
     */
     public function getReviewedDateTime()
     {
         if (array_key_exists("reviewedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["reviewedDateTime"], "\DateTime") || is_null($this->_propDict["reviewedDateTime"])) {
                 return $this->_propDict["reviewedDateTime"];
             } else {
                 $this->_propDict["reviewedDateTime"] = new \DateTime($this->_propDict["reviewedDateTime"]);
@@ -256,7 +256,7 @@ class AccessReviewDecision extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reviewedDateTime
     *
@@ -269,12 +269,12 @@ class AccessReviewDecision extends Entity
         $this->_propDict["reviewedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reviewResult
     * The result of the review, one of NotReviewed, Deny, DontKnow or Approve.
     *
-    * @return string The reviewResult
+    * @return string|null The reviewResult
     */
     public function getReviewResult()
     {
@@ -284,7 +284,7 @@ class AccessReviewDecision extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reviewResult
     * The result of the review, one of NotReviewed, Deny, DontKnow or Approve.
@@ -298,5 +298,5 @@ class AccessReviewDecision extends Entity
         $this->_propDict["reviewResult"] = $val;
         return $this;
     }
-    
+
 }

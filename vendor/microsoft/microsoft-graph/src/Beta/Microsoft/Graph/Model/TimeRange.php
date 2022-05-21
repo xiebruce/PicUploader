@@ -28,12 +28,12 @@ class TimeRange extends Entity
     * Gets the endTime
     * End time for the time range.
     *
-    * @return TimeOfDay The endTime
+    * @return TimeOfDay|null The endTime
     */
     public function getEndTime()
     {
         if (array_key_exists("endTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["endTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["endTime"])) {
                 return $this->_propDict["endTime"];
             } else {
                 $this->_propDict["endTime"] = new TimeOfDay($this->_propDict["endTime"]);
@@ -61,12 +61,12 @@ class TimeRange extends Entity
     * Gets the startTime
     * Start time for the time range.
     *
-    * @return TimeOfDay The startTime
+    * @return TimeOfDay|null The startTime
     */
     public function getStartTime()
     {
         if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["startTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["startTime"])) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);

@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class UserExperienceAnalyticsCategory extends Entity
 {
 
-     /** 
+     /**
      * Gets the insights
     * The insights for the user experience analytics category.
      *
-     * @return array The insights
+     * @return array|null The insights
      */
     public function getInsights()
     {
@@ -39,27 +39,27 @@ class UserExperienceAnalyticsCategory extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the insights
     * The insights for the user experience analytics category.
     *
-    * @param UserExperienceAnalyticsInsight $val The insights
+    * @param UserExperienceAnalyticsInsight[] $val The insights
     *
     * @return UserExperienceAnalyticsCategory
     */
     public function setInsights($val)
     {
-		$this->_propDict["insights"] = $val;
+        $this->_propDict["insights"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the metricValues
     * The metric values for the user experience analytics category.
      *
-     * @return array The metricValues
+     * @return array|null The metricValues
      */
     public function getMetricValues()
     {
@@ -69,19 +69,19 @@ class UserExperienceAnalyticsCategory extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the metricValues
     * The metric values for the user experience analytics category.
     *
-    * @param UserExperienceAnalyticsMetric $val The metricValues
+    * @param UserExperienceAnalyticsMetric[] $val The metricValues
     *
     * @return UserExperienceAnalyticsCategory
     */
     public function setMetricValues($val)
     {
-		$this->_propDict["metricValues"] = $val;
+        $this->_propDict["metricValues"] = $val;
         return $this;
     }
-    
+
 }

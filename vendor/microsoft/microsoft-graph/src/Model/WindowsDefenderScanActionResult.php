@@ -27,7 +27,7 @@ class WindowsDefenderScanActionResult extends DeviceActionResult
     * Gets the scanType
     * Scan type either full scan or quick scan
     *
-    * @return string The scanType
+    * @return string|null The scanType
     */
     public function getScanType()
     {

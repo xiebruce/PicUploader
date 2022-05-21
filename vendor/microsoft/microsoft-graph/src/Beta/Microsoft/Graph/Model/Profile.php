@@ -25,10 +25,10 @@ namespace Beta\Microsoft\Graph\Model;
 class Profile extends Entity
 {
 
-     /** 
+     /**
      * Gets the account
      *
-     * @return array The account
+     * @return array|null The account
      */
     public function getAccount()
     {
@@ -38,26 +38,26 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the account
     *
-    * @param UserAccountInformation $val The account
+    * @param UserAccountInformation[] $val The account
     *
     * @return Profile
     */
     public function setAccount($val)
     {
-		$this->_propDict["account"] = $val;
+        $this->_propDict["account"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the addresses
     * Represents details of addresses associated with the user.
      *
-     * @return array The addresses
+     * @return array|null The addresses
      */
     public function getAddresses()
     {
@@ -67,27 +67,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the addresses
     * Represents details of addresses associated with the user.
     *
-    * @param ItemAddress $val The addresses
+    * @param ItemAddress[] $val The addresses
     *
     * @return Profile
     */
     public function setAddresses($val)
     {
-		$this->_propDict["addresses"] = $val;
+        $this->_propDict["addresses"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the anniversaries
     * Represents the details of meaningful dates associated with a person.
      *
-     * @return array The anniversaries
+     * @return array|null The anniversaries
      */
     public function getAnniversaries()
     {
@@ -97,27 +97,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the anniversaries
     * Represents the details of meaningful dates associated with a person.
     *
-    * @param PersonAnnualEvent $val The anniversaries
+    * @param PersonAnnualEvent[] $val The anniversaries
     *
     * @return Profile
     */
     public function setAnniversaries($val)
     {
-		$this->_propDict["anniversaries"] = $val;
+        $this->_propDict["anniversaries"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the awards
     * Represents the details of awards or honors associated with a person.
      *
-     * @return array The awards
+     * @return array|null The awards
      */
     public function getAwards()
     {
@@ -127,27 +127,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the awards
     * Represents the details of awards or honors associated with a person.
     *
-    * @param PersonAward $val The awards
+    * @param PersonAward[] $val The awards
     *
     * @return Profile
     */
     public function setAwards($val)
     {
-		$this->_propDict["awards"] = $val;
+        $this->_propDict["awards"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the certifications
     * Represents the details of certifications associated with a person.
      *
-     * @return array The certifications
+     * @return array|null The certifications
      */
     public function getCertifications()
     {
@@ -157,27 +157,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the certifications
     * Represents the details of certifications associated with a person.
     *
-    * @param PersonCertification $val The certifications
+    * @param PersonCertification[] $val The certifications
     *
     * @return Profile
     */
     public function setCertifications($val)
     {
-		$this->_propDict["certifications"] = $val;
+        $this->_propDict["certifications"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the educationalActivities
     * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
      *
-     * @return array The educationalActivities
+     * @return array|null The educationalActivities
      */
     public function getEducationalActivities()
     {
@@ -187,27 +187,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the educationalActivities
     * Represents data that a user has supplied related to undergraduate, graduate, postgraduate or other educational activities.
     *
-    * @param EducationalActivity $val The educationalActivities
+    * @param EducationalActivity[] $val The educationalActivities
     *
     * @return Profile
     */
     public function setEducationalActivities($val)
     {
-		$this->_propDict["educationalActivities"] = $val;
+        $this->_propDict["educationalActivities"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the emails
     * Represents detailed information about email addresses associated with the user.
      *
-     * @return array The emails
+     * @return array|null The emails
      */
     public function getEmails()
     {
@@ -217,27 +217,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the emails
     * Represents detailed information about email addresses associated with the user.
     *
-    * @param ItemEmail $val The emails
+    * @param ItemEmail[] $val The emails
     *
     * @return Profile
     */
     public function setEmails($val)
     {
-		$this->_propDict["emails"] = $val;
+        $this->_propDict["emails"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the interests
     * Provides detailed information about interests the user has associated with themselves in various services.
      *
-     * @return array The interests
+     * @return array|null The interests
      */
     public function getInterests()
     {
@@ -247,27 +247,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the interests
     * Provides detailed information about interests the user has associated with themselves in various services.
     *
-    * @param PersonInterest $val The interests
+    * @param PersonInterest[] $val The interests
     *
     * @return Profile
     */
     public function setInterests($val)
     {
-		$this->_propDict["interests"] = $val;
+        $this->_propDict["interests"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the languages
     * Represents detailed information about languages that a user has added to their profile.
      *
-     * @return array The languages
+     * @return array|null The languages
      */
     public function getLanguages()
     {
@@ -277,27 +277,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the languages
     * Represents detailed information about languages that a user has added to their profile.
     *
-    * @param LanguageProficiency $val The languages
+    * @param LanguageProficiency[] $val The languages
     *
     * @return Profile
     */
     public function setLanguages($val)
     {
-		$this->_propDict["languages"] = $val;
+        $this->_propDict["languages"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the names
     * Represents the names a user has added to their profile.
      *
-     * @return array The names
+     * @return array|null The names
      */
     public function getNames()
     {
@@ -307,27 +307,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the names
     * Represents the names a user has added to their profile.
     *
-    * @param PersonName $val The names
+    * @param PersonName[] $val The names
     *
     * @return Profile
     */
     public function setNames($val)
     {
-		$this->_propDict["names"] = $val;
+        $this->_propDict["names"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the notes
     * Represents notes that a user has added to their profile.
      *
-     * @return array The notes
+     * @return array|null The notes
      */
     public function getNotes()
     {
@@ -337,27 +337,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the notes
     * Represents notes that a user has added to their profile.
     *
-    * @param PersonAnnotation $val The notes
+    * @param PersonAnnotation[] $val The notes
     *
     * @return Profile
     */
     public function setNotes($val)
     {
-		$this->_propDict["notes"] = $val;
+        $this->_propDict["notes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the patents
     * Represents patents that a user has added to their profile.
      *
-     * @return array The patents
+     * @return array|null The patents
      */
     public function getPatents()
     {
@@ -367,27 +367,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the patents
     * Represents patents that a user has added to their profile.
     *
-    * @param ItemPatent $val The patents
+    * @param ItemPatent[] $val The patents
     *
     * @return Profile
     */
     public function setPatents($val)
     {
-		$this->_propDict["patents"] = $val;
+        $this->_propDict["patents"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the phones
     * Represents detailed information about phone numbers associated with a user in various services.
      *
-     * @return array The phones
+     * @return array|null The phones
      */
     public function getPhones()
     {
@@ -397,27 +397,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the phones
     * Represents detailed information about phone numbers associated with a user in various services.
     *
-    * @param ItemPhone $val The phones
+    * @param ItemPhone[] $val The phones
     *
     * @return Profile
     */
     public function setPhones($val)
     {
-		$this->_propDict["phones"] = $val;
+        $this->_propDict["phones"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the positions
     * Represents detailed information about work positions associated with a user's profile.
      *
-     * @return array The positions
+     * @return array|null The positions
      */
     public function getPositions()
     {
@@ -427,27 +427,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the positions
     * Represents detailed information about work positions associated with a user's profile.
     *
-    * @param WorkPosition $val The positions
+    * @param WorkPosition[] $val The positions
     *
     * @return Profile
     */
     public function setPositions($val)
     {
-		$this->_propDict["positions"] = $val;
+        $this->_propDict["positions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the projects
     * Represents detailed information about projects associated with a user.
      *
-     * @return array The projects
+     * @return array|null The projects
      */
     public function getProjects()
     {
@@ -457,27 +457,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the projects
     * Represents detailed information about projects associated with a user.
     *
-    * @param ProjectParticipation $val The projects
+    * @param ProjectParticipation[] $val The projects
     *
     * @return Profile
     */
     public function setProjects($val)
     {
-		$this->_propDict["projects"] = $val;
+        $this->_propDict["projects"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the publications
     * Represents details of any publications a user has added to their profile.
      *
-     * @return array The publications
+     * @return array|null The publications
      */
     public function getPublications()
     {
@@ -487,27 +487,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the publications
     * Represents details of any publications a user has added to their profile.
     *
-    * @param ItemPublication $val The publications
+    * @param ItemPublication[] $val The publications
     *
     * @return Profile
     */
     public function setPublications($val)
     {
-		$this->_propDict["publications"] = $val;
+        $this->_propDict["publications"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the skills
     * Represents detailed information about skills associated with a user in various services.
      *
-     * @return array The skills
+     * @return array|null The skills
      */
     public function getSkills()
     {
@@ -517,27 +517,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the skills
     * Represents detailed information about skills associated with a user in various services.
     *
-    * @param SkillProficiency $val The skills
+    * @param SkillProficiency[] $val The skills
     *
     * @return Profile
     */
     public function setSkills($val)
     {
-		$this->_propDict["skills"] = $val;
+        $this->_propDict["skills"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the webAccounts
     * Represents web accounts the user has indicated they use or has added to their user profile.
      *
-     * @return array The webAccounts
+     * @return array|null The webAccounts
      */
     public function getWebAccounts()
     {
@@ -547,27 +547,27 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the webAccounts
     * Represents web accounts the user has indicated they use or has added to their user profile.
     *
-    * @param WebAccount $val The webAccounts
+    * @param WebAccount[] $val The webAccounts
     *
     * @return Profile
     */
     public function setWebAccounts($val)
     {
-		$this->_propDict["webAccounts"] = $val;
+        $this->_propDict["webAccounts"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the websites
     * Represents detailed information about websites associated with a user in various services.
      *
-     * @return array The websites
+     * @return array|null The websites
      */
     public function getWebsites()
     {
@@ -577,19 +577,19 @@ class Profile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the websites
     * Represents detailed information about websites associated with a user in various services.
     *
-    * @param PersonWebsite $val The websites
+    * @param PersonWebsite[] $val The websites
     *
     * @return Profile
     */
     public function setWebsites($val)
     {
-		$this->_propDict["websites"] = $val;
+        $this->_propDict["websites"] = $val;
         return $this;
     }
-    
+
 }

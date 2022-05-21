@@ -27,7 +27,7 @@ class PublicError extends Entity
     * Gets the code
     * Represents the error code.
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -56,12 +56,12 @@ class PublicError extends Entity
     * Gets the details
     * Details of the error.
     *
-    * @return PublicErrorDetail The details
+    * @return PublicErrorDetail|null The details
     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PublicErrorDetail")) {
+            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PublicErrorDetail") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PublicErrorDetail($this->_propDict["details"]);
@@ -89,12 +89,12 @@ class PublicError extends Entity
     * Gets the innerError
     * Details of the inner error.
     *
-    * @return PublicInnerError The innerError
+    * @return PublicInnerError|null The innerError
     */
     public function getInnerError()
     {
         if (array_key_exists("innerError", $this->_propDict)) {
-            if (is_a($this->_propDict["innerError"], "\Microsoft\Graph\Model\PublicInnerError")) {
+            if (is_a($this->_propDict["innerError"], "\Microsoft\Graph\Model\PublicInnerError") || is_null($this->_propDict["innerError"])) {
                 return $this->_propDict["innerError"];
             } else {
                 $this->_propDict["innerError"] = new PublicInnerError($this->_propDict["innerError"]);
@@ -121,7 +121,7 @@ class PublicError extends Entity
     * Gets the message
     * A non-localized message for the developer.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -149,7 +149,7 @@ class PublicError extends Entity
     * Gets the target
     * The target of the error.
     *
-    * @return string The target
+    * @return string|null The target
     */
     public function getTarget()
     {

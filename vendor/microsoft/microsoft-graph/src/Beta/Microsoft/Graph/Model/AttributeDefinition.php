@@ -27,7 +27,7 @@ class AttributeDefinition extends Entity
     * Gets the anchor
     * true if the attribute should be used as the anchor for the object. Anchor attributes must have a unique value identifying an object, and must be immutable. Default is false. One, and only one, of the object's attributes must be designated as the anchor to support synchronization.
     *
-    * @return bool The anchor
+    * @return bool|null The anchor
     */
     public function getAnchor()
     {
@@ -55,12 +55,12 @@ class AttributeDefinition extends Entity
     /**
     * Gets the apiExpressions
     *
-    * @return StringKeyStringValuePair The apiExpressions
+    * @return StringKeyStringValuePair|null The apiExpressions
     */
     public function getApiExpressions()
     {
         if (array_key_exists("apiExpressions", $this->_propDict)) {
-            if (is_a($this->_propDict["apiExpressions"], "\Beta\Microsoft\Graph\Model\StringKeyStringValuePair")) {
+            if (is_a($this->_propDict["apiExpressions"], "\Beta\Microsoft\Graph\Model\StringKeyStringValuePair") || is_null($this->_propDict["apiExpressions"])) {
                 return $this->_propDict["apiExpressions"];
             } else {
                 $this->_propDict["apiExpressions"] = new StringKeyStringValuePair($this->_propDict["apiExpressions"]);
@@ -86,7 +86,7 @@ class AttributeDefinition extends Entity
     * Gets the caseExact
     * true if value of this attribute should be treated as case-sensitive. This setting affects how the synchronization engine detects changes for the attribute.
     *
-    * @return bool The caseExact
+    * @return bool|null The caseExact
     */
     public function getCaseExact()
     {
@@ -113,7 +113,7 @@ class AttributeDefinition extends Entity
     /**
     * Gets the defaultValue
     *
-    * @return string The defaultValue
+    * @return string|null The defaultValue
     */
     public function getDefaultValue()
     {
@@ -140,7 +140,7 @@ class AttributeDefinition extends Entity
     * Gets the flowNullValues
     * 'true' to allow null values for attributes.
     *
-    * @return bool The flowNullValues
+    * @return bool|null The flowNullValues
     */
     public function getFlowNullValues()
     {
@@ -169,12 +169,12 @@ class AttributeDefinition extends Entity
     * Gets the metadata
     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
     *
-    * @return MetadataEntry The metadata
+    * @return MetadataEntry|null The metadata
     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry")) {
+            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
@@ -201,7 +201,7 @@ class AttributeDefinition extends Entity
     * Gets the multivalued
     * true if an attribute can have multiple values. Default is false.
     *
-    * @return bool The multivalued
+    * @return bool|null The multivalued
     */
     public function getMultivalued()
     {
@@ -230,12 +230,12 @@ class AttributeDefinition extends Entity
     * Gets the mutability
     * An attribute's mutability. Possible values are:  ReadWrite, ReadOnly, Immutable, WriteOnly. Default is ReadWrite.
     *
-    * @return Mutability The mutability
+    * @return Mutability|null The mutability
     */
     public function getMutability()
     {
         if (array_key_exists("mutability", $this->_propDict)) {
-            if (is_a($this->_propDict["mutability"], "\Beta\Microsoft\Graph\Model\Mutability")) {
+            if (is_a($this->_propDict["mutability"], "\Beta\Microsoft\Graph\Model\Mutability") || is_null($this->_propDict["mutability"])) {
                 return $this->_propDict["mutability"];
             } else {
                 $this->_propDict["mutability"] = new Mutability($this->_propDict["mutability"]);
@@ -262,7 +262,7 @@ class AttributeDefinition extends Entity
     * Gets the name
     * Name of the attribute. Must be unique within the object definition. Not nullable.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -291,12 +291,12 @@ class AttributeDefinition extends Entity
     * Gets the referencedObjects
     * For attributes with reference type, lists referenced objects (for example, the manager attribute would list User as the referenced object).
     *
-    * @return ReferencedObject The referencedObjects
+    * @return ReferencedObject|null The referencedObjects
     */
     public function getReferencedObjects()
     {
         if (array_key_exists("referencedObjects", $this->_propDict)) {
-            if (is_a($this->_propDict["referencedObjects"], "\Beta\Microsoft\Graph\Model\ReferencedObject")) {
+            if (is_a($this->_propDict["referencedObjects"], "\Beta\Microsoft\Graph\Model\ReferencedObject") || is_null($this->_propDict["referencedObjects"])) {
                 return $this->_propDict["referencedObjects"];
             } else {
                 $this->_propDict["referencedObjects"] = new ReferencedObject($this->_propDict["referencedObjects"]);
@@ -323,7 +323,7 @@ class AttributeDefinition extends Entity
     * Gets the required
     * true if attribute is required. Object can not be created if any of the required attributes are missing. If during synchronization, the required attribute has no value, the default value will be used. If default the value was not set, synchronization will record an error.
     *
-    * @return bool The required
+    * @return bool|null The required
     */
     public function getRequired()
     {
@@ -352,12 +352,12 @@ class AttributeDefinition extends Entity
     * Gets the type
     * Attribute value type. Possible values are: String, Integer, Reference, Binary, Boolean,DateTime. Default is String.
     *
-    * @return AttributeType The type
+    * @return AttributeType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AttributeType($this->_propDict["type"]);

@@ -27,7 +27,7 @@ class ExcludedApps extends Entity
     * Gets the access
     * The value for if MS Office Access should be excluded or not.
     *
-    * @return bool The access
+    * @return bool|null The access
     */
     public function getAccess()
     {
@@ -55,7 +55,7 @@ class ExcludedApps extends Entity
     * Gets the bing
     * The value for if Microsoft Search as default should be excluded or not.
     *
-    * @return bool The bing
+    * @return bool|null The bing
     */
     public function getBing()
     {
@@ -83,7 +83,7 @@ class ExcludedApps extends Entity
     * Gets the excel
     * The value for if MS Office Excel should be excluded or not.
     *
-    * @return bool The excel
+    * @return bool|null The excel
     */
     public function getExcel()
     {
@@ -111,7 +111,7 @@ class ExcludedApps extends Entity
     * Gets the groove
     * The value for if MS Office OneDrive for Business - Groove should be excluded or not.
     *
-    * @return bool The groove
+    * @return bool|null The groove
     */
     public function getGroove()
     {
@@ -139,7 +139,7 @@ class ExcludedApps extends Entity
     * Gets the infoPath
     * The value for if MS Office InfoPath should be excluded or not.
     *
-    * @return bool The infoPath
+    * @return bool|null The infoPath
     */
     public function getInfoPath()
     {
@@ -167,7 +167,7 @@ class ExcludedApps extends Entity
     * Gets the lync
     * The value for if MS Office Skype for Business - Lync should be excluded or not.
     *
-    * @return bool The lync
+    * @return bool|null The lync
     */
     public function getLync()
     {
@@ -195,7 +195,7 @@ class ExcludedApps extends Entity
     * Gets the oneDrive
     * The value for if MS Office OneDrive should be excluded or not.
     *
-    * @return bool The oneDrive
+    * @return bool|null The oneDrive
     */
     public function getOneDrive()
     {
@@ -223,7 +223,7 @@ class ExcludedApps extends Entity
     * Gets the oneNote
     * The value for if MS Office OneNote should be excluded or not.
     *
-    * @return bool The oneNote
+    * @return bool|null The oneNote
     */
     public function getOneNote()
     {
@@ -251,7 +251,7 @@ class ExcludedApps extends Entity
     * Gets the outlook
     * The value for if MS Office Outlook should be excluded or not.
     *
-    * @return bool The outlook
+    * @return bool|null The outlook
     */
     public function getOutlook()
     {
@@ -279,7 +279,7 @@ class ExcludedApps extends Entity
     * Gets the powerPoint
     * The value for if MS Office PowerPoint should be excluded or not.
     *
-    * @return bool The powerPoint
+    * @return bool|null The powerPoint
     */
     public function getPowerPoint()
     {
@@ -307,7 +307,7 @@ class ExcludedApps extends Entity
     * Gets the publisher
     * The value for if MS Office Publisher should be excluded or not.
     *
-    * @return bool The publisher
+    * @return bool|null The publisher
     */
     public function getPublisher()
     {
@@ -335,7 +335,7 @@ class ExcludedApps extends Entity
     * Gets the sharePointDesigner
     * The value for if MS Office SharePointDesigner should be excluded or not.
     *
-    * @return bool The sharePointDesigner
+    * @return bool|null The sharePointDesigner
     */
     public function getSharePointDesigner()
     {
@@ -363,7 +363,7 @@ class ExcludedApps extends Entity
     * Gets the teams
     * The value for if MS Office Teams should be excluded or not.
     *
-    * @return bool The teams
+    * @return bool|null The teams
     */
     public function getTeams()
     {
@@ -391,7 +391,7 @@ class ExcludedApps extends Entity
     * Gets the visio
     * The value for if MS Office Visio should be excluded or not.
     *
-    * @return bool The visio
+    * @return bool|null The visio
     */
     public function getVisio()
     {
@@ -419,7 +419,7 @@ class ExcludedApps extends Entity
     * Gets the word
     * The value for if MS Office Word should be excluded or not.
     *
-    * @return bool The word
+    * @return bool|null The word
     */
     public function getWord()
     {

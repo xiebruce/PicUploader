@@ -28,12 +28,12 @@ class PendingOperations extends Entity
     * Gets the pendingContentUpdate
     * A property that indicates that an operation that might update the binary content of a file is pending completion.
     *
-    * @return PendingContentUpdate The pendingContentUpdate
+    * @return PendingContentUpdate|null The pendingContentUpdate
     */
     public function getPendingContentUpdate()
     {
         if (array_key_exists("pendingContentUpdate", $this->_propDict)) {
-            if (is_a($this->_propDict["pendingContentUpdate"], "\Beta\Microsoft\Graph\Model\PendingContentUpdate")) {
+            if (is_a($this->_propDict["pendingContentUpdate"], "\Beta\Microsoft\Graph\Model\PendingContentUpdate") || is_null($this->_propDict["pendingContentUpdate"])) {
                 return $this->_propDict["pendingContentUpdate"];
             } else {
                 $this->_propDict["pendingContentUpdate"] = new PendingContentUpdate($this->_propDict["pendingContentUpdate"]);

@@ -27,7 +27,7 @@ class ImplicitGrantSettings extends Entity
     * Gets the enableAccessTokenIssuance
     * Specifies whether this web application can request an access token using the OAuth 2.0 implicit flow.
     *
-    * @return bool The enableAccessTokenIssuance
+    * @return bool|null The enableAccessTokenIssuance
     */
     public function getEnableAccessTokenIssuance()
     {
@@ -55,7 +55,7 @@ class ImplicitGrantSettings extends Entity
     * Gets the enableIdTokenIssuance
     * Specifies whether this web application can request an ID token using the OAuth 2.0 implicit flow.
     *
-    * @return bool The enableIdTokenIssuance
+    * @return bool|null The enableIdTokenIssuance
     */
     public function getEnableIdTokenIssuance()
     {

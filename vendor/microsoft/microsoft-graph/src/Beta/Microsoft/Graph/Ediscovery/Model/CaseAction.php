@@ -35,5 +35,7 @@ class CaseAction extends Enum
     const INDEX = "index";
     const ESTIMATE_STATISTICS = "estimateStatistics";
     const ADD_TO_REVIEW_SET = "addToReviewSet";
+    const HOLD_UPDATE = "holdUpdate";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const PURGE_DATA = "purgeData";
 }

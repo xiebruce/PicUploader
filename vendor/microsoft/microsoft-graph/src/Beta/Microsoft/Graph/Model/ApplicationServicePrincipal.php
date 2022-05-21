@@ -27,12 +27,12 @@ class ApplicationServicePrincipal extends Entity
     /**
     * Gets the application
     *
-    * @return Application The application
+    * @return Application|null The application
     */
     public function getApplication()
     {
         if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "\Beta\Microsoft\Graph\Model\Application")) {
+            if (is_a($this->_propDict["application"], "\Beta\Microsoft\Graph\Model\Application") || is_null($this->_propDict["application"])) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new Application($this->_propDict["application"]);
@@ -58,12 +58,12 @@ class ApplicationServicePrincipal extends Entity
     /**
     * Gets the servicePrincipal
     *
-    * @return ServicePrincipal The servicePrincipal
+    * @return ServicePrincipal|null The servicePrincipal
     */
     public function getServicePrincipal()
     {
         if (array_key_exists("servicePrincipal", $this->_propDict)) {
-            if (is_a($this->_propDict["servicePrincipal"], "\Beta\Microsoft\Graph\Model\ServicePrincipal")) {
+            if (is_a($this->_propDict["servicePrincipal"], "\Beta\Microsoft\Graph\Model\ServicePrincipal") || is_null($this->_propDict["servicePrincipal"])) {
                 return $this->_propDict["servicePrincipal"];
             } else {
                 $this->_propDict["servicePrincipal"] = new ServicePrincipal($this->_propDict["servicePrincipal"]);

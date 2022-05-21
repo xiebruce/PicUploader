@@ -32,4 +32,6 @@ class MacOSSoftwareUpdateDelayPolicy extends Enum
     const NONE = "none";
     const DELAY_OS_UPDATE_VISIBILITY = "delayOSUpdateVisibility";
     const DELAY_APP_UPDATE_VISIBILITY = "delayAppUpdateVisibility";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const DELAY_MAJOR_OS_UPDATE_VISIBILITY = "delayMajorOsUpdateVisibility";
 }

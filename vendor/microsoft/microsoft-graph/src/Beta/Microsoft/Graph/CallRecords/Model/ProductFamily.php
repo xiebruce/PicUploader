@@ -34,4 +34,5 @@ class ProductFamily extends Enum
     const SKYPE_FOR_BUSINESS = "skypeForBusiness";
     const LYNC = "lync";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const AZURE_COMMUNICATION_SERVICES = "azureCommunicationServices";
 }

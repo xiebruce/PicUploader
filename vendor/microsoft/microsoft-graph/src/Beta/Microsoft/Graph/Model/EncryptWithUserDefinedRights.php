@@ -26,7 +26,7 @@ class EncryptWithUserDefinedRights extends EncryptContent
     /**
     * Gets the allowAdHocPermissions
     *
-    * @return bool The allowAdHocPermissions
+    * @return bool|null The allowAdHocPermissions
     */
     public function getAllowAdHocPermissions()
     {
@@ -52,7 +52,7 @@ class EncryptWithUserDefinedRights extends EncryptContent
     /**
     * Gets the allowMailForwarding
     *
-    * @return bool The allowMailForwarding
+    * @return bool|null The allowMailForwarding
     */
     public function getAllowMailForwarding()
     {
@@ -78,7 +78,7 @@ class EncryptWithUserDefinedRights extends EncryptContent
     /**
     * Gets the decryptionRightsManagementTemplateId
     *
-    * @return string The decryptionRightsManagementTemplateId
+    * @return string|null The decryptionRightsManagementTemplateId
     */
     public function getDecryptionRightsManagementTemplateId()
     {

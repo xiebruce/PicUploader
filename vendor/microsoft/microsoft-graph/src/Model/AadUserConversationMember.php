@@ -28,7 +28,7 @@ class AadUserConversationMember extends ConversationMember
     * Gets the email
     * The email address of the user.
     *
-    * @return string The email
+    * @return string|null The email
     */
     public function getEmail()
     {
@@ -38,7 +38,7 @@ class AadUserConversationMember extends ConversationMember
             return null;
         }
     }
-    
+
     /**
     * Sets the email
     * The email address of the user.
@@ -52,12 +52,12 @@ class AadUserConversationMember extends ConversationMember
         $this->_propDict["email"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tenantId
     * TenantId which the Azure AD user belongs to.
     *
-    * @return string The tenantId
+    * @return string|null The tenantId
     */
     public function getTenantId()
     {
@@ -67,7 +67,7 @@ class AadUserConversationMember extends ConversationMember
             return null;
         }
     }
-    
+
     /**
     * Sets the tenantId
     * TenantId which the Azure AD user belongs to.
@@ -81,12 +81,12 @@ class AadUserConversationMember extends ConversationMember
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * The GUID of the user.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -96,7 +96,7 @@ class AadUserConversationMember extends ConversationMember
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * The GUID of the user.
@@ -110,16 +110,16 @@ class AadUserConversationMember extends ConversationMember
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the user
     *
-    * @return User The user
+    * @return User|null The user
     */
     public function getUser()
     {
         if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Microsoft\Graph\Model\User")) {
+            if (is_a($this->_propDict["user"], "\Microsoft\Graph\Model\User") || is_null($this->_propDict["user"])) {
                 return $this->_propDict["user"];
             } else {
                 $this->_propDict["user"] = new User($this->_propDict["user"]);
@@ -128,7 +128,7 @@ class AadUserConversationMember extends ConversationMember
         }
         return null;
     }
-    
+
     /**
     * Sets the user
     *
@@ -141,5 +141,5 @@ class AadUserConversationMember extends ConversationMember
         $this->_propDict["user"] = $val;
         return $this;
     }
-    
+
 }

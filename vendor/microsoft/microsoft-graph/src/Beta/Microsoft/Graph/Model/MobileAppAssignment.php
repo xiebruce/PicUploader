@@ -28,12 +28,12 @@ class MobileAppAssignment extends Entity
     * Gets the intent
     * The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
     *
-    * @return InstallIntent The intent
+    * @return InstallIntent|null The intent
     */
     public function getIntent()
     {
         if (array_key_exists("intent", $this->_propDict)) {
-            if (is_a($this->_propDict["intent"], "\Beta\Microsoft\Graph\Model\InstallIntent")) {
+            if (is_a($this->_propDict["intent"], "\Beta\Microsoft\Graph\Model\InstallIntent") || is_null($this->_propDict["intent"])) {
                 return $this->_propDict["intent"];
             } else {
                 $this->_propDict["intent"] = new InstallIntent($this->_propDict["intent"]);
@@ -42,7 +42,7 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the intent
     * The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
@@ -56,17 +56,17 @@ class MobileAppAssignment extends Entity
         $this->_propDict["intent"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settings
     * The settings for target assignment defined by the admin.
     *
-    * @return MobileAppAssignmentSettings The settings
+    * @return MobileAppAssignmentSettings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\MobileAppAssignmentSettings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\MobileAppAssignmentSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new MobileAppAssignmentSettings($this->_propDict["settings"]);
@@ -75,7 +75,7 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
     * The settings for target assignment defined by the admin.
@@ -89,17 +89,17 @@ class MobileAppAssignment extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the source
     * The resource type which is the source for the assignment. Possible values are: direct, policySets.
     *
-    * @return DeviceAndAppManagementAssignmentSource The source
+    * @return DeviceAndAppManagementAssignmentSource|null The source
     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource")) {
+            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource") || is_null($this->_propDict["source"])) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new DeviceAndAppManagementAssignmentSource($this->_propDict["source"]);
@@ -108,7 +108,7 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the source
     * The resource type which is the source for the assignment. Possible values are: direct, policySets.
@@ -122,12 +122,12 @@ class MobileAppAssignment extends Entity
         $this->_propDict["source"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sourceId
     * The identifier of the source of the assignment.
     *
-    * @return string The sourceId
+    * @return string|null The sourceId
     */
     public function getSourceId()
     {
@@ -137,7 +137,7 @@ class MobileAppAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sourceId
     * The identifier of the source of the assignment.
@@ -151,17 +151,17 @@ class MobileAppAssignment extends Entity
         $this->_propDict["sourceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the target
     * The target group assignment defined by the admin.
     *
-    * @return DeviceAndAppManagementAssignmentTarget The target
+    * @return DeviceAndAppManagementAssignmentTarget|null The target
     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget")) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -170,7 +170,7 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the target
     * The target group assignment defined by the admin.
@@ -184,5 +184,5 @@ class MobileAppAssignment extends Entity
         $this->_propDict["target"] = $val;
         return $this;
     }
-    
+
 }

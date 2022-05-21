@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory
 {
 
-     /** 
+     /**
      * Gets the settings
     * The settings this category contains
      *
-     * @return array The settings
+     * @return array|null The settings
      */
     public function getSettings()
     {
@@ -39,19 +39,19 @@ class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCateg
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the settings
     * The settings this category contains
     *
-    * @param DeviceManagementSettingInstance $val The settings
+    * @param DeviceManagementSettingInstance[] $val The settings
     *
     * @return DeviceManagementIntentSettingCategory
     */
     public function setSettings($val)
     {
-		$this->_propDict["settings"] = $val;
+        $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

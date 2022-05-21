@@ -37,4 +37,5 @@ class VpnEncryptionAlgorithmType extends Enum
     const AES256_GCM = "aes256Gcm";
     const AES192 = "aes192";
     const AES192_GCM = "aes192Gcm";
+    const CHA_CHA20_POLY1305 = "chaCha20Poly1305";
 }

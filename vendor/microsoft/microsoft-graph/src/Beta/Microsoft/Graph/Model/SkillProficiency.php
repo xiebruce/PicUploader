@@ -28,7 +28,7 @@ class SkillProficiency extends ItemFacet
     * Gets the categories
     * Contains categories a user has associated with the skill (for example, personal, professional, hobby).
     *
-    * @return string The categories
+    * @return string|null The categories
     */
     public function getCategories()
     {
@@ -38,7 +38,7 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the categories
     * Contains categories a user has associated with the skill (for example, personal, professional, hobby).
@@ -52,12 +52,12 @@ class SkillProficiency extends ItemFacet
         $this->_propDict["categories"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @return string The collaborationTags
+    * @return string|null The collaborationTags
     */
     public function getCollaborationTags()
     {
@@ -67,7 +67,7 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
@@ -81,12 +81,12 @@ class SkillProficiency extends ItemFacet
         $this->_propDict["collaborationTags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Contains a friendly name for the skill.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -96,7 +96,7 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Contains a friendly name for the skill.
@@ -110,17 +110,17 @@ class SkillProficiency extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the proficiency
     * Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
     *
-    * @return SkillProficiencyLevel The proficiency
+    * @return SkillProficiencyLevel|null The proficiency
     */
     public function getProficiency()
     {
         if (array_key_exists("proficiency", $this->_propDict)) {
-            if (is_a($this->_propDict["proficiency"], "\Beta\Microsoft\Graph\Model\SkillProficiencyLevel")) {
+            if (is_a($this->_propDict["proficiency"], "\Beta\Microsoft\Graph\Model\SkillProficiencyLevel") || is_null($this->_propDict["proficiency"])) {
                 return $this->_propDict["proficiency"];
             } else {
                 $this->_propDict["proficiency"] = new SkillProficiencyLevel($this->_propDict["proficiency"]);
@@ -129,7 +129,7 @@ class SkillProficiency extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the proficiency
     * Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
@@ -143,11 +143,11 @@ class SkillProficiency extends ItemFacet
         $this->_propDict["proficiency"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -157,7 +157,7 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     *
@@ -170,12 +170,12 @@ class SkillProficiency extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * Contains a link to an information source about the skill.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -185,7 +185,7 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * Contains a link to an information source about the skill.
@@ -199,5 +199,5 @@ class SkillProficiency extends ItemFacet
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

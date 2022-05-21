@@ -28,21 +28,21 @@ class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration
     * Gets the encodedSettingXml
     * mdm app configuration Base64 binary.
     *
-    * @return \GuzzleHttp\Psr7\Stream The encodedSettingXml
+    * @return \GuzzleHttp\Psr7\Stream|null The encodedSettingXml
     */
     public function getEncodedSettingXml()
     {
         if (array_key_exists("encodedSettingXml", $this->_propDict)) {
-            if (is_a($this->_propDict["encodedSettingXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["encodedSettingXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["encodedSettingXml"])) {
                 return $this->_propDict["encodedSettingXml"];
             } else {
-                $this->_propDict["encodedSettingXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["encodedSettingXml"]);
+                $this->_propDict["encodedSettingXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["encodedSettingXml"]);
                 return $this->_propDict["encodedSettingXml"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the encodedSettingXml
     * mdm app configuration Base64 binary.
@@ -56,13 +56,13 @@ class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration
         $this->_propDict["encodedSettingXml"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the settings
     * app configuration setting items.
      *
-     * @return array The settings
+     * @return array|null The settings
      */
     public function getSettings()
     {
@@ -72,19 +72,19 @@ class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the settings
     * app configuration setting items.
     *
-    * @param AppConfigurationSettingItem $val The settings
+    * @param AppConfigurationSettingItem[] $val The settings
     *
     * @return IosMobileAppConfiguration
     */
     public function setSettings($val)
     {
-		$this->_propDict["settings"] = $val;
+        $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

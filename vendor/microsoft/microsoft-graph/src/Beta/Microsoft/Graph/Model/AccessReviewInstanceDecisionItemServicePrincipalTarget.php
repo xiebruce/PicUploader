@@ -26,9 +26,11 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalTarget");
     }
 
@@ -36,7 +38,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     * Gets the appId
     * The appId for the service principal entity being reviewed.
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -64,7 +66,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     * Gets the servicePrincipalDisplayName
     * The display name of the service principal whose access is being reviewed.
     *
-    * @return string The servicePrincipalDisplayName
+    * @return string|null The servicePrincipalDisplayName
     */
     public function getServicePrincipalDisplayName()
     {
@@ -91,7 +93,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
     /**
     * Gets the servicePrincipalId
     *
-    * @return string The servicePrincipalId
+    * @return string|null The servicePrincipalId
     */
     public function getServicePrincipalId()
     {

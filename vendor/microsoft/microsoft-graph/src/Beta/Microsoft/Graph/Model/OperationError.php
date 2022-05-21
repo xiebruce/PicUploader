@@ -27,7 +27,7 @@ class OperationError extends Entity
     * Gets the code
     * Operation error code.
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -55,7 +55,7 @@ class OperationError extends Entity
     * Gets the message
     * Operation error message.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {

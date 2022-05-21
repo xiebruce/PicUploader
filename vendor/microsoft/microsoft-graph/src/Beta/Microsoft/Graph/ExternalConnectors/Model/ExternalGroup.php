@@ -26,8 +26,9 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the description
+    * The description of the external group. Optional.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -37,9 +38,10 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
+    * The description of the external group. Optional.
     *
     * @param string $val The description
     *
@@ -50,11 +52,12 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
+    * The friendly name of the external group. Optional.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -64,9 +67,10 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
+    * The friendly name of the external group. Optional.
     *
     * @param string $val The displayName
     *
@@ -77,12 +81,13 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the members
+    * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
      *
-     * @return array The members
+     * @return array|null The members
      */
     public function getMembers()
     {
@@ -92,18 +97,19 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the members
+    * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
     *
-    * @param ExternalGroupMember $val The members
+    * @param Identity[] $val The members
     *
     * @return ExternalGroup
     */
     public function setMembers($val)
     {
-		$this->_propDict["members"] = $val;
+        $this->_propDict["members"] = $val;
         return $this;
     }
-    
+
 }

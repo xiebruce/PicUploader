@@ -27,12 +27,12 @@ class Employee extends Entity
     /**
     * Gets the address
     *
-    * @return PostalAddressType The address
+    * @return PostalAddressType|null The address
     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["address"])) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PostalAddressType($this->_propDict["address"]);
@@ -41,7 +41,7 @@ class Employee extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the address
     *
@@ -54,16 +54,16 @@ class Employee extends Entity
         $this->_propDict["address"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the birthDate
     *
-    * @return \DateTime The birthDate
+    * @return \DateTime|null The birthDate
     */
     public function getBirthDate()
     {
         if (array_key_exists("birthDate", $this->_propDict)) {
-            if (is_a($this->_propDict["birthDate"], "\DateTime")) {
+            if (is_a($this->_propDict["birthDate"], "\DateTime") || is_null($this->_propDict["birthDate"])) {
                 return $this->_propDict["birthDate"];
             } else {
                 $this->_propDict["birthDate"] = new \DateTime($this->_propDict["birthDate"]);
@@ -72,7 +72,7 @@ class Employee extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the birthDate
     *
@@ -85,11 +85,11 @@ class Employee extends Entity
         $this->_propDict["birthDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -99,7 +99,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -112,11 +112,11 @@ class Employee extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the email
     *
-    * @return string The email
+    * @return string|null The email
     */
     public function getEmail()
     {
@@ -126,7 +126,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the email
     *
@@ -139,16 +139,16 @@ class Employee extends Entity
         $this->_propDict["email"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the employmentDate
     *
-    * @return \DateTime The employmentDate
+    * @return \DateTime|null The employmentDate
     */
     public function getEmploymentDate()
     {
         if (array_key_exists("employmentDate", $this->_propDict)) {
-            if (is_a($this->_propDict["employmentDate"], "\DateTime")) {
+            if (is_a($this->_propDict["employmentDate"], "\DateTime") || is_null($this->_propDict["employmentDate"])) {
                 return $this->_propDict["employmentDate"];
             } else {
                 $this->_propDict["employmentDate"] = new \DateTime($this->_propDict["employmentDate"]);
@@ -157,7 +157,7 @@ class Employee extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the employmentDate
     *
@@ -170,11 +170,11 @@ class Employee extends Entity
         $this->_propDict["employmentDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the givenName
     *
-    * @return string The givenName
+    * @return string|null The givenName
     */
     public function getGivenName()
     {
@@ -184,7 +184,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the givenName
     *
@@ -197,11 +197,11 @@ class Employee extends Entity
         $this->_propDict["givenName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the jobTitle
     *
-    * @return string The jobTitle
+    * @return string|null The jobTitle
     */
     public function getJobTitle()
     {
@@ -211,7 +211,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the jobTitle
     *
@@ -224,16 +224,16 @@ class Employee extends Entity
         $this->_propDict["jobTitle"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -242,7 +242,7 @@ class Employee extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -255,11 +255,11 @@ class Employee extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the middleName
     *
-    * @return string The middleName
+    * @return string|null The middleName
     */
     public function getMiddleName()
     {
@@ -269,7 +269,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the middleName
     *
@@ -282,11 +282,11 @@ class Employee extends Entity
         $this->_propDict["middleName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mobilePhone
     *
-    * @return string The mobilePhone
+    * @return string|null The mobilePhone
     */
     public function getMobilePhone()
     {
@@ -296,7 +296,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mobilePhone
     *
@@ -309,11 +309,11 @@ class Employee extends Entity
         $this->_propDict["mobilePhone"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the number
     *
-    * @return string The number
+    * @return string|null The number
     */
     public function getNumber()
     {
@@ -323,7 +323,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the number
     *
@@ -336,11 +336,11 @@ class Employee extends Entity
         $this->_propDict["number"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the personalEmail
     *
-    * @return string The personalEmail
+    * @return string|null The personalEmail
     */
     public function getPersonalEmail()
     {
@@ -350,7 +350,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the personalEmail
     *
@@ -363,11 +363,11 @@ class Employee extends Entity
         $this->_propDict["personalEmail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the phoneNumber
     *
-    * @return string The phoneNumber
+    * @return string|null The phoneNumber
     */
     public function getPhoneNumber()
     {
@@ -377,7 +377,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the phoneNumber
     *
@@ -390,11 +390,11 @@ class Employee extends Entity
         $this->_propDict["phoneNumber"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the statisticsGroupCode
     *
-    * @return string The statisticsGroupCode
+    * @return string|null The statisticsGroupCode
     */
     public function getStatisticsGroupCode()
     {
@@ -404,7 +404,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the statisticsGroupCode
     *
@@ -417,11 +417,11 @@ class Employee extends Entity
         $this->_propDict["statisticsGroupCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -431,7 +431,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     *
@@ -444,11 +444,11 @@ class Employee extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the surname
     *
-    * @return string The surname
+    * @return string|null The surname
     */
     public function getSurname()
     {
@@ -458,7 +458,7 @@ class Employee extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the surname
     *
@@ -471,16 +471,16 @@ class Employee extends Entity
         $this->_propDict["surname"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the terminationDate
     *
-    * @return \DateTime The terminationDate
+    * @return \DateTime|null The terminationDate
     */
     public function getTerminationDate()
     {
         if (array_key_exists("terminationDate", $this->_propDict)) {
-            if (is_a($this->_propDict["terminationDate"], "\DateTime")) {
+            if (is_a($this->_propDict["terminationDate"], "\DateTime") || is_null($this->_propDict["terminationDate"])) {
                 return $this->_propDict["terminationDate"];
             } else {
                 $this->_propDict["terminationDate"] = new \DateTime($this->_propDict["terminationDate"]);
@@ -489,7 +489,7 @@ class Employee extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the terminationDate
     *
@@ -502,12 +502,12 @@ class Employee extends Entity
         $this->_propDict["terminationDate"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the picture
      *
-     * @return array The picture
+     * @return array|null The picture
      */
     public function getPicture()
     {
@@ -517,18 +517,18 @@ class Employee extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the picture
     *
-    * @param Picture $val The picture
+    * @param Picture[] $val The picture
     *
     * @return Employee
     */
     public function setPicture($val)
     {
-		$this->_propDict["picture"] = $val;
+        $this->_propDict["picture"] = $val;
         return $this;
     }
-    
+
 }

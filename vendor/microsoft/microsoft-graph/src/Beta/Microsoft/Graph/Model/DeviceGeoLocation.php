@@ -27,7 +27,7 @@ class DeviceGeoLocation extends Entity
     * Gets the altitude
     * Altitude, given in meters above sea level
     *
-    * @return float The altitude
+    * @return float|null The altitude
     */
     public function getAltitude()
     {
@@ -55,7 +55,7 @@ class DeviceGeoLocation extends Entity
     * Gets the heading
     * Heading in degrees from true north
     *
-    * @return float The heading
+    * @return float|null The heading
     */
     public function getHeading()
     {
@@ -83,7 +83,7 @@ class DeviceGeoLocation extends Entity
     * Gets the horizontalAccuracy
     * Accuracy of longitude and latitude in meters
     *
-    * @return float The horizontalAccuracy
+    * @return float|null The horizontalAccuracy
     */
     public function getHorizontalAccuracy()
     {
@@ -112,12 +112,12 @@ class DeviceGeoLocation extends Entity
     * Gets the lastCollectedDateTime
     * Time at which location was recorded, relative to UTC
     *
-    * @return \DateTime The lastCollectedDateTime
+    * @return \DateTime|null The lastCollectedDateTime
     */
     public function getLastCollectedDateTime()
     {
         if (array_key_exists("lastCollectedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCollectedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastCollectedDateTime"], "\DateTime") || is_null($this->_propDict["lastCollectedDateTime"])) {
                 return $this->_propDict["lastCollectedDateTime"];
             } else {
                 $this->_propDict["lastCollectedDateTime"] = new \DateTime($this->_propDict["lastCollectedDateTime"]);
@@ -145,12 +145,12 @@ class DeviceGeoLocation extends Entity
     * Gets the lastCollectedDateTimeUtc
     * Time at which location was recorded, relative to UTC
     *
-    * @return \DateTime The lastCollectedDateTimeUtc
+    * @return \DateTime|null The lastCollectedDateTimeUtc
     */
     public function getLastCollectedDateTimeUtc()
     {
         if (array_key_exists("lastCollectedDateTimeUtc", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCollectedDateTimeUtc"], "\DateTime")) {
+            if (is_a($this->_propDict["lastCollectedDateTimeUtc"], "\DateTime") || is_null($this->_propDict["lastCollectedDateTimeUtc"])) {
                 return $this->_propDict["lastCollectedDateTimeUtc"];
             } else {
                 $this->_propDict["lastCollectedDateTimeUtc"] = new \DateTime($this->_propDict["lastCollectedDateTimeUtc"]);
@@ -177,7 +177,7 @@ class DeviceGeoLocation extends Entity
     * Gets the latitude
     * Latitude coordinate of the device's location
     *
-    * @return float The latitude
+    * @return float|null The latitude
     */
     public function getLatitude()
     {
@@ -205,7 +205,7 @@ class DeviceGeoLocation extends Entity
     * Gets the longitude
     * Longitude coordinate of the device's location
     *
-    * @return float The longitude
+    * @return float|null The longitude
     */
     public function getLongitude()
     {
@@ -233,7 +233,7 @@ class DeviceGeoLocation extends Entity
     * Gets the speed
     * Speed the device is traveling in meters per second
     *
-    * @return float The speed
+    * @return float|null The speed
     */
     public function getSpeed()
     {
@@ -261,7 +261,7 @@ class DeviceGeoLocation extends Entity
     * Gets the verticalAccuracy
     * Accuracy of altitude in meters
     *
-    * @return float The verticalAccuracy
+    * @return float|null The verticalAccuracy
     */
     public function getVerticalAccuracy()
     {

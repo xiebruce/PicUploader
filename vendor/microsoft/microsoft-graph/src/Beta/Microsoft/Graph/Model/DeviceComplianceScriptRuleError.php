@@ -27,7 +27,7 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError
     * Gets the settingName
     * Setting name for the rule with error.
     *
-    * @return string The settingName
+    * @return string|null The settingName
     */
     public function getSettingName()
     {

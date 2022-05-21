@@ -27,7 +27,7 @@ class MobileAppTroubleshootingAppPolicyCreationHistory extends MobileAppTroubles
     * Gets the errorCode
     * Error code for the failure, empty if no failure.
     *
-    * @return string The errorCode
+    * @return string|null The errorCode
     */
     public function getErrorCode()
     {
@@ -56,12 +56,12 @@ class MobileAppTroubleshootingAppPolicyCreationHistory extends MobileAppTroubles
     * Gets the runState
     * Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
     *
-    * @return RunState The runState
+    * @return RunState|null The runState
     */
     public function getRunState()
     {
         if (array_key_exists("runState", $this->_propDict)) {
-            if (is_a($this->_propDict["runState"], "\Beta\Microsoft\Graph\Model\RunState")) {
+            if (is_a($this->_propDict["runState"], "\Beta\Microsoft\Graph\Model\RunState") || is_null($this->_propDict["runState"])) {
                 return $this->_propDict["runState"];
             } else {
                 $this->_propDict["runState"] = new RunState($this->_propDict["runState"]);

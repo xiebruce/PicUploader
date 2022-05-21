@@ -26,7 +26,7 @@ class DataStoreField extends Entity
     /**
     * Gets the name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -52,7 +52,7 @@ class DataStoreField extends Entity
     /**
     * Gets the searchable
     *
-    * @return bool The searchable
+    * @return bool|null The searchable
     */
     public function getSearchable()
     {
@@ -78,7 +78,7 @@ class DataStoreField extends Entity
     /**
     * Gets the unique
     *
-    * @return bool The unique
+    * @return bool|null The unique
     */
     public function getUnique()
     {

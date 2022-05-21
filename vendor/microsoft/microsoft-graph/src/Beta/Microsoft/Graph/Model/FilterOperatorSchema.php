@@ -28,12 +28,12 @@ class FilterOperatorSchema extends Entity
     * Gets the arity
     * Arity of the operator. Possible values are: Binary, Unary. The default is Binary.
     *
-    * @return ScopeOperatorType The arity
+    * @return ScopeOperatorType|null The arity
     */
     public function getArity()
     {
         if (array_key_exists("arity", $this->_propDict)) {
-            if (is_a($this->_propDict["arity"], "\Beta\Microsoft\Graph\Model\ScopeOperatorType")) {
+            if (is_a($this->_propDict["arity"], "\Beta\Microsoft\Graph\Model\ScopeOperatorType") || is_null($this->_propDict["arity"])) {
                 return $this->_propDict["arity"];
             } else {
                 $this->_propDict["arity"] = new ScopeOperatorType($this->_propDict["arity"]);
@@ -42,7 +42,7 @@ class FilterOperatorSchema extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the arity
     * Arity of the operator. Possible values are: Binary, Unary. The default is Binary.
@@ -56,17 +56,17 @@ class FilterOperatorSchema extends Entity
         $this->_propDict["arity"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the multivaluedComparisonType
     * Possible values are: All, Any. Applies only to multivalued attributes. All means that all values must satisfy the condition. Any means that at least one value has to satisfy the condition. The default is All.
     *
-    * @return ScopeOperatorMultiValuedComparisonType The multivaluedComparisonType
+    * @return ScopeOperatorMultiValuedComparisonType|null The multivaluedComparisonType
     */
     public function getMultivaluedComparisonType()
     {
         if (array_key_exists("multivaluedComparisonType", $this->_propDict)) {
-            if (is_a($this->_propDict["multivaluedComparisonType"], "\Beta\Microsoft\Graph\Model\ScopeOperatorMultiValuedComparisonType")) {
+            if (is_a($this->_propDict["multivaluedComparisonType"], "\Beta\Microsoft\Graph\Model\ScopeOperatorMultiValuedComparisonType") || is_null($this->_propDict["multivaluedComparisonType"])) {
                 return $this->_propDict["multivaluedComparisonType"];
             } else {
                 $this->_propDict["multivaluedComparisonType"] = new ScopeOperatorMultiValuedComparisonType($this->_propDict["multivaluedComparisonType"]);
@@ -75,7 +75,7 @@ class FilterOperatorSchema extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the multivaluedComparisonType
     * Possible values are: All, Any. Applies only to multivalued attributes. All means that all values must satisfy the condition. Any means that at least one value has to satisfy the condition. The default is All.
@@ -89,13 +89,13 @@ class FilterOperatorSchema extends Entity
         $this->_propDict["multivaluedComparisonType"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the supportedAttributeTypes
     * Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
      *
-     * @return array The supportedAttributeTypes
+     * @return array|null The supportedAttributeTypes
      */
     public function getSupportedAttributeTypes()
     {
@@ -105,19 +105,19 @@ class FilterOperatorSchema extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the supportedAttributeTypes
     * Attribute types supported by the operator. Possible values are: Boolean, Binary, Reference, Integer, String.
     *
-    * @param AttributeType $val The supportedAttributeTypes
+    * @param AttributeType[] $val The supportedAttributeTypes
     *
     * @return FilterOperatorSchema
     */
     public function setSupportedAttributeTypes($val)
     {
-		$this->_propDict["supportedAttributeTypes"] = $val;
+        $this->_propDict["supportedAttributeTypes"] = $val;
         return $this;
     }
-    
+
 }

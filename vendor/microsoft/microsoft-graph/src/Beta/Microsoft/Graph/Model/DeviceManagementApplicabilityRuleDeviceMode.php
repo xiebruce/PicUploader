@@ -28,12 +28,12 @@ class DeviceManagementApplicabilityRuleDeviceMode extends Entity
     * Gets the deviceMode
     * Applicability rule for device mode. Possible values are: standardConfiguration, sModeConfiguration.
     *
-    * @return Windows10DeviceModeType The deviceMode
+    * @return Windows10DeviceModeType|null The deviceMode
     */
     public function getDeviceMode()
     {
         if (array_key_exists("deviceMode", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceMode"], "\Beta\Microsoft\Graph\Model\Windows10DeviceModeType")) {
+            if (is_a($this->_propDict["deviceMode"], "\Beta\Microsoft\Graph\Model\Windows10DeviceModeType") || is_null($this->_propDict["deviceMode"])) {
                 return $this->_propDict["deviceMode"];
             } else {
                 $this->_propDict["deviceMode"] = new Windows10DeviceModeType($this->_propDict["deviceMode"]);
@@ -60,7 +60,7 @@ class DeviceManagementApplicabilityRuleDeviceMode extends Entity
     * Gets the name
     * Name for object.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -89,12 +89,12 @@ class DeviceManagementApplicabilityRuleDeviceMode extends Entity
     * Gets the ruleType
     * Applicability Rule type. Possible values are: include, exclude.
     *
-    * @return DeviceManagementApplicabilityRuleType The ruleType
+    * @return DeviceManagementApplicabilityRuleType|null The ruleType
     */
     public function getRuleType()
     {
         if (array_key_exists("ruleType", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType")) {
+            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
                 return $this->_propDict["ruleType"];
             } else {
                 $this->_propDict["ruleType"] = new DeviceManagementApplicabilityRuleType($this->_propDict["ruleType"]);

@@ -27,7 +27,7 @@ class ColumnValidation extends Entity
     * Gets the defaultLanguage
     * Default BCP 47 language tag for the description.
     *
-    * @return string The defaultLanguage
+    * @return string|null The defaultLanguage
     */
     public function getDefaultLanguage()
     {
@@ -56,12 +56,12 @@ class ColumnValidation extends Entity
     * Gets the descriptions
     * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
     *
-    * @return DisplayNameLocalization The descriptions
+    * @return DisplayNameLocalization|null The descriptions
     */
     public function getDescriptions()
     {
         if (array_key_exists("descriptions", $this->_propDict)) {
-            if (is_a($this->_propDict["descriptions"], "\Beta\Microsoft\Graph\Model\DisplayNameLocalization")) {
+            if (is_a($this->_propDict["descriptions"], "\Beta\Microsoft\Graph\Model\DisplayNameLocalization") || is_null($this->_propDict["descriptions"])) {
                 return $this->_propDict["descriptions"];
             } else {
                 $this->_propDict["descriptions"] = new DisplayNameLocalization($this->_propDict["descriptions"]);
@@ -88,7 +88,7 @@ class ColumnValidation extends Entity
     * Gets the formula
     * The formula to validate column value. For examples, see Examples of common formulas in lists
     *
-    * @return string The formula
+    * @return string|null The formula
     */
     public function getFormula()
     {

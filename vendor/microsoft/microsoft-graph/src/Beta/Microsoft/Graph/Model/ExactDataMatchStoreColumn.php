@@ -26,7 +26,7 @@ class ExactDataMatchStoreColumn extends Entity
     /**
     * Gets the ignoredDelimiters
     *
-    * @return string The ignoredDelimiters
+    * @return string|null The ignoredDelimiters
     */
     public function getIgnoredDelimiters()
     {
@@ -52,7 +52,7 @@ class ExactDataMatchStoreColumn extends Entity
     /**
     * Gets the isCaseInsensitive
     *
-    * @return bool The isCaseInsensitive
+    * @return bool|null The isCaseInsensitive
     */
     public function getIsCaseInsensitive()
     {
@@ -78,7 +78,7 @@ class ExactDataMatchStoreColumn extends Entity
     /**
     * Gets the isSearchable
     *
-    * @return bool The isSearchable
+    * @return bool|null The isSearchable
     */
     public function getIsSearchable()
     {
@@ -104,7 +104,7 @@ class ExactDataMatchStoreColumn extends Entity
     /**
     * Gets the name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

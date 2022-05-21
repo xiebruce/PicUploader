@@ -28,7 +28,7 @@ class PrintUsageByUser extends PrintUsage
     * Gets the userPrincipalName
     * The UPN of the user represented by these statistics.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -38,7 +38,7 @@ class PrintUsageByUser extends PrintUsage
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * The UPN of the user represented by these statistics.
@@ -52,5 +52,5 @@ class PrintUsageByUser extends PrintUsage
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

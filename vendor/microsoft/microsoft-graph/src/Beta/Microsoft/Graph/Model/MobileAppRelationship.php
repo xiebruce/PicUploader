@@ -28,7 +28,7 @@ class MobileAppRelationship extends Entity
     * Gets the targetDisplayName
     * The target mobile app's display name.
     *
-    * @return string The targetDisplayName
+    * @return string|null The targetDisplayName
     */
     public function getTargetDisplayName()
     {
@@ -38,7 +38,7 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetDisplayName
     * The target mobile app's display name.
@@ -52,12 +52,12 @@ class MobileAppRelationship extends Entity
         $this->_propDict["targetDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetDisplayVersion
     * The target mobile app's display version.
     *
-    * @return string The targetDisplayVersion
+    * @return string|null The targetDisplayVersion
     */
     public function getTargetDisplayVersion()
     {
@@ -67,7 +67,7 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetDisplayVersion
     * The target mobile app's display version.
@@ -81,12 +81,12 @@ class MobileAppRelationship extends Entity
         $this->_propDict["targetDisplayVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetId
     * The target mobile app's app id.
     *
-    * @return string The targetId
+    * @return string|null The targetId
     */
     public function getTargetId()
     {
@@ -96,7 +96,7 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetId
     * The target mobile app's app id.
@@ -110,12 +110,12 @@ class MobileAppRelationship extends Entity
         $this->_propDict["targetId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetPublisher
     * The target mobile app's publisher.
     *
-    * @return string The targetPublisher
+    * @return string|null The targetPublisher
     */
     public function getTargetPublisher()
     {
@@ -125,7 +125,7 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetPublisher
     * The target mobile app's publisher.
@@ -139,17 +139,17 @@ class MobileAppRelationship extends Entity
         $this->_propDict["targetPublisher"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetType
     * The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
     *
-    * @return MobileAppRelationshipType The targetType
+    * @return MobileAppRelationshipType|null The targetType
     */
     public function getTargetType()
     {
         if (array_key_exists("targetType", $this->_propDict)) {
-            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\MobileAppRelationshipType")) {
+            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\MobileAppRelationshipType") || is_null($this->_propDict["targetType"])) {
                 return $this->_propDict["targetType"];
             } else {
                 $this->_propDict["targetType"] = new MobileAppRelationshipType($this->_propDict["targetType"]);
@@ -158,7 +158,7 @@ class MobileAppRelationship extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the targetType
     * The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
@@ -172,5 +172,5 @@ class MobileAppRelationship extends Entity
         $this->_propDict["targetType"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class Custodian extends DataSourceContainer
     * Gets the acknowledgedDateTime
     * Date and time the custodian acknowledged a hold notification.
     *
-    * @return \DateTime The acknowledgedDateTime
+    * @return \DateTime|null The acknowledgedDateTime
     */
     public function getAcknowledgedDateTime()
     {
         if (array_key_exists("acknowledgedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["acknowledgedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["acknowledgedDateTime"], "\DateTime") || is_null($this->_propDict["acknowledgedDateTime"])) {
                 return $this->_propDict["acknowledgedDateTime"];
             } else {
                 $this->_propDict["acknowledgedDateTime"] = new \DateTime($this->_propDict["acknowledgedDateTime"]);
@@ -42,7 +42,7 @@ class Custodian extends DataSourceContainer
         }
         return null;
     }
-    
+
     /**
     * Sets the acknowledgedDateTime
     * Date and time the custodian acknowledged a hold notification.
@@ -56,12 +56,12 @@ class Custodian extends DataSourceContainer
         $this->_propDict["acknowledgedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applyHoldToSources
     * Identifies whether a custodian's sources were placed on hold during creation.
     *
-    * @return bool The applyHoldToSources
+    * @return bool|null The applyHoldToSources
     */
     public function getApplyHoldToSources()
     {
@@ -71,7 +71,7 @@ class Custodian extends DataSourceContainer
             return null;
         }
     }
-    
+
     /**
     * Sets the applyHoldToSources
     * Identifies whether a custodian's sources were placed on hold during creation.
@@ -85,12 +85,12 @@ class Custodian extends DataSourceContainer
         $this->_propDict["applyHoldToSources"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the email
     * Email address of the custodian.
     *
-    * @return string The email
+    * @return string|null The email
     */
     public function getEmail()
     {
@@ -100,7 +100,7 @@ class Custodian extends DataSourceContainer
             return null;
         }
     }
-    
+
     /**
     * Sets the email
     * Email address of the custodian.
@@ -114,13 +114,13 @@ class Custodian extends DataSourceContainer
         $this->_propDict["email"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the siteSources
     * Data source entity for SharePoint sites associated with the custodian.
      *
-     * @return array The siteSources
+     * @return array|null The siteSources
      */
     public function getSiteSources()
     {
@@ -130,27 +130,27 @@ class Custodian extends DataSourceContainer
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the siteSources
     * Data source entity for SharePoint sites associated with the custodian.
     *
-    * @param SiteSource $val The siteSources
+    * @param SiteSource[] $val The siteSources
     *
     * @return Custodian
     */
     public function setSiteSources($val)
     {
-		$this->_propDict["siteSources"] = $val;
+        $this->_propDict["siteSources"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the unifiedGroupSources
     * Data source entity for groups associated with the custodian.
      *
-     * @return array The unifiedGroupSources
+     * @return array|null The unifiedGroupSources
      */
     public function getUnifiedGroupSources()
     {
@@ -160,27 +160,27 @@ class Custodian extends DataSourceContainer
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the unifiedGroupSources
     * Data source entity for groups associated with the custodian.
     *
-    * @param UnifiedGroupSource $val The unifiedGroupSources
+    * @param UnifiedGroupSource[] $val The unifiedGroupSources
     *
     * @return Custodian
     */
     public function setUnifiedGroupSources($val)
     {
-		$this->_propDict["unifiedGroupSources"] = $val;
+        $this->_propDict["unifiedGroupSources"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userSources
     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
      *
-     * @return array The userSources
+     * @return array|null The userSources
      */
     public function getUserSources()
     {
@@ -190,19 +190,19 @@ class Custodian extends DataSourceContainer
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the userSources
     * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
     *
-    * @param UserSource $val The userSources
+    * @param UserSource[] $val The userSources
     *
     * @return Custodian
     */
     public function setUserSources($val)
     {
-		$this->_propDict["userSources"] = $val;
+        $this->_propDict["userSources"] = $val;
         return $this;
     }
-    
+
 }

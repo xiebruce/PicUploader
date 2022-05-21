@@ -8,14 +8,14 @@ $accessKey = getenv('QINIU_ACCESS_KEY');
 $secretKey = getenv('QINIU_SECRET_KEY');
 $testAuth = new Auth($accessKey, $secretKey);
 
-$bucketName = 'phpsdk';
+$bucketName = getenv('QINIU_TEST_BUCKET');
 $key = 'php-logo.png';
 $key2 = 'niu.jpg';
 
 $testStartDate = '2020-08-18';
 $testEndDate = '2020-08-19';
 $testGranularity = 'day';
-$testLogDate = '2020-08-18';
+$testLogDate = date('Y-m-d',strtotime("-1 days"));
 
 $bucketNameBC = 'phpsdk-bc';
 $bucketNameNA = 'phpsdk-na';
@@ -39,11 +39,20 @@ if (!empty($tid)) {
     $tid .= '.' . $pid;
 }
 
-function qiniuTempFile($size)
+function qiniuTempFile($size, $randomized = true)
 {
     $fileName = tempnam(sys_get_temp_dir(), 'qiniu_');
     $file = fopen($fileName, 'wb');
-    if ($size > 0) {
+    if ($randomized) {
+        $rest_size = $size;
+        while ($rest_size > 0) {
+            $length = min($rest_size, 4 * 1024);
+            if (fwrite($file, random_bytes($length)) == false) {
+                return false;
+            }
+            $rest_size -= $length;
+        }
+    } else if ($size > 0) {
         fseek($file, $size - 1);
         fwrite($file, ' ');
     }

@@ -27,12 +27,12 @@ class SensitivityPolicySettings extends Entity
     /**
     * Gets the applicableTo
     *
-    * @return SensitivityLabelTarget The applicableTo
+    * @return SensitivityLabelTarget|null The applicableTo
     */
     public function getApplicableTo()
     {
         if (array_key_exists("applicableTo", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableTo"], "\Beta\Microsoft\Graph\Model\SensitivityLabelTarget")) {
+            if (is_a($this->_propDict["applicableTo"], "\Beta\Microsoft\Graph\Model\SensitivityLabelTarget") || is_null($this->_propDict["applicableTo"])) {
                 return $this->_propDict["applicableTo"];
             } else {
                 $this->_propDict["applicableTo"] = new SensitivityLabelTarget($this->_propDict["applicableTo"]);
@@ -41,7 +41,7 @@ class SensitivityPolicySettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the applicableTo
     *
@@ -54,11 +54,11 @@ class SensitivityPolicySettings extends Entity
         $this->_propDict["applicableTo"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the downgradeSensitivityRequiresJustification
     *
-    * @return bool The downgradeSensitivityRequiresJustification
+    * @return bool|null The downgradeSensitivityRequiresJustification
     */
     public function getDowngradeSensitivityRequiresJustification()
     {
@@ -68,7 +68,7 @@ class SensitivityPolicySettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the downgradeSensitivityRequiresJustification
     *
@@ -81,11 +81,11 @@ class SensitivityPolicySettings extends Entity
         $this->_propDict["downgradeSensitivityRequiresJustification"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the helpWebUrl
     *
-    * @return string The helpWebUrl
+    * @return string|null The helpWebUrl
     */
     public function getHelpWebUrl()
     {
@@ -95,7 +95,7 @@ class SensitivityPolicySettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the helpWebUrl
     *
@@ -108,11 +108,11 @@ class SensitivityPolicySettings extends Entity
         $this->_propDict["helpWebUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isMandatory
     *
-    * @return bool The isMandatory
+    * @return bool|null The isMandatory
     */
     public function getIsMandatory()
     {
@@ -122,7 +122,7 @@ class SensitivityPolicySettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isMandatory
     *
@@ -135,5 +135,5 @@ class SensitivityPolicySettings extends Entity
         $this->_propDict["isMandatory"] = boolval($val);
         return $this;
     }
-    
+
 }

@@ -32,4 +32,6 @@ class AndroidDeviceOwnerEnrollmentMode extends Enum
     const CORPORATE_OWNED_DEDICATED_DEVICE = "corporateOwnedDedicatedDevice";
     const CORPORATE_OWNED_FULLY_MANAGED = "corporateOwnedFullyManaged";
     const CORPORATE_OWNED_WORK_PROFILE = "corporateOwnedWorkProfile";
+    const CORPORATE_OWNED_AOSP_USERLESS_DEVICE = "corporateOwnedAOSPUserlessDevice";
+    const CORPORATE_OWNED_AOSP_USER_ASSOCIATED_DEVICE = "corporateOwnedAOSPUserAssociatedDevice";
 }

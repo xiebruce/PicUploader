@@ -28,12 +28,12 @@ class IosNotificationSettings extends Entity
     * Gets the alertType
     * Indicates the type of alert for notifications for this app. Possible values are: deviceDefault, banner, modal, none.
     *
-    * @return IosNotificationAlertType The alertType
+    * @return IosNotificationAlertType|null The alertType
     */
     public function getAlertType()
     {
         if (array_key_exists("alertType", $this->_propDict)) {
-            if (is_a($this->_propDict["alertType"], "\Microsoft\Graph\Model\IosNotificationAlertType")) {
+            if (is_a($this->_propDict["alertType"], "\Microsoft\Graph\Model\IosNotificationAlertType") || is_null($this->_propDict["alertType"])) {
                 return $this->_propDict["alertType"];
             } else {
                 $this->_propDict["alertType"] = new IosNotificationAlertType($this->_propDict["alertType"]);
@@ -60,7 +60,7 @@ class IosNotificationSettings extends Entity
     * Gets the appName
     * Application name to be associated with the bundleID.
     *
-    * @return string The appName
+    * @return string|null The appName
     */
     public function getAppName()
     {
@@ -88,7 +88,7 @@ class IosNotificationSettings extends Entity
     * Gets the badgesEnabled
     * Indicates whether badges are allowed for this app.
     *
-    * @return bool The badgesEnabled
+    * @return bool|null The badgesEnabled
     */
     public function getBadgesEnabled()
     {
@@ -116,7 +116,7 @@ class IosNotificationSettings extends Entity
     * Gets the bundleID
     * Bundle id of app to which to apply these notification settings.
     *
-    * @return string The bundleID
+    * @return string|null The bundleID
     */
     public function getBundleID()
     {
@@ -144,7 +144,7 @@ class IosNotificationSettings extends Entity
     * Gets the enabled
     * Indicates whether notifications are allowed for this app.
     *
-    * @return bool The enabled
+    * @return bool|null The enabled
     */
     public function getEnabled()
     {
@@ -172,7 +172,7 @@ class IosNotificationSettings extends Entity
     * Gets the publisher
     * Publisher to be associated with the bundleID.
     *
-    * @return string The publisher
+    * @return string|null The publisher
     */
     public function getPublisher()
     {
@@ -200,7 +200,7 @@ class IosNotificationSettings extends Entity
     * Gets the showInNotificationCenter
     * Indicates whether notifications can be shown in notification center.
     *
-    * @return bool The showInNotificationCenter
+    * @return bool|null The showInNotificationCenter
     */
     public function getShowInNotificationCenter()
     {
@@ -228,7 +228,7 @@ class IosNotificationSettings extends Entity
     * Gets the showOnLockScreen
     * Indicates whether notifications can be shown on the lock screen.
     *
-    * @return bool The showOnLockScreen
+    * @return bool|null The showOnLockScreen
     */
     public function getShowOnLockScreen()
     {
@@ -256,7 +256,7 @@ class IosNotificationSettings extends Entity
     * Gets the soundsEnabled
     * Indicates whether sounds are allowed for this app.
     *
-    * @return bool The soundsEnabled
+    * @return bool|null The soundsEnabled
     */
     public function getSoundsEnabled()
     {

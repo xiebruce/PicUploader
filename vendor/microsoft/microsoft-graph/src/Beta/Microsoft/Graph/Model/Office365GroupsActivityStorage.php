@@ -28,7 +28,7 @@ class Office365GroupsActivityStorage extends Entity
     * Gets the mailboxStorageUsedInBytes
     * The storage used in group mailbox.
     *
-    * @return int The mailboxStorageUsedInBytes
+    * @return int|null The mailboxStorageUsedInBytes
     */
     public function getMailboxStorageUsedInBytes()
     {
@@ -38,7 +38,7 @@ class Office365GroupsActivityStorage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mailboxStorageUsedInBytes
     * The storage used in group mailbox.
@@ -52,17 +52,17 @@ class Office365GroupsActivityStorage extends Entity
         $this->_propDict["mailboxStorageUsedInBytes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the reportDate
     * The snapshot date for Exchange and SharePoint used storage.
     *
-    * @return \DateTime The reportDate
+    * @return \DateTime|null The reportDate
     */
     public function getReportDate()
     {
         if (array_key_exists("reportDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportDate"], "\DateTime")) {
+            if (is_a($this->_propDict["reportDate"], "\DateTime") || is_null($this->_propDict["reportDate"])) {
                 return $this->_propDict["reportDate"];
             } else {
                 $this->_propDict["reportDate"] = new \DateTime($this->_propDict["reportDate"]);
@@ -71,7 +71,7 @@ class Office365GroupsActivityStorage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reportDate
     * The snapshot date for Exchange and SharePoint used storage.
@@ -85,12 +85,12 @@ class Office365GroupsActivityStorage extends Entity
         $this->_propDict["reportDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportPeriod
     * The number of days the report covers.
     *
-    * @return string The reportPeriod
+    * @return string|null The reportPeriod
     */
     public function getReportPeriod()
     {
@@ -100,7 +100,7 @@ class Office365GroupsActivityStorage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reportPeriod
     * The number of days the report covers.
@@ -114,17 +114,17 @@ class Office365GroupsActivityStorage extends Entity
         $this->_propDict["reportPeriod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportRefreshDate
     * The latest date of the content.
     *
-    * @return \DateTime The reportRefreshDate
+    * @return \DateTime|null The reportRefreshDate
     */
     public function getReportRefreshDate()
     {
         if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);
@@ -133,7 +133,7 @@ class Office365GroupsActivityStorage extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reportRefreshDate
     * The latest date of the content.
@@ -147,12 +147,12 @@ class Office365GroupsActivityStorage extends Entity
         $this->_propDict["reportRefreshDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the siteStorageUsedInBytes
     * The storage used in SharePoint document library.
     *
-    * @return int The siteStorageUsedInBytes
+    * @return int|null The siteStorageUsedInBytes
     */
     public function getSiteStorageUsedInBytes()
     {
@@ -162,7 +162,7 @@ class Office365GroupsActivityStorage extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the siteStorageUsedInBytes
     * The storage used in SharePoint document library.
@@ -176,5 +176,5 @@ class Office365GroupsActivityStorage extends Entity
         $this->_propDict["siteStorageUsedInBytes"] = intval($val);
         return $this;
     }
-    
+
 }

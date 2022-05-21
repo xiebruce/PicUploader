@@ -28,12 +28,12 @@ class MailTips extends Entity
     * Gets the automaticReplies
     * Mail tips for automatic reply if it has been set up by the recipient.
     *
-    * @return AutomaticRepliesMailTips The automaticReplies
+    * @return AutomaticRepliesMailTips|null The automaticReplies
     */
     public function getAutomaticReplies()
     {
         if (array_key_exists("automaticReplies", $this->_propDict)) {
-            if (is_a($this->_propDict["automaticReplies"], "\Beta\Microsoft\Graph\Model\AutomaticRepliesMailTips")) {
+            if (is_a($this->_propDict["automaticReplies"], "\Beta\Microsoft\Graph\Model\AutomaticRepliesMailTips") || is_null($this->_propDict["automaticReplies"])) {
                 return $this->_propDict["automaticReplies"];
             } else {
                 $this->_propDict["automaticReplies"] = new AutomaticRepliesMailTips($this->_propDict["automaticReplies"]);
@@ -60,7 +60,7 @@ class MailTips extends Entity
     * Gets the customMailTip
     * A custom mail tip that can be set on the recipient's mailbox.
     *
-    * @return string The customMailTip
+    * @return string|null The customMailTip
     */
     public function getCustomMailTip()
     {
@@ -88,7 +88,7 @@ class MailTips extends Entity
     * Gets the deliveryRestricted
     * Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.
     *
-    * @return bool The deliveryRestricted
+    * @return bool|null The deliveryRestricted
     */
     public function getDeliveryRestricted()
     {
@@ -117,12 +117,12 @@ class MailTips extends Entity
     * Gets the emailAddress
     * The email address of the recipient to get mailtips for.
     *
-    * @return EmailAddress The emailAddress
+    * @return EmailAddress|null The emailAddress
     */
     public function getEmailAddress()
     {
         if (array_key_exists("emailAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddress"], "\Beta\Microsoft\Graph\Model\EmailAddress")) {
+            if (is_a($this->_propDict["emailAddress"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["emailAddress"])) {
                 return $this->_propDict["emailAddress"];
             } else {
                 $this->_propDict["emailAddress"] = new EmailAddress($this->_propDict["emailAddress"]);
@@ -150,12 +150,12 @@ class MailTips extends Entity
     * Gets the error
     * Errors that occur during the getMailTips action.
     *
-    * @return MailTipsError The error
+    * @return MailTipsError|null The error
     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\MailTipsError")) {
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\MailTipsError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new MailTipsError($this->_propDict["error"]);
@@ -182,7 +182,7 @@ class MailTips extends Entity
     * Gets the externalMemberCount
     * The number of external members if the recipient is a distribution list.
     *
-    * @return int The externalMemberCount
+    * @return int|null The externalMemberCount
     */
     public function getExternalMemberCount()
     {
@@ -210,7 +210,7 @@ class MailTips extends Entity
     * Gets the isModerated
     * Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.
     *
-    * @return bool The isModerated
+    * @return bool|null The isModerated
     */
     public function getIsModerated()
     {
@@ -238,7 +238,7 @@ class MailTips extends Entity
     * Gets the mailboxFull
     * The mailbox full status of the recipient.
     *
-    * @return bool The mailboxFull
+    * @return bool|null The mailboxFull
     */
     public function getMailboxFull()
     {
@@ -266,7 +266,7 @@ class MailTips extends Entity
     * Gets the maxMessageSize
     * The maximum message size that has been configured for the recipient's organization or mailbox.
     *
-    * @return int The maxMessageSize
+    * @return int|null The maxMessageSize
     */
     public function getMaxMessageSize()
     {
@@ -295,12 +295,12 @@ class MailTips extends Entity
     * Gets the recipientScope
     * The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
     *
-    * @return RecipientScopeType The recipientScope
+    * @return RecipientScopeType|null The recipientScope
     */
     public function getRecipientScope()
     {
         if (array_key_exists("recipientScope", $this->_propDict)) {
-            if (is_a($this->_propDict["recipientScope"], "\Beta\Microsoft\Graph\Model\RecipientScopeType")) {
+            if (is_a($this->_propDict["recipientScope"], "\Beta\Microsoft\Graph\Model\RecipientScopeType") || is_null($this->_propDict["recipientScope"])) {
                 return $this->_propDict["recipientScope"];
             } else {
                 $this->_propDict["recipientScope"] = new RecipientScopeType($this->_propDict["recipientScope"]);
@@ -328,12 +328,12 @@ class MailTips extends Entity
     * Gets the recipientSuggestions
     * Recipients suggested based on previous contexts where they appear in the same message.
     *
-    * @return Recipient The recipientSuggestions
+    * @return Recipient|null The recipientSuggestions
     */
     public function getRecipientSuggestions()
     {
         if (array_key_exists("recipientSuggestions", $this->_propDict)) {
-            if (is_a($this->_propDict["recipientSuggestions"], "\Beta\Microsoft\Graph\Model\Recipient")) {
+            if (is_a($this->_propDict["recipientSuggestions"], "\Beta\Microsoft\Graph\Model\Recipient") || is_null($this->_propDict["recipientSuggestions"])) {
                 return $this->_propDict["recipientSuggestions"];
             } else {
                 $this->_propDict["recipientSuggestions"] = new Recipient($this->_propDict["recipientSuggestions"]);
@@ -360,7 +360,7 @@ class MailTips extends Entity
     * Gets the totalMemberCount
     * The number of members if the recipient is a distribution list.
     *
-    * @return int The totalMemberCount
+    * @return int|null The totalMemberCount
     */
     public function getTotalMemberCount()
     {

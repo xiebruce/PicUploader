@@ -27,7 +27,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_0
     * Windows version 10.0 or later.
     *
-    * @return bool The v10_0
+    * @return bool|null The v10_0
     */
     public function getV10_0()
     {
@@ -55,7 +55,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1607
     * Windows 10 1607 or later.
     *
-    * @return bool The v10_1607
+    * @return bool|null The v10_1607
     */
     public function getV10_1607()
     {
@@ -83,7 +83,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1703
     * Windows 10 1703 or later.
     *
-    * @return bool The v10_1703
+    * @return bool|null The v10_1703
     */
     public function getV10_1703()
     {
@@ -111,7 +111,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1709
     * Windows 10 1709 or later.
     *
-    * @return bool The v10_1709
+    * @return bool|null The v10_1709
     */
     public function getV10_1709()
     {
@@ -139,7 +139,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1803
     * Windows 10 1803 or later.
     *
-    * @return bool The v10_1803
+    * @return bool|null The v10_1803
     */
     public function getV10_1803()
     {
@@ -167,7 +167,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1809
     * Windows 10 1809 or later.
     *
-    * @return bool The v10_1809
+    * @return bool|null The v10_1809
     */
     public function getV10_1809()
     {
@@ -195,7 +195,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1903
     * Windows 10 1903 or later.
     *
-    * @return bool The v10_1903
+    * @return bool|null The v10_1903
     */
     public function getV10_1903()
     {
@@ -223,7 +223,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_1909
     * Windows 10 1909 or later.
     *
-    * @return bool The v10_1909
+    * @return bool|null The v10_1909
     */
     public function getV10_1909()
     {
@@ -251,7 +251,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v10_2004
     * Windows 10 2004 or later.
     *
-    * @return bool The v10_2004
+    * @return bool|null The v10_2004
     */
     public function getV10_2004()
     {
@@ -276,10 +276,66 @@ class WindowsMinimumOperatingSystem extends Entity
         return $this;
     }
     /**
+    * Gets the v10_21H1
+    * Windows 10 21H1 or later.
+    *
+    * @return bool|null The v10_21H1
+    */
+    public function getV10_21H1()
+    {
+        if (array_key_exists("v1021H1", $this->_propDict)) {
+            return $this->_propDict["v1021H1"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v10_21H1
+    * Windows 10 21H1 or later.
+    *
+    * @param bool $val The value of the v10_21H1
+    *
+    * @return WindowsMinimumOperatingSystem
+    */
+    public function setV10_21H1($val)
+    {
+        $this->_propDict["v1021H1"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the v10_2H20
+    * Windows 10 2H20 or later.
+    *
+    * @return bool|null The v10_2H20
+    */
+    public function getV10_2H20()
+    {
+        if (array_key_exists("v102H20", $this->_propDict)) {
+            return $this->_propDict["v102H20"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v10_2H20
+    * Windows 10 2H20 or later.
+    *
+    * @param bool $val The value of the v10_2H20
+    *
+    * @return WindowsMinimumOperatingSystem
+    */
+    public function setV10_2H20($val)
+    {
+        $this->_propDict["v102H20"] = $val;
+        return $this;
+    }
+    /**
     * Gets the v8_0
     * Windows version 8.0 or later.
     *
-    * @return bool The v8_0
+    * @return bool|null The v8_0
     */
     public function getV8_0()
     {
@@ -307,7 +363,7 @@ class WindowsMinimumOperatingSystem extends Entity
     * Gets the v8_1
     * Windows version 8.1 or later.
     *
-    * @return bool The v8_1
+    * @return bool|null The v8_1
     */
     public function getV8_1()
     {

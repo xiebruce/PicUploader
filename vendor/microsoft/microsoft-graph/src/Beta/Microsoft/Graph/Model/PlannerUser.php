@@ -28,12 +28,12 @@ class PlannerUser extends PlannerDelta
     * Gets the favoritePlanReferences
     * A collection containing the references to the plans that the user has marked as favorites.
     *
-    * @return PlannerFavoritePlanReferenceCollection The favoritePlanReferences
+    * @return PlannerFavoritePlanReferenceCollection|null The favoritePlanReferences
     */
     public function getFavoritePlanReferences()
     {
         if (array_key_exists("favoritePlanReferences", $this->_propDict)) {
-            if (is_a($this->_propDict["favoritePlanReferences"], "\Beta\Microsoft\Graph\Model\PlannerFavoritePlanReferenceCollection")) {
+            if (is_a($this->_propDict["favoritePlanReferences"], "\Beta\Microsoft\Graph\Model\PlannerFavoritePlanReferenceCollection") || is_null($this->_propDict["favoritePlanReferences"])) {
                 return $this->_propDict["favoritePlanReferences"];
             } else {
                 $this->_propDict["favoritePlanReferences"] = new PlannerFavoritePlanReferenceCollection($this->_propDict["favoritePlanReferences"]);
@@ -42,7 +42,7 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
+
     /**
     * Sets the favoritePlanReferences
     * A collection containing the references to the plans that the user has marked as favorites.
@@ -56,17 +56,17 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["favoritePlanReferences"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the recentPlanReferences
     * A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
     *
-    * @return PlannerRecentPlanReferenceCollection The recentPlanReferences
+    * @return PlannerRecentPlanReferenceCollection|null The recentPlanReferences
     */
     public function getRecentPlanReferences()
     {
         if (array_key_exists("recentPlanReferences", $this->_propDict)) {
-            if (is_a($this->_propDict["recentPlanReferences"], "\Beta\Microsoft\Graph\Model\PlannerRecentPlanReferenceCollection")) {
+            if (is_a($this->_propDict["recentPlanReferences"], "\Beta\Microsoft\Graph\Model\PlannerRecentPlanReferenceCollection") || is_null($this->_propDict["recentPlanReferences"])) {
                 return $this->_propDict["recentPlanReferences"];
             } else {
                 $this->_propDict["recentPlanReferences"] = new PlannerRecentPlanReferenceCollection($this->_propDict["recentPlanReferences"]);
@@ -75,7 +75,7 @@ class PlannerUser extends PlannerDelta
         }
         return null;
     }
-    
+
     /**
     * Sets the recentPlanReferences
     * A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
@@ -89,12 +89,12 @@ class PlannerUser extends PlannerDelta
         $this->_propDict["recentPlanReferences"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the all
      *
-     * @return array The all
+     * @return array|null The all
      */
     public function getAll()
     {
@@ -104,26 +104,26 @@ class PlannerUser extends PlannerDelta
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the all
     *
-    * @param PlannerDelta $val The all
+    * @param PlannerDelta[] $val The all
     *
     * @return PlannerUser
     */
     public function setAll($val)
     {
-		$this->_propDict["all"] = $val;
+        $this->_propDict["all"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the favoritePlans
     * Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
      *
-     * @return array The favoritePlans
+     * @return array|null The favoritePlans
      */
     public function getFavoritePlans()
     {
@@ -133,27 +133,27 @@ class PlannerUser extends PlannerDelta
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the favoritePlans
     * Read-only. Nullable. Returns the plannerPlans that the user marked as favorites.
     *
-    * @param PlannerPlan $val The favoritePlans
+    * @param PlannerPlan[] $val The favoritePlans
     *
     * @return PlannerUser
     */
     public function setFavoritePlans($val)
     {
-		$this->_propDict["favoritePlans"] = $val;
+        $this->_propDict["favoritePlans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the plans
     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
      *
-     * @return array The plans
+     * @return array|null The plans
      */
     public function getPlans()
     {
@@ -163,27 +163,27 @@ class PlannerUser extends PlannerDelta
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the plans
     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
     *
-    * @param PlannerPlan $val The plans
+    * @param PlannerPlan[] $val The plans
     *
     * @return PlannerUser
     */
     public function setPlans($val)
     {
-		$this->_propDict["plans"] = $val;
+        $this->_propDict["plans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the recentPlans
     * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
      *
-     * @return array The recentPlans
+     * @return array|null The recentPlans
      */
     public function getRecentPlans()
     {
@@ -193,27 +193,27 @@ class PlannerUser extends PlannerDelta
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the recentPlans
     * Read-only. Nullable. Returns the plannerPlans that have been recently viewed by the user in apps that support recent plans.
     *
-    * @param PlannerPlan $val The recentPlans
+    * @param PlannerPlan[] $val The recentPlans
     *
     * @return PlannerUser
     */
     public function setRecentPlans($val)
     {
-		$this->_propDict["recentPlans"] = $val;
+        $this->_propDict["recentPlans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the rosterPlans
     * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
      *
-     * @return array The rosterPlans
+     * @return array|null The rosterPlans
      */
     public function getRosterPlans()
     {
@@ -223,27 +223,27 @@ class PlannerUser extends PlannerDelta
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the rosterPlans
     * Read-only. Nullable. Returns the plannerPlans contained by the plannerRosters the user is a member.
     *
-    * @param PlannerPlan $val The rosterPlans
+    * @param PlannerPlan[] $val The rosterPlans
     *
     * @return PlannerUser
     */
     public function setRosterPlans($val)
     {
-		$this->_propDict["rosterPlans"] = $val;
+        $this->_propDict["rosterPlans"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tasks
     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
      *
-     * @return array The tasks
+     * @return array|null The tasks
      */
     public function getTasks()
     {
@@ -253,19 +253,19 @@ class PlannerUser extends PlannerDelta
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the tasks
     * Read-only. Nullable. Returns the plannerTasks assigned to the user.
     *
-    * @param PlannerTask $val The tasks
+    * @param PlannerTask[] $val The tasks
     *
     * @return PlannerUser
     */
     public function setTasks($val)
     {
-		$this->_propDict["tasks"] = $val;
+        $this->_propDict["tasks"] = $val;
         return $this;
     }
-    
+
 }

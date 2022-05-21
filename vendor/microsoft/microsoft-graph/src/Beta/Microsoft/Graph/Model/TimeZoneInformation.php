@@ -27,7 +27,7 @@ class TimeZoneInformation extends Entity
     * Gets the alias
     * An identifier for the time zone.
     *
-    * @return string The alias
+    * @return string|null The alias
     */
     public function getAlias()
     {
@@ -55,7 +55,7 @@ class TimeZoneInformation extends Entity
     * Gets the displayName
     * A display string that represents the time zone.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {

@@ -28,7 +28,7 @@ class Office365GroupsActivityDetail extends Entity
     * Gets the exchangeMailboxStorageUsedInBytes
     * The storage used of the group mailbox.
     *
-    * @return int The exchangeMailboxStorageUsedInBytes
+    * @return int|null The exchangeMailboxStorageUsedInBytes
     */
     public function getExchangeMailboxStorageUsedInBytes()
     {
@@ -38,7 +38,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the exchangeMailboxStorageUsedInBytes
     * The storage used of the group mailbox.
@@ -52,12 +52,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["exchangeMailboxStorageUsedInBytes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the exchangeMailboxTotalItemCount
     * The number of items in the group mailbox.
     *
-    * @return int The exchangeMailboxTotalItemCount
+    * @return int|null The exchangeMailboxTotalItemCount
     */
     public function getExchangeMailboxTotalItemCount()
     {
@@ -67,7 +67,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the exchangeMailboxTotalItemCount
     * The number of items in the group mailbox.
@@ -81,12 +81,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["exchangeMailboxTotalItemCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the exchangeReceivedEmailCount
     * The number of email that the group mailbox received.
     *
-    * @return int The exchangeReceivedEmailCount
+    * @return int|null The exchangeReceivedEmailCount
     */
     public function getExchangeReceivedEmailCount()
     {
@@ -96,7 +96,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the exchangeReceivedEmailCount
     * The number of email that the group mailbox received.
@@ -110,12 +110,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["exchangeReceivedEmailCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the externalMemberCount
     * The group external member count.
     *
-    * @return int The externalMemberCount
+    * @return int|null The externalMemberCount
     */
     public function getExternalMemberCount()
     {
@@ -125,7 +125,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the externalMemberCount
     * The group external member count.
@@ -139,12 +139,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["externalMemberCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the groupDisplayName
     * The display name of the group.
     *
-    * @return string The groupDisplayName
+    * @return string|null The groupDisplayName
     */
     public function getGroupDisplayName()
     {
@@ -154,7 +154,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the groupDisplayName
     * The display name of the group.
@@ -168,12 +168,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["groupDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the groupId
     * The group id.
     *
-    * @return string The groupId
+    * @return string|null The groupId
     */
     public function getGroupId()
     {
@@ -183,7 +183,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the groupId
     * The group id.
@@ -197,12 +197,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["groupId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the groupType
     * The group type. Possible values are: Public or Private.
     *
-    * @return string The groupType
+    * @return string|null The groupType
     */
     public function getGroupType()
     {
@@ -212,7 +212,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the groupType
     * The group type. Possible values are: Public or Private.
@@ -226,12 +226,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["groupType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isDeleted
     * Whether this user has been deleted or soft deleted.
     *
-    * @return bool The isDeleted
+    * @return bool|null The isDeleted
     */
     public function getIsDeleted()
     {
@@ -241,7 +241,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDeleted
     * Whether this user has been deleted or soft deleted.
@@ -255,17 +255,17 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["isDeleted"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastActivityDate
     * The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
     *
-    * @return \DateTime The lastActivityDate
+    * @return \DateTime|null The lastActivityDate
     */
     public function getLastActivityDate()
     {
         if (array_key_exists("lastActivityDate", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActivityDate"], "\DateTime")) {
+            if (is_a($this->_propDict["lastActivityDate"], "\DateTime") || is_null($this->_propDict["lastActivityDate"])) {
                 return $this->_propDict["lastActivityDate"];
             } else {
                 $this->_propDict["lastActivityDate"] = new \DateTime($this->_propDict["lastActivityDate"]);
@@ -274,7 +274,7 @@ class Office365GroupsActivityDetail extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastActivityDate
     * The last activity date for the following scenarios:  group mailbox received email; user viewed, edited, shared, or synced files in SharePoint document library; user viewed SharePoint pages; user posted, read, or liked messages in Yammer groups.
@@ -288,12 +288,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["lastActivityDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the memberCount
     * The group member count.
     *
-    * @return int The memberCount
+    * @return int|null The memberCount
     */
     public function getMemberCount()
     {
@@ -303,7 +303,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the memberCount
     * The group member count.
@@ -317,12 +317,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["memberCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the ownerPrincipalName
     * The group owner principal name.
     *
-    * @return string The ownerPrincipalName
+    * @return string|null The ownerPrincipalName
     */
     public function getOwnerPrincipalName()
     {
@@ -332,7 +332,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ownerPrincipalName
     * The group owner principal name.
@@ -346,12 +346,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["ownerPrincipalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportPeriod
     * The number of days the report covers.
     *
-    * @return string The reportPeriod
+    * @return string|null The reportPeriod
     */
     public function getReportPeriod()
     {
@@ -361,7 +361,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reportPeriod
     * The number of days the report covers.
@@ -375,17 +375,17 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["reportPeriod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportRefreshDate
     * The latest date of the content.
     *
-    * @return \DateTime The reportRefreshDate
+    * @return \DateTime|null The reportRefreshDate
     */
     public function getReportRefreshDate()
     {
         if (array_key_exists("reportRefreshDate", $this->_propDict)) {
-            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime")) {
+            if (is_a($this->_propDict["reportRefreshDate"], "\DateTime") || is_null($this->_propDict["reportRefreshDate"])) {
                 return $this->_propDict["reportRefreshDate"];
             } else {
                 $this->_propDict["reportRefreshDate"] = new \DateTime($this->_propDict["reportRefreshDate"]);
@@ -394,7 +394,7 @@ class Office365GroupsActivityDetail extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the reportRefreshDate
     * The latest date of the content.
@@ -408,12 +408,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["reportRefreshDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharePointActiveFileCount
     * The number of active files in SharePoint Group site.
     *
-    * @return int The sharePointActiveFileCount
+    * @return int|null The sharePointActiveFileCount
     */
     public function getSharePointActiveFileCount()
     {
@@ -423,7 +423,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sharePointActiveFileCount
     * The number of active files in SharePoint Group site.
@@ -437,12 +437,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["sharePointActiveFileCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the sharePointSiteStorageUsedInBytes
     * The storage used by SharePoint Group site.
     *
-    * @return int The sharePointSiteStorageUsedInBytes
+    * @return int|null The sharePointSiteStorageUsedInBytes
     */
     public function getSharePointSiteStorageUsedInBytes()
     {
@@ -452,7 +452,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sharePointSiteStorageUsedInBytes
     * The storage used by SharePoint Group site.
@@ -466,12 +466,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["sharePointSiteStorageUsedInBytes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the sharePointTotalFileCount
     * The total number of files in SharePoint Group site.
     *
-    * @return int The sharePointTotalFileCount
+    * @return int|null The sharePointTotalFileCount
     */
     public function getSharePointTotalFileCount()
     {
@@ -481,7 +481,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sharePointTotalFileCount
     * The total number of files in SharePoint Group site.
@@ -495,12 +495,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["sharePointTotalFileCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the yammerLikedMessageCount
     * The number of messages liked in Yammer groups.
     *
-    * @return int The yammerLikedMessageCount
+    * @return int|null The yammerLikedMessageCount
     */
     public function getYammerLikedMessageCount()
     {
@@ -510,7 +510,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the yammerLikedMessageCount
     * The number of messages liked in Yammer groups.
@@ -524,12 +524,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["yammerLikedMessageCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the yammerPostedMessageCount
     * The number of messages posted to Yammer groups.
     *
-    * @return int The yammerPostedMessageCount
+    * @return int|null The yammerPostedMessageCount
     */
     public function getYammerPostedMessageCount()
     {
@@ -539,7 +539,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the yammerPostedMessageCount
     * The number of messages posted to Yammer groups.
@@ -553,12 +553,12 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["yammerPostedMessageCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the yammerReadMessageCount
     * The number of messages read in Yammer groups.
     *
-    * @return int The yammerReadMessageCount
+    * @return int|null The yammerReadMessageCount
     */
     public function getYammerReadMessageCount()
     {
@@ -568,7 +568,7 @@ class Office365GroupsActivityDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the yammerReadMessageCount
     * The number of messages read in Yammer groups.
@@ -582,5 +582,5 @@ class Office365GroupsActivityDetail extends Entity
         $this->_propDict["yammerReadMessageCount"] = intval($val);
         return $this;
     }
-    
+
 }

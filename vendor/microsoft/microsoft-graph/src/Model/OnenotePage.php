@@ -28,21 +28,21 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
     * Gets the content
     * The page's HTML content.
     *
-    * @return \GuzzleHttp\Psr7\Stream The content
+    * @return \GuzzleHttp\Psr7\Stream|null The content
     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["content"]);
+                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the content
     * The page's HTML content.
@@ -56,12 +56,12 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the contentUrl
     * The URL for the page's HTML content.  Read-only.
     *
-    * @return string The contentUrl
+    * @return string|null The contentUrl
     */
     public function getContentUrl()
     {
@@ -71,7 +71,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
             return null;
         }
     }
-    
+
     /**
     * Sets the contentUrl
     * The URL for the page's HTML content.  Read-only.
@@ -85,12 +85,12 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["contentUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdByAppId
     * The unique identifier of the application that created the page. Read-only.
     *
-    * @return string The createdByAppId
+    * @return string|null The createdByAppId
     */
     public function getCreatedByAppId()
     {
@@ -100,7 +100,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
             return null;
         }
     }
-    
+
     /**
     * Sets the createdByAppId
     * The unique identifier of the application that created the page. Read-only.
@@ -114,17 +114,17 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["createdByAppId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -133,7 +133,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
@@ -147,12 +147,12 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the level
     * The indentation level of the page. Read-only.
     *
-    * @return int The level
+    * @return int|null The level
     */
     public function getLevel()
     {
@@ -162,7 +162,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
             return null;
         }
     }
-    
+
     /**
     * Sets the level
     * The indentation level of the page. Read-only.
@@ -176,17 +176,17 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["level"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the links
     * Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.
     *
-    * @return PageLinks The links
+    * @return PageLinks|null The links
     */
     public function getLinks()
     {
         if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\PageLinks")) {
+            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\PageLinks") || is_null($this->_propDict["links"])) {
                 return $this->_propDict["links"];
             } else {
                 $this->_propDict["links"] = new PageLinks($this->_propDict["links"]);
@@ -195,7 +195,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         }
         return null;
     }
-    
+
     /**
     * Sets the links
     * Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.
@@ -209,12 +209,12 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["links"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the order
     * The order of the page within its parent section. Read-only.
     *
-    * @return int The order
+    * @return int|null The order
     */
     public function getOrder()
     {
@@ -224,7 +224,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
             return null;
         }
     }
-    
+
     /**
     * Sets the order
     * The order of the page within its parent section. Read-only.
@@ -238,12 +238,12 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["order"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the title
     * The title of the page.
     *
-    * @return string The title
+    * @return string|null The title
     */
     public function getTitle()
     {
@@ -253,7 +253,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
             return null;
         }
     }
-    
+
     /**
     * Sets the title
     * The title of the page.
@@ -267,11 +267,11 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["title"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userTags
     *
-    * @return string The userTags
+    * @return string|null The userTags
     */
     public function getUserTags()
     {
@@ -281,7 +281,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
             return null;
         }
     }
-    
+
     /**
     * Sets the userTags
     *
@@ -294,17 +294,17 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["userTags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the parentNotebook
     * The notebook that contains the page.  Read-only.
     *
-    * @return Notebook The parentNotebook
+    * @return Notebook|null The parentNotebook
     */
     public function getParentNotebook()
     {
         if (array_key_exists("parentNotebook", $this->_propDict)) {
-            if (is_a($this->_propDict["parentNotebook"], "\Microsoft\Graph\Model\Notebook")) {
+            if (is_a($this->_propDict["parentNotebook"], "\Microsoft\Graph\Model\Notebook") || is_null($this->_propDict["parentNotebook"])) {
                 return $this->_propDict["parentNotebook"];
             } else {
                 $this->_propDict["parentNotebook"] = new Notebook($this->_propDict["parentNotebook"]);
@@ -313,7 +313,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         }
         return null;
     }
-    
+
     /**
     * Sets the parentNotebook
     * The notebook that contains the page.  Read-only.
@@ -327,17 +327,17 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["parentNotebook"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the parentSection
     * The section that contains the page. Read-only.
     *
-    * @return OnenoteSection The parentSection
+    * @return OnenoteSection|null The parentSection
     */
     public function getParentSection()
     {
         if (array_key_exists("parentSection", $this->_propDict)) {
-            if (is_a($this->_propDict["parentSection"], "\Microsoft\Graph\Model\OnenoteSection")) {
+            if (is_a($this->_propDict["parentSection"], "\Microsoft\Graph\Model\OnenoteSection") || is_null($this->_propDict["parentSection"])) {
                 return $this->_propDict["parentSection"];
             } else {
                 $this->_propDict["parentSection"] = new OnenoteSection($this->_propDict["parentSection"]);
@@ -346,7 +346,7 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         }
         return null;
     }
-    
+
     /**
     * Sets the parentSection
     * The section that contains the page. Read-only.
@@ -360,5 +360,5 @@ class OnenotePage extends OnenoteEntitySchemaObjectModel
         $this->_propDict["parentSection"] = $val;
         return $this;
     }
-    
+
 }

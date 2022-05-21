@@ -27,7 +27,7 @@ class EducationFileSynchronizationVerificationMessage extends Entity
     * Gets the description
     * Detailed information about the message type.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -54,7 +54,7 @@ class EducationFileSynchronizationVerificationMessage extends Entity
     /**
     * Gets the fileName
     *
-    * @return string The fileName
+    * @return string|null The fileName
     */
     public function getFileName()
     {
@@ -81,7 +81,7 @@ class EducationFileSynchronizationVerificationMessage extends Entity
     * Gets the type
     * Type of the message. Possible values are: error, warning, information.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {

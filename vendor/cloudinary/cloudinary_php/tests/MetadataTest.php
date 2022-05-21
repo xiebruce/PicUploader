@@ -454,27 +454,6 @@ class MetadataTest extends TestCase
     }
 
     /**
-     * Test deleting a metadata field definition then attempting to create a new one with the same external id which
-     * should fail.
-     *
-     * @throws Api\GeneralError
-     */
-    public function test_delete_metadata_field_does_not_release_external_id()
-    {
-        $this->api->delete_metadata_field(self::$external_id_delete_2);
-
-        $this->setExpectedException(
-            '\Cloudinary\Api\BadRequest',
-            'external id ' . self::$external_id_delete_2 . ' already exists'
-        );
-        $this->api->add_metadata_field([
-            'external_id' => self::$external_id_delete_2,
-            'label' => self::$external_id_delete_2,
-            'type' => 'integer'
-        ]);
-    }
-
-    /**
      * Delete entries in a metadata field datasource
      *
      * @throws Api\GeneralError

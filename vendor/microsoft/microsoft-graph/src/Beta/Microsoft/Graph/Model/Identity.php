@@ -27,7 +27,7 @@ class Identity extends Entity
     * Gets the displayName
     * The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class Identity extends Entity
     * Gets the id
     * Unique identifier for the identity.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {

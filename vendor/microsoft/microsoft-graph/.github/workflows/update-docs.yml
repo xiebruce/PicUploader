@@ -1,0 +1,57 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+name: "Update Docs"
+
+on:
+  push:
+    branches: dev
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  run-php-documentor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: docker://phpdoc/phpdoc:3.0
+        with:
+          config: ./phpdoc.dist.xml
+
+      - name: Create unique docs branch name
+        run: echo "BRANCH=fix/update-docs/$(date +%s)" >> $GITHUB_ENV
+
+      - name: Create and checkout docs branch
+        run: git checkout -b ${{ env.BRANCH }}
+
+      - name: Run PHPDocumentor container
+        run: docker run --name phpDoc --rm -v $(pwd):/data phpdoc/phpdoc:3.0 run
+
+      - name: Config Git user
+        run: |
+          git config --global user.email "GraphTooling@service.microsoft.com"
+          git config --global user.name "Microsoft Graph DevX Tooling"
+
+      - name: Commit changes to docs/ folder (if any)
+        run: |
+          if git add . && git commit -m "Update docs/ folder"; then
+            git push origin ${{ env.BRANCH }} && echo "CREATE_PR=true" >> $GITHUB_ENV
+          else
+            echo "CREATE_PR=false" >> $GITHUB_ENV
+          fi
+
+      - name: Create PR
+        if: ${{ env.CREATE_PR == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE_TITLE: Generated docs using PHPDocumentor
+          MESSAGE_BODY: "This pull request was automatically created by GitHub Action `${{ github.workflow }}`. \n\n The action runs PHPDocumentor against the latest changes merged to `${{ github.ref }}`."
+          LABELS: generated
+        run: |
+          curl -fsSL https://github.com/github/hub/raw/master/script/get | bash -s 2.14.1
+          bin/hub pull-request -b dev -m "$MESSAGE_TITLE" -m "$MESSAGE_BODY" -l "$LABELS"

@@ -27,7 +27,7 @@ class UnifiedRolePermission extends Entity
     * Gets the allowedResourceActions
     * Set of tasks that can be performed on a resource.
     *
-    * @return string The allowedResourceActions
+    * @return string|null The allowedResourceActions
     */
     public function getAllowedResourceActions()
     {
@@ -55,7 +55,7 @@ class UnifiedRolePermission extends Entity
     * Gets the condition
     * Optional constraints that must be met for the permission to be effective.
     *
-    * @return string The condition
+    * @return string|null The condition
     */
     public function getCondition()
     {
@@ -81,8 +81,9 @@ class UnifiedRolePermission extends Entity
     }
     /**
     * Gets the excludedResourceActions
+    * Set of tasks that may not be performed on a resource. Not yet supported.
     *
-    * @return string The excludedResourceActions
+    * @return string|null The excludedResourceActions
     */
     public function getExcludedResourceActions()
     {
@@ -95,6 +96,7 @@ class UnifiedRolePermission extends Entity
 
     /**
     * Sets the excludedResourceActions
+    * Set of tasks that may not be performed on a resource. Not yet supported.
     *
     * @param string $val The value of the excludedResourceActions
     *

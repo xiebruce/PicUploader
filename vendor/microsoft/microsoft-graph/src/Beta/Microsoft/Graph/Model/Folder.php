@@ -27,7 +27,7 @@ class Folder extends Entity
     * Gets the childCount
     * Number of children contained immediately within this container.
     *
-    * @return int The childCount
+    * @return int|null The childCount
     */
     public function getChildCount()
     {
@@ -56,12 +56,12 @@ class Folder extends Entity
     * Gets the view
     * A collection of properties defining the recommended view for the folder.
     *
-    * @return FolderView The view
+    * @return FolderView|null The view
     */
     public function getView()
     {
         if (array_key_exists("view", $this->_propDict)) {
-            if (is_a($this->_propDict["view"], "\Beta\Microsoft\Graph\Model\FolderView")) {
+            if (is_a($this->_propDict["view"], "\Beta\Microsoft\Graph\Model\FolderView") || is_null($this->_propDict["view"])) {
                 return $this->_propDict["view"];
             } else {
                 $this->_propDict["view"] = new FolderView($this->_propDict["view"]);

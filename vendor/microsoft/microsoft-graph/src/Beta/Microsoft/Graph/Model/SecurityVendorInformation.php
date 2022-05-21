@@ -27,7 +27,7 @@ class SecurityVendorInformation extends Entity
     * Gets the provider
     * Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
     *
-    * @return string The provider
+    * @return string|null The provider
     */
     public function getProvider()
     {
@@ -55,7 +55,7 @@ class SecurityVendorInformation extends Entity
     * Gets the providerVersion
     * Version of the provider or subprovider, if it exists, that generated the alert. Required
     *
-    * @return string The providerVersion
+    * @return string|null The providerVersion
     */
     public function getProviderVersion()
     {
@@ -83,7 +83,7 @@ class SecurityVendorInformation extends Entity
     * Gets the subProvider
     * Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
     *
-    * @return string The subProvider
+    * @return string|null The subProvider
     */
     public function getSubProvider()
     {
@@ -111,7 +111,7 @@ class SecurityVendorInformation extends Entity
     * Gets the vendor
     * Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
     *
-    * @return string The vendor
+    * @return string|null The vendor
     */
     public function getVendor()
     {

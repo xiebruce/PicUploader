@@ -28,12 +28,12 @@ class BitLockerFixedDrivePolicy extends Entity
     * Gets the encryptionMethod
     * Select the encryption method for fixed drives. Possible values are: aesCbc128, aesCbc256, xtsAes128, xtsAes256.
     *
-    * @return BitLockerEncryptionMethod The encryptionMethod
+    * @return BitLockerEncryptionMethod|null The encryptionMethod
     */
     public function getEncryptionMethod()
     {
         if (array_key_exists("encryptionMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\BitLockerEncryptionMethod")) {
+            if (is_a($this->_propDict["encryptionMethod"], "\Beta\Microsoft\Graph\Model\BitLockerEncryptionMethod") || is_null($this->_propDict["encryptionMethod"])) {
                 return $this->_propDict["encryptionMethod"];
             } else {
                 $this->_propDict["encryptionMethod"] = new BitLockerEncryptionMethod($this->_propDict["encryptionMethod"]);
@@ -61,12 +61,12 @@ class BitLockerFixedDrivePolicy extends Entity
     * Gets the recoveryOptions
     * This policy setting allows you to control how BitLocker-protected fixed data drives are recovered in the absence of the required credentials. This policy setting is applied when you turn on BitLocker.
     *
-    * @return BitLockerRecoveryOptions The recoveryOptions
+    * @return BitLockerRecoveryOptions|null The recoveryOptions
     */
     public function getRecoveryOptions()
     {
         if (array_key_exists("recoveryOptions", $this->_propDict)) {
-            if (is_a($this->_propDict["recoveryOptions"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryOptions")) {
+            if (is_a($this->_propDict["recoveryOptions"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryOptions") || is_null($this->_propDict["recoveryOptions"])) {
                 return $this->_propDict["recoveryOptions"];
             } else {
                 $this->_propDict["recoveryOptions"] = new BitLockerRecoveryOptions($this->_propDict["recoveryOptions"]);
@@ -93,7 +93,7 @@ class BitLockerFixedDrivePolicy extends Entity
     * Gets the requireEncryptionForWriteAccess
     * This policy setting determines whether BitLocker protection is required for fixed data drives to be writable on a computer.
     *
-    * @return bool The requireEncryptionForWriteAccess
+    * @return bool|null The requireEncryptionForWriteAccess
     */
     public function getRequireEncryptionForWriteAccess()
     {

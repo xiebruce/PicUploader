@@ -27,7 +27,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Gets the blockedManufacturers
     * Collection of blocked Manufacturers.
     *
-    * @return string The blockedManufacturers
+    * @return string|null The blockedManufacturers
     */
     public function getBlockedManufacturers()
     {
@@ -55,7 +55,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Gets the blockedSkus
     * Collection of blocked Skus.
     *
-    * @return string The blockedSkus
+    * @return string|null The blockedSkus
     */
     public function getBlockedSkus()
     {
@@ -83,7 +83,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Gets the osMaximumVersion
     * Max OS version supported
     *
-    * @return string The osMaximumVersion
+    * @return string|null The osMaximumVersion
     */
     public function getOsMaximumVersion()
     {
@@ -111,7 +111,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Gets the osMinimumVersion
     * Min OS version supported
     *
-    * @return string The osMinimumVersion
+    * @return string|null The osMinimumVersion
     */
     public function getOsMinimumVersion()
     {
@@ -139,7 +139,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Gets the personalDeviceEnrollmentBlocked
     * Block personally owned devices from enrolling
     *
-    * @return bool The personalDeviceEnrollmentBlocked
+    * @return bool|null The personalDeviceEnrollmentBlocked
     */
     public function getPersonalDeviceEnrollmentBlocked()
     {
@@ -167,7 +167,7 @@ class DeviceEnrollmentPlatformRestriction extends Entity
     * Gets the platformBlocked
     * Block the platform from enrolling
     *
-    * @return bool The platformBlocked
+    * @return bool|null The platformBlocked
     */
     public function getPlatformBlocked()
     {

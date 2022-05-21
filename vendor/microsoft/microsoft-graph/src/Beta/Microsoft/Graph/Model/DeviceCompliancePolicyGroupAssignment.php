@@ -28,7 +28,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
     * Gets the excludeGroup
     * Indicates if this group is should be excluded. Defaults that the group should be included
     *
-    * @return bool The excludeGroup
+    * @return bool|null The excludeGroup
     */
     public function getExcludeGroup()
     {
@@ -38,7 +38,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the excludeGroup
     * Indicates if this group is should be excluded. Defaults that the group should be included
@@ -52,12 +52,12 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
         $this->_propDict["excludeGroup"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the targetGroupId
     * The Id of the AAD group we are targeting the device compliance policy to.
     *
-    * @return string The targetGroupId
+    * @return string|null The targetGroupId
     */
     public function getTargetGroupId()
     {
@@ -67,7 +67,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetGroupId
     * The Id of the AAD group we are targeting the device compliance policy to.
@@ -81,17 +81,17 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
         $this->_propDict["targetGroupId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceCompliancePolicy
     * The navigation link to the  device compliance polic targeted.
     *
-    * @return DeviceCompliancePolicy The deviceCompliancePolicy
+    * @return DeviceCompliancePolicy|null The deviceCompliancePolicy
     */
     public function getDeviceCompliancePolicy()
     {
         if (array_key_exists("deviceCompliancePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceCompliancePolicy"], "\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy")) {
+            if (is_a($this->_propDict["deviceCompliancePolicy"], "\Beta\Microsoft\Graph\Model\DeviceCompliancePolicy") || is_null($this->_propDict["deviceCompliancePolicy"])) {
                 return $this->_propDict["deviceCompliancePolicy"];
             } else {
                 $this->_propDict["deviceCompliancePolicy"] = new DeviceCompliancePolicy($this->_propDict["deviceCompliancePolicy"]);
@@ -100,7 +100,7 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceCompliancePolicy
     * The navigation link to the  device compliance polic targeted.
@@ -114,5 +114,5 @@ class DeviceCompliancePolicyGroupAssignment extends Entity
         $this->_propDict["deviceCompliancePolicy"] = $val;
         return $this;
     }
-    
+
 }

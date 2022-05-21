@@ -26,7 +26,7 @@ class UserGovernanceCriteria extends GovernanceCriteria
     /**
     * Gets the userId
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {

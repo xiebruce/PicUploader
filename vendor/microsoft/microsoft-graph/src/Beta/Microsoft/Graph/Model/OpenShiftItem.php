@@ -27,7 +27,7 @@ class OpenShiftItem extends ShiftItem
     * Gets the openSlotCount
     * Count of the number of slots for the given open shift.
     *
-    * @return int The openSlotCount
+    * @return int|null The openSlotCount
     */
     public function getOpenSlotCount()
     {

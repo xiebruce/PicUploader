@@ -27,12 +27,12 @@ class InstanceResourceAccess extends Entity
     /**
     * Gets the permissions
     *
-    * @return ResourcePermission The permissions
+    * @return ResourcePermission|null The permissions
     */
     public function getPermissions()
     {
         if (array_key_exists("permissions", $this->_propDict)) {
-            if (is_a($this->_propDict["permissions"], "\Beta\Microsoft\Graph\Model\ResourcePermission")) {
+            if (is_a($this->_propDict["permissions"], "\Beta\Microsoft\Graph\Model\ResourcePermission") || is_null($this->_propDict["permissions"])) {
                 return $this->_propDict["permissions"];
             } else {
                 $this->_propDict["permissions"] = new ResourcePermission($this->_propDict["permissions"]);
@@ -57,7 +57,7 @@ class InstanceResourceAccess extends Entity
     /**
     * Gets the resourceAppId
     *
-    * @return string The resourceAppId
+    * @return string|null The resourceAppId
     */
     public function getResourceAppId()
     {

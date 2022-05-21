@@ -28,12 +28,12 @@ class FileSecurityState extends Entity
     * Gets the fileHash
     * Complex type containing file hashes (cryptographic and location-sensitive).
     *
-    * @return FileHash The fileHash
+    * @return FileHash|null The fileHash
     */
     public function getFileHash()
     {
         if (array_key_exists("fileHash", $this->_propDict)) {
-            if (is_a($this->_propDict["fileHash"], "\Beta\Microsoft\Graph\Model\FileHash")) {
+            if (is_a($this->_propDict["fileHash"], "\Beta\Microsoft\Graph\Model\FileHash") || is_null($this->_propDict["fileHash"])) {
                 return $this->_propDict["fileHash"];
             } else {
                 $this->_propDict["fileHash"] = new FileHash($this->_propDict["fileHash"]);
@@ -60,7 +60,7 @@ class FileSecurityState extends Entity
     * Gets the name
     * File name (without path).
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -88,7 +88,7 @@ class FileSecurityState extends Entity
     * Gets the path
     * Full file path of the file/imageFile.
     *
-    * @return string The path
+    * @return string|null The path
     */
     public function getPath()
     {
@@ -116,7 +116,7 @@ class FileSecurityState extends Entity
     * Gets the riskScore
     * Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage.
     *
-    * @return string The riskScore
+    * @return string|null The riskScore
     */
     public function getRiskScore()
     {

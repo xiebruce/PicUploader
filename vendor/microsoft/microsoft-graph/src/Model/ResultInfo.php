@@ -27,7 +27,7 @@ class ResultInfo extends Entity
     * Gets the code
     * The result code.
     *
-    * @return int The code
+    * @return int|null The code
     */
     public function getCode()
     {
@@ -55,7 +55,7 @@ class ResultInfo extends Entity
     * Gets the message
     * The message.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -83,7 +83,7 @@ class ResultInfo extends Entity
     * Gets the subcode
     * The result sub-code.
     *
-    * @return int The subcode
+    * @return int|null The subcode
     */
     public function getSubcode()
     {

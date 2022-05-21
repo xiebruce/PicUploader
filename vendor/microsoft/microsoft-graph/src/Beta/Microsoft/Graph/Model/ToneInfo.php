@@ -27,7 +27,7 @@ class ToneInfo extends Entity
     * Gets the sequenceId
     * An incremental identifier used for ordering DTMF events.
     *
-    * @return int The sequenceId
+    * @return int|null The sequenceId
     */
     public function getSequenceId()
     {
@@ -56,12 +56,12 @@ class ToneInfo extends Entity
     * Gets the tone
     * Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
     *
-    * @return Tone The tone
+    * @return Tone|null The tone
     */
     public function getTone()
     {
         if (array_key_exists("tone", $this->_propDict)) {
-            if (is_a($this->_propDict["tone"], "\Beta\Microsoft\Graph\Model\Tone")) {
+            if (is_a($this->_propDict["tone"], "\Beta\Microsoft\Graph\Model\Tone") || is_null($this->_propDict["tone"])) {
                 return $this->_propDict["tone"];
             } else {
                 $this->_propDict["tone"] = new Tone($this->_propDict["tone"]);

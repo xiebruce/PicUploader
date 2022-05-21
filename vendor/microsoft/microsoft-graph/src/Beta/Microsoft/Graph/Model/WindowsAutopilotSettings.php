@@ -28,12 +28,12 @@ class WindowsAutopilotSettings extends Entity
     * Gets the lastManualSyncTriggerDateTime
     * Last data sync date time with DDS service.
     *
-    * @return \DateTime The lastManualSyncTriggerDateTime
+    * @return \DateTime|null The lastManualSyncTriggerDateTime
     */
     public function getLastManualSyncTriggerDateTime()
     {
         if (array_key_exists("lastManualSyncTriggerDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastManualSyncTriggerDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastManualSyncTriggerDateTime"], "\DateTime") || is_null($this->_propDict["lastManualSyncTriggerDateTime"])) {
                 return $this->_propDict["lastManualSyncTriggerDateTime"];
             } else {
                 $this->_propDict["lastManualSyncTriggerDateTime"] = new \DateTime($this->_propDict["lastManualSyncTriggerDateTime"]);
@@ -42,7 +42,7 @@ class WindowsAutopilotSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastManualSyncTriggerDateTime
     * Last data sync date time with DDS service.
@@ -56,17 +56,17 @@ class WindowsAutopilotSettings extends Entity
         $this->_propDict["lastManualSyncTriggerDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSyncDateTime
     * Last data sync date time with DDS service.
     *
-    * @return \DateTime The lastSyncDateTime
+    * @return \DateTime|null The lastSyncDateTime
     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -75,7 +75,7 @@ class WindowsAutopilotSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSyncDateTime
     * Last data sync date time with DDS service.
@@ -89,17 +89,17 @@ class WindowsAutopilotSettings extends Entity
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the syncStatus
     * Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed.
     *
-    * @return WindowsAutopilotSyncStatus The syncStatus
+    * @return WindowsAutopilotSyncStatus|null The syncStatus
     */
     public function getSyncStatus()
     {
         if (array_key_exists("syncStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["syncStatus"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotSyncStatus")) {
+            if (is_a($this->_propDict["syncStatus"], "\Beta\Microsoft\Graph\Model\WindowsAutopilotSyncStatus") || is_null($this->_propDict["syncStatus"])) {
                 return $this->_propDict["syncStatus"];
             } else {
                 $this->_propDict["syncStatus"] = new WindowsAutopilotSyncStatus($this->_propDict["syncStatus"]);
@@ -108,7 +108,7 @@ class WindowsAutopilotSettings extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the syncStatus
     * Indicates the status of sync with Device data sync (DDS) service. Possible values are: unknown, inProgress, completed, failed.
@@ -122,5 +122,5 @@ class WindowsAutopilotSettings extends Entity
         $this->_propDict["syncStatus"] = $val;
         return $this;
     }
-    
+
 }

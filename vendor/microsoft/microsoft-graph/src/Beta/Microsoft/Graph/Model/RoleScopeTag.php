@@ -28,7 +28,7 @@ class RoleScopeTag extends Entity
     * Gets the description
     * Description of the Role Scope Tag.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class RoleScopeTag extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the Role Scope Tag.
@@ -52,12 +52,12 @@ class RoleScopeTag extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display or friendly name of the Role Scope Tag.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class RoleScopeTag extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display or friendly name of the Role Scope Tag.
@@ -81,12 +81,12 @@ class RoleScopeTag extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isBuiltIn
-    * Description of the Role Scope Tag.
+    * Description of the Role Scope Tag. This property is read-only.
     *
-    * @return bool The isBuiltIn
+    * @return bool|null The isBuiltIn
     */
     public function getIsBuiltIn()
     {
@@ -96,10 +96,10 @@ class RoleScopeTag extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isBuiltIn
-    * Description of the Role Scope Tag.
+    * Description of the Role Scope Tag. This property is read-only.
     *
     * @param bool $val The isBuiltIn
     *
@@ -110,13 +110,13 @@ class RoleScopeTag extends Entity
         $this->_propDict["isBuiltIn"] = boolval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * The list of assignments for this Role Scope Tag.
      *
-     * @return array The assignments
+     * @return array|null The assignments
      */
     public function getAssignments()
     {
@@ -126,19 +126,19 @@ class RoleScopeTag extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * The list of assignments for this Role Scope Tag.
     *
-    * @param RoleScopeTagAutoAssignment $val The assignments
+    * @param RoleScopeTagAutoAssignment[] $val The assignments
     *
     * @return RoleScopeTag
     */
     public function setAssignments($val)
     {
-		$this->_propDict["assignments"] = $val;
+        $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
+
 }

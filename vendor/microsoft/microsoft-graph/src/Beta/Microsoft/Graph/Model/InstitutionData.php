@@ -27,7 +27,7 @@ class InstitutionData extends Entity
     * Gets the description
     * Short description of the institution the user studied at.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -55,7 +55,7 @@ class InstitutionData extends Entity
     * Gets the displayName
     * Name of the institution the user studied at.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -84,12 +84,12 @@ class InstitutionData extends Entity
     * Gets the location
     * Address or location of the institute.
     *
-    * @return PhysicalAddress The location
+    * @return PhysicalAddress|null The location
     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
-            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\PhysicalAddress")) {
+            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["location"])) {
                 return $this->_propDict["location"];
             } else {
                 $this->_propDict["location"] = new PhysicalAddress($this->_propDict["location"]);
@@ -116,7 +116,7 @@ class InstitutionData extends Entity
     * Gets the webUrl
     * Link to the institution or department homepage.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {

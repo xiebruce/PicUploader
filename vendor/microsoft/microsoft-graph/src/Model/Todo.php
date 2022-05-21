@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class Todo extends Entity
 {
 
-     /** 
+     /**
      * Gets the lists
     * The task lists in the users mailbox.
      *
-     * @return array The lists
+     * @return array|null The lists
      */
     public function getLists()
     {
@@ -39,19 +39,19 @@ class Todo extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the lists
     * The task lists in the users mailbox.
     *
-    * @param TodoTaskList $val The lists
+    * @param TodoTaskList[] $val The lists
     *
     * @return Todo
     */
     public function setLists($val)
     {
-		$this->_propDict["lists"] = $val;
+        $this->_propDict["lists"] = $val;
         return $this;
     }
-    
+
 }

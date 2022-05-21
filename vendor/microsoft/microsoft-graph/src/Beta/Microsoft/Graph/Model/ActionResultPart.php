@@ -28,12 +28,12 @@ class ActionResultPart extends Entity
     * Gets the error
     * The error that occurred, if any, during the course of the bulk operation.
     *
-    * @return PublicError The error
+    * @return PublicError|null The error
     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError")) {
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new PublicError($this->_propDict["error"]);

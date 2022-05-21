@@ -28,7 +28,7 @@ class DeviceConfigurationState extends Entity
     * Gets the displayName
     * The name of the policy for this policyBase
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class DeviceConfigurationState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the policy for this policyBase
@@ -52,17 +52,17 @@ class DeviceConfigurationState extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the platformType
     * Platform type that the policy applies to
     *
-    * @return PolicyPlatformType The platformType
+    * @return PolicyPlatformType|null The platformType
     */
     public function getPlatformType()
     {
         if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Microsoft\Graph\Model\PolicyPlatformType")) {
+            if (is_a($this->_propDict["platformType"], "\Microsoft\Graph\Model\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new PolicyPlatformType($this->_propDict["platformType"]);
@@ -71,7 +71,7 @@ class DeviceConfigurationState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the platformType
     * Platform type that the policy applies to
@@ -85,12 +85,12 @@ class DeviceConfigurationState extends Entity
         $this->_propDict["platformType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingCount
     * Count of how many setting a policy holds
     *
-    * @return int The settingCount
+    * @return int|null The settingCount
     */
     public function getSettingCount()
     {
@@ -100,7 +100,7 @@ class DeviceConfigurationState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingCount
     * Count of how many setting a policy holds
@@ -114,12 +114,12 @@ class DeviceConfigurationState extends Entity
         $this->_propDict["settingCount"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the settingStates
      *
-     * @return array The settingStates
+     * @return array|null The settingStates
      */
     public function getSettingStates()
     {
@@ -129,30 +129,30 @@ class DeviceConfigurationState extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the settingStates
     *
-    * @param DeviceConfigurationSettingState $val The settingStates
+    * @param DeviceConfigurationSettingState[] $val The settingStates
     *
     * @return DeviceConfigurationState
     */
     public function setSettingStates($val)
     {
-		$this->_propDict["settingStates"] = $val;
+        $this->_propDict["settingStates"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * The compliance state of the policy
     *
-    * @return ComplianceStatus The state
+    * @return ComplianceStatus|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\ComplianceStatus")) {
+            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ComplianceStatus($this->_propDict["state"]);
@@ -161,7 +161,7 @@ class DeviceConfigurationState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * The compliance state of the policy
@@ -175,12 +175,12 @@ class DeviceConfigurationState extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the version
     * The version of the policy
     *
-    * @return int The version
+    * @return int|null The version
     */
     public function getVersion()
     {
@@ -190,7 +190,7 @@ class DeviceConfigurationState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * The version of the policy
@@ -204,5 +204,5 @@ class DeviceConfigurationState extends Entity
         $this->_propDict["version"] = intval($val);
         return $this;
     }
-    
+
 }

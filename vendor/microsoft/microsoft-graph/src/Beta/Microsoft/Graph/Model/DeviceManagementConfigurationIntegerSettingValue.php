@@ -27,7 +27,7 @@ class DeviceManagementConfigurationIntegerSettingValue extends DeviceManagementC
     * Gets the value
     * Value of the integer setting.
     *
-    * @return int The value
+    * @return int|null The value
     */
     public function getValue()
     {

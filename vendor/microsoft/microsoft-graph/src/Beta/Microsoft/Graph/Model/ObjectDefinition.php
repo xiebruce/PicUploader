@@ -27,12 +27,12 @@ class ObjectDefinition extends Entity
     /**
     * Gets the attributes
     *
-    * @return AttributeDefinition The attributes
+    * @return AttributeDefinition|null The attributes
     */
     public function getAttributes()
     {
         if (array_key_exists("attributes", $this->_propDict)) {
-            if (is_a($this->_propDict["attributes"], "\Beta\Microsoft\Graph\Model\AttributeDefinition")) {
+            if (is_a($this->_propDict["attributes"], "\Beta\Microsoft\Graph\Model\AttributeDefinition") || is_null($this->_propDict["attributes"])) {
                 return $this->_propDict["attributes"];
             } else {
                 $this->_propDict["attributes"] = new AttributeDefinition($this->_propDict["attributes"]);
@@ -58,12 +58,12 @@ class ObjectDefinition extends Entity
     /**
     * Gets the metadata
     *
-    * @return MetadataEntry The metadata
+    * @return MetadataEntry|null The metadata
     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry")) {
+            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
@@ -88,7 +88,7 @@ class ObjectDefinition extends Entity
     /**
     * Gets the name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -114,7 +114,7 @@ class ObjectDefinition extends Entity
     /**
     * Gets the supportedApis
     *
-    * @return string The supportedApis
+    * @return string|null The supportedApis
     */
     public function getSupportedApis()
     {

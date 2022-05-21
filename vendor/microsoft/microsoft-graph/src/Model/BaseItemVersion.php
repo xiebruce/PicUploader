@@ -28,12 +28,12 @@ class BaseItemVersion extends Entity
     * Gets the lastModifiedBy
     * Identity of the user which last modified the version. Read-only.
     *
-    * @return IdentitySet The lastModifiedBy
+    * @return IdentitySet|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -42,7 +42,7 @@ class BaseItemVersion extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedBy
     * Identity of the user which last modified the version. Read-only.
@@ -56,17 +56,17 @@ class BaseItemVersion extends Entity
         $this->_propDict["lastModifiedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Date and time the version was last modified. Read-only.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -75,7 +75,7 @@ class BaseItemVersion extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Date and time the version was last modified. Read-only.
@@ -89,17 +89,17 @@ class BaseItemVersion extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publication
     * Indicates the publication status of this particular version. Read-only.
     *
-    * @return PublicationFacet The publication
+    * @return PublicationFacet|null The publication
     */
     public function getPublication()
     {
         if (array_key_exists("publication", $this->_propDict)) {
-            if (is_a($this->_propDict["publication"], "\Microsoft\Graph\Model\PublicationFacet")) {
+            if (is_a($this->_propDict["publication"], "\Microsoft\Graph\Model\PublicationFacet") || is_null($this->_propDict["publication"])) {
                 return $this->_propDict["publication"];
             } else {
                 $this->_propDict["publication"] = new PublicationFacet($this->_propDict["publication"]);
@@ -108,7 +108,7 @@ class BaseItemVersion extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the publication
     * Indicates the publication status of this particular version. Read-only.
@@ -122,5 +122,5 @@ class BaseItemVersion extends Entity
         $this->_propDict["publication"] = $val;
         return $this;
     }
-    
+
 }

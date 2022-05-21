@@ -27,7 +27,7 @@ class Journal extends Entity
     /**
     * Gets the balancingAccountId
     *
-    * @return string The balancingAccountId
+    * @return string|null The balancingAccountId
     */
     public function getBalancingAccountId()
     {
@@ -37,7 +37,7 @@ class Journal extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the balancingAccountId
     *
@@ -50,11 +50,11 @@ class Journal extends Entity
         $this->_propDict["balancingAccountId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the balancingAccountNumber
     *
-    * @return string The balancingAccountNumber
+    * @return string|null The balancingAccountNumber
     */
     public function getBalancingAccountNumber()
     {
@@ -64,7 +64,7 @@ class Journal extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the balancingAccountNumber
     *
@@ -77,11 +77,11 @@ class Journal extends Entity
         $this->_propDict["balancingAccountNumber"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the code
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -91,7 +91,7 @@ class Journal extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the code
     *
@@ -104,11 +104,11 @@ class Journal extends Entity
         $this->_propDict["code"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -118,7 +118,7 @@ class Journal extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -131,16 +131,16 @@ class Journal extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -149,7 +149,7 @@ class Journal extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -162,16 +162,16 @@ class Journal extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the account
     *
-    * @return Account The account
+    * @return Account|null The account
     */
     public function getAccount()
     {
         if (array_key_exists("account", $this->_propDict)) {
-            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account")) {
+            if (is_a($this->_propDict["account"], "\Beta\Microsoft\Graph\Model\Account") || is_null($this->_propDict["account"])) {
                 return $this->_propDict["account"];
             } else {
                 $this->_propDict["account"] = new Account($this->_propDict["account"]);
@@ -180,7 +180,7 @@ class Journal extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the account
     *
@@ -193,12 +193,12 @@ class Journal extends Entity
         $this->_propDict["account"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the journalLines
      *
-     * @return array The journalLines
+     * @return array|null The journalLines
      */
     public function getJournalLines()
     {
@@ -208,18 +208,18 @@ class Journal extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the journalLines
     *
-    * @param JournalLine $val The journalLines
+    * @param JournalLine[] $val The journalLines
     *
     * @return Journal
     */
     public function setJournalLines($val)
     {
-		$this->_propDict["journalLines"] = $val;
+        $this->_propDict["journalLines"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class OnPremisesPublishing extends Entity
     * Gets the alternateUrl
     * If you are configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that will point to the traffic manager.
     *
-    * @return string The alternateUrl
+    * @return string|null The alternateUrl
     */
     public function getAlternateUrl()
     {
@@ -55,7 +55,7 @@ class OnPremisesPublishing extends Entity
     * Gets the applicationServerTimeout
     * The duration the connector will wait for a response from the backend application before closing the connection. Possible values are default, long. When set to default, the backend application timeout has a length of 85 seconds. When set to long, the backend timeout is increased to 180 seconds. Use long if your server takes more than 85 seconds to respond to requests or if you are unable to access the application and the error status is 'Backend Timeout'. Default value is default.
     *
-    * @return string The applicationServerTimeout
+    * @return string|null The applicationServerTimeout
     */
     public function getApplicationServerTimeout()
     {
@@ -83,7 +83,7 @@ class OnPremisesPublishing extends Entity
     * Gets the applicationType
     * Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only.
     *
-    * @return string The applicationType
+    * @return string|null The applicationType
     */
     public function getApplicationType()
     {
@@ -112,12 +112,12 @@ class OnPremisesPublishing extends Entity
     * Gets the externalAuthenticationType
     * Details the pre-authentication setting for the application. Pre-authentication enforces that users must authenticate before accessing the app. Passthru does not require authentication. Possible values are: passthru, aadPreAuthentication.
     *
-    * @return ExternalAuthenticationType The externalAuthenticationType
+    * @return ExternalAuthenticationType|null The externalAuthenticationType
     */
     public function getExternalAuthenticationType()
     {
         if (array_key_exists("externalAuthenticationType", $this->_propDict)) {
-            if (is_a($this->_propDict["externalAuthenticationType"], "\Beta\Microsoft\Graph\Model\ExternalAuthenticationType")) {
+            if (is_a($this->_propDict["externalAuthenticationType"], "\Beta\Microsoft\Graph\Model\ExternalAuthenticationType") || is_null($this->_propDict["externalAuthenticationType"])) {
                 return $this->_propDict["externalAuthenticationType"];
             } else {
                 $this->_propDict["externalAuthenticationType"] = new ExternalAuthenticationType($this->_propDict["externalAuthenticationType"]);
@@ -144,7 +144,7 @@ class OnPremisesPublishing extends Entity
     * Gets the externalUrl
     * The published external url for the application. For example, https://intranet-contoso.msappproxy.net/.
     *
-    * @return string The externalUrl
+    * @return string|null The externalUrl
     */
     public function getExternalUrl()
     {
@@ -172,7 +172,7 @@ class OnPremisesPublishing extends Entity
     * Gets the internalUrl
     * The internal url of the application. For example, https://intranet/.
     *
-    * @return string The internalUrl
+    * @return string|null The internalUrl
     */
     public function getInternalUrl()
     {
@@ -197,10 +197,38 @@ class OnPremisesPublishing extends Entity
         return $this;
     }
     /**
+    * Gets the isBackendCertificateValidationEnabled
+    * Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false.
+    *
+    * @return bool|null The isBackendCertificateValidationEnabled
+    */
+    public function getIsBackendCertificateValidationEnabled()
+    {
+        if (array_key_exists("isBackendCertificateValidationEnabled", $this->_propDict)) {
+            return $this->_propDict["isBackendCertificateValidationEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isBackendCertificateValidationEnabled
+    * Indicates whether backend SSL certificate validation is enabled for the application. For all new Application Proxy apps, the property will be set to true by default. For all existing apps, the property will be set to false.
+    *
+    * @param bool $val The value of the isBackendCertificateValidationEnabled
+    *
+    * @return OnPremisesPublishing
+    */
+    public function setIsBackendCertificateValidationEnabled($val)
+    {
+        $this->_propDict["isBackendCertificateValidationEnabled"] = $val;
+        return $this;
+    }
+    /**
     * Gets the isHttpOnlyCookieEnabled
     * Indicates if the HTTPOnly cookie flag should be set in the HTTP response headers. Set this value to true to have Application Proxy cookies include the HTTPOnly flag in the HTTP response headers. If using Remote Desktop Services, set this value to False. Default value is false.
     *
-    * @return bool The isHttpOnlyCookieEnabled
+    * @return bool|null The isHttpOnlyCookieEnabled
     */
     public function getIsHttpOnlyCookieEnabled()
     {
@@ -228,7 +256,7 @@ class OnPremisesPublishing extends Entity
     * Gets the isOnPremPublishingEnabled
     * Indicates if the application is currently being published via Application Proxy or not. This is pre-set by the system. Read-only.
     *
-    * @return bool The isOnPremPublishingEnabled
+    * @return bool|null The isOnPremPublishingEnabled
     */
     public function getIsOnPremPublishingEnabled()
     {
@@ -256,7 +284,7 @@ class OnPremisesPublishing extends Entity
     * Gets the isPersistentCookieEnabled
     * Indicates if the Persistent cookie flag should be set in the HTTP response headers. Keep this value set to false. Only use this setting for applications that can't share cookies between processes. For more information about cookie settings, see Cookie settings for accessing on-premises applications in Azure Active Directory. Default value is false.
     *
-    * @return bool The isPersistentCookieEnabled
+    * @return bool|null The isPersistentCookieEnabled
     */
     public function getIsPersistentCookieEnabled()
     {
@@ -284,7 +312,7 @@ class OnPremisesPublishing extends Entity
     * Gets the isSecureCookieEnabled
     * Indicates if the Secure cookie flag should be set in the HTTP response headers. Set this value to true to transmit cookies over a secure channel such as an encrypted HTTPS request. Default value is true.
     *
-    * @return bool The isSecureCookieEnabled
+    * @return bool|null The isSecureCookieEnabled
     */
     public function getIsSecureCookieEnabled()
     {
@@ -309,10 +337,38 @@ class OnPremisesPublishing extends Entity
         return $this;
     }
     /**
+    * Gets the isStateSessionEnabled
+    * Indicates whether validation of the state parameter when the client uses the OAuth 2.0 authorization code grant flow is enabled. This setting allows admins to specify whether they want to enable CSRF protection for their apps.
+    *
+    * @return bool|null The isStateSessionEnabled
+    */
+    public function getIsStateSessionEnabled()
+    {
+        if (array_key_exists("isStateSessionEnabled", $this->_propDict)) {
+            return $this->_propDict["isStateSessionEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isStateSessionEnabled
+    * Indicates whether validation of the state parameter when the client uses the OAuth 2.0 authorization code grant flow is enabled. This setting allows admins to specify whether they want to enable CSRF protection for their apps.
+    *
+    * @param bool $val The value of the isStateSessionEnabled
+    *
+    * @return OnPremisesPublishing
+    */
+    public function setIsStateSessionEnabled($val)
+    {
+        $this->_propDict["isStateSessionEnabled"] = $val;
+        return $this;
+    }
+    /**
     * Gets the isTranslateHostHeaderEnabled
     * Indicates if the application should translate urls in the reponse headers. Keep this value as true unless your application required the original host header in the authentication request. Default value is true.
     *
-    * @return bool The isTranslateHostHeaderEnabled
+    * @return bool|null The isTranslateHostHeaderEnabled
     */
     public function getIsTranslateHostHeaderEnabled()
     {
@@ -340,7 +396,7 @@ class OnPremisesPublishing extends Entity
     * Gets the isTranslateLinksInBodyEnabled
     * Indicates if the application should translate urls in the application body. Keep this value as false unless you have hardcoded HTML links to other on-premises applications and don't use custom domains. For more information, see Link translation with Application Proxy. Default value is false.
     *
-    * @return bool The isTranslateLinksInBodyEnabled
+    * @return bool|null The isTranslateLinksInBodyEnabled
     */
     public function getIsTranslateLinksInBodyEnabled()
     {
@@ -366,15 +422,46 @@ class OnPremisesPublishing extends Entity
     }
 
     /**
+    * Gets the onPremisesApplicationSegments
+    *
+    * @return OnPremisesApplicationSegment|null The onPremisesApplicationSegments
+    */
+    public function getOnPremisesApplicationSegments()
+    {
+        if (array_key_exists("onPremisesApplicationSegments", $this->_propDict)) {
+            if (is_a($this->_propDict["onPremisesApplicationSegments"], "\Beta\Microsoft\Graph\Model\OnPremisesApplicationSegment") || is_null($this->_propDict["onPremisesApplicationSegments"])) {
+                return $this->_propDict["onPremisesApplicationSegments"];
+            } else {
+                $this->_propDict["onPremisesApplicationSegments"] = new OnPremisesApplicationSegment($this->_propDict["onPremisesApplicationSegments"]);
+                return $this->_propDict["onPremisesApplicationSegments"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the onPremisesApplicationSegments
+    *
+    * @param OnPremisesApplicationSegment $val The value to assign to the onPremisesApplicationSegments
+    *
+    * @return OnPremisesPublishing The OnPremisesPublishing
+    */
+    public function setOnPremisesApplicationSegments($val)
+    {
+        $this->_propDict["onPremisesApplicationSegments"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the singleSignOnSettings
     * Represents the single sign-on configuration for the on-premises application.
     *
-    * @return OnPremisesPublishingSingleSignOn The singleSignOnSettings
+    * @return OnPremisesPublishingSingleSignOn|null The singleSignOnSettings
     */
     public function getSingleSignOnSettings()
     {
         if (array_key_exists("singleSignOnSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnSettings"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingSingleSignOn")) {
+            if (is_a($this->_propDict["singleSignOnSettings"], "\Beta\Microsoft\Graph\Model\OnPremisesPublishingSingleSignOn") || is_null($this->_propDict["singleSignOnSettings"])) {
                 return $this->_propDict["singleSignOnSettings"];
             } else {
                 $this->_propDict["singleSignOnSettings"] = new OnPremisesPublishingSingleSignOn($this->_propDict["singleSignOnSettings"]);
@@ -400,7 +487,7 @@ class OnPremisesPublishing extends Entity
     /**
     * Gets the useAlternateUrlForTranslationAndRedirect
     *
-    * @return bool The useAlternateUrlForTranslationAndRedirect
+    * @return bool|null The useAlternateUrlForTranslationAndRedirect
     */
     public function getUseAlternateUrlForTranslationAndRedirect()
     {
@@ -428,12 +515,12 @@ class OnPremisesPublishing extends Entity
     * Gets the verifiedCustomDomainCertificatesMetadata
     * Details of the certificate associated with the application when a custom domain is in use. null when using the default domain. Read-only.
     *
-    * @return VerifiedCustomDomainCertificatesMetadata The verifiedCustomDomainCertificatesMetadata
+    * @return VerifiedCustomDomainCertificatesMetadata|null The verifiedCustomDomainCertificatesMetadata
     */
     public function getVerifiedCustomDomainCertificatesMetadata()
     {
         if (array_key_exists("verifiedCustomDomainCertificatesMetadata", $this->_propDict)) {
-            if (is_a($this->_propDict["verifiedCustomDomainCertificatesMetadata"], "\Beta\Microsoft\Graph\Model\VerifiedCustomDomainCertificatesMetadata")) {
+            if (is_a($this->_propDict["verifiedCustomDomainCertificatesMetadata"], "\Beta\Microsoft\Graph\Model\VerifiedCustomDomainCertificatesMetadata") || is_null($this->_propDict["verifiedCustomDomainCertificatesMetadata"])) {
                 return $this->_propDict["verifiedCustomDomainCertificatesMetadata"];
             } else {
                 $this->_propDict["verifiedCustomDomainCertificatesMetadata"] = new VerifiedCustomDomainCertificatesMetadata($this->_propDict["verifiedCustomDomainCertificatesMetadata"]);
@@ -461,12 +548,12 @@ class OnPremisesPublishing extends Entity
     * Gets the verifiedCustomDomainKeyCredential
     * The associated key credential for the custom domain used.
     *
-    * @return KeyCredential The verifiedCustomDomainKeyCredential
+    * @return KeyCredential|null The verifiedCustomDomainKeyCredential
     */
     public function getVerifiedCustomDomainKeyCredential()
     {
         if (array_key_exists("verifiedCustomDomainKeyCredential", $this->_propDict)) {
-            if (is_a($this->_propDict["verifiedCustomDomainKeyCredential"], "\Beta\Microsoft\Graph\Model\KeyCredential")) {
+            if (is_a($this->_propDict["verifiedCustomDomainKeyCredential"], "\Beta\Microsoft\Graph\Model\KeyCredential") || is_null($this->_propDict["verifiedCustomDomainKeyCredential"])) {
                 return $this->_propDict["verifiedCustomDomainKeyCredential"];
             } else {
                 $this->_propDict["verifiedCustomDomainKeyCredential"] = new KeyCredential($this->_propDict["verifiedCustomDomainKeyCredential"]);
@@ -494,12 +581,12 @@ class OnPremisesPublishing extends Entity
     * Gets the verifiedCustomDomainPasswordCredential
     * The associated password credential for the custom domain used.
     *
-    * @return PasswordCredential The verifiedCustomDomainPasswordCredential
+    * @return PasswordCredential|null The verifiedCustomDomainPasswordCredential
     */
     public function getVerifiedCustomDomainPasswordCredential()
     {
         if (array_key_exists("verifiedCustomDomainPasswordCredential", $this->_propDict)) {
-            if (is_a($this->_propDict["verifiedCustomDomainPasswordCredential"], "\Beta\Microsoft\Graph\Model\PasswordCredential")) {
+            if (is_a($this->_propDict["verifiedCustomDomainPasswordCredential"], "\Beta\Microsoft\Graph\Model\PasswordCredential") || is_null($this->_propDict["verifiedCustomDomainPasswordCredential"])) {
                 return $this->_propDict["verifiedCustomDomainPasswordCredential"];
             } else {
                 $this->_propDict["verifiedCustomDomainPasswordCredential"] = new PasswordCredential($this->_propDict["verifiedCustomDomainPasswordCredential"]);

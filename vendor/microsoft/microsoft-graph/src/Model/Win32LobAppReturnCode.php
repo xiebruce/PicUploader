@@ -27,7 +27,7 @@ class Win32LobAppReturnCode extends Entity
     * Gets the returnCode
     * Return code.
     *
-    * @return int The returnCode
+    * @return int|null The returnCode
     */
     public function getReturnCode()
     {
@@ -56,12 +56,12 @@ class Win32LobAppReturnCode extends Entity
     * Gets the type
     * The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
     *
-    * @return Win32LobAppReturnCodeType The type
+    * @return Win32LobAppReturnCodeType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Microsoft\Graph\Model\Win32LobAppReturnCodeType")) {
+            if (is_a($this->_propDict["type"], "\Microsoft\Graph\Model\Win32LobAppReturnCodeType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new Win32LobAppReturnCodeType($this->_propDict["type"]);

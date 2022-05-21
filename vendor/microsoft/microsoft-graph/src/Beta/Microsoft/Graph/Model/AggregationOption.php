@@ -28,12 +28,12 @@ class AggregationOption extends Entity
     * Gets the bucketDefinition
     * Specifies the criteria to compute an aggregation. Optional.
     *
-    * @return BucketAggregationDefinition The bucketDefinition
+    * @return BucketAggregationDefinition|null The bucketDefinition
     */
     public function getBucketDefinition()
     {
         if (array_key_exists("bucketDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["bucketDefinition"], "\Beta\Microsoft\Graph\Model\BucketAggregationDefinition")) {
+            if (is_a($this->_propDict["bucketDefinition"], "\Beta\Microsoft\Graph\Model\BucketAggregationDefinition") || is_null($this->_propDict["bucketDefinition"])) {
                 return $this->_propDict["bucketDefinition"];
             } else {
                 $this->_propDict["bucketDefinition"] = new BucketAggregationDefinition($this->_propDict["bucketDefinition"]);
@@ -58,9 +58,9 @@ class AggregationOption extends Entity
     }
     /**
     * Gets the field
-    * Specifies the field in the schema of the specified entity type that aggregation should be computed on. Required.
+    * Computes aggregation on the field while the field exists in current entity type. Required.
     *
-    * @return string The field
+    * @return string|null The field
     */
     public function getField()
     {
@@ -73,7 +73,7 @@ class AggregationOption extends Entity
 
     /**
     * Sets the field
-    * Specifies the field in the schema of the specified entity type that aggregation should be computed on. Required.
+    * Computes aggregation on the field while the field exists in current entity type. Required.
     *
     * @param string $val The value of the field
     *
@@ -88,7 +88,7 @@ class AggregationOption extends Entity
     * Gets the size
     * The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {

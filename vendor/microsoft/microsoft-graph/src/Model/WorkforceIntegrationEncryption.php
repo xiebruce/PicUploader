@@ -28,12 +28,12 @@ class WorkforceIntegrationEncryption extends Entity
     * Gets the protocol
     * Possible values are: sharedSecret, unknownFutureValue.
     *
-    * @return WorkforceIntegrationEncryptionProtocol The protocol
+    * @return WorkforceIntegrationEncryptionProtocol|null The protocol
     */
     public function getProtocol()
     {
         if (array_key_exists("protocol", $this->_propDict)) {
-            if (is_a($this->_propDict["protocol"], "\Microsoft\Graph\Model\WorkforceIntegrationEncryptionProtocol")) {
+            if (is_a($this->_propDict["protocol"], "\Microsoft\Graph\Model\WorkforceIntegrationEncryptionProtocol") || is_null($this->_propDict["protocol"])) {
                 return $this->_propDict["protocol"];
             } else {
                 $this->_propDict["protocol"] = new WorkforceIntegrationEncryptionProtocol($this->_propDict["protocol"]);
@@ -60,7 +60,7 @@ class WorkforceIntegrationEncryption extends Entity
     * Gets the secret
     * Encryption shared secret.
     *
-    * @return string The secret
+    * @return string|null The secret
     */
     public function getSecret()
     {

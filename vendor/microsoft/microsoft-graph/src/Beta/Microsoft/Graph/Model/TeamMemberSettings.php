@@ -27,7 +27,7 @@ class TeamMemberSettings extends Entity
     * Gets the allowAddRemoveApps
     * If set to true, members can add and remove apps.
     *
-    * @return bool The allowAddRemoveApps
+    * @return bool|null The allowAddRemoveApps
     */
     public function getAllowAddRemoveApps()
     {
@@ -55,7 +55,7 @@ class TeamMemberSettings extends Entity
     * Gets the allowCreatePrivateChannels
     * If set to true, members can add and update private channels.
     *
-    * @return bool The allowCreatePrivateChannels
+    * @return bool|null The allowCreatePrivateChannels
     */
     public function getAllowCreatePrivateChannels()
     {
@@ -83,7 +83,7 @@ class TeamMemberSettings extends Entity
     * Gets the allowCreateUpdateChannels
     * If set to true, members can add and update any channels.
     *
-    * @return bool The allowCreateUpdateChannels
+    * @return bool|null The allowCreateUpdateChannels
     */
     public function getAllowCreateUpdateChannels()
     {
@@ -111,7 +111,7 @@ class TeamMemberSettings extends Entity
     * Gets the allowCreateUpdateRemoveConnectors
     * If set to true, members can add, update, and remove connectors.
     *
-    * @return bool The allowCreateUpdateRemoveConnectors
+    * @return bool|null The allowCreateUpdateRemoveConnectors
     */
     public function getAllowCreateUpdateRemoveConnectors()
     {
@@ -139,7 +139,7 @@ class TeamMemberSettings extends Entity
     * Gets the allowCreateUpdateRemoveTabs
     * If set to true, members can add, update, and remove tabs.
     *
-    * @return bool The allowCreateUpdateRemoveTabs
+    * @return bool|null The allowCreateUpdateRemoveTabs
     */
     public function getAllowCreateUpdateRemoveTabs()
     {
@@ -167,7 +167,7 @@ class TeamMemberSettings extends Entity
     * Gets the allowDeleteChannels
     * If set to true, members can delete channels.
     *
-    * @return bool The allowDeleteChannels
+    * @return bool|null The allowDeleteChannels
     */
     public function getAllowDeleteChannels()
     {

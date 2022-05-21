@@ -28,7 +28,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
     * Gets the compliantDeviceCount
     * Number of compliant devices
     *
-    * @return int The compliantDeviceCount
+    * @return int|null The compliantDeviceCount
     */
     public function getCompliantDeviceCount()
     {
@@ -38,7 +38,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the compliantDeviceCount
     * Number of compliant devices
@@ -52,12 +52,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["compliantDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the conflictDeviceCount
     * Number of conflict devices
     *
-    * @return int The conflictDeviceCount
+    * @return int|null The conflictDeviceCount
     */
     public function getConflictDeviceCount()
     {
@@ -67,7 +67,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the conflictDeviceCount
     * Number of conflict devices
@@ -81,12 +81,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["conflictDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the errorDeviceCount
     * Number of error devices
     *
-    * @return int The errorDeviceCount
+    * @return int|null The errorDeviceCount
     */
     public function getErrorDeviceCount()
     {
@@ -96,7 +96,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorDeviceCount
     * Number of error devices
@@ -110,12 +110,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["errorDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the nonCompliantDeviceCount
     * Number of NonCompliant devices
     *
-    * @return int The nonCompliantDeviceCount
+    * @return int|null The nonCompliantDeviceCount
     */
     public function getNonCompliantDeviceCount()
     {
@@ -125,7 +125,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the nonCompliantDeviceCount
     * Number of NonCompliant devices
@@ -139,12 +139,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["nonCompliantDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notApplicableDeviceCount
     * Number of not applicable devices
     *
-    * @return int The notApplicableDeviceCount
+    * @return int|null The notApplicableDeviceCount
     */
     public function getNotApplicableDeviceCount()
     {
@@ -154,7 +154,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notApplicableDeviceCount
     * Number of not applicable devices
@@ -168,12 +168,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["notApplicableDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notAssignedDeviceCount
     * Number of not assigned devices
     *
-    * @return int The notAssignedDeviceCount
+    * @return int|null The notAssignedDeviceCount
     */
     public function getNotAssignedDeviceCount()
     {
@@ -183,7 +183,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notAssignedDeviceCount
     * Number of not assigned devices
@@ -197,12 +197,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["notAssignedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the remediatedDeviceCount
     * Number of remediated devices
     *
-    * @return int The remediatedDeviceCount
+    * @return int|null The remediatedDeviceCount
     */
     public function getRemediatedDeviceCount()
     {
@@ -212,7 +212,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the remediatedDeviceCount
     * Number of remediated devices
@@ -226,12 +226,12 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["remediatedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the unknownDeviceCount
     * Number of unknown devices
     *
-    * @return int The unknownDeviceCount
+    * @return int|null The unknownDeviceCount
     */
     public function getUnknownDeviceCount()
     {
@@ -241,7 +241,7 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the unknownDeviceCount
     * Number of unknown devices
@@ -255,13 +255,13 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
         $this->_propDict["unknownDeviceCount"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the advancedThreatProtectionOnboardingDeviceSettingStates
     * Not yet documented
      *
-     * @return array The advancedThreatProtectionOnboardingDeviceSettingStates
+     * @return array|null The advancedThreatProtectionOnboardingDeviceSettingStates
      */
     public function getAdvancedThreatProtectionOnboardingDeviceSettingStates()
     {
@@ -271,19 +271,19 @@ class AdvancedThreatProtectionOnboardingStateSummary extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the advancedThreatProtectionOnboardingDeviceSettingStates
     * Not yet documented
     *
-    * @param AdvancedThreatProtectionOnboardingDeviceSettingState $val The advancedThreatProtectionOnboardingDeviceSettingStates
+    * @param AdvancedThreatProtectionOnboardingDeviceSettingState[] $val The advancedThreatProtectionOnboardingDeviceSettingStates
     *
     * @return AdvancedThreatProtectionOnboardingStateSummary
     */
     public function setAdvancedThreatProtectionOnboardingDeviceSettingStates($val)
     {
-		$this->_propDict["advancedThreatProtectionOnboardingDeviceSettingStates"] = $val;
+        $this->_propDict["advancedThreatProtectionOnboardingDeviceSettingStates"] = $val;
         return $this;
     }
-    
+
 }

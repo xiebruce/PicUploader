@@ -28,7 +28,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
     * Gets the assetTagTemplate
     * Asset tag information for the device, displayed on the login window and lock screen.
     *
-    * @return string The assetTagTemplate
+    * @return string|null The assetTagTemplate
     */
     public function getAssetTagTemplate()
     {
@@ -38,7 +38,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
             return null;
         }
     }
-    
+
     /**
     * Sets the assetTagTemplate
     * Asset tag information for the device, displayed on the login window and lock screen.
@@ -52,13 +52,13 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
         $this->_propDict["assetTagTemplate"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the homeScreenDockIcons
     * A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.
      *
-     * @return array The homeScreenDockIcons
+     * @return array|null The homeScreenDockIcons
      */
     public function getHomeScreenDockIcons()
     {
@@ -68,27 +68,27 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the homeScreenDockIcons
     * A list of app and folders to appear on the Home Screen Dock. This collection can contain a maximum of 500 elements.
     *
-    * @param IosHomeScreenItem $val The homeScreenDockIcons
+    * @param IosHomeScreenItem[] $val The homeScreenDockIcons
     *
     * @return IosDeviceFeaturesConfiguration
     */
     public function setHomeScreenDockIcons($val)
     {
-		$this->_propDict["homeScreenDockIcons"] = $val;
+        $this->_propDict["homeScreenDockIcons"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the homeScreenPages
     * A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.
      *
-     * @return array The homeScreenPages
+     * @return array|null The homeScreenPages
      */
     public function getHomeScreenPages()
     {
@@ -98,26 +98,26 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the homeScreenPages
     * A list of pages on the Home Screen. This collection can contain a maximum of 500 elements.
     *
-    * @param IosHomeScreenPage $val The homeScreenPages
+    * @param IosHomeScreenPage[] $val The homeScreenPages
     *
     * @return IosDeviceFeaturesConfiguration
     */
     public function setHomeScreenPages($val)
     {
-		$this->_propDict["homeScreenPages"] = $val;
+        $this->_propDict["homeScreenPages"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lockScreenFootnote
     * A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
     *
-    * @return string The lockScreenFootnote
+    * @return string|null The lockScreenFootnote
     */
     public function getLockScreenFootnote()
     {
@@ -127,7 +127,7 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
             return null;
         }
     }
-    
+
     /**
     * Sets the lockScreenFootnote
     * A footnote displayed on the login window and lock screen. Available in iOS 9.3.1 and later.
@@ -141,13 +141,13 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
         $this->_propDict["lockScreenFootnote"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the notificationSettings
     * Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.
      *
-     * @return array The notificationSettings
+     * @return array|null The notificationSettings
      */
     public function getNotificationSettings()
     {
@@ -157,19 +157,19 @@ class IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBas
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the notificationSettings
     * Notification settings for each bundle id. Applicable to devices in supervised mode only (iOS 9.3 and later). This collection can contain a maximum of 500 elements.
     *
-    * @param IosNotificationSettings $val The notificationSettings
+    * @param IosNotificationSettings[] $val The notificationSettings
     *
     * @return IosDeviceFeaturesConfiguration
     */
     public function setNotificationSettings($val)
     {
-		$this->_propDict["notificationSettings"] = $val;
+        $this->_propDict["notificationSettings"] = $val;
         return $this;
     }
-    
+
 }

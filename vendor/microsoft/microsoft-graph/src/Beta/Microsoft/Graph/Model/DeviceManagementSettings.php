@@ -27,7 +27,7 @@ class DeviceManagementSettings extends Entity
     * Gets the androidDeviceAdministratorEnrollmentEnabled
     * The property to determine if Android device administrator enrollment is enabled for this account.
     *
-    * @return bool The androidDeviceAdministratorEnrollmentEnabled
+    * @return bool|null The androidDeviceAdministratorEnrollmentEnabled
     */
     public function getAndroidDeviceAdministratorEnrollmentEnabled()
     {
@@ -56,12 +56,12 @@ class DeviceManagementSettings extends Entity
     * Gets the derivedCredentialProvider
     * The Derived Credential Provider to use for this account. Possible values are: notConfigured, entrustDataCard, purebred, xTec, intercede.
     *
-    * @return DerivedCredentialProviderType The derivedCredentialProvider
+    * @return DerivedCredentialProviderType|null The derivedCredentialProvider
     */
     public function getDerivedCredentialProvider()
     {
         if (array_key_exists("derivedCredentialProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialProvider"], "\Beta\Microsoft\Graph\Model\DerivedCredentialProviderType")) {
+            if (is_a($this->_propDict["derivedCredentialProvider"], "\Beta\Microsoft\Graph\Model\DerivedCredentialProviderType") || is_null($this->_propDict["derivedCredentialProvider"])) {
                 return $this->_propDict["derivedCredentialProvider"];
             } else {
                 $this->_propDict["derivedCredentialProvider"] = new DerivedCredentialProviderType($this->_propDict["derivedCredentialProvider"]);
@@ -88,7 +88,7 @@ class DeviceManagementSettings extends Entity
     * Gets the derivedCredentialUrl
     * The Derived Credential Provider self-service URI.
     *
-    * @return string The derivedCredentialUrl
+    * @return string|null The derivedCredentialUrl
     */
     public function getDerivedCredentialUrl()
     {
@@ -116,7 +116,7 @@ class DeviceManagementSettings extends Entity
     * Gets the deviceComplianceCheckinThresholdDays
     * The number of days a device is allowed to go without checking in to remain compliant.
     *
-    * @return int The deviceComplianceCheckinThresholdDays
+    * @return int|null The deviceComplianceCheckinThresholdDays
     */
     public function getDeviceComplianceCheckinThresholdDays()
     {
@@ -144,7 +144,7 @@ class DeviceManagementSettings extends Entity
     * Gets the deviceInactivityBeforeRetirementInDay
     * When the device does not check in for specified number of days, the company data might be removed and the device will not be under management. Valid values 30 to 270
     *
-    * @return int The deviceInactivityBeforeRetirementInDay
+    * @return int|null The deviceInactivityBeforeRetirementInDay
     */
     public function getDeviceInactivityBeforeRetirementInDay()
     {
@@ -169,10 +169,94 @@ class DeviceManagementSettings extends Entity
         return $this;
     }
     /**
+    * Gets the enableAutopilotDiagnostics
+    * Determines whether the autopilot diagnostic feature is enabled or not.
+    *
+    * @return bool|null The enableAutopilotDiagnostics
+    */
+    public function getEnableAutopilotDiagnostics()
+    {
+        if (array_key_exists("enableAutopilotDiagnostics", $this->_propDict)) {
+            return $this->_propDict["enableAutopilotDiagnostics"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enableAutopilotDiagnostics
+    * Determines whether the autopilot diagnostic feature is enabled or not.
+    *
+    * @param bool $val The value of the enableAutopilotDiagnostics
+    *
+    * @return DeviceManagementSettings
+    */
+    public function setEnableAutopilotDiagnostics($val)
+    {
+        $this->_propDict["enableAutopilotDiagnostics"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the enableDeviceGroupMembershipReport
+    * Determines whether the device group membership report feature is enabled or not.
+    *
+    * @return bool|null The enableDeviceGroupMembershipReport
+    */
+    public function getEnableDeviceGroupMembershipReport()
+    {
+        if (array_key_exists("enableDeviceGroupMembershipReport", $this->_propDict)) {
+            return $this->_propDict["enableDeviceGroupMembershipReport"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enableDeviceGroupMembershipReport
+    * Determines whether the device group membership report feature is enabled or not.
+    *
+    * @param bool $val The value of the enableDeviceGroupMembershipReport
+    *
+    * @return DeviceManagementSettings
+    */
+    public function setEnableDeviceGroupMembershipReport($val)
+    {
+        $this->_propDict["enableDeviceGroupMembershipReport"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the enableEnhancedTroubleshootingExperience
+    * Determines whether the enhanced troubleshooting UX is enabled or not.
+    *
+    * @return bool|null The enableEnhancedTroubleshootingExperience
+    */
+    public function getEnableEnhancedTroubleshootingExperience()
+    {
+        if (array_key_exists("enableEnhancedTroubleshootingExperience", $this->_propDict)) {
+            return $this->_propDict["enableEnhancedTroubleshootingExperience"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enableEnhancedTroubleshootingExperience
+    * Determines whether the enhanced troubleshooting UX is enabled or not.
+    *
+    * @param bool $val The value of the enableEnhancedTroubleshootingExperience
+    *
+    * @return DeviceManagementSettings
+    */
+    public function setEnableEnhancedTroubleshootingExperience($val)
+    {
+        $this->_propDict["enableEnhancedTroubleshootingExperience"] = $val;
+        return $this;
+    }
+    /**
     * Gets the enableLogCollection
     * Determines whether the log collection feature should be available for use.
     *
-    * @return bool The enableLogCollection
+    * @return bool|null The enableLogCollection
     */
     public function getEnableLogCollection()
     {
@@ -200,7 +284,7 @@ class DeviceManagementSettings extends Entity
     * Gets the enhancedJailBreak
     * Is feature enabled or not for enhanced jailbreak detection.
     *
-    * @return bool The enhancedJailBreak
+    * @return bool|null The enhancedJailBreak
     */
     public function getEnhancedJailBreak()
     {
@@ -228,7 +312,7 @@ class DeviceManagementSettings extends Entity
     * Gets the ignoreDevicesForUnsupportedSettingsEnabled
     * The property to determine whether to ignore unsupported compliance settings on certian models of devices.
     *
-    * @return bool The ignoreDevicesForUnsupportedSettingsEnabled
+    * @return bool|null The ignoreDevicesForUnsupportedSettingsEnabled
     */
     public function getIgnoreDevicesForUnsupportedSettingsEnabled()
     {
@@ -256,7 +340,7 @@ class DeviceManagementSettings extends Entity
     * Gets the isScheduledActionEnabled
     * Is feature enabled or not for scheduled action for rule.
     *
-    * @return bool The isScheduledActionEnabled
+    * @return bool|null The isScheduledActionEnabled
     */
     public function getIsScheduledActionEnabled()
     {
@@ -284,7 +368,7 @@ class DeviceManagementSettings extends Entity
     * Gets the secureByDefault
     * Device should be noncompliant when there is no compliance policy targeted when this is true
     *
-    * @return bool The secureByDefault
+    * @return bool|null The secureByDefault
     */
     public function getSecureByDefault()
     {

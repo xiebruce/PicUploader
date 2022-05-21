@@ -17,8 +17,7 @@
 
 namespace Microsoft\Graph\Http;
 
-use Microsoft\Graph\Exception\GraphException;
-use Microsoft\Graph\Core\GraphConstants;
+use Psr\Http\Message\StreamInterface;
 
 /**
  * Class GraphResponse
@@ -33,7 +32,7 @@ class GraphResponse
     /**
     * The body of the response
     *
-    * @var string
+    * @var StreamInterface|null
     */
     private $_body;
     /**
@@ -60,7 +59,7 @@ class GraphResponse
     * Creates a new Graph HTTP response entity
     *
     * @param object $request        The request
-    * @param string $body           The body of the response
+    * @param StreamInterface|null $body           The body of the response
     * @param string $httpStatusCode The returned status code
     * @param array  $headers        The returned headers
     */
@@ -100,7 +99,7 @@ class GraphResponse
     /**
     * Get the undecoded body of the HTTP response
     *
-    * @return string The undecoded body
+    * @return StreamInterface|null The undecoded body
     */
     public function getRawBody()
     {
@@ -110,7 +109,7 @@ class GraphResponse
     /**
     * Get the status of the HTTP response
     *
-    * @return string The HTTP status
+    * @return string|null The HTTP status
     */
     public function getStatus()
     {
@@ -120,7 +119,7 @@ class GraphResponse
     /**
     * Get the headers of the response
     *
-    * @return array The response headers
+    * @return array|null The response headers
     */
     public function getHeaders()
     {
@@ -160,7 +159,7 @@ class GraphResponse
     * Gets the next link of a response object from OData
     * If the nextLink is null, there are no more pages
     *
-    * @return string nextLink, if provided
+    * @return string|null nextLink, if provided
     */
     public function getNextLink()
     {

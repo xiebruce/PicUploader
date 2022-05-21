@@ -33,4 +33,7 @@ class ConfigurationManagerActionType extends Enum
     const REFRESH_USER_POLICY = "refreshUserPolicy";
     const WAKE_UP_CLIENT = "wakeUpClient";
     const APP_EVALUATION = "appEvaluation";
+    const QUICK_SCAN = "quickScan";
+    const FULL_SCAN = "fullScan";
+    const WINDOWS_DEFENDER_UPDATE_SIGNATURES = "windowsDefenderUpdateSignatures";
 }

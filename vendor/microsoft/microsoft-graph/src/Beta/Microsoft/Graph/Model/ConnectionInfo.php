@@ -27,7 +27,7 @@ class ConnectionInfo extends Entity
     * Gets the url
     * The endpoint that is used by Entitlement Management to communicate with the access package resource.
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {

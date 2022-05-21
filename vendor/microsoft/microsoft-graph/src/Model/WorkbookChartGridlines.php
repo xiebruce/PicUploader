@@ -28,7 +28,7 @@ class WorkbookChartGridlines extends Entity
     * Gets the visible
     * Boolean value representing if the axis gridlines are visible or not.
     *
-    * @return bool The visible
+    * @return bool|null The visible
     */
     public function getVisible()
     {
@@ -38,7 +38,7 @@ class WorkbookChartGridlines extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the visible
     * Boolean value representing if the axis gridlines are visible or not.
@@ -52,17 +52,17 @@ class WorkbookChartGridlines extends Entity
         $this->_propDict["visible"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the format
     * Represents the formatting of chart gridlines. Read-only.
     *
-    * @return WorkbookChartGridlinesFormat The format
+    * @return WorkbookChartGridlinesFormat|null The format
     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Microsoft\Graph\Model\WorkbookChartGridlinesFormat")) {
+            if (is_a($this->_propDict["format"], "\Microsoft\Graph\Model\WorkbookChartGridlinesFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new WorkbookChartGridlinesFormat($this->_propDict["format"]);
@@ -71,7 +71,7 @@ class WorkbookChartGridlines extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the format
     * Represents the formatting of chart gridlines. Read-only.
@@ -85,5 +85,5 @@ class WorkbookChartGridlines extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-    
+
 }

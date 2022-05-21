@@ -28,7 +28,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
     * Gets the activeDeviceCount
     * The number of active devices for the model. Valid values -2147483648 to 2147483647
     *
-    * @return int The activeDeviceCount
+    * @return int|null The activeDeviceCount
     */
     public function getActiveDeviceCount()
     {
@@ -38,7 +38,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activeDeviceCount
     * The number of active devices for the model. Valid values -2147483648 to 2147483647
@@ -52,12 +52,12 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
         $this->_propDict["activeDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the deviceManufacturer
     * The manufacturer name of the device.
     *
-    * @return string The deviceManufacturer
+    * @return string|null The deviceManufacturer
     */
     public function getDeviceManufacturer()
     {
@@ -67,7 +67,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceManufacturer
     * The manufacturer name of the device.
@@ -81,12 +81,12 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
         $this->_propDict["deviceManufacturer"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceModel
     * The model name of the device.
     *
-    * @return string The deviceModel
+    * @return string|null The deviceModel
     */
     public function getDeviceModel()
     {
@@ -96,7 +96,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceModel
     * The model name of the device.
@@ -110,12 +110,45 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
         $this->_propDict["deviceModel"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the healthStatus
+    * The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    *
+    * @return UserExperienceAnalyticsHealthState|null The healthStatus
+    */
+    public function getHealthStatus()
+    {
+        if (array_key_exists("healthStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["healthStatus"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsHealthState") || is_null($this->_propDict["healthStatus"])) {
+                return $this->_propDict["healthStatus"];
+            } else {
+                $this->_propDict["healthStatus"] = new UserExperienceAnalyticsHealthState($this->_propDict["healthStatus"]);
+                return $this->_propDict["healthStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the healthStatus
+    * The health state of the user experience analytics model. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    *
+    * @param UserExperienceAnalyticsHealthState $val The healthStatus
+    *
+    * @return UserExperienceAnalyticsAppHealthDeviceModelPerformance
+    */
+    public function setHealthStatus($val)
+    {
+        $this->_propDict["healthStatus"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the meanTimeToFailureInMinutes
     * The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
     *
-    * @return int The meanTimeToFailureInMinutes
+    * @return int|null The meanTimeToFailureInMinutes
     */
     public function getMeanTimeToFailureInMinutes()
     {
@@ -125,7 +158,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the meanTimeToFailureInMinutes
     * The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
@@ -139,12 +172,12 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
         $this->_propDict["meanTimeToFailureInMinutes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the modelAppHealthScore
     * The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
     *
-    * @return float The modelAppHealthScore
+    * @return float|null The modelAppHealthScore
     */
     public function getModelAppHealthScore()
     {
@@ -154,7 +187,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the modelAppHealthScore
     * The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
@@ -165,15 +198,15 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
     */
     public function setModelAppHealthScore($val)
     {
-        $this->_propDict["modelAppHealthScore"] = $val;
+        $this->_propDict["modelAppHealthScore"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the modelAppHealthStatus
     * The overall app health status of the device model.
     *
-    * @return string The modelAppHealthStatus
+    * @return string|null The modelAppHealthStatus
     */
     public function getModelAppHealthStatus()
     {
@@ -183,7 +216,7 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the modelAppHealthStatus
     * The overall app health status of the device model.
@@ -197,5 +230,5 @@ class UserExperienceAnalyticsAppHealthDeviceModelPerformance extends Entity
         $this->_propDict["modelAppHealthStatus"] = $val;
         return $this;
     }
-    
+
 }

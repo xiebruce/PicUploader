@@ -28,7 +28,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
     * Gets the elementDefinitionId
     * The Setting Definition ID that describes what each element of the collection looks like
     *
-    * @return string The elementDefinitionId
+    * @return string|null The elementDefinitionId
     */
     public function getElementDefinitionId()
     {
@@ -38,7 +38,7 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
             return null;
         }
     }
-    
+
     /**
     * Sets the elementDefinitionId
     * The Setting Definition ID that describes what each element of the collection looks like
@@ -52,5 +52,5 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
         $this->_propDict["elementDefinitionId"] = $val;
         return $this;
     }
-    
+
 }

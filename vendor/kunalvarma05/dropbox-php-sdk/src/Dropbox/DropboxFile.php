@@ -1,4 +1,5 @@
 <?php
+
 namespace Kunnu\Dropbox;
 
 use Kunnu\Dropbox\Exceptions\DropboxClientException;
@@ -55,7 +56,7 @@ class DropboxFile
      * @var bool
      */
     private $isStream = false;
-    
+
     /**
      * Create a new DropboxFile instance
      *
@@ -69,20 +70,12 @@ class DropboxFile
     }
 
     /**
-     * Closes the stream when destructed.
-     */
-    public function __destruct()
-    {
-        $this->close();
-    }
-    
-    
-    /**
      * Create a new DropboxFile instance using a file stream
      *
-     * @param $fileName
-     * @param $resource
+     * @param        $fileName
+     * @param        $resource
      * @param string $mode
+     *
      * @return DropboxFile
      * @throws DropboxClientException
      */
@@ -116,11 +109,20 @@ class DropboxFile
      *
      * @param $filePath
      * @param $mode
+     *
      * @return DropboxFile
      */
     public static function createByPath($filePath, $mode)
     {
         return new self($filePath, $mode);
+    }
+
+    /**
+     * Closes the stream when destructed.
+     */
+    public function __destruct()
+    {
+        $this->close();
     }
 
     /**
@@ -154,22 +156,12 @@ class DropboxFile
     {
         $this->maxLength = $maxLength;
     }
-    
-    /**
-     * Manually set the stream for this DropboxFile instance
-     *
-     * @param $stream
-     */
-    public function setStream($stream)
-    {
-        $this->isStream = true;
-        $this->stream = $stream;
-    }
 
     /**
      * Return the contents of the file
      *
      * @return string
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getContents()
     {
@@ -193,6 +185,7 @@ class DropboxFile
      * Get the Open File Stream
      *
      * @return \GuzzleHttp\Psr7\Stream
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getStream()
     {
@@ -200,6 +193,17 @@ class DropboxFile
             $this->open();
         }
         return $this->stream;
+    }
+
+    /**
+     * Manually set the stream for this DropboxFile instance
+     *
+     * @param $stream
+     */
+    public function setStream($stream)
+    {
+        $this->isStream = true;
+        $this->stream = $stream;
     }
 
     /**
@@ -212,24 +216,38 @@ class DropboxFile
     public function open()
     {
         // File was created from a stream so don't open it again
-        if ($this->stream && $this->isStream === true) {
+        if ($this->isCreatedFromStream()) {
             return;
         }
-        
+
+        // File is not a remote file
         if (!$this->isRemoteFile($this->path)) {
-            if (self::MODE_READ === $this->mode && !is_readable($this->path)) {
+            // File is not Readable
+            if ($this->isNotReadable()) {
                 throw new DropboxClientException('Failed to create DropboxFile instance. Unable to read resource: ' . $this->path . '.');
             }
-            if (self::MODE_WRITE === $this->mode && file_exists($this->path) && !is_writable($this->path)) {
+
+            // File is not Writable
+            if ($this->isNotWritable()) {
                 throw new DropboxClientException('Failed to create DropboxFile instance. Unable to write resource: ' . $this->path . '.');
             }
         }
 
+        // Create a stream
         $this->stream = \GuzzleHttp\Psr7\stream_for(fopen($this->path, $this->mode));
 
+        // Unable to create stream
         if (!$this->stream) {
             throw new DropboxClientException('Failed to create DropboxFile instance. Unable to open resource: ' . $this->path . '.');
         }
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isCreatedFromStream()
+    {
+        return $this->stream && $this->isStream === true;
     }
 
     /**
@@ -242,6 +260,22 @@ class DropboxFile
     protected function isRemoteFile($pathToFile)
     {
         return preg_match('/^(https?|ftp):\/\/.*/', $pathToFile) === 1;
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isNotReadable()
+    {
+        return self::MODE_READ === $this->mode && !is_readable($this->path);
+    }
+
+    /**
+     * @return bool
+     */
+    protected function isNotWritable()
+    {
+        return self::MODE_WRITE === $this->mode && file_exists($this->path) && !is_writable($this->path);
     }
 
     /**
@@ -264,6 +298,11 @@ class DropboxFile
         return $this->path;
     }
 
+    public function getStreamOrFilePath()
+    {
+        return $this->isCreatedFromStream() ? $this->getStream() : $this->getFilePath();
+    }
+
     /**
      * Get the mode of the file stream
      *
@@ -278,6 +317,7 @@ class DropboxFile
      * Get the size of the file
      *
      * @return int
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getSize()
     {

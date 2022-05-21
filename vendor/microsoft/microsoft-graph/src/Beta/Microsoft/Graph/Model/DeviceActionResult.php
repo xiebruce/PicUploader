@@ -27,7 +27,7 @@ class DeviceActionResult extends Entity
     * Gets the actionName
     * Action name
     *
-    * @return string The actionName
+    * @return string|null The actionName
     */
     public function getActionName()
     {
@@ -56,12 +56,12 @@ class DeviceActionResult extends Entity
     * Gets the actionState
     * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
     *
-    * @return ActionState The actionState
+    * @return ActionState|null The actionState
     */
     public function getActionState()
     {
         if (array_key_exists("actionState", $this->_propDict)) {
-            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState")) {
+            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["actionState"])) {
                 return $this->_propDict["actionState"];
             } else {
                 $this->_propDict["actionState"] = new ActionState($this->_propDict["actionState"]);
@@ -89,12 +89,12 @@ class DeviceActionResult extends Entity
     * Gets the lastUpdatedDateTime
     * Time the action state was last updated
     *
-    * @return \DateTime The lastUpdatedDateTime
+    * @return \DateTime|null The lastUpdatedDateTime
     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -122,12 +122,12 @@ class DeviceActionResult extends Entity
     * Gets the startDateTime
     * Time the action was initiated
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);

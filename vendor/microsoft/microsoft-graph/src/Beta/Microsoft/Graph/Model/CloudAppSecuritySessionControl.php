@@ -26,14 +26,14 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Gets the cloudAppSecurityType
-    * Possible values are: mcasConfigured, monitorOnly, blockDownloads. Learn more about these values here: https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad#step-1-create-an-azure-ad-conditional-access-test-policy-
+    * Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
     *
-    * @return CloudAppSecuritySessionControlType The cloudAppSecurityType
+    * @return CloudAppSecuritySessionControlType|null The cloudAppSecurityType
     */
     public function getCloudAppSecurityType()
     {
         if (array_key_exists("cloudAppSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["cloudAppSecurityType"], "\Beta\Microsoft\Graph\Model\CloudAppSecuritySessionControlType")) {
+            if (is_a($this->_propDict["cloudAppSecurityType"], "\Beta\Microsoft\Graph\Model\CloudAppSecuritySessionControlType") || is_null($this->_propDict["cloudAppSecurityType"])) {
                 return $this->_propDict["cloudAppSecurityType"];
             } else {
                 $this->_propDict["cloudAppSecurityType"] = new CloudAppSecuritySessionControlType($this->_propDict["cloudAppSecurityType"]);
@@ -45,7 +45,7 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Sets the cloudAppSecurityType
-    * Possible values are: mcasConfigured, monitorOnly, blockDownloads. Learn more about these values here: https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad#step-1-create-an-azure-ad-conditional-access-test-policy-
+    * Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
     *
     * @param CloudAppSecuritySessionControlType $val The value to assign to the cloudAppSecurityType
     *

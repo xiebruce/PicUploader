@@ -27,7 +27,7 @@ class UserAgent extends \Microsoft\Graph\Model\Entity
     * Gets the applicationVersion
     * Identifies the version of application software used by this endpoint.
     *
-    * @return string The applicationVersion
+    * @return string|null The applicationVersion
     */
     public function getApplicationVersion()
     {
@@ -55,7 +55,7 @@ class UserAgent extends \Microsoft\Graph\Model\Entity
     * Gets the headerValue
     * User-agent header value reported by this endpoint.
     *
-    * @return string The headerValue
+    * @return string|null The headerValue
     */
     public function getHeaderValue()
     {

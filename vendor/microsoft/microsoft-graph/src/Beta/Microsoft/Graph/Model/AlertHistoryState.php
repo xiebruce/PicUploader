@@ -27,7 +27,7 @@ class AlertHistoryState extends Entity
     * Gets the appId
     * The Application ID of the calling application that submitted an update (PATCH) to the alert. The appId should be extracted from the auth token and not entered manually by the calling application.
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -55,7 +55,7 @@ class AlertHistoryState extends Entity
     * Gets the assignedTo
     * UPN of user the alert was assigned to (note: alert.assignedTo only stores the last value/UPN).
     *
-    * @return string The assignedTo
+    * @return string|null The assignedTo
     */
     public function getAssignedTo()
     {
@@ -83,7 +83,7 @@ class AlertHistoryState extends Entity
     * Gets the comments
     * Comment entered by signed-in user.
     *
-    * @return string The comments
+    * @return string|null The comments
     */
     public function getComments()
     {
@@ -112,12 +112,12 @@ class AlertHistoryState extends Entity
     * Gets the feedback
     * Analyst feedback on the alert in this update. Possible values are: unknown, truePositive, falsePositive, benignPositive.
     *
-    * @return AlertFeedback The feedback
+    * @return AlertFeedback|null The feedback
     */
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "\Beta\Microsoft\Graph\Model\AlertFeedback")) {
+            if (is_a($this->_propDict["feedback"], "\Beta\Microsoft\Graph\Model\AlertFeedback") || is_null($this->_propDict["feedback"])) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new AlertFeedback($this->_propDict["feedback"]);
@@ -145,12 +145,12 @@ class AlertHistoryState extends Entity
     * Gets the status
     * Alert status value (if updated). Possible values are: unknown, newAlert, inProgress, resolved, dismissed.
     *
-    * @return AlertStatus The status
+    * @return AlertStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AlertStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\AlertStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new AlertStatus($this->_propDict["status"]);
@@ -178,12 +178,12 @@ class AlertHistoryState extends Entity
     * Gets the updatedDateTime
     * Date and time of the alert update. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The updatedDateTime
+    * @return \DateTime|null The updatedDateTime
     */
     public function getUpdatedDateTime()
     {
         if (array_key_exists("updatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["updatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["updatedDateTime"], "\DateTime") || is_null($this->_propDict["updatedDateTime"])) {
                 return $this->_propDict["updatedDateTime"];
             } else {
                 $this->_propDict["updatedDateTime"] = new \DateTime($this->_propDict["updatedDateTime"]);
@@ -210,7 +210,7 @@ class AlertHistoryState extends Entity
     * Gets the user
     * UPN of the signed-in user that updated the alert (taken from the bearer token - if in user/delegated auth mode).
     *
-    * @return string The user
+    * @return string|null The user
     */
     public function getUser()
     {

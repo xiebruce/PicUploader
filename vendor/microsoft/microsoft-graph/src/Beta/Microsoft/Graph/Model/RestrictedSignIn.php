@@ -27,7 +27,7 @@ class RestrictedSignIn extends SignIn
     /**
     * Gets the targetTenantId
     *
-    * @return string The targetTenantId
+    * @return string|null The targetTenantId
     */
     public function getTargetTenantId()
     {
@@ -37,7 +37,7 @@ class RestrictedSignIn extends SignIn
             return null;
         }
     }
-    
+
     /**
     * Sets the targetTenantId
     *
@@ -50,5 +50,5 @@ class RestrictedSignIn extends SignIn
         $this->_propDict["targetTenantId"] = $val;
         return $this;
     }
-    
+
 }

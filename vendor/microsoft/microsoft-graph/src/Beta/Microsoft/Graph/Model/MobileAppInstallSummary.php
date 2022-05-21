@@ -28,7 +28,7 @@ class MobileAppInstallSummary extends Entity
     * Gets the failedDeviceCount
     * Number of Devices that have failed to install this app.
     *
-    * @return int The failedDeviceCount
+    * @return int|null The failedDeviceCount
     */
     public function getFailedDeviceCount()
     {
@@ -38,7 +38,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedDeviceCount
     * Number of Devices that have failed to install this app.
@@ -52,12 +52,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["failedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the failedUserCount
     * Number of Users that have 1 or more device that failed to install this app.
     *
-    * @return int The failedUserCount
+    * @return int|null The failedUserCount
     */
     public function getFailedUserCount()
     {
@@ -67,7 +67,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedUserCount
     * Number of Users that have 1 or more device that failed to install this app.
@@ -81,12 +81,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["failedUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the installedDeviceCount
     * Number of Devices that have successfully installed this app.
     *
-    * @return int The installedDeviceCount
+    * @return int|null The installedDeviceCount
     */
     public function getInstalledDeviceCount()
     {
@@ -96,7 +96,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedDeviceCount
     * Number of Devices that have successfully installed this app.
@@ -110,12 +110,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["installedDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the installedUserCount
     * Number of Users whose devices have all succeeded to install this app.
     *
-    * @return int The installedUserCount
+    * @return int|null The installedUserCount
     */
     public function getInstalledUserCount()
     {
@@ -125,7 +125,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the installedUserCount
     * Number of Users whose devices have all succeeded to install this app.
@@ -139,12 +139,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["installedUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notApplicableDeviceCount
     * Number of Devices that are not applicable for this app.
     *
-    * @return int The notApplicableDeviceCount
+    * @return int|null The notApplicableDeviceCount
     */
     public function getNotApplicableDeviceCount()
     {
@@ -154,7 +154,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notApplicableDeviceCount
     * Number of Devices that are not applicable for this app.
@@ -168,12 +168,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["notApplicableDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notApplicableUserCount
     * Number of Users whose devices were all not applicable for this app.
     *
-    * @return int The notApplicableUserCount
+    * @return int|null The notApplicableUserCount
     */
     public function getNotApplicableUserCount()
     {
@@ -183,7 +183,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notApplicableUserCount
     * Number of Users whose devices were all not applicable for this app.
@@ -197,12 +197,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["notApplicableUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notInstalledDeviceCount
     * Number of Devices that does not have this app installed.
     *
-    * @return int The notInstalledDeviceCount
+    * @return int|null The notInstalledDeviceCount
     */
     public function getNotInstalledDeviceCount()
     {
@@ -212,7 +212,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notInstalledDeviceCount
     * Number of Devices that does not have this app installed.
@@ -226,12 +226,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["notInstalledDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notInstalledUserCount
     * Number of Users that have 1 or more devices that did not install this app.
     *
-    * @return int The notInstalledUserCount
+    * @return int|null The notInstalledUserCount
     */
     public function getNotInstalledUserCount()
     {
@@ -241,7 +241,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notInstalledUserCount
     * Number of Users that have 1 or more devices that did not install this app.
@@ -255,12 +255,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["notInstalledUserCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the pendingInstallDeviceCount
     * Number of Devices that have been notified to install this app.
     *
-    * @return int The pendingInstallDeviceCount
+    * @return int|null The pendingInstallDeviceCount
     */
     public function getPendingInstallDeviceCount()
     {
@@ -270,7 +270,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the pendingInstallDeviceCount
     * Number of Devices that have been notified to install this app.
@@ -284,12 +284,12 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["pendingInstallDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the pendingInstallUserCount
     * Number of Users that have 1 or more device that have been notified to install this app and have 0 devices with failures.
     *
-    * @return int The pendingInstallUserCount
+    * @return int|null The pendingInstallUserCount
     */
     public function getPendingInstallUserCount()
     {
@@ -299,7 +299,7 @@ class MobileAppInstallSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the pendingInstallUserCount
     * Number of Users that have 1 or more device that have been notified to install this app and have 0 devices with failures.
@@ -313,5 +313,5 @@ class MobileAppInstallSummary extends Entity
         $this->_propDict["pendingInstallUserCount"] = intval($val);
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class WindowsUniversalAppXContainedApp extends MobileContainedApp
     * Gets the appUserModelId
     * The app user model ID of the contained app of a WindowsUniversalAppX app.
     *
-    * @return string The appUserModelId
+    * @return string|null The appUserModelId
     */
     public function getAppUserModelId()
     {
@@ -38,7 +38,7 @@ class WindowsUniversalAppXContainedApp extends MobileContainedApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appUserModelId
     * The app user model ID of the contained app of a WindowsUniversalAppX app.
@@ -52,5 +52,5 @@ class WindowsUniversalAppXContainedApp extends MobileContainedApp
         $this->_propDict["appUserModelId"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class ChatMessageReaction extends Entity
     * Gets the createdDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -60,7 +60,7 @@ class ChatMessageReaction extends Entity
     * Gets the reactionType
     * Supported values are like, angry, sad, laugh, heart, surprised.
     *
-    * @return string The reactionType
+    * @return string|null The reactionType
     */
     public function getReactionType()
     {
@@ -89,15 +89,15 @@ class ChatMessageReaction extends Entity
     * Gets the user
     * The user who reacted to the message.
     *
-    * @return IdentitySet The user
+    * @return ChatMessageReactionIdentitySet|null The user
     */
     public function getUser()
     {
         if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\ChatMessageReactionIdentitySet") || is_null($this->_propDict["user"])) {
                 return $this->_propDict["user"];
             } else {
-                $this->_propDict["user"] = new IdentitySet($this->_propDict["user"]);
+                $this->_propDict["user"] = new ChatMessageReactionIdentitySet($this->_propDict["user"]);
                 return $this->_propDict["user"];
             }
         }
@@ -108,7 +108,7 @@ class ChatMessageReaction extends Entity
     * Sets the user
     * The user who reacted to the message.
     *
-    * @param IdentitySet $val The value to assign to the user
+    * @param ChatMessageReactionIdentitySet $val The value to assign to the user
     *
     * @return ChatMessageReaction The ChatMessageReaction
     */

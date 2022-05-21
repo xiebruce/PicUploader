@@ -26,7 +26,7 @@ class MatchLocation extends Entity
     /**
     * Gets the length
     *
-    * @return int The length
+    * @return int|null The length
     */
     public function getLength()
     {
@@ -52,7 +52,7 @@ class MatchLocation extends Entity
     /**
     * Gets the offset
     *
-    * @return int The offset
+    * @return int|null The offset
     */
     public function getOffset()
     {

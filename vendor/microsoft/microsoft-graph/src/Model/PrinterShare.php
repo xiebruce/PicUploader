@@ -28,7 +28,7 @@ class PrinterShare extends PrinterBase
     * Gets the allowAllUsers
     * If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.
     *
-    * @return bool The allowAllUsers
+    * @return bool|null The allowAllUsers
     */
     public function getAllowAllUsers()
     {
@@ -38,7 +38,7 @@ class PrinterShare extends PrinterBase
             return null;
         }
     }
-    
+
     /**
     * Sets the allowAllUsers
     * If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.
@@ -52,17 +52,17 @@ class PrinterShare extends PrinterBase
         $this->_propDict["allowAllUsers"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The DateTimeOffset when the printer share was created. Read-only.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -71,7 +71,7 @@ class PrinterShare extends PrinterBase
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The DateTimeOffset when the printer share was created. Read-only.
@@ -85,13 +85,13 @@ class PrinterShare extends PrinterBase
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the allowedGroups
     * The groups whose users have access to print using the printer.
      *
-     * @return array The allowedGroups
+     * @return array|null The allowedGroups
      */
     public function getAllowedGroups()
     {
@@ -101,27 +101,27 @@ class PrinterShare extends PrinterBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the allowedGroups
     * The groups whose users have access to print using the printer.
     *
-    * @param Group $val The allowedGroups
+    * @param Group[] $val The allowedGroups
     *
     * @return PrinterShare
     */
     public function setAllowedGroups($val)
     {
-		$this->_propDict["allowedGroups"] = $val;
+        $this->_propDict["allowedGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the allowedUsers
     * The users who have access to print using the printer.
      *
-     * @return array The allowedUsers
+     * @return array|null The allowedUsers
      */
     public function getAllowedUsers()
     {
@@ -131,31 +131,31 @@ class PrinterShare extends PrinterBase
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the allowedUsers
     * The users who have access to print using the printer.
     *
-    * @param User $val The allowedUsers
+    * @param User[] $val The allowedUsers
     *
     * @return PrinterShare
     */
     public function setAllowedUsers($val)
     {
-		$this->_propDict["allowedUsers"] = $val;
+        $this->_propDict["allowedUsers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the printer
     * The printer that this printer share is related to.
     *
-    * @return Printer The printer
+    * @return Printer|null The printer
     */
     public function getPrinter()
     {
         if (array_key_exists("printer", $this->_propDict)) {
-            if (is_a($this->_propDict["printer"], "\Microsoft\Graph\Model\Printer")) {
+            if (is_a($this->_propDict["printer"], "\Microsoft\Graph\Model\Printer") || is_null($this->_propDict["printer"])) {
                 return $this->_propDict["printer"];
             } else {
                 $this->_propDict["printer"] = new Printer($this->_propDict["printer"]);
@@ -164,7 +164,7 @@ class PrinterShare extends PrinterBase
         }
         return null;
     }
-    
+
     /**
     * Sets the printer
     * The printer that this printer share is related to.
@@ -178,5 +178,5 @@ class PrinterShare extends PrinterBase
         $this->_propDict["printer"] = $val;
         return $this;
     }
-    
+
 }

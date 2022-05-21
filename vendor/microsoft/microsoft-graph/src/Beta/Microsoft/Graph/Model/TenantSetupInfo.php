@@ -27,7 +27,7 @@ class TenantSetupInfo extends Entity
     /**
     * Gets the firstTimeSetup
     *
-    * @return bool The firstTimeSetup
+    * @return bool|null The firstTimeSetup
     */
     public function getFirstTimeSetup()
     {
@@ -37,7 +37,7 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the firstTimeSetup
     *
@@ -50,11 +50,11 @@ class TenantSetupInfo extends Entity
         $this->_propDict["firstTimeSetup"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the relevantRolesSettings
     *
-    * @return string The relevantRolesSettings
+    * @return string|null The relevantRolesSettings
     */
     public function getRelevantRolesSettings()
     {
@@ -64,7 +64,7 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the relevantRolesSettings
     *
@@ -77,16 +77,16 @@ class TenantSetupInfo extends Entity
         $this->_propDict["relevantRolesSettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the setupStatus
     *
-    * @return SetupStatus The setupStatus
+    * @return SetupStatus|null The setupStatus
     */
     public function getSetupStatus()
     {
         if (array_key_exists("setupStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["setupStatus"], "\Beta\Microsoft\Graph\Model\SetupStatus")) {
+            if (is_a($this->_propDict["setupStatus"], "\Beta\Microsoft\Graph\Model\SetupStatus") || is_null($this->_propDict["setupStatus"])) {
                 return $this->_propDict["setupStatus"];
             } else {
                 $this->_propDict["setupStatus"] = new SetupStatus($this->_propDict["setupStatus"]);
@@ -95,7 +95,7 @@ class TenantSetupInfo extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the setupStatus
     *
@@ -108,11 +108,11 @@ class TenantSetupInfo extends Entity
         $this->_propDict["setupStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the skipSetup
     *
-    * @return bool The skipSetup
+    * @return bool|null The skipSetup
     */
     public function getSkipSetup()
     {
@@ -122,7 +122,7 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the skipSetup
     *
@@ -135,11 +135,11 @@ class TenantSetupInfo extends Entity
         $this->_propDict["skipSetup"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userRolesActions
     *
-    * @return string The userRolesActions
+    * @return string|null The userRolesActions
     */
     public function getUserRolesActions()
     {
@@ -149,7 +149,7 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userRolesActions
     *
@@ -162,16 +162,16 @@ class TenantSetupInfo extends Entity
         $this->_propDict["userRolesActions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defaultRolesSettings
     *
-    * @return PrivilegedRoleSettings The defaultRolesSettings
+    * @return PrivilegedRoleSettings|null The defaultRolesSettings
     */
     public function getDefaultRolesSettings()
     {
         if (array_key_exists("defaultRolesSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultRolesSettings"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleSettings")) {
+            if (is_a($this->_propDict["defaultRolesSettings"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleSettings") || is_null($this->_propDict["defaultRolesSettings"])) {
                 return $this->_propDict["defaultRolesSettings"];
             } else {
                 $this->_propDict["defaultRolesSettings"] = new PrivilegedRoleSettings($this->_propDict["defaultRolesSettings"]);
@@ -180,7 +180,7 @@ class TenantSetupInfo extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the defaultRolesSettings
     *
@@ -193,5 +193,5 @@ class TenantSetupInfo extends Entity
         $this->_propDict["defaultRolesSettings"] = $val;
         return $this;
     }
-    
+
 }

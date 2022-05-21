@@ -14,9 +14,12 @@ class S3SignatureV4 extends SignatureV4
      *
      * {@inheritdoc}
      */
+    use SignatureTrait;
+
     public function signRequest(
         RequestInterface $request,
-        CredentialsInterface $credentials
+        CredentialsInterface $credentials,
+        $signingService = null
     ) {
         // Always add a x-amz-content-sha-256 for data integrity
         if (!$request->hasHeader('x-amz-content-sha256')) {
@@ -25,8 +28,17 @@ class S3SignatureV4 extends SignatureV4
                 $this->getPayload($request)
             );
         }
-
-        return parent::signRequest($request, $credentials);
+        $useCrt =
+            strpos($request->getUri()->getHost(), "accesspoint.s3-global")
+            !== false;
+        if (!$useCrt) {
+            if (strpos($request->getUri()->getHost(), "s3-object-lambda")) {
+                return parent::signRequest($request, $credentials, "s3-object-lambda");
+            }
+            return parent::signRequest($request, $credentials);
+        }
+        $signingService = $signingService ?: 's3';
+        return $this->signWithV4a($credentials, $request, $signingService);
     }
 
     /**
@@ -45,6 +57,9 @@ class S3SignatureV4 extends SignatureV4
                 'X-Amz-Content-Sha256',
                 $this->getPresignedPayload($request)
             );
+        }
+        if (strpos($request->getUri()->getHost(), "accesspoint.s3-global")) {
+            $request = $request->withHeader("x-amz-region-set", "*");
         }
 
         return parent::presign($request, $credentials, $expires, $options);

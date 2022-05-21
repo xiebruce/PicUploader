@@ -27,7 +27,7 @@ class Fido2KeyRestrictions extends Entity
     * Gets the aaGuids
     * A collection of Authenticator Attestation GUIDs. AADGUIDs define key types and manufacturers.
     *
-    * @return string The aaGuids
+    * @return string|null The aaGuids
     */
     public function getAaGuids()
     {
@@ -56,12 +56,12 @@ class Fido2KeyRestrictions extends Entity
     * Gets the enforcementType
     * Enforcement type. Possible values are: allow, block.
     *
-    * @return Fido2RestrictionEnforcementType The enforcementType
+    * @return Fido2RestrictionEnforcementType|null The enforcementType
     */
     public function getEnforcementType()
     {
         if (array_key_exists("enforcementType", $this->_propDict)) {
-            if (is_a($this->_propDict["enforcementType"], "\Beta\Microsoft\Graph\Model\Fido2RestrictionEnforcementType")) {
+            if (is_a($this->_propDict["enforcementType"], "\Beta\Microsoft\Graph\Model\Fido2RestrictionEnforcementType") || is_null($this->_propDict["enforcementType"])) {
                 return $this->_propDict["enforcementType"];
             } else {
                 $this->_propDict["enforcementType"] = new Fido2RestrictionEnforcementType($this->_propDict["enforcementType"]);
@@ -88,7 +88,7 @@ class Fido2KeyRestrictions extends Entity
     * Gets the isEnforced
     * Determines if the configured key enforcement is enabled.
     *
-    * @return bool The isEnforced
+    * @return bool|null The isEnforced
     */
     public function getIsEnforced()
     {

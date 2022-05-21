@@ -28,7 +28,7 @@ class OfficeSuiteApp extends MobileApp
     * Gets the autoAcceptEula
     * The value to accept the EULA automatically on the enduser's device.
     *
-    * @return bool The autoAcceptEula
+    * @return bool|null The autoAcceptEula
     */
     public function getAutoAcceptEula()
     {
@@ -38,7 +38,7 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the autoAcceptEula
     * The value to accept the EULA automatically on the enduser's device.
@@ -52,17 +52,17 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["autoAcceptEula"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the excludedApps
     * The property to represent the apps which are excluded from the selected Office365 Product Id.
     *
-    * @return ExcludedApps The excludedApps
+    * @return ExcludedApps|null The excludedApps
     */
     public function getExcludedApps()
     {
         if (array_key_exists("excludedApps", $this->_propDict)) {
-            if (is_a($this->_propDict["excludedApps"], "\Beta\Microsoft\Graph\Model\ExcludedApps")) {
+            if (is_a($this->_propDict["excludedApps"], "\Beta\Microsoft\Graph\Model\ExcludedApps") || is_null($this->_propDict["excludedApps"])) {
                 return $this->_propDict["excludedApps"];
             } else {
                 $this->_propDict["excludedApps"] = new ExcludedApps($this->_propDict["excludedApps"]);
@@ -71,7 +71,7 @@ class OfficeSuiteApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the excludedApps
     * The property to represent the apps which are excluded from the selected Office365 Product Id.
@@ -85,17 +85,17 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["excludedApps"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the installProgressDisplayLevel
     * To specify the level of display for the Installation Progress Setup UI on the Device. Possible values are: none, full.
     *
-    * @return OfficeSuiteInstallProgressDisplayLevel The installProgressDisplayLevel
+    * @return OfficeSuiteInstallProgressDisplayLevel|null The installProgressDisplayLevel
     */
     public function getInstallProgressDisplayLevel()
     {
         if (array_key_exists("installProgressDisplayLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["installProgressDisplayLevel"], "\Beta\Microsoft\Graph\Model\OfficeSuiteInstallProgressDisplayLevel")) {
+            if (is_a($this->_propDict["installProgressDisplayLevel"], "\Beta\Microsoft\Graph\Model\OfficeSuiteInstallProgressDisplayLevel") || is_null($this->_propDict["installProgressDisplayLevel"])) {
                 return $this->_propDict["installProgressDisplayLevel"];
             } else {
                 $this->_propDict["installProgressDisplayLevel"] = new OfficeSuiteInstallProgressDisplayLevel($this->_propDict["installProgressDisplayLevel"]);
@@ -104,7 +104,7 @@ class OfficeSuiteApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the installProgressDisplayLevel
     * To specify the level of display for the Installation Progress Setup UI on the Device. Possible values are: none, full.
@@ -118,12 +118,12 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["installProgressDisplayLevel"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localesToInstall
     * The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
     *
-    * @return string The localesToInstall
+    * @return string|null The localesToInstall
     */
     public function getLocalesToInstall()
     {
@@ -133,7 +133,7 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the localesToInstall
     * The property to represent the locales which are installed when the apps from Office365 is installed. It uses standard RFC 6033. Ref: https://technet.microsoft.com/library/cc179219(v=office.16).aspx
@@ -147,26 +147,26 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["localesToInstall"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the officeConfigurationXml
     * The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
     *
-    * @return \GuzzleHttp\Psr7\Stream The officeConfigurationXml
+    * @return \GuzzleHttp\Psr7\Stream|null The officeConfigurationXml
     */
     public function getOfficeConfigurationXml()
     {
         if (array_key_exists("officeConfigurationXml", $this->_propDict)) {
-            if (is_a($this->_propDict["officeConfigurationXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["officeConfigurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["officeConfigurationXml"])) {
                 return $this->_propDict["officeConfigurationXml"];
             } else {
-                $this->_propDict["officeConfigurationXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["officeConfigurationXml"]);
+                $this->_propDict["officeConfigurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["officeConfigurationXml"]);
                 return $this->_propDict["officeConfigurationXml"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the officeConfigurationXml
     * The property to represent the XML configuration file that can be specified for Office ProPlus Apps. Takes precedence over all other properties. When present, the XML configuration file will be used to create the app.
@@ -180,17 +180,17 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["officeConfigurationXml"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the officePlatformArchitecture
     * The property to represent the Office365 app suite version. Possible values are: none, x86, x64, arm, neutral, arm64.
     *
-    * @return WindowsArchitecture The officePlatformArchitecture
+    * @return WindowsArchitecture|null The officePlatformArchitecture
     */
     public function getOfficePlatformArchitecture()
     {
         if (array_key_exists("officePlatformArchitecture", $this->_propDict)) {
-            if (is_a($this->_propDict["officePlatformArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
+            if (is_a($this->_propDict["officePlatformArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["officePlatformArchitecture"])) {
                 return $this->_propDict["officePlatformArchitecture"];
             } else {
                 $this->_propDict["officePlatformArchitecture"] = new WindowsArchitecture($this->_propDict["officePlatformArchitecture"]);
@@ -199,7 +199,7 @@ class OfficeSuiteApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the officePlatformArchitecture
     * The property to represent the Office365 app suite version. Possible values are: none, x86, x64, arm, neutral, arm64.
@@ -213,13 +213,13 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["officePlatformArchitecture"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the productIds
     * The Product Ids that represent the Office365 Suite SKU.
      *
-     * @return array The productIds
+     * @return array|null The productIds
      */
     public function getProductIds()
     {
@@ -229,26 +229,26 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the productIds
     * The Product Ids that represent the Office365 Suite SKU.
     *
-    * @param OfficeProductId $val The productIds
+    * @param OfficeProductId[] $val The productIds
     *
     * @return OfficeSuiteApp
     */
     public function setProductIds($val)
     {
-		$this->_propDict["productIds"] = $val;
+        $this->_propDict["productIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the shouldUninstallOlderVersionsOfOffice
     * The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.
     *
-    * @return bool The shouldUninstallOlderVersionsOfOffice
+    * @return bool|null The shouldUninstallOlderVersionsOfOffice
     */
     public function getShouldUninstallOlderVersionsOfOffice()
     {
@@ -258,7 +258,7 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the shouldUninstallOlderVersionsOfOffice
     * The property to determine whether to uninstall existing Office MSI if an Office365 app suite is deployed to the device or not.
@@ -272,12 +272,12 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["shouldUninstallOlderVersionsOfOffice"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the targetVersion
     * The property to represent the specific target version for the Office365 app suite that should be remained deployed on the devices.
     *
-    * @return string The targetVersion
+    * @return string|null The targetVersion
     */
     public function getTargetVersion()
     {
@@ -287,7 +287,7 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the targetVersion
     * The property to represent the specific target version for the Office365 app suite that should be remained deployed on the devices.
@@ -301,17 +301,17 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["targetVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the updateChannel
     * The property to represent the Office365 Update Channel. Possible values are: none, current, deferred, firstReleaseCurrent, firstReleaseDeferred, monthlyEnterprise.
     *
-    * @return OfficeUpdateChannel The updateChannel
+    * @return OfficeUpdateChannel|null The updateChannel
     */
     public function getUpdateChannel()
     {
         if (array_key_exists("updateChannel", $this->_propDict)) {
-            if (is_a($this->_propDict["updateChannel"], "\Beta\Microsoft\Graph\Model\OfficeUpdateChannel")) {
+            if (is_a($this->_propDict["updateChannel"], "\Beta\Microsoft\Graph\Model\OfficeUpdateChannel") || is_null($this->_propDict["updateChannel"])) {
                 return $this->_propDict["updateChannel"];
             } else {
                 $this->_propDict["updateChannel"] = new OfficeUpdateChannel($this->_propDict["updateChannel"]);
@@ -320,7 +320,7 @@ class OfficeSuiteApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the updateChannel
     * The property to represent the Office365 Update Channel. Possible values are: none, current, deferred, firstReleaseCurrent, firstReleaseDeferred, monthlyEnterprise.
@@ -334,12 +334,12 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["updateChannel"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the updateVersion
     * The property to represent the update version in which the specific target version is available for the Office365 app suite.
     *
-    * @return string The updateVersion
+    * @return string|null The updateVersion
     */
     public function getUpdateVersion()
     {
@@ -349,7 +349,7 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the updateVersion
     * The property to represent the update version in which the specific target version is available for the Office365 app suite.
@@ -363,12 +363,12 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["updateVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the useSharedComputerActivation
     * The property to represent that whether the shared computer activation is used not for Office365 app suite.
     *
-    * @return bool The useSharedComputerActivation
+    * @return bool|null The useSharedComputerActivation
     */
     public function getUseSharedComputerActivation()
     {
@@ -378,7 +378,7 @@ class OfficeSuiteApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the useSharedComputerActivation
     * The property to represent that whether the shared computer activation is used not for Office365 app suite.
@@ -392,5 +392,5 @@ class OfficeSuiteApp extends MobileApp
         $this->_propDict["useSharedComputerActivation"] = boolval($val);
         return $this;
     }
-    
+
 }

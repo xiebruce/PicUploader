@@ -27,7 +27,7 @@ class ResetPasscodeActionResult extends DeviceActionResult
     * Gets the passcode
     * Newly generated passcode for the device
     *
-    * @return string The passcode
+    * @return string|null The passcode
     */
     public function getPasscode()
     {

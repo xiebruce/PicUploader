@@ -1,3 +1,8 @@
+1.20.1 / 2022-02-01
+==================
+
+  * Fix support of the lowercase response headers
+
 1.20.0 / 2021-01-13
 ==================
 

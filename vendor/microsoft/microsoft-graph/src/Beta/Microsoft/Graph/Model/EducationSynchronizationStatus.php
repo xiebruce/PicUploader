@@ -36,4 +36,6 @@ class EducationSynchronizationStatus extends Enum
     const VALIDATION_ERROR = "validationError";
     const QUARANTINED = "quarantined";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const EXTRACTING = "extracting";
+    const VALIDATING = "validating";
 }

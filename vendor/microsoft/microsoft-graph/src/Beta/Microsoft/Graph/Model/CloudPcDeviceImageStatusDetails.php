@@ -33,4 +33,6 @@ class CloudPcDeviceImageStatusDetails extends Enum
     const SOURCE_IMAGE_NOT_FOUND = "sourceImageNotFound";
     const OS_VERSION_NOT_SUPPORTED = "osVersionNotSupported";
     const SOURCE_IMAGE_INVALID = "sourceImageInvalid";
+    const SOURCE_IMAGE_NOT_GENERALIZED = "sourceImageNotGeneralized";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

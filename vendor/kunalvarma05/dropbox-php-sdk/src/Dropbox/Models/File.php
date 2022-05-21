@@ -48,6 +48,7 @@ class File extends BaseModel
      * Get the file contents
      *
      * @return string
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getContents()
     {

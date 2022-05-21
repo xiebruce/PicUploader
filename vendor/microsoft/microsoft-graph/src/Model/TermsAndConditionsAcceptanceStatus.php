@@ -28,12 +28,12 @@ class TermsAndConditionsAcceptanceStatus extends Entity
     * Gets the acceptedDateTime
     * DateTime when the terms were last accepted by the user.
     *
-    * @return \DateTime The acceptedDateTime
+    * @return \DateTime|null The acceptedDateTime
     */
     public function getAcceptedDateTime()
     {
         if (array_key_exists("acceptedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["acceptedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["acceptedDateTime"], "\DateTime") || is_null($this->_propDict["acceptedDateTime"])) {
                 return $this->_propDict["acceptedDateTime"];
             } else {
                 $this->_propDict["acceptedDateTime"] = new \DateTime($this->_propDict["acceptedDateTime"]);
@@ -42,7 +42,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the acceptedDateTime
     * DateTime when the terms were last accepted by the user.
@@ -56,12 +56,12 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         $this->_propDict["acceptedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the acceptedVersion
     * Most recent version number of the T&amp;C accepted by the user.
     *
-    * @return int The acceptedVersion
+    * @return int|null The acceptedVersion
     */
     public function getAcceptedVersion()
     {
@@ -71,7 +71,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the acceptedVersion
     * Most recent version number of the T&amp;C accepted by the user.
@@ -85,12 +85,12 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         $this->_propDict["acceptedVersion"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userDisplayName
     * Display name of the user whose acceptance the entity represents.
     *
-    * @return string The userDisplayName
+    * @return string|null The userDisplayName
     */
     public function getUserDisplayName()
     {
@@ -100,7 +100,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userDisplayName
     * Display name of the user whose acceptance the entity represents.
@@ -114,12 +114,12 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * The userPrincipalName of the User that accepted the term.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -129,7 +129,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * The userPrincipalName of the User that accepted the term.
@@ -143,17 +143,17 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the termsAndConditions
     * Navigation link to the terms and conditions that are assigned.
     *
-    * @return TermsAndConditions The termsAndConditions
+    * @return TermsAndConditions|null The termsAndConditions
     */
     public function getTermsAndConditions()
     {
         if (array_key_exists("termsAndConditions", $this->_propDict)) {
-            if (is_a($this->_propDict["termsAndConditions"], "\Microsoft\Graph\Model\TermsAndConditions")) {
+            if (is_a($this->_propDict["termsAndConditions"], "\Microsoft\Graph\Model\TermsAndConditions") || is_null($this->_propDict["termsAndConditions"])) {
                 return $this->_propDict["termsAndConditions"];
             } else {
                 $this->_propDict["termsAndConditions"] = new TermsAndConditions($this->_propDict["termsAndConditions"]);
@@ -162,7 +162,7 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the termsAndConditions
     * Navigation link to the terms and conditions that are assigned.
@@ -176,5 +176,5 @@ class TermsAndConditionsAcceptanceStatus extends Entity
         $this->_propDict["termsAndConditions"] = $val;
         return $this;
     }
-    
+
 }

@@ -26,9 +26,11 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementSettingCollectionConstraint");
     }
 
@@ -36,7 +38,7 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
     * Gets the maximumLength
     * The maximum number of elements in the collection
     *
-    * @return int The maximumLength
+    * @return int|null The maximumLength
     */
     public function getMaximumLength()
     {
@@ -64,7 +66,7 @@ class DeviceManagementSettingCollectionConstraint extends DeviceManagementConstr
     * Gets the minimumLength
     * The minimum number of elements in the collection
     *
-    * @return int The minimumLength
+    * @return int|null The minimumLength
     */
     public function getMinimumLength()
     {

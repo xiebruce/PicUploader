@@ -28,7 +28,7 @@ class GraphList extends BaseItem
     * Gets the displayName
     * The displayable title of the list.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,31 +38,31 @@ class GraphList extends BaseItem
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The displayable title of the list.
     *
     * @param string $val The displayName
     *
-    * @return List
+    * @return GraphList
     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the list
     * Provides additional details about the list.
     *
-    * @return ListInfo The list
+    * @return ListInfo|null The list
     */
     public function getList()
     {
         if (array_key_exists("list", $this->_propDict)) {
-            if (is_a($this->_propDict["list"], "\Beta\Microsoft\Graph\Model\ListInfo")) {
+            if (is_a($this->_propDict["list"], "\Beta\Microsoft\Graph\Model\ListInfo") || is_null($this->_propDict["list"])) {
                 return $this->_propDict["list"];
             } else {
                 $this->_propDict["list"] = new ListInfo($this->_propDict["list"]);
@@ -71,31 +71,31 @@ class GraphList extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the list
     * Provides additional details about the list.
     *
     * @param ListInfo $val The list
     *
-    * @return List
+    * @return GraphList
     */
     public function setList($val)
     {
         $this->_propDict["list"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharepointIds
     * Returns identifiers useful for SharePoint REST compatibility. Read-only.
     *
-    * @return SharepointIds The sharepointIds
+    * @return SharepointIds|null The sharepointIds
     */
     public function getSharepointIds()
     {
         if (array_key_exists("sharepointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharepointIds"], "\Beta\Microsoft\Graph\Model\SharepointIds")) {
+            if (is_a($this->_propDict["sharepointIds"], "\Beta\Microsoft\Graph\Model\SharepointIds") || is_null($this->_propDict["sharepointIds"])) {
                 return $this->_propDict["sharepointIds"];
             } else {
                 $this->_propDict["sharepointIds"] = new SharepointIds($this->_propDict["sharepointIds"]);
@@ -104,31 +104,31 @@ class GraphList extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the sharepointIds
     * Returns identifiers useful for SharePoint REST compatibility. Read-only.
     *
     * @param SharepointIds $val The sharepointIds
     *
-    * @return List
+    * @return GraphList
     */
     public function setSharepointIds($val)
     {
         $this->_propDict["sharepointIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the system
     * If present, indicates that this is a system-managed list. Read-only.
     *
-    * @return SystemFacet The system
+    * @return SystemFacet|null The system
     */
     public function getSystem()
     {
         if (array_key_exists("system", $this->_propDict)) {
-            if (is_a($this->_propDict["system"], "\Beta\Microsoft\Graph\Model\SystemFacet")) {
+            if (is_a($this->_propDict["system"], "\Beta\Microsoft\Graph\Model\SystemFacet") || is_null($this->_propDict["system"])) {
                 return $this->_propDict["system"];
             } else {
                 $this->_propDict["system"] = new SystemFacet($this->_propDict["system"]);
@@ -137,27 +137,27 @@ class GraphList extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the system
     * If present, indicates that this is a system-managed list. Read-only.
     *
     * @param SystemFacet $val The system
     *
-    * @return List
+    * @return GraphList
     */
     public function setSystem($val)
     {
         $this->_propDict["system"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the activities
     * The recent activities that took place within this list.
      *
-     * @return array The activities
+     * @return array|null The activities
      */
     public function getActivities()
     {
@@ -167,27 +167,27 @@ class GraphList extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the activities
     * The recent activities that took place within this list.
     *
-    * @param ItemActivityOLD $val The activities
+    * @param ItemActivityOLD[] $val The activities
     *
-    * @return List
+    * @return GraphList
     */
     public function setActivities($val)
     {
-		$this->_propDict["activities"] = $val;
+        $this->_propDict["activities"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the columns
     * The collection of field definitions for this list.
      *
-     * @return array The columns
+     * @return array|null The columns
      */
     public function getColumns()
     {
@@ -197,27 +197,27 @@ class GraphList extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the columns
     * The collection of field definitions for this list.
     *
-    * @param ColumnDefinition $val The columns
+    * @param ColumnDefinition[] $val The columns
     *
-    * @return List
+    * @return GraphList
     */
     public function setColumns($val)
     {
-		$this->_propDict["columns"] = $val;
+        $this->_propDict["columns"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the contentTypes
     * The collection of content types present in this list.
      *
-     * @return array The contentTypes
+     * @return array|null The contentTypes
      */
     public function getContentTypes()
     {
@@ -227,31 +227,31 @@ class GraphList extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the contentTypes
     * The collection of content types present in this list.
     *
-    * @param ContentType $val The contentTypes
+    * @param ContentType[] $val The contentTypes
     *
-    * @return List
+    * @return GraphList
     */
     public function setContentTypes($val)
     {
-		$this->_propDict["contentTypes"] = $val;
+        $this->_propDict["contentTypes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the drive
     * Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
     *
-    * @return Drive The drive
+    * @return Drive|null The drive
     */
     public function getDrive()
     {
         if (array_key_exists("drive", $this->_propDict)) {
-            if (is_a($this->_propDict["drive"], "\Beta\Microsoft\Graph\Model\Drive")) {
+            if (is_a($this->_propDict["drive"], "\Beta\Microsoft\Graph\Model\Drive") || is_null($this->_propDict["drive"])) {
                 return $this->_propDict["drive"];
             } else {
                 $this->_propDict["drive"] = new Drive($this->_propDict["drive"]);
@@ -260,27 +260,27 @@ class GraphList extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the drive
     * Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].
     *
     * @param Drive $val The drive
     *
-    * @return List
+    * @return GraphList
     */
     public function setDrive($val)
     {
         $this->_propDict["drive"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the items
     * All items contained in the list.
      *
-     * @return array The items
+     * @return array|null The items
      */
     public function getItems()
     {
@@ -290,27 +290,57 @@ class GraphList extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the items
     * All items contained in the list.
     *
-    * @param ListItem $val The items
+    * @param ListItem[] $val The items
     *
-    * @return List
+    * @return GraphList
     */
     public function setItems($val)
     {
-		$this->_propDict["items"] = $val;
+        $this->_propDict["items"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
+     * Gets the operations
+    * The collection of long running operations for the list.
+     *
+     * @return array|null The operations
+     */
+    public function getOperations()
+    {
+        if (array_key_exists("operations", $this->_propDict)) {
+           return $this->_propDict["operations"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the operations
+    * The collection of long running operations for the list.
+    *
+    * @param RichLongRunningOperation[] $val The operations
+    *
+    * @return GraphList
+    */
+    public function setOperations($val)
+    {
+        $this->_propDict["operations"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the subscriptions
     * The set of subscriptions on the list.
      *
-     * @return array The subscriptions
+     * @return array|null The subscriptions
      */
     public function getSubscriptions()
     {
@@ -320,19 +350,19 @@ class GraphList extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the subscriptions
     * The set of subscriptions on the list.
     *
-    * @param Subscription $val The subscriptions
+    * @param Subscription[] $val The subscriptions
     *
-    * @return List
+    * @return GraphList
     */
     public function setSubscriptions($val)
     {
-		$this->_propDict["subscriptions"] = $val;
+        $this->_propDict["subscriptions"] = $val;
         return $this;
     }
-    
+
 }

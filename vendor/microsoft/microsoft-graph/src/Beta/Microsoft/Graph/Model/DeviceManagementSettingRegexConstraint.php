@@ -26,9 +26,11 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementSettingRegexConstraint");
     }
 
@@ -36,7 +38,7 @@ class DeviceManagementSettingRegexConstraint extends DeviceManagementConstraint
     * Gets the regex
     * The RegEx pattern to match against
     *
-    * @return string The regex
+    * @return string|null The regex
     */
     public function getRegex()
     {

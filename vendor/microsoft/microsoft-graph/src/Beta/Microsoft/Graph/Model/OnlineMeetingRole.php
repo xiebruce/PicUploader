@@ -33,4 +33,5 @@ class OnlineMeetingRole extends Enum
     const PRESENTER = "presenter";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     const PRODUCER = "producer";
+    const COORGANIZER = "coorganizer";
 }

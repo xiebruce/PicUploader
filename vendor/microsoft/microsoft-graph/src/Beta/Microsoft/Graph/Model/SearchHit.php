@@ -27,7 +27,7 @@ class SearchHit extends Entity
     * Gets the contentSource
     * The name of the content source which the externalItem is part of .
     *
-    * @return string The contentSource
+    * @return string|null The contentSource
     */
     public function getContentSource()
     {
@@ -55,7 +55,7 @@ class SearchHit extends Entity
     * Gets the hitId
     * The internal identifier for the item.
     *
-    * @return string The hitId
+    * @return string|null The hitId
     */
     public function getHitId()
     {
@@ -83,7 +83,7 @@ class SearchHit extends Entity
     * Gets the rank
     * The rank or the order of the result.
     *
-    * @return int The rank
+    * @return int|null The rank
     */
     public function getRank()
     {
@@ -108,10 +108,38 @@ class SearchHit extends Entity
         return $this;
     }
     /**
+    * Gets the resultTemplateId
+    * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+    *
+    * @return string|null The resultTemplateId
+    */
+    public function getResultTemplateId()
+    {
+        if (array_key_exists("resultTemplateId", $this->_propDict)) {
+            return $this->_propDict["resultTemplateId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the resultTemplateId
+    * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+    *
+    * @param string $val The value of the resultTemplateId
+    *
+    * @return SearchHit
+    */
+    public function setResultTemplateId($val)
+    {
+        $this->_propDict["resultTemplateId"] = $val;
+        return $this;
+    }
+    /**
     * Gets the summary
     * A summary of the result, if a summary is available.
     *
-    * @return string The summary
+    * @return string|null The summary
     */
     public function getSummary()
     {
@@ -138,7 +166,7 @@ class SearchHit extends Entity
     /**
     * Gets the _id
     *
-    * @return string The _id
+    * @return string|null The _id
     */
     public function get_id()
     {
@@ -164,7 +192,7 @@ class SearchHit extends Entity
     /**
     * Gets the _score
     *
-    * @return int The _score
+    * @return int|null The _score
     */
     public function get_score()
     {
@@ -190,7 +218,7 @@ class SearchHit extends Entity
     /**
     * Gets the _summary
     *
-    * @return string The _summary
+    * @return string|null The _summary
     */
     public function get_summary()
     {
@@ -217,12 +245,12 @@ class SearchHit extends Entity
     /**
     * Gets the resource
     *
-    * @return Entity The resource
+    * @return Entity|null The resource
     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\Entity")) {
+            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\Entity") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new Entity($this->_propDict["resource"]);
@@ -248,12 +276,12 @@ class SearchHit extends Entity
     /**
     * Gets the _source
     *
-    * @return Entity The _source
+    * @return Entity|null The _source
     */
     public function get_source()
     {
         if (array_key_exists("_source", $this->_propDict)) {
-            if (is_a($this->_propDict["_source"], "\Beta\Microsoft\Graph\Model\Entity")) {
+            if (is_a($this->_propDict["_source"], "\Beta\Microsoft\Graph\Model\Entity") || is_null($this->_propDict["_source"])) {
                 return $this->_propDict["_source"];
             } else {
                 $this->_propDict["_source"] = new Entity($this->_propDict["_source"]);

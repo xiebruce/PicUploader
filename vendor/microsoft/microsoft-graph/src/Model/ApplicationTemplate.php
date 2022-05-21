@@ -26,9 +26,9 @@ class ApplicationTemplate extends Entity
 {
     /**
     * Gets the categories
-    * The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer,Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.
+    * The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.
     *
-    * @return string The categories
+    * @return string|null The categories
     */
     public function getCategories()
     {
@@ -38,10 +38,10 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the categories
-    * The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer,Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.
+    * The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.
     *
     * @param string $val The categories
     *
@@ -52,12 +52,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["categories"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * A description of the application.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -67,7 +67,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * A description of the application.
@@ -81,12 +81,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name of the application.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -96,7 +96,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the application.
@@ -110,12 +110,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the homePageUrl
     * The home page URL of the application.
     *
-    * @return string The homePageUrl
+    * @return string|null The homePageUrl
     */
     public function getHomePageUrl()
     {
@@ -125,7 +125,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the homePageUrl
     * The home page URL of the application.
@@ -139,12 +139,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["homePageUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the logoUrl
     * The URL to get the logo for this application.
     *
-    * @return string The logoUrl
+    * @return string|null The logoUrl
     */
     public function getLogoUrl()
     {
@@ -154,7 +154,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the logoUrl
     * The URL to get the logo for this application.
@@ -168,12 +168,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["logoUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publisher
     * The name of the publisher for this application.
     *
-    * @return string The publisher
+    * @return string|null The publisher
     */
     public function getPublisher()
     {
@@ -183,7 +183,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the publisher
     * The name of the publisher for this application.
@@ -197,12 +197,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the supportedProvisioningTypes
     * The list of provisioning modes supported by this application. The only valid value is sync.
     *
-    * @return string The supportedProvisioningTypes
+    * @return string|null The supportedProvisioningTypes
     */
     public function getSupportedProvisioningTypes()
     {
@@ -212,7 +212,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the supportedProvisioningTypes
     * The list of provisioning modes supported by this application. The only valid value is sync.
@@ -226,12 +226,12 @@ class ApplicationTemplate extends Entity
         $this->_propDict["supportedProvisioningTypes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the supportedSingleSignOnModes
     * The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
     *
-    * @return string The supportedSingleSignOnModes
+    * @return string|null The supportedSingleSignOnModes
     */
     public function getSupportedSingleSignOnModes()
     {
@@ -241,7 +241,7 @@ class ApplicationTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the supportedSingleSignOnModes
     * The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
@@ -255,5 +255,5 @@ class ApplicationTemplate extends Entity
         $this->_propDict["supportedSingleSignOnModes"] = $val;
         return $this;
     }
-    
+
 }

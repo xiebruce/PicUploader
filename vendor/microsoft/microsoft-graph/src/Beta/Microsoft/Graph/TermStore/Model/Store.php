@@ -28,7 +28,7 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the defaultLanguageTag
     * Default language of the term store.
     *
-    * @return string The defaultLanguageTag
+    * @return string|null The defaultLanguageTag
     */
     public function getDefaultLanguageTag()
     {
@@ -38,7 +38,7 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultLanguageTag
     * Default language of the term store.
@@ -52,12 +52,12 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["defaultLanguageTag"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the languageTags
     * List of languages for the term store.
     *
-    * @return string The languageTags
+    * @return string|null The languageTags
     */
     public function getLanguageTags()
     {
@@ -67,7 +67,7 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the languageTags
     * List of languages for the term store.
@@ -81,13 +81,13 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["languageTags"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the groups
     * Collection of all groups available in the term store.
      *
-     * @return array The groups
+     * @return array|null The groups
      */
     public function getGroups()
     {
@@ -97,27 +97,27 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the groups
     * Collection of all groups available in the term store.
     *
-    * @param Group $val The groups
+    * @param Group[] $val The groups
     *
     * @return Store
     */
     public function setGroups($val)
     {
-		$this->_propDict["groups"] = $val;
+        $this->_propDict["groups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sets
     * Collection of all sets available in the term store.
      *
-     * @return array The sets
+     * @return array|null The sets
      */
     public function getSets()
     {
@@ -127,19 +127,19 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the sets
     * Collection of all sets available in the term store.
     *
-    * @param Set $val The sets
+    * @param Set[] $val The sets
     *
     * @return Store
     */
     public function setSets($val)
     {
-		$this->_propDict["sets"] = $val;
+        $this->_propDict["sets"] = $val;
         return $this;
     }
-    
+
 }

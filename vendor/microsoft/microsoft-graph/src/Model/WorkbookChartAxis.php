@@ -28,7 +28,7 @@ class WorkbookChartAxis extends Entity
     * Gets the majorUnit
     * Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.
     *
-    * @return string The majorUnit
+    * @return string|null The majorUnit
     */
     public function getMajorUnit()
     {
@@ -38,7 +38,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the majorUnit
     * Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.
@@ -52,12 +52,12 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["majorUnit"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the maximum
     * Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
     *
-    * @return string The maximum
+    * @return string|null The maximum
     */
     public function getMaximum()
     {
@@ -67,7 +67,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the maximum
     * Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
@@ -81,12 +81,12 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["maximum"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimum
     * Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
     *
-    * @return string The minimum
+    * @return string|null The minimum
     */
     public function getMinimum()
     {
@@ -96,7 +96,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the minimum
     * Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.
@@ -110,12 +110,12 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["minimum"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minorUnit
     * Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.
     *
-    * @return string The minorUnit
+    * @return string|null The minorUnit
     */
     public function getMinorUnit()
     {
@@ -125,7 +125,7 @@ class WorkbookChartAxis extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the minorUnit
     * Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.
@@ -139,17 +139,17 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["minorUnit"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the format
     * Represents the formatting of a chart object, which includes line and font formatting. Read-only.
     *
-    * @return WorkbookChartAxisFormat The format
+    * @return WorkbookChartAxisFormat|null The format
     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Microsoft\Graph\Model\WorkbookChartAxisFormat")) {
+            if (is_a($this->_propDict["format"], "\Microsoft\Graph\Model\WorkbookChartAxisFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new WorkbookChartAxisFormat($this->_propDict["format"]);
@@ -158,7 +158,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the format
     * Represents the formatting of a chart object, which includes line and font formatting. Read-only.
@@ -172,17 +172,17 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the majorGridlines
     * Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
     *
-    * @return WorkbookChartGridlines The majorGridlines
+    * @return WorkbookChartGridlines|null The majorGridlines
     */
     public function getMajorGridlines()
     {
         if (array_key_exists("majorGridlines", $this->_propDict)) {
-            if (is_a($this->_propDict["majorGridlines"], "\Microsoft\Graph\Model\WorkbookChartGridlines")) {
+            if (is_a($this->_propDict["majorGridlines"], "\Microsoft\Graph\Model\WorkbookChartGridlines") || is_null($this->_propDict["majorGridlines"])) {
                 return $this->_propDict["majorGridlines"];
             } else {
                 $this->_propDict["majorGridlines"] = new WorkbookChartGridlines($this->_propDict["majorGridlines"]);
@@ -191,7 +191,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the majorGridlines
     * Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.
@@ -205,17 +205,17 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["majorGridlines"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minorGridlines
     * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
     *
-    * @return WorkbookChartGridlines The minorGridlines
+    * @return WorkbookChartGridlines|null The minorGridlines
     */
     public function getMinorGridlines()
     {
         if (array_key_exists("minorGridlines", $this->_propDict)) {
-            if (is_a($this->_propDict["minorGridlines"], "\Microsoft\Graph\Model\WorkbookChartGridlines")) {
+            if (is_a($this->_propDict["minorGridlines"], "\Microsoft\Graph\Model\WorkbookChartGridlines") || is_null($this->_propDict["minorGridlines"])) {
                 return $this->_propDict["minorGridlines"];
             } else {
                 $this->_propDict["minorGridlines"] = new WorkbookChartGridlines($this->_propDict["minorGridlines"]);
@@ -224,7 +224,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the minorGridlines
     * Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.
@@ -238,17 +238,17 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["minorGridlines"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the title
     * Represents the axis title. Read-only.
     *
-    * @return WorkbookChartAxisTitle The title
+    * @return WorkbookChartAxisTitle|null The title
     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
-            if (is_a($this->_propDict["title"], "\Microsoft\Graph\Model\WorkbookChartAxisTitle")) {
+            if (is_a($this->_propDict["title"], "\Microsoft\Graph\Model\WorkbookChartAxisTitle") || is_null($this->_propDict["title"])) {
                 return $this->_propDict["title"];
             } else {
                 $this->_propDict["title"] = new WorkbookChartAxisTitle($this->_propDict["title"]);
@@ -257,7 +257,7 @@ class WorkbookChartAxis extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the title
     * Represents the axis title. Read-only.
@@ -271,5 +271,5 @@ class WorkbookChartAxis extends Entity
         $this->_propDict["title"] = $val;
         return $this;
     }
-    
+
 }

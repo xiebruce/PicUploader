@@ -28,7 +28,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
     * Gets the authenticationCertificateId
     * ID to the Authentication Certificate
     *
-    * @return string The authenticationCertificateId
+    * @return string|null The authenticationCertificateId
     */
     public function getAuthenticationCertificateId()
     {
@@ -38,7 +38,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
             return null;
         }
     }
-    
+
     /**
     * Sets the authenticationCertificateId
     * ID to the Authentication Certificate
@@ -52,26 +52,26 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
         $this->_propDict["authenticationCertificateId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the customXml
     * Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
     *
-    * @return \GuzzleHttp\Psr7\Stream The customXml
+    * @return \GuzzleHttp\Psr7\Stream|null The customXml
     */
     public function getCustomXml()
     {
         if (array_key_exists("customXml", $this->_propDict)) {
-            if (is_a($this->_propDict["customXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["customXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["customXml"])) {
                 return $this->_propDict["customXml"];
             } else {
-                $this->_propDict["customXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["customXml"]);
+                $this->_propDict["customXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customXml"]);
                 return $this->_propDict["customXml"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the customXml
     * Custom XML commands that configures the VPN connection. (UTF8 byte encoding)
@@ -85,12 +85,12 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
         $this->_propDict["customXml"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the customXmlFileName
     * Custom Xml file name.
     *
-    * @return string The customXmlFileName
+    * @return string|null The customXmlFileName
     */
     public function getCustomXmlFileName()
     {
@@ -100,7 +100,7 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
             return null;
         }
     }
-    
+
     /**
     * Sets the customXmlFileName
     * Custom Xml file name.
@@ -114,5 +114,5 @@ class Windows10XWifiConfiguration extends DeviceManagementResourceAccessProfileB
         $this->_propDict["customXmlFileName"] = $val;
         return $this;
     }
-    
+
 }

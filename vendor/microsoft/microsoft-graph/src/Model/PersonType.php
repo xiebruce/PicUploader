@@ -27,7 +27,7 @@ class PersonType extends Entity
     * Gets the class
     * The type of data source, such as Person.
     *
-    * @return string The class
+    * @return string|null The class
     */
     public function getClass()
     {
@@ -55,7 +55,7 @@ class PersonType extends Entity
     * Gets the subclass
     * The secondary type of data source, such as OrganizationUser.
     *
-    * @return string The subclass
+    * @return string|null The subclass
     */
     public function getSubclass()
     {

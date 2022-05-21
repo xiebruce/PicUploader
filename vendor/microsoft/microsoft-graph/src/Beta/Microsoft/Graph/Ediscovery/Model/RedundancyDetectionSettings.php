@@ -25,8 +25,9 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the isEnabled
+    * Indicates whether email threading and near duplicate detection are enabled.
     *
-    * @return bool The isEnabled
+    * @return bool|null The isEnabled
     */
     public function getIsEnabled()
     {
@@ -39,6 +40,7 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isEnabled
+    * Indicates whether email threading and near duplicate detection are enabled.
     *
     * @param bool $val The value of the isEnabled
     *
@@ -51,8 +53,9 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the maxWords
+    * Specifies the maximum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words.
     *
-    * @return int The maxWords
+    * @return int|null The maxWords
     */
     public function getMaxWords()
     {
@@ -65,6 +68,7 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the maxWords
+    * Specifies the maximum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words.
     *
     * @param int $val The value of the maxWords
     *
@@ -77,8 +81,9 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the minWords
+    * Specifies the minimum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words.
     *
-    * @return int The minWords
+    * @return int|null The minWords
     */
     public function getMinWords()
     {
@@ -91,6 +96,7 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the minWords
+    * Specifies the minimum number of words used for email threading and near duplicate detection. To learn more, see Minimum/maximum number of words.
     *
     * @param int $val The value of the minWords
     *
@@ -103,8 +109,9 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the similarityThreshold
+    * Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold.
     *
-    * @return int The similarityThreshold
+    * @return int|null The similarityThreshold
     */
     public function getSimilarityThreshold()
     {
@@ -117,6 +124,7 @@ class RedundancyDetectionSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the similarityThreshold
+    * Specifies the similarity level for documents to be put in the same near duplicate set. To learn more, see Document and email similarity threshold.
     *
     * @param int $val The value of the similarityThreshold
     *

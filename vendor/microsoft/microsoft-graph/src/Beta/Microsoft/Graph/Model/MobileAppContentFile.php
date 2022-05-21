@@ -28,7 +28,7 @@ class MobileAppContentFile extends Entity
     * Gets the azureStorageUri
     * The Azure Storage URI.
     *
-    * @return string The azureStorageUri
+    * @return string|null The azureStorageUri
     */
     public function getAzureStorageUri()
     {
@@ -38,7 +38,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureStorageUri
     * The Azure Storage URI.
@@ -52,17 +52,17 @@ class MobileAppContentFile extends Entity
         $this->_propDict["azureStorageUri"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureStorageUriExpirationDateTime
     * The time the Azure storage Uri expires.
     *
-    * @return \DateTime The azureStorageUriExpirationDateTime
+    * @return \DateTime|null The azureStorageUriExpirationDateTime
     */
     public function getAzureStorageUriExpirationDateTime()
     {
         if (array_key_exists("azureStorageUriExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["azureStorageUriExpirationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["azureStorageUriExpirationDateTime"], "\DateTime") || is_null($this->_propDict["azureStorageUriExpirationDateTime"])) {
                 return $this->_propDict["azureStorageUriExpirationDateTime"];
             } else {
                 $this->_propDict["azureStorageUriExpirationDateTime"] = new \DateTime($this->_propDict["azureStorageUriExpirationDateTime"]);
@@ -71,7 +71,7 @@ class MobileAppContentFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the azureStorageUriExpirationDateTime
     * The time the Azure storage Uri expires.
@@ -85,17 +85,17 @@ class MobileAppContentFile extends Entity
         $this->_propDict["azureStorageUriExpirationDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The time the file was created.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -104,7 +104,7 @@ class MobileAppContentFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The time the file was created.
@@ -118,12 +118,12 @@ class MobileAppContentFile extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isCommitted
     * A value indicating whether the file is committed.
     *
-    * @return bool The isCommitted
+    * @return bool|null The isCommitted
     */
     public function getIsCommitted()
     {
@@ -133,7 +133,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isCommitted
     * A value indicating whether the file is committed.
@@ -147,12 +147,12 @@ class MobileAppContentFile extends Entity
         $this->_propDict["isCommitted"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isDependency
     * Whether the content file is a dependency for the main content file.
     *
-    * @return bool The isDependency
+    * @return bool|null The isDependency
     */
     public function getIsDependency()
     {
@@ -162,7 +162,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDependency
     * Whether the content file is a dependency for the main content file.
@@ -176,12 +176,12 @@ class MobileAppContentFile extends Entity
         $this->_propDict["isDependency"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isFrameworkFile
     * A value indicating whether the file is a framework file.
     *
-    * @return bool The isFrameworkFile
+    * @return bool|null The isFrameworkFile
     */
     public function getIsFrameworkFile()
     {
@@ -191,7 +191,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isFrameworkFile
     * A value indicating whether the file is a framework file.
@@ -205,26 +205,26 @@ class MobileAppContentFile extends Entity
         $this->_propDict["isFrameworkFile"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the manifest
     * The manifest information.
     *
-    * @return \GuzzleHttp\Psr7\Stream The manifest
+    * @return \GuzzleHttp\Psr7\Stream|null The manifest
     */
     public function getManifest()
     {
         if (array_key_exists("manifest", $this->_propDict)) {
-            if (is_a($this->_propDict["manifest"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["manifest"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["manifest"])) {
                 return $this->_propDict["manifest"];
             } else {
-                $this->_propDict["manifest"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["manifest"]);
+                $this->_propDict["manifest"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["manifest"]);
                 return $this->_propDict["manifest"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the manifest
     * The manifest information.
@@ -238,12 +238,12 @@ class MobileAppContentFile extends Entity
         $this->_propDict["manifest"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     * the file name.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -253,7 +253,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * the file name.
@@ -267,12 +267,12 @@ class MobileAppContentFile extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the size
     * The size of the file prior to encryption.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {
@@ -282,7 +282,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the size
     * The size of the file prior to encryption.
@@ -296,12 +296,12 @@ class MobileAppContentFile extends Entity
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the sizeEncrypted
     * The size of the file after encryption.
     *
-    * @return int The sizeEncrypted
+    * @return int|null The sizeEncrypted
     */
     public function getSizeEncrypted()
     {
@@ -311,7 +311,7 @@ class MobileAppContentFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sizeEncrypted
     * The size of the file after encryption.
@@ -325,17 +325,17 @@ class MobileAppContentFile extends Entity
         $this->_propDict["sizeEncrypted"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the uploadState
     * The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
     *
-    * @return MobileAppContentFileUploadState The uploadState
+    * @return MobileAppContentFileUploadState|null The uploadState
     */
     public function getUploadState()
     {
         if (array_key_exists("uploadState", $this->_propDict)) {
-            if (is_a($this->_propDict["uploadState"], "\Beta\Microsoft\Graph\Model\MobileAppContentFileUploadState")) {
+            if (is_a($this->_propDict["uploadState"], "\Beta\Microsoft\Graph\Model\MobileAppContentFileUploadState") || is_null($this->_propDict["uploadState"])) {
                 return $this->_propDict["uploadState"];
             } else {
                 $this->_propDict["uploadState"] = new MobileAppContentFileUploadState($this->_propDict["uploadState"]);
@@ -344,7 +344,7 @@ class MobileAppContentFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the uploadState
     * The state of the current upload request. Possible values are: success, transientError, error, unknown, azureStorageUriRequestSuccess, azureStorageUriRequestPending, azureStorageUriRequestFailed, azureStorageUriRequestTimedOut, azureStorageUriRenewalSuccess, azureStorageUriRenewalPending, azureStorageUriRenewalFailed, azureStorageUriRenewalTimedOut, commitFileSuccess, commitFilePending, commitFileFailed, commitFileTimedOut.
@@ -358,5 +358,5 @@ class MobileAppContentFile extends Entity
         $this->_propDict["uploadState"] = $val;
         return $this;
     }
-    
+
 }

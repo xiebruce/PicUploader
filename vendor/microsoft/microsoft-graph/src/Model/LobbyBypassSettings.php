@@ -27,7 +27,7 @@ class LobbyBypassSettings extends Entity
     * Gets the isDialInBypassEnabled
     * Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
     *
-    * @return bool The isDialInBypassEnabled
+    * @return bool|null The isDialInBypassEnabled
     */
     public function getIsDialInBypassEnabled()
     {
@@ -54,14 +54,14 @@ class LobbyBypassSettings extends Entity
 
     /**
     * Gets the scope
-    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.
+    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
     *
-    * @return LobbyBypassScope The scope
+    * @return LobbyBypassScope|null The scope
     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Microsoft\Graph\Model\LobbyBypassScope")) {
+            if (is_a($this->_propDict["scope"], "\Microsoft\Graph\Model\LobbyBypassScope") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new LobbyBypassScope($this->_propDict["scope"]);
@@ -73,7 +73,7 @@ class LobbyBypassSettings extends Entity
 
     /**
     * Sets the scope
-    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.
+    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
     *
     * @param LobbyBypassScope $val The value to assign to the scope
     *

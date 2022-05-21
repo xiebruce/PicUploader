@@ -27,7 +27,7 @@ class UserExperienceAnalyticsInsight extends Entity
     * Gets the insightId
     * The unique identifier of the user experience analytics insight.
     *
-    * @return string The insightId
+    * @return string|null The insightId
     */
     public function getInsightId()
     {
@@ -56,12 +56,12 @@ class UserExperienceAnalyticsInsight extends Entity
     * Gets the severity
     * The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
     *
-    * @return UserExperienceAnalyticsInsightSeverity The severity
+    * @return UserExperienceAnalyticsInsightSeverity|null The severity
     */
     public function getSeverity()
     {
         if (array_key_exists("severity", $this->_propDict)) {
-            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightSeverity")) {
+            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightSeverity") || is_null($this->_propDict["severity"])) {
                 return $this->_propDict["severity"];
             } else {
                 $this->_propDict["severity"] = new UserExperienceAnalyticsInsightSeverity($this->_propDict["severity"]);
@@ -88,7 +88,7 @@ class UserExperienceAnalyticsInsight extends Entity
     * Gets the userExperienceAnalyticsMetricId
     * The unique identifier of the user experience analytics insight.
     *
-    * @return string The userExperienceAnalyticsMetricId
+    * @return string|null The userExperienceAnalyticsMetricId
     */
     public function getUserExperienceAnalyticsMetricId()
     {
@@ -117,12 +117,12 @@ class UserExperienceAnalyticsInsight extends Entity
     * Gets the values
     * The value of the user experience analytics insight.
     *
-    * @return UserExperienceAnalyticsInsightValue The values
+    * @return UserExperienceAnalyticsInsightValue|null The values
     */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
-            if (is_a($this->_propDict["values"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightValue")) {
+            if (is_a($this->_propDict["values"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightValue") || is_null($this->_propDict["values"])) {
                 return $this->_propDict["values"];
             } else {
                 $this->_propDict["values"] = new UserExperienceAnalyticsInsightValue($this->_propDict["values"]);

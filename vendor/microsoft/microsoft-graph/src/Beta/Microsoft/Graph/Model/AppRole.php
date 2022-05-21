@@ -27,7 +27,7 @@ class AppRole extends Entity
     * Gets the allowedMemberTypes
     * Specifies whether this app role can be assigned to users and groups (by setting to ['User']), to other application's (by setting to ['Application'], or both (by setting to ['User', 'Application']). App roles supporting assignment to other applications' service principals are also known as application permissions. The 'Application' value is only supported for app roles defined on application entities.
     *
-    * @return string The allowedMemberTypes
+    * @return string|null The allowedMemberTypes
     */
     public function getAllowedMemberTypes()
     {
@@ -55,7 +55,7 @@ class AppRole extends Entity
     * Gets the description
     * The description for the app role. This is displayed when the app role is being assigned and, if the app role functions as an application permission, during  consent experiences.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -83,7 +83,7 @@ class AppRole extends Entity
     * Gets the displayName
     * Display name for the permission that appears in the app role assignment and consent experiences.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -109,9 +109,9 @@ class AppRole extends Entity
     }
     /**
     * Gets the id
-    * Unique role identifier inside the appRoles collection. When creating a new app role, a new Guid identifier must be provided.
+    * Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -124,7 +124,7 @@ class AppRole extends Entity
 
     /**
     * Sets the id
-    * Unique role identifier inside the appRoles collection. When creating a new app role, a new Guid identifier must be provided.
+    * Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
     *
     * @param string $val The value of the id
     *
@@ -139,7 +139,7 @@ class AppRole extends Entity
     * Gets the isEnabled
     * When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed.
     *
-    * @return bool The isEnabled
+    * @return bool|null The isEnabled
     */
     public function getIsEnabled()
     {
@@ -167,7 +167,7 @@ class AppRole extends Entity
     * Gets the origin
     * Specifies if the app role is defined on the application object or on the servicePrincipal entity. Must not be included in any POST or PATCH requests. Read-only.
     *
-    * @return string The origin
+    * @return string|null The origin
     */
     public function getOrigin()
     {
@@ -193,9 +193,9 @@ class AppRole extends Entity
     }
     /**
     * Gets the value
-    * Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % &amp; ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed.
+    * Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % &amp; ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with ..
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -208,7 +208,7 @@ class AppRole extends Entity
 
     /**
     * Sets the value
-    * Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % &amp; ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed.
+    * Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % &amp; ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed. May not begin with ..
     *
     * @param string $val The value of the value
     *

@@ -27,7 +27,7 @@ class PlannerPlanContainer extends Entity
     * Gets the containerId
     * The identifier of the resource that contains the plan.
     *
-    * @return string The containerId
+    * @return string|null The containerId
     */
     public function getContainerId()
     {
@@ -54,14 +54,14 @@ class PlannerPlanContainer extends Entity
 
     /**
     * Gets the type
-    * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, roster, unknownFutureValue.
+    * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
     *
-    * @return PlannerContainerType The type
+    * @return PlannerContainerType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PlannerContainerType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PlannerContainerType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PlannerContainerType($this->_propDict["type"]);
@@ -73,7 +73,7 @@ class PlannerPlanContainer extends Entity
 
     /**
     * Sets the type
-    * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, roster, unknownFutureValue.
+    * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
     *
     * @param PlannerContainerType $val The value to assign to the type
     *
@@ -88,7 +88,7 @@ class PlannerPlanContainer extends Entity
     * Gets the url
     * The full canonical URL of the container.
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {

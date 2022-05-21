@@ -25,10 +25,10 @@ namespace Beta\Microsoft\Graph\Model;
 class DataClassificationService extends Entity
 {
 
-     /** 
+     /**
      * Gets the exactMatchDataStores
      *
-     * @return array The exactMatchDataStores
+     * @return array|null The exactMatchDataStores
      */
     public function getExactMatchDataStores()
     {
@@ -38,53 +38,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the exactMatchDataStores
     *
-    * @param ExactMatchDataStore $val The exactMatchDataStores
+    * @param ExactMatchDataStore[] $val The exactMatchDataStores
     *
     * @return DataClassificationService
     */
     public function setExactMatchDataStores($val)
     {
-		$this->_propDict["exactMatchDataStores"] = $val;
+        $this->_propDict["exactMatchDataStores"] = $val;
         return $this;
     }
-    
 
-     /** 
-     * Gets the classifyFile
-     *
-     * @return array The classifyFile
-     */
-    public function getClassifyFile()
-    {
-        if (array_key_exists("classifyFile", $this->_propDict)) {
-           return $this->_propDict["classifyFile"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the classifyFile
-    *
-    * @param FileClassificationRequest $val The classifyFile
-    *
-    * @return DataClassificationService
-    */
-    public function setClassifyFile($val)
-    {
-		$this->_propDict["classifyFile"] = $val;
-        return $this;
-    }
-    
 
-     /** 
+     /**
      * Gets the classifyFileJobs
      *
-     * @return array The classifyFileJobs
+     * @return array|null The classifyFileJobs
      */
     public function getClassifyFileJobs()
     {
@@ -94,53 +66,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the classifyFileJobs
     *
-    * @param JobResponseBase $val The classifyFileJobs
+    * @param JobResponseBase[] $val The classifyFileJobs
     *
     * @return DataClassificationService
     */
     public function setClassifyFileJobs($val)
     {
-		$this->_propDict["classifyFileJobs"] = $val;
+        $this->_propDict["classifyFileJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
-     * Gets the classifyText
-     *
-     * @return array The classifyText
-     */
-    public function getClassifyText()
-    {
-        if (array_key_exists("classifyText", $this->_propDict)) {
-           return $this->_propDict["classifyText"];
-        } else {
-            return null;
-        }
-    }
-    
-    /** 
-    * Sets the classifyText
-    *
-    * @param TextClassificationRequest $val The classifyText
-    *
-    * @return DataClassificationService
-    */
-    public function setClassifyText($val)
-    {
-		$this->_propDict["classifyText"] = $val;
-        return $this;
-    }
-    
 
-     /** 
+     /**
      * Gets the classifyTextJobs
      *
-     * @return array The classifyTextJobs
+     * @return array|null The classifyTextJobs
      */
     public function getClassifyTextJobs()
     {
@@ -150,25 +94,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the classifyTextJobs
     *
-    * @param JobResponseBase $val The classifyTextJobs
+    * @param JobResponseBase[] $val The classifyTextJobs
     *
     * @return DataClassificationService
     */
     public function setClassifyTextJobs($val)
     {
-		$this->_propDict["classifyTextJobs"] = $val;
+        $this->_propDict["classifyTextJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the evaluateDlpPoliciesJobs
      *
-     * @return array The evaluateDlpPoliciesJobs
+     * @return array|null The evaluateDlpPoliciesJobs
      */
     public function getEvaluateDlpPoliciesJobs()
     {
@@ -178,25 +122,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the evaluateDlpPoliciesJobs
     *
-    * @param JobResponseBase $val The evaluateDlpPoliciesJobs
+    * @param JobResponseBase[] $val The evaluateDlpPoliciesJobs
     *
     * @return DataClassificationService
     */
     public function setEvaluateDlpPoliciesJobs($val)
     {
-		$this->_propDict["evaluateDlpPoliciesJobs"] = $val;
+        $this->_propDict["evaluateDlpPoliciesJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the evaluateLabelJobs
      *
-     * @return array The evaluateLabelJobs
+     * @return array|null The evaluateLabelJobs
      */
     public function getEvaluateLabelJobs()
     {
@@ -206,25 +150,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the evaluateLabelJobs
     *
-    * @param JobResponseBase $val The evaluateLabelJobs
+    * @param JobResponseBase[] $val The evaluateLabelJobs
     *
     * @return DataClassificationService
     */
     public function setEvaluateLabelJobs($val)
     {
-		$this->_propDict["evaluateLabelJobs"] = $val;
+        $this->_propDict["evaluateLabelJobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the jobs
      *
-     * @return array The jobs
+     * @return array|null The jobs
      */
     public function getJobs()
     {
@@ -234,25 +178,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the jobs
     *
-    * @param JobResponseBase $val The jobs
+    * @param JobResponseBase[] $val The jobs
     *
     * @return DataClassificationService
     */
     public function setJobs($val)
     {
-		$this->_propDict["jobs"] = $val;
+        $this->_propDict["jobs"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sensitiveTypes
      *
-     * @return array The sensitiveTypes
+     * @return array|null The sensitiveTypes
      */
     public function getSensitiveTypes()
     {
@@ -262,25 +206,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the sensitiveTypes
     *
-    * @param SensitiveType $val The sensitiveTypes
+    * @param SensitiveType[] $val The sensitiveTypes
     *
     * @return DataClassificationService
     */
     public function setSensitiveTypes($val)
     {
-		$this->_propDict["sensitiveTypes"] = $val;
+        $this->_propDict["sensitiveTypes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sensitivityLabels
      *
-     * @return array The sensitivityLabels
+     * @return array|null The sensitivityLabels
      */
     public function getSensitivityLabels()
     {
@@ -290,25 +234,25 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the sensitivityLabels
     *
-    * @param SensitivityLabel $val The sensitivityLabels
+    * @param SensitivityLabel[] $val The sensitivityLabels
     *
     * @return DataClassificationService
     */
     public function setSensitivityLabels($val)
     {
-		$this->_propDict["sensitivityLabels"] = $val;
+        $this->_propDict["sensitivityLabels"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the exactMatchUploadAgents
      *
-     * @return array The exactMatchUploadAgents
+     * @return array|null The exactMatchUploadAgents
      */
     public function getExactMatchUploadAgents()
     {
@@ -318,18 +262,18 @@ class DataClassificationService extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the exactMatchUploadAgents
     *
-    * @param ExactMatchUploadAgent $val The exactMatchUploadAgents
+    * @param ExactMatchUploadAgent[] $val The exactMatchUploadAgents
     *
     * @return DataClassificationService
     */
     public function setExactMatchUploadAgents($val)
     {
-		$this->_propDict["exactMatchUploadAgents"] = $val;
+        $this->_propDict["exactMatchUploadAgents"] = $val;
         return $this;
     }
-    
+
 }

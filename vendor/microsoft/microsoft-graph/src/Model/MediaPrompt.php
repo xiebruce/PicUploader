@@ -28,12 +28,12 @@ class MediaPrompt extends Prompt
     * Gets the mediaInfo
     * The media information.
     *
-    * @return MediaInfo The mediaInfo
+    * @return MediaInfo|null The mediaInfo
     */
     public function getMediaInfo()
     {
         if (array_key_exists("mediaInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaInfo"], "\Microsoft\Graph\Model\MediaInfo")) {
+            if (is_a($this->_propDict["mediaInfo"], "\Microsoft\Graph\Model\MediaInfo") || is_null($this->_propDict["mediaInfo"])) {
                 return $this->_propDict["mediaInfo"];
             } else {
                 $this->_propDict["mediaInfo"] = new MediaInfo($this->_propDict["mediaInfo"]);

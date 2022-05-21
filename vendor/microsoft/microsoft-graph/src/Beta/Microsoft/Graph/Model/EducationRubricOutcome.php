@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class EducationRubricOutcome extends EducationOutcome
 {
 
-     /** 
+     /**
      * Gets the publishedRubricQualityFeedback
     * A copy of the rubricQualityFeedback property that is made when the grade is released to the student.
      *
-     * @return array The publishedRubricQualityFeedback
+     * @return array|null The publishedRubricQualityFeedback
      */
     public function getPublishedRubricQualityFeedback()
     {
@@ -39,27 +39,27 @@ class EducationRubricOutcome extends EducationOutcome
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the publishedRubricQualityFeedback
     * A copy of the rubricQualityFeedback property that is made when the grade is released to the student.
     *
-    * @param RubricQualityFeedbackModel $val The publishedRubricQualityFeedback
+    * @param RubricQualityFeedbackModel[] $val The publishedRubricQualityFeedback
     *
     * @return EducationRubricOutcome
     */
     public function setPublishedRubricQualityFeedback($val)
     {
-		$this->_propDict["publishedRubricQualityFeedback"] = $val;
+        $this->_propDict["publishedRubricQualityFeedback"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the publishedRubricQualitySelectedLevels
     * A copy of the rubricQualitySelectedLevels property that is made when the grade is released to the student.
      *
-     * @return array The publishedRubricQualitySelectedLevels
+     * @return array|null The publishedRubricQualitySelectedLevels
      */
     public function getPublishedRubricQualitySelectedLevels()
     {
@@ -69,27 +69,27 @@ class EducationRubricOutcome extends EducationOutcome
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the publishedRubricQualitySelectedLevels
     * A copy of the rubricQualitySelectedLevels property that is made when the grade is released to the student.
     *
-    * @param RubricQualitySelectedColumnModel $val The publishedRubricQualitySelectedLevels
+    * @param RubricQualitySelectedColumnModel[] $val The publishedRubricQualitySelectedLevels
     *
     * @return EducationRubricOutcome
     */
     public function setPublishedRubricQualitySelectedLevels($val)
     {
-		$this->_propDict["publishedRubricQualitySelectedLevels"] = $val;
+        $this->_propDict["publishedRubricQualitySelectedLevels"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the rubricQualityFeedback
     * A collection of specific feedback for each quality of this rubric.
      *
-     * @return array The rubricQualityFeedback
+     * @return array|null The rubricQualityFeedback
      */
     public function getRubricQualityFeedback()
     {
@@ -99,27 +99,27 @@ class EducationRubricOutcome extends EducationOutcome
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the rubricQualityFeedback
     * A collection of specific feedback for each quality of this rubric.
     *
-    * @param RubricQualityFeedbackModel $val The rubricQualityFeedback
+    * @param RubricQualityFeedbackModel[] $val The rubricQualityFeedback
     *
     * @return EducationRubricOutcome
     */
     public function setRubricQualityFeedback($val)
     {
-		$this->_propDict["rubricQualityFeedback"] = $val;
+        $this->_propDict["rubricQualityFeedback"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the rubricQualitySelectedLevels
     * The level that the teacher has selected for each quality while grading this assignment.
      *
-     * @return array The rubricQualitySelectedLevels
+     * @return array|null The rubricQualitySelectedLevels
      */
     public function getRubricQualitySelectedLevels()
     {
@@ -129,19 +129,19 @@ class EducationRubricOutcome extends EducationOutcome
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the rubricQualitySelectedLevels
     * The level that the teacher has selected for each quality while grading this assignment.
     *
-    * @param RubricQualitySelectedColumnModel $val The rubricQualitySelectedLevels
+    * @param RubricQualitySelectedColumnModel[] $val The rubricQualitySelectedLevels
     *
     * @return EducationRubricOutcome
     */
     public function setRubricQualitySelectedLevels($val)
     {
-		$this->_propDict["rubricQualitySelectedLevels"] = $val;
+        $this->_propDict["rubricQualitySelectedLevels"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class SynchronizationSchedule extends Entity
     * Gets the expiration
     * Date and time when this job will expire. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The expiration
+    * @return \DateTime|null The expiration
     */
     public function getExpiration()
     {
         if (array_key_exists("expiration", $this->_propDict)) {
-            if (is_a($this->_propDict["expiration"], "\DateTime")) {
+            if (is_a($this->_propDict["expiration"], "\DateTime") || is_null($this->_propDict["expiration"])) {
                 return $this->_propDict["expiration"];
             } else {
                 $this->_propDict["expiration"] = new \DateTime($this->_propDict["expiration"]);
@@ -61,15 +61,15 @@ class SynchronizationSchedule extends Entity
     * Gets the interval
     * The interval between synchronization iterations.
     *
-    * @return Duration The interval
+    * @return \DateInterval|null The interval
     */
     public function getInterval()
     {
         if (array_key_exists("interval", $this->_propDict)) {
-            if (is_a($this->_propDict["interval"], "\Beta\Microsoft\Graph\Model\Duration")) {
+            if (is_a($this->_propDict["interval"], "\DateInterval") || is_null($this->_propDict["interval"])) {
                 return $this->_propDict["interval"];
             } else {
-                $this->_propDict["interval"] = new Duration($this->_propDict["interval"]);
+                $this->_propDict["interval"] = new \DateInterval($this->_propDict["interval"]);
                 return $this->_propDict["interval"];
             }
         }
@@ -80,7 +80,7 @@ class SynchronizationSchedule extends Entity
     * Sets the interval
     * The interval between synchronization iterations.
     *
-    * @param Duration $val The value to assign to the interval
+    * @param \DateInterval $val The value to assign to the interval
     *
     * @return SynchronizationSchedule The SynchronizationSchedule
     */
@@ -94,12 +94,12 @@ class SynchronizationSchedule extends Entity
     * Gets the state
     * Possible values are: Active, Disabled.
     *
-    * @return SynchronizationScheduleState The state
+    * @return SynchronizationScheduleState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SynchronizationScheduleState")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SynchronizationScheduleState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SynchronizationScheduleState($this->_propDict["state"]);

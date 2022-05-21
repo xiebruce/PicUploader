@@ -27,7 +27,7 @@ class UserExperienceAnalyticsSettings extends Entity
     * Gets the configurationManagerDataConnectorConfigured
     * True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
     *
-    * @return bool The configurationManagerDataConnectorConfigured
+    * @return bool|null The configurationManagerDataConnectorConfigured
     */
     public function getConfigurationManagerDataConnectorConfigured()
     {

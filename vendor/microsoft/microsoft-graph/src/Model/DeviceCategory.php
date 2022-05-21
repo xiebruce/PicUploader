@@ -28,7 +28,7 @@ class DeviceCategory extends Entity
     * Gets the description
     * Optional description for the device category.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class DeviceCategory extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Optional description for the device category.
@@ -52,12 +52,12 @@ class DeviceCategory extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Display name for the device category.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class DeviceCategory extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Display name for the device category.
@@ -81,5 +81,5 @@ class DeviceCategory extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,21 +28,21 @@ class FileAttachment extends Attachment
     * Gets the contentBytes
     * The base64-encoded contents of the file.
     *
-    * @return \GuzzleHttp\Psr7\Stream The contentBytes
+    * @return \GuzzleHttp\Psr7\Stream|null The contentBytes
     */
     public function getContentBytes()
     {
         if (array_key_exists("contentBytes", $this->_propDict)) {
-            if (is_a($this->_propDict["contentBytes"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["contentBytes"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["contentBytes"])) {
                 return $this->_propDict["contentBytes"];
             } else {
-                $this->_propDict["contentBytes"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["contentBytes"]);
+                $this->_propDict["contentBytes"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["contentBytes"]);
                 return $this->_propDict["contentBytes"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the contentBytes
     * The base64-encoded contents of the file.
@@ -56,12 +56,12 @@ class FileAttachment extends Attachment
         $this->_propDict["contentBytes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the contentId
     * The ID of the attachment in the Exchange store.
     *
-    * @return string The contentId
+    * @return string|null The contentId
     */
     public function getContentId()
     {
@@ -71,7 +71,7 @@ class FileAttachment extends Attachment
             return null;
         }
     }
-    
+
     /**
     * Sets the contentId
     * The ID of the attachment in the Exchange store.
@@ -85,12 +85,12 @@ class FileAttachment extends Attachment
         $this->_propDict["contentId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the contentLocation
     * Do not use this property as it is not supported.
     *
-    * @return string The contentLocation
+    * @return string|null The contentLocation
     */
     public function getContentLocation()
     {
@@ -100,7 +100,7 @@ class FileAttachment extends Attachment
             return null;
         }
     }
-    
+
     /**
     * Sets the contentLocation
     * Do not use this property as it is not supported.
@@ -114,5 +114,5 @@ class FileAttachment extends Attachment
         $this->_propDict["contentLocation"] = $val;
         return $this;
     }
-    
+
 }

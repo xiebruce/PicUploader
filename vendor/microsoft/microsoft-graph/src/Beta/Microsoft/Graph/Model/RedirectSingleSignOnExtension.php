@@ -26,9 +26,11 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.redirectSingleSignOnExtension");
     }
 
@@ -37,12 +39,12 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension
     * Gets the configurations
     * Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
     *
-    * @return KeyTypedValuePair The configurations
+    * @return KeyTypedValuePair|null The configurations
     */
     public function getConfigurations()
     {
         if (array_key_exists("configurations", $this->_propDict)) {
-            if (is_a($this->_propDict["configurations"], "\Beta\Microsoft\Graph\Model\KeyTypedValuePair")) {
+            if (is_a($this->_propDict["configurations"], "\Beta\Microsoft\Graph\Model\KeyTypedValuePair") || is_null($this->_propDict["configurations"])) {
                 return $this->_propDict["configurations"];
             } else {
                 $this->_propDict["configurations"] = new KeyTypedValuePair($this->_propDict["configurations"]);
@@ -69,7 +71,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension
     * Gets the extensionIdentifier
     * Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
     *
-    * @return string The extensionIdentifier
+    * @return string|null The extensionIdentifier
     */
     public function getExtensionIdentifier()
     {
@@ -97,7 +99,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension
     * Gets the teamIdentifier
     * Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
     *
-    * @return string The teamIdentifier
+    * @return string|null The teamIdentifier
     */
     public function getTeamIdentifier()
     {
@@ -125,7 +127,7 @@ class RedirectSingleSignOnExtension extends SingleSignOnExtension
     * Gets the urlPrefixes
     * One or more URL prefixes of identity providers on whose behalf the app extension performs single sign-on. URLs must begin with http:// or https://. All URL prefixes must be unique for all profiles.
     *
-    * @return string The urlPrefixes
+    * @return string|null The urlPrefixes
     */
     public function getUrlPrefixes()
     {

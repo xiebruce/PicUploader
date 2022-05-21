@@ -28,7 +28,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
     * Gets the accountName
     * Account name.
     *
-    * @return string The accountName
+    * @return string|null The accountName
     */
     public function getAccountName()
     {
@@ -38,7 +38,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the accountName
     * Account name.
@@ -52,17 +52,17 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["accountName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the durationOfEmailToSync
     * Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
     *
-    * @return EmailSyncDuration The durationOfEmailToSync
+    * @return EmailSyncDuration|null The durationOfEmailToSync
     */
     public function getDurationOfEmailToSync()
     {
         if (array_key_exists("durationOfEmailToSync", $this->_propDict)) {
-            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration")) {
+            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration") || is_null($this->_propDict["durationOfEmailToSync"])) {
                 return $this->_propDict["durationOfEmailToSync"];
             } else {
                 $this->_propDict["durationOfEmailToSync"] = new EmailSyncDuration($this->_propDict["durationOfEmailToSync"]);
@@ -71,7 +71,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the durationOfEmailToSync
     * Duration of email to sync. Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
@@ -85,17 +85,17 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["durationOfEmailToSync"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the emailAddressSource
     * Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
     *
-    * @return UserEmailSource The emailAddressSource
+    * @return UserEmailSource|null The emailAddressSource
     */
     public function getEmailAddressSource()
     {
         if (array_key_exists("emailAddressSource", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource")) {
+            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource") || is_null($this->_propDict["emailAddressSource"])) {
                 return $this->_propDict["emailAddressSource"];
             } else {
                 $this->_propDict["emailAddressSource"] = new UserEmailSource($this->_propDict["emailAddressSource"]);
@@ -104,7 +104,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the emailAddressSource
     * Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
@@ -118,17 +118,17 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["emailAddressSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the emailSyncSchedule
     * Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
     *
-    * @return EmailSyncSchedule The emailSyncSchedule
+    * @return EmailSyncSchedule|null The emailSyncSchedule
     */
     public function getEmailSyncSchedule()
     {
         if (array_key_exists("emailSyncSchedule", $this->_propDict)) {
-            if (is_a($this->_propDict["emailSyncSchedule"], "\Beta\Microsoft\Graph\Model\EmailSyncSchedule")) {
+            if (is_a($this->_propDict["emailSyncSchedule"], "\Beta\Microsoft\Graph\Model\EmailSyncSchedule") || is_null($this->_propDict["emailSyncSchedule"])) {
                 return $this->_propDict["emailSyncSchedule"];
             } else {
                 $this->_propDict["emailSyncSchedule"] = new EmailSyncSchedule($this->_propDict["emailSyncSchedule"]);
@@ -137,7 +137,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the emailSyncSchedule
     * Email sync schedule. Possible values are: userDefined, asMessagesArrive, manual, fifteenMinutes, thirtyMinutes, sixtyMinutes, basedOnMyUsage.
@@ -151,12 +151,12 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["emailSyncSchedule"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the hostName
     * Exchange location that (URL) that the native mail app connects to.
     *
-    * @return string The hostName
+    * @return string|null The hostName
     */
     public function getHostName()
     {
@@ -166,7 +166,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the hostName
     * Exchange location that (URL) that the native mail app connects to.
@@ -180,12 +180,12 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["hostName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the requireSsl
     * Indicates whether or not to use SSL.
     *
-    * @return bool The requireSsl
+    * @return bool|null The requireSsl
     */
     public function getRequireSsl()
     {
@@ -195,7 +195,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the requireSsl
     * Indicates whether or not to use SSL.
@@ -209,12 +209,12 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["requireSsl"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the syncCalendar
     * Whether or not to sync the calendar.
     *
-    * @return bool The syncCalendar
+    * @return bool|null The syncCalendar
     */
     public function getSyncCalendar()
     {
@@ -224,7 +224,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the syncCalendar
     * Whether or not to sync the calendar.
@@ -238,12 +238,12 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["syncCalendar"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the syncContacts
     * Whether or not to sync contacts.
     *
-    * @return bool The syncContacts
+    * @return bool|null The syncContacts
     */
     public function getSyncContacts()
     {
@@ -253,7 +253,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the syncContacts
     * Whether or not to sync contacts.
@@ -267,12 +267,12 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["syncContacts"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the syncTasks
     * Whether or not to sync tasks.
     *
-    * @return bool The syncTasks
+    * @return bool|null The syncTasks
     */
     public function getSyncTasks()
     {
@@ -282,7 +282,7 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the syncTasks
     * Whether or not to sync tasks.
@@ -296,5 +296,5 @@ class Windows10EasEmailProfileConfiguration extends EasEmailProfileConfiguration
         $this->_propDict["syncTasks"] = boolval($val);
         return $this;
     }
-    
+
 }

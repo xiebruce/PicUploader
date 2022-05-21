@@ -36,4 +36,25 @@ class GroupPolicySettingType extends Enum
     const USER_RIGHTS_ASSIGNMENT = "userRightsAssignment";
     const AUDIT_SETTING = "auditSetting";
     const WINDOWS_FIREWALL_SETTINGS = "windowsFirewallSettings";
+    const APP_LOCKER_RULE_COLLECTION = "appLockerRuleCollection";
+    const DATA_SOURCES_SETTINGS = "dataSourcesSettings";
+    const DEVICES_SETTINGS = "devicesSettings";
+    const DRIVE_MAP_SETTINGS = "driveMapSettings";
+    const ENVIRONMENT_VARIABLES = "environmentVariables";
+    const FILES_SETTINGS = "filesSettings";
+    const FOLDER_OPTIONS = "folderOptions";
+    const FOLDERS = "folders";
+    const INI_FILES = "iniFiles";
+    const INTERNET_OPTIONS = "internetOptions";
+    const LOCAL_USERS_AND_GROUPS = "localUsersAndGroups";
+    const NETWORK_OPTIONS = "networkOptions";
+    const NETWORK_SHARES = "networkShares";
+    const NT_SERVICES = "ntServices";
+    const POWER_OPTIONS = "powerOptions";
+    const PRINTERS = "printers";
+    const REGIONAL_OPTIONS_SETTINGS = "regionalOptionsSettings";
+    const REGISTRY_SETTINGS = "registrySettings";
+    const SCHEDULED_TASKS = "scheduledTasks";
+    const SHORTCUT_SETTINGS = "shortcutSettings";
+    const START_MENU_SETTINGS = "startMenuSettings";
 }

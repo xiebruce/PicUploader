@@ -27,7 +27,7 @@ class ChatMessageAttachment extends Entity
     * Gets the content
     * The content of the attachment. If the attachment is a rich card, set the property to the rich card object. This property and contentUrl are mutually exclusive.
     *
-    * @return string The content
+    * @return string|null The content
     */
     public function getContent()
     {
@@ -55,7 +55,7 @@ class ChatMessageAttachment extends Entity
     * Gets the contentType
     * The media type of the content attachment. It can have the following values: reference: Attachment is a link to another file. Populate the contentURL with the link to the object.Any contentTypes supported by the Bot Framework's Attachment objectapplication/vnd.microsoft.card.codesnippet: A code snippet. application/vnd.microsoft.card.announcement: An announcement header.
     *
-    * @return string The contentType
+    * @return string|null The contentType
     */
     public function getContentType()
     {
@@ -83,7 +83,7 @@ class ChatMessageAttachment extends Entity
     * Gets the contentUrl
     * URL for the content of the attachment. Supported protocols: http, https, file and data.
     *
-    * @return string The contentUrl
+    * @return string|null The contentUrl
     */
     public function getContentUrl()
     {
@@ -111,7 +111,7 @@ class ChatMessageAttachment extends Entity
     * Gets the id
     * Read-only. Unique id of the attachment.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -139,7 +139,7 @@ class ChatMessageAttachment extends Entity
     * Gets the name
     * Name of the attachment.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -167,7 +167,7 @@ class ChatMessageAttachment extends Entity
     * Gets the thumbnailUrl
     * URL to a thumbnail image that the channel can use if it supports using an alternative, smaller form of content or contentUrl. For example, if you set contentType to application/word and set contentUrl to the location of the Word document, you might include a thumbnail image that represents the document. The channel could display the thumbnail image instead of the document. When the user clicks the image, the channel would open the document.
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {

@@ -23,11 +23,44 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class AssignmentReviewSettings extends Entity
 {
+
+    /**
+    * Gets the accessReviewTimeoutBehavior
+    * The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
+    *
+    * @return AccessReviewTimeoutBehavior|null The accessReviewTimeoutBehavior
+    */
+    public function getAccessReviewTimeoutBehavior()
+    {
+        if (array_key_exists("accessReviewTimeoutBehavior", $this->_propDict)) {
+            if (is_a($this->_propDict["accessReviewTimeoutBehavior"], "\Beta\Microsoft\Graph\Model\AccessReviewTimeoutBehavior") || is_null($this->_propDict["accessReviewTimeoutBehavior"])) {
+                return $this->_propDict["accessReviewTimeoutBehavior"];
+            } else {
+                $this->_propDict["accessReviewTimeoutBehavior"] = new AccessReviewTimeoutBehavior($this->_propDict["accessReviewTimeoutBehavior"]);
+                return $this->_propDict["accessReviewTimeoutBehavior"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the accessReviewTimeoutBehavior
+    * The default decision to apply if the request is not reviewed within the period specified in durationInDays. The possible values are: acceptAccessRecommendation, keepAccess, removeAccess, and unknownFutureValue.
+    *
+    * @param AccessReviewTimeoutBehavior $val The value to assign to the accessReviewTimeoutBehavior
+    *
+    * @return AssignmentReviewSettings The AssignmentReviewSettings
+    */
+    public function setAccessReviewTimeoutBehavior($val)
+    {
+        $this->_propDict["accessReviewTimeoutBehavior"] = $val;
+         return $this;
+    }
     /**
     * Gets the durationInDays
-    * The number of days to allow input from reviewers.
+    * The number of days within which reviewers should provide input.
     *
-    * @return int The durationInDays
+    * @return int|null The durationInDays
     */
     public function getDurationInDays()
     {
@@ -40,7 +73,7 @@ class AssignmentReviewSettings extends Entity
 
     /**
     * Sets the durationInDays
-    * The number of days to allow input from reviewers.
+    * The number of days within which reviewers should provide input.
     *
     * @param int $val The value of the durationInDays
     *
@@ -52,10 +85,66 @@ class AssignmentReviewSettings extends Entity
         return $this;
     }
     /**
+    * Gets the isAccessRecommendationEnabled
+    * Specifies whether to display recommendations to the reviewer. The default value is true
+    *
+    * @return bool|null The isAccessRecommendationEnabled
+    */
+    public function getIsAccessRecommendationEnabled()
+    {
+        if (array_key_exists("isAccessRecommendationEnabled", $this->_propDict)) {
+            return $this->_propDict["isAccessRecommendationEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isAccessRecommendationEnabled
+    * Specifies whether to display recommendations to the reviewer. The default value is true
+    *
+    * @param bool $val The value of the isAccessRecommendationEnabled
+    *
+    * @return AssignmentReviewSettings
+    */
+    public function setIsAccessRecommendationEnabled($val)
+    {
+        $this->_propDict["isAccessRecommendationEnabled"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the isApprovalJustificationRequired
+    * Specifies whether the reviewer must provide justification for the approval. The default value is true.
+    *
+    * @return bool|null The isApprovalJustificationRequired
+    */
+    public function getIsApprovalJustificationRequired()
+    {
+        if (array_key_exists("isApprovalJustificationRequired", $this->_propDict)) {
+            return $this->_propDict["isApprovalJustificationRequired"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isApprovalJustificationRequired
+    * Specifies whether the reviewer must provide justification for the approval. The default value is true.
+    *
+    * @param bool $val The value of the isApprovalJustificationRequired
+    *
+    * @return AssignmentReviewSettings
+    */
+    public function setIsApprovalJustificationRequired($val)
+    {
+        $this->_propDict["isApprovalJustificationRequired"] = $val;
+        return $this;
+    }
+    /**
     * Gets the isEnabled
     * If true, access reviews are required for assignments from this policy.
     *
-    * @return bool The isEnabled
+    * @return bool|null The isEnabled
     */
     public function getIsEnabled()
     {
@@ -83,7 +172,7 @@ class AssignmentReviewSettings extends Entity
     * Gets the recurrenceType
     * The interval for recurrence, such as monthly or quarterly.
     *
-    * @return string The recurrenceType
+    * @return string|null The recurrenceType
     */
     public function getRecurrenceType()
     {
@@ -112,12 +201,12 @@ class AssignmentReviewSettings extends Entity
     * Gets the reviewers
     * If the reviewerType is Reviewers, this collection specifies the users who will be reviewers, either by ID or as members of a group, using a collection of singleUser and groupMembers.
     *
-    * @return UserSet The reviewers
+    * @return UserSet|null The reviewers
     */
     public function getReviewers()
     {
         if (array_key_exists("reviewers", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewers"], "\Beta\Microsoft\Graph\Model\UserSet")) {
+            if (is_a($this->_propDict["reviewers"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["reviewers"])) {
                 return $this->_propDict["reviewers"];
             } else {
                 $this->_propDict["reviewers"] = new UserSet($this->_propDict["reviewers"]);
@@ -144,7 +233,7 @@ class AssignmentReviewSettings extends Entity
     * Gets the reviewerType
     * Who should be asked to do the review, either Self or Reviewers.
     *
-    * @return string The reviewerType
+    * @return string|null The reviewerType
     */
     public function getReviewerType()
     {
@@ -173,12 +262,12 @@ class AssignmentReviewSettings extends Entity
     * Gets the startDateTime
     * When the first review should start.
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);

@@ -28,7 +28,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
     * Gets the limit
     * Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
     *
-    * @return int The limit
+    * @return int|null The limit
     */
     public function getLimit()
     {
@@ -38,7 +38,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
             return null;
         }
     }
-    
+
     /**
     * Sets the limit
     * Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
@@ -52,12 +52,12 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
         $this->_propDict["limit"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the priority
     * Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
     *
-    * @return int The priority
+    * @return int|null The priority
     */
     public function getPriority()
     {
@@ -67,7 +67,7 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
             return null;
         }
     }
-    
+
     /**
     * Sets the priority
     * Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
@@ -81,5 +81,5 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
         $this->_propDict["priority"] = intval($val);
         return $this;
     }
-    
+
 }

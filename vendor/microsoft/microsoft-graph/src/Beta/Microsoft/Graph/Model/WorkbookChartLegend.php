@@ -28,7 +28,7 @@ class WorkbookChartLegend extends Entity
     * Gets the overlay
     * Boolean value for whether the chart legend should overlap with the main body of the chart.
     *
-    * @return bool The overlay
+    * @return bool|null The overlay
     */
     public function getOverlay()
     {
@@ -38,7 +38,7 @@ class WorkbookChartLegend extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the overlay
     * Boolean value for whether the chart legend should overlap with the main body of the chart.
@@ -52,12 +52,12 @@ class WorkbookChartLegend extends Entity
         $this->_propDict["overlay"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the position
     * Represents the position of the legend on the chart. The possible values are: Top, Bottom, Left, Right, Corner, Custom.
     *
-    * @return string The position
+    * @return string|null The position
     */
     public function getPosition()
     {
@@ -67,7 +67,7 @@ class WorkbookChartLegend extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the position
     * Represents the position of the legend on the chart. The possible values are: Top, Bottom, Left, Right, Corner, Custom.
@@ -81,12 +81,12 @@ class WorkbookChartLegend extends Entity
         $this->_propDict["position"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the visible
     * A boolean value the represents the visibility of a ChartLegend object.
     *
-    * @return bool The visible
+    * @return bool|null The visible
     */
     public function getVisible()
     {
@@ -96,7 +96,7 @@ class WorkbookChartLegend extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the visible
     * A boolean value the represents the visibility of a ChartLegend object.
@@ -110,17 +110,17 @@ class WorkbookChartLegend extends Entity
         $this->_propDict["visible"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the format
     * Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.
     *
-    * @return WorkbookChartLegendFormat The format
+    * @return WorkbookChartLegendFormat|null The format
     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartLegendFormat")) {
+            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartLegendFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new WorkbookChartLegendFormat($this->_propDict["format"]);
@@ -129,7 +129,7 @@ class WorkbookChartLegend extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the format
     * Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.
@@ -143,5 +143,5 @@ class WorkbookChartLegend extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-    
+
 }

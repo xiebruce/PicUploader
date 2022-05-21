@@ -28,12 +28,12 @@ class RubricLevel extends Entity
     * Gets the description
     * The description of this rubric level.
     *
-    * @return EducationItemBody The description
+    * @return EducationItemBody|null The description
     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
-            if (is_a($this->_propDict["description"], "\Beta\Microsoft\Graph\Model\EducationItemBody")) {
+            if (is_a($this->_propDict["description"], "\Beta\Microsoft\Graph\Model\EducationItemBody") || is_null($this->_propDict["description"])) {
                 return $this->_propDict["description"];
             } else {
                 $this->_propDict["description"] = new EducationItemBody($this->_propDict["description"]);
@@ -60,7 +60,7 @@ class RubricLevel extends Entity
     * Gets the displayName
     * The name of this rubric level.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -89,12 +89,12 @@ class RubricLevel extends Entity
     * Gets the grading
     * Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric.
     *
-    * @return EducationAssignmentGradeType The grading
+    * @return EducationAssignmentGradeType|null The grading
     */
     public function getGrading()
     {
         if (array_key_exists("grading", $this->_propDict)) {
-            if (is_a($this->_propDict["grading"], "\Beta\Microsoft\Graph\Model\EducationAssignmentGradeType")) {
+            if (is_a($this->_propDict["grading"], "\Beta\Microsoft\Graph\Model\EducationAssignmentGradeType") || is_null($this->_propDict["grading"])) {
                 return $this->_propDict["grading"];
             } else {
                 $this->_propDict["grading"] = new EducationAssignmentGradeType($this->_propDict["grading"]);
@@ -121,7 +121,7 @@ class RubricLevel extends Entity
     * Gets the levelId
     * The ID of this resource.
     *
-    * @return string The levelId
+    * @return string|null The levelId
     */
     public function getLevelId()
     {

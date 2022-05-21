@@ -27,7 +27,7 @@ class FreeBusyError extends Entity
     * Gets the message
     * Describes the error.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -55,7 +55,7 @@ class FreeBusyError extends Entity
     * Gets the responseCode
     * The response code from querying for the availability of the user, distribution list, or resource.
     *
-    * @return string The responseCode
+    * @return string|null The responseCode
     */
     public function getResponseCode()
     {

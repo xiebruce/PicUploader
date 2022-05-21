@@ -28,12 +28,12 @@ class AccessPackageAnswer extends Entity
     * Gets the answeredQuestion
     * The question the answer is for. Required and Read-only.
     *
-    * @return AccessPackageQuestion The answeredQuestion
+    * @return AccessPackageQuestion|null The answeredQuestion
     */
     public function getAnsweredQuestion()
     {
         if (array_key_exists("answeredQuestion", $this->_propDict)) {
-            if (is_a($this->_propDict["answeredQuestion"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion")) {
+            if (is_a($this->_propDict["answeredQuestion"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion") || is_null($this->_propDict["answeredQuestion"])) {
                 return $this->_propDict["answeredQuestion"];
             } else {
                 $this->_propDict["answeredQuestion"] = new AccessPackageQuestion($this->_propDict["answeredQuestion"]);
@@ -60,7 +60,7 @@ class AccessPackageAnswer extends Entity
     * Gets the displayValue
     * The display value of the answer. Required.
     *
-    * @return string The displayValue
+    * @return string|null The displayValue
     */
     public function getDisplayValue()
     {

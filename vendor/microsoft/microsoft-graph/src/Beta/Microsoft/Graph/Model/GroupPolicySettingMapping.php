@@ -28,7 +28,7 @@ class GroupPolicySettingMapping extends Entity
     * Gets the admxSettingDefinitionId
     * Admx Group Policy Id
     *
-    * @return string The admxSettingDefinitionId
+    * @return string|null The admxSettingDefinitionId
     */
     public function getAdmxSettingDefinitionId()
     {
@@ -38,7 +38,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the admxSettingDefinitionId
     * Admx Group Policy Id
@@ -52,12 +52,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["admxSettingDefinitionId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the childIdList
     * List of Child Ids of the group policy setting.
     *
-    * @return string The childIdList
+    * @return string|null The childIdList
     */
     public function getChildIdList()
     {
@@ -67,7 +67,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the childIdList
     * List of Child Ids of the group policy setting.
@@ -81,12 +81,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["childIdList"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the intuneSettingDefinitionId
     * The Intune Setting Definition Id
     *
-    * @return string The intuneSettingDefinitionId
+    * @return string|null The intuneSettingDefinitionId
     */
     public function getIntuneSettingDefinitionId()
     {
@@ -96,7 +96,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the intuneSettingDefinitionId
     * The Intune Setting Definition Id
@@ -110,12 +110,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["intuneSettingDefinitionId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the intuneSettingUriList
     * The list of Intune Setting URIs this group policy setting maps to
     *
-    * @return string The intuneSettingUriList
+    * @return string|null The intuneSettingUriList
     */
     public function getIntuneSettingUriList()
     {
@@ -125,7 +125,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the intuneSettingUriList
     * The list of Intune Setting URIs this group policy setting maps to
@@ -139,12 +139,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["intuneSettingUriList"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isMdmSupported
     * Indicates if the setting is supported by Intune or not
     *
-    * @return bool The isMdmSupported
+    * @return bool|null The isMdmSupported
     */
     public function getIsMdmSupported()
     {
@@ -154,7 +154,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isMdmSupported
     * Indicates if the setting is supported by Intune or not
@@ -168,12 +168,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["isMdmSupported"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the mdmCspName
     * The CSP name this group policy setting maps to.
     *
-    * @return string The mdmCspName
+    * @return string|null The mdmCspName
     */
     public function getMdmCspName()
     {
@@ -183,7 +183,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mdmCspName
     * The CSP name this group policy setting maps to.
@@ -197,12 +197,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["mdmCspName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mdmMinimumOSVersion
     * The minimum OS version this mdm setting supports.
     *
-    * @return int The mdmMinimumOSVersion
+    * @return int|null The mdmMinimumOSVersion
     */
     public function getMdmMinimumOSVersion()
     {
@@ -212,7 +212,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mdmMinimumOSVersion
     * The minimum OS version this mdm setting supports.
@@ -226,12 +226,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["mdmMinimumOSVersion"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the mdmSettingUri
     * The MDM CSP URI this group policy setting maps to.
     *
-    * @return string The mdmSettingUri
+    * @return string|null The mdmSettingUri
     */
     public function getMdmSettingUri()
     {
@@ -241,7 +241,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mdmSettingUri
     * The MDM CSP URI this group policy setting maps to.
@@ -255,17 +255,17 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["mdmSettingUri"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mdmSupportedState
     * Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated.
     *
-    * @return MdmSupportedState The mdmSupportedState
+    * @return MdmSupportedState|null The mdmSupportedState
     */
     public function getMdmSupportedState()
     {
         if (array_key_exists("mdmSupportedState", $this->_propDict)) {
-            if (is_a($this->_propDict["mdmSupportedState"], "\Beta\Microsoft\Graph\Model\MdmSupportedState")) {
+            if (is_a($this->_propDict["mdmSupportedState"], "\Beta\Microsoft\Graph\Model\MdmSupportedState") || is_null($this->_propDict["mdmSupportedState"])) {
                 return $this->_propDict["mdmSupportedState"];
             } else {
                 $this->_propDict["mdmSupportedState"] = new MdmSupportedState($this->_propDict["mdmSupportedState"]);
@@ -274,7 +274,7 @@ class GroupPolicySettingMapping extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the mdmSupportedState
     * Indicates if the setting is supported in Mdm or not. Possible values are: unknown, supported, unsupported, deprecated.
@@ -288,12 +288,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["mdmSupportedState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the parentId
     * Parent Id of the group policy setting.
     *
-    * @return string The parentId
+    * @return string|null The parentId
     */
     public function getParentId()
     {
@@ -303,7 +303,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the parentId
     * Parent Id of the group policy setting.
@@ -317,12 +317,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["parentId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingCategory
     * The category the group policy setting is in.
     *
-    * @return string The settingCategory
+    * @return string|null The settingCategory
     */
     public function getSettingCategory()
     {
@@ -332,7 +332,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingCategory
     * The category the group policy setting is in.
@@ -346,12 +346,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingCategory"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingDisplayName
     * The display name of this group policy setting.
     *
-    * @return string The settingDisplayName
+    * @return string|null The settingDisplayName
     */
     public function getSettingDisplayName()
     {
@@ -361,7 +361,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingDisplayName
     * The display name of this group policy setting.
@@ -375,12 +375,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingDisplayValue
     * The display value of this group policy setting.
     *
-    * @return string The settingDisplayValue
+    * @return string|null The settingDisplayValue
     */
     public function getSettingDisplayValue()
     {
@@ -390,7 +390,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingDisplayValue
     * The display value of this group policy setting.
@@ -404,12 +404,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingDisplayValue"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingDisplayValueType
     * The display value type of this group policy setting.
     *
-    * @return string The settingDisplayValueType
+    * @return string|null The settingDisplayValueType
     */
     public function getSettingDisplayValueType()
     {
@@ -419,7 +419,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingDisplayValueType
     * The display value type of this group policy setting.
@@ -433,12 +433,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingDisplayValueType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingName
     * The name of this group policy setting.
     *
-    * @return string The settingName
+    * @return string|null The settingName
     */
     public function getSettingName()
     {
@@ -448,7 +448,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingName
     * The name of this group policy setting.
@@ -462,17 +462,17 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingScope
     * The scope of the setting. Possible values are: unknown, device, user.
     *
-    * @return GroupPolicySettingScope The settingScope
+    * @return GroupPolicySettingScope|null The settingScope
     */
     public function getSettingScope()
     {
         if (array_key_exists("settingScope", $this->_propDict)) {
-            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope")) {
+            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope") || is_null($this->_propDict["settingScope"])) {
                 return $this->_propDict["settingScope"];
             } else {
                 $this->_propDict["settingScope"] = new GroupPolicySettingScope($this->_propDict["settingScope"]);
@@ -481,7 +481,7 @@ class GroupPolicySettingMapping extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settingScope
     * The scope of the setting. Possible values are: unknown, device, user.
@@ -495,17 +495,17 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingScope"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingType
-    * The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings.
+    * The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings.
     *
-    * @return GroupPolicySettingType The settingType
+    * @return GroupPolicySettingType|null The settingType
     */
     public function getSettingType()
     {
         if (array_key_exists("settingType", $this->_propDict)) {
-            if (is_a($this->_propDict["settingType"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingType")) {
+            if (is_a($this->_propDict["settingType"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingType") || is_null($this->_propDict["settingType"])) {
                 return $this->_propDict["settingType"];
             } else {
                 $this->_propDict["settingType"] = new GroupPolicySettingType($this->_propDict["settingType"]);
@@ -514,10 +514,10 @@ class GroupPolicySettingMapping extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settingType
-    * The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings.
+    * The setting type (security or admx) of the Group Policy. Possible values are: unknown, policy, account, securityOptions, userRightsAssignment, auditSetting, windowsFirewallSettings, appLockerRuleCollection, dataSourcesSettings, devicesSettings, driveMapSettings, environmentVariables, filesSettings, folderOptions, folders, iniFiles, internetOptions, localUsersAndGroups, networkOptions, networkShares, ntServices, powerOptions, printers, regionalOptionsSettings, registrySettings, scheduledTasks, shortcutSettings, startMenuSettings.
     *
     * @param GroupPolicySettingType $val The settingType
     *
@@ -528,12 +528,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingValue
     * The value of this group policy setting.
     *
-    * @return string The settingValue
+    * @return string|null The settingValue
     */
     public function getSettingValue()
     {
@@ -543,7 +543,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingValue
     * The value of this group policy setting.
@@ -557,12 +557,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingValue"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingValueDisplayUnits
     * The display units of this group policy setting value
     *
-    * @return string The settingValueDisplayUnits
+    * @return string|null The settingValueDisplayUnits
     */
     public function getSettingValueDisplayUnits()
     {
@@ -572,7 +572,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingValueDisplayUnits
     * The display units of this group policy setting value
@@ -586,12 +586,12 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingValueDisplayUnits"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingValueType
     * The value type of this group policy setting.
     *
-    * @return string The settingValueType
+    * @return string|null The settingValueType
     */
     public function getSettingValueType()
     {
@@ -601,7 +601,7 @@ class GroupPolicySettingMapping extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the settingValueType
     * The value type of this group policy setting.
@@ -615,5 +615,5 @@ class GroupPolicySettingMapping extends Entity
         $this->_propDict["settingValueType"] = $val;
         return $this;
     }
-    
+
 }

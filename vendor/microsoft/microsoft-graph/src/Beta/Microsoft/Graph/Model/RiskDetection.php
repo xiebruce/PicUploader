@@ -28,12 +28,12 @@ class RiskDetection extends Entity
     * Gets the activity
     * Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
     *
-    * @return ActivityType The activity
+    * @return ActivityType|null The activity
     */
     public function getActivity()
     {
         if (array_key_exists("activity", $this->_propDict)) {
-            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\ActivityType")) {
+            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\ActivityType") || is_null($this->_propDict["activity"])) {
                 return $this->_propDict["activity"];
             } else {
                 $this->_propDict["activity"] = new ActivityType($this->_propDict["activity"]);
@@ -42,7 +42,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the activity
     * Indicates the activity type the detected risk is linked to. The possible values are signin, user, unknownFutureValue.
@@ -56,17 +56,17 @@ class RiskDetection extends Entity
         $this->_propDict["activity"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the activityDateTime
     * Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The activityDateTime
+    * @return \DateTime|null The activityDateTime
     */
     public function getActivityDateTime()
     {
         if (array_key_exists("activityDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["activityDateTime"], "\DateTime") || is_null($this->_propDict["activityDateTime"])) {
                 return $this->_propDict["activityDateTime"];
             } else {
                 $this->_propDict["activityDateTime"] = new \DateTime($this->_propDict["activityDateTime"]);
@@ -75,7 +75,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the activityDateTime
     * Date and time that the risky activity occurred. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -89,12 +89,12 @@ class RiskDetection extends Entity
         $this->_propDict["activityDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the additionalInfo
     * Additional information associated with the risk detection in JSON format.
     *
-    * @return string The additionalInfo
+    * @return string|null The additionalInfo
     */
     public function getAdditionalInfo()
     {
@@ -104,7 +104,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the additionalInfo
     * Additional information associated with the risk detection in JSON format.
@@ -118,12 +118,12 @@ class RiskDetection extends Entity
         $this->_propDict["additionalInfo"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the correlationId
     * Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in.
     *
-    * @return string The correlationId
+    * @return string|null The correlationId
     */
     public function getCorrelationId()
     {
@@ -133,7 +133,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the correlationId
     * Correlation ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in.
@@ -147,17 +147,17 @@ class RiskDetection extends Entity
         $this->_propDict["correlationId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the detectedDateTime
     * Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The detectedDateTime
+    * @return \DateTime|null The detectedDateTime
     */
     public function getDetectedDateTime()
     {
         if (array_key_exists("detectedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["detectedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["detectedDateTime"], "\DateTime") || is_null($this->_propDict["detectedDateTime"])) {
                 return $this->_propDict["detectedDateTime"];
             } else {
                 $this->_propDict["detectedDateTime"] = new \DateTime($this->_propDict["detectedDateTime"]);
@@ -166,7 +166,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the detectedDateTime
     * Date and time that the risk was detected. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -180,17 +180,17 @@ class RiskDetection extends Entity
         $this->_propDict["detectedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the detectionTimingType
     * Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.
     *
-    * @return RiskDetectionTimingType The detectionTimingType
+    * @return RiskDetectionTimingType|null The detectionTimingType
     */
     public function getDetectionTimingType()
     {
         if (array_key_exists("detectionTimingType", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionTimingType"], "\Beta\Microsoft\Graph\Model\RiskDetectionTimingType")) {
+            if (is_a($this->_propDict["detectionTimingType"], "\Beta\Microsoft\Graph\Model\RiskDetectionTimingType") || is_null($this->_propDict["detectionTimingType"])) {
                 return $this->_propDict["detectionTimingType"];
             } else {
                 $this->_propDict["detectionTimingType"] = new RiskDetectionTimingType($this->_propDict["detectionTimingType"]);
@@ -199,7 +199,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the detectionTimingType
     * Timing of the detected risk (real-time/offline). The possible values are notDefined, realtime, nearRealtime, offline, unknownFutureValue.
@@ -213,12 +213,12 @@ class RiskDetection extends Entity
         $this->_propDict["detectionTimingType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ipAddress
     * Provides the IP address of the client from where the risk occurred.
     *
-    * @return string The ipAddress
+    * @return string|null The ipAddress
     */
     public function getIpAddress()
     {
@@ -228,7 +228,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ipAddress
     * Provides the IP address of the client from where the risk occurred.
@@ -242,17 +242,17 @@ class RiskDetection extends Entity
         $this->_propDict["ipAddress"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastUpdatedDateTime
     * Date and time that the risk detection was last updated.
     *
-    * @return \DateTime The lastUpdatedDateTime
+    * @return \DateTime|null The lastUpdatedDateTime
     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -261,7 +261,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastUpdatedDateTime
     * Date and time that the risk detection was last updated.
@@ -275,17 +275,17 @@ class RiskDetection extends Entity
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the location
     * Location of the sign-in.
     *
-    * @return SignInLocation The location
+    * @return SignInLocation|null The location
     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
-            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\SignInLocation")) {
+            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\SignInLocation") || is_null($this->_propDict["location"])) {
                 return $this->_propDict["location"];
             } else {
                 $this->_propDict["location"] = new SignInLocation($this->_propDict["location"]);
@@ -294,7 +294,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the location
     * Location of the sign-in.
@@ -308,12 +308,12 @@ class RiskDetection extends Entity
         $this->_propDict["location"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the requestId
     * Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in.
     *
-    * @return string The requestId
+    * @return string|null The requestId
     */
     public function getRequestId()
     {
@@ -323,7 +323,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the requestId
     * Request ID of the sign-in associated with the risk detection. This property is null if the risk detection is not associated with a sign-in.
@@ -337,17 +337,17 @@ class RiskDetection extends Entity
         $this->_propDict["requestId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskDetail
     * Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
     *
-    * @return RiskDetail The riskDetail
+    * @return RiskDetail|null The riskDetail
     */
     public function getRiskDetail()
     {
         if (array_key_exists("riskDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["riskDetail"], "\Beta\Microsoft\Graph\Model\RiskDetail")) {
+            if (is_a($this->_propDict["riskDetail"], "\Beta\Microsoft\Graph\Model\RiskDetail") || is_null($this->_propDict["riskDetail"])) {
                 return $this->_propDict["riskDetail"];
             } else {
                 $this->_propDict["riskDetail"] = new RiskDetail($this->_propDict["riskDetail"]);
@@ -356,7 +356,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the riskDetail
     * Details of the detected risk. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
@@ -370,12 +370,12 @@ class RiskDetection extends Entity
         $this->_propDict["riskDetail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskEventType
-    * The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.
+    * The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.  For more information about each value, see riskEventType values.
     *
-    * @return string The riskEventType
+    * @return string|null The riskEventType
     */
     public function getRiskEventType()
     {
@@ -385,10 +385,10 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the riskEventType
-    * The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.
+    * The type of risk event detected. The possible values are unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence, generic,adminConfirmedUserCompromised, mcasImpossibleTravel, mcasSuspiciousInboxManipulationRules, investigationsThreatIntelligenceSigninLinked, maliciousIPAddressValidCredentialsBlockedIP, and unknownFutureValue.  For more information about each value, see riskEventType values.
     *
     * @param string $val The riskEventType
     *
@@ -399,17 +399,17 @@ class RiskDetection extends Entity
         $this->_propDict["riskEventType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskLevel
     * Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
     *
-    * @return RiskLevel The riskLevel
+    * @return RiskLevel|null The riskLevel
     */
     public function getRiskLevel()
     {
         if (array_key_exists("riskLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["riskLevel"], "\Beta\Microsoft\Graph\Model\RiskLevel")) {
+            if (is_a($this->_propDict["riskLevel"], "\Beta\Microsoft\Graph\Model\RiskLevel") || is_null($this->_propDict["riskLevel"])) {
                 return $this->_propDict["riskLevel"];
             } else {
                 $this->_propDict["riskLevel"] = new RiskLevel($this->_propDict["riskLevel"]);
@@ -418,7 +418,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the riskLevel
     * Level of the detected risk. The possible values are low, medium, high, hidden, none, unknownFutureValue. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden.
@@ -432,17 +432,17 @@ class RiskDetection extends Entity
         $this->_propDict["riskLevel"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskState
     * The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.
     *
-    * @return RiskState The riskState
+    * @return RiskState|null The riskState
     */
     public function getRiskState()
     {
         if (array_key_exists("riskState", $this->_propDict)) {
-            if (is_a($this->_propDict["riskState"], "\Beta\Microsoft\Graph\Model\RiskState")) {
+            if (is_a($this->_propDict["riskState"], "\Beta\Microsoft\Graph\Model\RiskState") || is_null($this->_propDict["riskState"])) {
                 return $this->_propDict["riskState"];
             } else {
                 $this->_propDict["riskState"] = new RiskState($this->_propDict["riskState"]);
@@ -451,7 +451,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the riskState
     * The state of a detected risky user or sign-in. The possible values are none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, and unknownFutureValue.
@@ -465,17 +465,16 @@ class RiskDetection extends Entity
         $this->_propDict["riskState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the riskType
-    * List of risk event types.Note: This property is deprecated. Use riskEventType instead.
     *
-    * @return RiskEventType The riskType
+    * @return RiskEventType|null The riskType
     */
     public function getRiskType()
     {
         if (array_key_exists("riskType", $this->_propDict)) {
-            if (is_a($this->_propDict["riskType"], "\Beta\Microsoft\Graph\Model\RiskEventType")) {
+            if (is_a($this->_propDict["riskType"], "\Beta\Microsoft\Graph\Model\RiskEventType") || is_null($this->_propDict["riskType"])) {
                 return $this->_propDict["riskType"];
             } else {
                 $this->_propDict["riskType"] = new RiskEventType($this->_propDict["riskType"]);
@@ -484,10 +483,9 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the riskType
-    * List of risk event types.Note: This property is deprecated. Use riskEventType instead.
     *
     * @param RiskEventType $val The riskType
     *
@@ -498,12 +496,12 @@ class RiskDetection extends Entity
         $this->_propDict["riskType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the source
     * Source of the risk detection. For example, activeDirectory.
     *
-    * @return string The source
+    * @return string|null The source
     */
     public function getSource()
     {
@@ -513,7 +511,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the source
     * Source of the risk detection. For example, activeDirectory.
@@ -527,17 +525,17 @@ class RiskDetection extends Entity
         $this->_propDict["source"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tokenIssuerType
     * Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.
     *
-    * @return TokenIssuerType The tokenIssuerType
+    * @return TokenIssuerType|null The tokenIssuerType
     */
     public function getTokenIssuerType()
     {
         if (array_key_exists("tokenIssuerType", $this->_propDict)) {
-            if (is_a($this->_propDict["tokenIssuerType"], "\Beta\Microsoft\Graph\Model\TokenIssuerType")) {
+            if (is_a($this->_propDict["tokenIssuerType"], "\Beta\Microsoft\Graph\Model\TokenIssuerType") || is_null($this->_propDict["tokenIssuerType"])) {
                 return $this->_propDict["tokenIssuerType"];
             } else {
                 $this->_propDict["tokenIssuerType"] = new TokenIssuerType($this->_propDict["tokenIssuerType"]);
@@ -546,7 +544,7 @@ class RiskDetection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the tokenIssuerType
     * Indicates the type of token issuer for the detected sign-in risk. The possible values are AzureAD, ADFederationServices, and unknownFutureValue.
@@ -560,12 +558,12 @@ class RiskDetection extends Entity
         $this->_propDict["tokenIssuerType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userDisplayName
     * Name of the user.
     *
-    * @return string The userDisplayName
+    * @return string|null The userDisplayName
     */
     public function getUserDisplayName()
     {
@@ -575,7 +573,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userDisplayName
     * Name of the user.
@@ -589,12 +587,12 @@ class RiskDetection extends Entity
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * Unique ID of the user.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -604,7 +602,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * Unique ID of the user.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -618,12 +616,12 @@ class RiskDetection extends Entity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * The user principal name (UPN) of the user.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -633,7 +631,7 @@ class RiskDetection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * The user principal name (UPN) of the user.
@@ -647,5 +645,5 @@ class RiskDetection extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
 }

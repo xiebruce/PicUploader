@@ -27,7 +27,7 @@ class DocumentCommentReply extends Entity
     /**
     * Gets the content
     *
-    * @return string The content
+    * @return string|null The content
     */
     public function getContent()
     {
@@ -37,7 +37,7 @@ class DocumentCommentReply extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the content
     *
@@ -50,11 +50,11 @@ class DocumentCommentReply extends Entity
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the location
     *
-    * @return string The location
+    * @return string|null The location
     */
     public function getLocation()
     {
@@ -64,7 +64,7 @@ class DocumentCommentReply extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the location
     *
@@ -77,5 +77,5 @@ class DocumentCommentReply extends Entity
         $this->_propDict["location"] = $val;
         return $this;
     }
-    
+
 }

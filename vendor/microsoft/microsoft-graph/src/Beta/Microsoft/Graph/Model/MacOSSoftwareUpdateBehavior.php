@@ -31,4 +31,8 @@ class MacOSSoftwareUpdateBehavior extends Enum
     */
     const NOT_CONFIGURED = "notConfigured";
     const GRAPHDEFAULT = "default";
+    const DOWNLOAD_ONLY = "downloadOnly";
+    const INSTALL_ASAP = "installASAP";
+    const NOTIFY_ONLY = "notifyOnly";
+    const INSTALL_LATER = "installLater";
 }

@@ -25,9 +25,9 @@ class AccessReviewQueryScope extends AccessReviewScope
 {
     /**
     * Gets the query
-    * The query representing what will be reviewed in an access review. Examples of this include /groups/{id}/members?$filter=…
+    * The query representing what will be reviewed in an access review.
     *
-    * @return string The query
+    * @return string|null The query
     */
     public function getQuery()
     {
@@ -40,7 +40,7 @@ class AccessReviewQueryScope extends AccessReviewScope
 
     /**
     * Sets the query
-    * The query representing what will be reviewed in an access review. Examples of this include /groups/{id}/members?$filter=…
+    * The query representing what will be reviewed in an access review.
     *
     * @param string $val The value of the query
     *
@@ -55,7 +55,7 @@ class AccessReviewQueryScope extends AccessReviewScope
     * Gets the queryRoot
     * In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query is specified. For example, ./manager.
     *
-    * @return string The queryRoot
+    * @return string|null The queryRoot
     */
     public function getQueryRoot()
     {
@@ -83,7 +83,7 @@ class AccessReviewQueryScope extends AccessReviewScope
     * Gets the queryType
     * Indicates the type of query. Types include MicrosoftGraph and ARM.
     *
-    * @return string The queryType
+    * @return string|null The queryType
     */
     public function getQueryType()
     {

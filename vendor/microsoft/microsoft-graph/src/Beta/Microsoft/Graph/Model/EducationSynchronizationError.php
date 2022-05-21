@@ -28,7 +28,7 @@ class EducationSynchronizationError extends Entity
     * Gets the entryType
     * Represents the sync entity (school, section, student, teacher).
     *
-    * @return string The entryType
+    * @return string|null The entryType
     */
     public function getEntryType()
     {
@@ -38,7 +38,7 @@ class EducationSynchronizationError extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the entryType
     * Represents the sync entity (school, section, student, teacher).
@@ -52,12 +52,12 @@ class EducationSynchronizationError extends Entity
         $this->_propDict["entryType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the errorCode
     * Represents the error code for this error.
     *
-    * @return string The errorCode
+    * @return string|null The errorCode
     */
     public function getErrorCode()
     {
@@ -67,7 +67,7 @@ class EducationSynchronizationError extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorCode
     * Represents the error code for this error.
@@ -81,12 +81,12 @@ class EducationSynchronizationError extends Entity
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the errorMessage
     * Contains a description of the error.
     *
-    * @return string The errorMessage
+    * @return string|null The errorMessage
     */
     public function getErrorMessage()
     {
@@ -96,7 +96,7 @@ class EducationSynchronizationError extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorMessage
     * Contains a description of the error.
@@ -110,12 +110,12 @@ class EducationSynchronizationError extends Entity
         $this->_propDict["errorMessage"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the joiningValue
     * The unique identifier for the entry.
     *
-    * @return string The joiningValue
+    * @return string|null The joiningValue
     */
     public function getJoiningValue()
     {
@@ -125,7 +125,7 @@ class EducationSynchronizationError extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the joiningValue
     * The unique identifier for the entry.
@@ -139,17 +139,17 @@ class EducationSynchronizationError extends Entity
         $this->_propDict["joiningValue"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the recordedDateTime
     * The time of occurrence of this error.
     *
-    * @return \DateTime The recordedDateTime
+    * @return \DateTime|null The recordedDateTime
     */
     public function getRecordedDateTime()
     {
         if (array_key_exists("recordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["recordedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["recordedDateTime"], "\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
                 return $this->_propDict["recordedDateTime"];
             } else {
                 $this->_propDict["recordedDateTime"] = new \DateTime($this->_propDict["recordedDateTime"]);
@@ -158,7 +158,7 @@ class EducationSynchronizationError extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the recordedDateTime
     * The time of occurrence of this error.
@@ -172,12 +172,12 @@ class EducationSynchronizationError extends Entity
         $this->_propDict["recordedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the reportableIdentifier
     * The identifier of this error entry.
     *
-    * @return string The reportableIdentifier
+    * @return string|null The reportableIdentifier
     */
     public function getReportableIdentifier()
     {
@@ -187,7 +187,7 @@ class EducationSynchronizationError extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the reportableIdentifier
     * The identifier of this error entry.
@@ -201,5 +201,5 @@ class EducationSynchronizationError extends Entity
         $this->_propDict["reportableIdentifier"] = $val;
         return $this;
     }
-    
+
 }

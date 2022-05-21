@@ -28,7 +28,7 @@ class AccessPackageAssignment extends Entity
     * Gets the accessPackageId
     * The identifier of the access package. Read-only.
     *
-    * @return string The accessPackageId
+    * @return string|null The accessPackageId
     */
     public function getAccessPackageId()
     {
@@ -38,7 +38,7 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the accessPackageId
     * The identifier of the access package. Read-only.
@@ -52,12 +52,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["accessPackageId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the assignmentPolicyId
     * The identifier of the access package assignment policy. Read-only.
     *
-    * @return string The assignmentPolicyId
+    * @return string|null The assignmentPolicyId
     */
     public function getAssignmentPolicyId()
     {
@@ -67,7 +67,7 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the assignmentPolicyId
     * The identifier of the access package assignment policy. Read-only.
@@ -81,12 +81,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["assignmentPolicyId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the assignmentState
-    * The state of the access package assignment. Possible values are Delivering, Delivered, or Expired. Read-only.
+    * The state of the access package assignment. Possible values are Delivering, Delivered, or Expired. Read-only. Supports $filter (eq).
     *
-    * @return string The assignmentState
+    * @return string|null The assignmentState
     */
     public function getAssignmentState()
     {
@@ -96,10 +96,10 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the assignmentState
-    * The state of the access package assignment. Possible values are Delivering, Delivered, or Expired. Read-only.
+    * The state of the access package assignment. Possible values are Delivering, Delivered, or Expired. Read-only. Supports $filter (eq).
     *
     * @param string $val The assignmentState
     *
@@ -110,12 +110,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["assignmentState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the assignmentStatus
     * More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only.
     *
-    * @return string The assignmentStatus
+    * @return string|null The assignmentStatus
     */
     public function getAssignmentStatus()
     {
@@ -125,7 +125,7 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the assignmentStatus
     * More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only.
@@ -139,12 +139,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["assignmentStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the catalogId
     * The identifier of the catalog containing the access package. Read-only.
     *
-    * @return string The catalogId
+    * @return string|null The catalogId
     */
     public function getCatalogId()
     {
@@ -154,7 +154,7 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the catalogId
     * The identifier of the catalog containing the access package. Read-only.
@@ -168,17 +168,17 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["catalogId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the expiredDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The expiredDateTime
+    * @return \DateTime|null The expiredDateTime
     */
     public function getExpiredDateTime()
     {
         if (array_key_exists("expiredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expiredDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["expiredDateTime"], "\DateTime") || is_null($this->_propDict["expiredDateTime"])) {
                 return $this->_propDict["expiredDateTime"];
             } else {
                 $this->_propDict["expiredDateTime"] = new \DateTime($this->_propDict["expiredDateTime"]);
@@ -187,7 +187,7 @@ class AccessPackageAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the expiredDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -201,12 +201,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["expiredDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isExtended
     * Indicates whether the access package assignment is extended. Read-only.
     *
-    * @return bool The isExtended
+    * @return bool|null The isExtended
     */
     public function getIsExtended()
     {
@@ -216,7 +216,7 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isExtended
     * Indicates whether the access package assignment is extended. Read-only.
@@ -230,17 +230,17 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["isExtended"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the schedule
     * When the access assignment is to be in place. Read-only.
     *
-    * @return RequestSchedule The schedule
+    * @return RequestSchedule|null The schedule
     */
     public function getSchedule()
     {
         if (array_key_exists("schedule", $this->_propDict)) {
-            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule")) {
+            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\RequestSchedule") || is_null($this->_propDict["schedule"])) {
                 return $this->_propDict["schedule"];
             } else {
                 $this->_propDict["schedule"] = new RequestSchedule($this->_propDict["schedule"]);
@@ -249,7 +249,7 @@ class AccessPackageAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the schedule
     * When the access assignment is to be in place. Read-only.
@@ -263,12 +263,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["schedule"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetId
     * The ID of the subject with the assignment. Read-only.
     *
-    * @return string The targetId
+    * @return string|null The targetId
     */
     public function getTargetId()
     {
@@ -278,7 +278,7 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetId
     * The ID of the subject with the assignment. Read-only.
@@ -292,17 +292,17 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["targetId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackage
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
     *
-    * @return AccessPackage The accessPackage
+    * @return AccessPackage|null The accessPackage
     */
     public function getAccessPackage()
     {
         if (array_key_exists("accessPackage", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage")) {
+            if (is_a($this->_propDict["accessPackage"], "\Beta\Microsoft\Graph\Model\AccessPackage") || is_null($this->_propDict["accessPackage"])) {
                 return $this->_propDict["accessPackage"];
             } else {
                 $this->_propDict["accessPackage"] = new AccessPackage($this->_propDict["accessPackage"]);
@@ -311,10 +311,10 @@ class AccessPackageAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackage
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
     *
     * @param AccessPackage $val The accessPackage
     *
@@ -325,17 +325,17 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["accessPackage"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the accessPackageAssignmentPolicy
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on the id property
     *
-    * @return AccessPackageAssignmentPolicy The accessPackageAssignmentPolicy
+    * @return AccessPackageAssignmentPolicy|null The accessPackageAssignmentPolicy
     */
     public function getAccessPackageAssignmentPolicy()
     {
         if (array_key_exists("accessPackageAssignmentPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageAssignmentPolicy"], "\Beta\Microsoft\Graph\Model\AccessPackageAssignmentPolicy")) {
+            if (is_a($this->_propDict["accessPackageAssignmentPolicy"], "\Beta\Microsoft\Graph\Model\AccessPackageAssignmentPolicy") || is_null($this->_propDict["accessPackageAssignmentPolicy"])) {
                 return $this->_propDict["accessPackageAssignmentPolicy"];
             } else {
                 $this->_propDict["accessPackageAssignmentPolicy"] = new AccessPackageAssignmentPolicy($this->_propDict["accessPackageAssignmentPolicy"]);
@@ -344,10 +344,10 @@ class AccessPackageAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the accessPackageAssignmentPolicy
-    * Read-only. Nullable.
+    * Read-only. Nullable. Supports $filter (eq) on the id property
     *
     * @param AccessPackageAssignmentPolicy $val The accessPackageAssignmentPolicy
     *
@@ -358,12 +358,12 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["accessPackageAssignmentPolicy"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignmentRequests
      *
-     * @return array The accessPackageAssignmentRequests
+     * @return array|null The accessPackageAssignmentRequests
      */
     public function getAccessPackageAssignmentRequests()
     {
@@ -373,26 +373,26 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignmentRequests
     *
-    * @param AccessPackageAssignmentRequest $val The accessPackageAssignmentRequests
+    * @param AccessPackageAssignmentRequest[] $val The accessPackageAssignmentRequests
     *
     * @return AccessPackageAssignment
     */
     public function setAccessPackageAssignmentRequests($val)
     {
-		$this->_propDict["accessPackageAssignmentRequests"] = $val;
+        $this->_propDict["accessPackageAssignmentRequests"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the accessPackageAssignmentResourceRoles
     * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
      *
-     * @return array The accessPackageAssignmentResourceRoles
+     * @return array|null The accessPackageAssignmentResourceRoles
      */
     public function getAccessPackageAssignmentResourceRoles()
     {
@@ -402,31 +402,31 @@ class AccessPackageAssignment extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the accessPackageAssignmentResourceRoles
     * The resource roles delivered to the target user for this assignment. Read-only. Nullable.
     *
-    * @param AccessPackageAssignmentResourceRole $val The accessPackageAssignmentResourceRoles
+    * @param AccessPackageAssignmentResourceRole[] $val The accessPackageAssignmentResourceRoles
     *
     * @return AccessPackageAssignment
     */
     public function setAccessPackageAssignmentResourceRoles($val)
     {
-		$this->_propDict["accessPackageAssignmentResourceRoles"] = $val;
+        $this->_propDict["accessPackageAssignmentResourceRoles"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the target
-    * The subject of the access package assignment. Read-only. Nullable.
+    * The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
     *
-    * @return AccessPackageSubject The target
+    * @return AccessPackageSubject|null The target
     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject")) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\AccessPackageSubject") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new AccessPackageSubject($this->_propDict["target"]);
@@ -435,10 +435,10 @@ class AccessPackageAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the target
-    * The subject of the access package assignment. Read-only. Nullable.
+    * The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.
     *
     * @param AccessPackageSubject $val The target
     *
@@ -449,5 +449,5 @@ class AccessPackageAssignment extends Entity
         $this->_propDict["target"] = $val;
         return $this;
     }
-    
+
 }

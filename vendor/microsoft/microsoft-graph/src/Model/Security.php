@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class Security extends Entity
 {
 
-     /** 
+     /**
      * Gets the alerts
-    * Read-only. Nullable.
+    * Notifications for suspicious or potential security issues in a customer’s tenant.
      *
-     * @return array The alerts
+     * @return array|null The alerts
      */
     public function getAlerts()
     {
@@ -39,26 +39,26 @@ class Security extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the alerts
-    * Read-only. Nullable.
+    * Notifications for suspicious or potential security issues in a customer’s tenant.
     *
-    * @param Alert $val The alerts
+    * @param Alert[] $val The alerts
     *
     * @return Security
     */
     public function setAlerts($val)
     {
-		$this->_propDict["alerts"] = $val;
+        $this->_propDict["alerts"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the secureScoreControlProfiles
      *
-     * @return array The secureScoreControlProfiles
+     * @return array|null The secureScoreControlProfiles
      */
     public function getSecureScoreControlProfiles()
     {
@@ -68,25 +68,25 @@ class Security extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the secureScoreControlProfiles
     *
-    * @param SecureScoreControlProfile $val The secureScoreControlProfiles
+    * @param SecureScoreControlProfile[] $val The secureScoreControlProfiles
     *
     * @return Security
     */
     public function setSecureScoreControlProfiles($val)
     {
-		$this->_propDict["secureScoreControlProfiles"] = $val;
+        $this->_propDict["secureScoreControlProfiles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the secureScores
      *
-     * @return array The secureScores
+     * @return array|null The secureScores
      */
     public function getSecureScores()
     {
@@ -96,18 +96,18 @@ class Security extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the secureScores
     *
-    * @param SecureScore $val The secureScores
+    * @param SecureScore[] $val The secureScores
     *
     * @return Security
     */
     public function setSecureScores($val)
     {
-		$this->_propDict["secureScores"] = $val;
+        $this->_propDict["secureScores"] = $val;
         return $this;
     }
-    
+
 }

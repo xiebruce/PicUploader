@@ -28,7 +28,7 @@ class DomainDnsMxRecord extends DomainDnsRecord
     * Gets the mailExchange
     * Value used when configuring the answer/destination/value of the MX record at the DNS host.
     *
-    * @return string The mailExchange
+    * @return string|null The mailExchange
     */
     public function getMailExchange()
     {
@@ -38,7 +38,7 @@ class DomainDnsMxRecord extends DomainDnsRecord
             return null;
         }
     }
-    
+
     /**
     * Sets the mailExchange
     * Value used when configuring the answer/destination/value of the MX record at the DNS host.
@@ -52,12 +52,12 @@ class DomainDnsMxRecord extends DomainDnsRecord
         $this->_propDict["mailExchange"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the preference
     * Value used when configuring the Preference/Priority property of the MX record at the DNS host.
     *
-    * @return int The preference
+    * @return int|null The preference
     */
     public function getPreference()
     {
@@ -67,7 +67,7 @@ class DomainDnsMxRecord extends DomainDnsRecord
             return null;
         }
     }
-    
+
     /**
     * Sets the preference
     * Value used when configuring the Preference/Priority property of the MX record at the DNS host.
@@ -81,5 +81,5 @@ class DomainDnsMxRecord extends DomainDnsRecord
         $this->_propDict["preference"] = intval($val);
         return $this;
     }
-    
+
 }

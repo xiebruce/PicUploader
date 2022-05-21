@@ -28,7 +28,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
     * Gets the allowSampleSharing
     * Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
     *
-    * @return bool The allowSampleSharing
+    * @return bool|null The allowSampleSharing
     */
     public function getAllowSampleSharing()
     {
@@ -38,7 +38,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
             return null;
         }
     }
-    
+
     /**
     * Sets the allowSampleSharing
     * Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
@@ -52,12 +52,12 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
         $this->_propDict["allowSampleSharing"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enableExpeditedTelemetryReporting
     * Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
     *
-    * @return bool The enableExpeditedTelemetryReporting
+    * @return bool|null The enableExpeditedTelemetryReporting
     */
     public function getEnableExpeditedTelemetryReporting()
     {
@@ -67,7 +67,7 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
             return null;
         }
     }
-    
+
     /**
     * Sets the enableExpeditedTelemetryReporting
     * Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
@@ -81,5 +81,5 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
         $this->_propDict["enableExpeditedTelemetryReporting"] = boolval($val);
         return $this;
     }
-    
+
 }

@@ -25,10 +25,10 @@ namespace Microsoft\Graph\Model;
 class CloudCommunications extends Entity
 {
 
-     /** 
+     /**
      * Gets the calls
      *
-     * @return array The calls
+     * @return array|null The calls
      */
     public function getCalls()
     {
@@ -38,25 +38,25 @@ class CloudCommunications extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the calls
     *
-    * @param Call $val The calls
+    * @param Call[] $val The calls
     *
     * @return CloudCommunications
     */
     public function setCalls($val)
     {
-		$this->_propDict["calls"] = $val;
+        $this->_propDict["calls"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the callRecords
      *
-     * @return array The callRecords
+     * @return array|null The callRecords
      */
     public function getCallRecords()
     {
@@ -66,25 +66,25 @@ class CloudCommunications extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the callRecords
     *
-    * @param \Microsoft\Graph\CallRecords\Model\CallRecord $val The callRecords
+    * @param \Microsoft\Graph\CallRecords\Model\CallRecord[] $val The callRecords
     *
     * @return CloudCommunications
     */
     public function setCallRecords($val)
     {
-		$this->_propDict["callRecords"] = $val;
+        $this->_propDict["callRecords"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the onlineMeetings
      *
-     * @return array The onlineMeetings
+     * @return array|null The onlineMeetings
      */
     public function getOnlineMeetings()
     {
@@ -94,25 +94,25 @@ class CloudCommunications extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the onlineMeetings
     *
-    * @param OnlineMeeting $val The onlineMeetings
+    * @param OnlineMeeting[] $val The onlineMeetings
     *
     * @return CloudCommunications
     */
     public function setOnlineMeetings($val)
     {
-		$this->_propDict["onlineMeetings"] = $val;
+        $this->_propDict["onlineMeetings"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the presences
      *
-     * @return array The presences
+     * @return array|null The presences
      */
     public function getPresences()
     {
@@ -122,18 +122,18 @@ class CloudCommunications extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the presences
     *
-    * @param Presence $val The presences
+    * @param Presence[] $val The presences
     *
     * @return CloudCommunications
     */
     public function setPresences($val)
     {
-		$this->_propDict["presences"] = $val;
+        $this->_propDict["presences"] = $val;
         return $this;
     }
-    
+
 }

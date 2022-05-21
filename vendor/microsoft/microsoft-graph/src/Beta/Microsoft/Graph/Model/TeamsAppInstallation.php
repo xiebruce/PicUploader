@@ -28,12 +28,12 @@ class TeamsAppInstallation extends Entity
     * Gets the teamsApp
     * The app that is installed.
     *
-    * @return TeamsApp The teamsApp
+    * @return TeamsApp|null The teamsApp
     */
     public function getTeamsApp()
     {
         if (array_key_exists("teamsApp", $this->_propDict)) {
-            if (is_a($this->_propDict["teamsApp"], "\Beta\Microsoft\Graph\Model\TeamsApp")) {
+            if (is_a($this->_propDict["teamsApp"], "\Beta\Microsoft\Graph\Model\TeamsApp") || is_null($this->_propDict["teamsApp"])) {
                 return $this->_propDict["teamsApp"];
             } else {
                 $this->_propDict["teamsApp"] = new TeamsApp($this->_propDict["teamsApp"]);
@@ -42,7 +42,7 @@ class TeamsAppInstallation extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the teamsApp
     * The app that is installed.
@@ -56,17 +56,17 @@ class TeamsAppInstallation extends Entity
         $this->_propDict["teamsApp"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the teamsAppDefinition
     * The details of this version of the app.
     *
-    * @return TeamsAppDefinition The teamsAppDefinition
+    * @return TeamsAppDefinition|null The teamsAppDefinition
     */
     public function getTeamsAppDefinition()
     {
         if (array_key_exists("teamsAppDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["teamsAppDefinition"], "\Beta\Microsoft\Graph\Model\TeamsAppDefinition")) {
+            if (is_a($this->_propDict["teamsAppDefinition"], "\Beta\Microsoft\Graph\Model\TeamsAppDefinition") || is_null($this->_propDict["teamsAppDefinition"])) {
                 return $this->_propDict["teamsAppDefinition"];
             } else {
                 $this->_propDict["teamsAppDefinition"] = new TeamsAppDefinition($this->_propDict["teamsAppDefinition"]);
@@ -75,7 +75,7 @@ class TeamsAppInstallation extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the teamsAppDefinition
     * The details of this version of the app.
@@ -89,5 +89,5 @@ class TeamsAppInstallation extends Entity
         $this->_propDict["teamsAppDefinition"] = $val;
         return $this;
     }
-    
+
 }

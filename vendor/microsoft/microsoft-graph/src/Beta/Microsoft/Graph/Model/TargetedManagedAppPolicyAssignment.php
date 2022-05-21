@@ -28,12 +28,12 @@ class TargetedManagedAppPolicyAssignment extends Entity
     * Gets the source
     * Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
     *
-    * @return DeviceAndAppManagementAssignmentSource The source
+    * @return DeviceAndAppManagementAssignmentSource|null The source
     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource")) {
+            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource") || is_null($this->_propDict["source"])) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new DeviceAndAppManagementAssignmentSource($this->_propDict["source"]);
@@ -42,7 +42,7 @@ class TargetedManagedAppPolicyAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the source
     * Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
@@ -56,12 +56,12 @@ class TargetedManagedAppPolicyAssignment extends Entity
         $this->_propDict["source"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sourceId
     * Identifier for resource used for deployment to a group
     *
-    * @return string The sourceId
+    * @return string|null The sourceId
     */
     public function getSourceId()
     {
@@ -71,7 +71,7 @@ class TargetedManagedAppPolicyAssignment extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the sourceId
     * Identifier for resource used for deployment to a group
@@ -85,17 +85,17 @@ class TargetedManagedAppPolicyAssignment extends Entity
         $this->_propDict["sourceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the target
     * Identifier for deployment to a group or app
     *
-    * @return DeviceAndAppManagementAssignmentTarget The target
+    * @return DeviceAndAppManagementAssignmentTarget|null The target
     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget")) {
+            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -104,7 +104,7 @@ class TargetedManagedAppPolicyAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the target
     * Identifier for deployment to a group or app
@@ -118,5 +118,5 @@ class TargetedManagedAppPolicyAssignment extends Entity
         $this->_propDict["target"] = $val;
         return $this;
     }
-    
+
 }

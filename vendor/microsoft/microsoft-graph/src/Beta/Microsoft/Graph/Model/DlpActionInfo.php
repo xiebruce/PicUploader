@@ -27,12 +27,12 @@ class DlpActionInfo extends Entity
     /**
     * Gets the action
     *
-    * @return DlpAction The action
+    * @return DlpAction|null The action
     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\DlpAction")) {
+            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\DlpAction") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new DlpAction($this->_propDict["action"]);

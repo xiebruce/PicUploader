@@ -28,7 +28,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration
     * Gets the enableExpeditedCheckin
     * Gets or sets whether to enable expedited device check-ins.
     *
-    * @return bool The enableExpeditedCheckin
+    * @return bool|null The enableExpeditedCheckin
     */
     public function getEnableExpeditedCheckin()
     {
@@ -38,7 +38,7 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enableExpeditedCheckin
     * Gets or sets whether to enable expedited device check-ins.
@@ -52,5 +52,5 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration
         $this->_propDict["enableExpeditedCheckin"] = boolval($val);
         return $this;
     }
-    
+
 }

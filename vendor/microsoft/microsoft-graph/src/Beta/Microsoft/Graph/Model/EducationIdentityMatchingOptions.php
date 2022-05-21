@@ -28,12 +28,12 @@ class EducationIdentityMatchingOptions extends Entity
     * Gets the appliesTo
     * The user role type to assign to the license. Possible values are: student, teacher, faculty.
     *
-    * @return EducationUserRole The appliesTo
+    * @return EducationUserRole|null The appliesTo
     */
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole")) {
+            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
                 return $this->_propDict["appliesTo"];
             } else {
                 $this->_propDict["appliesTo"] = new EducationUserRole($this->_propDict["appliesTo"]);
@@ -60,7 +60,7 @@ class EducationIdentityMatchingOptions extends Entity
     * Gets the sourcePropertyName
     * The name of the source property, which should be a field name in the source data. This property is case-sensitive.
     *
-    * @return string The sourcePropertyName
+    * @return string|null The sourcePropertyName
     */
     public function getSourcePropertyName()
     {
@@ -88,7 +88,7 @@ class EducationIdentityMatchingOptions extends Entity
     * Gets the targetDomain
     * The domain to suffix with the source property to match on the target. If provided as null, the source property will be used to match with the target property.
     *
-    * @return string The targetDomain
+    * @return string|null The targetDomain
     */
     public function getTargetDomain()
     {
@@ -116,7 +116,7 @@ class EducationIdentityMatchingOptions extends Entity
     * Gets the targetPropertyName
     * The name of the target property, which should be a valid property in Azure AD. This property is case-sensitive.
     *
-    * @return string The targetPropertyName
+    * @return string|null The targetPropertyName
     */
     public function getTargetPropertyName()
     {

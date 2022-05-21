@@ -27,7 +27,7 @@ class ConditionalAccessUsers extends Entity
     * Gets the excludeGroups
     * Group IDs excluded from scope of policy.
     *
-    * @return string The excludeGroups
+    * @return string|null The excludeGroups
     */
     public function getExcludeGroups()
     {
@@ -55,7 +55,7 @@ class ConditionalAccessUsers extends Entity
     * Gets the excludeRoles
     * Role IDs excluded from scope of policy.
     *
-    * @return string The excludeRoles
+    * @return string|null The excludeRoles
     */
     public function getExcludeRoles()
     {
@@ -83,7 +83,7 @@ class ConditionalAccessUsers extends Entity
     * Gets the excludeUsers
     * User IDs excluded from scope of policy and/or GuestsOrExternalUsers.
     *
-    * @return string The excludeUsers
+    * @return string|null The excludeUsers
     */
     public function getExcludeUsers()
     {
@@ -111,7 +111,7 @@ class ConditionalAccessUsers extends Entity
     * Gets the includeGroups
     * Group IDs in scope of policy unless explicitly excluded, or All.
     *
-    * @return string The includeGroups
+    * @return string|null The includeGroups
     */
     public function getIncludeGroups()
     {
@@ -139,7 +139,7 @@ class ConditionalAccessUsers extends Entity
     * Gets the includeRoles
     * Role IDs in scope of policy unless explicitly excluded, or All.
     *
-    * @return string The includeRoles
+    * @return string|null The includeRoles
     */
     public function getIncludeRoles()
     {
@@ -167,7 +167,7 @@ class ConditionalAccessUsers extends Entity
     * Gets the includeUsers
     * User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
     *
-    * @return string The includeUsers
+    * @return string|null The includeUsers
     */
     public function getIncludeUsers()
     {

@@ -27,7 +27,7 @@ class SearchRequest extends Entity
     * Gets the aggregationFilters
     * Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.
     *
-    * @return string The aggregationFilters
+    * @return string|null The aggregationFilters
     */
     public function getAggregationFilters()
     {
@@ -56,12 +56,12 @@ class SearchRequest extends Entity
     * Gets the aggregations
     * Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
     *
-    * @return AggregationOption The aggregations
+    * @return AggregationOption|null The aggregations
     */
     public function getAggregations()
     {
         if (array_key_exists("aggregations", $this->_propDict)) {
-            if (is_a($this->_propDict["aggregations"], "\Beta\Microsoft\Graph\Model\AggregationOption")) {
+            if (is_a($this->_propDict["aggregations"], "\Beta\Microsoft\Graph\Model\AggregationOption") || is_null($this->_propDict["aggregations"])) {
                 return $this->_propDict["aggregations"];
             } else {
                 $this->_propDict["aggregations"] = new AggregationOption($this->_propDict["aggregations"]);
@@ -88,7 +88,7 @@ class SearchRequest extends Entity
     * Gets the contentSources
     * Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
     *
-    * @return string The contentSources
+    * @return string|null The contentSources
     */
     public function getContentSources()
     {
@@ -116,7 +116,7 @@ class SearchRequest extends Entity
     * Gets the enableTopResults
     * This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional.
     *
-    * @return bool The enableTopResults
+    * @return bool|null The enableTopResults
     */
     public function getEnableTopResults()
     {
@@ -143,14 +143,14 @@ class SearchRequest extends Entity
 
     /**
     * Gets the entityTypes
-    * One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+    * One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
     *
-    * @return EntityType The entityTypes
+    * @return EntityType|null The entityTypes
     */
     public function getEntityTypes()
     {
         if (array_key_exists("entityTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["entityTypes"], "\Beta\Microsoft\Graph\Model\EntityType")) {
+            if (is_a($this->_propDict["entityTypes"], "\Beta\Microsoft\Graph\Model\EntityType") || is_null($this->_propDict["entityTypes"])) {
                 return $this->_propDict["entityTypes"];
             } else {
                 $this->_propDict["entityTypes"] = new EntityType($this->_propDict["entityTypes"]);
@@ -162,7 +162,7 @@ class SearchRequest extends Entity
 
     /**
     * Sets the entityTypes
-    * One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
+    * One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
     *
     * @param EntityType $val The value to assign to the entityTypes
     *
@@ -177,7 +177,7 @@ class SearchRequest extends Entity
     * Gets the fields
     * Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.
     *
-    * @return string The fields
+    * @return string|null The fields
     */
     public function getFields()
     {
@@ -205,7 +205,7 @@ class SearchRequest extends Entity
     * Gets the from
     * Specifies the offset for the search results. Offset 0 returns the very first result. Optional.
     *
-    * @return int The from
+    * @return int|null The from
     */
     public function getFrom()
     {
@@ -234,12 +234,12 @@ class SearchRequest extends Entity
     * Gets the query
     * Contains the query terms. Required.
     *
-    * @return SearchQuery The query
+    * @return SearchQuery|null The query
     */
     public function getQuery()
     {
         if (array_key_exists("query", $this->_propDict)) {
-            if (is_a($this->_propDict["query"], "\Beta\Microsoft\Graph\Model\SearchQuery")) {
+            if (is_a($this->_propDict["query"], "\Beta\Microsoft\Graph\Model\SearchQuery") || is_null($this->_propDict["query"])) {
                 return $this->_propDict["query"];
             } else {
                 $this->_propDict["query"] = new SearchQuery($this->_propDict["query"]);
@@ -262,11 +262,103 @@ class SearchRequest extends Entity
         $this->_propDict["query"] = $val;
          return $this;
     }
+
+    /**
+    * Gets the queryAlterationOptions
+    * Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.
+    *
+    * @return SearchAlterationOptions|null The queryAlterationOptions
+    */
+    public function getQueryAlterationOptions()
+    {
+        if (array_key_exists("queryAlterationOptions", $this->_propDict)) {
+            if (is_a($this->_propDict["queryAlterationOptions"], "\Beta\Microsoft\Graph\Model\SearchAlterationOptions") || is_null($this->_propDict["queryAlterationOptions"])) {
+                return $this->_propDict["queryAlterationOptions"];
+            } else {
+                $this->_propDict["queryAlterationOptions"] = new SearchAlterationOptions($this->_propDict["queryAlterationOptions"]);
+                return $this->_propDict["queryAlterationOptions"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the queryAlterationOptions
+    * Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.
+    *
+    * @param SearchAlterationOptions $val The value to assign to the queryAlterationOptions
+    *
+    * @return SearchRequest The SearchRequest
+    */
+    public function setQueryAlterationOptions($val)
+    {
+        $this->_propDict["queryAlterationOptions"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the region
+    *
+    * @return string|null The region
+    */
+    public function getRegion()
+    {
+        if (array_key_exists("region", $this->_propDict)) {
+            return $this->_propDict["region"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the region
+    *
+    * @param string $val The value of the region
+    *
+    * @return SearchRequest
+    */
+    public function setRegion($val)
+    {
+        $this->_propDict["region"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the resultTemplateOptions
+    * Provides the search result templates options for rendering connectors search results.
+    *
+    * @return ResultTemplateOption|null The resultTemplateOptions
+    */
+    public function getResultTemplateOptions()
+    {
+        if (array_key_exists("resultTemplateOptions", $this->_propDict)) {
+            if (is_a($this->_propDict["resultTemplateOptions"], "\Beta\Microsoft\Graph\Model\ResultTemplateOption") || is_null($this->_propDict["resultTemplateOptions"])) {
+                return $this->_propDict["resultTemplateOptions"];
+            } else {
+                $this->_propDict["resultTemplateOptions"] = new ResultTemplateOption($this->_propDict["resultTemplateOptions"]);
+                return $this->_propDict["resultTemplateOptions"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the resultTemplateOptions
+    * Provides the search result templates options for rendering connectors search results.
+    *
+    * @param ResultTemplateOption $val The value to assign to the resultTemplateOptions
+    *
+    * @return SearchRequest The SearchRequest
+    */
+    public function setResultTemplateOptions($val)
+    {
+        $this->_propDict["resultTemplateOptions"] = $val;
+         return $this;
+    }
     /**
     * Gets the size
     * The size of the page to be retrieved. Optional.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {
@@ -295,12 +387,12 @@ class SearchRequest extends Entity
     * Gets the sortProperties
     * Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
     *
-    * @return SortProperty The sortProperties
+    * @return SortProperty|null The sortProperties
     */
     public function getSortProperties()
     {
         if (array_key_exists("sortProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["sortProperties"], "\Beta\Microsoft\Graph\Model\SortProperty")) {
+            if (is_a($this->_propDict["sortProperties"], "\Beta\Microsoft\Graph\Model\SortProperty") || is_null($this->_propDict["sortProperties"])) {
                 return $this->_propDict["sortProperties"];
             } else {
                 $this->_propDict["sortProperties"] = new SortProperty($this->_propDict["sortProperties"]);
@@ -326,7 +418,7 @@ class SearchRequest extends Entity
     /**
     * Gets the stored_fields
     *
-    * @return string The stored_fields
+    * @return string|null The stored_fields
     */
     public function getStored_fields()
     {
@@ -347,6 +439,34 @@ class SearchRequest extends Entity
     public function setStored_fields($val)
     {
         $this->_propDict["storedFields"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the trimDuplicates
+    * Indicates whether to trim away the duplicate SharePoint files from search results. Default value is false. Optional.
+    *
+    * @return bool|null The trimDuplicates
+    */
+    public function getTrimDuplicates()
+    {
+        if (array_key_exists("trimDuplicates", $this->_propDict)) {
+            return $this->_propDict["trimDuplicates"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the trimDuplicates
+    * Indicates whether to trim away the duplicate SharePoint files from search results. Default value is false. Optional.
+    *
+    * @param bool $val The value of the trimDuplicates
+    *
+    * @return SearchRequest
+    */
+    public function setTrimDuplicates($val)
+    {
+        $this->_propDict["trimDuplicates"] = $val;
         return $this;
     }
 }

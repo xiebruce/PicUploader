@@ -27,7 +27,7 @@ class ProgramControlType extends Entity
     /**
     * Gets the controlTypeGroupId
     *
-    * @return string The controlTypeGroupId
+    * @return string|null The controlTypeGroupId
     */
     public function getControlTypeGroupId()
     {
@@ -37,7 +37,7 @@ class ProgramControlType extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the controlTypeGroupId
     *
@@ -50,12 +50,12 @@ class ProgramControlType extends Entity
         $this->_propDict["controlTypeGroupId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name of the program control type
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -65,7 +65,7 @@ class ProgramControlType extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the program control type
@@ -79,5 +79,5 @@ class ProgramControlType extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
 }

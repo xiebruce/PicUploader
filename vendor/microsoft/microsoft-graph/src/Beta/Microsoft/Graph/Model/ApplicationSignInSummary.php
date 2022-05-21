@@ -26,9 +26,9 @@ class ApplicationSignInSummary extends Entity
 {
     /**
     * Gets the appDisplayName
-    * Name of the application that the user signed in to.
+    * Name of the application that the user signed into.
     *
-    * @return string The appDisplayName
+    * @return string|null The appDisplayName
     */
     public function getAppDisplayName()
     {
@@ -38,10 +38,10 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appDisplayName
-    * Name of the application that the user signed in to.
+    * Name of the application that the user signed into.
     *
     * @param string $val The appDisplayName
     *
@@ -52,12 +52,12 @@ class ApplicationSignInSummary extends Entity
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the failedSignInCount
     * Count of failed sign-ins made by the application.
     *
-    * @return int The failedSignInCount
+    * @return int|null The failedSignInCount
     */
     public function getFailedSignInCount()
     {
@@ -67,7 +67,7 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedSignInCount
     * Count of failed sign-ins made by the application.
@@ -81,12 +81,12 @@ class ApplicationSignInSummary extends Entity
         $this->_propDict["failedSignInCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the successfulSignInCount
     * Count of successful sign-ins made by the application.
     *
-    * @return int The successfulSignInCount
+    * @return int|null The successfulSignInCount
     */
     public function getSuccessfulSignInCount()
     {
@@ -96,7 +96,7 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the successfulSignInCount
     * Count of successful sign-ins made by the application.
@@ -110,12 +110,12 @@ class ApplicationSignInSummary extends Entity
         $this->_propDict["successfulSignInCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the successPercentage
     * Percentage of successful sign-ins made by the application.
     *
-    * @return float The successPercentage
+    * @return float|null The successPercentage
     */
     public function getSuccessPercentage()
     {
@@ -125,7 +125,7 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the successPercentage
     * Percentage of successful sign-ins made by the application.
@@ -136,8 +136,8 @@ class ApplicationSignInSummary extends Entity
     */
     public function setSuccessPercentage($val)
     {
-        $this->_propDict["successPercentage"] = $val;
+        $this->_propDict["successPercentage"] = floatval($val);
         return $this;
     }
-    
+
 }

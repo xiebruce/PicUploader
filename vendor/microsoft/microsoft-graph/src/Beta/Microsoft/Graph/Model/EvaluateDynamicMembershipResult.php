@@ -27,7 +27,7 @@ class EvaluateDynamicMembershipResult extends Entity
     * Gets the membershipRule
     * If a group ID is provided, the value is the membership rule for the group. If a group ID is not provided, the value is the membership rule that was provided as a parameter. For more information, see Dynamic membership rules for groups in Azure Active Directory.
     *
-    * @return string The membershipRule
+    * @return string|null The membershipRule
     */
     public function getMembershipRule()
     {
@@ -56,12 +56,12 @@ class EvaluateDynamicMembershipResult extends Entity
     * Gets the membershipRuleEvaluationDetails
     * Provides a detailed anaylsis of the membership evaluation result.
     *
-    * @return ExpressionEvaluationDetails The membershipRuleEvaluationDetails
+    * @return ExpressionEvaluationDetails|null The membershipRuleEvaluationDetails
     */
     public function getMembershipRuleEvaluationDetails()
     {
         if (array_key_exists("membershipRuleEvaluationDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["membershipRuleEvaluationDetails"], "\Beta\Microsoft\Graph\Model\ExpressionEvaluationDetails")) {
+            if (is_a($this->_propDict["membershipRuleEvaluationDetails"], "\Beta\Microsoft\Graph\Model\ExpressionEvaluationDetails") || is_null($this->_propDict["membershipRuleEvaluationDetails"])) {
                 return $this->_propDict["membershipRuleEvaluationDetails"];
             } else {
                 $this->_propDict["membershipRuleEvaluationDetails"] = new ExpressionEvaluationDetails($this->_propDict["membershipRuleEvaluationDetails"]);
@@ -88,7 +88,7 @@ class EvaluateDynamicMembershipResult extends Entity
     * Gets the membershipRuleEvaluationResult
     * The value is true if the user or device is a member of the group. The value can also be true if a membership rule was provided and the user or device passes the rule evaluation; otherwise false.
     *
-    * @return bool The membershipRuleEvaluationResult
+    * @return bool|null The membershipRuleEvaluationResult
     */
     public function getMembershipRuleEvaluationResult()
     {

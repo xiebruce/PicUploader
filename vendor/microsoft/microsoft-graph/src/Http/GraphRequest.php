@@ -101,6 +101,12 @@ class GraphRequest
     */
     protected $proxyPort;
     /**
+     * Whether SSL verification should be used for proxy requests
+     *
+     * @var bool
+     */
+    protected $proxyVerifySSL;
+    /**
     * Request options to decide if Guzzle Client should throw exceptions when http code is 4xx or 5xx
     *
     * @var bool
@@ -110,15 +116,16 @@ class GraphRequest
     /**
     * Constructs a new Graph Request object
     *
-    * @param string $requestType The HTTP method to use, e.g. "GET" or "POST"
-    * @param string $endpoint    The Graph endpoint to call
-    * @param string $accessToken A valid access token to validate the Graph call
-    * @param string $baseUrl     The base URL to call
-    * @param string $apiVersion  The API version to use
-    * @param string $proxyPort   The url where to proxy through
+    * @param string $requestType  The HTTP method to use, e.g. "GET" or "POST"
+    * @param string $endpoint     The Graph endpoint to call
+    * @param string $accessToken  A valid access token to validate the Graph call
+    * @param string $baseUrl      The base URL to call
+    * @param string $apiVersion   The API version to use
+    * @param string $proxyPort    The url where to proxy through
+    * @param bool $proxyVerifySSL Whether the proxy requests should perform SSL verification
     * @throws GraphException when no access token is provided
     */
-    public function __construct($requestType, $endpoint, $accessToken, $baseUrl, $apiVersion, $proxyPort = null)
+    public function __construct($requestType, $endpoint, $accessToken, $baseUrl, $apiVersion, $proxyPort = null, $proxyVerifySSL = false)
     {
         $this->requestType = $requestType;
         $this->endpoint = $endpoint;
@@ -134,6 +141,7 @@ class GraphRequest
         $this->timeout = 100;
         $this->headers = $this->_getDefaultHeaders();
         $this->proxyPort = $proxyPort;
+        $this->proxyVerifySSL = $proxyVerifySSL;
     }
 
     /**
@@ -171,7 +179,7 @@ class GraphRequest
     *
     * @param string $http_errors A bool option to the Graph call
     *
-    * @return GraphRequest object
+    * @return $this object
     */
     public function setHttpErrors($http_errors)
     {
@@ -184,7 +192,7 @@ class GraphRequest
     *
     * @param string $accessToken A valid access token to validate the Graph call
     *
-    * @return GraphRequest object
+    * @return $this object
     */
     public function setAccessToken($accessToken)
     {
@@ -198,12 +206,12 @@ class GraphRequest
     *
     * @param mixed $returnClass The object class to use
     *
-    * @return GraphRequest object
+    * @return $this object
     */
     public function setReturnType($returnClass)
     {
         $this->returnType = $returnClass;
-        if ($this->returnType == "GuzzleHttp\Psr7\Stream") {
+        if ($this->returnType == "GuzzleHttp\Psr7\Stream" || $this->returnType === \Psr\Http\Message\StreamInterface::class) {
             $this->returnsStream  = true;
         } else {
             $this->returnsStream = false;
@@ -216,7 +224,7 @@ class GraphRequest
     *
     * @param array $headers An array of custom headers
     *
-    * @return GraphRequest object
+    * @return $this object
     */
     public function addHeaders($headers)
     {
@@ -240,12 +248,12 @@ class GraphRequest
     *
     * @param mixed $obj The object to include in the request
     *
-    * @return GraphRequest object
+    * @return $this object
     */
     public function attachBody($obj)
     {
         // Attach streams & JSON automatically
-        if (is_string($obj) || is_a($obj, 'GuzzleHttp\\Psr7\\Stream')) {
+        if (is_string($obj) || is_a($obj, \Psr\Http\Message\StreamInterface::class)) {
             $this->requestBody = $obj;
         }
         // By default, JSON-encode
@@ -270,7 +278,7 @@ class GraphRequest
     *
     * @param string $timeout The timeout in seconds
     *
-    * @return GraphRequest object
+    * @return $this object
     */
     public function setTimeout($timeout)
     {
@@ -293,7 +301,7 @@ class GraphRequest
     *
     * @param mixed $client The client to use in the request
     *
-    * @throws GraphException if response is invalid; if 4xx/5xx is returned and $http_errors is true
+    * @throws \GuzzleHttp\Exception\GuzzleException
     *
     * @return mixed object or array of objects
     *         of class $returnType
@@ -401,8 +409,9 @@ class GraphRequest
     * @param string $path   The path to download the file to
     * @param mixed  $client The client to use in the request
     *
-     * @throws GraphException if file path is invalid; if \GuzzleHttp\Exception\BadResponseException is thrown for 4xx/5xx responses
-     *
+    * @throws GraphException if file path is invalid
+    * @throws \GuzzleHttp\Exception\GuzzleException
+    *
     * @return null
     */
     public function download($path, $client = null)
@@ -444,8 +453,9 @@ class GraphRequest
     * @param string $path   The path of the file to upload
     * @param mixed  $client The client to use in the request
     *
-     * @throws GraphException if file is invalid
-     *
+    * @throws GraphException if file is invalid
+    * @throws \GuzzleHttp\Exception\GuzzleException
+    *
     * @return mixed DriveItem or array of DriveItems
     */
     public function upload($path, $client = null)
@@ -456,7 +466,7 @@ class GraphRequest
         try {
             if (file_exists($path) && is_readable($path)) {
                 $file = fopen($path, 'r');
-                $stream = \GuzzleHttp\Psr7\stream_for($file);
+                $stream = \GuzzleHttp\Psr7\Utils::streamFor($file);
                 $this->requestBody = $stream;
                 return $this->execute($client);
             } else {
@@ -474,13 +484,12 @@ class GraphRequest
     */
     private function _getDefaultHeaders()
     {
-        $headers = [
+        return [
             'Host' => $this->baseUrl,
             'Content-Type' => 'application/json',
             'SdkVersion' => 'Graph-php-' . GraphConstants::SDK_VERSION,
             'Authorization' => 'Bearer ' . $this->accessToken
         ];
-        return $headers;
     }
 
     /**
@@ -533,11 +542,14 @@ class GraphRequest
             'headers' => $this->headers
         ];
         if ($this->proxyPort !== null) {
-            $clientSettings['verify'] = false;
+            $clientSettings['verify'] = $this->proxyVerifySSL;
             $clientSettings['proxy'] = $this->proxyPort;
         }
-        $client = new Client($clientSettings);
+        if (extension_loaded('curl') && defined('CURL_VERSION_HTTP2') && (curl_version()["features"] & CURL_VERSION_HTTP2 !== 0)) {
 
-        return $client;
+            // Enable HTTP/2 if curl lib exists and supports it
+            $clientSettings['version'] = '2';
+        }
+        return new Client($clientSettings);
     }
 }

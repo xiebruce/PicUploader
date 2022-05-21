@@ -28,12 +28,12 @@ class RiskUserActivity extends Entity
     * Gets the detail
     * The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
     *
-    * @return RiskDetail The detail
+    * @return RiskDetail|null The detail
     */
     public function getDetail()
     {
         if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\RiskDetail")) {
+            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\RiskDetail") || is_null($this->_propDict["detail"])) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new RiskDetail($this->_propDict["detail"]);
@@ -59,14 +59,13 @@ class RiskUserActivity extends Entity
 
     /**
     * Gets the eventTypes
-    * List of risk event types. Deprecated. Use riskEventType instead.
     *
-    * @return RiskEventType The eventTypes
+    * @return RiskEventType|null The eventTypes
     */
     public function getEventTypes()
     {
         if (array_key_exists("eventTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["eventTypes"], "\Beta\Microsoft\Graph\Model\RiskEventType")) {
+            if (is_a($this->_propDict["eventTypes"], "\Beta\Microsoft\Graph\Model\RiskEventType") || is_null($this->_propDict["eventTypes"])) {
                 return $this->_propDict["eventTypes"];
             } else {
                 $this->_propDict["eventTypes"] = new RiskEventType($this->_propDict["eventTypes"]);
@@ -78,7 +77,6 @@ class RiskUserActivity extends Entity
 
     /**
     * Sets the eventTypes
-    * List of risk event types. Deprecated. Use riskEventType instead.
     *
     * @param RiskEventType $val The value to assign to the eventTypes
     *
@@ -93,7 +91,7 @@ class RiskUserActivity extends Entity
     * Gets the riskEventTypes
     * The type of risk event detected.
     *
-    * @return string The riskEventTypes
+    * @return string|null The riskEventTypes
     */
     public function getRiskEventTypes()
     {

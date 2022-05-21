@@ -28,12 +28,12 @@ class AttachmentItem extends Entity
     * Gets the attachmentType
     * The type of attachment. Possible values are: file, item, reference. Required.
     *
-    * @return AttachmentType The attachmentType
+    * @return AttachmentType|null The attachmentType
     */
     public function getAttachmentType()
     {
         if (array_key_exists("attachmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["attachmentType"], "\Microsoft\Graph\Model\AttachmentType")) {
+            if (is_a($this->_propDict["attachmentType"], "\Microsoft\Graph\Model\AttachmentType") || is_null($this->_propDict["attachmentType"])) {
                 return $this->_propDict["attachmentType"];
             } else {
                 $this->_propDict["attachmentType"] = new AttachmentType($this->_propDict["attachmentType"]);
@@ -57,10 +57,38 @@ class AttachmentItem extends Entity
          return $this;
     }
     /**
+    * Gets the contentId
+    * The CID or Content-Id of the attachment for referencing in case of in-line attachments using &amp;lt;img src='cid:contentId'&amp;gt; tag in HTML messages. Optional.
+    *
+    * @return string|null The contentId
+    */
+    public function getContentId()
+    {
+        if (array_key_exists("contentId", $this->_propDict)) {
+            return $this->_propDict["contentId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the contentId
+    * The CID or Content-Id of the attachment for referencing in case of in-line attachments using &amp;lt;img src='cid:contentId'&amp;gt; tag in HTML messages. Optional.
+    *
+    * @param string $val The value of the contentId
+    *
+    * @return AttachmentItem
+    */
+    public function setContentId($val)
+    {
+        $this->_propDict["contentId"] = $val;
+        return $this;
+    }
+    /**
     * Gets the contentType
     * The nature of the data in the attachment. Optional.
     *
-    * @return string The contentType
+    * @return string|null The contentType
     */
     public function getContentType()
     {
@@ -88,7 +116,7 @@ class AttachmentItem extends Entity
     * Gets the isInline
     * true if the attachment is an inline attachment; otherwise, false. Optional.
     *
-    * @return bool The isInline
+    * @return bool|null The isInline
     */
     public function getIsInline()
     {
@@ -116,7 +144,7 @@ class AttachmentItem extends Entity
     * Gets the name
     * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -144,7 +172,7 @@ class AttachmentItem extends Entity
     * Gets the size
     * The length of the attachment in bytes. Required.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {

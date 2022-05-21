@@ -27,12 +27,12 @@ class DirectoryRoleAccessReviewPolicy extends Entity
     /**
     * Gets the settings
     *
-    * @return AccessReviewScheduleSettings The settings
+    * @return AccessReviewScheduleSettings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new AccessReviewScheduleSettings($this->_propDict["settings"]);
@@ -41,7 +41,7 @@ class DirectoryRoleAccessReviewPolicy extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
     *
@@ -54,5 +54,5 @@ class DirectoryRoleAccessReviewPolicy extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

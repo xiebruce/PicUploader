@@ -28,12 +28,12 @@ class Media extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the calleeDevice
     * Device information associated with the callee endpoint of this media.
     *
-    * @return DeviceInfo The calleeDevice
+    * @return DeviceInfo|null The calleeDevice
     */
     public function getCalleeDevice()
     {
         if (array_key_exists("calleeDevice", $this->_propDict)) {
-            if (is_a($this->_propDict["calleeDevice"], "\Beta\Microsoft\Graph\CallRecords\Model\DeviceInfo")) {
+            if (is_a($this->_propDict["calleeDevice"], "\Beta\Microsoft\Graph\CallRecords\Model\DeviceInfo") || is_null($this->_propDict["calleeDevice"])) {
                 return $this->_propDict["calleeDevice"];
             } else {
                 $this->_propDict["calleeDevice"] = new DeviceInfo($this->_propDict["calleeDevice"]);
@@ -61,12 +61,12 @@ class Media extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the calleeNetwork
     * Network information associated with the callee endpoint of this media.
     *
-    * @return NetworkInfo The calleeNetwork
+    * @return NetworkInfo|null The calleeNetwork
     */
     public function getCalleeNetwork()
     {
         if (array_key_exists("calleeNetwork", $this->_propDict)) {
-            if (is_a($this->_propDict["calleeNetwork"], "\Beta\Microsoft\Graph\CallRecords\Model\NetworkInfo")) {
+            if (is_a($this->_propDict["calleeNetwork"], "\Beta\Microsoft\Graph\CallRecords\Model\NetworkInfo") || is_null($this->_propDict["calleeNetwork"])) {
                 return $this->_propDict["calleeNetwork"];
             } else {
                 $this->_propDict["calleeNetwork"] = new NetworkInfo($this->_propDict["calleeNetwork"]);
@@ -94,12 +94,12 @@ class Media extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the callerDevice
     * Device information associated with the caller endpoint of this media.
     *
-    * @return DeviceInfo The callerDevice
+    * @return DeviceInfo|null The callerDevice
     */
     public function getCallerDevice()
     {
         if (array_key_exists("callerDevice", $this->_propDict)) {
-            if (is_a($this->_propDict["callerDevice"], "\Beta\Microsoft\Graph\CallRecords\Model\DeviceInfo")) {
+            if (is_a($this->_propDict["callerDevice"], "\Beta\Microsoft\Graph\CallRecords\Model\DeviceInfo") || is_null($this->_propDict["callerDevice"])) {
                 return $this->_propDict["callerDevice"];
             } else {
                 $this->_propDict["callerDevice"] = new DeviceInfo($this->_propDict["callerDevice"]);
@@ -127,12 +127,12 @@ class Media extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the callerNetwork
     * Network information associated with the caller endpoint of this media.
     *
-    * @return NetworkInfo The callerNetwork
+    * @return NetworkInfo|null The callerNetwork
     */
     public function getCallerNetwork()
     {
         if (array_key_exists("callerNetwork", $this->_propDict)) {
-            if (is_a($this->_propDict["callerNetwork"], "\Beta\Microsoft\Graph\CallRecords\Model\NetworkInfo")) {
+            if (is_a($this->_propDict["callerNetwork"], "\Beta\Microsoft\Graph\CallRecords\Model\NetworkInfo") || is_null($this->_propDict["callerNetwork"])) {
                 return $this->_propDict["callerNetwork"];
             } else {
                 $this->_propDict["callerNetwork"] = new NetworkInfo($this->_propDict["callerNetwork"]);
@@ -159,7 +159,7 @@ class Media extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the label
     * How the media was identified during media negotiation stage.
     *
-    * @return string The label
+    * @return string|null The label
     */
     public function getLabel()
     {
@@ -188,12 +188,12 @@ class Media extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the streams
     * Network streams associated with this media.
     *
-    * @return MediaStream The streams
+    * @return MediaStream|null The streams
     */
     public function getStreams()
     {
         if (array_key_exists("streams", $this->_propDict)) {
-            if (is_a($this->_propDict["streams"], "\Beta\Microsoft\Graph\CallRecords\Model\MediaStream")) {
+            if (is_a($this->_propDict["streams"], "\Beta\Microsoft\Graph\CallRecords\Model\MediaStream") || is_null($this->_propDict["streams"])) {
                 return $this->_propDict["streams"];
             } else {
                 $this->_propDict["streams"] = new MediaStream($this->_propDict["streams"]);

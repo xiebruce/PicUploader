@@ -27,7 +27,7 @@ class VersionAction extends Entity
     * Gets the newVersion
     * The name of the new version that was created by this action.
     *
-    * @return string The newVersion
+    * @return string|null The newVersion
     */
     public function getNewVersion()
     {

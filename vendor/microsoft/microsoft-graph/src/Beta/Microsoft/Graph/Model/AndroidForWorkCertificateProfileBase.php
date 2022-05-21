@@ -28,12 +28,12 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
     * Gets the certificateValidityPeriodScale
     * Scale for the Certificate Validity Period. Possible values are: days, months, years.
     *
-    * @return CertificateValidityPeriodScale The certificateValidityPeriodScale
+    * @return CertificateValidityPeriodScale|null The certificateValidityPeriodScale
     */
     public function getCertificateValidityPeriodScale()
     {
         if (array_key_exists("certificateValidityPeriodScale", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale")) {
+            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale") || is_null($this->_propDict["certificateValidityPeriodScale"])) {
                 return $this->_propDict["certificateValidityPeriodScale"];
             } else {
                 $this->_propDict["certificateValidityPeriodScale"] = new CertificateValidityPeriodScale($this->_propDict["certificateValidityPeriodScale"]);
@@ -42,7 +42,7 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the certificateValidityPeriodScale
     * Scale for the Certificate Validity Period. Possible values are: days, months, years.
@@ -56,12 +56,12 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         $this->_propDict["certificateValidityPeriodScale"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the certificateValidityPeriodValue
     * Value for the Certificate Validity Period.
     *
-    * @return int The certificateValidityPeriodValue
+    * @return int|null The certificateValidityPeriodValue
     */
     public function getCertificateValidityPeriodValue()
     {
@@ -71,7 +71,7 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the certificateValidityPeriodValue
     * Value for the Certificate Validity Period.
@@ -85,13 +85,13 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         $this->_propDict["certificateValidityPeriodValue"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
      *
-     * @return array The extendedKeyUsages
+     * @return array|null The extendedKeyUsages
      */
     public function getExtendedKeyUsages()
     {
@@ -101,26 +101,26 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the extendedKeyUsages
     * Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
     *
-    * @param ExtendedKeyUsage $val The extendedKeyUsages
+    * @param ExtendedKeyUsage[] $val The extendedKeyUsages
     *
     * @return AndroidForWorkCertificateProfileBase
     */
     public function setExtendedKeyUsages($val)
     {
-		$this->_propDict["extendedKeyUsages"] = $val;
+        $this->_propDict["extendedKeyUsages"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the renewalThresholdPercentage
     * Certificate renewal threshold percentage. Valid values 1 to 99
     *
-    * @return int The renewalThresholdPercentage
+    * @return int|null The renewalThresholdPercentage
     */
     public function getRenewalThresholdPercentage()
     {
@@ -130,7 +130,7 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the renewalThresholdPercentage
     * Certificate renewal threshold percentage. Valid values 1 to 99
@@ -144,17 +144,17 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         $this->_propDict["renewalThresholdPercentage"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the subjectAlternativeNameType
     * Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
     *
-    * @return SubjectAlternativeNameType The subjectAlternativeNameType
+    * @return SubjectAlternativeNameType|null The subjectAlternativeNameType
     */
     public function getSubjectAlternativeNameType()
     {
         if (array_key_exists("subjectAlternativeNameType", $this->_propDict)) {
-            if (is_a($this->_propDict["subjectAlternativeNameType"], "\Beta\Microsoft\Graph\Model\SubjectAlternativeNameType")) {
+            if (is_a($this->_propDict["subjectAlternativeNameType"], "\Beta\Microsoft\Graph\Model\SubjectAlternativeNameType") || is_null($this->_propDict["subjectAlternativeNameType"])) {
                 return $this->_propDict["subjectAlternativeNameType"];
             } else {
                 $this->_propDict["subjectAlternativeNameType"] = new SubjectAlternativeNameType($this->_propDict["subjectAlternativeNameType"]);
@@ -163,7 +163,7 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the subjectAlternativeNameType
     * Certificate Subject Alternative Name Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
@@ -177,17 +177,17 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         $this->_propDict["subjectAlternativeNameType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subjectNameFormat
     * Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
     *
-    * @return SubjectNameFormat The subjectNameFormat
+    * @return SubjectNameFormat|null The subjectNameFormat
     */
     public function getSubjectNameFormat()
     {
         if (array_key_exists("subjectNameFormat", $this->_propDict)) {
-            if (is_a($this->_propDict["subjectNameFormat"], "\Beta\Microsoft\Graph\Model\SubjectNameFormat")) {
+            if (is_a($this->_propDict["subjectNameFormat"], "\Beta\Microsoft\Graph\Model\SubjectNameFormat") || is_null($this->_propDict["subjectNameFormat"])) {
                 return $this->_propDict["subjectNameFormat"];
             } else {
                 $this->_propDict["subjectNameFormat"] = new SubjectNameFormat($this->_propDict["subjectNameFormat"]);
@@ -196,7 +196,7 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the subjectNameFormat
     * Certificate Subject Name Format. Possible values are: commonName, commonNameIncludingEmail, commonNameAsEmail, custom, commonNameAsIMEI, commonNameAsSerialNumber, commonNameAsAadDeviceId, commonNameAsIntuneDeviceId, commonNameAsDurableDeviceId.
@@ -210,17 +210,17 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         $this->_propDict["subjectNameFormat"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the rootCertificate
     * Trusted Root Certificate.
     *
-    * @return AndroidForWorkTrustedRootCertificate The rootCertificate
+    * @return AndroidForWorkTrustedRootCertificate|null The rootCertificate
     */
     public function getRootCertificate()
     {
         if (array_key_exists("rootCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["rootCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkTrustedRootCertificate")) {
+            if (is_a($this->_propDict["rootCertificate"], "\Beta\Microsoft\Graph\Model\AndroidForWorkTrustedRootCertificate") || is_null($this->_propDict["rootCertificate"])) {
                 return $this->_propDict["rootCertificate"];
             } else {
                 $this->_propDict["rootCertificate"] = new AndroidForWorkTrustedRootCertificate($this->_propDict["rootCertificate"]);
@@ -229,7 +229,7 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the rootCertificate
     * Trusted Root Certificate.
@@ -243,5 +243,5 @@ class AndroidForWorkCertificateProfileBase extends DeviceConfiguration
         $this->_propDict["rootCertificate"] = $val;
         return $this;
     }
-    
+
 }

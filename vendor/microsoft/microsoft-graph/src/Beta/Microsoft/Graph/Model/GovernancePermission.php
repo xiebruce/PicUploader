@@ -27,7 +27,7 @@ class GovernancePermission extends Entity
     * Gets the accessLevel
     * The access level. Valid values: None, UserRead, AdminRead, and AdminReadWrite.
     *
-    * @return string The accessLevel
+    * @return string|null The accessLevel
     */
     public function getAccessLevel()
     {
@@ -55,7 +55,7 @@ class GovernancePermission extends Entity
     * Gets the isActive
     * Indicate if the requestor has any active role assignment for the access level.
     *
-    * @return bool The isActive
+    * @return bool|null The isActive
     */
     public function getIsActive()
     {
@@ -83,7 +83,7 @@ class GovernancePermission extends Entity
     * Gets the isEligible
     * Indicate if the requestor has any eligible role assignment for the access level.
     *
-    * @return bool The isEligible
+    * @return bool|null The isEligible
     */
     public function getIsEligible()
     {

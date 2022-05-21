@@ -27,7 +27,7 @@ class GovernanceRuleSetting extends Entity
     * Gets the ruleIdentifier
     * The id of the rule. For example, ExpirationRule and MfaRule.
     *
-    * @return string The ruleIdentifier
+    * @return string|null The ruleIdentifier
     */
     public function getRuleIdentifier()
     {
@@ -55,7 +55,7 @@ class GovernanceRuleSetting extends Entity
     * Gets the setting
     * The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
     *
-    * @return string The setting
+    * @return string|null The setting
     */
     public function getSetting()
     {

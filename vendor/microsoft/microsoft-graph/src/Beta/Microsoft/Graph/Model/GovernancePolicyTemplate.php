@@ -27,7 +27,7 @@ class GovernancePolicyTemplate extends Entity
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -37,7 +37,7 @@ class GovernancePolicyTemplate extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -50,16 +50,16 @@ class GovernancePolicyTemplate extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policy
     *
-    * @return GovernancePolicy The policy
+    * @return GovernancePolicy|null The policy
     */
     public function getPolicy()
     {
         if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\GovernancePolicy")) {
+            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\GovernancePolicy") || is_null($this->_propDict["policy"])) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new GovernancePolicy($this->_propDict["policy"]);
@@ -68,7 +68,7 @@ class GovernancePolicyTemplate extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the policy
     *
@@ -81,16 +81,16 @@ class GovernancePolicyTemplate extends Entity
         $this->_propDict["policy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settings
     *
-    * @return BusinessFlowSettings The settings
+    * @return BusinessFlowSettings|null The settings
     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\BusinessFlowSettings")) {
+            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\BusinessFlowSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new BusinessFlowSettings($this->_propDict["settings"]);
@@ -99,7 +99,7 @@ class GovernancePolicyTemplate extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settings
     *
@@ -112,5 +112,5 @@ class GovernancePolicyTemplate extends Entity
         $this->_propDict["settings"] = $val;
         return $this;
     }
-    
+
 }

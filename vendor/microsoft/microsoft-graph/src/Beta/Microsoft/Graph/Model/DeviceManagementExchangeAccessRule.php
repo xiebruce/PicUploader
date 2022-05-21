@@ -28,12 +28,12 @@ class DeviceManagementExchangeAccessRule extends Entity
     * Gets the accessLevel
     * Access Level for Exchange granted by this rule. Possible values are: none, allow, block, quarantine.
     *
-    * @return DeviceManagementExchangeAccessLevel The accessLevel
+    * @return DeviceManagementExchangeAccessLevel|null The accessLevel
     */
     public function getAccessLevel()
     {
         if (array_key_exists("accessLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["accessLevel"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessLevel")) {
+            if (is_a($this->_propDict["accessLevel"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessLevel") || is_null($this->_propDict["accessLevel"])) {
                 return $this->_propDict["accessLevel"];
             } else {
                 $this->_propDict["accessLevel"] = new DeviceManagementExchangeAccessLevel($this->_propDict["accessLevel"]);
@@ -61,12 +61,12 @@ class DeviceManagementExchangeAccessRule extends Entity
     * Gets the deviceClass
     * Device Class which will be impacted by this rule.
     *
-    * @return DeviceManagementExchangeDeviceClass The deviceClass
+    * @return DeviceManagementExchangeDeviceClass|null The deviceClass
     */
     public function getDeviceClass()
     {
         if (array_key_exists("deviceClass", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceClass"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeDeviceClass")) {
+            if (is_a($this->_propDict["deviceClass"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeDeviceClass") || is_null($this->_propDict["deviceClass"])) {
                 return $this->_propDict["deviceClass"];
             } else {
                 $this->_propDict["deviceClass"] = new DeviceManagementExchangeDeviceClass($this->_propDict["deviceClass"]);

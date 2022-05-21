@@ -28,7 +28,7 @@ class BookingCurrency extends Entity
     * Gets the symbol
     * The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.
     *
-    * @return string The symbol
+    * @return string|null The symbol
     */
     public function getSymbol()
     {
@@ -38,7 +38,7 @@ class BookingCurrency extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the symbol
     * The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.
@@ -52,5 +52,5 @@ class BookingCurrency extends Entity
         $this->_propDict["symbol"] = $val;
         return $this;
     }
-    
+
 }

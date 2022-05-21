@@ -28,12 +28,12 @@ class WindowsPackageInformation extends Entity
     * Gets the applicableArchitecture
     * The Windows architecture for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
     *
-    * @return WindowsArchitecture The applicableArchitecture
+    * @return WindowsArchitecture|null The applicableArchitecture
     */
     public function getApplicableArchitecture()
     {
         if (array_key_exists("applicableArchitecture", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
+            if (is_a($this->_propDict["applicableArchitecture"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["applicableArchitecture"])) {
                 return $this->_propDict["applicableArchitecture"];
             } else {
                 $this->_propDict["applicableArchitecture"] = new WindowsArchitecture($this->_propDict["applicableArchitecture"]);
@@ -60,7 +60,7 @@ class WindowsPackageInformation extends Entity
     * Gets the displayName
     * The Display Name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -88,7 +88,7 @@ class WindowsPackageInformation extends Entity
     * Gets the identityName
     * The Identity Name.
     *
-    * @return string The identityName
+    * @return string|null The identityName
     */
     public function getIdentityName()
     {
@@ -116,7 +116,7 @@ class WindowsPackageInformation extends Entity
     * Gets the identityPublisher
     * The Identity Publisher.
     *
-    * @return string The identityPublisher
+    * @return string|null The identityPublisher
     */
     public function getIdentityPublisher()
     {
@@ -144,7 +144,7 @@ class WindowsPackageInformation extends Entity
     * Gets the identityResourceIdentifier
     * The Identity Resource Identifier.
     *
-    * @return string The identityResourceIdentifier
+    * @return string|null The identityResourceIdentifier
     */
     public function getIdentityResourceIdentifier()
     {
@@ -172,7 +172,7 @@ class WindowsPackageInformation extends Entity
     * Gets the identityVersion
     * The Identity Version.
     *
-    * @return string The identityVersion
+    * @return string|null The identityVersion
     */
     public function getIdentityVersion()
     {
@@ -201,12 +201,12 @@ class WindowsPackageInformation extends Entity
     * Gets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
     *
-    * @return WindowsMinimumOperatingSystem The minimumSupportedOperatingSystem
+    * @return WindowsMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem")) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new WindowsMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);

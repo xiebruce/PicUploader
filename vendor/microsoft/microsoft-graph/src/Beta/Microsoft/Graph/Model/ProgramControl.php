@@ -28,7 +28,7 @@ class ProgramControl extends Entity
     * Gets the controlId
     * The controlId of the control, in particular the identifier of an access review. Required on create.
     *
-    * @return string The controlId
+    * @return string|null The controlId
     */
     public function getControlId()
     {
@@ -38,7 +38,7 @@ class ProgramControl extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the controlId
     * The controlId of the control, in particular the identifier of an access review. Required on create.
@@ -52,12 +52,12 @@ class ProgramControl extends Entity
         $this->_propDict["controlId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the controlTypeId
     * The programControlType identifies the type of program control - for example, a control linking to guest access reviews. Required on create.
     *
-    * @return string The controlTypeId
+    * @return string|null The controlTypeId
     */
     public function getControlTypeId()
     {
@@ -67,7 +67,7 @@ class ProgramControl extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the controlTypeId
     * The programControlType identifies the type of program control - for example, a control linking to guest access reviews. Required on create.
@@ -81,17 +81,17 @@ class ProgramControl extends Entity
         $this->_propDict["controlTypeId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The creation date and time of the program control.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -100,7 +100,7 @@ class ProgramControl extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The creation date and time of the program control.
@@ -114,12 +114,12 @@ class ProgramControl extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name of the control.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -129,7 +129,7 @@ class ProgramControl extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the control.
@@ -143,17 +143,17 @@ class ProgramControl extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the owner
     * The user who created the program control.
     *
-    * @return UserIdentity The owner
+    * @return UserIdentity|null The owner
     */
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
-            if (is_a($this->_propDict["owner"], "\Beta\Microsoft\Graph\Model\UserIdentity")) {
+            if (is_a($this->_propDict["owner"], "\Beta\Microsoft\Graph\Model\UserIdentity") || is_null($this->_propDict["owner"])) {
                 return $this->_propDict["owner"];
             } else {
                 $this->_propDict["owner"] = new UserIdentity($this->_propDict["owner"]);
@@ -162,7 +162,7 @@ class ProgramControl extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the owner
     * The user who created the program control.
@@ -176,12 +176,12 @@ class ProgramControl extends Entity
         $this->_propDict["owner"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the programId
     * The programId of the program this control is a part of. Required on create.
     *
-    * @return string The programId
+    * @return string|null The programId
     */
     public function getProgramId()
     {
@@ -191,7 +191,7 @@ class ProgramControl extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the programId
     * The programId of the program this control is a part of. Required on create.
@@ -205,17 +205,17 @@ class ProgramControl extends Entity
         $this->_propDict["programId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resource
     * The resource, a group or an app, targeted by this program control's access review.
     *
-    * @return ProgramResource The resource
+    * @return ProgramResource|null The resource
     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\ProgramResource")) {
+            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\ProgramResource") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new ProgramResource($this->_propDict["resource"]);
@@ -224,7 +224,7 @@ class ProgramControl extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resource
     * The resource, a group or an app, targeted by this program control's access review.
@@ -238,12 +238,12 @@ class ProgramControl extends Entity
         $this->_propDict["resource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * The life cycle status of the control.
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -253,7 +253,7 @@ class ProgramControl extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     * The life cycle status of the control.
@@ -267,17 +267,17 @@ class ProgramControl extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the program
     * The program this control is part of.
     *
-    * @return Program The program
+    * @return Program|null The program
     */
     public function getProgram()
     {
         if (array_key_exists("program", $this->_propDict)) {
-            if (is_a($this->_propDict["program"], "\Beta\Microsoft\Graph\Model\Program")) {
+            if (is_a($this->_propDict["program"], "\Beta\Microsoft\Graph\Model\Program") || is_null($this->_propDict["program"])) {
                 return $this->_propDict["program"];
             } else {
                 $this->_propDict["program"] = new Program($this->_propDict["program"]);
@@ -286,7 +286,7 @@ class ProgramControl extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the program
     * The program this control is part of.
@@ -300,5 +300,5 @@ class ProgramControl extends Entity
         $this->_propDict["program"] = $val;
         return $this;
     }
-    
+
 }

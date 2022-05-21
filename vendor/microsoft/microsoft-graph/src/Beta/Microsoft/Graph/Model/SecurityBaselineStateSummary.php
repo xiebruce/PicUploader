@@ -28,7 +28,7 @@ class SecurityBaselineStateSummary extends Entity
     * Gets the conflictCount
     * Number of conflict devices
     *
-    * @return int The conflictCount
+    * @return int|null The conflictCount
     */
     public function getConflictCount()
     {
@@ -38,7 +38,7 @@ class SecurityBaselineStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the conflictCount
     * Number of conflict devices
@@ -52,12 +52,12 @@ class SecurityBaselineStateSummary extends Entity
         $this->_propDict["conflictCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the errorCount
     * Number of error devices
     *
-    * @return int The errorCount
+    * @return int|null The errorCount
     */
     public function getErrorCount()
     {
@@ -67,7 +67,7 @@ class SecurityBaselineStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorCount
     * Number of error devices
@@ -81,12 +81,12 @@ class SecurityBaselineStateSummary extends Entity
         $this->_propDict["errorCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notApplicableCount
     * Number of not applicable devices
     *
-    * @return int The notApplicableCount
+    * @return int|null The notApplicableCount
     */
     public function getNotApplicableCount()
     {
@@ -96,7 +96,7 @@ class SecurityBaselineStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notApplicableCount
     * Number of not applicable devices
@@ -110,12 +110,12 @@ class SecurityBaselineStateSummary extends Entity
         $this->_propDict["notApplicableCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notSecureCount
     * Number of not secure devices
     *
-    * @return int The notSecureCount
+    * @return int|null The notSecureCount
     */
     public function getNotSecureCount()
     {
@@ -125,7 +125,7 @@ class SecurityBaselineStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notSecureCount
     * Number of not secure devices
@@ -139,12 +139,12 @@ class SecurityBaselineStateSummary extends Entity
         $this->_propDict["notSecureCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the secureCount
     * Number of secure devices
     *
-    * @return int The secureCount
+    * @return int|null The secureCount
     */
     public function getSecureCount()
     {
@@ -154,7 +154,7 @@ class SecurityBaselineStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the secureCount
     * Number of secure devices
@@ -168,12 +168,12 @@ class SecurityBaselineStateSummary extends Entity
         $this->_propDict["secureCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the unknownCount
     * Number of unknown devices
     *
-    * @return int The unknownCount
+    * @return int|null The unknownCount
     */
     public function getUnknownCount()
     {
@@ -183,7 +183,7 @@ class SecurityBaselineStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the unknownCount
     * Number of unknown devices
@@ -197,5 +197,5 @@ class SecurityBaselineStateSummary extends Entity
         $this->_propDict["unknownCount"] = intval($val);
         return $this;
     }
-    
+
 }

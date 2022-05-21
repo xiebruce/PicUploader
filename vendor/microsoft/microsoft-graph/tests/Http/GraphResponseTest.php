@@ -106,6 +106,8 @@ class GraphResponseTest extends TestCase
         $response = $this->request->execute($this->client);
 
         $body = $response->getRawBody();
+        $this->assertInstanceOf(\Psr\Http\Message\StreamInterface::class, $body);
+        $this->assertIsNotString($body);
         $this->assertEquals(json_encode($this->responseBody), $body);
     }
 

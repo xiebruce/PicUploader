@@ -1,0 +1,85 @@
+#!/usr/bin/env php
+<?php
+/**
+ * User: sy-records
+ * Email: lufei@php.net
+ * Usage: php bin/release or php bin/release version
+ */
+
+require_once 'vendor/autoload.php';
+
+use Qcloud\Cos\Client;
+use Qcloud\Cos\Service;
+use GuzzleHttp\Command\Guzzle\Description;
+
+$class = new ReflectionClass(Client::class);
+$oldDocComment = $class->getDocComment();
+$clientFile = $class->getFileName();
+$clientFileContent = file_get_contents($class->getFileName());
+
+$des = new Description(Service::getService());
+$operations = array_keys($des->getOperations());
+$docComment = "/**\n";
+$token = genToken();
+foreach ($operations as $key => $operation) {
+    $type = $arg = $methodDesc = '';
+    $model = $des->getOperation($operation)->getResponseModel();
+    if ($des->hasModel($model)) {
+        $type = $des->getModel($model)->getType();
+        if (!empty($des->getOperation($operation)->getParams())) {
+            $arg = '(array $args)';
+        }
+        $methodDesc = '';
+        if (isset($token['method'][$operation])) {
+            $line = $token['method'][$operation];
+            if (isset($token['comment'][$line])) {
+                $methodDesc = $token['comment'][$line];
+            } elseif (isset($token['comment'][$line - 1])) {
+                $methodDesc = $token['comment'][$line - 1];
+            }
+        }
+    }
+    $docComment .= " * @method {$type} {$operation}{$arg} {$methodDesc}\n";
+}
+$docComment .= " * @see \Qcloud\Cos\Service::getService()\n";
+$docComment .= ' */';
+
+$data = str_replace($oldDocComment, $docComment, $clientFileContent);
+$status = file_put_contents($clientFile, $data);
+
+if ($status) {
+    echo 'Regenerate docComment successfully.', PHP_EOL;
+}
+
+if (isset($argv[1])) {
+    $version = $argv[1];
+    $versionContent = str_replace(Client::VERSION, $version, $data);
+    $status = file_put_contents($clientFile, $versionContent);
+
+    if ($status) {
+        echo 'Update version successfully.', PHP_EOL;
+    }
+}
+
+function genToken()
+{
+    $result = [];
+    $token = token_get_all(file_get_contents(dirname(__DIR__) . '/src/Service.php'));
+    foreach ($token as $value) {
+        if (!is_array($value) || !in_array($value[0], [T_COMMENT, T_CONSTANT_ENCAPSED_STRING])) {
+            continue;
+        }
+        switch ($value[0]) {
+            case T_COMMENT:
+                $result['comment'][$value[2]] = trim(ltrim($value[1], '//'));
+                break;
+            case T_CONSTANT_ENCAPSED_STRING:
+                $key = trim($value[1], "'");
+                if(!isset($result['method'][$key])) {
+                    $result['method'][$key] = $value[2];
+                }
+                break;
+        }
+    }
+    return $result;
+}

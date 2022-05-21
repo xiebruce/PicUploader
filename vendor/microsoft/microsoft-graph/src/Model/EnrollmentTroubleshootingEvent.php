@@ -28,7 +28,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
     * Gets the deviceId
     * Azure AD device identifier.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -38,7 +38,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * Azure AD device identifier.
@@ -52,17 +52,17 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the enrollmentType
     * Type of the enrollment. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
     *
-    * @return DeviceEnrollmentType The enrollmentType
+    * @return DeviceEnrollmentType|null The enrollmentType
     */
     public function getEnrollmentType()
     {
         if (array_key_exists("enrollmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentType"], "\Microsoft\Graph\Model\DeviceEnrollmentType")) {
+            if (is_a($this->_propDict["enrollmentType"], "\Microsoft\Graph\Model\DeviceEnrollmentType") || is_null($this->_propDict["enrollmentType"])) {
                 return $this->_propDict["enrollmentType"];
             } else {
                 $this->_propDict["enrollmentType"] = new DeviceEnrollmentType($this->_propDict["enrollmentType"]);
@@ -71,7 +71,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         }
         return null;
     }
-    
+
     /**
     * Sets the enrollmentType
     * Type of the enrollment. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
@@ -85,17 +85,17 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["enrollmentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the failureCategory
     * Highlevel failure category. Possible values are: unknown, authentication, authorization, accountValidation, userValidation, deviceNotSupported, inMaintenance, badRequest, featureNotSupported, enrollmentRestrictionsEnforced, clientDisconnected, userAbandonment.
     *
-    * @return DeviceEnrollmentFailureReason The failureCategory
+    * @return DeviceEnrollmentFailureReason|null The failureCategory
     */
     public function getFailureCategory()
     {
         if (array_key_exists("failureCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["failureCategory"], "\Microsoft\Graph\Model\DeviceEnrollmentFailureReason")) {
+            if (is_a($this->_propDict["failureCategory"], "\Microsoft\Graph\Model\DeviceEnrollmentFailureReason") || is_null($this->_propDict["failureCategory"])) {
                 return $this->_propDict["failureCategory"];
             } else {
                 $this->_propDict["failureCategory"] = new DeviceEnrollmentFailureReason($this->_propDict["failureCategory"]);
@@ -104,7 +104,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         }
         return null;
     }
-    
+
     /**
     * Sets the failureCategory
     * Highlevel failure category. Possible values are: unknown, authentication, authorization, accountValidation, userValidation, deviceNotSupported, inMaintenance, badRequest, featureNotSupported, enrollmentRestrictionsEnforced, clientDisconnected, userAbandonment.
@@ -118,12 +118,12 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["failureCategory"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the failureReason
     * Detailed failure reason.
     *
-    * @return string The failureReason
+    * @return string|null The failureReason
     */
     public function getFailureReason()
     {
@@ -133,7 +133,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
             return null;
         }
     }
-    
+
     /**
     * Sets the failureReason
     * Detailed failure reason.
@@ -147,12 +147,12 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["failureReason"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managedDeviceIdentifier
     * Device identifier created or collected by Intune.
     *
-    * @return string The managedDeviceIdentifier
+    * @return string|null The managedDeviceIdentifier
     */
     public function getManagedDeviceIdentifier()
     {
@@ -162,7 +162,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
             return null;
         }
     }
-    
+
     /**
     * Sets the managedDeviceIdentifier
     * Device identifier created or collected by Intune.
@@ -176,12 +176,12 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["managedDeviceIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the operatingSystem
     * Operating System.
     *
-    * @return string The operatingSystem
+    * @return string|null The operatingSystem
     */
     public function getOperatingSystem()
     {
@@ -191,7 +191,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
             return null;
         }
     }
-    
+
     /**
     * Sets the operatingSystem
     * Operating System.
@@ -205,12 +205,12 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["operatingSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osVersion
     * OS Version.
     *
-    * @return string The osVersion
+    * @return string|null The osVersion
     */
     public function getOsVersion()
     {
@@ -220,7 +220,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
             return null;
         }
     }
-    
+
     /**
     * Sets the osVersion
     * OS Version.
@@ -234,12 +234,12 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["osVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * Identifier for the user that tried to enroll the device.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -249,7 +249,7 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * Identifier for the user that tried to enroll the device.
@@ -263,5 +263,5 @@ class EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEven
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
 }

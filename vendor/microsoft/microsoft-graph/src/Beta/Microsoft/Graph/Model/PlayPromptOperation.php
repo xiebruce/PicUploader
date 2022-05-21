@@ -28,12 +28,12 @@ class PlayPromptOperation extends CommsOperation
     * Gets the completionReason
     * Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
     *
-    * @return PlayPromptCompletionReason The completionReason
+    * @return PlayPromptCompletionReason|null The completionReason
     */
     public function getCompletionReason()
     {
         if (array_key_exists("completionReason", $this->_propDict)) {
-            if (is_a($this->_propDict["completionReason"], "\Beta\Microsoft\Graph\Model\PlayPromptCompletionReason")) {
+            if (is_a($this->_propDict["completionReason"], "\Beta\Microsoft\Graph\Model\PlayPromptCompletionReason") || is_null($this->_propDict["completionReason"])) {
                 return $this->_propDict["completionReason"];
             } else {
                 $this->_propDict["completionReason"] = new PlayPromptCompletionReason($this->_propDict["completionReason"]);
@@ -42,7 +42,7 @@ class PlayPromptOperation extends CommsOperation
         }
         return null;
     }
-    
+
     /**
     * Sets the completionReason
     * Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
@@ -56,5 +56,5 @@ class PlayPromptOperation extends CommsOperation
         $this->_propDict["completionReason"] = $val;
         return $this;
     }
-    
+
 }

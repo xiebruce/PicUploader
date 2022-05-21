@@ -27,7 +27,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute1
     * First customizable extension attribute.
     *
-    * @return string The extensionAttribute1
+    * @return string|null The extensionAttribute1
     */
     public function getExtensionAttribute1()
     {
@@ -55,7 +55,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute10
     * Tenth customizable extension attribute.
     *
-    * @return string The extensionAttribute10
+    * @return string|null The extensionAttribute10
     */
     public function getExtensionAttribute10()
     {
@@ -83,7 +83,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute11
     * Eleventh customizable extension attribute.
     *
-    * @return string The extensionAttribute11
+    * @return string|null The extensionAttribute11
     */
     public function getExtensionAttribute11()
     {
@@ -111,7 +111,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute12
     * Twelfth customizable extension attribute.
     *
-    * @return string The extensionAttribute12
+    * @return string|null The extensionAttribute12
     */
     public function getExtensionAttribute12()
     {
@@ -139,7 +139,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute13
     * Thirteenth customizable extension attribute.
     *
-    * @return string The extensionAttribute13
+    * @return string|null The extensionAttribute13
     */
     public function getExtensionAttribute13()
     {
@@ -167,7 +167,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute14
     * Fourteenth customizable extension attribute.
     *
-    * @return string The extensionAttribute14
+    * @return string|null The extensionAttribute14
     */
     public function getExtensionAttribute14()
     {
@@ -195,7 +195,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute15
     * Fifteenth customizable extension attribute.
     *
-    * @return string The extensionAttribute15
+    * @return string|null The extensionAttribute15
     */
     public function getExtensionAttribute15()
     {
@@ -223,7 +223,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute2
     * Second customizable extension attribute.
     *
-    * @return string The extensionAttribute2
+    * @return string|null The extensionAttribute2
     */
     public function getExtensionAttribute2()
     {
@@ -251,7 +251,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute3
     * Third customizable extension attribute.
     *
-    * @return string The extensionAttribute3
+    * @return string|null The extensionAttribute3
     */
     public function getExtensionAttribute3()
     {
@@ -279,7 +279,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute4
     * Fourth customizable extension attribute.
     *
-    * @return string The extensionAttribute4
+    * @return string|null The extensionAttribute4
     */
     public function getExtensionAttribute4()
     {
@@ -307,7 +307,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute5
     * Fifth customizable extension attribute.
     *
-    * @return string The extensionAttribute5
+    * @return string|null The extensionAttribute5
     */
     public function getExtensionAttribute5()
     {
@@ -335,7 +335,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute6
     * Sixth customizable extension attribute.
     *
-    * @return string The extensionAttribute6
+    * @return string|null The extensionAttribute6
     */
     public function getExtensionAttribute6()
     {
@@ -363,7 +363,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute7
     * Seventh customizable extension attribute.
     *
-    * @return string The extensionAttribute7
+    * @return string|null The extensionAttribute7
     */
     public function getExtensionAttribute7()
     {
@@ -391,7 +391,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute8
     * Eighth customizable extension attribute.
     *
-    * @return string The extensionAttribute8
+    * @return string|null The extensionAttribute8
     */
     public function getExtensionAttribute8()
     {
@@ -419,7 +419,7 @@ class OnPremisesExtensionAttributes extends Entity
     * Gets the extensionAttribute9
     * Ninth customizable extension attribute.
     *
-    * @return string The extensionAttribute9
+    * @return string|null The extensionAttribute9
     */
     public function getExtensionAttribute9()
     {

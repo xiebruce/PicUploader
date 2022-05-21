@@ -28,7 +28,7 @@ class Drive extends BaseItem
     * Gets the driveType
     * Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.
     *
-    * @return string The driveType
+    * @return string|null The driveType
     */
     public function getDriveType()
     {
@@ -38,7 +38,7 @@ class Drive extends BaseItem
             return null;
         }
     }
-    
+
     /**
     * Sets the driveType
     * Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.
@@ -52,17 +52,17 @@ class Drive extends BaseItem
         $this->_propDict["driveType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the owner
     * Optional. The user account that owns the drive. Read-only.
     *
-    * @return IdentitySet The owner
+    * @return IdentitySet|null The owner
     */
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
-            if (is_a($this->_propDict["owner"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["owner"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["owner"])) {
                 return $this->_propDict["owner"];
             } else {
                 $this->_propDict["owner"] = new IdentitySet($this->_propDict["owner"]);
@@ -71,7 +71,7 @@ class Drive extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the owner
     * Optional. The user account that owns the drive. Read-only.
@@ -85,17 +85,17 @@ class Drive extends BaseItem
         $this->_propDict["owner"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the quota
     * Optional. Information about the drive's storage space quota. Read-only.
     *
-    * @return Quota The quota
+    * @return Quota|null The quota
     */
     public function getQuota()
     {
         if (array_key_exists("quota", $this->_propDict)) {
-            if (is_a($this->_propDict["quota"], "\Beta\Microsoft\Graph\Model\Quota")) {
+            if (is_a($this->_propDict["quota"], "\Beta\Microsoft\Graph\Model\Quota") || is_null($this->_propDict["quota"])) {
                 return $this->_propDict["quota"];
             } else {
                 $this->_propDict["quota"] = new Quota($this->_propDict["quota"]);
@@ -104,7 +104,7 @@ class Drive extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the quota
     * Optional. Information about the drive's storage space quota. Read-only.
@@ -118,16 +118,16 @@ class Drive extends BaseItem
         $this->_propDict["quota"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharePointIds
     *
-    * @return SharepointIds The sharePointIds
+    * @return SharepointIds|null The sharePointIds
     */
     public function getSharePointIds()
     {
         if (array_key_exists("sharePointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharePointIds"], "\Beta\Microsoft\Graph\Model\SharepointIds")) {
+            if (is_a($this->_propDict["sharePointIds"], "\Beta\Microsoft\Graph\Model\SharepointIds") || is_null($this->_propDict["sharePointIds"])) {
                 return $this->_propDict["sharePointIds"];
             } else {
                 $this->_propDict["sharePointIds"] = new SharepointIds($this->_propDict["sharePointIds"]);
@@ -136,7 +136,7 @@ class Drive extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the sharePointIds
     *
@@ -149,17 +149,17 @@ class Drive extends BaseItem
         $this->_propDict["sharePointIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the system
     * If present, indicates that this is a system-managed drive. Read-only.
     *
-    * @return SystemFacet The system
+    * @return SystemFacet|null The system
     */
     public function getSystem()
     {
         if (array_key_exists("system", $this->_propDict)) {
-            if (is_a($this->_propDict["system"], "\Beta\Microsoft\Graph\Model\SystemFacet")) {
+            if (is_a($this->_propDict["system"], "\Beta\Microsoft\Graph\Model\SystemFacet") || is_null($this->_propDict["system"])) {
                 return $this->_propDict["system"];
             } else {
                 $this->_propDict["system"] = new SystemFacet($this->_propDict["system"]);
@@ -168,7 +168,7 @@ class Drive extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the system
     * If present, indicates that this is a system-managed drive. Read-only.
@@ -182,13 +182,13 @@ class Drive extends BaseItem
         $this->_propDict["system"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the activities
     * The list of recent activities that took place under this drive.
      *
-     * @return array The activities
+     * @return array|null The activities
      */
     public function getActivities()
     {
@@ -198,27 +198,27 @@ class Drive extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the activities
     * The list of recent activities that took place under this drive.
     *
-    * @param ItemActivityOLD $val The activities
+    * @param ItemActivityOLD[] $val The activities
     *
     * @return Drive
     */
     public function setActivities($val)
     {
-		$this->_propDict["activities"] = $val;
+        $this->_propDict["activities"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the bundles
     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
      *
-     * @return array The bundles
+     * @return array|null The bundles
      */
     public function getBundles()
     {
@@ -228,27 +228,27 @@ class Drive extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the bundles
     * Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
     *
-    * @param DriveItem $val The bundles
+    * @param DriveItem[] $val The bundles
     *
     * @return Drive
     */
     public function setBundles($val)
     {
-		$this->_propDict["bundles"] = $val;
+        $this->_propDict["bundles"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the following
     * The list of items the user is following. Only in OneDrive for Business.
      *
-     * @return array The following
+     * @return array|null The following
      */
     public function getFollowing()
     {
@@ -258,27 +258,27 @@ class Drive extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the following
     * The list of items the user is following. Only in OneDrive for Business.
     *
-    * @param DriveItem $val The following
+    * @param DriveItem[] $val The following
     *
     * @return Drive
     */
     public function setFollowing($val)
     {
-		$this->_propDict["following"] = $val;
+        $this->_propDict["following"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the items
     * All items contained in the drive. Read-only. Nullable.
      *
-     * @return array The items
+     * @return array|null The items
      */
     public function getItems()
     {
@@ -288,31 +288,31 @@ class Drive extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the items
     * All items contained in the drive. Read-only. Nullable.
     *
-    * @param DriveItem $val The items
+    * @param DriveItem[] $val The items
     *
     * @return Drive
     */
     public function setItems($val)
     {
-		$this->_propDict["items"] = $val;
+        $this->_propDict["items"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the list
     * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
     *
-    * @return GraphList The list
+    * @return GraphList|null The list
     */
     public function getList()
     {
         if (array_key_exists("list", $this->_propDict)) {
-            if (is_a($this->_propDict["list"], "\Beta\Microsoft\Graph\Model\GraphList")) {
+            if (is_a($this->_propDict["list"], "\Beta\Microsoft\Graph\Model\GraphList") || is_null($this->_propDict["list"])) {
                 return $this->_propDict["list"];
             } else {
                 $this->_propDict["list"] = new GraphList($this->_propDict["list"]);
@@ -321,7 +321,7 @@ class Drive extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the list
     * For drives in SharePoint, the underlying document library list. Read-only. Nullable.
@@ -335,17 +335,17 @@ class Drive extends BaseItem
         $this->_propDict["list"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the root
     * The root folder of the drive. Read-only.
     *
-    * @return DriveItem The root
+    * @return DriveItem|null The root
     */
     public function getRoot()
     {
         if (array_key_exists("root", $this->_propDict)) {
-            if (is_a($this->_propDict["root"], "\Beta\Microsoft\Graph\Model\DriveItem")) {
+            if (is_a($this->_propDict["root"], "\Beta\Microsoft\Graph\Model\DriveItem") || is_null($this->_propDict["root"])) {
                 return $this->_propDict["root"];
             } else {
                 $this->_propDict["root"] = new DriveItem($this->_propDict["root"]);
@@ -354,7 +354,7 @@ class Drive extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the root
     * The root folder of the drive. Read-only.
@@ -368,13 +368,13 @@ class Drive extends BaseItem
         $this->_propDict["root"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the special
     * Collection of common folders available in OneDrive. Read-only. Nullable.
      *
-     * @return array The special
+     * @return array|null The special
      */
     public function getSpecial()
     {
@@ -384,19 +384,19 @@ class Drive extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the special
     * Collection of common folders available in OneDrive. Read-only. Nullable.
     *
-    * @param DriveItem $val The special
+    * @param DriveItem[] $val The special
     *
     * @return Drive
     */
     public function setSpecial($val)
     {
-		$this->_propDict["special"] = $val;
+        $this->_propDict["special"] = $val;
         return $this;
     }
-    
+
 }

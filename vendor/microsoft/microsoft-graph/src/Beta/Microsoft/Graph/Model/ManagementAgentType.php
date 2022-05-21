@@ -41,5 +41,6 @@ class ManagementAgentType extends Enum
     const JAMF = "jamf";
     const GOOGLE_CLOUD_DEVICE_POLICY_CONTROLLER = "googleCloudDevicePolicyController";
     const MICROSOFT365_MANAGED_MDM = "microsoft365ManagedMdm";
-    const WINDOWS_MANAGEMENT_CLOUD_API = "windowsManagementCloudApi";
+    const MS_SENSE = "msSense";
+    const INTUNE_AOSP = "intuneAosp";
 }

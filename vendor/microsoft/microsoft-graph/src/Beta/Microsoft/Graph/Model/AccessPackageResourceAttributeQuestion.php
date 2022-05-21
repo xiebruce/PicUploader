@@ -26,13 +26,14 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
 
     /**
     * Gets the question
+    * The question asked in order to get the value of the attribute
     *
-    * @return AccessPackageQuestion The question
+    * @return AccessPackageQuestion|null The question
     */
     public function getQuestion()
     {
         if (array_key_exists("question", $this->_propDict)) {
-            if (is_a($this->_propDict["question"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion")) {
+            if (is_a($this->_propDict["question"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion") || is_null($this->_propDict["question"])) {
                 return $this->_propDict["question"];
             } else {
                 $this->_propDict["question"] = new AccessPackageQuestion($this->_propDict["question"]);
@@ -44,6 +45,7 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
 
     /**
     * Sets the question
+    * The question asked in order to get the value of the attribute
     *
     * @param AccessPackageQuestion $val The value to assign to the question
     *

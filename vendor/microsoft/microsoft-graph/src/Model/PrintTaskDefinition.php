@@ -28,12 +28,12 @@ class PrintTaskDefinition extends Entity
     * Gets the createdBy
     * The application that created the printTaskDefinition. Read-only.
     *
-    * @return AppIdentity The createdBy
+    * @return AppIdentity|null The createdBy
     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\AppIdentity")) {
+            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\AppIdentity") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new AppIdentity($this->_propDict["createdBy"]);
@@ -42,7 +42,7 @@ class PrintTaskDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdBy
     * The application that created the printTaskDefinition. Read-only.
@@ -56,12 +56,12 @@ class PrintTaskDefinition extends Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The name of the printTaskDefinition.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -71,7 +71,7 @@ class PrintTaskDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The name of the printTaskDefinition.
@@ -85,13 +85,13 @@ class PrintTaskDefinition extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tasks
     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
      *
-     * @return array The tasks
+     * @return array|null The tasks
      */
     public function getTasks()
     {
@@ -101,19 +101,19 @@ class PrintTaskDefinition extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the tasks
     * A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.
     *
-    * @param PrintTask $val The tasks
+    * @param PrintTask[] $val The tasks
     *
     * @return PrintTaskDefinition
     */
     public function setTasks($val)
     {
-		$this->_propDict["tasks"] = $val;
+        $this->_propDict["tasks"] = $val;
         return $this;
     }
-    
+
 }

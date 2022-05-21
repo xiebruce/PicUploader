@@ -27,7 +27,7 @@ class DeviceManagementExchangeDeviceClass extends Entity
     * Gets the name
     * Name of the device class which will be impacted by this rule.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -56,12 +56,12 @@ class DeviceManagementExchangeDeviceClass extends Entity
     * Gets the type
     * Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
     *
-    * @return DeviceManagementExchangeAccessRuleType The type
+    * @return DeviceManagementExchangeAccessRuleType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessRuleType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessRuleType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new DeviceManagementExchangeAccessRuleType($this->_propDict["type"]);

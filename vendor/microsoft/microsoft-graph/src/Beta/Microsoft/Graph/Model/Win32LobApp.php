@@ -28,12 +28,12 @@ class Win32LobApp extends MobileLobApp
     * Gets the applicableArchitectures
     * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
     *
-    * @return WindowsArchitecture The applicableArchitectures
+    * @return WindowsArchitecture|null The applicableArchitectures
     */
     public function getApplicableArchitectures()
     {
         if (array_key_exists("applicableArchitectures", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableArchitectures"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture")) {
+            if (is_a($this->_propDict["applicableArchitectures"], "\Beta\Microsoft\Graph\Model\WindowsArchitecture") || is_null($this->_propDict["applicableArchitectures"])) {
                 return $this->_propDict["applicableArchitectures"];
             } else {
                 $this->_propDict["applicableArchitectures"] = new WindowsArchitecture($this->_propDict["applicableArchitectures"]);
@@ -42,7 +42,7 @@ class Win32LobApp extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the applicableArchitectures
     * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
@@ -56,13 +56,13 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["applicableArchitectures"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the detectionRules
     * The detection rules to detect Win32 Line of Business (LoB) app.
      *
-     * @return array The detectionRules
+     * @return array|null The detectionRules
      */
     public function getDetectionRules()
     {
@@ -72,26 +72,26 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the detectionRules
     * The detection rules to detect Win32 Line of Business (LoB) app.
     *
-    * @param Win32LobAppDetection $val The detectionRules
+    * @param Win32LobAppDetection[] $val The detectionRules
     *
     * @return Win32LobApp
     */
     public function setDetectionRules($val)
     {
-		$this->_propDict["detectionRules"] = $val;
+        $this->_propDict["detectionRules"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayVersion
     * The version displayed in the UX for this app.
     *
-    * @return string The displayVersion
+    * @return string|null The displayVersion
     */
     public function getDisplayVersion()
     {
@@ -101,7 +101,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the displayVersion
     * The version displayed in the UX for this app.
@@ -115,12 +115,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["displayVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the installCommandLine
     * The command line to install this app
     *
-    * @return string The installCommandLine
+    * @return string|null The installCommandLine
     */
     public function getInstallCommandLine()
     {
@@ -130,7 +130,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the installCommandLine
     * The command line to install this app
@@ -144,17 +144,17 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["installCommandLine"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the installExperience
     * The install experience for this app.
     *
-    * @return Win32LobAppInstallExperience The installExperience
+    * @return Win32LobAppInstallExperience|null The installExperience
     */
     public function getInstallExperience()
     {
         if (array_key_exists("installExperience", $this->_propDict)) {
-            if (is_a($this->_propDict["installExperience"], "\Beta\Microsoft\Graph\Model\Win32LobAppInstallExperience")) {
+            if (is_a($this->_propDict["installExperience"], "\Beta\Microsoft\Graph\Model\Win32LobAppInstallExperience") || is_null($this->_propDict["installExperience"])) {
                 return $this->_propDict["installExperience"];
             } else {
                 $this->_propDict["installExperience"] = new Win32LobAppInstallExperience($this->_propDict["installExperience"]);
@@ -163,7 +163,7 @@ class Win32LobApp extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the installExperience
     * The install experience for this app.
@@ -177,12 +177,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["installExperience"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimumCpuSpeedInMHz
     * The value for the minimum CPU speed which is required to install this app.
     *
-    * @return int The minimumCpuSpeedInMHz
+    * @return int|null The minimumCpuSpeedInMHz
     */
     public function getMinimumCpuSpeedInMHz()
     {
@@ -192,7 +192,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumCpuSpeedInMHz
     * The value for the minimum CPU speed which is required to install this app.
@@ -206,12 +206,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["minimumCpuSpeedInMHz"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the minimumFreeDiskSpaceInMB
     * The value for the minimum free disk space which is required to install this app.
     *
-    * @return int The minimumFreeDiskSpaceInMB
+    * @return int|null The minimumFreeDiskSpaceInMB
     */
     public function getMinimumFreeDiskSpaceInMB()
     {
@@ -221,7 +221,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumFreeDiskSpaceInMB
     * The value for the minimum free disk space which is required to install this app.
@@ -235,12 +235,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["minimumFreeDiskSpaceInMB"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the minimumMemoryInMB
     * The value for the minimum physical memory which is required to install this app.
     *
-    * @return int The minimumMemoryInMB
+    * @return int|null The minimumMemoryInMB
     */
     public function getMinimumMemoryInMB()
     {
@@ -250,7 +250,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumMemoryInMB
     * The value for the minimum physical memory which is required to install this app.
@@ -264,12 +264,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["minimumMemoryInMB"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the minimumNumberOfProcessors
     * The value for the minimum number of processors which is required to install this app.
     *
-    * @return int The minimumNumberOfProcessors
+    * @return int|null The minimumNumberOfProcessors
     */
     public function getMinimumNumberOfProcessors()
     {
@@ -279,7 +279,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumNumberOfProcessors
     * The value for the minimum number of processors which is required to install this app.
@@ -293,17 +293,17 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["minimumNumberOfProcessors"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
     *
-    * @return WindowsMinimumOperatingSystem The minimumSupportedOperatingSystem
+    * @return WindowsMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem")) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\WindowsMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new WindowsMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -312,7 +312,7 @@ class Win32LobApp extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
@@ -326,12 +326,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the minimumSupportedWindowsRelease
     * The value for the minimum supported windows release.
     *
-    * @return string The minimumSupportedWindowsRelease
+    * @return string|null The minimumSupportedWindowsRelease
     */
     public function getMinimumSupportedWindowsRelease()
     {
@@ -341,7 +341,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the minimumSupportedWindowsRelease
     * The value for the minimum supported windows release.
@@ -355,17 +355,17 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["minimumSupportedWindowsRelease"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the msiInformation
     * The MSI details if this Win32 app is an MSI app.
     *
-    * @return Win32LobAppMsiInformation The msiInformation
+    * @return Win32LobAppMsiInformation|null The msiInformation
     */
     public function getMsiInformation()
     {
         if (array_key_exists("msiInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["msiInformation"], "\Beta\Microsoft\Graph\Model\Win32LobAppMsiInformation")) {
+            if (is_a($this->_propDict["msiInformation"], "\Beta\Microsoft\Graph\Model\Win32LobAppMsiInformation") || is_null($this->_propDict["msiInformation"])) {
                 return $this->_propDict["msiInformation"];
             } else {
                 $this->_propDict["msiInformation"] = new Win32LobAppMsiInformation($this->_propDict["msiInformation"]);
@@ -374,7 +374,7 @@ class Win32LobApp extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the msiInformation
     * The MSI details if this Win32 app is an MSI app.
@@ -388,13 +388,13 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["msiInformation"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the requirementRules
     * The requirement rules to detect Win32 Line of Business (LoB) app.
      *
-     * @return array The requirementRules
+     * @return array|null The requirementRules
      */
     public function getRequirementRules()
     {
@@ -404,27 +404,27 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the requirementRules
     * The requirement rules to detect Win32 Line of Business (LoB) app.
     *
-    * @param Win32LobAppRequirement $val The requirementRules
+    * @param Win32LobAppRequirement[] $val The requirementRules
     *
     * @return Win32LobApp
     */
     public function setRequirementRules($val)
     {
-		$this->_propDict["requirementRules"] = $val;
+        $this->_propDict["requirementRules"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the returnCodes
     * The return codes for post installation behavior.
      *
-     * @return array The returnCodes
+     * @return array|null The returnCodes
      */
     public function getReturnCodes()
     {
@@ -434,27 +434,27 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the returnCodes
     * The return codes for post installation behavior.
     *
-    * @param Win32LobAppReturnCode $val The returnCodes
+    * @param Win32LobAppReturnCode[] $val The returnCodes
     *
     * @return Win32LobApp
     */
     public function setReturnCodes($val)
     {
-		$this->_propDict["returnCodes"] = $val;
+        $this->_propDict["returnCodes"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the rules
     * The detection and requirement rules for this app.
      *
-     * @return array The rules
+     * @return array|null The rules
      */
     public function getRules()
     {
@@ -464,26 +464,26 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the rules
     * The detection and requirement rules for this app.
     *
-    * @param Win32LobAppRule $val The rules
+    * @param Win32LobAppRule[] $val The rules
     *
     * @return Win32LobApp
     */
     public function setRules($val)
     {
-		$this->_propDict["rules"] = $val;
+        $this->_propDict["rules"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the setupFilePath
     * The relative path of the setup file in the encrypted Win32LobApp package.
     *
-    * @return string The setupFilePath
+    * @return string|null The setupFilePath
     */
     public function getSetupFilePath()
     {
@@ -493,7 +493,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the setupFilePath
     * The relative path of the setup file in the encrypted Win32LobApp package.
@@ -507,12 +507,12 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["setupFilePath"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the uninstallCommandLine
     * The command line to uninstall this app
     *
-    * @return string The uninstallCommandLine
+    * @return string|null The uninstallCommandLine
     */
     public function getUninstallCommandLine()
     {
@@ -522,7 +522,7 @@ class Win32LobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the uninstallCommandLine
     * The command line to uninstall this app
@@ -536,5 +536,5 @@ class Win32LobApp extends MobileLobApp
         $this->_propDict["uninstallCommandLine"] = $val;
         return $this;
     }
-    
+
 }

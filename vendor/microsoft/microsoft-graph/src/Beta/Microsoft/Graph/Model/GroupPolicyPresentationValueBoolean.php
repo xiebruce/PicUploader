@@ -28,7 +28,7 @@ class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue
     * Gets the value
     * An boolean value for the associated presentation.
     *
-    * @return bool The value
+    * @return bool|null The value
     */
     public function getValue()
     {
@@ -38,7 +38,7 @@ class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue
             return null;
         }
     }
-    
+
     /**
     * Sets the value
     * An boolean value for the associated presentation.
@@ -52,5 +52,5 @@ class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue
         $this->_propDict["value"] = boolval($val);
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class OptionalClaims extends Entity
     * Gets the accessToken
     * The optional claims returned in the JWT access token.
     *
-    * @return OptionalClaim The accessToken
+    * @return OptionalClaim|null The accessToken
     */
     public function getAccessToken()
     {
         if (array_key_exists("accessToken", $this->_propDict)) {
-            if (is_a($this->_propDict["accessToken"], "\Beta\Microsoft\Graph\Model\OptionalClaim")) {
+            if (is_a($this->_propDict["accessToken"], "\Beta\Microsoft\Graph\Model\OptionalClaim") || is_null($this->_propDict["accessToken"])) {
                 return $this->_propDict["accessToken"];
             } else {
                 $this->_propDict["accessToken"] = new OptionalClaim($this->_propDict["accessToken"]);
@@ -61,12 +61,12 @@ class OptionalClaims extends Entity
     * Gets the idToken
     * The optional claims returned in the JWT ID token.
     *
-    * @return OptionalClaim The idToken
+    * @return OptionalClaim|null The idToken
     */
     public function getIdToken()
     {
         if (array_key_exists("idToken", $this->_propDict)) {
-            if (is_a($this->_propDict["idToken"], "\Beta\Microsoft\Graph\Model\OptionalClaim")) {
+            if (is_a($this->_propDict["idToken"], "\Beta\Microsoft\Graph\Model\OptionalClaim") || is_null($this->_propDict["idToken"])) {
                 return $this->_propDict["idToken"];
             } else {
                 $this->_propDict["idToken"] = new OptionalClaim($this->_propDict["idToken"]);
@@ -94,12 +94,12 @@ class OptionalClaims extends Entity
     * Gets the saml2Token
     * The optional claims returned in the SAML token.
     *
-    * @return OptionalClaim The saml2Token
+    * @return OptionalClaim|null The saml2Token
     */
     public function getSaml2Token()
     {
         if (array_key_exists("saml2Token", $this->_propDict)) {
-            if (is_a($this->_propDict["saml2Token"], "\Beta\Microsoft\Graph\Model\OptionalClaim")) {
+            if (is_a($this->_propDict["saml2Token"], "\Beta\Microsoft\Graph\Model\OptionalClaim") || is_null($this->_propDict["saml2Token"])) {
                 return $this->_propDict["saml2Token"];
             } else {
                 $this->_propDict["saml2Token"] = new OptionalClaim($this->_propDict["saml2Token"]);

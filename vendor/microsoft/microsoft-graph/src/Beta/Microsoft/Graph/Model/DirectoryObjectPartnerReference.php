@@ -28,7 +28,7 @@ class DirectoryObjectPartnerReference extends DirectoryObject
     * Gets the description
     * Description of the object returned. Read-only.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class DirectoryObjectPartnerReference extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the object returned. Read-only.
@@ -52,12 +52,12 @@ class DirectoryObjectPartnerReference extends DirectoryObject
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Name of directory object being returned, like group or application. Read-only.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class DirectoryObjectPartnerReference extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Name of directory object being returned, like group or application. Read-only.
@@ -81,12 +81,12 @@ class DirectoryObjectPartnerReference extends DirectoryObject
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the externalPartnerTenantId
     * The tenant identifier for the partner tenant. Read-only.
     *
-    * @return string The externalPartnerTenantId
+    * @return string|null The externalPartnerTenantId
     */
     public function getExternalPartnerTenantId()
     {
@@ -96,7 +96,7 @@ class DirectoryObjectPartnerReference extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the externalPartnerTenantId
     * The tenant identifier for the partner tenant. Read-only.
@@ -110,12 +110,12 @@ class DirectoryObjectPartnerReference extends DirectoryObject
         $this->_propDict["externalPartnerTenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the objectType
     * The type of the referenced object in the partner tenant. Read-only.
     *
-    * @return string The objectType
+    * @return string|null The objectType
     */
     public function getObjectType()
     {
@@ -125,7 +125,7 @@ class DirectoryObjectPartnerReference extends DirectoryObject
             return null;
         }
     }
-    
+
     /**
     * Sets the objectType
     * The type of the referenced object in the partner tenant. Read-only.
@@ -139,5 +139,5 @@ class DirectoryObjectPartnerReference extends DirectoryObject
         $this->_propDict["objectType"] = $val;
         return $this;
     }
-    
+
 }

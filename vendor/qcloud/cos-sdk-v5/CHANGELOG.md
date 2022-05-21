@@ -1,8 +1,173 @@
 cos-php-sdk-v5 Upgrade Guide
 ====================
+2.5.4 to 2.5.5
+---------
+- fix signHost type error
+
+2.5.3 to 2.5.4
+---------
+- 新增查询是否开通媒体处理接口
+- 新增获取pm3u8签名接口
+- 新增查询队列列表接口
+- 新增更新队列接口
+- 新增查询任务接口
+- 新增创建多任务接口
+- 新增创建截图任务接口
+- 新增创建转码任务接口
+- 新增创建动图任务接口
+- 新增创建拼接任务接口
+- 新增创建智能封面任务接口
+- 新增创建视频增强任务接口
+- 新增创建精彩集锦任务接口
+- 新增创建人声分离任务接口
+- 修复signHost值获取不到的问题
+
+2.5.2 to 2.5.3
+---------
+- 增加ETag的兼容逻辑，防止因为特殊框架或者网关规则导致etag undefined
+
+2.5.1 to 2.5.2
+---------
+- 修复预签名中Headers参数无效的问题
+
+2.5.0 to 2.5.1
+---------
+- 万象相关接口的DetectType审核类型参数可选
+- 万象内容审核接口增加DataId自定义业务标识
+- 新增万象网页审核任务相关接口
+- 新增部分参数校验
+- 修复PHP8.1中将null传递给不可为空的内部函数的问题
+
+2.4.4 to 2.5.0
+---------
+- 万象支持病毒检测、人声分离任务接口
+- 万象转码任务支持多个水印参数/多任务接口/查询接口/列表接口
+- 修复签名长期存在的bug
+- 修复copy接口404问题，copyObject示例添加注释
+- 审核接口增加仅支持https的说明
+
+2.4.3 to 2.4.4
+---------
+- 修复图片水印签名问题
+
+2.4.2 to 2.4.3
+---------
+- 优化审核接口返回相关字段
+- 增加host开关功能
+- GetObject接口支持万象自定义样式
+- 修复ip的host bug
+
+2.4.1 to 2.4.2
+---------
+- 修复图片处理相关接口403签名不对的bug
+
+2.4.0 to 2.4.1
+---------
+- 增加桶Bucket、GetBucket对应Sample详细注解
+- 对部分传入参数进行检查
+- 添加doesObjectExist、doesBucketExist对应Sample
+- 调整整体项目架构，修复composer依赖问题
+- 调整UT
+
+2.3.4 to 2.4.0
+---------
+- 新增文档转码功能，包括提交、查询、拉取文档预览任务
+- 丰富头域参数说明
+- 修复预签名中将万象参数作为key报错问题
+- 调整travis与action，后续版本保证多版本测试正常
+
+2.3.3 to 2.3.4
+---------
+- 修复laravel8中guzzlehttp/psr7报错问题,后续重新整理依赖
+- 修复putBucketAccelerate接口与目前API不一致的问题
+
+2.3.2 to 2.3.3
+---------
+- 修复laravel8中guzzlehttp/psr7报错问题
+- 清理无用代码
+
+2.3.1 to 2.3.2
+---------
+- 新增视频截帧，视频信息查询示例
+- 新增PUT/GET Bucket Referer示例
+- 对于相应接口添加CRC返回信息
+- 修复图片审核中ci-process param出现两次的问题
+- 修复PHP5.6 版本的依赖问题
+- 根据PHP版本自动composer install guzzle6.x或guzzle7
+
+2.3.0 to 2.3.1
+---------
+- 修复文本检测的返回格式
+- 修复sample中的问题
+- 新增视频、文本、文档、音频检测
+- 新增媒体转码、截图、拼接
+
+2.2.3 to 2.3.0
+---------
+- 新增图片审核，视频审核，音频审核，文本审核，文档审核接口
+- 新增单链接限速demo
+- 暴露getPresigned接口Headers和Params参数接口
+- 补充textDetect UT
+- 修复stream_for废弃问题
+- 修复x-cos头检测逻辑问题
+- 修复UT部分bug
+
+2.2.2 to 2.2.3
+- 在putObejct中新增x-cos-tagging头
+- 修复`GetObjectWithoutSign`bug
+
+2.2.1 to 2.2.2
+----------
+新增appendObject SDK，包括sample,service,test
+增加无签名对象下载地址 SDK，包括sample,service,test
+增加全球加速相关配置参数
+将COS_SECRETID修改为SECRETID、COS_SECRETKEY修改为SECRETKEY，防止混淆
+修复部分逻辑代码bug
+修复部分拼写错误
+- Add `AppendObject` interface
+- Add `GetObjectWithoutSign` interface
+- Add `allow_accelerate` param to client
+- Change const name `COS_SECRETID->SECRETID` `COS_SECRETKEY->SECRETKEY`
+- Fix `getPresigned` interface
+- Fix typo
+
+2.2.0 to 2.2.1
+----------
+- Add `PutObjectTagging` interface
+- Add `GetObjectTagging` interface
+- Add `DeleteObjectTagging` interface
+
+2.1.6 to 2.2.0
+----------
+- `PutObject` interface supports ci image process
+- `GetObject` interface supports ci image process
+- Add `ImageInfo` interface, which is used for get image info
+- Add `ImageExif` interface, which is used for get image exif
+- Add `ImageAve` interface, which is used for get image ave
+- Add `ImageProcess` interface, which is used for data processing on cloud
+- Add `Qrcode` interface, which is used for qrcode recognition
+- Add `QrcodeGenerate` interface, which is used for generate qrcode
+- Add `DetectLabel` interface, which is used for detect image label
+- Add `PutBucketImageStyle` interface, which is used for add bucket image style
+- Add `GetBucketImageStyle` interface, which is used for get bucket image style
+- Add `DeleteBucketImageStyle` interface, which is used for delete bucket image style
+- Add `PutBucketGuetzli` interface, which is used for open bucket guetzli state
+- Add `GetBucketGuetzli` interface, which is used for get bucket guetzli state
+- Add `DeleteBucketGuetzli` interface, which is used for close bucket guetzli state
+
+2.1.5 to 2.1.6
+----------
+- Add `allow_redirects` parameter
+- Fix `selectObjectContent` interface
+
+2.1.3 to 2.1.5
+----------
+- The `download` interface supports breakpoint
+- Rename `getPresignetUrl` to `getPresignedUrl`
+
 2.1.2 to 2.1.3
 ----------
-- Add `download` interface, which is used for concurrent block download.
+- Add `download` interface, which is used for concurrent block download
 - Add callback of `upload` and `download` progress
 - Fix request retry
 

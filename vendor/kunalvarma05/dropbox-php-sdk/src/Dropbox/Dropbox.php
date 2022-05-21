@@ -1,6 +1,8 @@
 <?php
+
 namespace Kunnu\Dropbox;
 
+use Kunnu\Dropbox\Models\DeletedMetadata;
 use Kunnu\Dropbox\Models\File;
 use Kunnu\Dropbox\Models\Account;
 use Kunnu\Dropbox\Models\Thumbnail;
@@ -46,7 +48,7 @@ class Dropbox
      *
      * @const string
      */
-    const METADATA_HEADER = 'dropbox-api-result';
+    const METADATA_HEADER = 'Dropbox-Api-Result';
 
     /**
      * The Dropbox App
@@ -95,6 +97,7 @@ class Dropbox
      *
      * @param \Kunnu\Dropbox\DropboxApp
      * @param array $config Configuration Array
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function __construct(DropboxApp $app, array $config = [])
     {
@@ -228,12 +231,13 @@ class Dropbox
     /**
      * Make a HTTP POST Request to the API endpoint type
      *
-     * @param  string $endpoint    API Endpoint to send Request to
-     * @param  array  $params      Request Query Params
+     * @param  string $endpoint API Endpoint to send Request to
+     * @param  array $params Request Query Params
      * @param  string $accessToken Access Token to send with the Request
      *
      * @return \Kunnu\Dropbox\DropboxResponse
-     */
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
+    */
     public function postToAPI($endpoint, array $params = [], $accessToken = null)
     {
         return $this->sendRequest("POST", $endpoint, 'api', $params, $accessToken);
@@ -318,12 +322,13 @@ class Dropbox
     /**
      * Get the contents of a Folder
      *
-     * @param  string $path   Path to the folder. Defaults to root.
-     * @param  array  $params Additional Params
+     * @param  string $path Path to the folder. Defaults to root.
+     * @param  array $params Additional Params
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder
      *
      * @return \Kunnu\Dropbox\Models\MetadataCollection
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function listFolder($path = null, array $params = [])
     {
@@ -353,6 +358,7 @@ class Dropbox
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-list_folder-continue
      *
      * @return \Kunnu\Dropbox\Models\MetadataCollection
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function listFolderContinue($cursor)
     {
@@ -405,12 +411,13 @@ class Dropbox
     /**
      * Get Revisions of a File
      *
-     * @param  string $path   Path to the file
-     * @param  array  $params Additional Params
+     * @param  string $path Path to the file
+     * @param  array $params Additional Params
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-list_revisions
      *
      * @return \Kunnu\Dropbox\Models\ModelCollection
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function listRevisions($path, array $params = [])
     {
@@ -440,13 +447,14 @@ class Dropbox
     /**
      * Search a folder for files/folders
      *
-     * @param  string $path   Path to search
-     * @param  string $query  Search Query
-     * @param  array  $params Additional Params
+     * @param  string $path Path to search
+     * @param  string $query Search Query
+     * @param  array $params Additional Params
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-search
      *
      * @return \Kunnu\Dropbox\Models\SearchResults
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function search($path, $query, array $params = [])
     {
@@ -502,7 +510,7 @@ class Dropbox
      *
      * @param  string $path Path to file/folder to delete
      *
-     * @return \Kunnu\Dropbox\Models\DeletedMetadata|\Kunnu\Dropbox\Models\FileMetadata|\Kunnu\Dropbox\Models\FolderMetadata
+     * @return \Kunnu\Dropbox\Models\DeletedMetadata
      *
      * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      *
@@ -517,9 +525,15 @@ class Dropbox
         }
 
         //Delete
-        $response = $this->postToAPI('/files/delete', ['path' => $path]);
+        $response = $this->postToAPI('/files/delete_v2', ['path' => $path]);
+        $body = $response->getDecodedBody();
 
-        return $this->makeModelFromResponse($response);
+        //Response doesn't have Metadata
+        if (!isset($body['metadata']) || !is_array($body['metadata'])) {
+            throw new DropboxClientException("Invalid Response.");
+        }
+
+        return new DeletedMetadata($body['metadata']);
     }
 
     /**
@@ -762,12 +776,13 @@ class Dropbox
      * Upload a File to Dropbox
      *
      * @param  string|DropboxFile $dropboxFile DropboxFile object or Path to file
-     * @param  string             $path        Path to upload the file to
-     * @param  array              $params      Additional Params
+     * @param  string $path Path to upload the file to
+     * @param  array $params Additional Params
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-upload
      *
      * @return \Kunnu\Dropbox\Models\FileMetadata
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function upload($dropboxFile, $path, array $params = [])
     {
@@ -822,16 +837,17 @@ class Dropbox
      * Upload file in sessions/chunks
      *
      * @param  string|DropboxFile $dropboxFile DropboxFile object or Path to file
-     * @param  string             $path        Path to save the file to, on Dropbox
-     * @param  int                $fileSize    The size of the file
-     * @param  int                $chunkSize   The amount of data to upload in each chunk
-     * @param  array              $params      Additional Params
+     * @param  string $path Path to save the file to, on Dropbox
+     * @param  int $fileSize The size of the file
+     * @param  int $chunkSize The amount of data to upload in each chunk
+     * @param  array $params Additional Params
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-upload_session-start
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-upload_session-finish
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-upload_session-append_v2
      *
      * @return \Kunnu\Dropbox\Models\FileMetadata
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function uploadChunked($dropboxFile, $path, $fileSize = null, $chunkSize = null, array $params = array())
     {
@@ -924,12 +940,13 @@ class Dropbox
     /**
      * Make a HTTP POST Request to the Content endpoint type
      *
-     * @param  string      $endpoint     Content Endpoint to send Request to
-     * @param  array       $params       Request Query Params
-     * @param  string      $accessToken  Access Token to send with the Request
+     * @param  string $endpoint Content Endpoint to send Request to
+     * @param  array $params Request Query Params
+     * @param  string $accessToken Access Token to send with the Request
      * @param  DropboxFile $responseFile Save response to the file
      *
      * @return \Kunnu\Dropbox\DropboxResponse
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function postToContent($endpoint, array $params = [], $accessToken = null, DropboxFile $responseFile = null)
     {
@@ -1037,12 +1054,13 @@ class Dropbox
      * Upload a File to Dropbox in a single request
      *
      * @param  string|DropboxFile $dropboxFile DropboxFile object or Path to file
-     * @param  string             $path        Path to upload the file to
-     * @param  array              $params      Additional Params
+     * @param  string $path Path to upload the file to
+     * @param  array $params Additional Params
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-upload
      *
      * @return \Kunnu\Dropbox\Models\FileMetadata
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function simpleUpload($dropboxFile, $path, array $params = [])
     {
@@ -1201,6 +1219,7 @@ class Dropbox
      * @link https://www.dropbox.com/developers/documentation/http/documentation#users-get_current_account
      *
      * @return \Kunnu\Dropbox\Models\Account
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getCurrentAccount()
     {
@@ -1220,6 +1239,7 @@ class Dropbox
      * @link https://www.dropbox.com/developers/documentation/http/documentation#users-get_account
      *
      * @return \Kunnu\Dropbox\Models\Account
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getAccount($account_id)
     {
@@ -1239,6 +1259,7 @@ class Dropbox
      * @link https://www.dropbox.com/developers/documentation/http/documentation#users-get_account_batch
      *
      * @return \Kunnu\Dropbox\Models\AccountList
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getAccounts(array $account_ids = [])
     {
@@ -1256,6 +1277,7 @@ class Dropbox
      * @link https://www.dropbox.com/developers/documentation/http/documentation#users-get_space_usage
      *
      * @return array
+     * @throws \Kunnu\Dropbox\Exceptions\DropboxClientException
      */
     public function getSpaceUsage()
     {

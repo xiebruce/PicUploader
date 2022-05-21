@@ -28,7 +28,7 @@ class GroupPolicyDefinitionFile extends Entity
     * Gets the description
     * The localized description of the policy settings in the ADMX file. The default value is empty.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The localized description of the policy settings in the ADMX file. The default value is empty.
@@ -52,12 +52,12 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The localized friendly name of the ADMX file.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The localized friendly name of the ADMX file.
@@ -81,12 +81,41 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the fileName
+    * The file name of the ADMX file without the path. For example: edge.admx
+    *
+    * @return string|null The fileName
+    */
+    public function getFileName()
+    {
+        if (array_key_exists("fileName", $this->_propDict)) {
+            return $this->_propDict["fileName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the fileName
+    * The file name of the ADMX file without the path. For example: edge.admx
+    *
+    * @param string $val The fileName
+    *
+    * @return GroupPolicyDefinitionFile
+    */
+    public function setFileName($val)
+    {
+        $this->_propDict["fileName"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the languageCodes
     * The supported language codes for the ADMX file.
     *
-    * @return string The languageCodes
+    * @return string|null The languageCodes
     */
     public function getLanguageCodes()
     {
@@ -96,7 +125,7 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the languageCodes
     * The supported language codes for the ADMX file.
@@ -110,17 +139,17 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["languageCodes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * The date and time the entity was last modified.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -129,7 +158,7 @@ class GroupPolicyDefinitionFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * The date and time the entity was last modified.
@@ -143,17 +172,17 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policyType
     * Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
     *
-    * @return GroupPolicyType The policyType
+    * @return GroupPolicyType|null The policyType
     */
     public function getPolicyType()
     {
         if (array_key_exists("policyType", $this->_propDict)) {
-            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\GroupPolicyType")) {
+            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\GroupPolicyType") || is_null($this->_propDict["policyType"])) {
                 return $this->_propDict["policyType"];
             } else {
                 $this->_propDict["policyType"] = new GroupPolicyType($this->_propDict["policyType"]);
@@ -162,7 +191,7 @@ class GroupPolicyDefinitionFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the policyType
     * Specifies the type of group policy. Possible values are: admxBacked, admxIngested.
@@ -176,12 +205,12 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["policyType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the revision
     * The revision version associated with the file.
     *
-    * @return string The revision
+    * @return string|null The revision
     */
     public function getRevision()
     {
@@ -191,7 +220,7 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the revision
     * The revision version associated with the file.
@@ -205,12 +234,12 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["revision"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetNamespace
     * Specifies the URI used to identify the namespace within the ADMX file.
     *
-    * @return string The targetNamespace
+    * @return string|null The targetNamespace
     */
     public function getTargetNamespace()
     {
@@ -220,7 +249,7 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetNamespace
     * Specifies the URI used to identify the namespace within the ADMX file.
@@ -234,12 +263,12 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["targetNamespace"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the targetPrefix
     * Specifies the logical name that refers to the namespace within the ADMX file.
     *
-    * @return string The targetPrefix
+    * @return string|null The targetPrefix
     */
     public function getTargetPrefix()
     {
@@ -249,7 +278,7 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the targetPrefix
     * Specifies the logical name that refers to the namespace within the ADMX file.
@@ -263,13 +292,13 @@ class GroupPolicyDefinitionFile extends Entity
         $this->_propDict["targetPrefix"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the definitions
     * The group policy definitions associated with the file.
      *
-     * @return array The definitions
+     * @return array|null The definitions
      */
     public function getDefinitions()
     {
@@ -279,19 +308,19 @@ class GroupPolicyDefinitionFile extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the definitions
     * The group policy definitions associated with the file.
     *
-    * @param GroupPolicyDefinition $val The definitions
+    * @param GroupPolicyDefinition[] $val The definitions
     *
     * @return GroupPolicyDefinitionFile
     */
     public function setDefinitions($val)
     {
-		$this->_propDict["definitions"] = $val;
+        $this->_propDict["definitions"] = $val;
         return $this;
     }
-    
+
 }

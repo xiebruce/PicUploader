@@ -28,12 +28,12 @@ class InformationProtectionContentLabel extends Entity
     * Gets the assignmentMethod
     * Possible values are: standard, privileged, auto.
     *
-    * @return AssignmentMethod The assignmentMethod
+    * @return AssignmentMethod|null The assignmentMethod
     */
     public function getAssignmentMethod()
     {
         if (array_key_exists("assignmentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod")) {
+            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod") || is_null($this->_propDict["assignmentMethod"])) {
                 return $this->_propDict["assignmentMethod"];
             } else {
                 $this->_propDict["assignmentMethod"] = new AssignmentMethod($this->_propDict["assignmentMethod"]);
@@ -61,12 +61,12 @@ class InformationProtectionContentLabel extends Entity
     * Gets the creationDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The creationDateTime
+    * @return \DateTime|null The creationDateTime
     */
     public function getCreationDateTime()
     {
         if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -94,12 +94,12 @@ class InformationProtectionContentLabel extends Entity
     * Gets the label
     * Details on the label that is currently applied to the file.
     *
-    * @return LabelDetails The label
+    * @return LabelDetails|null The label
     */
     public function getLabel()
     {
         if (array_key_exists("label", $this->_propDict)) {
-            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails")) {
+            if (is_a($this->_propDict["label"], "\Beta\Microsoft\Graph\Model\LabelDetails") || is_null($this->_propDict["label"])) {
                 return $this->_propDict["label"];
             } else {
                 $this->_propDict["label"] = new LabelDetails($this->_propDict["label"]);

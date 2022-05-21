@@ -28,12 +28,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
     * Gets the deploymentStatus
     * The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound.
     *
-    * @return WindowsDefenderApplicationControlSupplementalPolicyStatuses The deploymentStatus
+    * @return WindowsDefenderApplicationControlSupplementalPolicyStatuses|null The deploymentStatus
     */
     public function getDeploymentStatus()
     {
         if (array_key_exists("deploymentStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentStatus"], "\Beta\Microsoft\Graph\Model\WindowsDefenderApplicationControlSupplementalPolicyStatuses")) {
+            if (is_a($this->_propDict["deploymentStatus"], "\Beta\Microsoft\Graph\Model\WindowsDefenderApplicationControlSupplementalPolicyStatuses") || is_null($this->_propDict["deploymentStatus"])) {
                 return $this->_propDict["deploymentStatus"];
             } else {
                 $this->_propDict["deploymentStatus"] = new WindowsDefenderApplicationControlSupplementalPolicyStatuses($this->_propDict["deploymentStatus"]);
@@ -42,7 +42,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         }
         return null;
     }
-    
+
     /**
     * Sets the deploymentStatus
     * The deployment state of the policy. Possible values are: unknown, success, tokenError, notAuthorizedByToken, policyNotFound.
@@ -56,12 +56,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["deploymentStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceId
     * Device ID.
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -71,7 +71,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceId
     * Device ID.
@@ -85,12 +85,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceName
     * Device name.
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -100,7 +100,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceName
     * Device name.
@@ -114,17 +114,17 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSyncDateTime
     * Last sync date time.
     *
-    * @return \DateTime The lastSyncDateTime
+    * @return \DateTime|null The lastSyncDateTime
     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -133,7 +133,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSyncDateTime
     * Last sync date time.
@@ -147,12 +147,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osDescription
     * Windows OS Version Description.
     *
-    * @return string The osDescription
+    * @return string|null The osDescription
     */
     public function getOsDescription()
     {
@@ -162,7 +162,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the osDescription
     * Windows OS Version Description.
@@ -176,12 +176,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["osDescription"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osVersion
     * Windows OS Version.
     *
-    * @return string The osVersion
+    * @return string|null The osVersion
     */
     public function getOsVersion()
     {
@@ -191,7 +191,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the osVersion
     * Windows OS Version.
@@ -205,12 +205,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["osVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policyVersion
     * Human readable version of the WindowsDefenderApplicationControl supplemental policy.
     *
-    * @return string The policyVersion
+    * @return string|null The policyVersion
     */
     public function getPolicyVersion()
     {
@@ -220,7 +220,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the policyVersion
     * Human readable version of the WindowsDefenderApplicationControl supplemental policy.
@@ -234,12 +234,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["policyVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userName
     * The name of the user of this device.
     *
-    * @return string The userName
+    * @return string|null The userName
     */
     public function getUserName()
     {
@@ -249,7 +249,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the userName
     * The name of the user of this device.
@@ -263,12 +263,12 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["userName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * User Principal Name.
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -278,7 +278,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * User Principal Name.
@@ -292,17 +292,17 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policy
     * The navigation link to the WindowsDefenderApplicationControl supplemental policy.
     *
-    * @return WindowsDefenderApplicationControlSupplementalPolicy The policy
+    * @return WindowsDefenderApplicationControlSupplementalPolicy|null The policy
     */
     public function getPolicy()
     {
         if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\WindowsDefenderApplicationControlSupplementalPolicy")) {
+            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\WindowsDefenderApplicationControlSupplementalPolicy") || is_null($this->_propDict["policy"])) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new WindowsDefenderApplicationControlSupplementalPolicy($this->_propDict["policy"]);
@@ -311,7 +311,7 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         }
         return null;
     }
-    
+
     /**
     * Sets the policy
     * The navigation link to the WindowsDefenderApplicationControl supplemental policy.
@@ -325,5 +325,5 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus extend
         $this->_propDict["policy"] = $val;
         return $this;
     }
-    
+
 }

@@ -25,10 +25,10 @@ namespace Beta\Microsoft\Graph\Model;
 class Approval extends Entity
 {
 
-     /** 
+     /**
      * Gets the steps
      *
-     * @return array The steps
+     * @return array|null The steps
      */
     public function getSteps()
     {
@@ -38,18 +38,18 @@ class Approval extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the steps
     *
-    * @param ApprovalStep $val The steps
+    * @param ApprovalStep[] $val The steps
     *
     * @return Approval
     */
     public function setSteps($val)
     {
-		$this->_propDict["steps"] = $val;
+        $this->_propDict["steps"] = $val;
         return $this;
     }
-    
+
 }

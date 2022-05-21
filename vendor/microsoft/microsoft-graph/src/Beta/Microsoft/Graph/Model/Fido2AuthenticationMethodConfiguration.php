@@ -28,7 +28,7 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
     * Gets the isAttestationEnforced
     * Determines whether attestation must be enforced for FIDO2 security key registration.
     *
-    * @return bool The isAttestationEnforced
+    * @return bool|null The isAttestationEnforced
     */
     public function getIsAttestationEnforced()
     {
@@ -38,7 +38,7 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
             return null;
         }
     }
-    
+
     /**
     * Sets the isAttestationEnforced
     * Determines whether attestation must be enforced for FIDO2 security key registration.
@@ -52,12 +52,12 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         $this->_propDict["isAttestationEnforced"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isSelfServiceRegistrationAllowed
     * Determines if users can register new FIDO2 security keys.
     *
-    * @return bool The isSelfServiceRegistrationAllowed
+    * @return bool|null The isSelfServiceRegistrationAllowed
     */
     public function getIsSelfServiceRegistrationAllowed()
     {
@@ -67,7 +67,7 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
             return null;
         }
     }
-    
+
     /**
     * Sets the isSelfServiceRegistrationAllowed
     * Determines if users can register new FIDO2 security keys.
@@ -81,17 +81,17 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         $this->_propDict["isSelfServiceRegistrationAllowed"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the keyRestrictions
     * Controls whether key restrictions are enforced on FIDO2 security keys, either allowing or disallowing certain key types as defined by Authenticator Attestation GUID (AAGUID), an identifier that indicates the type (e.g. make and model) of the authenticator.
     *
-    * @return Fido2KeyRestrictions The keyRestrictions
+    * @return Fido2KeyRestrictions|null The keyRestrictions
     */
     public function getKeyRestrictions()
     {
         if (array_key_exists("keyRestrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["keyRestrictions"], "\Beta\Microsoft\Graph\Model\Fido2KeyRestrictions")) {
+            if (is_a($this->_propDict["keyRestrictions"], "\Beta\Microsoft\Graph\Model\Fido2KeyRestrictions") || is_null($this->_propDict["keyRestrictions"])) {
                 return $this->_propDict["keyRestrictions"];
             } else {
                 $this->_propDict["keyRestrictions"] = new Fido2KeyRestrictions($this->_propDict["keyRestrictions"]);
@@ -100,7 +100,7 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         }
         return null;
     }
-    
+
     /**
     * Sets the keyRestrictions
     * Controls whether key restrictions are enforced on FIDO2 security keys, either allowing or disallowing certain key types as defined by Authenticator Attestation GUID (AAGUID), an identifier that indicates the type (e.g. make and model) of the authenticator.
@@ -114,13 +114,13 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         $this->_propDict["keyRestrictions"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the includeTargets
     * A collection of users or groups who are enabled to use the authentication method.
      *
-     * @return array The includeTargets
+     * @return array|null The includeTargets
      */
     public function getIncludeTargets()
     {
@@ -130,19 +130,19 @@ class Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfigu
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the includeTargets
     * A collection of users or groups who are enabled to use the authentication method.
     *
-    * @param AuthenticationMethodTarget $val The includeTargets
+    * @param AuthenticationMethodTarget[] $val The includeTargets
     *
     * @return Fido2AuthenticationMethodConfiguration
     */
     public function setIncludeTargets($val)
     {
-		$this->_propDict["includeTargets"] = $val;
+        $this->_propDict["includeTargets"] = $val;
         return $this;
     }
-    
+
 }

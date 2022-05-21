@@ -28,12 +28,12 @@ class CallTranscriptionInfo extends Entity
     * Gets the lastModifiedDateTime
     * The state modified time in UTC.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -61,12 +61,12 @@ class CallTranscriptionInfo extends Entity
     * Gets the state
     * Possible values are: notStarted, active, inactive.
     *
-    * @return CallTranscriptionState The state
+    * @return CallTranscriptionState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\CallTranscriptionState")) {
+            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\CallTranscriptionState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new CallTranscriptionState($this->_propDict["state"]);

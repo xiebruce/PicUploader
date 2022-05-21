@@ -28,7 +28,7 @@ class PrintServiceEndpoint extends Entity
     * Gets the displayName
     * A human-readable display name for the endpoint.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class PrintServiceEndpoint extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * A human-readable display name for the endpoint.
@@ -52,12 +52,12 @@ class PrintServiceEndpoint extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the uri
     * The URI that can be used to access the service.
     *
-    * @return string The uri
+    * @return string|null The uri
     */
     public function getUri()
     {
@@ -67,7 +67,7 @@ class PrintServiceEndpoint extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the uri
     * The URI that can be used to access the service.
@@ -81,5 +81,5 @@ class PrintServiceEndpoint extends Entity
         $this->_propDict["uri"] = $val;
         return $this;
     }
-    
+
 }

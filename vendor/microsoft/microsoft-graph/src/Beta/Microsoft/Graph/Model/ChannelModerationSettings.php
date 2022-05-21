@@ -27,7 +27,7 @@ class ChannelModerationSettings extends Entity
     * Gets the allowNewMessageFromBots
     * Indicates whether bots are allowed to post messages.
     *
-    * @return bool The allowNewMessageFromBots
+    * @return bool|null The allowNewMessageFromBots
     */
     public function getAllowNewMessageFromBots()
     {
@@ -55,7 +55,7 @@ class ChannelModerationSettings extends Entity
     * Gets the allowNewMessageFromConnectors
     * Indicates whether connectors are allowed to post messages.
     *
-    * @return bool The allowNewMessageFromConnectors
+    * @return bool|null The allowNewMessageFromConnectors
     */
     public function getAllowNewMessageFromConnectors()
     {
@@ -84,12 +84,12 @@ class ChannelModerationSettings extends Entity
     * Gets the replyRestriction
     * Indicates who is allowed to reply to the teams channel. Possible values are: everyone, authorAndModerators, unknownFutureValue.
     *
-    * @return ReplyRestriction The replyRestriction
+    * @return ReplyRestriction|null The replyRestriction
     */
     public function getReplyRestriction()
     {
         if (array_key_exists("replyRestriction", $this->_propDict)) {
-            if (is_a($this->_propDict["replyRestriction"], "\Beta\Microsoft\Graph\Model\ReplyRestriction")) {
+            if (is_a($this->_propDict["replyRestriction"], "\Beta\Microsoft\Graph\Model\ReplyRestriction") || is_null($this->_propDict["replyRestriction"])) {
                 return $this->_propDict["replyRestriction"];
             } else {
                 $this->_propDict["replyRestriction"] = new ReplyRestriction($this->_propDict["replyRestriction"]);
@@ -117,12 +117,12 @@ class ChannelModerationSettings extends Entity
     * Gets the userNewMessageRestriction
     * Indicates who is allowed to post messages to teams channel. Possible values are: everyone, everyoneExceptGuests, moderators, unknownFutureValue.
     *
-    * @return UserNewMessageRestriction The userNewMessageRestriction
+    * @return UserNewMessageRestriction|null The userNewMessageRestriction
     */
     public function getUserNewMessageRestriction()
     {
         if (array_key_exists("userNewMessageRestriction", $this->_propDict)) {
-            if (is_a($this->_propDict["userNewMessageRestriction"], "\Beta\Microsoft\Graph\Model\UserNewMessageRestriction")) {
+            if (is_a($this->_propDict["userNewMessageRestriction"], "\Beta\Microsoft\Graph\Model\UserNewMessageRestriction") || is_null($this->_propDict["userNewMessageRestriction"])) {
                 return $this->_propDict["userNewMessageRestriction"];
             } else {
                 $this->_propDict["userNewMessageRestriction"] = new UserNewMessageRestriction($this->_propDict["userNewMessageRestriction"]);

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
     * Gets the activeDeviceCount
     * The number of active devices for the OS version. Valid values -2147483648 to 2147483647
     *
-    * @return int The activeDeviceCount
+    * @return int|null The activeDeviceCount
     */
     public function getActiveDeviceCount()
     {
@@ -38,7 +38,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the activeDeviceCount
     * The number of active devices for the OS version. Valid values -2147483648 to 2147483647
@@ -52,12 +52,12 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
         $this->_propDict["activeDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the meanTimeToFailureInMinutes
     * The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
     *
-    * @return int The meanTimeToFailureInMinutes
+    * @return int|null The meanTimeToFailureInMinutes
     */
     public function getMeanTimeToFailureInMinutes()
     {
@@ -67,7 +67,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the meanTimeToFailureInMinutes
     * The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
@@ -81,12 +81,12 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
         $this->_propDict["meanTimeToFailureInMinutes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the osBuildNumber
     * The OS build number installed on the device.
     *
-    * @return string The osBuildNumber
+    * @return string|null The osBuildNumber
     */
     public function getOsBuildNumber()
     {
@@ -96,7 +96,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the osBuildNumber
     * The OS build number installed on the device.
@@ -110,12 +110,12 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
         $this->_propDict["osBuildNumber"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osVersion
     * The OS version installed on the device.
     *
-    * @return string The osVersion
+    * @return string|null The osVersion
     */
     public function getOsVersion()
     {
@@ -125,7 +125,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the osVersion
     * The OS version installed on the device.
@@ -139,12 +139,12 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
         $this->_propDict["osVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the osVersionAppHealthScore
     * The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
     *
-    * @return float The osVersionAppHealthScore
+    * @return float|null The osVersionAppHealthScore
     */
     public function getOsVersionAppHealthScore()
     {
@@ -154,7 +154,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the osVersionAppHealthScore
     * The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
@@ -165,15 +165,15 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
     */
     public function setOsVersionAppHealthScore($val)
     {
-        $this->_propDict["osVersionAppHealthScore"] = $val;
+        $this->_propDict["osVersionAppHealthScore"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the osVersionAppHealthStatus
     * The overall app health status of the OS version.
     *
-    * @return string The osVersionAppHealthStatus
+    * @return string|null The osVersionAppHealthStatus
     */
     public function getOsVersionAppHealthStatus()
     {
@@ -183,7 +183,7 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the osVersionAppHealthStatus
     * The overall app health status of the OS version.
@@ -197,5 +197,5 @@ class UserExperienceAnalyticsAppHealthOSVersionPerformance extends Entity
         $this->_propDict["osVersionAppHealthStatus"] = $val;
         return $this;
     }
-    
+
 }

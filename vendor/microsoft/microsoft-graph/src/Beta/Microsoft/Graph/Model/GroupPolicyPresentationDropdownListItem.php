@@ -27,7 +27,7 @@ class GroupPolicyPresentationDropdownListItem extends Entity
     * Gets the displayName
     * Localized display name for the drop-down list item.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -55,7 +55,7 @@ class GroupPolicyPresentationDropdownListItem extends Entity
     * Gets the value
     * Associated value for the drop-down list item
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

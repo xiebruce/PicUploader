@@ -26,7 +26,7 @@ class DateTimeTimeZoneType extends Entity
     /**
     * Gets the dateTime
     *
-    * @return string The dateTime
+    * @return string|null The dateTime
     */
     public function getDateTime()
     {

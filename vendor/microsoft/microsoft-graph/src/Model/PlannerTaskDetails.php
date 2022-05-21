@@ -28,12 +28,12 @@ class PlannerTaskDetails extends Entity
     * Gets the checklist
     * The collection of checklist items on the task.
     *
-    * @return PlannerChecklistItems The checklist
+    * @return PlannerChecklistItems|null The checklist
     */
     public function getChecklist()
     {
         if (array_key_exists("checklist", $this->_propDict)) {
-            if (is_a($this->_propDict["checklist"], "\Microsoft\Graph\Model\PlannerChecklistItems")) {
+            if (is_a($this->_propDict["checklist"], "\Microsoft\Graph\Model\PlannerChecklistItems") || is_null($this->_propDict["checklist"])) {
                 return $this->_propDict["checklist"];
             } else {
                 $this->_propDict["checklist"] = new PlannerChecklistItems($this->_propDict["checklist"]);
@@ -42,7 +42,7 @@ class PlannerTaskDetails extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the checklist
     * The collection of checklist items on the task.
@@ -56,12 +56,12 @@ class PlannerTaskDetails extends Entity
         $this->_propDict["checklist"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
-    * Description of the task
+    * Description of the task.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -71,10 +71,10 @@ class PlannerTaskDetails extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
-    * Description of the task
+    * Description of the task.
     *
     * @param string $val The description
     *
@@ -85,17 +85,17 @@ class PlannerTaskDetails extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the previewType
     * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
     *
-    * @return PlannerPreviewType The previewType
+    * @return PlannerPreviewType|null The previewType
     */
     public function getPreviewType()
     {
         if (array_key_exists("previewType", $this->_propDict)) {
-            if (is_a($this->_propDict["previewType"], "\Microsoft\Graph\Model\PlannerPreviewType")) {
+            if (is_a($this->_propDict["previewType"], "\Microsoft\Graph\Model\PlannerPreviewType") || is_null($this->_propDict["previewType"])) {
                 return $this->_propDict["previewType"];
             } else {
                 $this->_propDict["previewType"] = new PlannerPreviewType($this->_propDict["previewType"]);
@@ -104,7 +104,7 @@ class PlannerTaskDetails extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the previewType
     * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
@@ -118,17 +118,17 @@ class PlannerTaskDetails extends Entity
         $this->_propDict["previewType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the references
     * The collection of references on the task.
     *
-    * @return PlannerExternalReferences The references
+    * @return PlannerExternalReferences|null The references
     */
     public function getReferences()
     {
         if (array_key_exists("references", $this->_propDict)) {
-            if (is_a($this->_propDict["references"], "\Microsoft\Graph\Model\PlannerExternalReferences")) {
+            if (is_a($this->_propDict["references"], "\Microsoft\Graph\Model\PlannerExternalReferences") || is_null($this->_propDict["references"])) {
                 return $this->_propDict["references"];
             } else {
                 $this->_propDict["references"] = new PlannerExternalReferences($this->_propDict["references"]);
@@ -137,7 +137,7 @@ class PlannerTaskDetails extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the references
     * The collection of references on the task.
@@ -151,5 +151,5 @@ class PlannerTaskDetails extends Entity
         $this->_propDict["references"] = $val;
         return $this;
     }
-    
+
 }

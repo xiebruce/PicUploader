@@ -27,7 +27,7 @@ class TeamDiscoverySettings extends Entity
     * Gets the showInTeamsSearchAndSuggestions
     * If set to true, the team is visible via search and suggestions from the Teams client.
     *
-    * @return bool The showInTeamsSearchAndSuggestions
+    * @return bool|null The showInTeamsSearchAndSuggestions
     */
     public function getShowInTeamsSearchAndSuggestions()
     {

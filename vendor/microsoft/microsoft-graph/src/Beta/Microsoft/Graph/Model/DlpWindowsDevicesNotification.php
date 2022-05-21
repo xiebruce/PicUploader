@@ -26,7 +26,7 @@ class DlpWindowsDevicesNotification extends DlpNotification
     /**
     * Gets the contentName
     *
-    * @return string The contentName
+    * @return string|null The contentName
     */
     public function getContentName()
     {
@@ -52,7 +52,7 @@ class DlpWindowsDevicesNotification extends DlpNotification
     /**
     * Gets the lastModfiedBy
     *
-    * @return string The lastModfiedBy
+    * @return string|null The lastModfiedBy
     */
     public function getLastModfiedBy()
     {

@@ -28,12 +28,12 @@ class ColumnDefinition extends Entity
     * Gets the boolean
     * This column stores boolean values.
     *
-    * @return BooleanColumn The boolean
+    * @return BooleanColumn|null The boolean
     */
     public function getBoolean()
     {
         if (array_key_exists("boolean", $this->_propDict)) {
-            if (is_a($this->_propDict["boolean"], "\Microsoft\Graph\Model\BooleanColumn")) {
+            if (is_a($this->_propDict["boolean"], "\Microsoft\Graph\Model\BooleanColumn") || is_null($this->_propDict["boolean"])) {
                 return $this->_propDict["boolean"];
             } else {
                 $this->_propDict["boolean"] = new BooleanColumn($this->_propDict["boolean"]);
@@ -42,7 +42,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the boolean
     * This column stores boolean values.
@@ -56,17 +56,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["boolean"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the calculated
     * This column's data is calculated based on other columns.
     *
-    * @return CalculatedColumn The calculated
+    * @return CalculatedColumn|null The calculated
     */
     public function getCalculated()
     {
         if (array_key_exists("calculated", $this->_propDict)) {
-            if (is_a($this->_propDict["calculated"], "\Microsoft\Graph\Model\CalculatedColumn")) {
+            if (is_a($this->_propDict["calculated"], "\Microsoft\Graph\Model\CalculatedColumn") || is_null($this->_propDict["calculated"])) {
                 return $this->_propDict["calculated"];
             } else {
                 $this->_propDict["calculated"] = new CalculatedColumn($this->_propDict["calculated"]);
@@ -75,7 +75,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the calculated
     * This column's data is calculated based on other columns.
@@ -89,17 +89,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["calculated"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the choice
     * This column stores data from a list of choices.
     *
-    * @return ChoiceColumn The choice
+    * @return ChoiceColumn|null The choice
     */
     public function getChoice()
     {
         if (array_key_exists("choice", $this->_propDict)) {
-            if (is_a($this->_propDict["choice"], "\Microsoft\Graph\Model\ChoiceColumn")) {
+            if (is_a($this->_propDict["choice"], "\Microsoft\Graph\Model\ChoiceColumn") || is_null($this->_propDict["choice"])) {
                 return $this->_propDict["choice"];
             } else {
                 $this->_propDict["choice"] = new ChoiceColumn($this->_propDict["choice"]);
@@ -108,7 +108,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the choice
     * This column stores data from a list of choices.
@@ -122,12 +122,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["choice"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the columnGroup
     * For site columns, the name of the group this column belongs to. Helps organize related columns.
     *
-    * @return string The columnGroup
+    * @return string|null The columnGroup
     */
     public function getColumnGroup()
     {
@@ -137,7 +137,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the columnGroup
     * For site columns, the name of the group this column belongs to. Helps organize related columns.
@@ -151,17 +151,50 @@ class ColumnDefinition extends Entity
         $this->_propDict["columnGroup"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the contentApprovalStatus
+    * This column stores content approval status.
+    *
+    * @return ContentApprovalStatusColumn|null The contentApprovalStatus
+    */
+    public function getContentApprovalStatus()
+    {
+        if (array_key_exists("contentApprovalStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["contentApprovalStatus"], "\Microsoft\Graph\Model\ContentApprovalStatusColumn") || is_null($this->_propDict["contentApprovalStatus"])) {
+                return $this->_propDict["contentApprovalStatus"];
+            } else {
+                $this->_propDict["contentApprovalStatus"] = new ContentApprovalStatusColumn($this->_propDict["contentApprovalStatus"]);
+                return $this->_propDict["contentApprovalStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the contentApprovalStatus
+    * This column stores content approval status.
+    *
+    * @param ContentApprovalStatusColumn $val The contentApprovalStatus
+    *
+    * @return ColumnDefinition
+    */
+    public function setContentApprovalStatus($val)
+    {
+        $this->_propDict["contentApprovalStatus"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the currency
     * This column stores currency values.
     *
-    * @return CurrencyColumn The currency
+    * @return CurrencyColumn|null The currency
     */
     public function getCurrency()
     {
         if (array_key_exists("currency", $this->_propDict)) {
-            if (is_a($this->_propDict["currency"], "\Microsoft\Graph\Model\CurrencyColumn")) {
+            if (is_a($this->_propDict["currency"], "\Microsoft\Graph\Model\CurrencyColumn") || is_null($this->_propDict["currency"])) {
                 return $this->_propDict["currency"];
             } else {
                 $this->_propDict["currency"] = new CurrencyColumn($this->_propDict["currency"]);
@@ -170,7 +203,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the currency
     * This column stores currency values.
@@ -184,17 +217,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["currency"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dateTime
     * This column stores DateTime values.
     *
-    * @return DateTimeColumn The dateTime
+    * @return DateTimeColumn|null The dateTime
     */
     public function getDateTime()
     {
         if (array_key_exists("dateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dateTime"], "\Microsoft\Graph\Model\DateTimeColumn")) {
+            if (is_a($this->_propDict["dateTime"], "\Microsoft\Graph\Model\DateTimeColumn") || is_null($this->_propDict["dateTime"])) {
                 return $this->_propDict["dateTime"];
             } else {
                 $this->_propDict["dateTime"] = new DateTimeColumn($this->_propDict["dateTime"]);
@@ -203,7 +236,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the dateTime
     * This column stores DateTime values.
@@ -217,17 +250,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["dateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defaultValue
     * The default value for this column.
     *
-    * @return DefaultColumnValue The defaultValue
+    * @return DefaultColumnValue|null The defaultValue
     */
     public function getDefaultValue()
     {
         if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Microsoft\Graph\Model\DefaultColumnValue")) {
+            if (is_a($this->_propDict["defaultValue"], "\Microsoft\Graph\Model\DefaultColumnValue") || is_null($this->_propDict["defaultValue"])) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DefaultColumnValue($this->_propDict["defaultValue"]);
@@ -236,7 +269,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the defaultValue
     * The default value for this column.
@@ -250,12 +283,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["defaultValue"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The user-facing description of the column.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -265,7 +298,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The user-facing description of the column.
@@ -279,12 +312,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The user-facing name of the column.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -294,7 +327,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The user-facing name of the column.
@@ -308,12 +341,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the enforceUniqueValues
     * If true, no two list items may have the same value for this column.
     *
-    * @return bool The enforceUniqueValues
+    * @return bool|null The enforceUniqueValues
     */
     public function getEnforceUniqueValues()
     {
@@ -323,7 +356,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the enforceUniqueValues
     * If true, no two list items may have the same value for this column.
@@ -337,17 +370,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["enforceUniqueValues"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the geolocation
     * This column stores a geolocation.
     *
-    * @return GeolocationColumn The geolocation
+    * @return GeolocationColumn|null The geolocation
     */
     public function getGeolocation()
     {
         if (array_key_exists("geolocation", $this->_propDict)) {
-            if (is_a($this->_propDict["geolocation"], "\Microsoft\Graph\Model\GeolocationColumn")) {
+            if (is_a($this->_propDict["geolocation"], "\Microsoft\Graph\Model\GeolocationColumn") || is_null($this->_propDict["geolocation"])) {
                 return $this->_propDict["geolocation"];
             } else {
                 $this->_propDict["geolocation"] = new GeolocationColumn($this->_propDict["geolocation"]);
@@ -356,7 +389,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the geolocation
     * This column stores a geolocation.
@@ -370,12 +403,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["geolocation"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the hidden
     * Specifies whether the column is displayed in the user interface.
     *
-    * @return bool The hidden
+    * @return bool|null The hidden
     */
     public function getHidden()
     {
@@ -385,7 +418,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the hidden
     * Specifies whether the column is displayed in the user interface.
@@ -399,12 +432,45 @@ class ColumnDefinition extends Entity
         $this->_propDict["hidden"] = boolval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the hyperlinkOrPicture
+    * This column stores hyperlink or picture values.
+    *
+    * @return HyperlinkOrPictureColumn|null The hyperlinkOrPicture
+    */
+    public function getHyperlinkOrPicture()
+    {
+        if (array_key_exists("hyperlinkOrPicture", $this->_propDict)) {
+            if (is_a($this->_propDict["hyperlinkOrPicture"], "\Microsoft\Graph\Model\HyperlinkOrPictureColumn") || is_null($this->_propDict["hyperlinkOrPicture"])) {
+                return $this->_propDict["hyperlinkOrPicture"];
+            } else {
+                $this->_propDict["hyperlinkOrPicture"] = new HyperlinkOrPictureColumn($this->_propDict["hyperlinkOrPicture"]);
+                return $this->_propDict["hyperlinkOrPicture"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the hyperlinkOrPicture
+    * This column stores hyperlink or picture values.
+    *
+    * @param HyperlinkOrPictureColumn $val The hyperlinkOrPicture
+    *
+    * @return ColumnDefinition
+    */
+    public function setHyperlinkOrPicture($val)
+    {
+        $this->_propDict["hyperlinkOrPicture"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the indexed
     * Specifies whether the column values can used for sorting and searching.
     *
-    * @return bool The indexed
+    * @return bool|null The indexed
     */
     public function getIndexed()
     {
@@ -414,7 +480,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the indexed
     * Specifies whether the column values can used for sorting and searching.
@@ -428,17 +494,104 @@ class ColumnDefinition extends Entity
         $this->_propDict["indexed"] = boolval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the isDeletable
+    * Indicates whether this column can be deleted.
+    *
+    * @return bool|null The isDeletable
+    */
+    public function getIsDeletable()
+    {
+        if (array_key_exists("isDeletable", $this->_propDict)) {
+            return $this->_propDict["isDeletable"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isDeletable
+    * Indicates whether this column can be deleted.
+    *
+    * @param bool $val The isDeletable
+    *
+    * @return ColumnDefinition
+    */
+    public function setIsDeletable($val)
+    {
+        $this->_propDict["isDeletable"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the isReorderable
+    * Indicates whether values in the column can be reordered. Read-only.
+    *
+    * @return bool|null The isReorderable
+    */
+    public function getIsReorderable()
+    {
+        if (array_key_exists("isReorderable", $this->_propDict)) {
+            return $this->_propDict["isReorderable"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isReorderable
+    * Indicates whether values in the column can be reordered. Read-only.
+    *
+    * @param bool $val The isReorderable
+    *
+    * @return ColumnDefinition
+    */
+    public function setIsReorderable($val)
+    {
+        $this->_propDict["isReorderable"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the isSealed
+    * Specifies whether the column can be changed.
+    *
+    * @return bool|null The isSealed
+    */
+    public function getIsSealed()
+    {
+        if (array_key_exists("isSealed", $this->_propDict)) {
+            return $this->_propDict["isSealed"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isSealed
+    * Specifies whether the column can be changed.
+    *
+    * @param bool $val The isSealed
+    *
+    * @return ColumnDefinition
+    */
+    public function setIsSealed($val)
+    {
+        $this->_propDict["isSealed"] = boolval($val);
+        return $this;
+    }
+
     /**
     * Gets the lookup
     * This column's data is looked up from another source in the site.
     *
-    * @return LookupColumn The lookup
+    * @return LookupColumn|null The lookup
     */
     public function getLookup()
     {
         if (array_key_exists("lookup", $this->_propDict)) {
-            if (is_a($this->_propDict["lookup"], "\Microsoft\Graph\Model\LookupColumn")) {
+            if (is_a($this->_propDict["lookup"], "\Microsoft\Graph\Model\LookupColumn") || is_null($this->_propDict["lookup"])) {
                 return $this->_propDict["lookup"];
             } else {
                 $this->_propDict["lookup"] = new LookupColumn($this->_propDict["lookup"]);
@@ -447,7 +600,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lookup
     * This column's data is looked up from another source in the site.
@@ -461,12 +614,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["lookup"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
     * The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -476,7 +629,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName.
@@ -490,17 +643,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the number
     * This column stores number values.
     *
-    * @return NumberColumn The number
+    * @return NumberColumn|null The number
     */
     public function getNumber()
     {
         if (array_key_exists("number", $this->_propDict)) {
-            if (is_a($this->_propDict["number"], "\Microsoft\Graph\Model\NumberColumn")) {
+            if (is_a($this->_propDict["number"], "\Microsoft\Graph\Model\NumberColumn") || is_null($this->_propDict["number"])) {
                 return $this->_propDict["number"];
             } else {
                 $this->_propDict["number"] = new NumberColumn($this->_propDict["number"]);
@@ -509,7 +662,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the number
     * This column stores number values.
@@ -523,17 +676,17 @@ class ColumnDefinition extends Entity
         $this->_propDict["number"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the personOrGroup
     * This column stores Person or Group values.
     *
-    * @return PersonOrGroupColumn The personOrGroup
+    * @return PersonOrGroupColumn|null The personOrGroup
     */
     public function getPersonOrGroup()
     {
         if (array_key_exists("personOrGroup", $this->_propDict)) {
-            if (is_a($this->_propDict["personOrGroup"], "\Microsoft\Graph\Model\PersonOrGroupColumn")) {
+            if (is_a($this->_propDict["personOrGroup"], "\Microsoft\Graph\Model\PersonOrGroupColumn") || is_null($this->_propDict["personOrGroup"])) {
                 return $this->_propDict["personOrGroup"];
             } else {
                 $this->_propDict["personOrGroup"] = new PersonOrGroupColumn($this->_propDict["personOrGroup"]);
@@ -542,7 +695,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the personOrGroup
     * This column stores Person or Group values.
@@ -556,12 +709,41 @@ class ColumnDefinition extends Entity
         $this->_propDict["personOrGroup"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the propagateChanges
+    * If true, changes to this column will be propagated to lists that implement the column.
+    *
+    * @return bool|null The propagateChanges
+    */
+    public function getPropagateChanges()
+    {
+        if (array_key_exists("propagateChanges", $this->_propDict)) {
+            return $this->_propDict["propagateChanges"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the propagateChanges
+    * If true, changes to this column will be propagated to lists that implement the column.
+    *
+    * @param bool $val The propagateChanges
+    *
+    * @return ColumnDefinition
+    */
+    public function setPropagateChanges($val)
+    {
+        $this->_propDict["propagateChanges"] = boolval($val);
+        return $this;
+    }
+
     /**
     * Gets the readOnly
     * Specifies whether the column values can be modified.
     *
-    * @return bool The readOnly
+    * @return bool|null The readOnly
     */
     public function getReadOnly()
     {
@@ -571,7 +753,7 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the readOnly
     * Specifies whether the column values can be modified.
@@ -585,12 +767,12 @@ class ColumnDefinition extends Entity
         $this->_propDict["readOnly"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the required
-    * Specifies whether the column value is not optional.
+    * Specifies whether the column value isn't optional.
     *
-    * @return bool The required
+    * @return bool|null The required
     */
     public function getRequired()
     {
@@ -600,10 +782,10 @@ class ColumnDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the required
-    * Specifies whether the column value is not optional.
+    * Specifies whether the column value isn't optional.
     *
     * @param bool $val The required
     *
@@ -614,17 +796,83 @@ class ColumnDefinition extends Entity
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the sourceContentType
+    * ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
+    *
+    * @return ContentTypeInfo|null The sourceContentType
+    */
+    public function getSourceContentType()
+    {
+        if (array_key_exists("sourceContentType", $this->_propDict)) {
+            if (is_a($this->_propDict["sourceContentType"], "\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["sourceContentType"])) {
+                return $this->_propDict["sourceContentType"];
+            } else {
+                $this->_propDict["sourceContentType"] = new ContentTypeInfo($this->_propDict["sourceContentType"]);
+                return $this->_propDict["sourceContentType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the sourceContentType
+    * ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
+    *
+    * @param ContentTypeInfo $val The sourceContentType
+    *
+    * @return ColumnDefinition
+    */
+    public function setSourceContentType($val)
+    {
+        $this->_propDict["sourceContentType"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the term
+    * This column stores taxonomy terms.
+    *
+    * @return TermColumn|null The term
+    */
+    public function getTerm()
+    {
+        if (array_key_exists("term", $this->_propDict)) {
+            if (is_a($this->_propDict["term"], "\Microsoft\Graph\Model\TermColumn") || is_null($this->_propDict["term"])) {
+                return $this->_propDict["term"];
+            } else {
+                $this->_propDict["term"] = new TermColumn($this->_propDict["term"]);
+                return $this->_propDict["term"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the term
+    * This column stores taxonomy terms.
+    *
+    * @param TermColumn $val The term
+    *
+    * @return ColumnDefinition
+    */
+    public function setTerm($val)
+    {
+        $this->_propDict["term"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the text
     * This column stores text values.
     *
-    * @return TextColumn The text
+    * @return TextColumn|null The text
     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
-            if (is_a($this->_propDict["text"], "\Microsoft\Graph\Model\TextColumn")) {
+            if (is_a($this->_propDict["text"], "\Microsoft\Graph\Model\TextColumn") || is_null($this->_propDict["text"])) {
                 return $this->_propDict["text"];
             } else {
                 $this->_propDict["text"] = new TextColumn($this->_propDict["text"]);
@@ -633,7 +881,7 @@ class ColumnDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the text
     * This column stores text values.
@@ -647,5 +895,137 @@ class ColumnDefinition extends Entity
         $this->_propDict["text"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the thumbnail
+    * This column stores thumbnail values.
+    *
+    * @return ThumbnailColumn|null The thumbnail
+    */
+    public function getThumbnail()
+    {
+        if (array_key_exists("thumbnail", $this->_propDict)) {
+            if (is_a($this->_propDict["thumbnail"], "\Microsoft\Graph\Model\ThumbnailColumn") || is_null($this->_propDict["thumbnail"])) {
+                return $this->_propDict["thumbnail"];
+            } else {
+                $this->_propDict["thumbnail"] = new ThumbnailColumn($this->_propDict["thumbnail"]);
+                return $this->_propDict["thumbnail"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the thumbnail
+    * This column stores thumbnail values.
+    *
+    * @param ThumbnailColumn $val The thumbnail
+    *
+    * @return ColumnDefinition
+    */
+    public function setThumbnail($val)
+    {
+        $this->_propDict["thumbnail"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the type
+    * For site columns, the type of column. Read-only.
+    *
+    * @return ColumnTypes|null The type
+    */
+    public function getType()
+    {
+        if (array_key_exists("type", $this->_propDict)) {
+            if (is_a($this->_propDict["type"], "\Microsoft\Graph\Model\ColumnTypes") || is_null($this->_propDict["type"])) {
+                return $this->_propDict["type"];
+            } else {
+                $this->_propDict["type"] = new ColumnTypes($this->_propDict["type"]);
+                return $this->_propDict["type"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the type
+    * For site columns, the type of column. Read-only.
+    *
+    * @param ColumnTypes $val The type
+    *
+    * @return ColumnDefinition
+    */
+    public function setType($val)
+    {
+        $this->_propDict["type"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the validation
+    * This column stores validation formula and message for the column.
+    *
+    * @return ColumnValidation|null The validation
+    */
+    public function getValidation()
+    {
+        if (array_key_exists("validation", $this->_propDict)) {
+            if (is_a($this->_propDict["validation"], "\Microsoft\Graph\Model\ColumnValidation") || is_null($this->_propDict["validation"])) {
+                return $this->_propDict["validation"];
+            } else {
+                $this->_propDict["validation"] = new ColumnValidation($this->_propDict["validation"]);
+                return $this->_propDict["validation"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the validation
+    * This column stores validation formula and message for the column.
+    *
+    * @param ColumnValidation $val The validation
+    *
+    * @return ColumnDefinition
+    */
+    public function setValidation($val)
+    {
+        $this->_propDict["validation"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the sourceColumn
+    * The source column for content type column.
+    *
+    * @return ColumnDefinition|null The sourceColumn
+    */
+    public function getSourceColumn()
+    {
+        if (array_key_exists("sourceColumn", $this->_propDict)) {
+            if (is_a($this->_propDict["sourceColumn"], "\Microsoft\Graph\Model\ColumnDefinition") || is_null($this->_propDict["sourceColumn"])) {
+                return $this->_propDict["sourceColumn"];
+            } else {
+                $this->_propDict["sourceColumn"] = new ColumnDefinition($this->_propDict["sourceColumn"]);
+                return $this->_propDict["sourceColumn"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the sourceColumn
+    * The source column for content type column.
+    *
+    * @param ColumnDefinition $val The sourceColumn
+    *
+    * @return ColumnDefinition
+    */
+    public function setSourceColumn($val)
+    {
+        $this->_propDict["sourceColumn"] = $val;
+        return $this;
+    }
+
 }

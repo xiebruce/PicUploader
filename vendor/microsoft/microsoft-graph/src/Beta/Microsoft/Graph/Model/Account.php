@@ -27,7 +27,7 @@ class Account extends Entity
     /**
     * Gets the blocked
     *
-    * @return bool The blocked
+    * @return bool|null The blocked
     */
     public function getBlocked()
     {
@@ -37,7 +37,7 @@ class Account extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the blocked
     *
@@ -50,11 +50,11 @@ class Account extends Entity
         $this->_propDict["blocked"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the category
     *
-    * @return string The category
+    * @return string|null The category
     */
     public function getCategory()
     {
@@ -64,7 +64,7 @@ class Account extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the category
     *
@@ -77,11 +77,11 @@ class Account extends Entity
         $this->_propDict["category"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -91,7 +91,7 @@ class Account extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -104,16 +104,16 @@ class Account extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -122,7 +122,7 @@ class Account extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -135,11 +135,11 @@ class Account extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the number
     *
-    * @return string The number
+    * @return string|null The number
     */
     public function getNumber()
     {
@@ -149,7 +149,7 @@ class Account extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the number
     *
@@ -162,11 +162,11 @@ class Account extends Entity
         $this->_propDict["number"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the subCategory
     *
-    * @return string The subCategory
+    * @return string|null The subCategory
     */
     public function getSubCategory()
     {
@@ -176,7 +176,7 @@ class Account extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the subCategory
     *
@@ -189,5 +189,5 @@ class Account extends Entity
         $this->_propDict["subCategory"] = $val;
         return $this;
     }
-    
+
 }

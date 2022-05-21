@@ -27,7 +27,7 @@ class UserExperienceAnalyticsWindows10DevicesSummary extends Entity
     * Gets the unsupportedOSversionDeviceCount
     * The count of Windows 10 devices that have unsupported OS versions.
     *
-    * @return int The unsupportedOSversionDeviceCount
+    * @return int|null The unsupportedOSversionDeviceCount
     */
     public function getUnsupportedOSversionDeviceCount()
     {

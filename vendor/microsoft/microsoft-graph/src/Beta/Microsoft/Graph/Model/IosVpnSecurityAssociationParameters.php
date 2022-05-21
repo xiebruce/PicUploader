@@ -27,7 +27,7 @@ class IosVpnSecurityAssociationParameters extends Entity
     * Gets the lifetimeInMinutes
     * Lifetime (minutes)
     *
-    * @return int The lifetimeInMinutes
+    * @return int|null The lifetimeInMinutes
     */
     public function getLifetimeInMinutes()
     {
@@ -55,7 +55,7 @@ class IosVpnSecurityAssociationParameters extends Entity
     * Gets the securityDiffieHellmanGroup
     * Diffie-Hellman Group
     *
-    * @return int The securityDiffieHellmanGroup
+    * @return int|null The securityDiffieHellmanGroup
     */
     public function getSecurityDiffieHellmanGroup()
     {
@@ -82,14 +82,14 @@ class IosVpnSecurityAssociationParameters extends Entity
 
     /**
     * Gets the securityEncryptionAlgorithm
-    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
-    * @return VpnEncryptionAlgorithmType The securityEncryptionAlgorithm
+    * @return VpnEncryptionAlgorithmType|null The securityEncryptionAlgorithm
     */
     public function getSecurityEncryptionAlgorithm()
     {
         if (array_key_exists("securityEncryptionAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["securityEncryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType")) {
+            if (is_a($this->_propDict["securityEncryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnEncryptionAlgorithmType") || is_null($this->_propDict["securityEncryptionAlgorithm"])) {
                 return $this->_propDict["securityEncryptionAlgorithm"];
             } else {
                 $this->_propDict["securityEncryptionAlgorithm"] = new VpnEncryptionAlgorithmType($this->_propDict["securityEncryptionAlgorithm"]);
@@ -101,7 +101,7 @@ class IosVpnSecurityAssociationParameters extends Entity
 
     /**
     * Sets the securityEncryptionAlgorithm
-    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm.
+    * Encryption algorithm. Possible values are: aes256, des, tripleDes, aes128, aes128Gcm, aes256Gcm, aes192, aes192Gcm, chaCha20Poly1305.
     *
     * @param VpnEncryptionAlgorithmType $val The value to assign to the securityEncryptionAlgorithm
     *
@@ -117,12 +117,12 @@ class IosVpnSecurityAssociationParameters extends Entity
     * Gets the securityIntegrityAlgorithm
     * Integrity algorithm. Possible values are: sha2_256, sha1_96, sha1_160, sha2_384, sha2_512, md5.
     *
-    * @return VpnIntegrityAlgorithmType The securityIntegrityAlgorithm
+    * @return VpnIntegrityAlgorithmType|null The securityIntegrityAlgorithm
     */
     public function getSecurityIntegrityAlgorithm()
     {
         if (array_key_exists("securityIntegrityAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["securityIntegrityAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType")) {
+            if (is_a($this->_propDict["securityIntegrityAlgorithm"], "\Beta\Microsoft\Graph\Model\VpnIntegrityAlgorithmType") || is_null($this->_propDict["securityIntegrityAlgorithm"])) {
                 return $this->_propDict["securityIntegrityAlgorithm"];
             } else {
                 $this->_propDict["securityIntegrityAlgorithm"] = new VpnIntegrityAlgorithmType($this->_propDict["securityIntegrityAlgorithm"]);

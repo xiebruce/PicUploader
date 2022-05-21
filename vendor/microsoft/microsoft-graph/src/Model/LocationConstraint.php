@@ -27,7 +27,7 @@ class LocationConstraint extends Entity
     * Gets the isRequired
     * The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations.
     *
-    * @return bool The isRequired
+    * @return bool|null The isRequired
     */
     public function getIsRequired()
     {
@@ -56,12 +56,12 @@ class LocationConstraint extends Entity
     * Gets the locations
     * Constraint information for one or more locations that the client requests for the meeting.
     *
-    * @return LocationConstraintItem The locations
+    * @return LocationConstraintItem|null The locations
     */
     public function getLocations()
     {
         if (array_key_exists("locations", $this->_propDict)) {
-            if (is_a($this->_propDict["locations"], "\Microsoft\Graph\Model\LocationConstraintItem")) {
+            if (is_a($this->_propDict["locations"], "\Microsoft\Graph\Model\LocationConstraintItem") || is_null($this->_propDict["locations"])) {
                 return $this->_propDict["locations"];
             } else {
                 $this->_propDict["locations"] = new LocationConstraintItem($this->_propDict["locations"]);
@@ -88,7 +88,7 @@ class LocationConstraint extends Entity
     * Gets the suggestLocation
     * The client requests the service to suggest one or more meeting locations.
     *
-    * @return bool The suggestLocation
+    * @return bool|null The suggestLocation
     */
     public function getSuggestLocation()
     {

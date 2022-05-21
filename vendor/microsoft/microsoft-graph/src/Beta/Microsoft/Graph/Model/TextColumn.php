@@ -27,7 +27,7 @@ class TextColumn extends Entity
     * Gets the allowMultipleLines
     * Whether to allow multiple lines of text.
     *
-    * @return bool The allowMultipleLines
+    * @return bool|null The allowMultipleLines
     */
     public function getAllowMultipleLines()
     {
@@ -55,7 +55,7 @@ class TextColumn extends Entity
     * Gets the appendChangesToExistingText
     * Whether updates to this column should replace existing text, or append to it.
     *
-    * @return bool The appendChangesToExistingText
+    * @return bool|null The appendChangesToExistingText
     */
     public function getAppendChangesToExistingText()
     {
@@ -83,7 +83,7 @@ class TextColumn extends Entity
     * Gets the linesForEditing
     * The size of the text box.
     *
-    * @return int The linesForEditing
+    * @return int|null The linesForEditing
     */
     public function getLinesForEditing()
     {
@@ -111,7 +111,7 @@ class TextColumn extends Entity
     * Gets the maxLength
     * The maximum number of characters for the value.
     *
-    * @return int The maxLength
+    * @return int|null The maxLength
     */
     public function getMaxLength()
     {
@@ -139,7 +139,7 @@ class TextColumn extends Entity
     * Gets the textType
     * The type of text being stored. Must be one of plain or richText
     *
-    * @return string The textType
+    * @return string|null The textType
     */
     public function getTextType()
     {

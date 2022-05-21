@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class ProfileCardProperty extends Entity
 {
 
-     /** 
+     /**
      * Gets the annotations
     * Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.
      *
-     * @return array The annotations
+     * @return array|null The annotations
      */
     public function getAnnotations()
     {
@@ -39,26 +39,26 @@ class ProfileCardProperty extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the annotations
     * Allows an administrator to set a custom display label for the directory property and localize it for the users in their tenant.
     *
-    * @param ProfileCardAnnotation $val The annotations
+    * @param ProfileCardAnnotation[] $val The annotations
     *
     * @return ProfileCardProperty
     */
     public function setAnnotations($val)
     {
-		$this->_propDict["annotations"] = $val;
+        $this->_propDict["annotations"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the directoryPropertyName
     * Identifies a profileCardProperty resource in Get, Update, or Delete operations. Allows an administrator to surface hidden Azure Active Directory (Azure AD) properties on the Microsoft 365 profile card within their tenant. When present, the Azure AD field referenced in this field will be visible to all users in your tenant on the contact pane of the profile card. Allowed values for this field are: UserPrincipalName, Fax, StreetAddress, PostalCode, StateOrProvince, Alias, CustomAttribute1,  CustomAttribute2, CustomAttribute3, CustomAttribute4, CustomAttribute5, CustomAttribute6, CustomAttribute7, CustomAttribute8, CustomAttribute9, CustomAttribute10, CustomAttribute11, CustomAttribute12, CustomAttribute13, CustomAttribute14, CustomAttribute15.
     *
-    * @return string The directoryPropertyName
+    * @return string|null The directoryPropertyName
     */
     public function getDirectoryPropertyName()
     {
@@ -68,7 +68,7 @@ class ProfileCardProperty extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the directoryPropertyName
     * Identifies a profileCardProperty resource in Get, Update, or Delete operations. Allows an administrator to surface hidden Azure Active Directory (Azure AD) properties on the Microsoft 365 profile card within their tenant. When present, the Azure AD field referenced in this field will be visible to all users in your tenant on the contact pane of the profile card. Allowed values for this field are: UserPrincipalName, Fax, StreetAddress, PostalCode, StateOrProvince, Alias, CustomAttribute1,  CustomAttribute2, CustomAttribute3, CustomAttribute4, CustomAttribute5, CustomAttribute6, CustomAttribute7, CustomAttribute8, CustomAttribute9, CustomAttribute10, CustomAttribute11, CustomAttribute12, CustomAttribute13, CustomAttribute14, CustomAttribute15.
@@ -82,5 +82,5 @@ class ProfileCardProperty extends Entity
         $this->_propDict["directoryPropertyName"] = $val;
         return $this;
     }
-    
+
 }

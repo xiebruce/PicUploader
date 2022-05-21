@@ -28,12 +28,12 @@ class ShiftAvailability extends Entity
     * Gets the recurrence
     * Specifies the pattern for recurrence
     *
-    * @return PatternedRecurrence The recurrence
+    * @return PatternedRecurrence|null The recurrence
     */
     public function getRecurrence()
     {
         if (array_key_exists("recurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrence"], "\Microsoft\Graph\Model\PatternedRecurrence")) {
+            if (is_a($this->_propDict["recurrence"], "\Microsoft\Graph\Model\PatternedRecurrence") || is_null($this->_propDict["recurrence"])) {
                 return $this->_propDict["recurrence"];
             } else {
                 $this->_propDict["recurrence"] = new PatternedRecurrence($this->_propDict["recurrence"]);
@@ -61,12 +61,12 @@ class ShiftAvailability extends Entity
     * Gets the timeSlots
     * The time slot(s) preferred by the user.
     *
-    * @return TimeRange The timeSlots
+    * @return TimeRange|null The timeSlots
     */
     public function getTimeSlots()
     {
         if (array_key_exists("timeSlots", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlots"], "\Microsoft\Graph\Model\TimeRange")) {
+            if (is_a($this->_propDict["timeSlots"], "\Microsoft\Graph\Model\TimeRange") || is_null($this->_propDict["timeSlots"])) {
                 return $this->_propDict["timeSlots"];
             } else {
                 $this->_propDict["timeSlots"] = new TimeRange($this->_propDict["timeSlots"]);
@@ -93,7 +93,7 @@ class ShiftAvailability extends Entity
     * Gets the timeZone
     * Specifies the time zone for the indicated time.
     *
-    * @return string The timeZone
+    * @return string|null The timeZone
     */
     public function getTimeZone()
     {

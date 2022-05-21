@@ -28,7 +28,7 @@ class PersonInterest extends ItemFacet
     * Gets the categories
     * Contains categories a user has associated with the interest (for example, personal, recipies).
     *
-    * @return string The categories
+    * @return string|null The categories
     */
     public function getCategories()
     {
@@ -38,7 +38,7 @@ class PersonInterest extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the categories
     * Contains categories a user has associated with the interest (for example, personal, recipies).
@@ -52,12 +52,12 @@ class PersonInterest extends ItemFacet
         $this->_propDict["categories"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @return string The collaborationTags
+    * @return string|null The collaborationTags
     */
     public function getCollaborationTags()
     {
@@ -67,7 +67,7 @@ class PersonInterest extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
@@ -81,12 +81,12 @@ class PersonInterest extends ItemFacet
         $this->_propDict["collaborationTags"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Contains a description of the interest.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -96,7 +96,7 @@ class PersonInterest extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Contains a description of the interest.
@@ -110,12 +110,12 @@ class PersonInterest extends ItemFacet
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Contains a friendly name for the interest.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -125,7 +125,7 @@ class PersonInterest extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Contains a friendly name for the interest.
@@ -139,11 +139,11 @@ class PersonInterest extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -153,7 +153,7 @@ class PersonInterest extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     *
@@ -166,12 +166,12 @@ class PersonInterest extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * Contains a link to a web page or resource about the interest.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -181,7 +181,7 @@ class PersonInterest extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * Contains a link to a web page or resource about the interest.
@@ -195,5 +195,5 @@ class PersonInterest extends ItemFacet
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

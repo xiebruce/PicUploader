@@ -27,7 +27,7 @@ class AuditActor extends Entity
     * Gets the applicationDisplayName
     * Name of the Application.
     *
-    * @return string The applicationDisplayName
+    * @return string|null The applicationDisplayName
     */
     public function getApplicationDisplayName()
     {
@@ -55,7 +55,7 @@ class AuditActor extends Entity
     * Gets the applicationId
     * AAD Application Id.
     *
-    * @return string The applicationId
+    * @return string|null The applicationId
     */
     public function getApplicationId()
     {
@@ -83,7 +83,7 @@ class AuditActor extends Entity
     * Gets the ipAddress
     * IPAddress.
     *
-    * @return string The ipAddress
+    * @return string|null The ipAddress
     */
     public function getIpAddress()
     {
@@ -111,7 +111,7 @@ class AuditActor extends Entity
     * Gets the remoteTenantId
     * Remote Tenant Id
     *
-    * @return string The remoteTenantId
+    * @return string|null The remoteTenantId
     */
     public function getRemoteTenantId()
     {
@@ -139,7 +139,7 @@ class AuditActor extends Entity
     * Gets the remoteUserId
     * Remote User Id
     *
-    * @return string The remoteUserId
+    * @return string|null The remoteUserId
     */
     public function getRemoteUserId()
     {
@@ -167,7 +167,7 @@ class AuditActor extends Entity
     * Gets the servicePrincipalName
     * Service Principal Name (SPN).
     *
-    * @return string The servicePrincipalName
+    * @return string|null The servicePrincipalName
     */
     public function getServicePrincipalName()
     {
@@ -195,7 +195,7 @@ class AuditActor extends Entity
     * Gets the type
     * Actor Type.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -223,7 +223,7 @@ class AuditActor extends Entity
     * Gets the userId
     * User Id.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -251,7 +251,7 @@ class AuditActor extends Entity
     * Gets the userPermissions
     * List of user permissions when the audit was performed.
     *
-    * @return string The userPermissions
+    * @return string|null The userPermissions
     */
     public function getUserPermissions()
     {
@@ -279,7 +279,7 @@ class AuditActor extends Entity
     * Gets the userPrincipalName
     * User Principal Name (UPN).
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -308,12 +308,12 @@ class AuditActor extends Entity
     * Gets the userRoleScopeTags
     * List of user scope tags when the audit was performed.
     *
-    * @return RoleScopeTagInfo The userRoleScopeTags
+    * @return RoleScopeTagInfo|null The userRoleScopeTags
     */
     public function getUserRoleScopeTags()
     {
         if (array_key_exists("userRoleScopeTags", $this->_propDict)) {
-            if (is_a($this->_propDict["userRoleScopeTags"], "\Beta\Microsoft\Graph\Model\RoleScopeTagInfo")) {
+            if (is_a($this->_propDict["userRoleScopeTags"], "\Beta\Microsoft\Graph\Model\RoleScopeTagInfo") || is_null($this->_propDict["userRoleScopeTags"])) {
                 return $this->_propDict["userRoleScopeTags"];
             } else {
                 $this->_propDict["userRoleScopeTags"] = new RoleScopeTagInfo($this->_propDict["userRoleScopeTags"]);

@@ -27,12 +27,12 @@ class ApiServicePrincipal extends Entity
     /**
     * Gets the resourceSpecificApplicationPermissions
     *
-    * @return ResourceSpecificPermission The resourceSpecificApplicationPermissions
+    * @return ResourceSpecificPermission|null The resourceSpecificApplicationPermissions
     */
     public function getResourceSpecificApplicationPermissions()
     {
         if (array_key_exists("resourceSpecificApplicationPermissions", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceSpecificApplicationPermissions"], "\Beta\Microsoft\Graph\Model\ResourceSpecificPermission")) {
+            if (is_a($this->_propDict["resourceSpecificApplicationPermissions"], "\Beta\Microsoft\Graph\Model\ResourceSpecificPermission") || is_null($this->_propDict["resourceSpecificApplicationPermissions"])) {
                 return $this->_propDict["resourceSpecificApplicationPermissions"];
             } else {
                 $this->_propDict["resourceSpecificApplicationPermissions"] = new ResourceSpecificPermission($this->_propDict["resourceSpecificApplicationPermissions"]);

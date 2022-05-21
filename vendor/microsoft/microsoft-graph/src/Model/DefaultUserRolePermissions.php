@@ -27,7 +27,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the allowedToCreateApps
     * Indicates whether the default user role can create applications.
     *
-    * @return bool The allowedToCreateApps
+    * @return bool|null The allowedToCreateApps
     */
     public function getAllowedToCreateApps()
     {
@@ -55,7 +55,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the allowedToCreateSecurityGroups
     * Indicates whether the default user role can create security groups.
     *
-    * @return bool The allowedToCreateSecurityGroups
+    * @return bool|null The allowedToCreateSecurityGroups
     */
     public function getAllowedToCreateSecurityGroups()
     {
@@ -83,7 +83,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the allowedToReadOtherUsers
     * Indicates whether the default user role can read other users.
     *
-    * @return bool The allowedToReadOtherUsers
+    * @return bool|null The allowedToReadOtherUsers
     */
     public function getAllowedToReadOtherUsers()
     {
@@ -111,7 +111,7 @@ class DefaultUserRolePermissions extends Entity
     * Gets the permissionGrantPoliciesAssigned
     * Indicates if user consent to apps is allowed, and if it is, which permission to grant consent and which app consent policy (permissionGrantPolicy) govern the permission for users to grant consent. Value should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.
     *
-    * @return string The permissionGrantPoliciesAssigned
+    * @return string|null The permissionGrantPoliciesAssigned
     */
     public function getPermissionGrantPoliciesAssigned()
     {

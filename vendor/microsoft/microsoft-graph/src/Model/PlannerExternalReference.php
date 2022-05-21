@@ -27,7 +27,7 @@ class PlannerExternalReference extends Entity
     * Gets the alias
     * A name alias to describe the reference.
     *
-    * @return string The alias
+    * @return string|null The alias
     */
     public function getAlias()
     {
@@ -56,12 +56,12 @@ class PlannerExternalReference extends Entity
     * Gets the lastModifiedBy
     * Read-only. User ID by which this is last modified.
     *
-    * @return IdentitySet The lastModifiedBy
+    * @return IdentitySet|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -89,12 +89,12 @@ class PlannerExternalReference extends Entity
     * Gets the lastModifiedDateTime
     * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -121,7 +121,7 @@ class PlannerExternalReference extends Entity
     * Gets the previewPriority
     * Used to set the relative priority order in which the reference will be shown as a preview on the task.
     *
-    * @return string The previewPriority
+    * @return string|null The previewPriority
     */
     public function getPreviewPriority()
     {
@@ -149,7 +149,7 @@ class PlannerExternalReference extends Entity
     * Gets the type
     * Used to describe the type of the reference. Types include: PowerPoint, Word, Excel, Other.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {

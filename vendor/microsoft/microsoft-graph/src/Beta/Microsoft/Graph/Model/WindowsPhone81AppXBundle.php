@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class WindowsPhone81AppXBundle extends WindowsPhone81AppX
 {
 
-     /** 
+     /**
      * Gets the appXPackageInformationList
     * The list of AppX Package Information.
      *
-     * @return array The appXPackageInformationList
+     * @return array|null The appXPackageInformationList
      */
     public function getAppXPackageInformationList()
     {
@@ -39,19 +39,19 @@ class WindowsPhone81AppXBundle extends WindowsPhone81AppX
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the appXPackageInformationList
     * The list of AppX Package Information.
     *
-    * @param WindowsPackageInformation $val The appXPackageInformationList
+    * @param WindowsPackageInformation[] $val The appXPackageInformationList
     *
     * @return WindowsPhone81AppXBundle
     */
     public function setAppXPackageInformationList($val)
     {
-		$this->_propDict["appXPackageInformationList"] = $val;
+        $this->_propDict["appXPackageInformationList"] = $val;
         return $this;
     }
-    
+
 }

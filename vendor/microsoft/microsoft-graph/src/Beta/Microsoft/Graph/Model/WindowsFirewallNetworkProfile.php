@@ -27,7 +27,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the authorizedApplicationRulesFromGroupPolicyMerged
     * Configures the firewall to merge authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The authorizedApplicationRulesFromGroupPolicyMerged
+    * @return bool|null The authorizedApplicationRulesFromGroupPolicyMerged
     */
     public function getAuthorizedApplicationRulesFromGroupPolicyMerged()
     {
@@ -55,7 +55,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the authorizedApplicationRulesFromGroupPolicyNotMerged
     * Configures the firewall to prevent merging authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The authorizedApplicationRulesFromGroupPolicyNotMerged
+    * @return bool|null The authorizedApplicationRulesFromGroupPolicyNotMerged
     */
     public function getAuthorizedApplicationRulesFromGroupPolicyNotMerged()
     {
@@ -83,7 +83,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the connectionSecurityRulesFromGroupPolicyMerged
     * Configures the firewall to merge connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The connectionSecurityRulesFromGroupPolicyMerged
+    * @return bool|null The connectionSecurityRulesFromGroupPolicyMerged
     */
     public function getConnectionSecurityRulesFromGroupPolicyMerged()
     {
@@ -111,7 +111,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the connectionSecurityRulesFromGroupPolicyNotMerged
     * Configures the firewall to prevent merging connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The connectionSecurityRulesFromGroupPolicyNotMerged
+    * @return bool|null The connectionSecurityRulesFromGroupPolicyNotMerged
     */
     public function getConnectionSecurityRulesFromGroupPolicyNotMerged()
     {
@@ -140,12 +140,12 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the firewallEnabled
     * Configures the host device to allow or block the firewall and advanced security enforcement for the network profile. Possible values are: notConfigured, blocked, allowed.
     *
-    * @return StateManagementSetting The firewallEnabled
+    * @return StateManagementSetting|null The firewallEnabled
     */
     public function getFirewallEnabled()
     {
         if (array_key_exists("firewallEnabled", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallEnabled"], "\Beta\Microsoft\Graph\Model\StateManagementSetting")) {
+            if (is_a($this->_propDict["firewallEnabled"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["firewallEnabled"])) {
                 return $this->_propDict["firewallEnabled"];
             } else {
                 $this->_propDict["firewallEnabled"] = new StateManagementSetting($this->_propDict["firewallEnabled"]);
@@ -172,7 +172,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the globalPortRulesFromGroupPolicyMerged
     * Configures the firewall to merge global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The globalPortRulesFromGroupPolicyMerged
+    * @return bool|null The globalPortRulesFromGroupPolicyMerged
     */
     public function getGlobalPortRulesFromGroupPolicyMerged()
     {
@@ -200,7 +200,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the globalPortRulesFromGroupPolicyNotMerged
     * Configures the firewall to prevent merging global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The globalPortRulesFromGroupPolicyNotMerged
+    * @return bool|null The globalPortRulesFromGroupPolicyNotMerged
     */
     public function getGlobalPortRulesFromGroupPolicyNotMerged()
     {
@@ -228,7 +228,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the inboundConnectionsBlocked
     * Configures the firewall to block all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
     *
-    * @return bool The inboundConnectionsBlocked
+    * @return bool|null The inboundConnectionsBlocked
     */
     public function getInboundConnectionsBlocked()
     {
@@ -256,7 +256,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the inboundConnectionsRequired
     * Configures the firewall to allow all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
     *
-    * @return bool The inboundConnectionsRequired
+    * @return bool|null The inboundConnectionsRequired
     */
     public function getInboundConnectionsRequired()
     {
@@ -284,7 +284,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the inboundNotificationsBlocked
     * Prevents the firewall from displaying notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
     *
-    * @return bool The inboundNotificationsBlocked
+    * @return bool|null The inboundNotificationsBlocked
     */
     public function getInboundNotificationsBlocked()
     {
@@ -312,7 +312,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the inboundNotificationsRequired
     * Allows the firewall to display notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
     *
-    * @return bool The inboundNotificationsRequired
+    * @return bool|null The inboundNotificationsRequired
     */
     public function getInboundNotificationsRequired()
     {
@@ -340,7 +340,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the incomingTrafficBlocked
     * Configures the firewall to block all incoming traffic regardless of other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
     *
-    * @return bool The incomingTrafficBlocked
+    * @return bool|null The incomingTrafficBlocked
     */
     public function getIncomingTrafficBlocked()
     {
@@ -368,7 +368,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the incomingTrafficRequired
     * Configures the firewall to allow incoming traffic pursuant to other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
     *
-    * @return bool The incomingTrafficRequired
+    * @return bool|null The incomingTrafficRequired
     */
     public function getIncomingTrafficRequired()
     {
@@ -396,7 +396,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the outboundConnectionsBlocked
     * Configures the firewall to block all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
     *
-    * @return bool The outboundConnectionsBlocked
+    * @return bool|null The outboundConnectionsBlocked
     */
     public function getOutboundConnectionsBlocked()
     {
@@ -424,7 +424,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the outboundConnectionsRequired
     * Configures the firewall to allow all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
     *
-    * @return bool The outboundConnectionsRequired
+    * @return bool|null The outboundConnectionsRequired
     */
     public function getOutboundConnectionsRequired()
     {
@@ -452,7 +452,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the policyRulesFromGroupPolicyMerged
     * Configures the firewall to merge Firewall Rule policies from group policy with those from local store instead of ignoring the local store rules. When PolicyRulesFromGroupPolicyNotMerged and PolicyRulesFromGroupPolicyMerged are both true, PolicyRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The policyRulesFromGroupPolicyMerged
+    * @return bool|null The policyRulesFromGroupPolicyMerged
     */
     public function getPolicyRulesFromGroupPolicyMerged()
     {
@@ -480,7 +480,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the policyRulesFromGroupPolicyNotMerged
     * Configures the firewall to prevent merging Firewall Rule policies from group policy with those from local store instead of ignoring the local store rules. When PolicyRulesFromGroupPolicyNotMerged and PolicyRulesFromGroupPolicyMerged are both true, PolicyRulesFromGroupPolicyMerged takes priority.
     *
-    * @return bool The policyRulesFromGroupPolicyNotMerged
+    * @return bool|null The policyRulesFromGroupPolicyNotMerged
     */
     public function getPolicyRulesFromGroupPolicyNotMerged()
     {
@@ -508,7 +508,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the securedPacketExemptionAllowed
     * Configures the firewall to allow the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
     *
-    * @return bool The securedPacketExemptionAllowed
+    * @return bool|null The securedPacketExemptionAllowed
     */
     public function getSecuredPacketExemptionAllowed()
     {
@@ -536,7 +536,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the securedPacketExemptionBlocked
     * Configures the firewall to block the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
     *
-    * @return bool The securedPacketExemptionBlocked
+    * @return bool|null The securedPacketExemptionBlocked
     */
     public function getSecuredPacketExemptionBlocked()
     {
@@ -564,7 +564,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the stealthModeBlocked
     * Prevent the server from operating in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
     *
-    * @return bool The stealthModeBlocked
+    * @return bool|null The stealthModeBlocked
     */
     public function getStealthModeBlocked()
     {
@@ -592,7 +592,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the stealthModeRequired
     * Allow the server to operate in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
     *
-    * @return bool The stealthModeRequired
+    * @return bool|null The stealthModeRequired
     */
     public function getStealthModeRequired()
     {
@@ -620,7 +620,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the unicastResponsesToMulticastBroadcastsBlocked
     * Configures the firewall to block unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
     *
-    * @return bool The unicastResponsesToMulticastBroadcastsBlocked
+    * @return bool|null The unicastResponsesToMulticastBroadcastsBlocked
     */
     public function getUnicastResponsesToMulticastBroadcastsBlocked()
     {
@@ -648,7 +648,7 @@ class WindowsFirewallNetworkProfile extends Entity
     * Gets the unicastResponsesToMulticastBroadcastsRequired
     * Configures the firewall to allow unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
     *
-    * @return bool The unicastResponsesToMulticastBroadcastsRequired
+    * @return bool|null The unicastResponsesToMulticastBroadcastsRequired
     */
     public function getUnicastResponsesToMulticastBroadcastsRequired()
     {

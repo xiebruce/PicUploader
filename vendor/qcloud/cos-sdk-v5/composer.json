@@ -13,16 +13,44 @@
         {
             "name": "lewzylu",
             "email": "327874225@qq.com"
+        },
+        {
+            "name": "tuunalai",
+            "email": "550566181@qq.com"
         }
     ],
     "autoload": {
-      "psr-0": {
-        "Qcloud\\Cos\\": "src/"
-     }
+        "psr-4": {
+            "Qcloud\\Cos\\": "src/"
+        },
+        "files": ["src/Common.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Qcloud\\Cos\\Tests\\": "tests/"
+        }
     },
     "require": {
-        "php": ">=5.3.0",
-        "guzzlehttp/guzzle": "~6.3",
-        "guzzlehttp/guzzle-services": "~1.1"
+        "php": ">=5.6",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-simplexml": "*",
+        "guzzlehttp/guzzle": "^6.2.1 || ^7.0",
+        "guzzlehttp/guzzle-services": "^1.1",
+        "guzzlehttp/psr7": "^1.3.1 || ^2.0"
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "test": [
+            "@putenv XDEBUG_MODE=coverage",
+            "phpunit -v --color=always"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.4-dev"
+        }
     }
 }

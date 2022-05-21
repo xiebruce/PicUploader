@@ -28,7 +28,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
     * Gets the defaultValue
     * An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
     *
-    * @return int The defaultValue
+    * @return int|null The defaultValue
     */
     public function getDefaultValue()
     {
@@ -38,7 +38,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultValue
     * An unsigned integer that specifies the initial value for the decimal text box. The default value is 1.
@@ -52,12 +52,12 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
         $this->_propDict["defaultValue"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the maxValue
     * An unsigned integer that specifies the maximum allowed value. The default value is 9999.
     *
-    * @return int The maxValue
+    * @return int|null The maxValue
     */
     public function getMaxValue()
     {
@@ -67,7 +67,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the maxValue
     * An unsigned integer that specifies the maximum allowed value. The default value is 9999.
@@ -81,12 +81,12 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
         $this->_propDict["maxValue"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the minValue
     * An unsigned integer that specifies the minimum allowed value. The default value is 0.
     *
-    * @return int The minValue
+    * @return int|null The minValue
     */
     public function getMinValue()
     {
@@ -96,7 +96,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the minValue
     * An unsigned integer that specifies the minimum allowed value. The default value is 0.
@@ -110,12 +110,12 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
         $this->_propDict["minValue"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the required
     * Requirement to enter a value in the parameter box. The default value is false.
     *
-    * @return bool The required
+    * @return bool|null The required
     */
     public function getRequired()
     {
@@ -125,7 +125,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the required
     * Requirement to enter a value in the parameter box. The default value is false.
@@ -139,12 +139,12 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the spin
     * If true, create a spin control; otherwise, create a text box for numeric entry. The default value is true.
     *
-    * @return bool The spin
+    * @return bool|null The spin
     */
     public function getSpin()
     {
@@ -154,7 +154,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the spin
     * If true, create a spin control; otherwise, create a text box for numeric entry. The default value is true.
@@ -168,12 +168,12 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
         $this->_propDict["spin"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the spinStep
     * An unsigned integer that specifies the increment of change for the spin control. The default value is 1.
     *
-    * @return int The spinStep
+    * @return int|null The spinStep
     */
     public function getSpinStep()
     {
@@ -183,7 +183,7 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the spinStep
     * An unsigned integer that specifies the increment of change for the spin control. The default value is 1.
@@ -197,5 +197,5 @@ class GroupPolicyPresentationDecimalTextBox extends GroupPolicyPresentation
         $this->_propDict["spinStep"] = intval($val);
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class EmbeddedSIMActivationCode extends Entity
     * Gets the integratedCircuitCardIdentifier
     * The input must match the following regular expression: '^[0-9]{19}[0-9]?$'.
     *
-    * @return string The integratedCircuitCardIdentifier
+    * @return string|null The integratedCircuitCardIdentifier
     */
     public function getIntegratedCircuitCardIdentifier()
     {
@@ -55,7 +55,7 @@ class EmbeddedSIMActivationCode extends Entity
     * Gets the matchingIdentifier
     * The input must match the following regular expression: '^[a-zA-Z0-9\-]*$'.
     *
-    * @return string The matchingIdentifier
+    * @return string|null The matchingIdentifier
     */
     public function getMatchingIdentifier()
     {
@@ -83,7 +83,7 @@ class EmbeddedSIMActivationCode extends Entity
     * Gets the smdpPlusServerAddress
     * The input must match the following regular expression: '^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}$'.
     *
-    * @return string The smdpPlusServerAddress
+    * @return string|null The smdpPlusServerAddress
     */
     public function getSmdpPlusServerAddress()
     {

@@ -28,7 +28,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
     * Gets the allowDefaultChildSecurityAssociationParameters
     * Allows the use of child security association parameters by setting all parameters to the device's default unless explicitly specified.
     *
-    * @return bool The allowDefaultChildSecurityAssociationParameters
+    * @return bool|null The allowDefaultChildSecurityAssociationParameters
     */
     public function getAllowDefaultChildSecurityAssociationParameters()
     {
@@ -38,7 +38,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the allowDefaultChildSecurityAssociationParameters
     * Allows the use of child security association parameters by setting all parameters to the device's default unless explicitly specified.
@@ -52,12 +52,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["allowDefaultChildSecurityAssociationParameters"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the allowDefaultSecurityAssociationParameters
     * Allows the use of security association parameters by setting all parameters to the device's default unless explicitly specified.
     *
-    * @return bool The allowDefaultSecurityAssociationParameters
+    * @return bool|null The allowDefaultSecurityAssociationParameters
     */
     public function getAllowDefaultSecurityAssociationParameters()
     {
@@ -67,7 +67,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the allowDefaultSecurityAssociationParameters
     * Allows the use of security association parameters by setting all parameters to the device's default unless explicitly specified.
@@ -81,17 +81,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["allowDefaultSecurityAssociationParameters"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the alwaysOnConfiguration
     * AlwaysOn Configuration
     *
-    * @return AppleVpnAlwaysOnConfiguration The alwaysOnConfiguration
+    * @return AppleVpnAlwaysOnConfiguration|null The alwaysOnConfiguration
     */
     public function getAlwaysOnConfiguration()
     {
         if (array_key_exists("alwaysOnConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["alwaysOnConfiguration"], "\Beta\Microsoft\Graph\Model\AppleVpnAlwaysOnConfiguration")) {
+            if (is_a($this->_propDict["alwaysOnConfiguration"], "\Beta\Microsoft\Graph\Model\AppleVpnAlwaysOnConfiguration") || is_null($this->_propDict["alwaysOnConfiguration"])) {
                 return $this->_propDict["alwaysOnConfiguration"];
             } else {
                 $this->_propDict["alwaysOnConfiguration"] = new AppleVpnAlwaysOnConfiguration($this->_propDict["alwaysOnConfiguration"]);
@@ -100,7 +100,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the alwaysOnConfiguration
     * AlwaysOn Configuration
@@ -114,17 +114,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["alwaysOnConfiguration"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the childSecurityAssociationParameters
     * Child Security Association Parameters
     *
-    * @return IosVpnSecurityAssociationParameters The childSecurityAssociationParameters
+    * @return IosVpnSecurityAssociationParameters|null The childSecurityAssociationParameters
     */
     public function getChildSecurityAssociationParameters()
     {
         if (array_key_exists("childSecurityAssociationParameters", $this->_propDict)) {
-            if (is_a($this->_propDict["childSecurityAssociationParameters"], "\Beta\Microsoft\Graph\Model\IosVpnSecurityAssociationParameters")) {
+            if (is_a($this->_propDict["childSecurityAssociationParameters"], "\Beta\Microsoft\Graph\Model\IosVpnSecurityAssociationParameters") || is_null($this->_propDict["childSecurityAssociationParameters"])) {
                 return $this->_propDict["childSecurityAssociationParameters"];
             } else {
                 $this->_propDict["childSecurityAssociationParameters"] = new IosVpnSecurityAssociationParameters($this->_propDict["childSecurityAssociationParameters"]);
@@ -133,7 +133,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the childSecurityAssociationParameters
     * Child Security Association Parameters
@@ -147,17 +147,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["childSecurityAssociationParameters"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the clientAuthenticationType
     * Type of Client Authentication the VPN client will use. Possible values are: userAuthentication, deviceAuthentication.
     *
-    * @return VpnClientAuthenticationType The clientAuthenticationType
+    * @return VpnClientAuthenticationType|null The clientAuthenticationType
     */
     public function getClientAuthenticationType()
     {
         if (array_key_exists("clientAuthenticationType", $this->_propDict)) {
-            if (is_a($this->_propDict["clientAuthenticationType"], "\Beta\Microsoft\Graph\Model\VpnClientAuthenticationType")) {
+            if (is_a($this->_propDict["clientAuthenticationType"], "\Beta\Microsoft\Graph\Model\VpnClientAuthenticationType") || is_null($this->_propDict["clientAuthenticationType"])) {
                 return $this->_propDict["clientAuthenticationType"];
             } else {
                 $this->_propDict["clientAuthenticationType"] = new VpnClientAuthenticationType($this->_propDict["clientAuthenticationType"]);
@@ -166,7 +166,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the clientAuthenticationType
     * Type of Client Authentication the VPN client will use. Possible values are: userAuthentication, deviceAuthentication.
@@ -180,17 +180,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["clientAuthenticationType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deadPeerDetectionRate
     * Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
     *
-    * @return VpnDeadPeerDetectionRate The deadPeerDetectionRate
+    * @return VpnDeadPeerDetectionRate|null The deadPeerDetectionRate
     */
     public function getDeadPeerDetectionRate()
     {
         if (array_key_exists("deadPeerDetectionRate", $this->_propDict)) {
-            if (is_a($this->_propDict["deadPeerDetectionRate"], "\Beta\Microsoft\Graph\Model\VpnDeadPeerDetectionRate")) {
+            if (is_a($this->_propDict["deadPeerDetectionRate"], "\Beta\Microsoft\Graph\Model\VpnDeadPeerDetectionRate") || is_null($this->_propDict["deadPeerDetectionRate"])) {
                 return $this->_propDict["deadPeerDetectionRate"];
             } else {
                 $this->_propDict["deadPeerDetectionRate"] = new VpnDeadPeerDetectionRate($this->_propDict["deadPeerDetectionRate"]);
@@ -199,7 +199,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the deadPeerDetectionRate
     * Determine how often to check if a peer connection is still active. . Possible values are: medium, none, low, high.
@@ -213,12 +213,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["deadPeerDetectionRate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the disableMobilityAndMultihoming
     * Disable MOBIKE
     *
-    * @return bool The disableMobilityAndMultihoming
+    * @return bool|null The disableMobilityAndMultihoming
     */
     public function getDisableMobilityAndMultihoming()
     {
@@ -228,7 +228,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the disableMobilityAndMultihoming
     * Disable MOBIKE
@@ -242,12 +242,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["disableMobilityAndMultihoming"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the disableRedirect
     * Disable Redirect
     *
-    * @return bool The disableRedirect
+    * @return bool|null The disableRedirect
     */
     public function getDisableRedirect()
     {
@@ -257,7 +257,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the disableRedirect
     * Disable Redirect
@@ -271,12 +271,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["disableRedirect"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enableAlwaysOnConfiguration
     * Determines if Always on VPN is enabled
     *
-    * @return bool The enableAlwaysOnConfiguration
+    * @return bool|null The enableAlwaysOnConfiguration
     */
     public function getEnableAlwaysOnConfiguration()
     {
@@ -286,7 +286,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enableAlwaysOnConfiguration
     * Determines if Always on VPN is enabled
@@ -300,12 +300,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["enableAlwaysOnConfiguration"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enableCertificateRevocationCheck
     * Enables a best-effort revocation check; server response timeouts will not cause it to fail
     *
-    * @return bool The enableCertificateRevocationCheck
+    * @return bool|null The enableCertificateRevocationCheck
     */
     public function getEnableCertificateRevocationCheck()
     {
@@ -315,7 +315,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enableCertificateRevocationCheck
     * Enables a best-effort revocation check; server response timeouts will not cause it to fail
@@ -329,12 +329,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["enableCertificateRevocationCheck"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enableEAP
     * Enables EAP only authentication
     *
-    * @return bool The enableEAP
+    * @return bool|null The enableEAP
     */
     public function getEnableEAP()
     {
@@ -344,7 +344,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enableEAP
     * Enables EAP only authentication
@@ -358,12 +358,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["enableEAP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enablePerfectForwardSecrecy
     * Enable Perfect Forward Secrecy (PFS).
     *
-    * @return bool The enablePerfectForwardSecrecy
+    * @return bool|null The enablePerfectForwardSecrecy
     */
     public function getEnablePerfectForwardSecrecy()
     {
@@ -373,7 +373,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enablePerfectForwardSecrecy
     * Enable Perfect Forward Secrecy (PFS).
@@ -387,12 +387,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["enablePerfectForwardSecrecy"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enableUseInternalSubnetAttributes
     * Enable Use Internal Subnet Attributes.
     *
-    * @return bool The enableUseInternalSubnetAttributes
+    * @return bool|null The enableUseInternalSubnetAttributes
     */
     public function getEnableUseInternalSubnetAttributes()
     {
@@ -402,7 +402,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the enableUseInternalSubnetAttributes
     * Enable Use Internal Subnet Attributes.
@@ -416,17 +416,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["enableUseInternalSubnetAttributes"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localIdentifier
     * Method of identifying the client that is trying to connect via VPN. . Possible values are: deviceFQDN, empty, clientCertificateSubjectName.
     *
-    * @return VpnLocalIdentifier The localIdentifier
+    * @return VpnLocalIdentifier|null The localIdentifier
     */
     public function getLocalIdentifier()
     {
         if (array_key_exists("localIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["localIdentifier"], "\Beta\Microsoft\Graph\Model\VpnLocalIdentifier")) {
+            if (is_a($this->_propDict["localIdentifier"], "\Beta\Microsoft\Graph\Model\VpnLocalIdentifier") || is_null($this->_propDict["localIdentifier"])) {
                 return $this->_propDict["localIdentifier"];
             } else {
                 $this->_propDict["localIdentifier"] = new VpnLocalIdentifier($this->_propDict["localIdentifier"]);
@@ -435,7 +435,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localIdentifier
     * Method of identifying the client that is trying to connect via VPN. . Possible values are: deviceFQDN, empty, clientCertificateSubjectName.
@@ -449,12 +449,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["localIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mtuSizeInBytes
     * Maximum transmission unit. Valid values 1280 to 1400
     *
-    * @return int The mtuSizeInBytes
+    * @return int|null The mtuSizeInBytes
     */
     public function getMtuSizeInBytes()
     {
@@ -464,7 +464,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the mtuSizeInBytes
     * Maximum transmission unit. Valid values 1280 to 1400
@@ -478,12 +478,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["mtuSizeInBytes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the remoteIdentifier
     * Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
     *
-    * @return string The remoteIdentifier
+    * @return string|null The remoteIdentifier
     */
     public function getRemoteIdentifier()
     {
@@ -493,7 +493,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the remoteIdentifier
     * Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
@@ -507,17 +507,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["remoteIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the securityAssociationParameters
     * Security Association Parameters
     *
-    * @return IosVpnSecurityAssociationParameters The securityAssociationParameters
+    * @return IosVpnSecurityAssociationParameters|null The securityAssociationParameters
     */
     public function getSecurityAssociationParameters()
     {
         if (array_key_exists("securityAssociationParameters", $this->_propDict)) {
-            if (is_a($this->_propDict["securityAssociationParameters"], "\Beta\Microsoft\Graph\Model\IosVpnSecurityAssociationParameters")) {
+            if (is_a($this->_propDict["securityAssociationParameters"], "\Beta\Microsoft\Graph\Model\IosVpnSecurityAssociationParameters") || is_null($this->_propDict["securityAssociationParameters"])) {
                 return $this->_propDict["securityAssociationParameters"];
             } else {
                 $this->_propDict["securityAssociationParameters"] = new IosVpnSecurityAssociationParameters($this->_propDict["securityAssociationParameters"]);
@@ -526,7 +526,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the securityAssociationParameters
     * Security Association Parameters
@@ -540,12 +540,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["securityAssociationParameters"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serverCertificateCommonName
     * Common name of the IKEv2 Server Certificate used in Server Authentication
     *
-    * @return string The serverCertificateCommonName
+    * @return string|null The serverCertificateCommonName
     */
     public function getServerCertificateCommonName()
     {
@@ -555,7 +555,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the serverCertificateCommonName
     * Common name of the IKEv2 Server Certificate used in Server Authentication
@@ -569,12 +569,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["serverCertificateCommonName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serverCertificateIssuerCommonName
     * Issuer Common name of the IKEv2 Server Certificate issuer used in Authentication
     *
-    * @return string The serverCertificateIssuerCommonName
+    * @return string|null The serverCertificateIssuerCommonName
     */
     public function getServerCertificateIssuerCommonName()
     {
@@ -584,7 +584,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the serverCertificateIssuerCommonName
     * Issuer Common name of the IKEv2 Server Certificate issuer used in Authentication
@@ -598,17 +598,17 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["serverCertificateIssuerCommonName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serverCertificateType
     * The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
     *
-    * @return VpnServerCertificateType The serverCertificateType
+    * @return VpnServerCertificateType|null The serverCertificateType
     */
     public function getServerCertificateType()
     {
         if (array_key_exists("serverCertificateType", $this->_propDict)) {
-            if (is_a($this->_propDict["serverCertificateType"], "\Beta\Microsoft\Graph\Model\VpnServerCertificateType")) {
+            if (is_a($this->_propDict["serverCertificateType"], "\Beta\Microsoft\Graph\Model\VpnServerCertificateType") || is_null($this->_propDict["serverCertificateType"])) {
                 return $this->_propDict["serverCertificateType"];
             } else {
                 $this->_propDict["serverCertificateType"] = new VpnServerCertificateType($this->_propDict["serverCertificateType"]);
@@ -617,7 +617,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the serverCertificateType
     * The type of certificate the VPN server will present to the VPN client for authentication. Possible values are: rsa, ecdsa256, ecdsa384, ecdsa521.
@@ -631,12 +631,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["serverCertificateType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharedSecret
     * Used when Shared Secret Authentication is selected
     *
-    * @return string The sharedSecret
+    * @return string|null The sharedSecret
     */
     public function getSharedSecret()
     {
@@ -646,7 +646,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the sharedSecret
     * Used when Shared Secret Authentication is selected
@@ -660,12 +660,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["sharedSecret"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tlsMaximumVersion
     * The maximum TLS version to be used with EAP-TLS authentication
     *
-    * @return string The tlsMaximumVersion
+    * @return string|null The tlsMaximumVersion
     */
     public function getTlsMaximumVersion()
     {
@@ -675,7 +675,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the tlsMaximumVersion
     * The maximum TLS version to be used with EAP-TLS authentication
@@ -689,12 +689,12 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["tlsMaximumVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tlsMinimumVersion
     * The minimum TLS version to be used with EAP-TLS authentication
     *
-    * @return string The tlsMinimumVersion
+    * @return string|null The tlsMinimumVersion
     */
     public function getTlsMinimumVersion()
     {
@@ -704,7 +704,7 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the tlsMinimumVersion
     * The minimum TLS version to be used with EAP-TLS authentication
@@ -718,5 +718,5 @@ class IosikEv2VpnConfiguration extends IosVpnConfiguration
         $this->_propDict["tlsMinimumVersion"] = $val;
         return $this;
     }
-    
+
 }

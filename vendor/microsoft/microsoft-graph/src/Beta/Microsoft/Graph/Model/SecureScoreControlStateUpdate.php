@@ -25,8 +25,9 @@ class SecureScoreControlStateUpdate extends Entity
 {
     /**
     * Gets the assignedTo
+    * Assigns the control to the user who will take the action.
     *
-    * @return string The assignedTo
+    * @return string|null The assignedTo
     */
     public function getAssignedTo()
     {
@@ -39,6 +40,7 @@ class SecureScoreControlStateUpdate extends Entity
 
     /**
     * Sets the assignedTo
+    * Assigns the control to the user who will take the action.
     *
     * @param string $val The value of the assignedTo
     *
@@ -51,8 +53,9 @@ class SecureScoreControlStateUpdate extends Entity
     }
     /**
     * Gets the comment
+    * Provides optional comment about the control.
     *
-    * @return string The comment
+    * @return string|null The comment
     */
     public function getComment()
     {
@@ -65,6 +68,7 @@ class SecureScoreControlStateUpdate extends Entity
 
     /**
     * Sets the comment
+    * Provides optional comment about the control.
     *
     * @param string $val The value of the comment
     *
@@ -77,8 +81,9 @@ class SecureScoreControlStateUpdate extends Entity
     }
     /**
     * Gets the state
+    * State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
     *
-    * @return string The state
+    * @return string|null The state
     */
     public function getState()
     {
@@ -91,6 +96,7 @@ class SecureScoreControlStateUpdate extends Entity
 
     /**
     * Sets the state
+    * State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).
     *
     * @param string $val The value of the state
     *
@@ -103,8 +109,9 @@ class SecureScoreControlStateUpdate extends Entity
     }
     /**
     * Gets the updatedBy
+    * ID of the user who updated tenant state.
     *
-    * @return string The updatedBy
+    * @return string|null The updatedBy
     */
     public function getUpdatedBy()
     {
@@ -117,6 +124,7 @@ class SecureScoreControlStateUpdate extends Entity
 
     /**
     * Sets the updatedBy
+    * ID of the user who updated tenant state.
     *
     * @param string $val The value of the updatedBy
     *
@@ -130,13 +138,14 @@ class SecureScoreControlStateUpdate extends Entity
 
     /**
     * Gets the updatedDateTime
+    * Time at which the control state was updated.
     *
-    * @return \DateTime The updatedDateTime
+    * @return \DateTime|null The updatedDateTime
     */
     public function getUpdatedDateTime()
     {
         if (array_key_exists("updatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["updatedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["updatedDateTime"], "\DateTime") || is_null($this->_propDict["updatedDateTime"])) {
                 return $this->_propDict["updatedDateTime"];
             } else {
                 $this->_propDict["updatedDateTime"] = new \DateTime($this->_propDict["updatedDateTime"]);
@@ -148,6 +157,7 @@ class SecureScoreControlStateUpdate extends Entity
 
     /**
     * Sets the updatedDateTime
+    * Time at which the control state was updated.
     *
     * @param \DateTime $val The value to assign to the updatedDateTime
     *

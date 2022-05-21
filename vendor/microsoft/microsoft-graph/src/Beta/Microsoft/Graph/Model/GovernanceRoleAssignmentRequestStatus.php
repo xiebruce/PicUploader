@@ -25,8 +25,9 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
 {
     /**
     * Gets the status
+    * The status of the role assignment request. The value can be InProgress or Closed.
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -39,6 +40,7 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
 
     /**
     * Sets the status
+    * The status of the role assignment request. The value can be InProgress or Closed.
     *
     * @param string $val The value of the status
     *
@@ -52,13 +54,14 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
 
     /**
     * Gets the statusDetails
+    * The details of the status of the role assignment request. It represents the evaluation results of different rules.
     *
-    * @return KeyValue The statusDetails
+    * @return KeyValue|null The statusDetails
     */
     public function getStatusDetails()
     {
         if (array_key_exists("statusDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\KeyValue")) {
+            if (is_a($this->_propDict["statusDetails"], "\Beta\Microsoft\Graph\Model\KeyValue") || is_null($this->_propDict["statusDetails"])) {
                 return $this->_propDict["statusDetails"];
             } else {
                 $this->_propDict["statusDetails"] = new KeyValue($this->_propDict["statusDetails"]);
@@ -70,6 +73,7 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
 
     /**
     * Sets the statusDetails
+    * The details of the status of the role assignment request. It represents the evaluation results of different rules.
     *
     * @param KeyValue $val The value to assign to the statusDetails
     *
@@ -82,8 +86,9 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
     }
     /**
     * Gets the subStatus
+    * The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.
     *
-    * @return string The subStatus
+    * @return string|null The subStatus
     */
     public function getSubStatus()
     {
@@ -96,6 +101,7 @@ class GovernanceRoleAssignmentRequestStatus extends Entity
 
     /**
     * Sets the subStatus
+    * The sub status of the role assignment request. The values can be Accepted, PendingEvaluation, Granted, Denied, PendingProvisioning, Provisioned, PendingRevocation, Revoked, Canceled, Failed, PendingApprovalProvisioning, PendingApproval, FailedAsResourceIsLocked, PendingAdminDecision, AdminApproved, AdminDenied, TimedOut, and ProvisioningStarted.
     *
     * @param string $val The value of the subStatus
     *

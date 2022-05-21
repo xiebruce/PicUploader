@@ -27,7 +27,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_10
     * Mac OS 10.10 or later.
     *
-    * @return bool The v10_10
+    * @return bool|null The v10_10
     */
     public function getV10_10()
     {
@@ -55,7 +55,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_11
     * Mac OS 10.11 or later.
     *
-    * @return bool The v10_11
+    * @return bool|null The v10_11
     */
     public function getV10_11()
     {
@@ -83,7 +83,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_12
     * Mac OS 10.12 or later.
     *
-    * @return bool The v10_12
+    * @return bool|null The v10_12
     */
     public function getV10_12()
     {
@@ -111,7 +111,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_13
     * Mac OS 10.13 or later.
     *
-    * @return bool The v10_13
+    * @return bool|null The v10_13
     */
     public function getV10_13()
     {
@@ -139,7 +139,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_14
     * Mac OS 10.14 or later.
     *
-    * @return bool The v10_14
+    * @return bool|null The v10_14
     */
     public function getV10_14()
     {
@@ -167,7 +167,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_15
     * Mac OS 10.15 or later.
     *
-    * @return bool The v10_15
+    * @return bool|null The v10_15
     */
     public function getV10_15()
     {
@@ -195,7 +195,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_7
     * Mac OS 10.7 or later.
     *
-    * @return bool The v10_7
+    * @return bool|null The v10_7
     */
     public function getV10_7()
     {
@@ -223,7 +223,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_8
     * Mac OS 10.8 or later.
     *
-    * @return bool The v10_8
+    * @return bool|null The v10_8
     */
     public function getV10_8()
     {
@@ -251,7 +251,7 @@ class MacOSMinimumOperatingSystem extends Entity
     * Gets the v10_9
     * Mac OS 10.9 or later.
     *
-    * @return bool The v10_9
+    * @return bool|null The v10_9
     */
     public function getV10_9()
     {
@@ -273,6 +273,62 @@ class MacOSMinimumOperatingSystem extends Entity
     public function setV10_9($val)
     {
         $this->_propDict["v109"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the v11_0
+    * Mac OS 11.0 or later.
+    *
+    * @return bool|null The v11_0
+    */
+    public function getV11_0()
+    {
+        if (array_key_exists("v110", $this->_propDict)) {
+            return $this->_propDict["v110"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v11_0
+    * Mac OS 11.0 or later.
+    *
+    * @param bool $val The value of the v11_0
+    *
+    * @return MacOSMinimumOperatingSystem
+    */
+    public function setV11_0($val)
+    {
+        $this->_propDict["v110"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the v12_0
+    * Mac OS 12.0 or later.
+    *
+    * @return bool|null The v12_0
+    */
+    public function getV12_0()
+    {
+        if (array_key_exists("v120", $this->_propDict)) {
+            return $this->_propDict["v120"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v12_0
+    * Mac OS 12.0 or later.
+    *
+    * @param bool $val The value of the v12_0
+    *
+    * @return MacOSMinimumOperatingSystem
+    */
+    public function setV12_0($val)
+    {
+        $this->_propDict["v120"] = $val;
         return $this;
     }
 }

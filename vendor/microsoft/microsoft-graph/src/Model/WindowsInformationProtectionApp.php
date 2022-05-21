@@ -27,7 +27,7 @@ class WindowsInformationProtectionApp extends Entity
     * Gets the denied
     * If true, app is denied protection or exemption.
     *
-    * @return bool The denied
+    * @return bool|null The denied
     */
     public function getDenied()
     {
@@ -55,7 +55,7 @@ class WindowsInformationProtectionApp extends Entity
     * Gets the description
     * The app's description.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -83,7 +83,7 @@ class WindowsInformationProtectionApp extends Entity
     * Gets the displayName
     * App display name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -111,7 +111,7 @@ class WindowsInformationProtectionApp extends Entity
     * Gets the productName
     * The product name.
     *
-    * @return string The productName
+    * @return string|null The productName
     */
     public function getProductName()
     {
@@ -139,7 +139,7 @@ class WindowsInformationProtectionApp extends Entity
     * Gets the publisherName
     * The publisher name
     *
-    * @return string The publisherName
+    * @return string|null The publisherName
     */
     public function getPublisherName()
     {

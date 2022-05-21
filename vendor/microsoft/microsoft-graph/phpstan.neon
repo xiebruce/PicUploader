@@ -1,0 +1,7 @@
+parameters:
+	level: 1
+	polluteScopeWithAlwaysIterableForeach: false
+	polluteScopeWithLoopInitialAssignments: false
+	paths:
+		- src
+		- tests

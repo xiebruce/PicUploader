@@ -1,2 +1,10 @@
 .vscode/
 .idea/
+composer.lock
+vendor/
+*.DS_Store
+index.php
+coverage.xml
+.phpunit.result.cache
+local_test_file
+test_tmp_file

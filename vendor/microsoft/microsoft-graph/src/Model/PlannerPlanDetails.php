@@ -28,12 +28,12 @@ class PlannerPlanDetails extends Entity
     * Gets the categoryDescriptions
     * An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
     *
-    * @return PlannerCategoryDescriptions The categoryDescriptions
+    * @return PlannerCategoryDescriptions|null The categoryDescriptions
     */
     public function getCategoryDescriptions()
     {
         if (array_key_exists("categoryDescriptions", $this->_propDict)) {
-            if (is_a($this->_propDict["categoryDescriptions"], "\Microsoft\Graph\Model\PlannerCategoryDescriptions")) {
+            if (is_a($this->_propDict["categoryDescriptions"], "\Microsoft\Graph\Model\PlannerCategoryDescriptions") || is_null($this->_propDict["categoryDescriptions"])) {
                 return $this->_propDict["categoryDescriptions"];
             } else {
                 $this->_propDict["categoryDescriptions"] = new PlannerCategoryDescriptions($this->_propDict["categoryDescriptions"]);
@@ -42,7 +42,7 @@ class PlannerPlanDetails extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the categoryDescriptions
     * An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
@@ -56,17 +56,17 @@ class PlannerPlanDetails extends Entity
         $this->_propDict["categoryDescriptions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharedWith
     * The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group.
     *
-    * @return PlannerUserIds The sharedWith
+    * @return PlannerUserIds|null The sharedWith
     */
     public function getSharedWith()
     {
         if (array_key_exists("sharedWith", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedWith"], "\Microsoft\Graph\Model\PlannerUserIds")) {
+            if (is_a($this->_propDict["sharedWith"], "\Microsoft\Graph\Model\PlannerUserIds") || is_null($this->_propDict["sharedWith"])) {
                 return $this->_propDict["sharedWith"];
             } else {
                 $this->_propDict["sharedWith"] = new PlannerUserIds($this->_propDict["sharedWith"]);
@@ -75,7 +75,7 @@ class PlannerPlanDetails extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the sharedWith
     * The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group.
@@ -89,5 +89,5 @@ class PlannerPlanDetails extends Entity
         $this->_propDict["sharedWith"] = $val;
         return $this;
     }
-    
+
 }

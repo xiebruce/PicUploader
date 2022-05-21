@@ -27,7 +27,7 @@ class PersonOrGroupColumn extends Entity
     * Gets the allowMultipleSelection
     * Indicates whether multiple values can be selected from the source.
     *
-    * @return bool The allowMultipleSelection
+    * @return bool|null The allowMultipleSelection
     */
     public function getAllowMultipleSelection()
     {
@@ -55,7 +55,7 @@ class PersonOrGroupColumn extends Entity
     * Gets the chooseFromType
     * Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
     *
-    * @return string The chooseFromType
+    * @return string|null The chooseFromType
     */
     public function getChooseFromType()
     {
@@ -83,7 +83,7 @@ class PersonOrGroupColumn extends Entity
     * Gets the displayAs
     * How to display the information about the person or group chosen. See below.
     *
-    * @return string The displayAs
+    * @return string|null The displayAs
     */
     public function getDisplayAs()
     {

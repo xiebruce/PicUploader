@@ -26,14 +26,14 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Gets the excludePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
     *
-    * @return ConditionalAccessDevicePlatform The excludePlatforms
+    * @return ConditionalAccessDevicePlatform|null The excludePlatforms
     */
     public function getExcludePlatforms()
     {
         if (array_key_exists("excludePlatforms", $this->_propDict)) {
-            if (is_a($this->_propDict["excludePlatforms"], "\Microsoft\Graph\Model\ConditionalAccessDevicePlatform")) {
+            if (is_a($this->_propDict["excludePlatforms"], "\Microsoft\Graph\Model\ConditionalAccessDevicePlatform") || is_null($this->_propDict["excludePlatforms"])) {
                 return $this->_propDict["excludePlatforms"];
             } else {
                 $this->_propDict["excludePlatforms"] = new ConditionalAccessDevicePlatform($this->_propDict["excludePlatforms"]);
@@ -45,7 +45,7 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Sets the excludePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
     *
     * @param ConditionalAccessDevicePlatform $val The value to assign to the excludePlatforms
     *
@@ -59,14 +59,14 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Gets the includePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
     *
-    * @return ConditionalAccessDevicePlatform The includePlatforms
+    * @return ConditionalAccessDevicePlatform|null The includePlatforms
     */
     public function getIncludePlatforms()
     {
         if (array_key_exists("includePlatforms", $this->_propDict)) {
-            if (is_a($this->_propDict["includePlatforms"], "\Microsoft\Graph\Model\ConditionalAccessDevicePlatform")) {
+            if (is_a($this->_propDict["includePlatforms"], "\Microsoft\Graph\Model\ConditionalAccessDevicePlatform") || is_null($this->_propDict["includePlatforms"])) {
                 return $this->_propDict["includePlatforms"];
             } else {
                 $this->_propDict["includePlatforms"] = new ConditionalAccessDevicePlatform($this->_propDict["includePlatforms"]);
@@ -78,7 +78,7 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Sets the includePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
     *
     * @param ConditionalAccessDevicePlatform $val The value to assign to the includePlatforms
     *

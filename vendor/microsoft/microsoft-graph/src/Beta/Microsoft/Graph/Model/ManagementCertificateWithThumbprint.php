@@ -27,7 +27,7 @@ class ManagementCertificateWithThumbprint extends Entity
     * Gets the certificate
     * The Base 64 encoded management certificate
     *
-    * @return string The certificate
+    * @return string|null The certificate
     */
     public function getCertificate()
     {
@@ -55,7 +55,7 @@ class ManagementCertificateWithThumbprint extends Entity
     * Gets the thumbprint
     * The thumbprint of the management certificate
     *
-    * @return string The thumbprint
+    * @return string|null The thumbprint
     */
     public function getThumbprint()
     {

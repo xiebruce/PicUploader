@@ -27,7 +27,7 @@ class WindowsInformationProtectionIPRangeCollection extends Entity
     * Gets the displayName
     * Display name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -56,12 +56,12 @@ class WindowsInformationProtectionIPRangeCollection extends Entity
     * Gets the ranges
     * Collection of ip ranges
     *
-    * @return IpRange The ranges
+    * @return IpRange|null The ranges
     */
     public function getRanges()
     {
         if (array_key_exists("ranges", $this->_propDict)) {
-            if (is_a($this->_propDict["ranges"], "\Microsoft\Graph\Model\IpRange")) {
+            if (is_a($this->_propDict["ranges"], "\Microsoft\Graph\Model\IpRange") || is_null($this->_propDict["ranges"])) {
                 return $this->_propDict["ranges"];
             } else {
                 $this->_propDict["ranges"] = new IpRange($this->_propDict["ranges"]);

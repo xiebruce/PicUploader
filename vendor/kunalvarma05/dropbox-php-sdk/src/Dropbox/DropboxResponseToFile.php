@@ -22,6 +22,9 @@ class DropboxResponseToFile extends DropboxResponse
         $this->file = $file;
     }
 
+    /**
+     * @throws Exceptions\DropboxClientException
+     */
     public function getBody()
     {
         return $this->file->getContents();
@@ -30,5 +33,10 @@ class DropboxResponseToFile extends DropboxResponse
     public function getFilePath()
     {
         return $this->file->getFilePath();
+    }
+
+    public function getSteamOrFilePath()
+    {
+        return $this->file->getStreamOrFilePath();
     }
 }

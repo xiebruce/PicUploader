@@ -35,4 +35,5 @@ class EapType extends Enum
     const EAP_TTLS = "eapTtls";
     const PEAP = "peap";
     const EAP_FAST = "eapFast";
+    const TEAP = "teap";
 }

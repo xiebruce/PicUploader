@@ -27,7 +27,7 @@ class ManagedDeviceSummarizedAppState extends Entity
     * Gets the deviceId
     * DeviceId of device represented by this object
     *
-    * @return string The deviceId
+    * @return string|null The deviceId
     */
     public function getDeviceId()
     {
@@ -56,12 +56,12 @@ class ManagedDeviceSummarizedAppState extends Entity
     * Gets the summarizedAppState
     * runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
     *
-    * @return RunState The summarizedAppState
+    * @return RunState|null The summarizedAppState
     */
     public function getSummarizedAppState()
     {
         if (array_key_exists("summarizedAppState", $this->_propDict)) {
-            if (is_a($this->_propDict["summarizedAppState"], "\Beta\Microsoft\Graph\Model\RunState")) {
+            if (is_a($this->_propDict["summarizedAppState"], "\Beta\Microsoft\Graph\Model\RunState") || is_null($this->_propDict["summarizedAppState"])) {
                 return $this->_propDict["summarizedAppState"];
             } else {
                 $this->_propDict["summarizedAppState"] = new RunState($this->_propDict["summarizedAppState"]);

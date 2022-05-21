@@ -28,12 +28,12 @@ class OutOfBoxExperienceSettings extends Entity
     * Gets the deviceUsageType
     * AAD join authentication type. Possible values are: singleUser, shared.
     *
-    * @return WindowsDeviceUsageType The deviceUsageType
+    * @return WindowsDeviceUsageType|null The deviceUsageType
     */
     public function getDeviceUsageType()
     {
         if (array_key_exists("deviceUsageType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceUsageType"], "\Beta\Microsoft\Graph\Model\WindowsDeviceUsageType")) {
+            if (is_a($this->_propDict["deviceUsageType"], "\Beta\Microsoft\Graph\Model\WindowsDeviceUsageType") || is_null($this->_propDict["deviceUsageType"])) {
                 return $this->_propDict["deviceUsageType"];
             } else {
                 $this->_propDict["deviceUsageType"] = new WindowsDeviceUsageType($this->_propDict["deviceUsageType"]);
@@ -60,7 +60,7 @@ class OutOfBoxExperienceSettings extends Entity
     * Gets the hideEscapeLink
     * If set to true, then the user can't start over with different account, on company sign-in
     *
-    * @return bool The hideEscapeLink
+    * @return bool|null The hideEscapeLink
     */
     public function getHideEscapeLink()
     {
@@ -88,7 +88,7 @@ class OutOfBoxExperienceSettings extends Entity
     * Gets the hideEULA
     * Show or hide EULA to user
     *
-    * @return bool The hideEULA
+    * @return bool|null The hideEULA
     */
     public function getHideEULA()
     {
@@ -116,7 +116,7 @@ class OutOfBoxExperienceSettings extends Entity
     * Gets the hidePrivacySettings
     * Show or hide privacy settings to user
     *
-    * @return bool The hidePrivacySettings
+    * @return bool|null The hidePrivacySettings
     */
     public function getHidePrivacySettings()
     {
@@ -144,7 +144,7 @@ class OutOfBoxExperienceSettings extends Entity
     * Gets the skipKeyboardSelectionPage
     * If set, then skip the keyboard selection page if Language and Region are set
     *
-    * @return bool The skipKeyboardSelectionPage
+    * @return bool|null The skipKeyboardSelectionPage
     */
     public function getSkipKeyboardSelectionPage()
     {
@@ -173,12 +173,12 @@ class OutOfBoxExperienceSettings extends Entity
     * Gets the userType
     * Type of user. Possible values are: administrator, standard.
     *
-    * @return WindowsUserType The userType
+    * @return WindowsUserType|null The userType
     */
     public function getUserType()
     {
         if (array_key_exists("userType", $this->_propDict)) {
-            if (is_a($this->_propDict["userType"], "\Beta\Microsoft\Graph\Model\WindowsUserType")) {
+            if (is_a($this->_propDict["userType"], "\Beta\Microsoft\Graph\Model\WindowsUserType") || is_null($this->_propDict["userType"])) {
                 return $this->_propDict["userType"];
             } else {
                 $this->_propDict["userType"] = new WindowsUserType($this->_propDict["userType"]);

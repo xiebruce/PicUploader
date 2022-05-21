@@ -28,7 +28,7 @@ class NdesConnector extends Entity
     * Gets the displayName
     * The friendly name of the Ndes Connector.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class NdesConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The friendly name of the Ndes Connector.
@@ -52,17 +52,17 @@ class NdesConnector extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastConnectionDateTime
     * Last connection time for the Ndes Connector
     *
-    * @return \DateTime The lastConnectionDateTime
+    * @return \DateTime|null The lastConnectionDateTime
     */
     public function getLastConnectionDateTime()
     {
         if (array_key_exists("lastConnectionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
                 return $this->_propDict["lastConnectionDateTime"];
             } else {
                 $this->_propDict["lastConnectionDateTime"] = new \DateTime($this->_propDict["lastConnectionDateTime"]);
@@ -71,7 +71,7 @@ class NdesConnector extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastConnectionDateTime
     * Last connection time for the Ndes Connector
@@ -85,17 +85,17 @@ class NdesConnector extends Entity
         $this->_propDict["lastConnectionDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * Ndes Connector Status. Possible values are: none, active, inactive.
     *
-    * @return NdesConnectorState The state
+    * @return NdesConnectorState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\NdesConnectorState")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\NdesConnectorState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new NdesConnectorState($this->_propDict["state"]);
@@ -104,7 +104,7 @@ class NdesConnector extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * Ndes Connector Status. Possible values are: none, active, inactive.
@@ -118,5 +118,5 @@ class NdesConnector extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
 }

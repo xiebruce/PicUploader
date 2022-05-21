@@ -27,7 +27,7 @@ class ControlScore extends Entity
     * Gets the controlCategory
     * Control action category (Identity, Data, Device, Apps, Infrastructure).
     *
-    * @return string The controlCategory
+    * @return string|null The controlCategory
     */
     public function getControlCategory()
     {
@@ -55,7 +55,7 @@ class ControlScore extends Entity
     * Gets the controlName
     * Control unique name.
     *
-    * @return string The controlName
+    * @return string|null The controlName
     */
     public function getControlName()
     {
@@ -83,7 +83,7 @@ class ControlScore extends Entity
     * Gets the description
     * Description of the control.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -111,7 +111,7 @@ class ControlScore extends Entity
     * Gets the score
     * Tenant achieved score for the control (it varies day by day depending on tenant operations on the control).
     *
-    * @return float The score
+    * @return float|null The score
     */
     public function getScore()
     {

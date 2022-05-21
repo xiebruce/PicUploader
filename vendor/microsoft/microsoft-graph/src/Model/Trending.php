@@ -27,12 +27,12 @@ class Trending extends Entity
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -41,7 +41,7 @@ class Trending extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -54,17 +54,17 @@ class Trending extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceReference
     * Reference properties of the trending document, such as the url and type of the document.
     *
-    * @return ResourceReference The resourceReference
+    * @return ResourceReference|null The resourceReference
     */
     public function getResourceReference()
     {
         if (array_key_exists("resourceReference", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceReference"], "\Microsoft\Graph\Model\ResourceReference")) {
+            if (is_a($this->_propDict["resourceReference"], "\Microsoft\Graph\Model\ResourceReference") || is_null($this->_propDict["resourceReference"])) {
                 return $this->_propDict["resourceReference"];
             } else {
                 $this->_propDict["resourceReference"] = new ResourceReference($this->_propDict["resourceReference"]);
@@ -73,7 +73,7 @@ class Trending extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resourceReference
     * Reference properties of the trending document, such as the url and type of the document.
@@ -87,17 +87,17 @@ class Trending extends Entity
         $this->_propDict["resourceReference"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the resourceVisualization
     * Properties that you can use to visualize the document in your experience.
     *
-    * @return ResourceVisualization The resourceVisualization
+    * @return ResourceVisualization|null The resourceVisualization
     */
     public function getResourceVisualization()
     {
         if (array_key_exists("resourceVisualization", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceVisualization"], "\Microsoft\Graph\Model\ResourceVisualization")) {
+            if (is_a($this->_propDict["resourceVisualization"], "\Microsoft\Graph\Model\ResourceVisualization") || is_null($this->_propDict["resourceVisualization"])) {
                 return $this->_propDict["resourceVisualization"];
             } else {
                 $this->_propDict["resourceVisualization"] = new ResourceVisualization($this->_propDict["resourceVisualization"]);
@@ -106,7 +106,7 @@ class Trending extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resourceVisualization
     * Properties that you can use to visualize the document in your experience.
@@ -120,12 +120,12 @@ class Trending extends Entity
         $this->_propDict["resourceVisualization"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the weight
     * Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
     *
-    * @return float The weight
+    * @return float|null The weight
     */
     public function getWeight()
     {
@@ -135,7 +135,7 @@ class Trending extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the weight
     * Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.
@@ -146,20 +146,20 @@ class Trending extends Entity
     */
     public function setWeight($val)
     {
-        $this->_propDict["weight"] = $val;
+        $this->_propDict["weight"] = floatval($val);
         return $this;
     }
-    
+
     /**
     * Gets the resource
     * Used for navigating to the trending document.
     *
-    * @return Entity The resource
+    * @return Entity|null The resource
     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Microsoft\Graph\Model\Entity")) {
+            if (is_a($this->_propDict["resource"], "\Microsoft\Graph\Model\Entity") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new Entity($this->_propDict["resource"]);
@@ -168,7 +168,7 @@ class Trending extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the resource
     * Used for navigating to the trending document.
@@ -182,5 +182,5 @@ class Trending extends Entity
         $this->_propDict["resource"] = $val;
         return $this;
     }
-    
+
 }

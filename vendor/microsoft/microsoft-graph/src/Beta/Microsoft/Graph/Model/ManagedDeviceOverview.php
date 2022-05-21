@@ -28,12 +28,12 @@ class ManagedDeviceOverview extends Entity
     * Gets the deviceExchangeAccessStateSummary
     * Distribution of Exchange Access State in Intune
     *
-    * @return DeviceExchangeAccessStateSummary The deviceExchangeAccessStateSummary
+    * @return DeviceExchangeAccessStateSummary|null The deviceExchangeAccessStateSummary
     */
     public function getDeviceExchangeAccessStateSummary()
     {
         if (array_key_exists("deviceExchangeAccessStateSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceExchangeAccessStateSummary"], "\Beta\Microsoft\Graph\Model\DeviceExchangeAccessStateSummary")) {
+            if (is_a($this->_propDict["deviceExchangeAccessStateSummary"], "\Beta\Microsoft\Graph\Model\DeviceExchangeAccessStateSummary") || is_null($this->_propDict["deviceExchangeAccessStateSummary"])) {
                 return $this->_propDict["deviceExchangeAccessStateSummary"];
             } else {
                 $this->_propDict["deviceExchangeAccessStateSummary"] = new DeviceExchangeAccessStateSummary($this->_propDict["deviceExchangeAccessStateSummary"]);
@@ -42,7 +42,7 @@ class ManagedDeviceOverview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceExchangeAccessStateSummary
     * Distribution of Exchange Access State in Intune
@@ -56,17 +56,17 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["deviceExchangeAccessStateSummary"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceOperatingSystemSummary
     * Device operating system summary.
     *
-    * @return DeviceOperatingSystemSummary The deviceOperatingSystemSummary
+    * @return DeviceOperatingSystemSummary|null The deviceOperatingSystemSummary
     */
     public function getDeviceOperatingSystemSummary()
     {
         if (array_key_exists("deviceOperatingSystemSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceOperatingSystemSummary"], "\Beta\Microsoft\Graph\Model\DeviceOperatingSystemSummary")) {
+            if (is_a($this->_propDict["deviceOperatingSystemSummary"], "\Beta\Microsoft\Graph\Model\DeviceOperatingSystemSummary") || is_null($this->_propDict["deviceOperatingSystemSummary"])) {
                 return $this->_propDict["deviceOperatingSystemSummary"];
             } else {
                 $this->_propDict["deviceOperatingSystemSummary"] = new DeviceOperatingSystemSummary($this->_propDict["deviceOperatingSystemSummary"]);
@@ -75,7 +75,7 @@ class ManagedDeviceOverview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceOperatingSystemSummary
     * Device operating system summary.
@@ -89,12 +89,12 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["deviceOperatingSystemSummary"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dualEnrolledDeviceCount
     * The number of devices enrolled in both MDM and EAS
     *
-    * @return int The dualEnrolledDeviceCount
+    * @return int|null The dualEnrolledDeviceCount
     */
     public function getDualEnrolledDeviceCount()
     {
@@ -104,7 +104,7 @@ class ManagedDeviceOverview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the dualEnrolledDeviceCount
     * The number of devices enrolled in both MDM and EAS
@@ -118,12 +118,12 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["dualEnrolledDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the enrolledDeviceCount
     * Total enrolled device count. Does not include PC devices managed via Intune PC Agent
     *
-    * @return int The enrolledDeviceCount
+    * @return int|null The enrolledDeviceCount
     */
     public function getEnrolledDeviceCount()
     {
@@ -133,7 +133,7 @@ class ManagedDeviceOverview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the enrolledDeviceCount
     * Total enrolled device count. Does not include PC devices managed via Intune PC Agent
@@ -147,17 +147,17 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["enrolledDeviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * Last modified date time of device overview
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -166,7 +166,7 @@ class ManagedDeviceOverview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * Last modified date time of device overview
@@ -180,17 +180,17 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managedDeviceModelsAndManufacturers
     * Models and Manufactures meatadata for managed devices in the account
     *
-    * @return ManagedDeviceModelsAndManufacturers The managedDeviceModelsAndManufacturers
+    * @return ManagedDeviceModelsAndManufacturers|null The managedDeviceModelsAndManufacturers
     */
     public function getManagedDeviceModelsAndManufacturers()
     {
         if (array_key_exists("managedDeviceModelsAndManufacturers", $this->_propDict)) {
-            if (is_a($this->_propDict["managedDeviceModelsAndManufacturers"], "\Beta\Microsoft\Graph\Model\ManagedDeviceModelsAndManufacturers")) {
+            if (is_a($this->_propDict["managedDeviceModelsAndManufacturers"], "\Beta\Microsoft\Graph\Model\ManagedDeviceModelsAndManufacturers") || is_null($this->_propDict["managedDeviceModelsAndManufacturers"])) {
                 return $this->_propDict["managedDeviceModelsAndManufacturers"];
             } else {
                 $this->_propDict["managedDeviceModelsAndManufacturers"] = new ManagedDeviceModelsAndManufacturers($this->_propDict["managedDeviceModelsAndManufacturers"]);
@@ -199,7 +199,7 @@ class ManagedDeviceOverview extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the managedDeviceModelsAndManufacturers
     * Models and Manufactures meatadata for managed devices in the account
@@ -213,12 +213,12 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["managedDeviceModelsAndManufacturers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the mdmEnrolledCount
     * The number of devices enrolled in MDM
     *
-    * @return int The mdmEnrolledCount
+    * @return int|null The mdmEnrolledCount
     */
     public function getMdmEnrolledCount()
     {
@@ -228,7 +228,7 @@ class ManagedDeviceOverview extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the mdmEnrolledCount
     * The number of devices enrolled in MDM
@@ -242,5 +242,5 @@ class ManagedDeviceOverview extends Entity
         $this->_propDict["mdmEnrolledCount"] = intval($val);
         return $this;
     }
-    
+
 }

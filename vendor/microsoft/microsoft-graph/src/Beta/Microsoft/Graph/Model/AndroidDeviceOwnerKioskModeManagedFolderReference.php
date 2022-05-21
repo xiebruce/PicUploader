@@ -27,7 +27,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     * Gets the folderIdentifier
     * Unique identifier for the folder
     *
-    * @return string The folderIdentifier
+    * @return string|null The folderIdentifier
     */
     public function getFolderIdentifier()
     {
@@ -55,7 +55,7 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
     * Gets the folderName
     * Name of the folder
     *
-    * @return string The folderName
+    * @return string|null The folderName
     */
     public function getFolderName()
     {

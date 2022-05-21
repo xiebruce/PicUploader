@@ -28,12 +28,12 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     * Gets the expiryDate
     * The expiry date of the custom domain certificate. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The expiryDate
+    * @return \DateTime|null The expiryDate
     */
     public function getExpiryDate()
     {
         if (array_key_exists("expiryDate", $this->_propDict)) {
-            if (is_a($this->_propDict["expiryDate"], "\DateTime")) {
+            if (is_a($this->_propDict["expiryDate"], "\DateTime") || is_null($this->_propDict["expiryDate"])) {
                 return $this->_propDict["expiryDate"];
             } else {
                 $this->_propDict["expiryDate"] = new \DateTime($this->_propDict["expiryDate"]);
@@ -61,12 +61,12 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     * Gets the issueDate
     * The issue date of the custom domain. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The issueDate
+    * @return \DateTime|null The issueDate
     */
     public function getIssueDate()
     {
         if (array_key_exists("issueDate", $this->_propDict)) {
-            if (is_a($this->_propDict["issueDate"], "\DateTime")) {
+            if (is_a($this->_propDict["issueDate"], "\DateTime") || is_null($this->_propDict["issueDate"])) {
                 return $this->_propDict["issueDate"];
             } else {
                 $this->_propDict["issueDate"] = new \DateTime($this->_propDict["issueDate"]);
@@ -93,7 +93,7 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     * Gets the issuerName
     * The issuer name of the custom domain certificate.
     *
-    * @return string The issuerName
+    * @return string|null The issuerName
     */
     public function getIssuerName()
     {
@@ -121,7 +121,7 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     * Gets the subjectName
     * The subject name of the custom domain certificate.
     *
-    * @return string The subjectName
+    * @return string|null The subjectName
     */
     public function getSubjectName()
     {
@@ -149,7 +149,7 @@ class VerifiedCustomDomainCertificatesMetadata extends Entity
     * Gets the thumbprint
     * The thumbprint associated with the custom domain certificate.
     *
-    * @return string The thumbprint
+    * @return string|null The thumbprint
     */
     public function getThumbprint()
     {

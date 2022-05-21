@@ -26,9 +26,11 @@ class OmaSettingStringXml extends OmaSetting
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.omaSettingStringXml");
     }
 
@@ -36,7 +38,7 @@ class OmaSettingStringXml extends OmaSetting
     * Gets the fileName
     * File name associated with the Value property (.xml).
     *
-    * @return string The fileName
+    * @return string|null The fileName
     */
     public function getFileName()
     {
@@ -65,15 +67,15 @@ class OmaSettingStringXml extends OmaSetting
     * Gets the value
     * Value. (UTF8 encoded byte array)
     *
-    * @return \GuzzleHttp\Psr7\Stream The value
+    * @return \GuzzleHttp\Psr7\Stream|null The value
     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["value"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["value"])) {
                 return $this->_propDict["value"];
             } else {
-                $this->_propDict["value"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["value"]);
+                $this->_propDict["value"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["value"]);
                 return $this->_propDict["value"];
             }
         }

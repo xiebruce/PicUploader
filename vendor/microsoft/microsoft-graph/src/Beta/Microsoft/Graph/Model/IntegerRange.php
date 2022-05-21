@@ -27,7 +27,7 @@ class IntegerRange extends Entity
     * Gets the end
     * The inclusive upper bound of the integer range.
     *
-    * @return int The end
+    * @return int|null The end
     */
     public function getEnd()
     {
@@ -54,7 +54,7 @@ class IntegerRange extends Entity
     /**
     * Gets the maximum
     *
-    * @return int The maximum
+    * @return int|null The maximum
     */
     public function getMaximum()
     {
@@ -80,7 +80,7 @@ class IntegerRange extends Entity
     /**
     * Gets the minimum
     *
-    * @return int The minimum
+    * @return int|null The minimum
     */
     public function getMinimum()
     {
@@ -107,7 +107,7 @@ class IntegerRange extends Entity
     * Gets the start
     * The inclusive lower bound of the integer range.
     *
-    * @return int The start
+    * @return int|null The start
     */
     public function getStart()
     {

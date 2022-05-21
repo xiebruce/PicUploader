@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class Windows10CustomConfiguration extends DeviceConfiguration
 {
 
-     /** 
+     /**
      * Gets the omaSettings
     * OMA settings. This collection can contain a maximum of 1000 elements.
      *
-     * @return array The omaSettings
+     * @return array|null The omaSettings
      */
     public function getOmaSettings()
     {
@@ -39,19 +39,19 @@ class Windows10CustomConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the omaSettings
     * OMA settings. This collection can contain a maximum of 1000 elements.
     *
-    * @param OmaSetting $val The omaSettings
+    * @param OmaSetting[] $val The omaSettings
     *
     * @return Windows10CustomConfiguration
     */
     public function setOmaSettings($val)
     {
-		$this->_propDict["omaSettings"] = $val;
+        $this->_propDict["omaSettings"] = $val;
         return $this;
     }
-    
+
 }

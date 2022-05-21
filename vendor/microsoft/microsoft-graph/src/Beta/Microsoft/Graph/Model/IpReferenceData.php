@@ -26,7 +26,7 @@ class IpReferenceData extends Entity
     /**
     * Gets the asn
     *
-    * @return int The asn
+    * @return int|null The asn
     */
     public function getAsn()
     {
@@ -52,7 +52,7 @@ class IpReferenceData extends Entity
     /**
     * Gets the city
     *
-    * @return string The city
+    * @return string|null The city
     */
     public function getCity()
     {
@@ -78,7 +78,7 @@ class IpReferenceData extends Entity
     /**
     * Gets the countryOrRegionCode
     *
-    * @return string The countryOrRegionCode
+    * @return string|null The countryOrRegionCode
     */
     public function getCountryOrRegionCode()
     {
@@ -104,7 +104,7 @@ class IpReferenceData extends Entity
     /**
     * Gets the organization
     *
-    * @return string The organization
+    * @return string|null The organization
     */
     public function getOrganization()
     {
@@ -130,7 +130,7 @@ class IpReferenceData extends Entity
     /**
     * Gets the state
     *
-    * @return string The state
+    * @return string|null The state
     */
     public function getState()
     {
@@ -156,7 +156,7 @@ class IpReferenceData extends Entity
     /**
     * Gets the vendor
     *
-    * @return string The vendor
+    * @return string|null The vendor
     */
     public function getVendor()
     {

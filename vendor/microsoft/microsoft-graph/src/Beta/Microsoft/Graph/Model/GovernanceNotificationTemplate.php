@@ -26,7 +26,7 @@ class GovernanceNotificationTemplate extends Entity
     /**
     * Gets the culture
     *
-    * @return string The culture
+    * @return string|null The culture
     */
     public function getCulture()
     {
@@ -52,7 +52,7 @@ class GovernanceNotificationTemplate extends Entity
     /**
     * Gets the id
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -78,7 +78,7 @@ class GovernanceNotificationTemplate extends Entity
     /**
     * Gets the source
     *
-    * @return string The source
+    * @return string|null The source
     */
     public function getSource()
     {
@@ -104,7 +104,7 @@ class GovernanceNotificationTemplate extends Entity
     /**
     * Gets the type
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -130,7 +130,7 @@ class GovernanceNotificationTemplate extends Entity
     /**
     * Gets the version
     *
-    * @return string The version
+    * @return string|null The version
     */
     public function getVersion()
     {

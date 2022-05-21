@@ -27,7 +27,7 @@ class DeviceManagementConfigurationDependentOn extends Entity
     * Gets the dependentOn
     * Identifier of parent setting/ parent setting option dependent on
     *
-    * @return string The dependentOn
+    * @return string|null The dependentOn
     */
     public function getDependentOn()
     {
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationDependentOn extends Entity
     * Gets the parentSettingId
     * Identifier of parent setting/ parent setting id dependent on
     *
-    * @return string The parentSettingId
+    * @return string|null The parentSettingId
     */
     public function getParentSettingId()
     {

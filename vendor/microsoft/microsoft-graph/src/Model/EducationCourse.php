@@ -27,7 +27,7 @@ class EducationCourse extends Entity
     * Gets the courseNumber
     * Unique identifier for the course.
     *
-    * @return string The courseNumber
+    * @return string|null The courseNumber
     */
     public function getCourseNumber()
     {
@@ -55,7 +55,7 @@ class EducationCourse extends Entity
     * Gets the description
     * Description of the course.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -83,7 +83,7 @@ class EducationCourse extends Entity
     * Gets the displayName
     * Name of the course.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -111,7 +111,7 @@ class EducationCourse extends Entity
     * Gets the externalId
     * ID of the course from the syncing system.
     *
-    * @return string The externalId
+    * @return string|null The externalId
     */
     public function getExternalId()
     {
@@ -139,7 +139,7 @@ class EducationCourse extends Entity
     * Gets the subject
     * Subject of the course.
     *
-    * @return string The subject
+    * @return string|null The subject
     */
     public function getSubject()
     {

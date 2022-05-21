@@ -26,8 +26,9 @@ class UnifiedRoleManagementPolicyEnablementRule extends UnifiedRoleManagementPol
 {
     /**
     * Gets the enabledRules
+    * The rules which are enabled. Allowed values are MultifactorAuthentication, Justification, Ticketing.
     *
-    * @return string The enabledRules
+    * @return string|null The enabledRules
     */
     public function getEnabledRules()
     {
@@ -37,9 +38,10 @@ class UnifiedRoleManagementPolicyEnablementRule extends UnifiedRoleManagementPol
             return null;
         }
     }
-    
+
     /**
     * Sets the enabledRules
+    * The rules which are enabled. Allowed values are MultifactorAuthentication, Justification, Ticketing.
     *
     * @param string $val The enabledRules
     *
@@ -50,5 +52,5 @@ class UnifiedRoleManagementPolicyEnablementRule extends UnifiedRoleManagementPol
         $this->_propDict["enabledRules"] = $val;
         return $this;
     }
-    
+
 }

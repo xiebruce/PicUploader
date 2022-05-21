@@ -27,12 +27,12 @@ class ParticipantJoiningNotification extends Entity
     /**
     * Gets the call
     *
-    * @return Call The call
+    * @return Call|null The call
     */
     public function getCall()
     {
         if (array_key_exists("call", $this->_propDict)) {
-            if (is_a($this->_propDict["call"], "\Beta\Microsoft\Graph\Model\Call")) {
+            if (is_a($this->_propDict["call"], "\Beta\Microsoft\Graph\Model\Call") || is_null($this->_propDict["call"])) {
                 return $this->_propDict["call"];
             } else {
                 $this->_propDict["call"] = new Call($this->_propDict["call"]);
@@ -41,7 +41,7 @@ class ParticipantJoiningNotification extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the call
     *
@@ -54,5 +54,5 @@ class ParticipantJoiningNotification extends Entity
         $this->_propDict["call"] = $val;
         return $this;
     }
-    
+
 }

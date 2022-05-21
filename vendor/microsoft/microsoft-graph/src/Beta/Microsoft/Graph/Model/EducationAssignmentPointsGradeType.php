@@ -26,43 +26,40 @@ class EducationAssignmentPointsGradeType extends EducationAssignmentGradeType
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.educationAssignmentPointsGradeType");
     }
-
 
     /**
     * Gets the maxPoints
     * Max points possible for this assignment.
     *
-    * @return Single The maxPoints
+    * @return float|null The maxPoints
     */
     public function getMaxPoints()
     {
         if (array_key_exists("maxPoints", $this->_propDict)) {
-            if (is_a($this->_propDict["maxPoints"], "\Beta\Microsoft\Graph\Model\Single")) {
-                return $this->_propDict["maxPoints"];
-            } else {
-                $this->_propDict["maxPoints"] = new Single($this->_propDict["maxPoints"]);
-                return $this->_propDict["maxPoints"];
-            }
+            return $this->_propDict["maxPoints"];
+        } else {
+            return null;
         }
-        return null;
     }
 
     /**
     * Sets the maxPoints
     * Max points possible for this assignment.
     *
-    * @param Single $val The value to assign to the maxPoints
+    * @param float $val The value of the maxPoints
     *
-    * @return EducationAssignmentPointsGradeType The EducationAssignmentPointsGradeType
+    * @return EducationAssignmentPointsGradeType
     */
     public function setMaxPoints($val)
     {
         $this->_propDict["maxPoints"] = $val;
-         return $this;
+        return $this;
     }
 }

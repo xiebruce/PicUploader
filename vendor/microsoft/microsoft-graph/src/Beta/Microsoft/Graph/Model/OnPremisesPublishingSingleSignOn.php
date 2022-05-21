@@ -28,12 +28,12 @@ class OnPremisesPublishingSingleSignOn extends Entity
     * Gets the kerberosSignOnSettings
     * The Kerberos Constrained Delegation settings for applications that use Integrated Window Authentication.
     *
-    * @return KerberosSignOnSettings The kerberosSignOnSettings
+    * @return KerberosSignOnSettings|null The kerberosSignOnSettings
     */
     public function getKerberosSignOnSettings()
     {
         if (array_key_exists("kerberosSignOnSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["kerberosSignOnSettings"], "\Beta\Microsoft\Graph\Model\KerberosSignOnSettings")) {
+            if (is_a($this->_propDict["kerberosSignOnSettings"], "\Beta\Microsoft\Graph\Model\KerberosSignOnSettings") || is_null($this->_propDict["kerberosSignOnSettings"])) {
                 return $this->_propDict["kerberosSignOnSettings"];
             } else {
                 $this->_propDict["kerberosSignOnSettings"] = new KerberosSignOnSettings($this->_propDict["kerberosSignOnSettings"]);
@@ -61,12 +61,12 @@ class OnPremisesPublishingSingleSignOn extends Entity
     * Gets the singleSignOnMode
     * The preferred single-sign on mode for the application. Possible values are: none, onPremisesKerberos, aadHeaderBased,pingHeaderBased.
     *
-    * @return SingleSignOnMode The singleSignOnMode
+    * @return SingleSignOnMode|null The singleSignOnMode
     */
     public function getSingleSignOnMode()
     {
         if (array_key_exists("singleSignOnMode", $this->_propDict)) {
-            if (is_a($this->_propDict["singleSignOnMode"], "\Beta\Microsoft\Graph\Model\SingleSignOnMode")) {
+            if (is_a($this->_propDict["singleSignOnMode"], "\Beta\Microsoft\Graph\Model\SingleSignOnMode") || is_null($this->_propDict["singleSignOnMode"])) {
                 return $this->_propDict["singleSignOnMode"];
             } else {
                 $this->_propDict["singleSignOnMode"] = new SingleSignOnMode($this->_propDict["singleSignOnMode"]);

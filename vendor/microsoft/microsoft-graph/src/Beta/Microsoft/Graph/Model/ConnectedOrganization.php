@@ -28,7 +28,7 @@ class ConnectedOrganization extends Entity
     * Gets the createdBy
     * UPN of the user who created this resource. Read-only.
     *
-    * @return string The createdBy
+    * @return string|null The createdBy
     */
     public function getCreatedBy()
     {
@@ -38,7 +38,7 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the createdBy
     * UPN of the user who created this resource. Read-only.
@@ -52,17 +52,17 @@ class ConnectedOrganization extends Entity
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -71,7 +71,7 @@ class ConnectedOrganization extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
@@ -85,12 +85,12 @@ class ConnectedOrganization extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The description of the connected organization.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -100,7 +100,7 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The description of the connected organization.
@@ -114,12 +114,12 @@ class ConnectedOrganization extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
-    * The display name of the connected organization.
+    * The display name of the connected organization. Supports $filter (eq).
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -129,10 +129,10 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
-    * The display name of the connected organization.
+    * The display name of the connected organization. Supports $filter (eq).
     *
     * @param string $val The displayName
     *
@@ -143,12 +143,13 @@ class ConnectedOrganization extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the identitySources
+    * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
      *
-     * @return array The identitySources
+     * @return array|null The identitySources
      */
     public function getIdentitySources()
     {
@@ -158,25 +159,26 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the identitySources
+    * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Read-only. Nullable. Supports $select and $filter(eq). To filter by the derived types, you must declare the resource using its full OData cast, for example, $filter=identitySources/any(is:is/microsoft.graph.azureActiveDirectoryTenant/tenantId eq 'bcfdfff4-cbc3-43f2-9000-ba7b7515054f').
     *
-    * @param IdentitySource $val The identitySources
+    * @param IdentitySource[] $val The identitySources
     *
     * @return ConnectedOrganization
     */
     public function setIdentitySources($val)
     {
-		$this->_propDict["identitySources"] = $val;
+        $this->_propDict["identitySources"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the modifiedBy
     * UPN of the user who last modified this resource. Read-only.
     *
-    * @return string The modifiedBy
+    * @return string|null The modifiedBy
     */
     public function getModifiedBy()
     {
@@ -186,7 +188,7 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the modifiedBy
     * UPN of the user who last modified this resource. Read-only.
@@ -200,17 +202,17 @@ class ConnectedOrganization extends Entity
         $this->_propDict["modifiedBy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the modifiedDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
-    * @return \DateTime The modifiedDateTime
+    * @return \DateTime|null The modifiedDateTime
     */
     public function getModifiedDateTime()
     {
         if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -219,7 +221,7 @@ class ConnectedOrganization extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the modifiedDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
@@ -233,17 +235,17 @@ class ConnectedOrganization extends Entity
         $this->_propDict["modifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
     *
-    * @return ConnectedOrganizationState The state
+    * @return ConnectedOrganizationState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectedOrganizationState")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectedOrganizationState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ConnectedOrganizationState($this->_propDict["state"]);
@@ -252,7 +254,7 @@ class ConnectedOrganization extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
@@ -266,13 +268,13 @@ class ConnectedOrganization extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the externalSponsors
     * Nullable.
      *
-     * @return array The externalSponsors
+     * @return array|null The externalSponsors
      */
     public function getExternalSponsors()
     {
@@ -282,27 +284,27 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the externalSponsors
     * Nullable.
     *
-    * @param DirectoryObject $val The externalSponsors
+    * @param DirectoryObject[] $val The externalSponsors
     *
     * @return ConnectedOrganization
     */
     public function setExternalSponsors($val)
     {
-		$this->_propDict["externalSponsors"] = $val;
+        $this->_propDict["externalSponsors"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the internalSponsors
     * Nullable.
      *
-     * @return array The internalSponsors
+     * @return array|null The internalSponsors
      */
     public function getInternalSponsors()
     {
@@ -312,19 +314,19 @@ class ConnectedOrganization extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the internalSponsors
     * Nullable.
     *
-    * @param DirectoryObject $val The internalSponsors
+    * @param DirectoryObject[] $val The internalSponsors
     *
     * @return ConnectedOrganization
     */
     public function setInternalSponsors($val)
     {
-		$this->_propDict["internalSponsors"] = $val;
+        $this->_propDict["internalSponsors"] = $val;
         return $this;
     }
-    
+
 }

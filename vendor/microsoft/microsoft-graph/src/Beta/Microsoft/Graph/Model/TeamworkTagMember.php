@@ -26,8 +26,9 @@ class TeamworkTagMember extends Entity
 {
     /**
     * Gets the displayName
+    * The member's display name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -37,9 +38,10 @@ class TeamworkTagMember extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
+    * The member's display name.
     *
     * @param string $val The displayName
     *
@@ -50,11 +52,11 @@ class TeamworkTagMember extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the tenantId
     *
-    * @return string The tenantId
+    * @return string|null The tenantId
     */
     public function getTenantId()
     {
@@ -64,7 +66,7 @@ class TeamworkTagMember extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the tenantId
     *
@@ -77,11 +79,11 @@ class TeamworkTagMember extends Entity
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -91,7 +93,7 @@ class TeamworkTagMember extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     *
@@ -104,5 +106,5 @@ class TeamworkTagMember extends Entity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
 }

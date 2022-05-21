@@ -28,7 +28,7 @@ class VulnerableManagedDevice extends Entity
     * Gets the displayName
     * The device name.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class VulnerableManagedDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The device name.
@@ -52,17 +52,17 @@ class VulnerableManagedDevice extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSyncDateTime
     * The last sync date.
     *
-    * @return \DateTime The lastSyncDateTime
+    * @return \DateTime|null The lastSyncDateTime
     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -71,7 +71,7 @@ class VulnerableManagedDevice extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSyncDateTime
     * The last sync date.
@@ -85,12 +85,12 @@ class VulnerableManagedDevice extends Entity
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managedDeviceId
     * The Intune managed device ID.
     *
-    * @return string The managedDeviceId
+    * @return string|null The managedDeviceId
     */
     public function getManagedDeviceId()
     {
@@ -100,7 +100,7 @@ class VulnerableManagedDevice extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the managedDeviceId
     * The Intune managed device ID.
@@ -114,5 +114,5 @@ class VulnerableManagedDevice extends Entity
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-    
+
 }

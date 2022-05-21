@@ -26,7 +26,7 @@ class ThreatAssessmentRequestsCount extends Entity
     /**
     * Gets the count
     *
-    * @return int The count
+    * @return int|null The count
     */
     public function getCount()
     {
@@ -53,12 +53,12 @@ class ThreatAssessmentRequestsCount extends Entity
     /**
     * Gets the createdDateTime
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -83,7 +83,7 @@ class ThreatAssessmentRequestsCount extends Entity
     /**
     * Gets the pivotValue
     *
-    * @return string The pivotValue
+    * @return string|null The pivotValue
     */
     public function getPivotValue()
     {

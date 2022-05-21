@@ -27,7 +27,7 @@ class DirectorySizeQuota extends Entity
     * Gets the total
     * Total amount of the directory quota.
     *
-    * @return int The total
+    * @return int|null The total
     */
     public function getTotal()
     {
@@ -55,7 +55,7 @@ class DirectorySizeQuota extends Entity
     * Gets the used
     * Used amount of the directory quota.
     *
-    * @return int The used
+    * @return int|null The used
     */
     public function getUsed()
     {

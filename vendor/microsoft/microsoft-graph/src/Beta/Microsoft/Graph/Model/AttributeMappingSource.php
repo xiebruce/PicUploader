@@ -26,7 +26,7 @@ class AttributeMappingSource extends Entity
     /**
     * Gets the expression
     *
-    * @return string The expression
+    * @return string|null The expression
     */
     public function getExpression()
     {
@@ -52,7 +52,7 @@ class AttributeMappingSource extends Entity
     /**
     * Gets the name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -79,12 +79,12 @@ class AttributeMappingSource extends Entity
     /**
     * Gets the parameters
     *
-    * @return StringKeyAttributeMappingSourceValuePair The parameters
+    * @return StringKeyAttributeMappingSourceValuePair|null The parameters
     */
     public function getParameters()
     {
         if (array_key_exists("parameters", $this->_propDict)) {
-            if (is_a($this->_propDict["parameters"], "\Beta\Microsoft\Graph\Model\StringKeyAttributeMappingSourceValuePair")) {
+            if (is_a($this->_propDict["parameters"], "\Beta\Microsoft\Graph\Model\StringKeyAttributeMappingSourceValuePair") || is_null($this->_propDict["parameters"])) {
                 return $this->_propDict["parameters"];
             } else {
                 $this->_propDict["parameters"] = new StringKeyAttributeMappingSourceValuePair($this->_propDict["parameters"]);
@@ -110,12 +110,12 @@ class AttributeMappingSource extends Entity
     /**
     * Gets the type
     *
-    * @return AttributeMappingSourceType The type
+    * @return AttributeMappingSourceType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeMappingSourceType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeMappingSourceType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AttributeMappingSourceType($this->_propDict["type"]);

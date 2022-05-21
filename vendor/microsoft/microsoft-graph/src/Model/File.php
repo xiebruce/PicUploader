@@ -28,12 +28,12 @@ class File extends Entity
     * Gets the hashes
     * Hashes of the file's binary content, if available. Read-only.
     *
-    * @return Hashes The hashes
+    * @return Hashes|null The hashes
     */
     public function getHashes()
     {
         if (array_key_exists("hashes", $this->_propDict)) {
-            if (is_a($this->_propDict["hashes"], "\Microsoft\Graph\Model\Hashes")) {
+            if (is_a($this->_propDict["hashes"], "\Microsoft\Graph\Model\Hashes") || is_null($this->_propDict["hashes"])) {
                 return $this->_propDict["hashes"];
             } else {
                 $this->_propDict["hashes"] = new Hashes($this->_propDict["hashes"]);
@@ -60,7 +60,7 @@ class File extends Entity
     * Gets the mimeType
     * The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.
     *
-    * @return string The mimeType
+    * @return string|null The mimeType
     */
     public function getMimeType()
     {
@@ -87,7 +87,7 @@ class File extends Entity
     /**
     * Gets the processingMetadata
     *
-    * @return bool The processingMetadata
+    * @return bool|null The processingMetadata
     */
     public function getProcessingMetadata()
     {

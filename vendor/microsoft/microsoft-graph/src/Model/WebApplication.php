@@ -27,7 +27,7 @@ class WebApplication extends Entity
     * Gets the homePageUrl
     * Home page or landing page of the application.
     *
-    * @return string The homePageUrl
+    * @return string|null The homePageUrl
     */
     public function getHomePageUrl()
     {
@@ -56,12 +56,12 @@ class WebApplication extends Entity
     * Gets the implicitGrantSettings
     * Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
     *
-    * @return ImplicitGrantSettings The implicitGrantSettings
+    * @return ImplicitGrantSettings|null The implicitGrantSettings
     */
     public function getImplicitGrantSettings()
     {
         if (array_key_exists("implicitGrantSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["implicitGrantSettings"], "\Microsoft\Graph\Model\ImplicitGrantSettings")) {
+            if (is_a($this->_propDict["implicitGrantSettings"], "\Microsoft\Graph\Model\ImplicitGrantSettings") || is_null($this->_propDict["implicitGrantSettings"])) {
                 return $this->_propDict["implicitGrantSettings"];
             } else {
                 $this->_propDict["implicitGrantSettings"] = new ImplicitGrantSettings($this->_propDict["implicitGrantSettings"]);
@@ -88,7 +88,7 @@ class WebApplication extends Entity
     * Gets the logoutUrl
     * Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
     *
-    * @return string The logoutUrl
+    * @return string|null The logoutUrl
     */
     public function getLogoutUrl()
     {
@@ -116,7 +116,7 @@ class WebApplication extends Entity
     * Gets the redirectUris
     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
     *
-    * @return string The redirectUris
+    * @return string|null The redirectUris
     */
     public function getRedirectUris()
     {

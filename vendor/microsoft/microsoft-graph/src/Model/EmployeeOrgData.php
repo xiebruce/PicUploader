@@ -27,7 +27,7 @@ class EmployeeOrgData extends Entity
     * Gets the costCenter
     * The cost center associated with the user. Returned only on $select. Supports $filter.
     *
-    * @return string The costCenter
+    * @return string|null The costCenter
     */
     public function getCostCenter()
     {
@@ -55,7 +55,7 @@ class EmployeeOrgData extends Entity
     * Gets the division
     * The name of the division in which the user works. Returned only on $select. Supports $filter.
     *
-    * @return string The division
+    * @return string|null The division
     */
     public function getDivision()
     {

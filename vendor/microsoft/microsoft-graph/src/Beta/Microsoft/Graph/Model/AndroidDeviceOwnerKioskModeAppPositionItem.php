@@ -28,12 +28,12 @@ class AndroidDeviceOwnerKioskModeAppPositionItem extends Entity
     * Gets the item
     * Item to be arranged
     *
-    * @return AndroidDeviceOwnerKioskModeHomeScreenItem The item
+    * @return AndroidDeviceOwnerKioskModeHomeScreenItem|null The item
     */
     public function getItem()
     {
         if (array_key_exists("item", $this->_propDict)) {
-            if (is_a($this->_propDict["item"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeHomeScreenItem")) {
+            if (is_a($this->_propDict["item"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeHomeScreenItem") || is_null($this->_propDict["item"])) {
                 return $this->_propDict["item"];
             } else {
                 $this->_propDict["item"] = new AndroidDeviceOwnerKioskModeHomeScreenItem($this->_propDict["item"]);
@@ -60,7 +60,7 @@ class AndroidDeviceOwnerKioskModeAppPositionItem extends Entity
     * Gets the position
     * Position of the item on the grid. Valid values 0 to 9999999
     *
-    * @return int The position
+    * @return int|null The position
     */
     public function getPosition()
     {

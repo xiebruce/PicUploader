@@ -28,12 +28,12 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     * Gets the format
     * Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
     *
-    * @return DeviceManagementConfigurationStringFormat The format
+    * @return DeviceManagementConfigurationStringFormat|null The format
     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationStringFormat")) {
+            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationStringFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new DeviceManagementConfigurationStringFormat($this->_propDict["format"]);
@@ -60,7 +60,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     * Gets the inputValidationSchema
     * Regular expression or any xml or json schema that the input string should match
     *
-    * @return string The inputValidationSchema
+    * @return string|null The inputValidationSchema
     */
     public function getInputValidationSchema()
     {
@@ -88,7 +88,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     * Gets the isSecret
     * Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
     *
-    * @return bool The isSecret
+    * @return bool|null The isSecret
     */
     public function getIsSecret()
     {
@@ -116,7 +116,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     * Gets the maximumLength
     * Maximum length of string. Valid values 0 to 87516
     *
-    * @return int The maximumLength
+    * @return int|null The maximumLength
     */
     public function getMaximumLength()
     {
@@ -144,7 +144,7 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
     * Gets the minimumLength
     * Minimum length of string. Valid values 0 to 87516
     *
-    * @return int The minimumLength
+    * @return int|null The minimumLength
     */
     public function getMinimumLength()
     {

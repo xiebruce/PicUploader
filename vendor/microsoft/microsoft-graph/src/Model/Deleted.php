@@ -27,7 +27,7 @@ class Deleted extends Entity
     * Gets the state
     * Represents the state of the deleted item.
     *
-    * @return string The state
+    * @return string|null The state
     */
     public function getState()
     {

@@ -38,6 +38,14 @@ class FormUpTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($ret['hash']);
     }
 
+    public function testDataFailed()
+    {
+        $token = $this->auth->uploadToken('fakebucket');
+        list($ret, $error) = FormUploader::put($token, 'formput', 'hello world', $this->cfg, null, 'text/plain', null);
+        $this->assertNull($ret);
+        $this->assertNotNull($error);
+    }
+
     public function testFile()
     {
         $key = 'formPutFile';
@@ -55,5 +63,14 @@ class FormUpTest extends \PHPUnit_Framework_TestCase
         list($ret, $error) = $upManager->putFile($token, $key, __file__, null, 'text/plain', null);
         $this->assertNull($error);
         $this->assertNotNull($ret['hash']);
+    }
+
+    public function testFileFailed()
+    {
+        $key = 'fakekey';
+        $token = $this->auth->uploadToken('fakebucket', $key);
+        list($ret, $error) = FormUploader::putFile($token, $key, __file__, $this->cfg, null, 'text/plain', null);
+        $this->assertNull($ret);
+        $this->assertNotNull($error);
     }
 }

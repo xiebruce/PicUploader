@@ -28,12 +28,12 @@ class FileHash extends Entity
     * Gets the hashType
     * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
     *
-    * @return FileHashType The hashType
+    * @return FileHashType|null The hashType
     */
     public function getHashType()
     {
         if (array_key_exists("hashType", $this->_propDict)) {
-            if (is_a($this->_propDict["hashType"], "\Microsoft\Graph\Model\FileHashType")) {
+            if (is_a($this->_propDict["hashType"], "\Microsoft\Graph\Model\FileHashType") || is_null($this->_propDict["hashType"])) {
                 return $this->_propDict["hashType"];
             } else {
                 $this->_propDict["hashType"] = new FileHashType($this->_propDict["hashType"]);
@@ -60,7 +60,7 @@ class FileHash extends Entity
     * Gets the hashValue
     * Value of the file hash.
     *
-    * @return string The hashValue
+    * @return string|null The hashValue
     */
     public function getHashValue()
     {

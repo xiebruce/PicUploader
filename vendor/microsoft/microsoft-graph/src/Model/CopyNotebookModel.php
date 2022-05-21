@@ -26,7 +26,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the createdBy
     *
-    * @return string The createdBy
+    * @return string|null The createdBy
     */
     public function getCreatedBy()
     {
@@ -53,12 +53,12 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the createdByIdentity
     *
-    * @return IdentitySet The createdByIdentity
+    * @return IdentitySet|null The createdByIdentity
     */
     public function getCreatedByIdentity()
     {
         if (array_key_exists("createdByIdentity", $this->_propDict)) {
-            if (is_a($this->_propDict["createdByIdentity"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["createdByIdentity"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdByIdentity"])) {
                 return $this->_propDict["createdByIdentity"];
             } else {
                 $this->_propDict["createdByIdentity"] = new IdentitySet($this->_propDict["createdByIdentity"]);
@@ -84,12 +84,12 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the createdTime
     *
-    * @return \DateTime The createdTime
+    * @return \DateTime|null The createdTime
     */
     public function getCreatedTime()
     {
         if (array_key_exists("createdTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdTime"], "\DateTime") || is_null($this->_propDict["createdTime"])) {
                 return $this->_propDict["createdTime"];
             } else {
                 $this->_propDict["createdTime"] = new \DateTime($this->_propDict["createdTime"]);
@@ -114,7 +114,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the id
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -140,7 +140,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the isDefault
     *
-    * @return bool The isDefault
+    * @return bool|null The isDefault
     */
     public function getIsDefault()
     {
@@ -166,7 +166,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the isShared
     *
-    * @return bool The isShared
+    * @return bool|null The isShared
     */
     public function getIsShared()
     {
@@ -192,7 +192,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the lastModifiedBy
     *
-    * @return string The lastModifiedBy
+    * @return string|null The lastModifiedBy
     */
     public function getLastModifiedBy()
     {
@@ -219,12 +219,12 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the lastModifiedByIdentity
     *
-    * @return IdentitySet The lastModifiedByIdentity
+    * @return IdentitySet|null The lastModifiedByIdentity
     */
     public function getLastModifiedByIdentity()
     {
         if (array_key_exists("lastModifiedByIdentity", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedByIdentity"], "\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["lastModifiedByIdentity"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedByIdentity"])) {
                 return $this->_propDict["lastModifiedByIdentity"];
             } else {
                 $this->_propDict["lastModifiedByIdentity"] = new IdentitySet($this->_propDict["lastModifiedByIdentity"]);
@@ -250,12 +250,12 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the lastModifiedTime
     *
-    * @return \DateTime The lastModifiedTime
+    * @return \DateTime|null The lastModifiedTime
     */
     public function getLastModifiedTime()
     {
         if (array_key_exists("lastModifiedTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedTime"], "\DateTime") || is_null($this->_propDict["lastModifiedTime"])) {
                 return $this->_propDict["lastModifiedTime"];
             } else {
                 $this->_propDict["lastModifiedTime"] = new \DateTime($this->_propDict["lastModifiedTime"]);
@@ -281,12 +281,12 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the links
     *
-    * @return NotebookLinks The links
+    * @return NotebookLinks|null The links
     */
     public function getLinks()
     {
         if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\NotebookLinks")) {
+            if (is_a($this->_propDict["links"], "\Microsoft\Graph\Model\NotebookLinks") || is_null($this->_propDict["links"])) {
                 return $this->_propDict["links"];
             } else {
                 $this->_propDict["links"] = new NotebookLinks($this->_propDict["links"]);
@@ -311,7 +311,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the name
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -337,7 +337,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the sectionGroupsUrl
     *
-    * @return string The sectionGroupsUrl
+    * @return string|null The sectionGroupsUrl
     */
     public function getSectionGroupsUrl()
     {
@@ -363,7 +363,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the sectionsUrl
     *
-    * @return string The sectionsUrl
+    * @return string|null The sectionsUrl
     */
     public function getSectionsUrl()
     {
@@ -389,7 +389,7 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the self
     *
-    * @return string The self
+    * @return string|null The self
     */
     public function getSelf()
     {
@@ -416,12 +416,12 @@ class CopyNotebookModel extends Entity
     /**
     * Gets the userRole
     *
-    * @return OnenoteUserRole The userRole
+    * @return OnenoteUserRole|null The userRole
     */
     public function getUserRole()
     {
         if (array_key_exists("userRole", $this->_propDict)) {
-            if (is_a($this->_propDict["userRole"], "\Microsoft\Graph\Model\OnenoteUserRole")) {
+            if (is_a($this->_propDict["userRole"], "\Microsoft\Graph\Model\OnenoteUserRole") || is_null($this->_propDict["userRole"])) {
                 return $this->_propDict["userRole"];
             } else {
                 $this->_propDict["userRole"] = new OnenoteUserRole($this->_propDict["userRole"]);

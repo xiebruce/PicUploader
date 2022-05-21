@@ -28,7 +28,7 @@ class SecurityBaselineState extends Entity
     * Gets the displayName
     * The display name of the security baseline
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -38,7 +38,7 @@ class SecurityBaselineState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of the security baseline
@@ -52,12 +52,12 @@ class SecurityBaselineState extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the securityBaselineTemplateId
     * The security baseline template id
     *
-    * @return string The securityBaselineTemplateId
+    * @return string|null The securityBaselineTemplateId
     */
     public function getSecurityBaselineTemplateId()
     {
@@ -67,7 +67,7 @@ class SecurityBaselineState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the securityBaselineTemplateId
     * The security baseline template id
@@ -81,17 +81,17 @@ class SecurityBaselineState extends Entity
         $this->_propDict["securityBaselineTemplateId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
     * Security baseline compliance state
     *
-    * @return SecurityBaselineComplianceState The state
+    * @return SecurityBaselineComplianceState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SecurityBaselineComplianceState")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SecurityBaselineComplianceState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SecurityBaselineComplianceState($this->_propDict["state"]);
@@ -100,7 +100,7 @@ class SecurityBaselineState extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
     * Security baseline compliance state
@@ -114,12 +114,12 @@ class SecurityBaselineState extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userPrincipalName
     * User Principal Name
     *
-    * @return string The userPrincipalName
+    * @return string|null The userPrincipalName
     */
     public function getUserPrincipalName()
     {
@@ -129,7 +129,7 @@ class SecurityBaselineState extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userPrincipalName
     * User Principal Name
@@ -143,13 +143,13 @@ class SecurityBaselineState extends Entity
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the settingStates
     * The security baseline state for different settings for a device
      *
-     * @return array The settingStates
+     * @return array|null The settingStates
      */
     public function getSettingStates()
     {
@@ -159,19 +159,19 @@ class SecurityBaselineState extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the settingStates
     * The security baseline state for different settings for a device
     *
-    * @param SecurityBaselineSettingState $val The settingStates
+    * @param SecurityBaselineSettingState[] $val The settingStates
     *
     * @return SecurityBaselineState
     */
     public function setSettingStates($val)
     {
-		$this->_propDict["settingStates"] = $val;
+        $this->_propDict["settingStates"] = $val;
         return $this;
     }
-    
+
 }

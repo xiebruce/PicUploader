@@ -336,11 +336,12 @@ class Client
      *
      * @link https://www.dropbox.com/developers/documentation/http/documentation#files-move_v2
      */
-    public function move(string $fromPath, string $toPath): array
+    public function move(string $fromPath, string $toPath, bool $autorename = false): array
     {
         $parameters = [
             'from_path' => $this->normalizePath($fromPath),
             'to_path' => $this->normalizePath($toPath),
+            'autorename' => $autorename,
         ];
 
         return $this->rpcEndpointRequest('files/move_v2', $parameters);
@@ -391,10 +392,11 @@ class Client
      * @param string $path
      * @param string|resource $contents
      * @param string $mode
+     * @param bool $autorename
      *
      * @return array
      */
-    public function upload(string $path, $contents, $mode = 'add'): array
+    public function upload(string $path, $contents, $mode = 'add', $autorename = false): array
     {
         if ($this->shouldUploadChunked($contents)) {
             return $this->uploadChunked($path, $contents, $mode);
@@ -403,6 +405,7 @@ class Client
         $arguments = [
             'path' => $this->normalizePath($path),
             'mode' => $mode,
+            'autorename' => $autorename,
         ];
 
         $response = $this->contentEndpointRequest('files/upload', $arguments, $contents);
@@ -481,6 +484,7 @@ class Client
                 $stream->seek($pos, SEEK_SET);
                 goto tryUpload;
             }
+
             throw $exception;
         }
     }
@@ -618,7 +622,7 @@ class Client
      *
      * @throws \Exception
      */
-    public function contentEndpointRequest(string $endpoint, array $arguments, $body = ''): ResponseInterface
+    public function contentEndpointRequest(string $endpoint, array $arguments, $body = '', bool $isRefreshed = false): ResponseInterface
     {
         $headers = ['Dropbox-API-Arg' => json_encode($arguments)];
 
@@ -632,13 +636,20 @@ class Client
                 'body' => $body,
             ]);
         } catch (ClientException $exception) {
-            throw $this->determineException($exception);
+            if (
+                $isRefreshed
+                || ! $this->tokenProvider instanceof RefreshableTokenProvider
+                || ! $this->tokenProvider->refresh($exception)
+            ) {
+                throw $this->determineException($exception);
+            }
+            $response = $this->contentEndpointRequest($endpoint, $arguments, $body, true);
         }
 
         return $response;
     }
 
-    public function rpcEndpointRequest(string $endpoint, array $parameters = null): array
+    public function rpcEndpointRequest(string $endpoint, array $parameters = null, bool $isRefreshed = false): array
     {
         try {
             $options = ['headers' => $this->getHeaders()];
@@ -649,12 +660,18 @@ class Client
 
             $response = $this->client->post($this->getEndpointUrl('api', $endpoint), $options);
         } catch (ClientException $exception) {
-            throw $this->determineException($exception);
+            if (
+                $isRefreshed
+                || ! $this->tokenProvider instanceof RefreshableTokenProvider
+                || ! $this->tokenProvider->refresh($exception)
+            ) {
+                throw $this->determineException($exception);
+            }
+
+            return $this->rpcEndpointRequest($endpoint, $parameters, true);
         }
 
-        $response = json_decode($response->getBody(), true);
-
-        return $response ?? [];
+        return json_decode($response->getBody(), true) ?? [];
     }
 
     protected function determineException(ClientException $exception): Exception
@@ -669,7 +686,7 @@ class Client
     /**
      * @param $contents
      *
-     * @return \GuzzleHttp\Psr7\PumpStream|\GuzzleHttp\Psr7\Stream
+     * @return \GuzzleHttp\Psr7\PumpStream|\GuzzleHttp\Psr7\Stream|StreamInterface
      */
     protected function getStream($contents)
     {
@@ -685,7 +702,7 @@ class Client
             });
         }
 
-        return Psr7\stream_for($contents);
+        return Psr7\Utils::streamFor($contents);
     }
 
     /**
@@ -702,7 +719,6 @@ class Client
     public function setAccessToken(string $accessToken): self
     {
         $this->tokenProvider = new InMemoryTokenProvider($accessToken);
-        // $this->accessToken = $accessToken;
 
         return $this;
     }

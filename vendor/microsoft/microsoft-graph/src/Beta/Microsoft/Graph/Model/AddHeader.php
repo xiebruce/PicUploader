@@ -27,12 +27,12 @@ class AddHeader extends MarkContent
     /**
     * Gets the alignment
     *
-    * @return Alignment The alignment
+    * @return Alignment|null The alignment
     */
     public function getAlignment()
     {
         if (array_key_exists("alignment", $this->_propDict)) {
-            if (is_a($this->_propDict["alignment"], "\Beta\Microsoft\Graph\Model\Alignment")) {
+            if (is_a($this->_propDict["alignment"], "\Beta\Microsoft\Graph\Model\Alignment") || is_null($this->_propDict["alignment"])) {
                 return $this->_propDict["alignment"];
             } else {
                 $this->_propDict["alignment"] = new Alignment($this->_propDict["alignment"]);
@@ -57,7 +57,7 @@ class AddHeader extends MarkContent
     /**
     * Gets the margin
     *
-    * @return int The margin
+    * @return int|null The margin
     */
     public function getMargin()
     {

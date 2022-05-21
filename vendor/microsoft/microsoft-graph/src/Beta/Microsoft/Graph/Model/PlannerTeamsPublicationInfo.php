@@ -28,12 +28,12 @@ class PlannerTeamsPublicationInfo extends Entity
     * Gets the lastModifiedDateTime
     * The date and time when this task was last modified by the publication process. Read-only.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -60,7 +60,7 @@ class PlannerTeamsPublicationInfo extends Entity
     * Gets the publicationId
     * The identifier of the publication. Read-only.
     *
-    * @return string The publicationId
+    * @return string|null The publicationId
     */
     public function getPublicationId()
     {
@@ -88,7 +88,7 @@ class PlannerTeamsPublicationInfo extends Entity
     * Gets the publishedToPlanId
     * The identifier of the plannerPlan this task was originally placed in. Read-only.
     *
-    * @return string The publishedToPlanId
+    * @return string|null The publishedToPlanId
     */
     public function getPublishedToPlanId()
     {
@@ -116,7 +116,7 @@ class PlannerTeamsPublicationInfo extends Entity
     * Gets the publishingTeamId
     * The identifier of the team that initiated the publication process. Read-only.
     *
-    * @return string The publishingTeamId
+    * @return string|null The publishingTeamId
     */
     public function getPublishingTeamId()
     {
@@ -144,7 +144,7 @@ class PlannerTeamsPublicationInfo extends Entity
     * Gets the publishingTeamName
     * The display name of the team that initiated the publication process. This display name is for reference only, and might not represent the most up-to-date name of the team. Read-only.
     *
-    * @return string The publishingTeamName
+    * @return string|null The publishingTeamName
     */
     public function getPublishingTeamName()
     {

@@ -27,7 +27,7 @@ class Photo extends Entity
     * Gets the cameraMake
     * Camera manufacturer. Read-only.
     *
-    * @return string The cameraMake
+    * @return string|null The cameraMake
     */
     public function getCameraMake()
     {
@@ -55,7 +55,7 @@ class Photo extends Entity
     * Gets the cameraModel
     * Camera model. Read-only.
     *
-    * @return string The cameraModel
+    * @return string|null The cameraModel
     */
     public function getCameraModel()
     {
@@ -83,7 +83,7 @@ class Photo extends Entity
     * Gets the exposureDenominator
     * The denominator for the exposure time fraction from the camera. Read-only.
     *
-    * @return float The exposureDenominator
+    * @return float|null The exposureDenominator
     */
     public function getExposureDenominator()
     {
@@ -111,7 +111,7 @@ class Photo extends Entity
     * Gets the exposureNumerator
     * The numerator for the exposure time fraction from the camera. Read-only.
     *
-    * @return float The exposureNumerator
+    * @return float|null The exposureNumerator
     */
     public function getExposureNumerator()
     {
@@ -139,7 +139,7 @@ class Photo extends Entity
     * Gets the fNumber
     * The F-stop value from the camera. Read-only.
     *
-    * @return float The fNumber
+    * @return float|null The fNumber
     */
     public function getFNumber()
     {
@@ -167,7 +167,7 @@ class Photo extends Entity
     * Gets the focalLength
     * The focal length from the camera. Read-only.
     *
-    * @return float The focalLength
+    * @return float|null The focalLength
     */
     public function getFocalLength()
     {
@@ -195,7 +195,7 @@ class Photo extends Entity
     * Gets the iso
     * The ISO value from the camera. Read-only.
     *
-    * @return int The iso
+    * @return int|null The iso
     */
     public function getIso()
     {
@@ -223,7 +223,7 @@ class Photo extends Entity
     * Gets the orientation
     * The orientation value from the camera. Writable on OneDrive Personal.
     *
-    * @return int The orientation
+    * @return int|null The orientation
     */
     public function getOrientation()
     {
@@ -252,12 +252,12 @@ class Photo extends Entity
     * Gets the takenDateTime
     * The date and time the photo was taken in UTC time. Read-only.
     *
-    * @return \DateTime The takenDateTime
+    * @return \DateTime|null The takenDateTime
     */
     public function getTakenDateTime()
     {
         if (array_key_exists("takenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["takenDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["takenDateTime"], "\DateTime") || is_null($this->_propDict["takenDateTime"])) {
                 return $this->_propDict["takenDateTime"];
             } else {
                 $this->_propDict["takenDateTime"] = new \DateTime($this->_propDict["takenDateTime"]);

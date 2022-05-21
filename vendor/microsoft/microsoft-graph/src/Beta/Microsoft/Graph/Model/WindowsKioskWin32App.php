@@ -27,7 +27,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
     * Gets the classicAppPath
     * This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
     *
-    * @return string The classicAppPath
+    * @return string|null The classicAppPath
     */
     public function getClassicAppPath()
     {
@@ -55,7 +55,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
     * Gets the edgeKiosk
     * Edge kiosk (url) for Edge kiosk mode
     *
-    * @return string The edgeKiosk
+    * @return string|null The edgeKiosk
     */
     public function getEdgeKiosk()
     {
@@ -83,7 +83,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
     * Gets the edgeKioskIdleTimeoutMinutes
     * Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
     *
-    * @return int The edgeKioskIdleTimeoutMinutes
+    * @return int|null The edgeKioskIdleTimeoutMinutes
     */
     public function getEdgeKioskIdleTimeoutMinutes()
     {
@@ -112,12 +112,12 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
     * Gets the edgeKioskType
     * Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
     *
-    * @return WindowsEdgeKioskType The edgeKioskType
+    * @return WindowsEdgeKioskType|null The edgeKioskType
     */
     public function getEdgeKioskType()
     {
         if (array_key_exists("edgeKioskType", $this->_propDict)) {
-            if (is_a($this->_propDict["edgeKioskType"], "\Beta\Microsoft\Graph\Model\WindowsEdgeKioskType")) {
+            if (is_a($this->_propDict["edgeKioskType"], "\Beta\Microsoft\Graph\Model\WindowsEdgeKioskType") || is_null($this->_propDict["edgeKioskType"])) {
                 return $this->_propDict["edgeKioskType"];
             } else {
                 $this->_propDict["edgeKioskType"] = new WindowsEdgeKioskType($this->_propDict["edgeKioskType"]);
@@ -144,7 +144,7 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
     * Gets the edgeNoFirstRun
     * Edge first run flag for Edge kiosk mode
     *
-    * @return bool The edgeNoFirstRun
+    * @return bool|null The edgeNoFirstRun
     */
     public function getEdgeNoFirstRun()
     {

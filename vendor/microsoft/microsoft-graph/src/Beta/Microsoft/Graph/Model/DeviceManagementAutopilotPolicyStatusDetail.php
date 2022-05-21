@@ -28,12 +28,12 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
     * Gets the complianceStatus
     * The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
     *
-    * @return DeviceManagementAutopilotPolicyComplianceStatus The complianceStatus
+    * @return DeviceManagementAutopilotPolicyComplianceStatus|null The complianceStatus
     */
     public function getComplianceStatus()
     {
         if (array_key_exists("complianceStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["complianceStatus"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyComplianceStatus")) {
+            if (is_a($this->_propDict["complianceStatus"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyComplianceStatus") || is_null($this->_propDict["complianceStatus"])) {
                 return $this->_propDict["complianceStatus"];
             } else {
                 $this->_propDict["complianceStatus"] = new DeviceManagementAutopilotPolicyComplianceStatus($this->_propDict["complianceStatus"]);
@@ -42,7 +42,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the complianceStatus
     * The policy compliance status. Possible values are: unknown, compliant, installed, notCompliant, notInstalled, error.
@@ -56,12 +56,12 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         $this->_propDict["complianceStatus"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The friendly name of the policy.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -71,7 +71,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The friendly name of the policy.
@@ -85,12 +85,12 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the errorCode
     * The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
     *
-    * @return int The errorCode
+    * @return int|null The errorCode
     */
     public function getErrorCode()
     {
@@ -100,7 +100,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorCode
     * The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
@@ -114,17 +114,17 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         $this->_propDict["errorCode"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the lastReportedDateTime
     * Timestamp of the reported policy status
     *
-    * @return \DateTime The lastReportedDateTime
+    * @return \DateTime|null The lastReportedDateTime
     */
     public function getLastReportedDateTime()
     {
         if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -133,7 +133,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastReportedDateTime
     * Timestamp of the reported policy status
@@ -147,17 +147,17 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         $this->_propDict["lastReportedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the policyType
     * The type of policy. Possible values are: unknown, application, appModel, configurationPolicy.
     *
-    * @return DeviceManagementAutopilotPolicyType The policyType
+    * @return DeviceManagementAutopilotPolicyType|null The policyType
     */
     public function getPolicyType()
     {
         if (array_key_exists("policyType", $this->_propDict)) {
-            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyType")) {
+            if (is_a($this->_propDict["policyType"], "\Beta\Microsoft\Graph\Model\DeviceManagementAutopilotPolicyType") || is_null($this->_propDict["policyType"])) {
                 return $this->_propDict["policyType"];
             } else {
                 $this->_propDict["policyType"] = new DeviceManagementAutopilotPolicyType($this->_propDict["policyType"]);
@@ -166,7 +166,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the policyType
     * The type of policy. Possible values are: unknown, application, appModel, configurationPolicy.
@@ -180,12 +180,12 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         $this->_propDict["policyType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the trackedOnEnrollmentStatus
     * Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
     *
-    * @return bool The trackedOnEnrollmentStatus
+    * @return bool|null The trackedOnEnrollmentStatus
     */
     public function getTrackedOnEnrollmentStatus()
     {
@@ -195,7 +195,7 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the trackedOnEnrollmentStatus
     * Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
@@ -209,5 +209,5 @@ class DeviceManagementAutopilotPolicyStatusDetail extends Entity
         $this->_propDict["trackedOnEnrollmentStatus"] = boolval($val);
         return $this;
     }
-    
+
 }

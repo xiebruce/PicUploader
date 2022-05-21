@@ -25,9 +25,9 @@ class ResourceAccess extends Entity
 {
     /**
     * Gets the id
-    * The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.
+    * The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.
     *
-    * @return string The id
+    * @return string|null The id
     */
     public function getId()
     {
@@ -40,7 +40,7 @@ class ResourceAccess extends Entity
 
     /**
     * Sets the id
-    * The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.
+    * The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.
     *
     * @param string $val The value of the id
     *
@@ -53,9 +53,9 @@ class ResourceAccess extends Entity
     }
     /**
     * Gets the type
-    * Specifies whether the id property references an oauth2PermissionScopes or an appRole. Possible values are Scope or Role.
+    * Specifies whether the id property references a delegated permission or an app role (application permission). The possible values are: Scope (for delegated permissions) or Role (for app roles).
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -68,7 +68,7 @@ class ResourceAccess extends Entity
 
     /**
     * Sets the type
-    * Specifies whether the id property references an oauth2PermissionScopes or an appRole. Possible values are Scope or Role.
+    * Specifies whether the id property references a delegated permission or an app role (application permission). The possible values are: Scope (for delegated permissions) or Role (for app roles).
     *
     * @param string $val The value of the type
     *

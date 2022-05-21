@@ -27,12 +27,12 @@ class ExactMatchUploadAgent extends Entity
     /**
     * Gets the creationDateTime
     *
-    * @return \DateTime The creationDateTime
+    * @return \DateTime|null The creationDateTime
     */
     public function getCreationDateTime()
     {
         if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -41,7 +41,7 @@ class ExactMatchUploadAgent extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the creationDateTime
     *
@@ -54,11 +54,11 @@ class ExactMatchUploadAgent extends Entity
         $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -68,7 +68,7 @@ class ExactMatchUploadAgent extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     *
@@ -81,5 +81,5 @@ class ExactMatchUploadAgent extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
 }

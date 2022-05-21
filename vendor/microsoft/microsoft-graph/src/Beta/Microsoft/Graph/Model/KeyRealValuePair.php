@@ -27,7 +27,7 @@ class KeyRealValuePair extends KeyTypedValuePair
     * Gets the value
     * The real (floating-point) value of the key-value pair.
     *
-    * @return float The value
+    * @return float|null The value
     */
     public function getValue()
     {

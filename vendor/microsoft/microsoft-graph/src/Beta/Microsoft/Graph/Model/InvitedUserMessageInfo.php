@@ -28,12 +28,12 @@ class InvitedUserMessageInfo extends Entity
     * Gets the ccRecipients
     * Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.
     *
-    * @return Recipient The ccRecipients
+    * @return Recipient|null The ccRecipients
     */
     public function getCcRecipients()
     {
         if (array_key_exists("ccRecipients", $this->_propDict)) {
-            if (is_a($this->_propDict["ccRecipients"], "\Beta\Microsoft\Graph\Model\Recipient")) {
+            if (is_a($this->_propDict["ccRecipients"], "\Beta\Microsoft\Graph\Model\Recipient") || is_null($this->_propDict["ccRecipients"])) {
                 return $this->_propDict["ccRecipients"];
             } else {
                 $this->_propDict["ccRecipients"] = new Recipient($this->_propDict["ccRecipients"]);
@@ -60,7 +60,7 @@ class InvitedUserMessageInfo extends Entity
     * Gets the customizedMessageBody
     * Customized message body you want to send if you don't want the default message.
     *
-    * @return string The customizedMessageBody
+    * @return string|null The customizedMessageBody
     */
     public function getCustomizedMessageBody()
     {
@@ -88,7 +88,7 @@ class InvitedUserMessageInfo extends Entity
     * Gets the messageLanguage
     * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
     *
-    * @return string The messageLanguage
+    * @return string|null The messageLanguage
     */
     public function getMessageLanguage()
     {

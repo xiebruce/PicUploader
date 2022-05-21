@@ -28,12 +28,12 @@ class ShareAction extends Entity
     * Gets the recipients
     * The identities the item was shared with in this action.
     *
-    * @return IdentitySet The recipients
+    * @return IdentitySet|null The recipients
     */
     public function getRecipients()
     {
         if (array_key_exists("recipients", $this->_propDict)) {
-            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["recipients"])) {
                 return $this->_propDict["recipients"];
             } else {
                 $this->_propDict["recipients"] = new IdentitySet($this->_propDict["recipients"]);

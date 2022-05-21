@@ -28,12 +28,12 @@ class DomainState extends Entity
     * Gets the lastActionDateTime
     * Timestamp for when the last activity occurred. The value is updated when an operation is scheduled, the asynchronous task starts, and when the operation completes.
     *
-    * @return \DateTime The lastActionDateTime
+    * @return \DateTime|null The lastActionDateTime
     */
     public function getLastActionDateTime()
     {
         if (array_key_exists("lastActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
                 return $this->_propDict["lastActionDateTime"];
             } else {
                 $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
@@ -60,7 +60,7 @@ class DomainState extends Entity
     * Gets the operation
     * Type of asynchronous operation. The values can be ForceDelete or Verification
     *
-    * @return string The operation
+    * @return string|null The operation
     */
     public function getOperation()
     {
@@ -88,7 +88,7 @@ class DomainState extends Entity
     * Gets the status
     * Current status of the operation.  Scheduled - Operation has been scheduled but has not started.  InProgress - Task has started and is in progress.  Failed - Operation has failed.
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {

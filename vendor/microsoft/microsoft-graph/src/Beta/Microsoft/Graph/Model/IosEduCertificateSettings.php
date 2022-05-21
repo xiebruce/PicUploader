@@ -27,7 +27,7 @@ class IosEduCertificateSettings extends Entity
     * Gets the certFileName
     * File name to display in UI.
     *
-    * @return string The certFileName
+    * @return string|null The certFileName
     */
     public function getCertFileName()
     {
@@ -55,7 +55,7 @@ class IosEduCertificateSettings extends Entity
     * Gets the certificateTemplateName
     * PKCS Certificate Template Name.
     *
-    * @return string The certificateTemplateName
+    * @return string|null The certificateTemplateName
     */
     public function getCertificateTemplateName()
     {
@@ -84,12 +84,12 @@ class IosEduCertificateSettings extends Entity
     * Gets the certificateValidityPeriodScale
     * Scale for the Certificate Validity Period. Possible values are: days, months, years.
     *
-    * @return CertificateValidityPeriodScale The certificateValidityPeriodScale
+    * @return CertificateValidityPeriodScale|null The certificateValidityPeriodScale
     */
     public function getCertificateValidityPeriodScale()
     {
         if (array_key_exists("certificateValidityPeriodScale", $this->_propDict)) {
-            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale")) {
+            if (is_a($this->_propDict["certificateValidityPeriodScale"], "\Beta\Microsoft\Graph\Model\CertificateValidityPeriodScale") || is_null($this->_propDict["certificateValidityPeriodScale"])) {
                 return $this->_propDict["certificateValidityPeriodScale"];
             } else {
                 $this->_propDict["certificateValidityPeriodScale"] = new CertificateValidityPeriodScale($this->_propDict["certificateValidityPeriodScale"]);
@@ -116,7 +116,7 @@ class IosEduCertificateSettings extends Entity
     * Gets the certificateValidityPeriodValue
     * Value for the Certificate Validity Period.
     *
-    * @return int The certificateValidityPeriodValue
+    * @return int|null The certificateValidityPeriodValue
     */
     public function getCertificateValidityPeriodValue()
     {
@@ -144,7 +144,7 @@ class IosEduCertificateSettings extends Entity
     * Gets the certificationAuthority
     * PKCS Certification Authority.
     *
-    * @return string The certificationAuthority
+    * @return string|null The certificationAuthority
     */
     public function getCertificationAuthority()
     {
@@ -172,7 +172,7 @@ class IosEduCertificateSettings extends Entity
     * Gets the certificationAuthorityName
     * PKCS Certification Authority Name.
     *
-    * @return string The certificationAuthorityName
+    * @return string|null The certificationAuthorityName
     */
     public function getCertificationAuthorityName()
     {
@@ -200,7 +200,7 @@ class IosEduCertificateSettings extends Entity
     * Gets the renewalThresholdPercentage
     * Certificate renewal threshold percentage. Valid values 1 to 99
     *
-    * @return int The renewalThresholdPercentage
+    * @return int|null The renewalThresholdPercentage
     */
     public function getRenewalThresholdPercentage()
     {
@@ -229,15 +229,15 @@ class IosEduCertificateSettings extends Entity
     * Gets the trustedRootCertificate
     * Trusted Root Certificate.
     *
-    * @return \GuzzleHttp\Psr7\Stream The trustedRootCertificate
+    * @return \GuzzleHttp\Psr7\Stream|null The trustedRootCertificate
     */
     public function getTrustedRootCertificate()
     {
         if (array_key_exists("trustedRootCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["trustedRootCertificate"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["trustedRootCertificate"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["trustedRootCertificate"])) {
                 return $this->_propDict["trustedRootCertificate"];
             } else {
-                $this->_propDict["trustedRootCertificate"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["trustedRootCertificate"]);
+                $this->_propDict["trustedRootCertificate"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["trustedRootCertificate"]);
                 return $this->_propDict["trustedRootCertificate"];
             }
         }

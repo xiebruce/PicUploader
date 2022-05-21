@@ -28,12 +28,12 @@ class WindowsKioskAppBase extends Entity
     * Gets the appType
     * The app type. Possible values are: unknown, store, desktop, aumId.
     *
-    * @return WindowsKioskAppType The appType
+    * @return WindowsKioskAppType|null The appType
     */
     public function getAppType()
     {
         if (array_key_exists("appType", $this->_propDict)) {
-            if (is_a($this->_propDict["appType"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppType")) {
+            if (is_a($this->_propDict["appType"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppType") || is_null($this->_propDict["appType"])) {
                 return $this->_propDict["appType"];
             } else {
                 $this->_propDict["appType"] = new WindowsKioskAppType($this->_propDict["appType"]);
@@ -60,7 +60,7 @@ class WindowsKioskAppBase extends Entity
     * Gets the autoLaunch
     * Allow the app to be auto-launched in multi-app kiosk mode
     *
-    * @return bool The autoLaunch
+    * @return bool|null The autoLaunch
     */
     public function getAutoLaunch()
     {
@@ -88,7 +88,7 @@ class WindowsKioskAppBase extends Entity
     * Gets the name
     * Represents the friendly name of an app
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -117,12 +117,12 @@ class WindowsKioskAppBase extends Entity
     * Gets the startLayoutTileSize
     * The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
     *
-    * @return WindowsAppStartLayoutTileSize The startLayoutTileSize
+    * @return WindowsAppStartLayoutTileSize|null The startLayoutTileSize
     */
     public function getStartLayoutTileSize()
     {
         if (array_key_exists("startLayoutTileSize", $this->_propDict)) {
-            if (is_a($this->_propDict["startLayoutTileSize"], "\Beta\Microsoft\Graph\Model\WindowsAppStartLayoutTileSize")) {
+            if (is_a($this->_propDict["startLayoutTileSize"], "\Beta\Microsoft\Graph\Model\WindowsAppStartLayoutTileSize") || is_null($this->_propDict["startLayoutTileSize"])) {
                 return $this->_propDict["startLayoutTileSize"];
             } else {
                 $this->_propDict["startLayoutTileSize"] = new WindowsAppStartLayoutTileSize($this->_propDict["startLayoutTileSize"]);

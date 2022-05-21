@@ -27,12 +27,12 @@ class OnenotePagePreview extends Entity
     /**
     * Gets the links
     *
-    * @return OnenotePagePreviewLinks The links
+    * @return OnenotePagePreviewLinks|null The links
     */
     public function getLinks()
     {
         if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "\Beta\Microsoft\Graph\Model\OnenotePagePreviewLinks")) {
+            if (is_a($this->_propDict["links"], "\Beta\Microsoft\Graph\Model\OnenotePagePreviewLinks") || is_null($this->_propDict["links"])) {
                 return $this->_propDict["links"];
             } else {
                 $this->_propDict["links"] = new OnenotePagePreviewLinks($this->_propDict["links"]);
@@ -57,7 +57,7 @@ class OnenotePagePreview extends Entity
     /**
     * Gets the previewText
     *
-    * @return string The previewText
+    * @return string|null The previewText
     */
     public function getPreviewText()
     {

@@ -27,7 +27,7 @@ class ProvisionedPlan extends Entity
     * Gets the capabilityStatus
     * For example, 'Enabled'.
     *
-    * @return string The capabilityStatus
+    * @return string|null The capabilityStatus
     */
     public function getCapabilityStatus()
     {
@@ -55,7 +55,7 @@ class ProvisionedPlan extends Entity
     * Gets the provisioningStatus
     * For example, 'Success'.
     *
-    * @return string The provisioningStatus
+    * @return string|null The provisioningStatus
     */
     public function getProvisioningStatus()
     {
@@ -83,7 +83,7 @@ class ProvisionedPlan extends Entity
     * Gets the service
     * The name of the service; for example, 'AccessControlS2S'
     *
-    * @return string The service
+    * @return string|null The service
     */
     public function getService()
     {

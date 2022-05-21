@@ -26,7 +26,7 @@ class AutoLabeling extends Entity
     /**
     * Gets the message
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -52,7 +52,7 @@ class AutoLabeling extends Entity
     /**
     * Gets the sensitiveTypeIds
     *
-    * @return string The sensitiveTypeIds
+    * @return string|null The sensitiveTypeIds
     */
     public function getSensitiveTypeIds()
     {

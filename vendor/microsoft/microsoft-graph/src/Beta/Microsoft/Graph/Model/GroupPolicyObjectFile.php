@@ -28,7 +28,7 @@ class GroupPolicyObjectFile extends Entity
     * Gets the content
     * The Group Policy Object file content.
     *
-    * @return string The content
+    * @return string|null The content
     */
     public function getContent()
     {
@@ -38,7 +38,7 @@ class GroupPolicyObjectFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the content
     * The Group Policy Object file content.
@@ -52,17 +52,17 @@ class GroupPolicyObjectFile extends Entity
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * The date and time at which the GroupPolicy was first uploaded.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -71,7 +71,7 @@ class GroupPolicyObjectFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * The date and time at which the GroupPolicy was first uploaded.
@@ -85,12 +85,12 @@ class GroupPolicyObjectFile extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the groupPolicyObjectId
     * The Group Policy Object GUID from GPO Xml content
     *
-    * @return string The groupPolicyObjectId
+    * @return string|null The groupPolicyObjectId
     */
     public function getGroupPolicyObjectId()
     {
@@ -100,7 +100,7 @@ class GroupPolicyObjectFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the groupPolicyObjectId
     * The Group Policy Object GUID from GPO Xml content
@@ -114,17 +114,17 @@ class GroupPolicyObjectFile extends Entity
         $this->_propDict["groupPolicyObjectId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * The date and time at which the GroupPolicyObjectFile was last modified.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -133,7 +133,7 @@ class GroupPolicyObjectFile extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * The date and time at which the GroupPolicyObjectFile was last modified.
@@ -147,12 +147,12 @@ class GroupPolicyObjectFile extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ouDistinguishedName
     * The distinguished name of the OU.
     *
-    * @return string The ouDistinguishedName
+    * @return string|null The ouDistinguishedName
     */
     public function getOuDistinguishedName()
     {
@@ -162,7 +162,7 @@ class GroupPolicyObjectFile extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the ouDistinguishedName
     * The distinguished name of the OU.
@@ -176,5 +176,5 @@ class GroupPolicyObjectFile extends Entity
         $this->_propDict["ouDistinguishedName"] = $val;
         return $this;
     }
-    
+
 }

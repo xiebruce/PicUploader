@@ -26,14 +26,14 @@ class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
 {
     /**
     * Gets the allowExternalIdToUseEmailOtp
-    * Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in March 2021.
+    * Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021.
     *
-    * @return ExternalEmailOtpState The allowExternalIdToUseEmailOtp
+    * @return ExternalEmailOtpState|null The allowExternalIdToUseEmailOtp
     */
     public function getAllowExternalIdToUseEmailOtp()
     {
         if (array_key_exists("allowExternalIdToUseEmailOtp", $this->_propDict)) {
-            if (is_a($this->_propDict["allowExternalIdToUseEmailOtp"], "\Beta\Microsoft\Graph\Model\ExternalEmailOtpState")) {
+            if (is_a($this->_propDict["allowExternalIdToUseEmailOtp"], "\Beta\Microsoft\Graph\Model\ExternalEmailOtpState") || is_null($this->_propDict["allowExternalIdToUseEmailOtp"])) {
                 return $this->_propDict["allowExternalIdToUseEmailOtp"];
             } else {
                 $this->_propDict["allowExternalIdToUseEmailOtp"] = new ExternalEmailOtpState($this->_propDict["allowExternalIdToUseEmailOtp"]);
@@ -42,10 +42,10 @@ class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         }
         return null;
     }
-    
+
     /**
     * Sets the allowExternalIdToUseEmailOtp
-    * Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in March 2021.
+    * Determines whether email OTP is usable by external users for authentication. Possible values are: default, enabled, disabled, unknownFutureValue. Tenants in the default state who did not use public preview will automatically have email OTP enabled beginning in October 2021.
     *
     * @param ExternalEmailOtpState $val The allowExternalIdToUseEmailOtp
     *
@@ -56,13 +56,13 @@ class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
         $this->_propDict["allowExternalIdToUseEmailOtp"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the includeTargets
     * A collection of users or groups who are enabled to use the authentication method.
      *
-     * @return array The includeTargets
+     * @return array|null The includeTargets
      */
     public function getIncludeTargets()
     {
@@ -72,19 +72,19 @@ class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the includeTargets
     * A collection of users or groups who are enabled to use the authentication method.
     *
-    * @param AuthenticationMethodTarget $val The includeTargets
+    * @param AuthenticationMethodTarget[] $val The includeTargets
     *
     * @return EmailAuthenticationMethodConfiguration
     */
     public function setIncludeTargets($val)
     {
-		$this->_propDict["includeTargets"] = $val;
+        $this->_propDict["includeTargets"] = $val;
         return $this;
     }
-    
+
 }

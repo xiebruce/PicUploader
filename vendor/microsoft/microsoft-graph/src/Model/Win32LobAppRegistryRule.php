@@ -26,9 +26,11 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppRegistryRule");
     }
 
@@ -36,7 +38,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     * Gets the check32BitOn64System
     * A value indicating whether to search the 32-bit registry on 64-bit systems.
     *
-    * @return bool The check32BitOn64System
+    * @return bool|null The check32BitOn64System
     */
     public function getCheck32BitOn64System()
     {
@@ -64,7 +66,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     * Gets the comparisonValue
     * The registry comparison value.
     *
-    * @return string The comparisonValue
+    * @return string|null The comparisonValue
     */
     public function getComparisonValue()
     {
@@ -92,7 +94,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     * Gets the keyPath
     * The full path of the registry entry containing the value to detect.
     *
-    * @return string The keyPath
+    * @return string|null The keyPath
     */
     public function getKeyPath()
     {
@@ -121,12 +123,12 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     * Gets the operationType
     * The registry operation type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
     *
-    * @return Win32LobAppRegistryRuleOperationType The operationType
+    * @return Win32LobAppRegistryRuleOperationType|null The operationType
     */
     public function getOperationType()
     {
         if (array_key_exists("operationType", $this->_propDict)) {
-            if (is_a($this->_propDict["operationType"], "\Microsoft\Graph\Model\Win32LobAppRegistryRuleOperationType")) {
+            if (is_a($this->_propDict["operationType"], "\Microsoft\Graph\Model\Win32LobAppRegistryRuleOperationType") || is_null($this->_propDict["operationType"])) {
                 return $this->_propDict["operationType"];
             } else {
                 $this->_propDict["operationType"] = new Win32LobAppRegistryRuleOperationType($this->_propDict["operationType"]);
@@ -154,12 +156,12 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     * Gets the operator
     * The operator for registry detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
     *
-    * @return Win32LobAppRuleOperator The operator
+    * @return Win32LobAppRuleOperator|null The operator
     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Microsoft\Graph\Model\Win32LobAppRuleOperator")) {
+            if (is_a($this->_propDict["operator"], "\Microsoft\Graph\Model\Win32LobAppRuleOperator") || is_null($this->_propDict["operator"])) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Win32LobAppRuleOperator($this->_propDict["operator"]);
@@ -186,7 +188,7 @@ class Win32LobAppRegistryRule extends Win32LobAppRule
     * Gets the valueName
     * The name of the registry value to detect.
     *
-    * @return string The valueName
+    * @return string|null The valueName
     */
     public function getValueName()
     {

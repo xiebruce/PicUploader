@@ -27,7 +27,7 @@ class MacOSSystemExtension extends Entity
     * Gets the bundleId
     * Gets or sets the bundle identifier of the system extension.
     *
-    * @return string The bundleId
+    * @return string|null The bundleId
     */
     public function getBundleId()
     {
@@ -55,7 +55,7 @@ class MacOSSystemExtension extends Entity
     * Gets the teamIdentifier
     * Gets or sets the team identifier that was used to sign the system extension.
     *
-    * @return string The teamIdentifier
+    * @return string|null The teamIdentifier
     */
     public function getTeamIdentifier()
     {

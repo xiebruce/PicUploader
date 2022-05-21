@@ -28,12 +28,12 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
     * Gets the defaultItem
     * Localized string value identifying the default choice of the list of items.
     *
-    * @return GroupPolicyPresentationDropdownListItem The defaultItem
+    * @return GroupPolicyPresentationDropdownListItem|null The defaultItem
     */
     public function getDefaultItem()
     {
         if (array_key_exists("defaultItem", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultItem"], "\Beta\Microsoft\Graph\Model\GroupPolicyPresentationDropdownListItem")) {
+            if (is_a($this->_propDict["defaultItem"], "\Beta\Microsoft\Graph\Model\GroupPolicyPresentationDropdownListItem") || is_null($this->_propDict["defaultItem"])) {
                 return $this->_propDict["defaultItem"];
             } else {
                 $this->_propDict["defaultItem"] = new GroupPolicyPresentationDropdownListItem($this->_propDict["defaultItem"]);
@@ -42,7 +42,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
         }
         return null;
     }
-    
+
     /**
     * Sets the defaultItem
     * Localized string value identifying the default choice of the list of items.
@@ -56,13 +56,13 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
         $this->_propDict["defaultItem"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the items
     * Represents a set of localized display names and their associated values.
      *
-     * @return array The items
+     * @return array|null The items
      */
     public function getItems()
     {
@@ -72,26 +72,26 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the items
     * Represents a set of localized display names and their associated values.
     *
-    * @param GroupPolicyPresentationDropdownListItem $val The items
+    * @param GroupPolicyPresentationDropdownListItem[] $val The items
     *
     * @return GroupPolicyPresentationDropdownList
     */
     public function setItems($val)
     {
-		$this->_propDict["items"] = $val;
+        $this->_propDict["items"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the required
     * Requirement to enter a value in the parameter box. The default value is false.
     *
-    * @return bool The required
+    * @return bool|null The required
     */
     public function getRequired()
     {
@@ -101,7 +101,7 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the required
     * Requirement to enter a value in the parameter box. The default value is false.
@@ -115,5 +115,5 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyPresentation
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-    
+
 }

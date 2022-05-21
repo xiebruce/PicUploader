@@ -27,7 +27,7 @@ class UnitOfMeasure extends Entity
     /**
     * Gets the code
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -37,7 +37,7 @@ class UnitOfMeasure extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the code
     *
@@ -50,11 +50,11 @@ class UnitOfMeasure extends Entity
         $this->_propDict["code"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -64,7 +64,7 @@ class UnitOfMeasure extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -77,11 +77,11 @@ class UnitOfMeasure extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the internationalStandardCode
     *
-    * @return string The internationalStandardCode
+    * @return string|null The internationalStandardCode
     */
     public function getInternationalStandardCode()
     {
@@ -91,7 +91,7 @@ class UnitOfMeasure extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the internationalStandardCode
     *
@@ -104,16 +104,16 @@ class UnitOfMeasure extends Entity
         $this->_propDict["internationalStandardCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -122,7 +122,7 @@ class UnitOfMeasure extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -135,5 +135,5 @@ class UnitOfMeasure extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
 }

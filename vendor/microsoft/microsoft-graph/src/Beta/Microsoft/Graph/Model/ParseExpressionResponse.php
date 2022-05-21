@@ -28,12 +28,12 @@ class ParseExpressionResponse extends Entity
     * Gets the error
     * Error details, if expression evaluation resulted in an error.
     *
-    * @return PublicError The error
+    * @return PublicError|null The error
     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError")) {
+            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new PublicError($this->_propDict["error"]);
@@ -60,7 +60,7 @@ class ParseExpressionResponse extends Entity
     * Gets the evaluationResult
     * A collection of values produced by the evaluation of the expression.
     *
-    * @return string The evaluationResult
+    * @return string|null The evaluationResult
     */
     public function getEvaluationResult()
     {
@@ -88,7 +88,7 @@ class ParseExpressionResponse extends Entity
     * Gets the evaluationSucceeded
     * true if the evaluation was successful.
     *
-    * @return bool The evaluationSucceeded
+    * @return bool|null The evaluationSucceeded
     */
     public function getEvaluationSucceeded()
     {
@@ -117,12 +117,12 @@ class ParseExpressionResponse extends Entity
     * Gets the parsedExpression
     * An attributeMappingSource object representing the parsed expression.
     *
-    * @return AttributeMappingSource The parsedExpression
+    * @return AttributeMappingSource|null The parsedExpression
     */
     public function getParsedExpression()
     {
         if (array_key_exists("parsedExpression", $this->_propDict)) {
-            if (is_a($this->_propDict["parsedExpression"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource")) {
+            if (is_a($this->_propDict["parsedExpression"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource") || is_null($this->_propDict["parsedExpression"])) {
                 return $this->_propDict["parsedExpression"];
             } else {
                 $this->_propDict["parsedExpression"] = new AttributeMappingSource($this->_propDict["parsedExpression"]);
@@ -149,7 +149,7 @@ class ParseExpressionResponse extends Entity
     * Gets the parsingSucceeded
     * true if the expression was parsed successfully.
     *
-    * @return bool The parsingSucceeded
+    * @return bool|null The parsingSucceeded
     */
     public function getParsingSucceeded()
     {

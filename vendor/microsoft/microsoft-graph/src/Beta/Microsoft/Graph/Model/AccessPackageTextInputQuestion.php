@@ -26,9 +26,11 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.accessPackageTextInputQuestion");
     }
 
@@ -36,7 +38,7 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion
     * Gets the isSingleLineQuestion
     * Indicates whether the answer will be in single or multiple line format.
     *
-    * @return bool The isSingleLineQuestion
+    * @return bool|null The isSingleLineQuestion
     */
     public function getIsSingleLineQuestion()
     {

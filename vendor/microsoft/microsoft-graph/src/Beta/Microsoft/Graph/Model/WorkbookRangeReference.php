@@ -26,7 +26,7 @@ class WorkbookRangeReference extends Entity
     /**
     * Gets the address
     *
-    * @return string The address
+    * @return string|null The address
     */
     public function getAddress()
     {

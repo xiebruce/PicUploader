@@ -27,7 +27,7 @@ class ResourceAction extends Entity
     * Gets the allowedResourceActions
     * Allowed Actions
     *
-    * @return string The allowedResourceActions
+    * @return string|null The allowedResourceActions
     */
     public function getAllowedResourceActions()
     {
@@ -55,7 +55,7 @@ class ResourceAction extends Entity
     * Gets the notAllowedResourceActions
     * Not Allowed Actions.
     *
-    * @return string The notAllowedResourceActions
+    * @return string|null The notAllowedResourceActions
     */
     public function getNotAllowedResourceActions()
     {

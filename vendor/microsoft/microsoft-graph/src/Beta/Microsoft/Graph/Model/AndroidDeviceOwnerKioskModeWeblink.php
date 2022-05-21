@@ -27,7 +27,7 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
     * Gets the label
     * Display name for weblink
     *
-    * @return string The label
+    * @return string|null The label
     */
     public function getLabel()
     {
@@ -55,7 +55,7 @@ class AndroidDeviceOwnerKioskModeWeblink extends AndroidDeviceOwnerKioskModeFold
     * Gets the link
     * Link for weblink
     *
-    * @return string The link
+    * @return string|null The link
     */
     public function getLink()
     {

@@ -28,12 +28,12 @@ class ManagedAppRegistration extends Entity
     * Gets the appIdentifier
     * The app package Identifier
     *
-    * @return MobileAppIdentifier The appIdentifier
+    * @return MobileAppIdentifier|null The appIdentifier
     */
     public function getAppIdentifier()
     {
         if (array_key_exists("appIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["appIdentifier"], "\Beta\Microsoft\Graph\Model\MobileAppIdentifier")) {
+            if (is_a($this->_propDict["appIdentifier"], "\Beta\Microsoft\Graph\Model\MobileAppIdentifier") || is_null($this->_propDict["appIdentifier"])) {
                 return $this->_propDict["appIdentifier"];
             } else {
                 $this->_propDict["appIdentifier"] = new MobileAppIdentifier($this->_propDict["appIdentifier"]);
@@ -42,7 +42,7 @@ class ManagedAppRegistration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the appIdentifier
     * The app package Identifier
@@ -56,12 +56,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationVersion
     * App version
     *
-    * @return string The applicationVersion
+    * @return string|null The applicationVersion
     */
     public function getApplicationVersion()
     {
@@ -71,7 +71,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationVersion
     * App version
@@ -85,12 +85,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["applicationVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the azureADDeviceId
     * The Azure Active Directory Device identifier of the host device. Value could be empty even when the host device is Azure Active Directory registered.
     *
-    * @return string The azureADDeviceId
+    * @return string|null The azureADDeviceId
     */
     public function getAzureADDeviceId()
     {
@@ -100,7 +100,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the azureADDeviceId
     * The Azure Active Directory Device identifier of the host device. Value could be empty even when the host device is Azure Active Directory registered.
@@ -114,17 +114,17 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["azureADDeviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the createdDateTime
     * Date and time of creation
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -133,7 +133,7 @@ class ManagedAppRegistration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * Date and time of creation
@@ -147,12 +147,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceManufacturer
     * The device manufacturer for the current app registration
     *
-    * @return string The deviceManufacturer
+    * @return string|null The deviceManufacturer
     */
     public function getDeviceManufacturer()
     {
@@ -162,7 +162,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceManufacturer
     * The device manufacturer for the current app registration
@@ -176,12 +176,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["deviceManufacturer"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceModel
     * The device model for the current app registration
     *
-    * @return string The deviceModel
+    * @return string|null The deviceModel
     */
     public function getDeviceModel()
     {
@@ -191,7 +191,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceModel
     * The device model for the current app registration
@@ -205,12 +205,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["deviceModel"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceName
     * Host device name
     *
-    * @return string The deviceName
+    * @return string|null The deviceName
     */
     public function getDeviceName()
     {
@@ -220,7 +220,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceName
     * Host device name
@@ -234,12 +234,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceTag
     * App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
     *
-    * @return string The deviceTag
+    * @return string|null The deviceTag
     */
     public function getDeviceTag()
     {
@@ -249,7 +249,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceTag
     * App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.
@@ -263,12 +263,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["deviceTag"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceType
     * Host device type
     *
-    * @return string The deviceType
+    * @return string|null The deviceType
     */
     public function getDeviceType()
     {
@@ -278,7 +278,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceType
     * Host device type
@@ -292,13 +292,13 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["deviceType"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the flaggedReasons
     * Zero or more reasons an app registration is flagged. E.g. app running on rooted device
      *
-     * @return array The flaggedReasons
+     * @return array|null The flaggedReasons
      */
     public function getFlaggedReasons()
     {
@@ -308,31 +308,31 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the flaggedReasons
     * Zero or more reasons an app registration is flagged. E.g. app running on rooted device
     *
-    * @param ManagedAppFlaggedReason $val The flaggedReasons
+    * @param ManagedAppFlaggedReason[] $val The flaggedReasons
     *
     * @return ManagedAppRegistration
     */
     public function setFlaggedReasons($val)
     {
-		$this->_propDict["flaggedReasons"] = $val;
+        $this->_propDict["flaggedReasons"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSyncDateTime
     * Date and time of last the app synced with management service.
     *
-    * @return \DateTime The lastSyncDateTime
+    * @return \DateTime|null The lastSyncDateTime
     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -341,7 +341,7 @@ class ManagedAppRegistration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSyncDateTime
     * Date and time of last the app synced with management service.
@@ -355,12 +355,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managedDeviceId
     * The Managed Device identifier of the host device. Value could be empty even when the host device is managed.
     *
-    * @return string The managedDeviceId
+    * @return string|null The managedDeviceId
     */
     public function getManagedDeviceId()
     {
@@ -370,7 +370,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the managedDeviceId
     * The Managed Device identifier of the host device. Value could be empty even when the host device is managed.
@@ -384,12 +384,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managementSdkVersion
     * App management SDK version
     *
-    * @return string The managementSdkVersion
+    * @return string|null The managementSdkVersion
     */
     public function getManagementSdkVersion()
     {
@@ -399,7 +399,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the managementSdkVersion
     * App management SDK version
@@ -413,12 +413,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["managementSdkVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the platformVersion
     * Operating System version
     *
-    * @return string The platformVersion
+    * @return string|null The platformVersion
     */
     public function getPlatformVersion()
     {
@@ -428,7 +428,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the platformVersion
     * Operating System version
@@ -442,12 +442,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["platformVersion"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * The user Id to who this app registration belongs.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -457,7 +457,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * The user Id to who this app registration belongs.
@@ -471,12 +471,12 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the version
     * Version of the entity.
     *
-    * @return string The version
+    * @return string|null The version
     */
     public function getVersion()
     {
@@ -486,7 +486,7 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * Version of the entity.
@@ -500,13 +500,13 @@ class ManagedAppRegistration extends Entity
         $this->_propDict["version"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the appliedPolicies
     * Zero or more policys already applied on the registered app when it last synchronized with managment service.
      *
-     * @return array The appliedPolicies
+     * @return array|null The appliedPolicies
      */
     public function getAppliedPolicies()
     {
@@ -516,27 +516,27 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the appliedPolicies
     * Zero or more policys already applied on the registered app when it last synchronized with managment service.
     *
-    * @param ManagedAppPolicy $val The appliedPolicies
+    * @param ManagedAppPolicy[] $val The appliedPolicies
     *
     * @return ManagedAppRegistration
     */
     public function setAppliedPolicies($val)
     {
-		$this->_propDict["appliedPolicies"] = $val;
+        $this->_propDict["appliedPolicies"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the intendedPolicies
     * Zero or more policies admin intended for the app as of now.
      *
-     * @return array The intendedPolicies
+     * @return array|null The intendedPolicies
      */
     public function getIntendedPolicies()
     {
@@ -546,27 +546,27 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the intendedPolicies
     * Zero or more policies admin intended for the app as of now.
     *
-    * @param ManagedAppPolicy $val The intendedPolicies
+    * @param ManagedAppPolicy[] $val The intendedPolicies
     *
     * @return ManagedAppRegistration
     */
     public function setIntendedPolicies($val)
     {
-		$this->_propDict["intendedPolicies"] = $val;
+        $this->_propDict["intendedPolicies"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the operations
     * Zero or more long running operations triggered on the app registration.
      *
-     * @return array The operations
+     * @return array|null The operations
      */
     public function getOperations()
     {
@@ -576,19 +576,19 @@ class ManagedAppRegistration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the operations
     * Zero or more long running operations triggered on the app registration.
     *
-    * @param ManagedAppOperation $val The operations
+    * @param ManagedAppOperation[] $val The operations
     *
     * @return ManagedAppRegistration
     */
     public function setOperations($val)
     {
-		$this->_propDict["operations"] = $val;
+        $this->_propDict["operations"] = $val;
         return $this;
     }
-    
+
 }

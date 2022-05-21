@@ -28,7 +28,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
     * Gets the accountName
     * Account name.
     *
-    * @return string The accountName
+    * @return string|null The accountName
     */
     public function getAccountName()
     {
@@ -38,7 +38,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the accountName
     * Account name.
@@ -52,17 +52,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["accountName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the authenticationMethod
     * Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
     *
-    * @return EasAuthenticationMethod The authenticationMethod
+    * @return EasAuthenticationMethod|null The authenticationMethod
     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\EasAuthenticationMethod")) {
+            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\EasAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new EasAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -71,7 +71,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the authenticationMethod
     * Authentication method for this Email profile. Possible values are: usernameAndPassword, certificate, derivedCredential.
@@ -85,12 +85,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the blockMovingMessagesToOtherEmailAccounts
     * Indicates whether or not to block moving messages to other email accounts.
     *
-    * @return bool The blockMovingMessagesToOtherEmailAccounts
+    * @return bool|null The blockMovingMessagesToOtherEmailAccounts
     */
     public function getBlockMovingMessagesToOtherEmailAccounts()
     {
@@ -100,7 +100,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the blockMovingMessagesToOtherEmailAccounts
     * Indicates whether or not to block moving messages to other email accounts.
@@ -114,12 +114,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["blockMovingMessagesToOtherEmailAccounts"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the blockSendingEmailFromThirdPartyApps
     * Indicates whether or not to block sending email from third party apps.
     *
-    * @return bool The blockSendingEmailFromThirdPartyApps
+    * @return bool|null The blockSendingEmailFromThirdPartyApps
     */
     public function getBlockSendingEmailFromThirdPartyApps()
     {
@@ -129,7 +129,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the blockSendingEmailFromThirdPartyApps
     * Indicates whether or not to block sending email from third party apps.
@@ -143,12 +143,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["blockSendingEmailFromThirdPartyApps"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the blockSyncingRecentlyUsedEmailAddresses
     * Indicates whether or not to block syncing recently used email addresses, for instance - when composing new email.
     *
-    * @return bool The blockSyncingRecentlyUsedEmailAddresses
+    * @return bool|null The blockSyncingRecentlyUsedEmailAddresses
     */
     public function getBlockSyncingRecentlyUsedEmailAddresses()
     {
@@ -158,7 +158,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the blockSyncingRecentlyUsedEmailAddresses
     * Indicates whether or not to block syncing recently used email addresses, for instance - when composing new email.
@@ -172,17 +172,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["blockSyncingRecentlyUsedEmailAddresses"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the durationOfEmailToSync
     * Duration of time email should be synced back to. . Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
     *
-    * @return EmailSyncDuration The durationOfEmailToSync
+    * @return EmailSyncDuration|null The durationOfEmailToSync
     */
     public function getDurationOfEmailToSync()
     {
         if (array_key_exists("durationOfEmailToSync", $this->_propDict)) {
-            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration")) {
+            if (is_a($this->_propDict["durationOfEmailToSync"], "\Beta\Microsoft\Graph\Model\EmailSyncDuration") || is_null($this->_propDict["durationOfEmailToSync"])) {
                 return $this->_propDict["durationOfEmailToSync"];
             } else {
                 $this->_propDict["durationOfEmailToSync"] = new EmailSyncDuration($this->_propDict["durationOfEmailToSync"]);
@@ -191,7 +191,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the durationOfEmailToSync
     * Duration of time email should be synced back to. . Possible values are: userDefined, oneDay, threeDays, oneWeek, twoWeeks, oneMonth, unlimited.
@@ -205,17 +205,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["durationOfEmailToSync"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the easServices
     * Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
     *
-    * @return EasServices The easServices
+    * @return EasServices|null The easServices
     */
     public function getEasServices()
     {
         if (array_key_exists("easServices", $this->_propDict)) {
-            if (is_a($this->_propDict["easServices"], "\Beta\Microsoft\Graph\Model\EasServices")) {
+            if (is_a($this->_propDict["easServices"], "\Beta\Microsoft\Graph\Model\EasServices") || is_null($this->_propDict["easServices"])) {
                 return $this->_propDict["easServices"];
             } else {
                 $this->_propDict["easServices"] = new EasServices($this->_propDict["easServices"]);
@@ -224,7 +224,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the easServices
     * Exchange data to sync. Possible values are: none, calendars, contacts, email, notes, reminders.
@@ -238,12 +238,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["easServices"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the easServicesUserOverrideEnabled
     * Allow users to change sync settings.
     *
-    * @return bool The easServicesUserOverrideEnabled
+    * @return bool|null The easServicesUserOverrideEnabled
     */
     public function getEasServicesUserOverrideEnabled()
     {
@@ -253,7 +253,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the easServicesUserOverrideEnabled
     * Allow users to change sync settings.
@@ -267,17 +267,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["easServicesUserOverrideEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the emailAddressSource
     * Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
     *
-    * @return UserEmailSource The emailAddressSource
+    * @return UserEmailSource|null The emailAddressSource
     */
     public function getEmailAddressSource()
     {
         if (array_key_exists("emailAddressSource", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource")) {
+            if (is_a($this->_propDict["emailAddressSource"], "\Beta\Microsoft\Graph\Model\UserEmailSource") || is_null($this->_propDict["emailAddressSource"])) {
                 return $this->_propDict["emailAddressSource"];
             } else {
                 $this->_propDict["emailAddressSource"] = new UserEmailSource($this->_propDict["emailAddressSource"]);
@@ -286,7 +286,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the emailAddressSource
     * Email attribute that is picked from AAD and injected into this profile before installing on the device. Possible values are: userPrincipalName, primarySmtpAddress.
@@ -300,17 +300,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["emailAddressSource"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the encryptionCertificateType
     * Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
     *
-    * @return EmailCertificateType The encryptionCertificateType
+    * @return EmailCertificateType|null The encryptionCertificateType
     */
     public function getEncryptionCertificateType()
     {
         if (array_key_exists("encryptionCertificateType", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptionCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType")) {
+            if (is_a($this->_propDict["encryptionCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType") || is_null($this->_propDict["encryptionCertificateType"])) {
                 return $this->_propDict["encryptionCertificateType"];
             } else {
                 $this->_propDict["encryptionCertificateType"] = new EmailCertificateType($this->_propDict["encryptionCertificateType"]);
@@ -319,7 +319,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the encryptionCertificateType
     * Encryption Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
@@ -333,12 +333,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["encryptionCertificateType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the hostName
     * Exchange location that (URL) that the native mail app connects to.
     *
-    * @return string The hostName
+    * @return string|null The hostName
     */
     public function getHostName()
     {
@@ -348,7 +348,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the hostName
     * Exchange location that (URL) that the native mail app connects to.
@@ -362,12 +362,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["hostName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the perAppVPNProfileId
     * Profile ID of the Per-App VPN policy to be used to access emails from the native Mail client
     *
-    * @return string The perAppVPNProfileId
+    * @return string|null The perAppVPNProfileId
     */
     public function getPerAppVPNProfileId()
     {
@@ -377,7 +377,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the perAppVPNProfileId
     * Profile ID of the Per-App VPN policy to be used to access emails from the native Mail client
@@ -391,12 +391,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["perAppVPNProfileId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the requireSmime
     * Indicates whether or not to use S/MIME certificate.
     *
-    * @return bool The requireSmime
+    * @return bool|null The requireSmime
     */
     public function getRequireSmime()
     {
@@ -406,7 +406,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the requireSmime
     * Indicates whether or not to use S/MIME certificate.
@@ -420,12 +420,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["requireSmime"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the requireSsl
     * Indicates whether or not to use SSL.
     *
-    * @return bool The requireSsl
+    * @return bool|null The requireSsl
     */
     public function getRequireSsl()
     {
@@ -435,7 +435,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the requireSsl
     * Indicates whether or not to use SSL.
@@ -449,17 +449,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["requireSsl"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the signingCertificateType
     * Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
     *
-    * @return EmailCertificateType The signingCertificateType
+    * @return EmailCertificateType|null The signingCertificateType
     */
     public function getSigningCertificateType()
     {
         if (array_key_exists("signingCertificateType", $this->_propDict)) {
-            if (is_a($this->_propDict["signingCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType")) {
+            if (is_a($this->_propDict["signingCertificateType"], "\Beta\Microsoft\Graph\Model\EmailCertificateType") || is_null($this->_propDict["signingCertificateType"])) {
                 return $this->_propDict["signingCertificateType"];
             } else {
                 $this->_propDict["signingCertificateType"] = new EmailCertificateType($this->_propDict["signingCertificateType"]);
@@ -468,7 +468,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the signingCertificateType
     * Signing Certificate type for this Email profile. Possible values are: none, certificate, derivedCredential.
@@ -482,12 +482,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["signingCertificateType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the smimeEnablePerMessageSwitch
     * Indicates whether or not to allow unencrypted emails.
     *
-    * @return bool The smimeEnablePerMessageSwitch
+    * @return bool|null The smimeEnablePerMessageSwitch
     */
     public function getSmimeEnablePerMessageSwitch()
     {
@@ -497,7 +497,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeEnablePerMessageSwitch
     * Indicates whether or not to allow unencrypted emails.
@@ -511,12 +511,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeEnablePerMessageSwitch"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smimeEncryptByDefaultEnabled
     * If set to true S/MIME encryption is enabled by default.
     *
-    * @return bool The smimeEncryptByDefaultEnabled
+    * @return bool|null The smimeEncryptByDefaultEnabled
     */
     public function getSmimeEncryptByDefaultEnabled()
     {
@@ -526,7 +526,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeEncryptByDefaultEnabled
     * If set to true S/MIME encryption is enabled by default.
@@ -540,12 +540,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeEncryptByDefaultEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smimeEncryptByDefaultUserOverrideEnabled
     * If set to true, the user can toggle the encryption by default setting.
     *
-    * @return bool The smimeEncryptByDefaultUserOverrideEnabled
+    * @return bool|null The smimeEncryptByDefaultUserOverrideEnabled
     */
     public function getSmimeEncryptByDefaultUserOverrideEnabled()
     {
@@ -555,7 +555,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeEncryptByDefaultUserOverrideEnabled
     * If set to true, the user can toggle the encryption by default setting.
@@ -569,12 +569,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeEncryptByDefaultUserOverrideEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smimeEncryptionCertificateUserOverrideEnabled
     * If set to true the user can select the S/MIME encryption identity.
     *
-    * @return bool The smimeEncryptionCertificateUserOverrideEnabled
+    * @return bool|null The smimeEncryptionCertificateUserOverrideEnabled
     */
     public function getSmimeEncryptionCertificateUserOverrideEnabled()
     {
@@ -584,7 +584,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeEncryptionCertificateUserOverrideEnabled
     * If set to true the user can select the S/MIME encryption identity.
@@ -598,12 +598,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeEncryptionCertificateUserOverrideEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smimeSigningCertificateUserOverrideEnabled
     * If set to true, the user can select the signing identity.
     *
-    * @return bool The smimeSigningCertificateUserOverrideEnabled
+    * @return bool|null The smimeSigningCertificateUserOverrideEnabled
     */
     public function getSmimeSigningCertificateUserOverrideEnabled()
     {
@@ -613,7 +613,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeSigningCertificateUserOverrideEnabled
     * If set to true, the user can select the signing identity.
@@ -627,12 +627,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeSigningCertificateUserOverrideEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smimeSigningEnabled
     * If set to true S/MIME signing is enabled for this account
     *
-    * @return bool The smimeSigningEnabled
+    * @return bool|null The smimeSigningEnabled
     */
     public function getSmimeSigningEnabled()
     {
@@ -642,7 +642,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeSigningEnabled
     * If set to true S/MIME signing is enabled for this account
@@ -656,12 +656,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeSigningEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smimeSigningUserOverrideEnabled
     * If set to true, the user can toggle S/MIME signing on or off.
     *
-    * @return bool The smimeSigningUserOverrideEnabled
+    * @return bool|null The smimeSigningUserOverrideEnabled
     */
     public function getSmimeSigningUserOverrideEnabled()
     {
@@ -671,7 +671,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the smimeSigningUserOverrideEnabled
     * If set to true, the user can toggle S/MIME signing on or off.
@@ -685,12 +685,12 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeSigningUserOverrideEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the useOAuth
     * Specifies whether the connection should use OAuth for authentication.
     *
-    * @return bool The useOAuth
+    * @return bool|null The useOAuth
     */
     public function getUseOAuth()
     {
@@ -700,7 +700,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
             return null;
         }
     }
-    
+
     /**
     * Sets the useOAuth
     * Specifies whether the connection should use OAuth for authentication.
@@ -714,17 +714,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["useOAuth"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the derivedCredentialSettings
     * Tenant level settings for the Derived Credentials to be used for authentication.
     *
-    * @return DeviceManagementDerivedCredentialSettings The derivedCredentialSettings
+    * @return DeviceManagementDerivedCredentialSettings|null The derivedCredentialSettings
     */
     public function getDerivedCredentialSettings()
     {
         if (array_key_exists("derivedCredentialSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings")) {
+            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
                 return $this->_propDict["derivedCredentialSettings"];
             } else {
                 $this->_propDict["derivedCredentialSettings"] = new DeviceManagementDerivedCredentialSettings($this->_propDict["derivedCredentialSettings"]);
@@ -733,7 +733,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the derivedCredentialSettings
     * Tenant level settings for the Derived Credentials to be used for authentication.
@@ -747,17 +747,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["derivedCredentialSettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the identityCertificate
     * Identity certificate.
     *
-    * @return IosCertificateProfileBase The identityCertificate
+    * @return IosCertificateProfileBase|null The identityCertificate
     */
     public function getIdentityCertificate()
     {
         if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase")) {
+            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new IosCertificateProfileBase($this->_propDict["identityCertificate"]);
@@ -766,7 +766,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the identityCertificate
     * Identity certificate.
@@ -780,17 +780,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["identityCertificate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the smimeEncryptionCertificate
     * S/MIME encryption certificate.
     *
-    * @return IosCertificateProfile The smimeEncryptionCertificate
+    * @return IosCertificateProfile|null The smimeEncryptionCertificate
     */
     public function getSmimeEncryptionCertificate()
     {
         if (array_key_exists("smimeEncryptionCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["smimeEncryptionCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile")) {
+            if (is_a($this->_propDict["smimeEncryptionCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile") || is_null($this->_propDict["smimeEncryptionCertificate"])) {
                 return $this->_propDict["smimeEncryptionCertificate"];
             } else {
                 $this->_propDict["smimeEncryptionCertificate"] = new IosCertificateProfile($this->_propDict["smimeEncryptionCertificate"]);
@@ -799,7 +799,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the smimeEncryptionCertificate
     * S/MIME encryption certificate.
@@ -813,17 +813,17 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeEncryptionCertificate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the smimeSigningCertificate
     * S/MIME signing certificate.
     *
-    * @return IosCertificateProfile The smimeSigningCertificate
+    * @return IosCertificateProfile|null The smimeSigningCertificate
     */
     public function getSmimeSigningCertificate()
     {
         if (array_key_exists("smimeSigningCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["smimeSigningCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile")) {
+            if (is_a($this->_propDict["smimeSigningCertificate"], "\Beta\Microsoft\Graph\Model\IosCertificateProfile") || is_null($this->_propDict["smimeSigningCertificate"])) {
                 return $this->_propDict["smimeSigningCertificate"];
             } else {
                 $this->_propDict["smimeSigningCertificate"] = new IosCertificateProfile($this->_propDict["smimeSigningCertificate"]);
@@ -832,7 +832,7 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         }
         return null;
     }
-    
+
     /**
     * Sets the smimeSigningCertificate
     * S/MIME signing certificate.
@@ -846,5 +846,5 @@ class IosEasEmailProfileConfiguration extends EasEmailProfileConfigurationBase
         $this->_propDict["smimeSigningCertificate"] = $val;
         return $this;
     }
-    
+
 }

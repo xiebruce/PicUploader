@@ -26,9 +26,11 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.cloudPcManagementGroupAssignmentTarget");
     }
 
@@ -36,7 +38,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     * Gets the groupId
     * The id of the assignment's target group
     *
-    * @return string The groupId
+    * @return string|null The groupId
     */
     public function getGroupId()
     {

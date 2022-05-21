@@ -28,7 +28,7 @@ class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp
     * Gets the appUserModelId
     * The app user model ID of the contained app of a MicrosoftStoreForBusinessApp.
     *
-    * @return string The appUserModelId
+    * @return string|null The appUserModelId
     */
     public function getAppUserModelId()
     {
@@ -38,7 +38,7 @@ class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp
             return null;
         }
     }
-    
+
     /**
     * Sets the appUserModelId
     * The app user model ID of the contained app of a MicrosoftStoreForBusinessApp.
@@ -52,5 +52,5 @@ class MicrosoftStoreForBusinessContainedApp extends MobileContainedApp
         $this->_propDict["appUserModelId"] = $val;
         return $this;
     }
-    
+
 }

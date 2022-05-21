@@ -28,7 +28,7 @@ class DomainDnsCnameRecord extends DomainDnsRecord
     * Gets the canonicalName
     * The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
     *
-    * @return string The canonicalName
+    * @return string|null The canonicalName
     */
     public function getCanonicalName()
     {
@@ -38,7 +38,7 @@ class DomainDnsCnameRecord extends DomainDnsRecord
             return null;
         }
     }
-    
+
     /**
     * Sets the canonicalName
     * The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
@@ -52,5 +52,5 @@ class DomainDnsCnameRecord extends DomainDnsRecord
         $this->_propDict["canonicalName"] = $val;
         return $this;
     }
-    
+
 }

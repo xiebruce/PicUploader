@@ -28,7 +28,7 @@ class DeviceManagementExchangeConnector extends Entity
     * Gets the connectorServerName
     * The name of the server hosting the Exchange Connector.
     *
-    * @return string The connectorServerName
+    * @return string|null The connectorServerName
     */
     public function getConnectorServerName()
     {
@@ -38,7 +38,7 @@ class DeviceManagementExchangeConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the connectorServerName
     * The name of the server hosting the Exchange Connector.
@@ -52,12 +52,12 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["connectorServerName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the exchangeAlias
     * An alias assigned to the Exchange server
     *
-    * @return string The exchangeAlias
+    * @return string|null The exchangeAlias
     */
     public function getExchangeAlias()
     {
@@ -67,7 +67,7 @@ class DeviceManagementExchangeConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the exchangeAlias
     * An alias assigned to the Exchange server
@@ -81,17 +81,17 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["exchangeAlias"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the exchangeConnectorType
     * The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.
     *
-    * @return DeviceManagementExchangeConnectorType The exchangeConnectorType
+    * @return DeviceManagementExchangeConnectorType|null The exchangeConnectorType
     */
     public function getExchangeConnectorType()
     {
         if (array_key_exists("exchangeConnectorType", $this->_propDict)) {
-            if (is_a($this->_propDict["exchangeConnectorType"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeConnectorType")) {
+            if (is_a($this->_propDict["exchangeConnectorType"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeConnectorType") || is_null($this->_propDict["exchangeConnectorType"])) {
                 return $this->_propDict["exchangeConnectorType"];
             } else {
                 $this->_propDict["exchangeConnectorType"] = new DeviceManagementExchangeConnectorType($this->_propDict["exchangeConnectorType"]);
@@ -100,7 +100,7 @@ class DeviceManagementExchangeConnector extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the exchangeConnectorType
     * The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.
@@ -114,12 +114,12 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["exchangeConnectorType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the exchangeOrganization
     * Exchange Organization to the Exchange server
     *
-    * @return string The exchangeOrganization
+    * @return string|null The exchangeOrganization
     */
     public function getExchangeOrganization()
     {
@@ -129,7 +129,7 @@ class DeviceManagementExchangeConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the exchangeOrganization
     * Exchange Organization to the Exchange server
@@ -143,17 +143,17 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["exchangeOrganization"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastSyncDateTime
     * Last sync time for the Exchange Connector
     *
-    * @return \DateTime The lastSyncDateTime
+    * @return \DateTime|null The lastSyncDateTime
     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -162,7 +162,7 @@ class DeviceManagementExchangeConnector extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastSyncDateTime
     * Last sync time for the Exchange Connector
@@ -176,12 +176,12 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the primarySmtpAddress
     * Email address used to configure the Service To Service Exchange Connector.
     *
-    * @return string The primarySmtpAddress
+    * @return string|null The primarySmtpAddress
     */
     public function getPrimarySmtpAddress()
     {
@@ -191,7 +191,7 @@ class DeviceManagementExchangeConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the primarySmtpAddress
     * Email address used to configure the Service To Service Exchange Connector.
@@ -205,12 +205,12 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["primarySmtpAddress"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the serverName
     * The name of the Exchange server.
     *
-    * @return string The serverName
+    * @return string|null The serverName
     */
     public function getServerName()
     {
@@ -220,7 +220,7 @@ class DeviceManagementExchangeConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the serverName
     * The name of the Exchange server.
@@ -234,17 +234,17 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["serverName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     * Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.
     *
-    * @return DeviceManagementExchangeConnectorStatus The status
+    * @return DeviceManagementExchangeConnectorStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeConnectorStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeConnectorStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new DeviceManagementExchangeConnectorStatus($this->_propDict["status"]);
@@ -253,7 +253,7 @@ class DeviceManagementExchangeConnector extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
     * Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.
@@ -267,12 +267,12 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the version
     * The version of the ExchangeConnectorAgent
     *
-    * @return string The version
+    * @return string|null The version
     */
     public function getVersion()
     {
@@ -282,7 +282,7 @@ class DeviceManagementExchangeConnector extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * The version of the ExchangeConnectorAgent
@@ -296,5 +296,5 @@ class DeviceManagementExchangeConnector extends Entity
         $this->_propDict["version"] = $val;
         return $this;
     }
-    
+
 }

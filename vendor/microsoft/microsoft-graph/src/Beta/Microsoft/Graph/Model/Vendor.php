@@ -27,12 +27,12 @@ class Vendor extends Entity
     /**
     * Gets the address
     *
-    * @return PostalAddressType The address
+    * @return PostalAddressType|null The address
     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType")) {
+            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["address"])) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PostalAddressType($this->_propDict["address"]);
@@ -41,7 +41,7 @@ class Vendor extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the address
     *
@@ -54,16 +54,16 @@ class Vendor extends Entity
         $this->_propDict["address"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the balance
     *
-    * @return Decimal The balance
+    * @return Decimal|null The balance
     */
     public function getBalance()
     {
         if (array_key_exists("balance", $this->_propDict)) {
-            if (is_a($this->_propDict["balance"], "\Beta\Microsoft\Graph\Model\Decimal")) {
+            if (is_a($this->_propDict["balance"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["balance"])) {
                 return $this->_propDict["balance"];
             } else {
                 $this->_propDict["balance"] = new Decimal($this->_propDict["balance"]);
@@ -72,7 +72,7 @@ class Vendor extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the balance
     *
@@ -85,11 +85,11 @@ class Vendor extends Entity
         $this->_propDict["balance"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the blocked
     *
-    * @return string The blocked
+    * @return string|null The blocked
     */
     public function getBlocked()
     {
@@ -99,7 +99,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the blocked
     *
@@ -112,11 +112,11 @@ class Vendor extends Entity
         $this->_propDict["blocked"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the currencyCode
     *
-    * @return string The currencyCode
+    * @return string|null The currencyCode
     */
     public function getCurrencyCode()
     {
@@ -126,7 +126,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the currencyCode
     *
@@ -139,11 +139,11 @@ class Vendor extends Entity
         $this->_propDict["currencyCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the currencyId
     *
-    * @return string The currencyId
+    * @return string|null The currencyId
     */
     public function getCurrencyId()
     {
@@ -153,7 +153,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the currencyId
     *
@@ -166,11 +166,11 @@ class Vendor extends Entity
         $this->_propDict["currencyId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -180,7 +180,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     *
@@ -193,11 +193,11 @@ class Vendor extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the email
     *
-    * @return string The email
+    * @return string|null The email
     */
     public function getEmail()
     {
@@ -207,7 +207,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the email
     *
@@ -220,16 +220,16 @@ class Vendor extends Entity
         $this->_propDict["email"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -238,7 +238,7 @@ class Vendor extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     *
@@ -251,11 +251,11 @@ class Vendor extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the number
     *
-    * @return string The number
+    * @return string|null The number
     */
     public function getNumber()
     {
@@ -265,7 +265,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the number
     *
@@ -278,11 +278,11 @@ class Vendor extends Entity
         $this->_propDict["number"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the paymentMethodId
     *
-    * @return string The paymentMethodId
+    * @return string|null The paymentMethodId
     */
     public function getPaymentMethodId()
     {
@@ -292,7 +292,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the paymentMethodId
     *
@@ -305,11 +305,11 @@ class Vendor extends Entity
         $this->_propDict["paymentMethodId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the paymentTermsId
     *
-    * @return string The paymentTermsId
+    * @return string|null The paymentTermsId
     */
     public function getPaymentTermsId()
     {
@@ -319,7 +319,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the paymentTermsId
     *
@@ -332,11 +332,11 @@ class Vendor extends Entity
         $this->_propDict["paymentTermsId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the phoneNumber
     *
-    * @return string The phoneNumber
+    * @return string|null The phoneNumber
     */
     public function getPhoneNumber()
     {
@@ -346,7 +346,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the phoneNumber
     *
@@ -359,11 +359,11 @@ class Vendor extends Entity
         $this->_propDict["phoneNumber"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the taxLiable
     *
-    * @return bool The taxLiable
+    * @return bool|null The taxLiable
     */
     public function getTaxLiable()
     {
@@ -373,7 +373,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the taxLiable
     *
@@ -386,11 +386,11 @@ class Vendor extends Entity
         $this->_propDict["taxLiable"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the taxRegistrationNumber
     *
-    * @return string The taxRegistrationNumber
+    * @return string|null The taxRegistrationNumber
     */
     public function getTaxRegistrationNumber()
     {
@@ -400,7 +400,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the taxRegistrationNumber
     *
@@ -413,11 +413,11 @@ class Vendor extends Entity
         $this->_propDict["taxRegistrationNumber"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the website
     *
-    * @return string The website
+    * @return string|null The website
     */
     public function getWebsite()
     {
@@ -427,7 +427,7 @@ class Vendor extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the website
     *
@@ -440,16 +440,16 @@ class Vendor extends Entity
         $this->_propDict["website"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the currency
     *
-    * @return Currency The currency
+    * @return Currency|null The currency
     */
     public function getCurrency()
     {
         if (array_key_exists("currency", $this->_propDict)) {
-            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\Currency")) {
+            if (is_a($this->_propDict["currency"], "\Beta\Microsoft\Graph\Model\Currency") || is_null($this->_propDict["currency"])) {
                 return $this->_propDict["currency"];
             } else {
                 $this->_propDict["currency"] = new Currency($this->_propDict["currency"]);
@@ -458,7 +458,7 @@ class Vendor extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the currency
     *
@@ -471,16 +471,16 @@ class Vendor extends Entity
         $this->_propDict["currency"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the paymentMethod
     *
-    * @return PaymentMethod The paymentMethod
+    * @return PaymentMethod|null The paymentMethod
     */
     public function getPaymentMethod()
     {
         if (array_key_exists("paymentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["paymentMethod"], "\Beta\Microsoft\Graph\Model\PaymentMethod")) {
+            if (is_a($this->_propDict["paymentMethod"], "\Beta\Microsoft\Graph\Model\PaymentMethod") || is_null($this->_propDict["paymentMethod"])) {
                 return $this->_propDict["paymentMethod"];
             } else {
                 $this->_propDict["paymentMethod"] = new PaymentMethod($this->_propDict["paymentMethod"]);
@@ -489,7 +489,7 @@ class Vendor extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the paymentMethod
     *
@@ -502,16 +502,16 @@ class Vendor extends Entity
         $this->_propDict["paymentMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the paymentTerm
     *
-    * @return PaymentTerm The paymentTerm
+    * @return PaymentTerm|null The paymentTerm
     */
     public function getPaymentTerm()
     {
         if (array_key_exists("paymentTerm", $this->_propDict)) {
-            if (is_a($this->_propDict["paymentTerm"], "\Beta\Microsoft\Graph\Model\PaymentTerm")) {
+            if (is_a($this->_propDict["paymentTerm"], "\Beta\Microsoft\Graph\Model\PaymentTerm") || is_null($this->_propDict["paymentTerm"])) {
                 return $this->_propDict["paymentTerm"];
             } else {
                 $this->_propDict["paymentTerm"] = new PaymentTerm($this->_propDict["paymentTerm"]);
@@ -520,7 +520,7 @@ class Vendor extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the paymentTerm
     *
@@ -533,12 +533,12 @@ class Vendor extends Entity
         $this->_propDict["paymentTerm"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the picture
      *
-     * @return array The picture
+     * @return array|null The picture
      */
     public function getPicture()
     {
@@ -548,18 +548,18 @@ class Vendor extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the picture
     *
-    * @param Picture $val The picture
+    * @param Picture[] $val The picture
     *
     * @return Vendor
     */
     public function setPicture($val)
     {
-		$this->_propDict["picture"] = $val;
+        $this->_propDict["picture"] = $val;
         return $this;
     }
-    
+
 }

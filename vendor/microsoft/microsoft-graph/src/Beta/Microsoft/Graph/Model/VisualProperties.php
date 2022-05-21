@@ -27,7 +27,7 @@ class VisualProperties extends Entity
     * Gets the body
     * The body of a visual user notification. Body is optional.
     *
-    * @return string The body
+    * @return string|null The body
     */
     public function getBody()
     {
@@ -55,7 +55,7 @@ class VisualProperties extends Entity
     * Gets the title
     * The title of a visual user notification. This field is required for visual notification payloads.
     *
-    * @return string The title
+    * @return string|null The title
     */
     public function getTitle()
     {

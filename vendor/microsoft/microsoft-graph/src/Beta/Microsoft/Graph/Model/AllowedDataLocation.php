@@ -27,7 +27,7 @@ class AllowedDataLocation extends Entity
     /**
     * Gets the appId
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {
@@ -37,7 +37,7 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appId
     *
@@ -50,11 +50,11 @@ class AllowedDataLocation extends Entity
         $this->_propDict["appId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the domain
     *
-    * @return string The domain
+    * @return string|null The domain
     */
     public function getDomain()
     {
@@ -64,7 +64,7 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the domain
     *
@@ -77,11 +77,11 @@ class AllowedDataLocation extends Entity
         $this->_propDict["domain"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isDefault
     *
-    * @return bool The isDefault
+    * @return bool|null The isDefault
     */
     public function getIsDefault()
     {
@@ -91,7 +91,7 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDefault
     *
@@ -104,11 +104,11 @@ class AllowedDataLocation extends Entity
         $this->_propDict["isDefault"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the location
     *
-    * @return string The location
+    * @return string|null The location
     */
     public function getLocation()
     {
@@ -118,7 +118,7 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the location
     *
@@ -131,5 +131,5 @@ class AllowedDataLocation extends Entity
         $this->_propDict["location"] = $val;
         return $this;
     }
-    
+
 }

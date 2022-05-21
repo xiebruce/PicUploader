@@ -28,7 +28,7 @@ class EducationAssignmentSettings extends Entity
     * Gets the submissionAnimationDisabled
     * Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
     *
-    * @return bool The submissionAnimationDisabled
+    * @return bool|null The submissionAnimationDisabled
     */
     public function getSubmissionAnimationDisabled()
     {
@@ -38,7 +38,7 @@ class EducationAssignmentSettings extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the submissionAnimationDisabled
     * Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
@@ -52,5 +52,5 @@ class EducationAssignmentSettings extends Entity
         $this->_propDict["submissionAnimationDisabled"] = boolval($val);
         return $this;
     }
-    
+
 }

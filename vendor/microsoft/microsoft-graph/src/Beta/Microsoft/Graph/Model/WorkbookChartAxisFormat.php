@@ -28,12 +28,12 @@ class WorkbookChartAxisFormat extends Entity
     * Gets the font
     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
     *
-    * @return WorkbookChartFont The font
+    * @return WorkbookChartFont|null The font
     */
     public function getFont()
     {
         if (array_key_exists("font", $this->_propDict)) {
-            if (is_a($this->_propDict["font"], "\Beta\Microsoft\Graph\Model\WorkbookChartFont")) {
+            if (is_a($this->_propDict["font"], "\Beta\Microsoft\Graph\Model\WorkbookChartFont") || is_null($this->_propDict["font"])) {
                 return $this->_propDict["font"];
             } else {
                 $this->_propDict["font"] = new WorkbookChartFont($this->_propDict["font"]);
@@ -42,7 +42,7 @@ class WorkbookChartAxisFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the font
     * Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.
@@ -56,17 +56,17 @@ class WorkbookChartAxisFormat extends Entity
         $this->_propDict["font"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the line
     * Represents chart line formatting. Read-only.
     *
-    * @return WorkbookChartLineFormat The line
+    * @return WorkbookChartLineFormat|null The line
     */
     public function getLine()
     {
         if (array_key_exists("line", $this->_propDict)) {
-            if (is_a($this->_propDict["line"], "\Beta\Microsoft\Graph\Model\WorkbookChartLineFormat")) {
+            if (is_a($this->_propDict["line"], "\Beta\Microsoft\Graph\Model\WorkbookChartLineFormat") || is_null($this->_propDict["line"])) {
                 return $this->_propDict["line"];
             } else {
                 $this->_propDict["line"] = new WorkbookChartLineFormat($this->_propDict["line"]);
@@ -75,7 +75,7 @@ class WorkbookChartAxisFormat extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the line
     * Represents chart line formatting. Read-only.
@@ -89,5 +89,5 @@ class WorkbookChartAxisFormat extends Entity
         $this->_propDict["line"] = $val;
         return $this;
     }
-    
+
 }

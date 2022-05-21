@@ -26,17 +26,19 @@ class IPv6CidrRange extends IpRange
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.iPv6CidrRange");
     }
 
     /**
     * Gets the cidrAddress
-    * IPv6 address in CIDR notation
+    * IPv6 address in CIDR notation. Not nullable.
     *
-    * @return string The cidrAddress
+    * @return string|null The cidrAddress
     */
     public function getCidrAddress()
     {
@@ -49,7 +51,7 @@ class IPv6CidrRange extends IpRange
 
     /**
     * Sets the cidrAddress
-    * IPv6 address in CIDR notation
+    * IPv6 address in CIDR notation. Not nullable.
     *
     * @param string $val The value of the cidrAddress
     *

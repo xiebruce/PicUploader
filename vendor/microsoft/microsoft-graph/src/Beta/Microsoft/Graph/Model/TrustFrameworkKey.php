@@ -27,7 +27,7 @@ class TrustFrameworkKey extends Entity
     * Gets the d
     * RSA Key - private exponent. Field cannot be read back.
     *
-    * @return string The d
+    * @return string|null The d
     */
     public function getD()
     {
@@ -55,7 +55,7 @@ class TrustFrameworkKey extends Entity
     * Gets the dp
     * RSA Key - first exponent. Field cannot be read back.
     *
-    * @return string The dp
+    * @return string|null The dp
     */
     public function getDp()
     {
@@ -83,7 +83,7 @@ class TrustFrameworkKey extends Entity
     * Gets the dq
     * RSA Key - second exponent. Field cannot be read back.
     *
-    * @return string The dq
+    * @return string|null The dq
     */
     public function getDq()
     {
@@ -111,7 +111,7 @@ class TrustFrameworkKey extends Entity
     * Gets the e
     * RSA Key - public exponent
     *
-    * @return string The e
+    * @return string|null The e
     */
     public function getE()
     {
@@ -139,7 +139,7 @@ class TrustFrameworkKey extends Entity
     * Gets the exp
     * This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
     *
-    * @return int The exp
+    * @return int|null The exp
     */
     public function getExp()
     {
@@ -167,7 +167,7 @@ class TrustFrameworkKey extends Entity
     * Gets the k
     * Symmetric Key for oct key type. Field cannot be read back.
     *
-    * @return string The k
+    * @return string|null The k
     */
     public function getK()
     {
@@ -195,7 +195,7 @@ class TrustFrameworkKey extends Entity
     * Gets the kid
     * The unique identifier for the key.
     *
-    * @return string The kid
+    * @return string|null The kid
     */
     public function getKid()
     {
@@ -223,7 +223,7 @@ class TrustFrameworkKey extends Entity
     * Gets the kty
     * The kty (key type) parameter identifies the cryptographic algorithm family used with the key, The valid values are rsa, oct.
     *
-    * @return string The kty
+    * @return string|null The kty
     */
     public function getKty()
     {
@@ -251,7 +251,7 @@ class TrustFrameworkKey extends Entity
     * Gets the n
     * RSA Key - modulus
     *
-    * @return string The n
+    * @return string|null The n
     */
     public function getN()
     {
@@ -279,7 +279,7 @@ class TrustFrameworkKey extends Entity
     * Gets the nbf
     * This value is a NumericDate as defined in RFC 7519 (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.)
     *
-    * @return int The nbf
+    * @return int|null The nbf
     */
     public function getNbf()
     {
@@ -307,7 +307,7 @@ class TrustFrameworkKey extends Entity
     * Gets the p
     * RSA Key - first prime. Field cannot be read back.
     *
-    * @return string The p
+    * @return string|null The p
     */
     public function getP()
     {
@@ -335,7 +335,7 @@ class TrustFrameworkKey extends Entity
     * Gets the q
     * RSA Key - second prime. Field cannot be read back.
     *
-    * @return string The q
+    * @return string|null The q
     */
     public function getQ()
     {
@@ -363,7 +363,7 @@ class TrustFrameworkKey extends Entity
     * Gets the qi
     * RSA Key - Coefficient. Field cannot be read back.
     *
-    * @return string The qi
+    * @return string|null The qi
     */
     public function getQi()
     {
@@ -391,7 +391,7 @@ class TrustFrameworkKey extends Entity
     * Gets the use
     * The use (public key use) parameter identifies the intended use of the public key.  The use parameter is employed to indicate whether a public key is used for encrypting data or verifying the signature on data. Possible values are: sig (signature), enc (encryption)
     *
-    * @return string The use
+    * @return string|null The use
     */
     public function getUse()
     {
@@ -419,7 +419,7 @@ class TrustFrameworkKey extends Entity
     * Gets the x5c
     * The x5c (X.509 certificate chain) parameter contains a chain of one or more PKIX certificates RFC 5280.
     *
-    * @return string The x5c
+    * @return string|null The x5c
     */
     public function getX5c()
     {
@@ -447,7 +447,7 @@ class TrustFrameworkKey extends Entity
     * Gets the x5t
     * The x5t (X.509 certificate SHA-1 thumbprint) parameter is a base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER encoding of an X.509 certificate RFC 5280.
     *
-    * @return string The x5t
+    * @return string|null The x5t
     */
     public function getX5t()
     {

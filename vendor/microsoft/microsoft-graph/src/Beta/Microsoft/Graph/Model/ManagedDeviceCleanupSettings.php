@@ -27,7 +27,7 @@ class ManagedDeviceCleanupSettings extends Entity
     * Gets the deviceInactivityBeforeRetirementInDays
     * Number of days when the device has not contacted Intune.
     *
-    * @return string The deviceInactivityBeforeRetirementInDays
+    * @return string|null The deviceInactivityBeforeRetirementInDays
     */
     public function getDeviceInactivityBeforeRetirementInDays()
     {

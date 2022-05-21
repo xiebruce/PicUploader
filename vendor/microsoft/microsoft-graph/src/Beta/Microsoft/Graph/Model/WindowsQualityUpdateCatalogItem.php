@@ -28,12 +28,12 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
     * Gets the classification
     * Classification of the quality update. Possible values are: all, security, nonSecurity.
     *
-    * @return WindowsQualityUpdateClassification The classification
+    * @return WindowsQualityUpdateClassification|null The classification
     */
     public function getClassification()
     {
         if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\WindowsQualityUpdateClassification")) {
+            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\WindowsQualityUpdateClassification") || is_null($this->_propDict["classification"])) {
                 return $this->_propDict["classification"];
             } else {
                 $this->_propDict["classification"] = new WindowsQualityUpdateClassification($this->_propDict["classification"]);
@@ -42,7 +42,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
         }
         return null;
     }
-    
+
     /**
     * Sets the classification
     * Classification of the quality update. Possible values are: all, security, nonSecurity.
@@ -56,12 +56,12 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
         $this->_propDict["classification"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isExpeditable
     * Flag indicating if update qualifies for expedite
     *
-    * @return bool The isExpeditable
+    * @return bool|null The isExpeditable
     */
     public function getIsExpeditable()
     {
@@ -71,7 +71,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
             return null;
         }
     }
-    
+
     /**
     * Sets the isExpeditable
     * Flag indicating if update qualifies for expedite
@@ -85,12 +85,12 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
         $this->_propDict["isExpeditable"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the kbArticleId
     * Knowledge base article id
     *
-    * @return string The kbArticleId
+    * @return string|null The kbArticleId
     */
     public function getKbArticleId()
     {
@@ -100,7 +100,7 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
             return null;
         }
     }
-    
+
     /**
     * Sets the kbArticleId
     * Knowledge base article id
@@ -114,5 +114,5 @@ class WindowsQualityUpdateCatalogItem extends WindowsUpdateCatalogItem
         $this->_propDict["kbArticleId"] = $val;
         return $this;
     }
-    
+
 }

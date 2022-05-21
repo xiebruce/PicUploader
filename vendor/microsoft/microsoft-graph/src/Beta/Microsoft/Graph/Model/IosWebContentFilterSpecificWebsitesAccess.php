@@ -26,9 +26,11 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.iosWebContentFilterSpecificWebsitesAccess");
     }
 
@@ -37,12 +39,12 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     * Gets the specificWebsitesOnly
     * URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
     *
-    * @return IosBookmark The specificWebsitesOnly
+    * @return IosBookmark|null The specificWebsitesOnly
     */
     public function getSpecificWebsitesOnly()
     {
         if (array_key_exists("specificWebsitesOnly", $this->_propDict)) {
-            if (is_a($this->_propDict["specificWebsitesOnly"], "\Beta\Microsoft\Graph\Model\IosBookmark")) {
+            if (is_a($this->_propDict["specificWebsitesOnly"], "\Beta\Microsoft\Graph\Model\IosBookmark") || is_null($this->_propDict["specificWebsitesOnly"])) {
                 return $this->_propDict["specificWebsitesOnly"];
             } else {
                 $this->_propDict["specificWebsitesOnly"] = new IosBookmark($this->_propDict["specificWebsitesOnly"]);
@@ -70,12 +72,12 @@ class IosWebContentFilterSpecificWebsitesAccess extends IosWebContentFilterBase
     * Gets the websiteList
     * URL bookmarks which will be installed into built-in browser and user is only allowed to access websites through bookmarks. This collection can contain a maximum of 500 elements.
     *
-    * @return IosBookmark The websiteList
+    * @return IosBookmark|null The websiteList
     */
     public function getWebsiteList()
     {
         if (array_key_exists("websiteList", $this->_propDict)) {
-            if (is_a($this->_propDict["websiteList"], "\Beta\Microsoft\Graph\Model\IosBookmark")) {
+            if (is_a($this->_propDict["websiteList"], "\Beta\Microsoft\Graph\Model\IosBookmark") || is_null($this->_propDict["websiteList"])) {
                 return $this->_propDict["websiteList"];
             } else {
                 $this->_propDict["websiteList"] = new IosBookmark($this->_propDict["websiteList"]);

@@ -28,21 +28,21 @@ class AndroidForWorkAppConfigurationSchema extends Entity
     * Gets the exampleJson
     * UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
     *
-    * @return \GuzzleHttp\Psr7\Stream The exampleJson
+    * @return \GuzzleHttp\Psr7\Stream|null The exampleJson
     */
     public function getExampleJson()
     {
         if (array_key_exists("exampleJson", $this->_propDict)) {
-            if (is_a($this->_propDict["exampleJson"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["exampleJson"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["exampleJson"])) {
                 return $this->_propDict["exampleJson"];
             } else {
-                $this->_propDict["exampleJson"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["exampleJson"]);
+                $this->_propDict["exampleJson"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["exampleJson"]);
                 return $this->_propDict["exampleJson"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the exampleJson
     * UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
@@ -56,13 +56,13 @@ class AndroidForWorkAppConfigurationSchema extends Entity
         $this->_propDict["exampleJson"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the schemaItems
     * Collection of items each representing a named configuration option in the schema
      *
-     * @return array The schemaItems
+     * @return array|null The schemaItems
      */
     public function getSchemaItems()
     {
@@ -72,19 +72,19 @@ class AndroidForWorkAppConfigurationSchema extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the schemaItems
     * Collection of items each representing a named configuration option in the schema
     *
-    * @param AndroidForWorkAppConfigurationSchemaItem $val The schemaItems
+    * @param AndroidForWorkAppConfigurationSchemaItem[] $val The schemaItems
     *
     * @return AndroidForWorkAppConfigurationSchema
     */
     public function setSchemaItems($val)
     {
-		$this->_propDict["schemaItems"] = $val;
+        $this->_propDict["schemaItems"] = $val;
         return $this;
     }
-    
+
 }

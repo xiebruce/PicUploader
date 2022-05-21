@@ -27,7 +27,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
     * Gets the coManagedDeviceCount
     * Total number of  co-managed devices.
     *
-    * @return int The coManagedDeviceCount
+    * @return int|null The coManagedDeviceCount
     */
     public function getCoManagedDeviceCount()
     {
@@ -55,7 +55,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
     * Gets the intuneDeviceCount
     * The count of intune devices that are not autopilot registerd.
     *
-    * @return int The intuneDeviceCount
+    * @return int|null The intuneDeviceCount
     */
     public function getIntuneDeviceCount()
     {
@@ -83,7 +83,7 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
     * Gets the tenantAttachDeviceCount
     * Total count of tenant attach devices.
     *
-    * @return int The tenantAttachDeviceCount
+    * @return int|null The tenantAttachDeviceCount
     */
     public function getTenantAttachDeviceCount()
     {

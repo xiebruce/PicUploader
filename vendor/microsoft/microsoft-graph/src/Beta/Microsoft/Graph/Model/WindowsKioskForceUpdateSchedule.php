@@ -27,7 +27,7 @@ class WindowsKioskForceUpdateSchedule extends Entity
     * Gets the dayofMonth
     * Day of month. Valid values 1 to 31
     *
-    * @return int The dayofMonth
+    * @return int|null The dayofMonth
     */
     public function getDayofMonth()
     {
@@ -56,12 +56,12 @@ class WindowsKioskForceUpdateSchedule extends Entity
     * Gets the dayofWeek
     * Day of week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
     *
-    * @return DayOfWeek The dayofWeek
+    * @return DayOfWeek|null The dayofWeek
     */
     public function getDayofWeek()
     {
         if (array_key_exists("dayofWeek", $this->_propDict)) {
-            if (is_a($this->_propDict["dayofWeek"], "\Beta\Microsoft\Graph\Model\DayOfWeek")) {
+            if (is_a($this->_propDict["dayofWeek"], "\Beta\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["dayofWeek"])) {
                 return $this->_propDict["dayofWeek"];
             } else {
                 $this->_propDict["dayofWeek"] = new DayOfWeek($this->_propDict["dayofWeek"]);
@@ -89,12 +89,12 @@ class WindowsKioskForceUpdateSchedule extends Entity
     * Gets the recurrence
     * Recurrence schedule. Possible values are: none, daily, weekly, monthly.
     *
-    * @return Windows10AppsUpdateRecurrence The recurrence
+    * @return Windows10AppsUpdateRecurrence|null The recurrence
     */
     public function getRecurrence()
     {
         if (array_key_exists("recurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\Windows10AppsUpdateRecurrence")) {
+            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\Windows10AppsUpdateRecurrence") || is_null($this->_propDict["recurrence"])) {
                 return $this->_propDict["recurrence"];
             } else {
                 $this->_propDict["recurrence"] = new Windows10AppsUpdateRecurrence($this->_propDict["recurrence"]);
@@ -121,7 +121,7 @@ class WindowsKioskForceUpdateSchedule extends Entity
     * Gets the runImmediatelyIfAfterStartDateTime
     * If true, runs the task immediately if StartDateTime is in the past, else, runs at the next recurrence.
     *
-    * @return bool The runImmediatelyIfAfterStartDateTime
+    * @return bool|null The runImmediatelyIfAfterStartDateTime
     */
     public function getRunImmediatelyIfAfterStartDateTime()
     {
@@ -150,12 +150,12 @@ class WindowsKioskForceUpdateSchedule extends Entity
     * Gets the startDateTime
     * The start time for the force restart.
     *
-    * @return \DateTime The startDateTime
+    * @return \DateTime|null The startDateTime
     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);

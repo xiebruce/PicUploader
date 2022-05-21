@@ -26,9 +26,11 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.iosLobAppAssignmentSettings");
     }
 
@@ -36,7 +38,7 @@ class IosLobAppAssignmentSettings extends MobileAppAssignmentSettings
     * Gets the vpnConfigurationId
     * The VPN Configuration Id to apply for this app.
     *
-    * @return string The vpnConfigurationId
+    * @return string|null The vpnConfigurationId
     */
     public function getVpnConfigurationId()
     {

@@ -28,12 +28,12 @@ class CallMediaState extends Entity
     * Gets the audio
     * The audio media state. Possible values are: active, inactive, unknownFutureValue.
     *
-    * @return MediaState The audio
+    * @return MediaState|null The audio
     */
     public function getAudio()
     {
         if (array_key_exists("audio", $this->_propDict)) {
-            if (is_a($this->_propDict["audio"], "\Microsoft\Graph\Model\MediaState")) {
+            if (is_a($this->_propDict["audio"], "\Microsoft\Graph\Model\MediaState") || is_null($this->_propDict["audio"])) {
                 return $this->_propDict["audio"];
             } else {
                 $this->_propDict["audio"] = new MediaState($this->_propDict["audio"]);

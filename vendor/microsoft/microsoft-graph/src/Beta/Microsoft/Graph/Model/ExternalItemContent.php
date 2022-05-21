@@ -26,14 +26,13 @@ class ExternalItemContent extends Entity
 
     /**
     * Gets the type
-    * The type of content in the value property. Possible values are text and html. Required.
     *
-    * @return ExternalItemContentType The type
+    * @return ExternalItemContentType|null The type
     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\ExternalItemContentType")) {
+            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\ExternalItemContentType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new ExternalItemContentType($this->_propDict["type"]);
@@ -45,7 +44,6 @@ class ExternalItemContent extends Entity
 
     /**
     * Sets the type
-    * The type of content in the value property. Possible values are text and html. Required.
     *
     * @param ExternalItemContentType $val The value to assign to the type
     *
@@ -58,9 +56,8 @@ class ExternalItemContent extends Entity
     }
     /**
     * Gets the value
-    * The content for the externalItem. Required.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {
@@ -73,7 +70,6 @@ class ExternalItemContent extends Entity
 
     /**
     * Sets the value
-    * The content for the externalItem. Required.
     *
     * @param string $val The value of the value
     *

@@ -27,7 +27,7 @@ class CurrencyColumn extends Entity
     * Gets the locale
     * Specifies the locale from which to infer the currency symbol.
     *
-    * @return string The locale
+    * @return string|null The locale
     */
     public function getLocale()
     {

@@ -27,7 +27,7 @@ class DriveRecipient extends Entity
     * Gets the alias
     * The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
     *
-    * @return string The alias
+    * @return string|null The alias
     */
     public function getAlias()
     {
@@ -55,7 +55,7 @@ class DriveRecipient extends Entity
     * Gets the email
     * The email address for the recipient, if the recipient has an associated email address.
     *
-    * @return string The email
+    * @return string|null The email
     */
     public function getEmail()
     {
@@ -83,7 +83,7 @@ class DriveRecipient extends Entity
     * Gets the objectId
     * The unique identifier for the recipient in the directory.
     *
-    * @return string The objectId
+    * @return string|null The objectId
     */
     public function getObjectId()
     {

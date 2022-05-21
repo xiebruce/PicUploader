@@ -27,7 +27,7 @@ class IosHomeScreenPage extends Entity
     * Gets the displayName
     * Name of the page
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -56,12 +56,12 @@ class IosHomeScreenPage extends Entity
     * Gets the icons
     * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
     *
-    * @return IosHomeScreenItem The icons
+    * @return IosHomeScreenItem|null The icons
     */
     public function getIcons()
     {
         if (array_key_exists("icons", $this->_propDict)) {
-            if (is_a($this->_propDict["icons"], "\Beta\Microsoft\Graph\Model\IosHomeScreenItem")) {
+            if (is_a($this->_propDict["icons"], "\Beta\Microsoft\Graph\Model\IosHomeScreenItem") || is_null($this->_propDict["icons"])) {
                 return $this->_propDict["icons"];
             } else {
                 $this->_propDict["icons"] = new IosHomeScreenItem($this->_propDict["icons"]);

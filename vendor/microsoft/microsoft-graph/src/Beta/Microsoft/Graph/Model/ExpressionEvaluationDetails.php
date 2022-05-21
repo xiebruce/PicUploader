@@ -27,7 +27,7 @@ class ExpressionEvaluationDetails extends Entity
     * Gets the expression
     * Represents expression which has been evaluated.
     *
-    * @return string The expression
+    * @return string|null The expression
     */
     public function getExpression()
     {
@@ -56,12 +56,12 @@ class ExpressionEvaluationDetails extends Entity
     * Gets the expressionEvaluationDetails
     * Represents the details of the evaluation of the expression.
     *
-    * @return ExpressionEvaluationDetails The expressionEvaluationDetails
+    * @return ExpressionEvaluationDetails|null The expressionEvaluationDetails
     */
     public function getExpressionEvaluationDetails()
     {
         if (array_key_exists("expressionEvaluationDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["expressionEvaluationDetails"], "\Beta\Microsoft\Graph\Model\ExpressionEvaluationDetails")) {
+            if (is_a($this->_propDict["expressionEvaluationDetails"], "\Beta\Microsoft\Graph\Model\ExpressionEvaluationDetails") || is_null($this->_propDict["expressionEvaluationDetails"])) {
                 return $this->_propDict["expressionEvaluationDetails"];
             } else {
                 $this->_propDict["expressionEvaluationDetails"] = new ExpressionEvaluationDetails($this->_propDict["expressionEvaluationDetails"]);
@@ -88,7 +88,7 @@ class ExpressionEvaluationDetails extends Entity
     * Gets the expressionResult
     * Represents the value of the result of the current expression.
     *
-    * @return bool The expressionResult
+    * @return bool|null The expressionResult
     */
     public function getExpressionResult()
     {
@@ -117,12 +117,12 @@ class ExpressionEvaluationDetails extends Entity
     * Gets the propertyToEvaluate
     * Defines the name of the property and the value of that property.
     *
-    * @return PropertyToEvaluate The propertyToEvaluate
+    * @return PropertyToEvaluate|null The propertyToEvaluate
     */
     public function getPropertyToEvaluate()
     {
         if (array_key_exists("propertyToEvaluate", $this->_propDict)) {
-            if (is_a($this->_propDict["propertyToEvaluate"], "\Beta\Microsoft\Graph\Model\PropertyToEvaluate")) {
+            if (is_a($this->_propDict["propertyToEvaluate"], "\Beta\Microsoft\Graph\Model\PropertyToEvaluate") || is_null($this->_propDict["propertyToEvaluate"])) {
                 return $this->_propDict["propertyToEvaluate"];
             } else {
                 $this->_propDict["propertyToEvaluate"] = new PropertyToEvaluate($this->_propDict["propertyToEvaluate"]);

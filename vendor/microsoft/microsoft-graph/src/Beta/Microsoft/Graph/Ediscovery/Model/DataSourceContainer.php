@@ -26,13 +26,14 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the createdDateTime
+    * Created date and time of the dataSourceContainer entity.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -41,9 +42,10 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
+    * Created date and time of the dataSourceContainer entity.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -54,11 +56,12 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
+    * Display name of the dataSourceContainer entity.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -68,9 +71,10 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
+    * Display name of the dataSourceContainer entity.
     *
     * @param string $val The displayName
     *
@@ -81,16 +85,48 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
+    /**
+    * Gets the holdStatus
+    *
+    * @return DataSourceHoldStatus|null The holdStatus
+    */
+    public function getHoldStatus()
+    {
+        if (array_key_exists("holdStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["holdStatus"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSourceHoldStatus") || is_null($this->_propDict["holdStatus"])) {
+                return $this->_propDict["holdStatus"];
+            } else {
+                $this->_propDict["holdStatus"] = new DataSourceHoldStatus($this->_propDict["holdStatus"]);
+                return $this->_propDict["holdStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the holdStatus
+    *
+    * @param DataSourceHoldStatus $val The holdStatus
+    *
+    * @return DataSourceContainer
+    */
+    public function setHoldStatus($val)
+    {
+        $this->_propDict["holdStatus"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the lastModifiedDateTime
+    * Last modified date and time of the dataSourceContainer.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -99,9 +135,10 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
+    * Last modified date and time of the dataSourceContainer.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -112,16 +149,17 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the releasedDateTime
+    * Date and time that the dataSourceContainer was released from the case.
     *
-    * @return \DateTime The releasedDateTime
+    * @return \DateTime|null The releasedDateTime
     */
     public function getReleasedDateTime()
     {
         if (array_key_exists("releasedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["releasedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["releasedDateTime"], "\DateTime") || is_null($this->_propDict["releasedDateTime"])) {
                 return $this->_propDict["releasedDateTime"];
             } else {
                 $this->_propDict["releasedDateTime"] = new \DateTime($this->_propDict["releasedDateTime"]);
@@ -130,9 +168,10 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the releasedDateTime
+    * Date and time that the dataSourceContainer was released from the case.
     *
     * @param \DateTime $val The releasedDateTime
     *
@@ -143,16 +182,17 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["releasedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
+    * Latest status of the dataSourceContainer. Possible values are: Active, Released.
     *
-    * @return DataSourceContainerStatus The status
+    * @return DataSourceContainerStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSourceContainerStatus")) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSourceContainerStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new DataSourceContainerStatus($this->_propDict["status"]);
@@ -161,9 +201,10 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the status
+    * Latest status of the dataSourceContainer. Possible values are: Active, Released.
     *
     * @param DataSourceContainerStatus $val The status
     *
@@ -174,16 +215,16 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastIndexOperation
     *
-    * @return CaseIndexOperation The lastIndexOperation
+    * @return CaseIndexOperation|null The lastIndexOperation
     */
     public function getLastIndexOperation()
     {
         if (array_key_exists("lastIndexOperation", $this->_propDict)) {
-            if (is_a($this->_propDict["lastIndexOperation"], "\Beta\Microsoft\Graph\Ediscovery\Model\CaseIndexOperation")) {
+            if (is_a($this->_propDict["lastIndexOperation"], "\Beta\Microsoft\Graph\Ediscovery\Model\CaseIndexOperation") || is_null($this->_propDict["lastIndexOperation"])) {
                 return $this->_propDict["lastIndexOperation"];
             } else {
                 $this->_propDict["lastIndexOperation"] = new CaseIndexOperation($this->_propDict["lastIndexOperation"]);
@@ -192,7 +233,7 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastIndexOperation
     *
@@ -205,5 +246,5 @@ class DataSourceContainer extends \Beta\Microsoft\Graph\Model\Entity
         $this->_propDict["lastIndexOperation"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,12 +27,12 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
     /**
     * Gets the createdDateTime
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -41,7 +41,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     *
@@ -54,17 +54,17 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the creationDateTime
     * The timestamp when this method was registered to the user.
     *
-    * @return \DateTime The creationDateTime
+    * @return \DateTime|null The creationDateTime
     */
     public function getCreationDateTime()
     {
         if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -73,7 +73,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         }
         return null;
     }
-    
+
     /**
     * Sets the creationDateTime
     * The timestamp when this method was registered to the user.
@@ -87,12 +87,12 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The display name of the mobile device as given by the user.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -102,7 +102,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The display name of the mobile device as given by the user.
@@ -116,16 +116,16 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the device
     *
-    * @return Device The device
+    * @return Device|null The device
     */
     public function getDevice()
     {
         if (array_key_exists("device", $this->_propDict)) {
-            if (is_a($this->_propDict["device"], "\Beta\Microsoft\Graph\Model\Device")) {
+            if (is_a($this->_propDict["device"], "\Beta\Microsoft\Graph\Model\Device") || is_null($this->_propDict["device"])) {
                 return $this->_propDict["device"];
             } else {
                 $this->_propDict["device"] = new Device($this->_propDict["device"]);
@@ -134,7 +134,7 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         }
         return null;
     }
-    
+
     /**
     * Sets the device
     *
@@ -147,5 +147,5 @@ class PasswordlessMicrosoftAuthenticatorAuthenticationMethod extends Authenticat
         $this->_propDict["device"] = $val;
         return $this;
     }
-    
+
 }

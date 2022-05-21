@@ -27,7 +27,7 @@ class HardwareInformation extends Entity
     * Gets the batteryChargeCycles
     * The number of charge cycles the device’s current battery has gone through. Valid values 0 to 2147483647
     *
-    * @return int The batteryChargeCycles
+    * @return int|null The batteryChargeCycles
     */
     public function getBatteryChargeCycles()
     {
@@ -55,7 +55,7 @@ class HardwareInformation extends Entity
     * Gets the batteryHealthPercentage
     * The device’s current battery’s health percentage. Valid values 0 to 100
     *
-    * @return int The batteryHealthPercentage
+    * @return int|null The batteryHealthPercentage
     */
     public function getBatteryHealthPercentage()
     {
@@ -83,7 +83,7 @@ class HardwareInformation extends Entity
     * Gets the batterySerialNumber
     * The serial number of the device’s current battery
     *
-    * @return string The batterySerialNumber
+    * @return string|null The batterySerialNumber
     */
     public function getBatterySerialNumber()
     {
@@ -111,7 +111,7 @@ class HardwareInformation extends Entity
     * Gets the cellularTechnology
     * Cellular technology of the device
     *
-    * @return string The cellularTechnology
+    * @return string|null The cellularTechnology
     */
     public function getCellularTechnology()
     {
@@ -139,7 +139,7 @@ class HardwareInformation extends Entity
     * Gets the deviceFullQualifiedDomainName
     * Returns the fully qualified domain name of the device (if any). If the device is not domain-joined, it returns an empty string.
     *
-    * @return string The deviceFullQualifiedDomainName
+    * @return string|null The deviceFullQualifiedDomainName
     */
     public function getDeviceFullQualifiedDomainName()
     {
@@ -168,12 +168,12 @@ class HardwareInformation extends Entity
     * Gets the deviceGuardLocalSystemAuthorityCredentialGuardState
     * Local System Authority (LSA) credential guard status. . Possible values are: running, rebootRequired, notLicensed, notConfigured, virtualizationBasedSecurityNotRunning.
     *
-    * @return DeviceGuardLocalSystemAuthorityCredentialGuardState The deviceGuardLocalSystemAuthorityCredentialGuardState
+    * @return DeviceGuardLocalSystemAuthorityCredentialGuardState|null The deviceGuardLocalSystemAuthorityCredentialGuardState
     */
     public function getDeviceGuardLocalSystemAuthorityCredentialGuardState()
     {
         if (array_key_exists("deviceGuardLocalSystemAuthorityCredentialGuardState", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardState"], "\Beta\Microsoft\Graph\Model\DeviceGuardLocalSystemAuthorityCredentialGuardState")) {
+            if (is_a($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardState"], "\Beta\Microsoft\Graph\Model\DeviceGuardLocalSystemAuthorityCredentialGuardState") || is_null($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardState"])) {
                 return $this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardState"];
             } else {
                 $this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardState"] = new DeviceGuardLocalSystemAuthorityCredentialGuardState($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardState"]);
@@ -201,12 +201,12 @@ class HardwareInformation extends Entity
     * Gets the deviceGuardVirtualizationBasedSecurityHardwareRequirementState
     * Virtualization-based security hardware requirement status. Possible values are: meetHardwareRequirements, secureBootRequired, dmaProtectionRequired, hyperVNotSupportedForGuestVM, hyperVNotAvailable.
     *
-    * @return DeviceGuardVirtualizationBasedSecurityHardwareRequirementState The deviceGuardVirtualizationBasedSecurityHardwareRequirementState
+    * @return DeviceGuardVirtualizationBasedSecurityHardwareRequirementState|null The deviceGuardVirtualizationBasedSecurityHardwareRequirementState
     */
     public function getDeviceGuardVirtualizationBasedSecurityHardwareRequirementState()
     {
         if (array_key_exists("deviceGuardVirtualizationBasedSecurityHardwareRequirementState", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceGuardVirtualizationBasedSecurityHardwareRequirementState"], "\Beta\Microsoft\Graph\Model\DeviceGuardVirtualizationBasedSecurityHardwareRequirementState")) {
+            if (is_a($this->_propDict["deviceGuardVirtualizationBasedSecurityHardwareRequirementState"], "\Beta\Microsoft\Graph\Model\DeviceGuardVirtualizationBasedSecurityHardwareRequirementState") || is_null($this->_propDict["deviceGuardVirtualizationBasedSecurityHardwareRequirementState"])) {
                 return $this->_propDict["deviceGuardVirtualizationBasedSecurityHardwareRequirementState"];
             } else {
                 $this->_propDict["deviceGuardVirtualizationBasedSecurityHardwareRequirementState"] = new DeviceGuardVirtualizationBasedSecurityHardwareRequirementState($this->_propDict["deviceGuardVirtualizationBasedSecurityHardwareRequirementState"]);
@@ -234,12 +234,12 @@ class HardwareInformation extends Entity
     * Gets the deviceGuardVirtualizationBasedSecurityState
     * Virtualization-based security status. . Possible values are: running, rebootRequired, require64BitArchitecture, notLicensed, notConfigured, doesNotMeetHardwareRequirements, other.
     *
-    * @return DeviceGuardVirtualizationBasedSecurityState The deviceGuardVirtualizationBasedSecurityState
+    * @return DeviceGuardVirtualizationBasedSecurityState|null The deviceGuardVirtualizationBasedSecurityState
     */
     public function getDeviceGuardVirtualizationBasedSecurityState()
     {
         if (array_key_exists("deviceGuardVirtualizationBasedSecurityState", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceGuardVirtualizationBasedSecurityState"], "\Beta\Microsoft\Graph\Model\DeviceGuardVirtualizationBasedSecurityState")) {
+            if (is_a($this->_propDict["deviceGuardVirtualizationBasedSecurityState"], "\Beta\Microsoft\Graph\Model\DeviceGuardVirtualizationBasedSecurityState") || is_null($this->_propDict["deviceGuardVirtualizationBasedSecurityState"])) {
                 return $this->_propDict["deviceGuardVirtualizationBasedSecurityState"];
             } else {
                 $this->_propDict["deviceGuardVirtualizationBasedSecurityState"] = new DeviceGuardVirtualizationBasedSecurityState($this->_propDict["deviceGuardVirtualizationBasedSecurityState"]);
@@ -263,10 +263,38 @@ class HardwareInformation extends Entity
          return $this;
     }
     /**
+    * Gets the esimIdentifier
+    * eSIM identifier
+    *
+    * @return string|null The esimIdentifier
+    */
+    public function getEsimIdentifier()
+    {
+        if (array_key_exists("esimIdentifier", $this->_propDict)) {
+            return $this->_propDict["esimIdentifier"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the esimIdentifier
+    * eSIM identifier
+    *
+    * @param string $val The value of the esimIdentifier
+    *
+    * @return HardwareInformation
+    */
+    public function setEsimIdentifier($val)
+    {
+        $this->_propDict["esimIdentifier"] = $val;
+        return $this;
+    }
+    /**
     * Gets the freeStorageSpace
     * Free storage space of the device.
     *
-    * @return int The freeStorageSpace
+    * @return int|null The freeStorageSpace
     */
     public function getFreeStorageSpace()
     {
@@ -294,7 +322,7 @@ class HardwareInformation extends Entity
     * Gets the imei
     * IMEI
     *
-    * @return string The imei
+    * @return string|null The imei
     */
     public function getImei()
     {
@@ -322,7 +350,7 @@ class HardwareInformation extends Entity
     * Gets the ipAddressV4
     * IPAddressV4
     *
-    * @return string The ipAddressV4
+    * @return string|null The ipAddressV4
     */
     public function getIpAddressV4()
     {
@@ -350,7 +378,7 @@ class HardwareInformation extends Entity
     * Gets the isEncrypted
     * Encryption status of the device
     *
-    * @return bool The isEncrypted
+    * @return bool|null The isEncrypted
     */
     public function getIsEncrypted()
     {
@@ -378,7 +406,7 @@ class HardwareInformation extends Entity
     * Gets the isSharedDevice
     * Shared iPad
     *
-    * @return bool The isSharedDevice
+    * @return bool|null The isSharedDevice
     */
     public function getIsSharedDevice()
     {
@@ -406,7 +434,7 @@ class HardwareInformation extends Entity
     * Gets the isSupervised
     * Supervised mode of the device
     *
-    * @return bool The isSupervised
+    * @return bool|null The isSupervised
     */
     public function getIsSupervised()
     {
@@ -434,7 +462,7 @@ class HardwareInformation extends Entity
     * Gets the manufacturer
     * Manufacturer of the device
     *
-    * @return string The manufacturer
+    * @return string|null The manufacturer
     */
     public function getManufacturer()
     {
@@ -462,7 +490,7 @@ class HardwareInformation extends Entity
     * Gets the meid
     * MEID
     *
-    * @return string The meid
+    * @return string|null The meid
     */
     public function getMeid()
     {
@@ -490,7 +518,7 @@ class HardwareInformation extends Entity
     * Gets the model
     * Model of the device
     *
-    * @return string The model
+    * @return string|null The model
     */
     public function getModel()
     {
@@ -518,7 +546,7 @@ class HardwareInformation extends Entity
     * Gets the operatingSystemEdition
     * String that specifies the OS edition.
     *
-    * @return string The operatingSystemEdition
+    * @return string|null The operatingSystemEdition
     */
     public function getOperatingSystemEdition()
     {
@@ -546,7 +574,7 @@ class HardwareInformation extends Entity
     * Gets the operatingSystemLanguage
     * Operating system language of the device
     *
-    * @return string The operatingSystemLanguage
+    * @return string|null The operatingSystemLanguage
     */
     public function getOperatingSystemLanguage()
     {
@@ -574,7 +602,7 @@ class HardwareInformation extends Entity
     * Gets the operatingSystemProductType
     * Int that specifies the Windows Operating System ProductType. More details here https://go.microsoft.com/fwlink/?linkid=2126950. Valid values 0 to 2147483647
     *
-    * @return int The operatingSystemProductType
+    * @return int|null The operatingSystemProductType
     */
     public function getOperatingSystemProductType()
     {
@@ -602,7 +630,7 @@ class HardwareInformation extends Entity
     * Gets the osBuildNumber
     * Operating System Build Number on Android device
     *
-    * @return string The osBuildNumber
+    * @return string|null The osBuildNumber
     */
     public function getOsBuildNumber()
     {
@@ -630,7 +658,7 @@ class HardwareInformation extends Entity
     * Gets the phoneNumber
     * Phone number of the device
     *
-    * @return string The phoneNumber
+    * @return string|null The phoneNumber
     */
     public function getPhoneNumber()
     {
@@ -658,7 +686,7 @@ class HardwareInformation extends Entity
     * Gets the serialNumber
     * Serial number.
     *
-    * @return string The serialNumber
+    * @return string|null The serialNumber
     */
     public function getSerialNumber()
     {
@@ -687,12 +715,12 @@ class HardwareInformation extends Entity
     * Gets the sharedDeviceCachedUsers
     * All users on the shared Apple device
     *
-    * @return SharedAppleDeviceUser The sharedDeviceCachedUsers
+    * @return SharedAppleDeviceUser|null The sharedDeviceCachedUsers
     */
     public function getSharedDeviceCachedUsers()
     {
         if (array_key_exists("sharedDeviceCachedUsers", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedDeviceCachedUsers"], "\Beta\Microsoft\Graph\Model\SharedAppleDeviceUser")) {
+            if (is_a($this->_propDict["sharedDeviceCachedUsers"], "\Beta\Microsoft\Graph\Model\SharedAppleDeviceUser") || is_null($this->_propDict["sharedDeviceCachedUsers"])) {
                 return $this->_propDict["sharedDeviceCachedUsers"];
             } else {
                 $this->_propDict["sharedDeviceCachedUsers"] = new SharedAppleDeviceUser($this->_propDict["sharedDeviceCachedUsers"]);
@@ -719,7 +747,7 @@ class HardwareInformation extends Entity
     * Gets the subnetAddress
     * SubnetAddress
     *
-    * @return string The subnetAddress
+    * @return string|null The subnetAddress
     */
     public function getSubnetAddress()
     {
@@ -747,7 +775,7 @@ class HardwareInformation extends Entity
     * Gets the subscriberCarrier
     * Subscriber carrier of the device
     *
-    * @return string The subscriberCarrier
+    * @return string|null The subscriberCarrier
     */
     public function getSubscriberCarrier()
     {
@@ -772,10 +800,38 @@ class HardwareInformation extends Entity
         return $this;
     }
     /**
+    * Gets the systemManagementBIOSVersion
+    * BIOS version as reported by SMBIOS
+    *
+    * @return string|null The systemManagementBIOSVersion
+    */
+    public function getSystemManagementBIOSVersion()
+    {
+        if (array_key_exists("systemManagementBIOSVersion", $this->_propDict)) {
+            return $this->_propDict["systemManagementBIOSVersion"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the systemManagementBIOSVersion
+    * BIOS version as reported by SMBIOS
+    *
+    * @param string $val The value of the systemManagementBIOSVersion
+    *
+    * @return HardwareInformation
+    */
+    public function setSystemManagementBIOSVersion($val)
+    {
+        $this->_propDict["systemManagementBIOSVersion"] = $val;
+        return $this;
+    }
+    /**
     * Gets the totalStorageSpace
     * Total storage space of the device.
     *
-    * @return int The totalStorageSpace
+    * @return int|null The totalStorageSpace
     */
     public function getTotalStorageSpace()
     {
@@ -800,10 +856,38 @@ class HardwareInformation extends Entity
         return $this;
     }
     /**
+    * Gets the tpmManufacturer
+    * The identifying information that uniquely names the TPM manufacturer
+    *
+    * @return string|null The tpmManufacturer
+    */
+    public function getTpmManufacturer()
+    {
+        if (array_key_exists("tpmManufacturer", $this->_propDict)) {
+            return $this->_propDict["tpmManufacturer"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the tpmManufacturer
+    * The identifying information that uniquely names the TPM manufacturer
+    *
+    * @param string $val The value of the tpmManufacturer
+    *
+    * @return HardwareInformation
+    */
+    public function setTpmManufacturer($val)
+    {
+        $this->_propDict["tpmManufacturer"] = $val;
+        return $this;
+    }
+    /**
     * Gets the tpmSpecificationVersion
     * String that specifies the specification version.
     *
-    * @return string The tpmSpecificationVersion
+    * @return string|null The tpmSpecificationVersion
     */
     public function getTpmSpecificationVersion()
     {
@@ -828,10 +912,38 @@ class HardwareInformation extends Entity
         return $this;
     }
     /**
+    * Gets the tpmVersion
+    * The version of the TPM, as specified by the manufacturer
+    *
+    * @return string|null The tpmVersion
+    */
+    public function getTpmVersion()
+    {
+        if (array_key_exists("tpmVersion", $this->_propDict)) {
+            return $this->_propDict["tpmVersion"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the tpmVersion
+    * The version of the TPM, as specified by the manufacturer
+    *
+    * @param string $val The value of the tpmVersion
+    *
+    * @return HardwareInformation
+    */
+    public function setTpmVersion($val)
+    {
+        $this->_propDict["tpmVersion"] = $val;
+        return $this;
+    }
+    /**
     * Gets the wifiMac
     * WiFi MAC address of the device
     *
-    * @return string The wifiMac
+    * @return string|null The wifiMac
     */
     public function getWifiMac()
     {

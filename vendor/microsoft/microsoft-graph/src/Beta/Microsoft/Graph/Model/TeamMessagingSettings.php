@@ -27,7 +27,7 @@ class TeamMessagingSettings extends Entity
     * Gets the allowChannelMentions
     * If set to true, @channel mentions are allowed.
     *
-    * @return bool The allowChannelMentions
+    * @return bool|null The allowChannelMentions
     */
     public function getAllowChannelMentions()
     {
@@ -55,7 +55,7 @@ class TeamMessagingSettings extends Entity
     * Gets the allowOwnerDeleteMessages
     * If set to true, owners can delete any message.
     *
-    * @return bool The allowOwnerDeleteMessages
+    * @return bool|null The allowOwnerDeleteMessages
     */
     public function getAllowOwnerDeleteMessages()
     {
@@ -83,7 +83,7 @@ class TeamMessagingSettings extends Entity
     * Gets the allowTeamMentions
     * If set to true, @team mentions are allowed.
     *
-    * @return bool The allowTeamMentions
+    * @return bool|null The allowTeamMentions
     */
     public function getAllowTeamMentions()
     {
@@ -111,7 +111,7 @@ class TeamMessagingSettings extends Entity
     * Gets the allowUserDeleteMessages
     * If set to true, users can delete their messages.
     *
-    * @return bool The allowUserDeleteMessages
+    * @return bool|null The allowUserDeleteMessages
     */
     public function getAllowUserDeleteMessages()
     {
@@ -139,7 +139,7 @@ class TeamMessagingSettings extends Entity
     * Gets the allowUserEditMessages
     * If set to true, users can edit their messages.
     *
-    * @return bool The allowUserEditMessages
+    * @return bool|null The allowUserEditMessages
     */
     public function getAllowUserEditMessages()
     {

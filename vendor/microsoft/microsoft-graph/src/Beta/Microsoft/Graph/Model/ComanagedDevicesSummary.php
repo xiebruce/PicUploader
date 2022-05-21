@@ -27,7 +27,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the compliancePolicyCount
     * Number of devices with CompliancePolicy swung-over. This property is read-only.
     *
-    * @return int The compliancePolicyCount
+    * @return int|null The compliancePolicyCount
     */
     public function getCompliancePolicyCount()
     {
@@ -55,7 +55,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the configurationSettingsCount
     * Number of devices with ConfigurationSettings swung-over. This property is read-only.
     *
-    * @return int The configurationSettingsCount
+    * @return int|null The configurationSettingsCount
     */
     public function getConfigurationSettingsCount()
     {
@@ -83,7 +83,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the endpointProtectionCount
     * Number of devices with EndpointProtection swung-over. This property is read-only.
     *
-    * @return int The endpointProtectionCount
+    * @return int|null The endpointProtectionCount
     */
     public function getEndpointProtectionCount()
     {
@@ -111,7 +111,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the inventoryCount
     * Number of devices with Inventory swung-over. This property is read-only.
     *
-    * @return int The inventoryCount
+    * @return int|null The inventoryCount
     */
     public function getInventoryCount()
     {
@@ -139,7 +139,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the modernAppsCount
     * Number of devices with ModernApps swung-over. This property is read-only.
     *
-    * @return int The modernAppsCount
+    * @return int|null The modernAppsCount
     */
     public function getModernAppsCount()
     {
@@ -167,7 +167,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the officeAppsCount
     * Number of devices with OfficeApps swung-over. This property is read-only.
     *
-    * @return int The officeAppsCount
+    * @return int|null The officeAppsCount
     */
     public function getOfficeAppsCount()
     {
@@ -195,7 +195,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the resourceAccessCount
     * Number of devices with ResourceAccess swung-over. This property is read-only.
     *
-    * @return int The resourceAccessCount
+    * @return int|null The resourceAccessCount
     */
     public function getResourceAccessCount()
     {
@@ -223,7 +223,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the totalComanagedCount
     * Number of Co-Managed Devices. This property is read-only.
     *
-    * @return int The totalComanagedCount
+    * @return int|null The totalComanagedCount
     */
     public function getTotalComanagedCount()
     {
@@ -251,7 +251,7 @@ class ComanagedDevicesSummary extends Entity
     * Gets the windowsUpdateForBusinessCount
     * Number of devices with WindowsUpdateForBusiness swung-over. This property is read-only.
     *
-    * @return int The windowsUpdateForBusinessCount
+    * @return int|null The windowsUpdateForBusinessCount
     */
     public function getWindowsUpdateForBusinessCount()
     {

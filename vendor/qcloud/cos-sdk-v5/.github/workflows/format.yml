@@ -1,0 +1,37 @@
+name: format
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  format:
+    name: Format Code
+    runs-on: "${{ matrix.os }}"
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        php-version: ['8.0']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: none
+
+      - name: Setup Dependencies
+        run:
+          composer install -o
+
+      - name: Run
+        run: |
+          php bin/format
+          php bin/release
+
+      - name: Commit Updated
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Format code

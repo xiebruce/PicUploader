@@ -26,9 +26,11 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppFileSystemRule");
     }
 
@@ -36,7 +38,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     * Gets the check32BitOn64System
     * A value indicating whether to expand environment variables in the 32-bit context on 64-bit systems.
     *
-    * @return bool The check32BitOn64System
+    * @return bool|null The check32BitOn64System
     */
     public function getCheck32BitOn64System()
     {
@@ -64,7 +66,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     * Gets the comparisonValue
     * The file or folder comparison value.
     *
-    * @return string The comparisonValue
+    * @return string|null The comparisonValue
     */
     public function getComparisonValue()
     {
@@ -92,7 +94,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     * Gets the fileOrFolderName
     * The file or folder name to look up.
     *
-    * @return string The fileOrFolderName
+    * @return string|null The fileOrFolderName
     */
     public function getFileOrFolderName()
     {
@@ -121,12 +123,12 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     * Gets the operationType
     * The file system operation type. Possible values are: notConfigured, exists, modifiedDate, createdDate, version, sizeInMB, doesNotExist.
     *
-    * @return Win32LobAppFileSystemOperationType The operationType
+    * @return Win32LobAppFileSystemOperationType|null The operationType
     */
     public function getOperationType()
     {
         if (array_key_exists("operationType", $this->_propDict)) {
-            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\Win32LobAppFileSystemOperationType")) {
+            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\Win32LobAppFileSystemOperationType") || is_null($this->_propDict["operationType"])) {
                 return $this->_propDict["operationType"];
             } else {
                 $this->_propDict["operationType"] = new Win32LobAppFileSystemOperationType($this->_propDict["operationType"]);
@@ -154,12 +156,12 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     * Gets the operator
     * The operator for file or folder detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
     *
-    * @return Win32LobAppRuleOperator The operator
+    * @return Win32LobAppRuleOperator|null The operator
     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppRuleOperator")) {
+            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppRuleOperator") || is_null($this->_propDict["operator"])) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Win32LobAppRuleOperator($this->_propDict["operator"]);
@@ -186,7 +188,7 @@ class Win32LobAppFileSystemRule extends Win32LobAppRule
     * Gets the path
     * The file or folder path to look up.
     *
-    * @return string The path
+    * @return string|null The path
     */
     public function getPath()
     {

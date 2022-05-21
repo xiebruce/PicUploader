@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration
 {
 
-     /** 
+     /**
      * Gets the airPrintDestinations
     * An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
      *
-     * @return array The airPrintDestinations
+     * @return array|null The airPrintDestinations
      */
     public function getAirPrintDestinations()
     {
@@ -39,19 +39,19 @@ class AppleDeviceFeaturesConfigurationBase extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the airPrintDestinations
     * An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.
     *
-    * @param AirPrintDestination $val The airPrintDestinations
+    * @param AirPrintDestination[] $val The airPrintDestinations
     *
     * @return AppleDeviceFeaturesConfigurationBase
     */
     public function setAirPrintDestinations($val)
     {
-		$this->_propDict["airPrintDestinations"] = $val;
+        $this->_propDict["airPrintDestinations"] = $val;
         return $this;
     }
-    
+
 }

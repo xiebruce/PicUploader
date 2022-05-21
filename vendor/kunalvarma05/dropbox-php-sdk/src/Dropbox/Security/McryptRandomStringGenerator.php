@@ -28,7 +28,7 @@ class McryptRandomStringGenerator implements RandomStringGeneratorInterface
             throw new DropboxClientException(
                 static::ERROR_MESSAGE .
                 'The function mcrypt_create_iv() does not exist.'
-                );
+            );
         }
     }
 
@@ -44,15 +44,14 @@ class McryptRandomStringGenerator implements RandomStringGeneratorInterface
     public function generateString($length)
     {
         //Create Binary String
-        // $binaryString = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
-        $binaryString = random_bytes($length);
-		
+        $binaryString = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
+
         //Unable to create binary string
         if ($binaryString === false) {
             throw new DropboxClientException(
                 static::ERROR_MESSAGE .
                 'mcrypt_create_iv() returned an error.'
-                );
+            );
         }
 
         //Convert binary to hex

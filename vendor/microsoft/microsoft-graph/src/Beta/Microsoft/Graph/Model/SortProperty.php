@@ -27,7 +27,7 @@ class SortProperty extends Entity
     * Gets the isDescending
     * True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
     *
-    * @return bool The isDescending
+    * @return bool|null The isDescending
     */
     public function getIsDescending()
     {
@@ -55,7 +55,7 @@ class SortProperty extends Entity
     * Gets the name
     * The name of the property to sort on. Required.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {

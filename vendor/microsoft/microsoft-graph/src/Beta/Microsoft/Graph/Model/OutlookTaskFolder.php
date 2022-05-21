@@ -28,7 +28,7 @@ class OutlookTaskFolder extends Entity
     * Gets the changeKey
     * The version of the task folder.
     *
-    * @return string The changeKey
+    * @return string|null The changeKey
     */
     public function getChangeKey()
     {
@@ -38,7 +38,7 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the changeKey
     * The version of the task folder.
@@ -52,12 +52,12 @@ class OutlookTaskFolder extends Entity
         $this->_propDict["changeKey"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isDefaultFolder
     * True if the folder is the default task folder.
     *
-    * @return bool The isDefaultFolder
+    * @return bool|null The isDefaultFolder
     */
     public function getIsDefaultFolder()
     {
@@ -67,7 +67,7 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isDefaultFolder
     * True if the folder is the default task folder.
@@ -81,12 +81,12 @@ class OutlookTaskFolder extends Entity
         $this->_propDict["isDefaultFolder"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the name
     * The name of the task folder.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -96,7 +96,7 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
     * The name of the task folder.
@@ -110,12 +110,12 @@ class OutlookTaskFolder extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the parentGroupKey
     * The unique GUID identifier for the task folder's parent group.
     *
-    * @return string The parentGroupKey
+    * @return string|null The parentGroupKey
     */
     public function getParentGroupKey()
     {
@@ -125,7 +125,7 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the parentGroupKey
     * The unique GUID identifier for the task folder's parent group.
@@ -139,13 +139,13 @@ class OutlookTaskFolder extends Entity
         $this->_propDict["parentGroupKey"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
      *
-     * @return array The multiValueExtendedProperties
+     * @return array|null The multiValueExtendedProperties
      */
     public function getMultiValueExtendedProperties()
     {
@@ -155,27 +155,27 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the multiValueExtendedProperties
     * The collection of multi-value extended properties defined for the task folder. Read-only. Nullable.
     *
-    * @param MultiValueLegacyExtendedProperty $val The multiValueExtendedProperties
+    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
     *
     * @return OutlookTaskFolder
     */
     public function setMultiValueExtendedProperties($val)
     {
-		$this->_propDict["multiValueExtendedProperties"] = $val;
+        $this->_propDict["multiValueExtendedProperties"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
      *
-     * @return array The singleValueExtendedProperties
+     * @return array|null The singleValueExtendedProperties
      */
     public function getSingleValueExtendedProperties()
     {
@@ -185,27 +185,27 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the singleValueExtendedProperties
     * The collection of single-value extended properties defined for the task folder. Read-only. Nullable.
     *
-    * @param SingleValueLegacyExtendedProperty $val The singleValueExtendedProperties
+    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
     *
     * @return OutlookTaskFolder
     */
     public function setSingleValueExtendedProperties($val)
     {
-		$this->_propDict["singleValueExtendedProperties"] = $val;
+        $this->_propDict["singleValueExtendedProperties"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the tasks
     * The tasks in this task folder. Read-only. Nullable.
      *
-     * @return array The tasks
+     * @return array|null The tasks
      */
     public function getTasks()
     {
@@ -215,19 +215,19 @@ class OutlookTaskFolder extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the tasks
     * The tasks in this task folder. Read-only. Nullable.
     *
-    * @param OutlookTask $val The tasks
+    * @param OutlookTask[] $val The tasks
     *
     * @return OutlookTaskFolder
     */
     public function setTasks($val)
     {
-		$this->_propDict["tasks"] = $val;
+        $this->_propDict["tasks"] = $val;
         return $this;
     }
-    
+
 }

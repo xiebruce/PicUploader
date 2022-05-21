@@ -28,7 +28,7 @@ class PrintDocument extends Entity
     * Gets the contentType
     * The document's content (MIME) type. Read-only.
     *
-    * @return string The contentType
+    * @return string|null The contentType
     */
     public function getContentType()
     {
@@ -38,7 +38,7 @@ class PrintDocument extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the contentType
     * The document's content (MIME) type. Read-only.
@@ -52,12 +52,12 @@ class PrintDocument extends Entity
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The document's name. Read-only.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class PrintDocument extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The document's name. Read-only.
@@ -81,12 +81,12 @@ class PrintDocument extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the size
     * The document's size in bytes. Read-only.
     *
-    * @return int The size
+    * @return int|null The size
     */
     public function getSize()
     {
@@ -96,7 +96,7 @@ class PrintDocument extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the size
     * The document's size in bytes. Read-only.
@@ -110,5 +110,5 @@ class PrintDocument extends Entity
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-    
+
 }

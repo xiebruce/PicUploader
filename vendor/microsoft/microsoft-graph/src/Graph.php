@@ -61,6 +61,13 @@ class Graph
     private $_proxyPort;
 
     /**
+     * Whether SSL verification should be used for proxy requests
+     *
+     * @var bool
+     */
+    private $_proxyVerifySSL;
+
+    /**
     * Creates a new Graph object, which is used to call the Graph API
     */
     public function __construct()
@@ -116,12 +123,15 @@ class Graph
     * requests and responses made with Guzzle
     *
     * @param string port The port number to use
+    * @param bool $verifySSL Whether SSL verification should be enabled
     *
     * @return Graph object
     */
-    public function setProxyPort($port)
+    public function setProxyPort($port, $verifySSL = false)
     {
         $this->_proxyPort = $port;
+        $this->_proxyVerifySSL = $verifySSL;
+
         return $this;
     }
 
@@ -143,7 +153,8 @@ class Graph
             $this->_accessToken,
             $this->_baseUrl,
             $this->_apiVersion,
-            $this->_proxyPort
+            $this->_proxyPort,
+            $this->_proxyVerifySSL
         );
     }
 
@@ -166,7 +177,8 @@ class Graph
             $this->_accessToken,
             $this->_baseUrl,
             $this->_apiVersion,
-            $this->_proxyPort
+            $this->_proxyPort,
+            $this->_proxyVerifySSL
         );
     }
 }

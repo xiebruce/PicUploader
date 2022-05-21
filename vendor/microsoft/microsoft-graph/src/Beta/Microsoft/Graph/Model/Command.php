@@ -27,7 +27,7 @@ class Command extends Entity
     /**
     * Gets the appServiceName
     *
-    * @return string The appServiceName
+    * @return string|null The appServiceName
     */
     public function getAppServiceName()
     {
@@ -37,7 +37,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the appServiceName
     *
@@ -50,11 +50,11 @@ class Command extends Entity
         $this->_propDict["appServiceName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the error
     *
-    * @return string The error
+    * @return string|null The error
     */
     public function getError()
     {
@@ -64,7 +64,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the error
     *
@@ -77,11 +77,11 @@ class Command extends Entity
         $this->_propDict["error"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the packageFamilyName
     *
-    * @return string The packageFamilyName
+    * @return string|null The packageFamilyName
     */
     public function getPackageFamilyName()
     {
@@ -91,7 +91,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the packageFamilyName
     *
@@ -104,16 +104,16 @@ class Command extends Entity
         $this->_propDict["packageFamilyName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the payload
     *
-    * @return PayloadRequest The payload
+    * @return PayloadRequest|null The payload
     */
     public function getPayload()
     {
         if (array_key_exists("payload", $this->_propDict)) {
-            if (is_a($this->_propDict["payload"], "\Beta\Microsoft\Graph\Model\PayloadRequest")) {
+            if (is_a($this->_propDict["payload"], "\Beta\Microsoft\Graph\Model\PayloadRequest") || is_null($this->_propDict["payload"])) {
                 return $this->_propDict["payload"];
             } else {
                 $this->_propDict["payload"] = new PayloadRequest($this->_propDict["payload"]);
@@ -122,7 +122,7 @@ class Command extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the payload
     *
@@ -135,11 +135,11 @@ class Command extends Entity
         $this->_propDict["payload"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the permissionTicket
     *
-    * @return string The permissionTicket
+    * @return string|null The permissionTicket
     */
     public function getPermissionTicket()
     {
@@ -149,7 +149,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the permissionTicket
     *
@@ -162,11 +162,11 @@ class Command extends Entity
         $this->_propDict["permissionTicket"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the postBackUri
     *
-    * @return string The postBackUri
+    * @return string|null The postBackUri
     */
     public function getPostBackUri()
     {
@@ -176,7 +176,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the postBackUri
     *
@@ -189,11 +189,11 @@ class Command extends Entity
         $this->_propDict["postBackUri"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the status
     *
-    * @return string The status
+    * @return string|null The status
     */
     public function getStatus()
     {
@@ -203,7 +203,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the status
     *
@@ -216,11 +216,11 @@ class Command extends Entity
         $this->_propDict["status"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the type
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -230,7 +230,7 @@ class Command extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the type
     *
@@ -243,16 +243,16 @@ class Command extends Entity
         $this->_propDict["type"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the responsepayload
     *
-    * @return PayloadResponse The responsepayload
+    * @return PayloadResponse|null The responsepayload
     */
     public function getResponsepayload()
     {
         if (array_key_exists("responsepayload", $this->_propDict)) {
-            if (is_a($this->_propDict["responsepayload"], "\Beta\Microsoft\Graph\Model\PayloadResponse")) {
+            if (is_a($this->_propDict["responsepayload"], "\Beta\Microsoft\Graph\Model\PayloadResponse") || is_null($this->_propDict["responsepayload"])) {
                 return $this->_propDict["responsepayload"];
             } else {
                 $this->_propDict["responsepayload"] = new PayloadResponse($this->_propDict["responsepayload"]);
@@ -261,7 +261,7 @@ class Command extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the responsepayload
     *
@@ -274,5 +274,5 @@ class Command extends Entity
         $this->_propDict["responsepayload"] = $val;
         return $this;
     }
-    
+
 }

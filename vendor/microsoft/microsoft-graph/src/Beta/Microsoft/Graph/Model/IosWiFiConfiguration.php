@@ -28,7 +28,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
     * Gets the connectAutomatically
     * Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
     *
-    * @return bool The connectAutomatically
+    * @return bool|null The connectAutomatically
     */
     public function getConnectAutomatically()
     {
@@ -38,7 +38,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectAutomatically
     * Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
@@ -52,12 +52,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["connectAutomatically"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the connectWhenNetworkNameIsHidden
     * Connect when the network is not broadcasting its name (SSID). When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
     *
-    * @return bool The connectWhenNetworkNameIsHidden
+    * @return bool|null The connectWhenNetworkNameIsHidden
     */
     public function getConnectWhenNetworkNameIsHidden()
     {
@@ -67,7 +67,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the connectWhenNetworkNameIsHidden
     * Connect when the network is not broadcasting its name (SSID). When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
@@ -81,12 +81,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["connectWhenNetworkNameIsHidden"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the disableMacAddressRandomization
     * If set to true, forces devices connecting using this Wi-Fi profile to present their actual Wi-Fi MAC address instead of a random MAC address. Applies to iOS 14 and later.
     *
-    * @return bool The disableMacAddressRandomization
+    * @return bool|null The disableMacAddressRandomization
     */
     public function getDisableMacAddressRandomization()
     {
@@ -96,7 +96,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the disableMacAddressRandomization
     * If set to true, forces devices connecting using this Wi-Fi profile to present their actual Wi-Fi MAC address instead of a random MAC address. Applies to iOS 14 and later.
@@ -110,12 +110,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["disableMacAddressRandomization"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the networkName
     * Network Name
     *
-    * @return string The networkName
+    * @return string|null The networkName
     */
     public function getNetworkName()
     {
@@ -125,7 +125,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the networkName
     * Network Name
@@ -139,12 +139,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["networkName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the preSharedKey
     * This is the pre-shared key for WPA Personal Wi-Fi network.
     *
-    * @return string The preSharedKey
+    * @return string|null The preSharedKey
     */
     public function getPreSharedKey()
     {
@@ -154,7 +154,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the preSharedKey
     * This is the pre-shared key for WPA Personal Wi-Fi network.
@@ -168,12 +168,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["preSharedKey"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the proxyAutomaticConfigurationUrl
     * URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
     *
-    * @return string The proxyAutomaticConfigurationUrl
+    * @return string|null The proxyAutomaticConfigurationUrl
     */
     public function getProxyAutomaticConfigurationUrl()
     {
@@ -183,7 +183,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the proxyAutomaticConfigurationUrl
     * URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
@@ -197,12 +197,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["proxyAutomaticConfigurationUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the proxyManualAddress
     * IP Address or DNS hostname of the proxy server when manual configuration is selected.
     *
-    * @return string The proxyManualAddress
+    * @return string|null The proxyManualAddress
     */
     public function getProxyManualAddress()
     {
@@ -212,7 +212,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the proxyManualAddress
     * IP Address or DNS hostname of the proxy server when manual configuration is selected.
@@ -226,12 +226,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["proxyManualAddress"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the proxyManualPort
     * Port of the proxy server when manual configuration is selected.
     *
-    * @return int The proxyManualPort
+    * @return int|null The proxyManualPort
     */
     public function getProxyManualPort()
     {
@@ -241,7 +241,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the proxyManualPort
     * Port of the proxy server when manual configuration is selected.
@@ -255,17 +255,17 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["proxyManualPort"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the proxySettings
     * Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
     *
-    * @return WiFiProxySetting The proxySettings
+    * @return WiFiProxySetting|null The proxySettings
     */
     public function getProxySettings()
     {
         if (array_key_exists("proxySettings", $this->_propDict)) {
-            if (is_a($this->_propDict["proxySettings"], "\Beta\Microsoft\Graph\Model\WiFiProxySetting")) {
+            if (is_a($this->_propDict["proxySettings"], "\Beta\Microsoft\Graph\Model\WiFiProxySetting") || is_null($this->_propDict["proxySettings"])) {
                 return $this->_propDict["proxySettings"];
             } else {
                 $this->_propDict["proxySettings"] = new WiFiProxySetting($this->_propDict["proxySettings"]);
@@ -274,7 +274,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the proxySettings
     * Proxy Type for this Wi-Fi connection. Possible values are: none, manual, automatic.
@@ -288,12 +288,12 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["proxySettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the ssid
     * This is the name of the Wi-Fi network that is broadcast to all devices.
     *
-    * @return string The ssid
+    * @return string|null The ssid
     */
     public function getSsid()
     {
@@ -303,7 +303,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the ssid
     * This is the name of the Wi-Fi network that is broadcast to all devices.
@@ -317,17 +317,17 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["ssid"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the wiFiSecurityType
     * Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
     *
-    * @return WiFiSecurityType The wiFiSecurityType
+    * @return WiFiSecurityType|null The wiFiSecurityType
     */
     public function getWiFiSecurityType()
     {
         if (array_key_exists("wiFiSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\WiFiSecurityType")) {
+            if (is_a($this->_propDict["wiFiSecurityType"], "\Beta\Microsoft\Graph\Model\WiFiSecurityType") || is_null($this->_propDict["wiFiSecurityType"])) {
                 return $this->_propDict["wiFiSecurityType"];
             } else {
                 $this->_propDict["wiFiSecurityType"] = new WiFiSecurityType($this->_propDict["wiFiSecurityType"]);
@@ -336,7 +336,7 @@ class IosWiFiConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the wiFiSecurityType
     * Indicates whether Wi-Fi endpoint uses an EAP based security type. Possible values are: open, wpaPersonal, wpaEnterprise, wep, wpa2Personal, wpa2Enterprise.
@@ -350,5 +350,5 @@ class IosWiFiConfiguration extends DeviceConfiguration
         $this->_propDict["wiFiSecurityType"] = $val;
         return $this;
     }
-    
+
 }

@@ -26,7 +26,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the permanentFail
     *
-    * @return int The permanentFail
+    * @return int|null The permanentFail
     */
     public function getPermanentFail()
     {
@@ -52,7 +52,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the permanentSuccess
     *
-    * @return int The permanentSuccess
+    * @return int|null The permanentSuccess
     */
     public function getPermanentSuccess()
     {
@@ -78,7 +78,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the removeFail
     *
-    * @return int The removeFail
+    * @return int|null The removeFail
     */
     public function getRemoveFail()
     {
@@ -104,7 +104,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the removeSuccess
     *
-    * @return int The removeSuccess
+    * @return int|null The removeSuccess
     */
     public function getRemoveSuccess()
     {
@@ -130,7 +130,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the roleId
     *
-    * @return string The roleId
+    * @return string|null The roleId
     */
     public function getRoleId()
     {
@@ -156,7 +156,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the roleName
     *
-    * @return string The roleName
+    * @return string|null The roleName
     */
     public function getRoleName()
     {
@@ -182,7 +182,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the temporaryFail
     *
-    * @return int The temporaryFail
+    * @return int|null The temporaryFail
     */
     public function getTemporaryFail()
     {
@@ -208,7 +208,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the temporarySuccess
     *
-    * @return int The temporarySuccess
+    * @return int|null The temporarySuccess
     */
     public function getTemporarySuccess()
     {
@@ -234,7 +234,7 @@ class RoleSuccessStatistics extends Entity
     /**
     * Gets the unknownFail
     *
-    * @return int The unknownFail
+    * @return int|null The unknownFail
     */
     public function getUnknownFail()
     {

@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class DeviceManagementSettingDefinition extends Entity
 {
 
-     /** 
+     /**
      * Gets the constraints
     * Collection of constraints for the setting value
      *
-     * @return array The constraints
+     * @return array|null The constraints
      */
     public function getConstraints()
     {
@@ -39,27 +39,27 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the constraints
     * Collection of constraints for the setting value
     *
-    * @param DeviceManagementConstraint $val The constraints
+    * @param DeviceManagementConstraint[] $val The constraints
     *
     * @return DeviceManagementSettingDefinition
     */
     public function setConstraints($val)
     {
-		$this->_propDict["constraints"] = $val;
+        $this->_propDict["constraints"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the dependencies
     * Collection of dependencies on other settings
      *
-     * @return array The dependencies
+     * @return array|null The dependencies
      */
     public function getDependencies()
     {
@@ -69,26 +69,26 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the dependencies
     * Collection of dependencies on other settings
     *
-    * @param DeviceManagementSettingDependency $val The dependencies
+    * @param DeviceManagementSettingDependency[] $val The dependencies
     *
     * @return DeviceManagementSettingDefinition
     */
     public function setDependencies($val)
     {
-		$this->_propDict["dependencies"] = $val;
+        $this->_propDict["dependencies"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * The setting's description
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -98,7 +98,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * The setting's description
@@ -112,12 +112,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * The setting's display name
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -127,7 +127,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * The setting's display name
@@ -141,12 +141,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the documentationUrl
     * Url to setting documentation
     *
-    * @return string The documentationUrl
+    * @return string|null The documentationUrl
     */
     public function getDocumentationUrl()
     {
@@ -156,7 +156,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the documentationUrl
     * Url to setting documentation
@@ -170,12 +170,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["documentationUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the headerSubtitle
     * subtitle of the setting header for more details about the category/section
     *
-    * @return string The headerSubtitle
+    * @return string|null The headerSubtitle
     */
     public function getHeaderSubtitle()
     {
@@ -185,7 +185,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the headerSubtitle
     * subtitle of the setting header for more details about the category/section
@@ -199,12 +199,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["headerSubtitle"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the headerTitle
     * title of the setting header represents a category/section of a setting/settings
     *
-    * @return string The headerTitle
+    * @return string|null The headerTitle
     */
     public function getHeaderTitle()
     {
@@ -214,7 +214,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the headerTitle
     * title of the setting header represents a category/section of a setting/settings
@@ -228,12 +228,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["headerTitle"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isTopLevel
     * If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
     *
-    * @return bool The isTopLevel
+    * @return bool|null The isTopLevel
     */
     public function getIsTopLevel()
     {
@@ -243,7 +243,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the isTopLevel
     * If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
@@ -257,12 +257,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["isTopLevel"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the keywords
     * Keywords associated with the setting
     *
-    * @return string The keywords
+    * @return string|null The keywords
     */
     public function getKeywords()
     {
@@ -272,7 +272,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the keywords
     * Keywords associated with the setting
@@ -286,12 +286,12 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["keywords"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the placeholderText
     * Placeholder text as an example of valid input
     *
-    * @return string The placeholderText
+    * @return string|null The placeholderText
     */
     public function getPlaceholderText()
     {
@@ -301,7 +301,7 @@ class DeviceManagementSettingDefinition extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the placeholderText
     * Placeholder text as an example of valid input
@@ -315,17 +315,17 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["placeholderText"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the valueType
     * The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
     *
-    * @return DeviceManangementIntentValueType The valueType
+    * @return DeviceManangementIntentValueType|null The valueType
     */
     public function getValueType()
     {
         if (array_key_exists("valueType", $this->_propDict)) {
-            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\Model\DeviceManangementIntentValueType")) {
+            if (is_a($this->_propDict["valueType"], "\Beta\Microsoft\Graph\Model\DeviceManangementIntentValueType") || is_null($this->_propDict["valueType"])) {
                 return $this->_propDict["valueType"];
             } else {
                 $this->_propDict["valueType"] = new DeviceManangementIntentValueType($this->_propDict["valueType"]);
@@ -334,7 +334,7 @@ class DeviceManagementSettingDefinition extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the valueType
     * The data type of the value. Possible values are: integer, boolean, string, complex, collection, abstractComplex.
@@ -348,5 +348,5 @@ class DeviceManagementSettingDefinition extends Entity
         $this->_propDict["valueType"] = $val;
         return $this;
     }
-    
+
 }

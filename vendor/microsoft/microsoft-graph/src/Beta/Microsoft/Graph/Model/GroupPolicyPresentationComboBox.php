@@ -28,7 +28,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
     * Gets the defaultValue
     * Localized default string displayed in the combo box. The default value is empty.
     *
-    * @return string The defaultValue
+    * @return string|null The defaultValue
     */
     public function getDefaultValue()
     {
@@ -38,7 +38,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the defaultValue
     * Localized default string displayed in the combo box. The default value is empty.
@@ -52,12 +52,12 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
         $this->_propDict["defaultValue"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the maxLength
     * An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
     *
-    * @return int The maxLength
+    * @return int|null The maxLength
     */
     public function getMaxLength()
     {
@@ -67,7 +67,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the maxLength
     * An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
@@ -81,12 +81,12 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
         $this->_propDict["maxLength"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the required
     * Specifies whether a value must be specified for the parameter. The default value is false.
     *
-    * @return bool The required
+    * @return bool|null The required
     */
     public function getRequired()
     {
@@ -96,7 +96,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the required
     * Specifies whether a value must be specified for the parameter. The default value is false.
@@ -110,12 +110,12 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the suggestions
     * Localized strings listed in the drop-down list of the combo box. The default value is empty.
     *
-    * @return string The suggestions
+    * @return string|null The suggestions
     */
     public function getSuggestions()
     {
@@ -125,7 +125,7 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
             return null;
         }
     }
-    
+
     /**
     * Sets the suggestions
     * Localized strings listed in the drop-down list of the combo box. The default value is empty.
@@ -139,5 +139,5 @@ class GroupPolicyPresentationComboBox extends GroupPolicyPresentation
         $this->_propDict["suggestions"] = $val;
         return $this;
     }
-    
+
 }

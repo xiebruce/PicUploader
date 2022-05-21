@@ -27,12 +27,12 @@ class DlpEvaluatePoliciesRequest extends Entity
     /**
     * Gets the evaluationInput
     *
-    * @return DlpEvaluationInput The evaluationInput
+    * @return DlpEvaluationInput|null The evaluationInput
     */
     public function getEvaluationInput()
     {
         if (array_key_exists("evaluationInput", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationInput"], "\Beta\Microsoft\Graph\Model\DlpEvaluationInput")) {
+            if (is_a($this->_propDict["evaluationInput"], "\Beta\Microsoft\Graph\Model\DlpEvaluationInput") || is_null($this->_propDict["evaluationInput"])) {
                 return $this->_propDict["evaluationInput"];
             } else {
                 $this->_propDict["evaluationInput"] = new DlpEvaluationInput($this->_propDict["evaluationInput"]);
@@ -58,12 +58,12 @@ class DlpEvaluatePoliciesRequest extends Entity
     /**
     * Gets the notificationInfo
     *
-    * @return DlpNotification The notificationInfo
+    * @return DlpNotification|null The notificationInfo
     */
     public function getNotificationInfo()
     {
         if (array_key_exists("notificationInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationInfo"], "\Beta\Microsoft\Graph\Model\DlpNotification")) {
+            if (is_a($this->_propDict["notificationInfo"], "\Beta\Microsoft\Graph\Model\DlpNotification") || is_null($this->_propDict["notificationInfo"])) {
                 return $this->_propDict["notificationInfo"];
             } else {
                 $this->_propDict["notificationInfo"] = new DlpNotification($this->_propDict["notificationInfo"]);
@@ -88,7 +88,7 @@ class DlpEvaluatePoliciesRequest extends Entity
     /**
     * Gets the target
     *
-    * @return string The target
+    * @return string|null The target
     */
     public function getTarget()
     {

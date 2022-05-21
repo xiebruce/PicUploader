@@ -28,12 +28,12 @@ class ItemAddress extends ItemFacet
     * Gets the detail
     * Details about the address itself.
     *
-    * @return PhysicalAddress The detail
+    * @return PhysicalAddress|null The detail
     */
     public function getDetail()
     {
         if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PhysicalAddress")) {
+            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["detail"])) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new PhysicalAddress($this->_propDict["detail"]);
@@ -42,7 +42,7 @@ class ItemAddress extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the detail
     * Details about the address itself.
@@ -56,12 +56,12 @@ class ItemAddress extends ItemFacet
         $this->_propDict["detail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Friendly name the user has assigned to this address.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -71,7 +71,7 @@ class ItemAddress extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Friendly name the user has assigned to this address.
@@ -85,17 +85,17 @@ class ItemAddress extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the geoCoordinates
     * The geocoordinates of the address.
     *
-    * @return GeoCoordinates The geoCoordinates
+    * @return GeoCoordinates|null The geoCoordinates
     */
     public function getGeoCoordinates()
     {
         if (array_key_exists("geoCoordinates", $this->_propDict)) {
-            if (is_a($this->_propDict["geoCoordinates"], "\Beta\Microsoft\Graph\Model\GeoCoordinates")) {
+            if (is_a($this->_propDict["geoCoordinates"], "\Beta\Microsoft\Graph\Model\GeoCoordinates") || is_null($this->_propDict["geoCoordinates"])) {
                 return $this->_propDict["geoCoordinates"];
             } else {
                 $this->_propDict["geoCoordinates"] = new GeoCoordinates($this->_propDict["geoCoordinates"]);
@@ -104,7 +104,7 @@ class ItemAddress extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the geoCoordinates
     * The geocoordinates of the address.
@@ -118,5 +118,5 @@ class ItemAddress extends ItemFacet
         $this->_propDict["geoCoordinates"] = $val;
         return $this;
     }
-    
+
 }

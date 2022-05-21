@@ -26,9 +26,11 @@ class DomainIdentitySource extends IdentitySource
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.domainIdentitySource");
     }
 
@@ -36,7 +38,7 @@ class DomainIdentitySource extends IdentitySource
     * Gets the displayName
     * The name of the identity source, typically also the domain name. Read only.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -64,7 +66,7 @@ class DomainIdentitySource extends IdentitySource
     * Gets the domainName
     * The domain name. Read only.
     *
-    * @return string The domainName
+    * @return string|null The domainName
     */
     public function getDomainName()
     {

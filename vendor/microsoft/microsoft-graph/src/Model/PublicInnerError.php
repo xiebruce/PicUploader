@@ -27,7 +27,7 @@ class PublicInnerError extends Entity
     * Gets the code
     * The error code.
     *
-    * @return string The code
+    * @return string|null The code
     */
     public function getCode()
     {
@@ -56,12 +56,12 @@ class PublicInnerError extends Entity
     * Gets the details
     * A collection of error details.
     *
-    * @return PublicErrorDetail The details
+    * @return PublicErrorDetail|null The details
     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PublicErrorDetail")) {
+            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PublicErrorDetail") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PublicErrorDetail($this->_propDict["details"]);
@@ -88,7 +88,7 @@ class PublicInnerError extends Entity
     * Gets the message
     * The error message.
     *
-    * @return string The message
+    * @return string|null The message
     */
     public function getMessage()
     {
@@ -116,7 +116,7 @@ class PublicInnerError extends Entity
     * Gets the target
     * The target of the error.
     *
-    * @return string The target
+    * @return string|null The target
     */
     public function getTarget()
     {

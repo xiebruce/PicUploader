@@ -28,7 +28,7 @@ class ItemPatent extends ItemFacet
     * Gets the description
     * Descpription of the patent or filing.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class ItemPatent extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Descpription of the patent or filing.
@@ -52,12 +52,12 @@ class ItemPatent extends ItemFacet
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Title of the patent or filing.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class ItemPatent extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Title of the patent or filing.
@@ -81,12 +81,12 @@ class ItemPatent extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the isPending
     * Indicates the patent is pending.
     *
-    * @return bool The isPending
+    * @return bool|null The isPending
     */
     public function getIsPending()
     {
@@ -96,7 +96,7 @@ class ItemPatent extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the isPending
     * Indicates the patent is pending.
@@ -110,17 +110,17 @@ class ItemPatent extends ItemFacet
         $this->_propDict["isPending"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the issuedDate
     * The date that the patent was granted.
     *
-    * @return \DateTime The issuedDate
+    * @return \DateTime|null The issuedDate
     */
     public function getIssuedDate()
     {
         if (array_key_exists("issuedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["issuedDate"], "\DateTime")) {
+            if (is_a($this->_propDict["issuedDate"], "\DateTime") || is_null($this->_propDict["issuedDate"])) {
                 return $this->_propDict["issuedDate"];
             } else {
                 $this->_propDict["issuedDate"] = new \DateTime($this->_propDict["issuedDate"]);
@@ -129,7 +129,7 @@ class ItemPatent extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the issuedDate
     * The date that the patent was granted.
@@ -143,12 +143,12 @@ class ItemPatent extends ItemFacet
         $this->_propDict["issuedDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the issuingAuthority
     * Authority which granted the patent.
     *
-    * @return string The issuingAuthority
+    * @return string|null The issuingAuthority
     */
     public function getIssuingAuthority()
     {
@@ -158,7 +158,7 @@ class ItemPatent extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the issuingAuthority
     * Authority which granted the patent.
@@ -172,12 +172,12 @@ class ItemPatent extends ItemFacet
         $this->_propDict["issuingAuthority"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the number
     * The patent number.
     *
-    * @return string The number
+    * @return string|null The number
     */
     public function getNumber()
     {
@@ -187,7 +187,7 @@ class ItemPatent extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the number
     * The patent number.
@@ -201,12 +201,12 @@ class ItemPatent extends ItemFacet
         $this->_propDict["number"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * URL referencing the patent or filing.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -216,7 +216,7 @@ class ItemPatent extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * URL referencing the patent or filing.
@@ -230,5 +230,5 @@ class ItemPatent extends ItemFacet
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
     * Gets the deviceCount
     * User experience analytics device startup process summarized count.
     *
-    * @return int The deviceCount
+    * @return int|null The deviceCount
     */
     public function getDeviceCount()
     {
@@ -38,7 +38,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceCount
     * User experience analytics device startup process summarized count.
@@ -52,12 +52,12 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
         $this->_propDict["deviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the medianImpactInMs
     * User experience analytics device startup process median impact in milliseconds.
     *
-    * @return int The medianImpactInMs
+    * @return int|null The medianImpactInMs
     */
     public function getMedianImpactInMs()
     {
@@ -67,7 +67,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the medianImpactInMs
     * User experience analytics device startup process median impact in milliseconds.
@@ -81,12 +81,41 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
         $this->_propDict["medianImpactInMs"] = intval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the medianImpactInMs2
+    * User experience analytics device startup process median impact in milliseconds.
+    *
+    * @return int|null The medianImpactInMs2
+    */
+    public function getMedianImpactInMs2()
+    {
+        if (array_key_exists("medianImpactInMs2", $this->_propDict)) {
+            return $this->_propDict["medianImpactInMs2"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the medianImpactInMs2
+    * User experience analytics device startup process median impact in milliseconds.
+    *
+    * @param int $val The medianImpactInMs2
+    *
+    * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+    */
+    public function setMedianImpactInMs2($val)
+    {
+        $this->_propDict["medianImpactInMs2"] = intval($val);
+        return $this;
+    }
+
     /**
     * Gets the processName
     * User experience analytics device startup process name.
     *
-    * @return string The processName
+    * @return string|null The processName
     */
     public function getProcessName()
     {
@@ -96,7 +125,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the processName
     * User experience analytics device startup process name.
@@ -110,12 +139,12 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
         $this->_propDict["processName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the productName
     * The user experience analytics device startup process product name.
     *
-    * @return string The productName
+    * @return string|null The productName
     */
     public function getProductName()
     {
@@ -125,7 +154,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the productName
     * The user experience analytics device startup process product name.
@@ -139,12 +168,12 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
         $this->_propDict["productName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publisher
     * The User experience analytics device startup process publisher.
     *
-    * @return string The publisher
+    * @return string|null The publisher
     */
     public function getPublisher()
     {
@@ -154,7 +183,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the publisher
     * The User experience analytics device startup process publisher.
@@ -168,12 +197,12 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalImpactInMs
     * User experience analytics device startup process total impact in milliseconds.
     *
-    * @return int The totalImpactInMs
+    * @return int|null The totalImpactInMs
     */
     public function getTotalImpactInMs()
     {
@@ -183,7 +212,7 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the totalImpactInMs
     * User experience analytics device startup process total impact in milliseconds.
@@ -197,5 +226,34 @@ class UserExperienceAnalyticsDeviceStartupProcessPerformance extends Entity
         $this->_propDict["totalImpactInMs"] = intval($val);
         return $this;
     }
-    
+
+    /**
+    * Gets the totalImpactInMs2
+    * User experience analytics device startup process total impact in milliseconds.
+    *
+    * @return int|null The totalImpactInMs2
+    */
+    public function getTotalImpactInMs2()
+    {
+        if (array_key_exists("totalImpactInMs2", $this->_propDict)) {
+            return $this->_propDict["totalImpactInMs2"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the totalImpactInMs2
+    * User experience analytics device startup process total impact in milliseconds.
+    *
+    * @param int $val The totalImpactInMs2
+    *
+    * @return UserExperienceAnalyticsDeviceStartupProcessPerformance
+    */
+    public function setTotalImpactInMs2($val)
+    {
+        $this->_propDict["totalImpactInMs2"] = intval($val);
+        return $this;
+    }
+
 }

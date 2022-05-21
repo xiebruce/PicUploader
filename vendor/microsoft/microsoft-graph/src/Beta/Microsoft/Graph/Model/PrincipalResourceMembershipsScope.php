@@ -26,14 +26,14 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope
 
     /**
     * Gets the principalScopes
-    * Defines the scopes of the principals to be included in an access review.
+    * Defines the scopes of the principals whose access to resources are reviewed in the access review.
     *
-    * @return AccessReviewScope The principalScopes
+    * @return AccessReviewScope|null The principalScopes
     */
     public function getPrincipalScopes()
     {
         if (array_key_exists("principalScopes", $this->_propDict)) {
-            if (is_a($this->_propDict["principalScopes"], "\Beta\Microsoft\Graph\Model\AccessReviewScope")) {
+            if (is_a($this->_propDict["principalScopes"], "\Beta\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["principalScopes"])) {
                 return $this->_propDict["principalScopes"];
             } else {
                 $this->_propDict["principalScopes"] = new AccessReviewScope($this->_propDict["principalScopes"]);
@@ -45,7 +45,7 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope
 
     /**
     * Sets the principalScopes
-    * Defines the scopes of the principals to be included in an access review.
+    * Defines the scopes of the principals whose access to resources are reviewed in the access review.
     *
     * @param AccessReviewScope $val The value to assign to the principalScopes
     *
@@ -59,14 +59,14 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope
 
     /**
     * Gets the resourceScopes
-    * Defines the scopes of the resources for which access will be reviewed.
+    * Defines the scopes of the resources for which access is reviewed.
     *
-    * @return AccessReviewScope The resourceScopes
+    * @return AccessReviewScope|null The resourceScopes
     */
     public function getResourceScopes()
     {
         if (array_key_exists("resourceScopes", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceScopes"], "\Beta\Microsoft\Graph\Model\AccessReviewScope")) {
+            if (is_a($this->_propDict["resourceScopes"], "\Beta\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["resourceScopes"])) {
                 return $this->_propDict["resourceScopes"];
             } else {
                 $this->_propDict["resourceScopes"] = new AccessReviewScope($this->_propDict["resourceScopes"]);
@@ -78,7 +78,7 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope
 
     /**
     * Sets the resourceScopes
-    * Defines the scopes of the resources for which access will be reviewed.
+    * Defines the scopes of the resources for which access is reviewed.
     *
     * @param AccessReviewScope $val The value to assign to the resourceScopes
     *

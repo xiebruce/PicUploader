@@ -28,7 +28,7 @@ class WorkbookFormatProtection extends Entity
     * Gets the formulaHidden
     * Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
     *
-    * @return bool The formulaHidden
+    * @return bool|null The formulaHidden
     */
     public function getFormulaHidden()
     {
@@ -38,7 +38,7 @@ class WorkbookFormatProtection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the formulaHidden
     * Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
@@ -52,12 +52,12 @@ class WorkbookFormatProtection extends Entity
         $this->_propDict["formulaHidden"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the locked
     * Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
     *
-    * @return bool The locked
+    * @return bool|null The locked
     */
     public function getLocked()
     {
@@ -67,7 +67,7 @@ class WorkbookFormatProtection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the locked
     * Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
@@ -81,5 +81,5 @@ class WorkbookFormatProtection extends Entity
         $this->_propDict["locked"] = boolval($val);
         return $this;
     }
-    
+
 }

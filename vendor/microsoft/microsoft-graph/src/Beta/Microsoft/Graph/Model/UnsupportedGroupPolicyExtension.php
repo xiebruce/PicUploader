@@ -28,7 +28,7 @@ class UnsupportedGroupPolicyExtension extends Entity
     * Gets the extensionType
     * ExtensionType of the unsupported extension.
     *
-    * @return string The extensionType
+    * @return string|null The extensionType
     */
     public function getExtensionType()
     {
@@ -38,7 +38,7 @@ class UnsupportedGroupPolicyExtension extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the extensionType
     * ExtensionType of the unsupported extension.
@@ -52,12 +52,12 @@ class UnsupportedGroupPolicyExtension extends Entity
         $this->_propDict["extensionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the namespaceUrl
     * Namespace Url of the unsupported extension.
     *
-    * @return string The namespaceUrl
+    * @return string|null The namespaceUrl
     */
     public function getNamespaceUrl()
     {
@@ -67,7 +67,7 @@ class UnsupportedGroupPolicyExtension extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the namespaceUrl
     * Namespace Url of the unsupported extension.
@@ -81,12 +81,12 @@ class UnsupportedGroupPolicyExtension extends Entity
         $this->_propDict["namespaceUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the nodeName
     * Node name of the unsupported extension.
     *
-    * @return string The nodeName
+    * @return string|null The nodeName
     */
     public function getNodeName()
     {
@@ -96,7 +96,7 @@ class UnsupportedGroupPolicyExtension extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the nodeName
     * Node name of the unsupported extension.
@@ -110,17 +110,17 @@ class UnsupportedGroupPolicyExtension extends Entity
         $this->_propDict["nodeName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the settingScope
     * Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
     *
-    * @return GroupPolicySettingScope The settingScope
+    * @return GroupPolicySettingScope|null The settingScope
     */
     public function getSettingScope()
     {
         if (array_key_exists("settingScope", $this->_propDict)) {
-            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope")) {
+            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope") || is_null($this->_propDict["settingScope"])) {
                 return $this->_propDict["settingScope"];
             } else {
                 $this->_propDict["settingScope"] = new GroupPolicySettingScope($this->_propDict["settingScope"]);
@@ -129,7 +129,7 @@ class UnsupportedGroupPolicyExtension extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the settingScope
     * Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
@@ -143,5 +143,5 @@ class UnsupportedGroupPolicyExtension extends Entity
         $this->_propDict["settingScope"] = $val;
         return $this;
     }
-    
+
 }

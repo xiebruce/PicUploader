@@ -28,12 +28,12 @@ class SitePage extends BaseItem
     * Gets the contentType
     * The content type of the page.
     *
-    * @return ContentTypeInfo The contentType
+    * @return ContentTypeInfo|null The contentType
     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo")) {
+            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new ContentTypeInfo($this->_propDict["contentType"]);
@@ -42,7 +42,7 @@ class SitePage extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the contentType
     * The content type of the page.
@@ -56,11 +56,11 @@ class SitePage extends BaseItem
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the pageLayoutType
     *
-    * @return string The pageLayoutType
+    * @return string|null The pageLayoutType
     */
     public function getPageLayoutType()
     {
@@ -70,7 +70,7 @@ class SitePage extends BaseItem
             return null;
         }
     }
-    
+
     /**
     * Sets the pageLayoutType
     *
@@ -83,16 +83,16 @@ class SitePage extends BaseItem
         $this->_propDict["pageLayoutType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publishingState
     *
-    * @return PublicationFacet The publishingState
+    * @return PublicationFacet|null The publishingState
     */
     public function getPublishingState()
     {
         if (array_key_exists("publishingState", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingState"], "\Beta\Microsoft\Graph\Model\PublicationFacet")) {
+            if (is_a($this->_propDict["publishingState"], "\Beta\Microsoft\Graph\Model\PublicationFacet") || is_null($this->_propDict["publishingState"])) {
                 return $this->_propDict["publishingState"];
             } else {
                 $this->_propDict["publishingState"] = new PublicationFacet($this->_propDict["publishingState"]);
@@ -101,7 +101,7 @@ class SitePage extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the publishingState
     *
@@ -114,11 +114,11 @@ class SitePage extends BaseItem
         $this->_propDict["publishingState"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the title
     *
-    * @return string The title
+    * @return string|null The title
     */
     public function getTitle()
     {
@@ -128,7 +128,7 @@ class SitePage extends BaseItem
             return null;
         }
     }
-    
+
     /**
     * Sets the title
     *
@@ -141,12 +141,12 @@ class SitePage extends BaseItem
         $this->_propDict["title"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the webParts
      *
-     * @return array The webParts
+     * @return array|null The webParts
      */
     public function getWebParts()
     {
@@ -156,18 +156,18 @@ class SitePage extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the webParts
     *
-    * @param WebPart $val The webParts
+    * @param WebPart[] $val The webParts
     *
     * @return SitePage
     */
     public function setWebParts($val)
     {
-		$this->_propDict["webParts"] = $val;
+        $this->_propDict["webParts"] = $val;
         return $this;
     }
-    
+
 }

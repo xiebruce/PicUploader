@@ -26,9 +26,11 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     /**
     * Set the @odata.type since this type is immediately descended from an abstract
     * type that is referenced as the type in an entity.
+    * @param array $propDict The property dictionary
     */
-    public function __construct()
+    public function __construct($propDict = array())
     {
+        parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementConfigurationChoiceSettingValue");
     }
 
@@ -37,12 +39,12 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     * Gets the children
     * Child settings.
     *
-    * @return DeviceManagementConfigurationSettingInstance The children
+    * @return DeviceManagementConfigurationSettingInstance|null The children
     */
     public function getChildren()
     {
         if (array_key_exists("children", $this->_propDict)) {
-            if (is_a($this->_propDict["children"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstance")) {
+            if (is_a($this->_propDict["children"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstance") || is_null($this->_propDict["children"])) {
                 return $this->_propDict["children"];
             } else {
                 $this->_propDict["children"] = new DeviceManagementConfigurationSettingInstance($this->_propDict["children"]);
@@ -69,7 +71,7 @@ class DeviceManagementConfigurationChoiceSettingValue extends DeviceManagementCo
     * Gets the value
     * Choice setting value: an OptionDefinition ItemId.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

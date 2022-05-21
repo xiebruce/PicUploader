@@ -28,7 +28,7 @@ class ManagedAppStatusRaw extends ManagedAppStatus
     * Gets the content
     * Status report content.
     *
-    * @return string The content
+    * @return string|null The content
     */
     public function getContent()
     {
@@ -38,7 +38,7 @@ class ManagedAppStatusRaw extends ManagedAppStatus
             return null;
         }
     }
-    
+
     /**
     * Sets the content
     * Status report content.
@@ -52,5 +52,5 @@ class ManagedAppStatusRaw extends ManagedAppStatus
         $this->_propDict["content"] = $val;
         return $this;
     }
-    
+
 }

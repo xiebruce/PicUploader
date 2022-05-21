@@ -27,7 +27,7 @@ class ParticipantInfo extends Entity
     * Gets the countryCode
     * The ISO 3166-1 Alpha-2 country code of the participant's best estimated physical location at the start of the call. Read-only.
     *
-    * @return string The countryCode
+    * @return string|null The countryCode
     */
     public function getCountryCode()
     {
@@ -56,12 +56,12 @@ class ParticipantInfo extends Entity
     * Gets the endpointType
     * The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
     *
-    * @return EndpointType The endpointType
+    * @return EndpointType|null The endpointType
     */
     public function getEndpointType()
     {
         if (array_key_exists("endpointType", $this->_propDict)) {
-            if (is_a($this->_propDict["endpointType"], "\Beta\Microsoft\Graph\Model\EndpointType")) {
+            if (is_a($this->_propDict["endpointType"], "\Beta\Microsoft\Graph\Model\EndpointType") || is_null($this->_propDict["endpointType"])) {
                 return $this->_propDict["endpointType"];
             } else {
                 $this->_propDict["endpointType"] = new EndpointType($this->_propDict["endpointType"]);
@@ -89,12 +89,12 @@ class ParticipantInfo extends Entity
     * Gets the identity
     * The identitySet associated with this participant. Read-only.
     *
-    * @return IdentitySet The identity
+    * @return IdentitySet|null The identity
     */
     public function getIdentity()
     {
         if (array_key_exists("identity", $this->_propDict)) {
-            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet")) {
+            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["identity"])) {
                 return $this->_propDict["identity"];
             } else {
                 $this->_propDict["identity"] = new IdentitySet($this->_propDict["identity"]);
@@ -121,7 +121,7 @@ class ParticipantInfo extends Entity
     * Gets the languageId
     * The language culture string. Read-only.
     *
-    * @return string The languageId
+    * @return string|null The languageId
     */
     public function getLanguageId()
     {
@@ -146,10 +146,38 @@ class ParticipantInfo extends Entity
         return $this;
     }
     /**
+    * Gets the participantId
+    * The participant ID of the participant. Read-only.
+    *
+    * @return string|null The participantId
+    */
+    public function getParticipantId()
+    {
+        if (array_key_exists("participantId", $this->_propDict)) {
+            return $this->_propDict["participantId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the participantId
+    * The participant ID of the participant. Read-only.
+    *
+    * @param string $val The value of the participantId
+    *
+    * @return ParticipantInfo
+    */
+    public function setParticipantId($val)
+    {
+        $this->_propDict["participantId"] = $val;
+        return $this;
+    }
+    /**
     * Gets the platformId
     * The client platform ID of the participant. Read-only.
     *
-    * @return string The platformId
+    * @return string|null The platformId
     */
     public function getPlatformId()
     {
@@ -177,7 +205,7 @@ class ParticipantInfo extends Entity
     * Gets the region
     * The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
     *
-    * @return string The region
+    * @return string|null The region
     */
     public function getRegion()
     {

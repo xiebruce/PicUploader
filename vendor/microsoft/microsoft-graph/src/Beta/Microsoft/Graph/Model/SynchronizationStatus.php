@@ -28,12 +28,12 @@ class SynchronizationStatus extends Entity
     * Gets the code
     * High-level status code of the synchronization job. Possible values are: NotConfigured, NotRun, Active, Paused, Quarantine.
     *
-    * @return SynchronizationStatusCode The code
+    * @return SynchronizationStatusCode|null The code
     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
-            if (is_a($this->_propDict["code"], "\Beta\Microsoft\Graph\Model\SynchronizationStatusCode")) {
+            if (is_a($this->_propDict["code"], "\Beta\Microsoft\Graph\Model\SynchronizationStatusCode") || is_null($this->_propDict["code"])) {
                 return $this->_propDict["code"];
             } else {
                 $this->_propDict["code"] = new SynchronizationStatusCode($this->_propDict["code"]);
@@ -60,7 +60,7 @@ class SynchronizationStatus extends Entity
     * Gets the countSuccessiveCompleteFailures
     * Number of consecutive times this job failed.
     *
-    * @return int The countSuccessiveCompleteFailures
+    * @return int|null The countSuccessiveCompleteFailures
     */
     public function getCountSuccessiveCompleteFailures()
     {
@@ -88,7 +88,7 @@ class SynchronizationStatus extends Entity
     * Gets the escrowsPruned
     * true if the job's escrows (object-level errors) were pruned during initial synchronization. Escrows can be pruned if during the initial synchronization, you reach the threshold of errors that would normally put the job in quarantine. Instead of going into quarantine, the synchronization process clears the job's errors and continues until the initial synchronization is completed. When the initial synchronization is completed, the job will pause and wait for the customer to clean up the errors.
     *
-    * @return bool The escrowsPruned
+    * @return bool|null The escrowsPruned
     */
     public function getEscrowsPruned()
     {
@@ -117,12 +117,12 @@ class SynchronizationStatus extends Entity
     * Gets the lastExecution
     * Details of the last execution of the job.
     *
-    * @return SynchronizationTaskExecution The lastExecution
+    * @return SynchronizationTaskExecution|null The lastExecution
     */
     public function getLastExecution()
     {
         if (array_key_exists("lastExecution", $this->_propDict)) {
-            if (is_a($this->_propDict["lastExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution")) {
+            if (is_a($this->_propDict["lastExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution") || is_null($this->_propDict["lastExecution"])) {
                 return $this->_propDict["lastExecution"];
             } else {
                 $this->_propDict["lastExecution"] = new SynchronizationTaskExecution($this->_propDict["lastExecution"]);
@@ -150,12 +150,12 @@ class SynchronizationStatus extends Entity
     * Gets the lastSuccessfulExecution
     * Details of the last execution of this job, which didn't have any errors.
     *
-    * @return SynchronizationTaskExecution The lastSuccessfulExecution
+    * @return SynchronizationTaskExecution|null The lastSuccessfulExecution
     */
     public function getLastSuccessfulExecution()
     {
         if (array_key_exists("lastSuccessfulExecution", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSuccessfulExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution")) {
+            if (is_a($this->_propDict["lastSuccessfulExecution"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution") || is_null($this->_propDict["lastSuccessfulExecution"])) {
                 return $this->_propDict["lastSuccessfulExecution"];
             } else {
                 $this->_propDict["lastSuccessfulExecution"] = new SynchronizationTaskExecution($this->_propDict["lastSuccessfulExecution"]);
@@ -183,12 +183,12 @@ class SynchronizationStatus extends Entity
     * Gets the lastSuccessfulExecutionWithExports
     * Details of the last execution of the job, which exported objects into the target directory.
     *
-    * @return SynchronizationTaskExecution The lastSuccessfulExecutionWithExports
+    * @return SynchronizationTaskExecution|null The lastSuccessfulExecutionWithExports
     */
     public function getLastSuccessfulExecutionWithExports()
     {
         if (array_key_exists("lastSuccessfulExecutionWithExports", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSuccessfulExecutionWithExports"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution")) {
+            if (is_a($this->_propDict["lastSuccessfulExecutionWithExports"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecution") || is_null($this->_propDict["lastSuccessfulExecutionWithExports"])) {
                 return $this->_propDict["lastSuccessfulExecutionWithExports"];
             } else {
                 $this->_propDict["lastSuccessfulExecutionWithExports"] = new SynchronizationTaskExecution($this->_propDict["lastSuccessfulExecutionWithExports"]);
@@ -216,12 +216,12 @@ class SynchronizationStatus extends Entity
     * Gets the progress
     * Details of the progress of a job toward completion.
     *
-    * @return SynchronizationProgress The progress
+    * @return SynchronizationProgress|null The progress
     */
     public function getProgress()
     {
         if (array_key_exists("progress", $this->_propDict)) {
-            if (is_a($this->_propDict["progress"], "\Beta\Microsoft\Graph\Model\SynchronizationProgress")) {
+            if (is_a($this->_propDict["progress"], "\Beta\Microsoft\Graph\Model\SynchronizationProgress") || is_null($this->_propDict["progress"])) {
                 return $this->_propDict["progress"];
             } else {
                 $this->_propDict["progress"] = new SynchronizationProgress($this->_propDict["progress"]);
@@ -249,12 +249,12 @@ class SynchronizationStatus extends Entity
     * Gets the quarantine
     * If job is in quarantine, quarantine details.
     *
-    * @return SynchronizationQuarantine The quarantine
+    * @return SynchronizationQuarantine|null The quarantine
     */
     public function getQuarantine()
     {
         if (array_key_exists("quarantine", $this->_propDict)) {
-            if (is_a($this->_propDict["quarantine"], "\Beta\Microsoft\Graph\Model\SynchronizationQuarantine")) {
+            if (is_a($this->_propDict["quarantine"], "\Beta\Microsoft\Graph\Model\SynchronizationQuarantine") || is_null($this->_propDict["quarantine"])) {
                 return $this->_propDict["quarantine"];
             } else {
                 $this->_propDict["quarantine"] = new SynchronizationQuarantine($this->_propDict["quarantine"]);
@@ -282,12 +282,12 @@ class SynchronizationStatus extends Entity
     * Gets the steadyStateFirstAchievedTime
     * The time when steady state (no more changes to the process) was first achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The steadyStateFirstAchievedTime
+    * @return \DateTime|null The steadyStateFirstAchievedTime
     */
     public function getSteadyStateFirstAchievedTime()
     {
         if (array_key_exists("steadyStateFirstAchievedTime", $this->_propDict)) {
-            if (is_a($this->_propDict["steadyStateFirstAchievedTime"], "\DateTime")) {
+            if (is_a($this->_propDict["steadyStateFirstAchievedTime"], "\DateTime") || is_null($this->_propDict["steadyStateFirstAchievedTime"])) {
                 return $this->_propDict["steadyStateFirstAchievedTime"];
             } else {
                 $this->_propDict["steadyStateFirstAchievedTime"] = new \DateTime($this->_propDict["steadyStateFirstAchievedTime"]);
@@ -315,12 +315,12 @@ class SynchronizationStatus extends Entity
     * Gets the steadyStateLastAchievedTime
     * The time when steady state (no more changes to the process) was last achieved. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
-    * @return \DateTime The steadyStateLastAchievedTime
+    * @return \DateTime|null The steadyStateLastAchievedTime
     */
     public function getSteadyStateLastAchievedTime()
     {
         if (array_key_exists("steadyStateLastAchievedTime", $this->_propDict)) {
-            if (is_a($this->_propDict["steadyStateLastAchievedTime"], "\DateTime")) {
+            if (is_a($this->_propDict["steadyStateLastAchievedTime"], "\DateTime") || is_null($this->_propDict["steadyStateLastAchievedTime"])) {
                 return $this->_propDict["steadyStateLastAchievedTime"];
             } else {
                 $this->_propDict["steadyStateLastAchievedTime"] = new \DateTime($this->_propDict["steadyStateLastAchievedTime"]);
@@ -348,12 +348,12 @@ class SynchronizationStatus extends Entity
     * Gets the synchronizedEntryCountByType
     * Count of synchronized objects, listed by object type.
     *
-    * @return StringKeyLongValuePair The synchronizedEntryCountByType
+    * @return StringKeyLongValuePair|null The synchronizedEntryCountByType
     */
     public function getSynchronizedEntryCountByType()
     {
         if (array_key_exists("synchronizedEntryCountByType", $this->_propDict)) {
-            if (is_a($this->_propDict["synchronizedEntryCountByType"], "\Beta\Microsoft\Graph\Model\StringKeyLongValuePair")) {
+            if (is_a($this->_propDict["synchronizedEntryCountByType"], "\Beta\Microsoft\Graph\Model\StringKeyLongValuePair") || is_null($this->_propDict["synchronizedEntryCountByType"])) {
                 return $this->_propDict["synchronizedEntryCountByType"];
             } else {
                 $this->_propDict["synchronizedEntryCountByType"] = new StringKeyLongValuePair($this->_propDict["synchronizedEntryCountByType"]);
@@ -380,7 +380,7 @@ class SynchronizationStatus extends Entity
     * Gets the troubleshootingUrl
     * In the event of an error, the URL with the troubleshooting steps for the issue.
     *
-    * @return string The troubleshootingUrl
+    * @return string|null The troubleshootingUrl
     */
     public function getTroubleshootingUrl()
     {

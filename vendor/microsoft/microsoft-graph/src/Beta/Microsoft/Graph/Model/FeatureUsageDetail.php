@@ -26,7 +26,7 @@ class FeatureUsageDetail extends Entity
     /**
     * Gets the featureName
     *
-    * @return string The featureName
+    * @return string|null The featureName
     */
     public function getFeatureName()
     {
@@ -53,12 +53,12 @@ class FeatureUsageDetail extends Entity
     /**
     * Gets the lastConfiguredDateTime
     *
-    * @return \DateTime The lastConfiguredDateTime
+    * @return \DateTime|null The lastConfiguredDateTime
     */
     public function getLastConfiguredDateTime()
     {
         if (array_key_exists("lastConfiguredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConfiguredDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastConfiguredDateTime"], "\DateTime") || is_null($this->_propDict["lastConfiguredDateTime"])) {
                 return $this->_propDict["lastConfiguredDateTime"];
             } else {
                 $this->_propDict["lastConfiguredDateTime"] = new \DateTime($this->_propDict["lastConfiguredDateTime"]);
@@ -84,12 +84,12 @@ class FeatureUsageDetail extends Entity
     /**
     * Gets the lastUsedDateTime
     *
-    * @return \DateTime The lastUsedDateTime
+    * @return \DateTime|null The lastUsedDateTime
     */
     public function getLastUsedDateTime()
     {
         if (array_key_exists("lastUsedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUsedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastUsedDateTime"], "\DateTime") || is_null($this->_propDict["lastUsedDateTime"])) {
                 return $this->_propDict["lastUsedDateTime"];
             } else {
                 $this->_propDict["lastUsedDateTime"] = new \DateTime($this->_propDict["lastUsedDateTime"]);
@@ -115,12 +115,12 @@ class FeatureUsageDetail extends Entity
     /**
     * Gets the licenseAssigned
     *
-    * @return AzureADLicenseType The licenseAssigned
+    * @return AzureADLicenseType|null The licenseAssigned
     */
     public function getLicenseAssigned()
     {
         if (array_key_exists("licenseAssigned", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseAssigned"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType")) {
+            if (is_a($this->_propDict["licenseAssigned"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType") || is_null($this->_propDict["licenseAssigned"])) {
                 return $this->_propDict["licenseAssigned"];
             } else {
                 $this->_propDict["licenseAssigned"] = new AzureADLicenseType($this->_propDict["licenseAssigned"]);
@@ -146,12 +146,12 @@ class FeatureUsageDetail extends Entity
     /**
     * Gets the licenseRequired
     *
-    * @return AzureADLicenseType The licenseRequired
+    * @return AzureADLicenseType|null The licenseRequired
     */
     public function getLicenseRequired()
     {
         if (array_key_exists("licenseRequired", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseRequired"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType")) {
+            if (is_a($this->_propDict["licenseRequired"], "\Beta\Microsoft\Graph\Model\AzureADLicenseType") || is_null($this->_propDict["licenseRequired"])) {
                 return $this->_propDict["licenseRequired"];
             } else {
                 $this->_propDict["licenseRequired"] = new AzureADLicenseType($this->_propDict["licenseRequired"]);

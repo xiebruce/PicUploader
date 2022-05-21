@@ -28,12 +28,12 @@ class TimeOff extends ChangeTrackedEntity
     * Gets the draftTimeOff
     * The draft version of this timeOff that is viewable by managers. Required.
     *
-    * @return TimeOffItem The draftTimeOff
+    * @return TimeOffItem|null The draftTimeOff
     */
     public function getDraftTimeOff()
     {
         if (array_key_exists("draftTimeOff", $this->_propDict)) {
-            if (is_a($this->_propDict["draftTimeOff"], "\Microsoft\Graph\Model\TimeOffItem")) {
+            if (is_a($this->_propDict["draftTimeOff"], "\Microsoft\Graph\Model\TimeOffItem") || is_null($this->_propDict["draftTimeOff"])) {
                 return $this->_propDict["draftTimeOff"];
             } else {
                 $this->_propDict["draftTimeOff"] = new TimeOffItem($this->_propDict["draftTimeOff"]);
@@ -42,7 +42,7 @@ class TimeOff extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the draftTimeOff
     * The draft version of this timeOff that is viewable by managers. Required.
@@ -56,17 +56,17 @@ class TimeOff extends ChangeTrackedEntity
         $this->_propDict["draftTimeOff"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharedTimeOff
     * The shared version of this timeOff that is viewable by both employees and managers. Required.
     *
-    * @return TimeOffItem The sharedTimeOff
+    * @return TimeOffItem|null The sharedTimeOff
     */
     public function getSharedTimeOff()
     {
         if (array_key_exists("sharedTimeOff", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedTimeOff"], "\Microsoft\Graph\Model\TimeOffItem")) {
+            if (is_a($this->_propDict["sharedTimeOff"], "\Microsoft\Graph\Model\TimeOffItem") || is_null($this->_propDict["sharedTimeOff"])) {
                 return $this->_propDict["sharedTimeOff"];
             } else {
                 $this->_propDict["sharedTimeOff"] = new TimeOffItem($this->_propDict["sharedTimeOff"]);
@@ -75,7 +75,7 @@ class TimeOff extends ChangeTrackedEntity
         }
         return null;
     }
-    
+
     /**
     * Sets the sharedTimeOff
     * The shared version of this timeOff that is viewable by both employees and managers. Required.
@@ -89,12 +89,12 @@ class TimeOff extends ChangeTrackedEntity
         $this->_propDict["sharedTimeOff"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userId
     * ID of the user assigned to the timeOff. Required.
     *
-    * @return string The userId
+    * @return string|null The userId
     */
     public function getUserId()
     {
@@ -104,7 +104,7 @@ class TimeOff extends ChangeTrackedEntity
             return null;
         }
     }
-    
+
     /**
     * Sets the userId
     * ID of the user assigned to the timeOff. Required.
@@ -118,5 +118,5 @@ class TimeOff extends ChangeTrackedEntity
         $this->_propDict["userId"] = $val;
         return $this;
     }
-    
+
 }

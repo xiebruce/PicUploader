@@ -28,12 +28,12 @@ class ExpressionInputObject extends Entity
     * Gets the definition
     * Definition of the test object.
     *
-    * @return ObjectDefinition The definition
+    * @return ObjectDefinition|null The definition
     */
     public function getDefinition()
     {
         if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\ObjectDefinition")) {
+            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\ObjectDefinition") || is_null($this->_propDict["definition"])) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new ObjectDefinition($this->_propDict["definition"]);
@@ -61,12 +61,12 @@ class ExpressionInputObject extends Entity
     * Gets the expressionInputObjectProperties
     * Property values of the test object.
     *
-    * @return StringKeyObjectValuePair The expressionInputObjectProperties
+    * @return StringKeyObjectValuePair|null The expressionInputObjectProperties
     */
     public function getExpressionInputObjectProperties()
     {
         if (array_key_exists("properties", $this->_propDict)) {
-            if (is_a($this->_propDict["properties"], "\Beta\Microsoft\Graph\Model\StringKeyObjectValuePair")) {
+            if (is_a($this->_propDict["properties"], "\Beta\Microsoft\Graph\Model\StringKeyObjectValuePair") || is_null($this->_propDict["properties"])) {
                 return $this->_propDict["properties"];
             } else {
                 $this->_propDict["properties"] = new StringKeyObjectValuePair($this->_propDict["properties"]);

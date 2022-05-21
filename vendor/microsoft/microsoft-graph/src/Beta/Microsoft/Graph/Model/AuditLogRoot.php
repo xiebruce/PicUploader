@@ -25,11 +25,11 @@ namespace Beta\Microsoft\Graph\Model;
 class AuditLogRoot extends Entity
 {
 
-     /** 
+     /**
      * Gets the directoryAudits
     * Read-only. Nullable.
      *
-     * @return array The directoryAudits
+     * @return array|null The directoryAudits
      */
     public function getDirectoryAudits()
     {
@@ -39,26 +39,26 @@ class AuditLogRoot extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the directoryAudits
     * Read-only. Nullable.
     *
-    * @param DirectoryAudit $val The directoryAudits
+    * @param DirectoryAudit[] $val The directoryAudits
     *
     * @return AuditLogRoot
     */
     public function setDirectoryAudits($val)
     {
-		$this->_propDict["directoryAudits"] = $val;
+        $this->_propDict["directoryAudits"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the directoryProvisioning
      *
-     * @return array The directoryProvisioning
+     * @return array|null The directoryProvisioning
      */
     public function getDirectoryProvisioning()
     {
@@ -68,25 +68,25 @@ class AuditLogRoot extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the directoryProvisioning
     *
-    * @param ProvisioningObjectSummary $val The directoryProvisioning
+    * @param ProvisioningObjectSummary[] $val The directoryProvisioning
     *
     * @return AuditLogRoot
     */
     public function setDirectoryProvisioning($val)
     {
-		$this->_propDict["directoryProvisioning"] = $val;
+        $this->_propDict["directoryProvisioning"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the provisioning
      *
-     * @return array The provisioning
+     * @return array|null The provisioning
      */
     public function getProvisioning()
     {
@@ -96,25 +96,25 @@ class AuditLogRoot extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the provisioning
     *
-    * @param ProvisioningObjectSummary $val The provisioning
+    * @param ProvisioningObjectSummary[] $val The provisioning
     *
     * @return AuditLogRoot
     */
     public function setProvisioning($val)
     {
-		$this->_propDict["provisioning"] = $val;
+        $this->_propDict["provisioning"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the restrictedSignIns
      *
-     * @return array The restrictedSignIns
+     * @return array|null The restrictedSignIns
      */
     public function getRestrictedSignIns()
     {
@@ -124,26 +124,26 @@ class AuditLogRoot extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the restrictedSignIns
     *
-    * @param RestrictedSignIn $val The restrictedSignIns
+    * @param RestrictedSignIn[] $val The restrictedSignIns
     *
     * @return AuditLogRoot
     */
     public function setRestrictedSignIns($val)
     {
-		$this->_propDict["restrictedSignIns"] = $val;
+        $this->_propDict["restrictedSignIns"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the signIns
     * Read-only. Nullable.
      *
-     * @return array The signIns
+     * @return array|null The signIns
      */
     public function getSignIns()
     {
@@ -153,19 +153,19 @@ class AuditLogRoot extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the signIns
     * Read-only. Nullable.
     *
-    * @param SignIn $val The signIns
+    * @param SignIn[] $val The signIns
     *
     * @return AuditLogRoot
     */
     public function setSignIns($val)
     {
-		$this->_propDict["signIns"] = $val;
+        $this->_propDict["signIns"] = $val;
         return $this;
     }
-    
+
 }

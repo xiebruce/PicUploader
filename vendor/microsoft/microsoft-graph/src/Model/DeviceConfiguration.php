@@ -28,12 +28,12 @@ class DeviceConfiguration extends Entity
     * Gets the createdDateTime
     * DateTime the object was created.
     *
-    * @return \DateTime The createdDateTime
+    * @return \DateTime|null The createdDateTime
     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -42,7 +42,7 @@ class DeviceConfiguration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the createdDateTime
     * DateTime the object was created.
@@ -56,12 +56,12 @@ class DeviceConfiguration extends Entity
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
     * Admin provided description of the Device Configuration.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -71,7 +71,7 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Admin provided description of the Device Configuration.
@@ -85,12 +85,12 @@ class DeviceConfiguration extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Admin provided name of the device configuration.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -100,7 +100,7 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Admin provided name of the device configuration.
@@ -114,17 +114,17 @@ class DeviceConfiguration extends Entity
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lastModifiedDateTime
     * DateTime the object was last modified.
     *
-    * @return \DateTime The lastModifiedDateTime
+    * @return \DateTime|null The lastModifiedDateTime
     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -133,7 +133,7 @@ class DeviceConfiguration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the lastModifiedDateTime
     * DateTime the object was last modified.
@@ -147,12 +147,12 @@ class DeviceConfiguration extends Entity
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the version
     * Version of the device configuration.
     *
-    * @return int The version
+    * @return int|null The version
     */
     public function getVersion()
     {
@@ -162,7 +162,7 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the version
     * Version of the device configuration.
@@ -176,13 +176,13 @@ class DeviceConfiguration extends Entity
         $this->_propDict["version"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the assignments
     * The list of assignments for the device configuration profile.
      *
-     * @return array The assignments
+     * @return array|null The assignments
      */
     public function getAssignments()
     {
@@ -192,27 +192,27 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the assignments
     * The list of assignments for the device configuration profile.
     *
-    * @param DeviceConfigurationAssignment $val The assignments
+    * @param DeviceConfigurationAssignment[] $val The assignments
     *
     * @return DeviceConfiguration
     */
     public function setAssignments($val)
     {
-		$this->_propDict["assignments"] = $val;
+        $this->_propDict["assignments"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceSettingStateSummaries
     * Device Configuration Setting State Device Summary
      *
-     * @return array The deviceSettingStateSummaries
+     * @return array|null The deviceSettingStateSummaries
      */
     public function getDeviceSettingStateSummaries()
     {
@@ -222,27 +222,27 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the deviceSettingStateSummaries
     * Device Configuration Setting State Device Summary
     *
-    * @param SettingStateDeviceSummary $val The deviceSettingStateSummaries
+    * @param SettingStateDeviceSummary[] $val The deviceSettingStateSummaries
     *
     * @return DeviceConfiguration
     */
     public function setDeviceSettingStateSummaries($val)
     {
-		$this->_propDict["deviceSettingStateSummaries"] = $val;
+        $this->_propDict["deviceSettingStateSummaries"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the deviceStatuses
     * Device configuration installation status by device.
      *
-     * @return array The deviceStatuses
+     * @return array|null The deviceStatuses
      */
     public function getDeviceStatuses()
     {
@@ -252,31 +252,31 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the deviceStatuses
     * Device configuration installation status by device.
     *
-    * @param DeviceConfigurationDeviceStatus $val The deviceStatuses
+    * @param DeviceConfigurationDeviceStatus[] $val The deviceStatuses
     *
     * @return DeviceConfiguration
     */
     public function setDeviceStatuses($val)
     {
-		$this->_propDict["deviceStatuses"] = $val;
+        $this->_propDict["deviceStatuses"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceStatusOverview
     * Device Configuration devices status overview
     *
-    * @return DeviceConfigurationDeviceOverview The deviceStatusOverview
+    * @return DeviceConfigurationDeviceOverview|null The deviceStatusOverview
     */
     public function getDeviceStatusOverview()
     {
         if (array_key_exists("deviceStatusOverview", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceStatusOverview"], "\Microsoft\Graph\Model\DeviceConfigurationDeviceOverview")) {
+            if (is_a($this->_propDict["deviceStatusOverview"], "\Microsoft\Graph\Model\DeviceConfigurationDeviceOverview") || is_null($this->_propDict["deviceStatusOverview"])) {
                 return $this->_propDict["deviceStatusOverview"];
             } else {
                 $this->_propDict["deviceStatusOverview"] = new DeviceConfigurationDeviceOverview($this->_propDict["deviceStatusOverview"]);
@@ -285,7 +285,7 @@ class DeviceConfiguration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceStatusOverview
     * Device Configuration devices status overview
@@ -299,13 +299,13 @@ class DeviceConfiguration extends Entity
         $this->_propDict["deviceStatusOverview"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the userStatuses
     * Device configuration installation status by user.
      *
-     * @return array The userStatuses
+     * @return array|null The userStatuses
      */
     public function getUserStatuses()
     {
@@ -315,31 +315,31 @@ class DeviceConfiguration extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the userStatuses
     * Device configuration installation status by user.
     *
-    * @param DeviceConfigurationUserStatus $val The userStatuses
+    * @param DeviceConfigurationUserStatus[] $val The userStatuses
     *
     * @return DeviceConfiguration
     */
     public function setUserStatuses($val)
     {
-		$this->_propDict["userStatuses"] = $val;
+        $this->_propDict["userStatuses"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userStatusOverview
     * Device Configuration users status overview
     *
-    * @return DeviceConfigurationUserOverview The userStatusOverview
+    * @return DeviceConfigurationUserOverview|null The userStatusOverview
     */
     public function getUserStatusOverview()
     {
         if (array_key_exists("userStatusOverview", $this->_propDict)) {
-            if (is_a($this->_propDict["userStatusOverview"], "\Microsoft\Graph\Model\DeviceConfigurationUserOverview")) {
+            if (is_a($this->_propDict["userStatusOverview"], "\Microsoft\Graph\Model\DeviceConfigurationUserOverview") || is_null($this->_propDict["userStatusOverview"])) {
                 return $this->_propDict["userStatusOverview"];
             } else {
                 $this->_propDict["userStatusOverview"] = new DeviceConfigurationUserOverview($this->_propDict["userStatusOverview"]);
@@ -348,7 +348,7 @@ class DeviceConfiguration extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the userStatusOverview
     * Device Configuration users status overview
@@ -362,5 +362,5 @@ class DeviceConfiguration extends Entity
         $this->_propDict["userStatusOverview"] = $val;
         return $this;
     }
-    
+
 }

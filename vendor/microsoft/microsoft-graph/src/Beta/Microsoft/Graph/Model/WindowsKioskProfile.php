@@ -28,12 +28,12 @@ class WindowsKioskProfile extends Entity
     * Gets the appConfiguration
     * The App configuration that will be used for this kiosk configuration.
     *
-    * @return WindowsKioskAppConfiguration The appConfiguration
+    * @return WindowsKioskAppConfiguration|null The appConfiguration
     */
     public function getAppConfiguration()
     {
         if (array_key_exists("appConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["appConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppConfiguration")) {
+            if (is_a($this->_propDict["appConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppConfiguration") || is_null($this->_propDict["appConfiguration"])) {
                 return $this->_propDict["appConfiguration"];
             } else {
                 $this->_propDict["appConfiguration"] = new WindowsKioskAppConfiguration($this->_propDict["appConfiguration"]);
@@ -60,7 +60,7 @@ class WindowsKioskProfile extends Entity
     * Gets the profileId
     * Key of the entity.
     *
-    * @return string The profileId
+    * @return string|null The profileId
     */
     public function getProfileId()
     {
@@ -88,7 +88,7 @@ class WindowsKioskProfile extends Entity
     * Gets the profileName
     * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
     *
-    * @return string The profileName
+    * @return string|null The profileName
     */
     public function getProfileName()
     {
@@ -117,12 +117,12 @@ class WindowsKioskProfile extends Entity
     * Gets the userAccountsConfiguration
     * The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
     *
-    * @return WindowsKioskUser The userAccountsConfiguration
+    * @return WindowsKioskUser|null The userAccountsConfiguration
     */
     public function getUserAccountsConfiguration()
     {
         if (array_key_exists("userAccountsConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccountsConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskUser")) {
+            if (is_a($this->_propDict["userAccountsConfiguration"], "\Beta\Microsoft\Graph\Model\WindowsKioskUser") || is_null($this->_propDict["userAccountsConfiguration"])) {
                 return $this->_propDict["userAccountsConfiguration"];
             } else {
                 $this->_propDict["userAccountsConfiguration"] = new WindowsKioskUser($this->_propDict["userAccountsConfiguration"]);

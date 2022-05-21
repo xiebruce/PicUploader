@@ -28,12 +28,12 @@ class AndroidLobApp extends MobileLobApp
     * Gets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
     *
-    * @return AndroidMinimumOperatingSystem The minimumSupportedOperatingSystem
+    * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Microsoft\Graph\Model\AndroidMinimumOperatingSystem")) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Microsoft\Graph\Model\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new AndroidMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -42,7 +42,7 @@ class AndroidLobApp extends MobileLobApp
         }
         return null;
     }
-    
+
     /**
     * Sets the minimumSupportedOperatingSystem
     * The value for the minimum applicable operating system.
@@ -56,12 +56,12 @@ class AndroidLobApp extends MobileLobApp
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the packageId
     * The package identifier.
     *
-    * @return string The packageId
+    * @return string|null The packageId
     */
     public function getPackageId()
     {
@@ -71,7 +71,7 @@ class AndroidLobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the packageId
     * The package identifier.
@@ -85,12 +85,12 @@ class AndroidLobApp extends MobileLobApp
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the versionCode
     * The version code of Android Line of Business (LoB) app.
     *
-    * @return string The versionCode
+    * @return string|null The versionCode
     */
     public function getVersionCode()
     {
@@ -100,7 +100,7 @@ class AndroidLobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the versionCode
     * The version code of Android Line of Business (LoB) app.
@@ -114,12 +114,12 @@ class AndroidLobApp extends MobileLobApp
         $this->_propDict["versionCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the versionName
     * The version name of Android Line of Business (LoB) app.
     *
-    * @return string The versionName
+    * @return string|null The versionName
     */
     public function getVersionName()
     {
@@ -129,7 +129,7 @@ class AndroidLobApp extends MobileLobApp
             return null;
         }
     }
-    
+
     /**
     * Sets the versionName
     * The version name of Android Line of Business (LoB) app.
@@ -143,5 +143,5 @@ class AndroidLobApp extends MobileLobApp
         $this->_propDict["versionName"] = $val;
         return $this;
     }
-    
+
 }

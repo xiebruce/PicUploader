@@ -28,7 +28,7 @@ class DeviceManagementIntentUserStateSummary extends Entity
     * Gets the conflictCount
     * Number of users in conflict
     *
-    * @return int The conflictCount
+    * @return int|null The conflictCount
     */
     public function getConflictCount()
     {
@@ -38,7 +38,7 @@ class DeviceManagementIntentUserStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the conflictCount
     * Number of users in conflict
@@ -52,12 +52,12 @@ class DeviceManagementIntentUserStateSummary extends Entity
         $this->_propDict["conflictCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the errorCount
     * Number of error users
     *
-    * @return int The errorCount
+    * @return int|null The errorCount
     */
     public function getErrorCount()
     {
@@ -67,7 +67,7 @@ class DeviceManagementIntentUserStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the errorCount
     * Number of error users
@@ -81,12 +81,12 @@ class DeviceManagementIntentUserStateSummary extends Entity
         $this->_propDict["errorCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the failedCount
     * Number of failed users
     *
-    * @return int The failedCount
+    * @return int|null The failedCount
     */
     public function getFailedCount()
     {
@@ -96,7 +96,7 @@ class DeviceManagementIntentUserStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the failedCount
     * Number of failed users
@@ -110,12 +110,12 @@ class DeviceManagementIntentUserStateSummary extends Entity
         $this->_propDict["failedCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the notApplicableCount
     * Number of not applicable users
     *
-    * @return int The notApplicableCount
+    * @return int|null The notApplicableCount
     */
     public function getNotApplicableCount()
     {
@@ -125,7 +125,7 @@ class DeviceManagementIntentUserStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the notApplicableCount
     * Number of not applicable users
@@ -139,12 +139,12 @@ class DeviceManagementIntentUserStateSummary extends Entity
         $this->_propDict["notApplicableCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the successCount
     * Number of succeeded users
     *
-    * @return int The successCount
+    * @return int|null The successCount
     */
     public function getSuccessCount()
     {
@@ -154,7 +154,7 @@ class DeviceManagementIntentUserStateSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the successCount
     * Number of succeeded users
@@ -168,5 +168,5 @@ class DeviceManagementIntentUserStateSummary extends Entity
         $this->_propDict["successCount"] = intval($val);
         return $this;
     }
-    
+
 }

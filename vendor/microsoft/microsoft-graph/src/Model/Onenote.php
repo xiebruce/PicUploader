@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class Onenote extends Entity
 {
 
-     /** 
+     /**
      * Gets the notebooks
     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
      *
-     * @return array The notebooks
+     * @return array|null The notebooks
      */
     public function getNotebooks()
     {
@@ -39,27 +39,27 @@ class Onenote extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the notebooks
     * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
     *
-    * @param Notebook $val The notebooks
+    * @param Notebook[] $val The notebooks
     *
     * @return Onenote
     */
     public function setNotebooks($val)
     {
-		$this->_propDict["notebooks"] = $val;
+        $this->_propDict["notebooks"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the operations
     * The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.
      *
-     * @return array The operations
+     * @return array|null The operations
      */
     public function getOperations()
     {
@@ -69,27 +69,27 @@ class Onenote extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the operations
     * The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.
     *
-    * @param OnenoteOperation $val The operations
+    * @param OnenoteOperation[] $val The operations
     *
     * @return Onenote
     */
     public function setOperations($val)
     {
-		$this->_propDict["operations"] = $val;
+        $this->_propDict["operations"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the pages
     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
      *
-     * @return array The pages
+     * @return array|null The pages
      */
     public function getPages()
     {
@@ -99,27 +99,27 @@ class Onenote extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the pages
     * The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
     *
-    * @param OnenotePage $val The pages
+    * @param OnenotePage[] $val The pages
     *
     * @return Onenote
     */
     public function setPages($val)
     {
-		$this->_propDict["pages"] = $val;
+        $this->_propDict["pages"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the resources
     * The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.
      *
-     * @return array The resources
+     * @return array|null The resources
      */
     public function getResources()
     {
@@ -129,27 +129,27 @@ class Onenote extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the resources
     * The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.
     *
-    * @param OnenoteResource $val The resources
+    * @param OnenoteResource[] $val The resources
     *
     * @return Onenote
     */
     public function setResources($val)
     {
-		$this->_propDict["resources"] = $val;
+        $this->_propDict["resources"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sectionGroups
     * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
      *
-     * @return array The sectionGroups
+     * @return array|null The sectionGroups
      */
     public function getSectionGroups()
     {
@@ -159,27 +159,27 @@ class Onenote extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the sectionGroups
     * The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
     *
-    * @param SectionGroup $val The sectionGroups
+    * @param SectionGroup[] $val The sectionGroups
     *
     * @return Onenote
     */
     public function setSectionGroups($val)
     {
-		$this->_propDict["sectionGroups"] = $val;
+        $this->_propDict["sectionGroups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the sections
     * The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
      *
-     * @return array The sections
+     * @return array|null The sections
      */
     public function getSections()
     {
@@ -189,19 +189,19 @@ class Onenote extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the sections
     * The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.
     *
-    * @param OnenoteSection $val The sections
+    * @param OnenoteSection[] $val The sections
     *
     * @return Onenote
     */
     public function setSections($val)
     {
-		$this->_propDict["sections"] = $val;
+        $this->_propDict["sections"] = $val;
         return $this;
     }
-    
+
 }

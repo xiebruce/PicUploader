@@ -25,11 +25,11 @@ namespace Microsoft\Graph\Model;
 class MobileAppContent extends Entity
 {
 
-     /** 
+     /**
      * Gets the files
     * The list of files for this app content version.
      *
-     * @return array The files
+     * @return array|null The files
      */
     public function getFiles()
     {
@@ -39,19 +39,19 @@ class MobileAppContent extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the files
     * The list of files for this app content version.
     *
-    * @param MobileAppContentFile $val The files
+    * @param MobileAppContentFile[] $val The files
     *
     * @return MobileAppContent
     */
     public function setFiles($val)
     {
-		$this->_propDict["files"] = $val;
+        $this->_propDict["files"] = $val;
         return $this;
     }
-    
+
 }

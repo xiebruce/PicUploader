@@ -27,7 +27,7 @@ class AttributeMapping extends Entity
     * Gets the defaultValue
     * Default value to be used in case the source property was evaluated to null. Optional.
     *
-    * @return string The defaultValue
+    * @return string|null The defaultValue
     */
     public function getDefaultValue()
     {
@@ -55,7 +55,7 @@ class AttributeMapping extends Entity
     * Gets the exportMissingReferences
     * For internal use only.
     *
-    * @return bool The exportMissingReferences
+    * @return bool|null The exportMissingReferences
     */
     public function getExportMissingReferences()
     {
@@ -84,12 +84,12 @@ class AttributeMapping extends Entity
     * Gets the flowBehavior
     * Defines when this attribute should be exported to the target directory. Possible values are: FlowWhenChanged and FlowAlways. Default is FlowWhenChanged.
     *
-    * @return AttributeFlowBehavior The flowBehavior
+    * @return AttributeFlowBehavior|null The flowBehavior
     */
     public function getFlowBehavior()
     {
         if (array_key_exists("flowBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["flowBehavior"], "\Beta\Microsoft\Graph\Model\AttributeFlowBehavior")) {
+            if (is_a($this->_propDict["flowBehavior"], "\Beta\Microsoft\Graph\Model\AttributeFlowBehavior") || is_null($this->_propDict["flowBehavior"])) {
                 return $this->_propDict["flowBehavior"];
             } else {
                 $this->_propDict["flowBehavior"] = new AttributeFlowBehavior($this->_propDict["flowBehavior"]);
@@ -117,12 +117,12 @@ class AttributeMapping extends Entity
     * Gets the flowType
     * Defines when this attribute should be updated in the target directory. Possible values are: Always (default), ObjectAddOnly (only when new object is created), MultiValueAddOnly (only when the change is adding new values to a multi-valued attribute).
     *
-    * @return AttributeFlowType The flowType
+    * @return AttributeFlowType|null The flowType
     */
     public function getFlowType()
     {
         if (array_key_exists("flowType", $this->_propDict)) {
-            if (is_a($this->_propDict["flowType"], "\Beta\Microsoft\Graph\Model\AttributeFlowType")) {
+            if (is_a($this->_propDict["flowType"], "\Beta\Microsoft\Graph\Model\AttributeFlowType") || is_null($this->_propDict["flowType"])) {
                 return $this->_propDict["flowType"];
             } else {
                 $this->_propDict["flowType"] = new AttributeFlowType($this->_propDict["flowType"]);
@@ -149,7 +149,7 @@ class AttributeMapping extends Entity
     * Gets the matchingPriority
     * If higher than 0, this attribute will be used to perform an initial match of the objects between source and target directories. The synchronization engine will try to find the matching object using attribute with lowest value of matching priority first. If not found, the attribute with the next matching priority will be used, and so on a until match is found or no more matching attributes are left. Only attributes that are expected to have unique values, such as email, should be used as matching attributes.
     *
-    * @return int The matchingPriority
+    * @return int|null The matchingPriority
     */
     public function getMatchingPriority()
     {
@@ -178,12 +178,12 @@ class AttributeMapping extends Entity
     * Gets the source
     * Defines how a value should be extracted (or transformed) from the source object.
     *
-    * @return AttributeMappingSource The source
+    * @return AttributeMappingSource|null The source
     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource")) {
+            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource") || is_null($this->_propDict["source"])) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new AttributeMappingSource($this->_propDict["source"]);
@@ -210,7 +210,7 @@ class AttributeMapping extends Entity
     * Gets the targetAttributeName
     * Name of the attribute on the target object.
     *
-    * @return string The targetAttributeName
+    * @return string|null The targetAttributeName
     */
     public function getTargetAttributeName()
     {

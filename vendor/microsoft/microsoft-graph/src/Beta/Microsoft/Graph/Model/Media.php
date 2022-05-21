@@ -25,8 +25,9 @@ class Media extends Entity
 {
     /**
     * Gets the isTranscriptionShown
+    * If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
     *
-    * @return bool The isTranscriptionShown
+    * @return bool|null The isTranscriptionShown
     */
     public function getIsTranscriptionShown()
     {
@@ -39,6 +40,7 @@ class Media extends Entity
 
     /**
     * Sets the isTranscriptionShown
+    * If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
     *
     * @param bool $val The value of the isTranscriptionShown
     *
@@ -52,13 +54,14 @@ class Media extends Entity
 
     /**
     * Gets the mediaSource
+    * Information about the source of media. Read-only.
     *
-    * @return MediaSource The mediaSource
+    * @return MediaSource|null The mediaSource
     */
     public function getMediaSource()
     {
         if (array_key_exists("mediaSource", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaSource"], "\Beta\Microsoft\Graph\Model\MediaSource")) {
+            if (is_a($this->_propDict["mediaSource"], "\Beta\Microsoft\Graph\Model\MediaSource") || is_null($this->_propDict["mediaSource"])) {
                 return $this->_propDict["mediaSource"];
             } else {
                 $this->_propDict["mediaSource"] = new MediaSource($this->_propDict["mediaSource"]);
@@ -70,6 +73,7 @@ class Media extends Entity
 
     /**
     * Sets the mediaSource
+    * Information about the source of media. Read-only.
     *
     * @param MediaSource $val The value to assign to the mediaSource
     *

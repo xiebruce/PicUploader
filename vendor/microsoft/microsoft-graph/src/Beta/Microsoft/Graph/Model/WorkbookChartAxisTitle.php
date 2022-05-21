@@ -28,7 +28,7 @@ class WorkbookChartAxisTitle extends Entity
     * Gets the text
     * Represents the axis title.
     *
-    * @return string The text
+    * @return string|null The text
     */
     public function getText()
     {
@@ -38,7 +38,7 @@ class WorkbookChartAxisTitle extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the text
     * Represents the axis title.
@@ -52,12 +52,12 @@ class WorkbookChartAxisTitle extends Entity
         $this->_propDict["text"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the visible
     * A boolean that specifies the visibility of an axis title.
     *
-    * @return bool The visible
+    * @return bool|null The visible
     */
     public function getVisible()
     {
@@ -67,7 +67,7 @@ class WorkbookChartAxisTitle extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the visible
     * A boolean that specifies the visibility of an axis title.
@@ -81,17 +81,17 @@ class WorkbookChartAxisTitle extends Entity
         $this->_propDict["visible"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the format
     * Represents the formatting of chart axis title. Read-only.
     *
-    * @return WorkbookChartAxisTitleFormat The format
+    * @return WorkbookChartAxisTitleFormat|null The format
     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartAxisTitleFormat")) {
+            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartAxisTitleFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new WorkbookChartAxisTitleFormat($this->_propDict["format"]);
@@ -100,7 +100,7 @@ class WorkbookChartAxisTitle extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the format
     * Represents the formatting of chart axis title. Read-only.
@@ -114,5 +114,5 @@ class WorkbookChartAxisTitle extends Entity
         $this->_propDict["format"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,7 +28,7 @@ class ItemPublication extends ItemFacet
     * Gets the description
     * Description of the publication.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -38,7 +38,7 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the description
     * Description of the publication.
@@ -52,12 +52,12 @@ class ItemPublication extends ItemFacet
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the displayName
     * Title of the publication.
     *
-    * @return string The displayName
+    * @return string|null The displayName
     */
     public function getDisplayName()
     {
@@ -67,7 +67,7 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the displayName
     * Title of the publication.
@@ -81,17 +81,17 @@ class ItemPublication extends ItemFacet
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publishedDate
     * The date that the publication was published.
     *
-    * @return \DateTime The publishedDate
+    * @return \DateTime|null The publishedDate
     */
     public function getPublishedDate()
     {
         if (array_key_exists("publishedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["publishedDate"], "\DateTime")) {
+            if (is_a($this->_propDict["publishedDate"], "\DateTime") || is_null($this->_propDict["publishedDate"])) {
                 return $this->_propDict["publishedDate"];
             } else {
                 $this->_propDict["publishedDate"] = new \DateTime($this->_propDict["publishedDate"]);
@@ -100,7 +100,7 @@ class ItemPublication extends ItemFacet
         }
         return null;
     }
-    
+
     /**
     * Sets the publishedDate
     * The date that the publication was published.
@@ -114,12 +114,12 @@ class ItemPublication extends ItemFacet
         $this->_propDict["publishedDate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publisher
     * Publication or publisher for the publication.
     *
-    * @return string The publisher
+    * @return string|null The publisher
     */
     public function getPublisher()
     {
@@ -129,7 +129,7 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the publisher
     * Publication or publisher for the publication.
@@ -143,12 +143,12 @@ class ItemPublication extends ItemFacet
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the thumbnailUrl
     * URL referencing a thumbnail of the publication.
     *
-    * @return string The thumbnailUrl
+    * @return string|null The thumbnailUrl
     */
     public function getThumbnailUrl()
     {
@@ -158,7 +158,7 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the thumbnailUrl
     * URL referencing a thumbnail of the publication.
@@ -172,12 +172,12 @@ class ItemPublication extends ItemFacet
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the webUrl
     * URL referencing the publication.
     *
-    * @return string The webUrl
+    * @return string|null The webUrl
     */
     public function getWebUrl()
     {
@@ -187,7 +187,7 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-    
+
     /**
     * Sets the webUrl
     * URL referencing the publication.
@@ -201,5 +201,5 @@ class ItemPublication extends ItemFacet
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-    
+
 }

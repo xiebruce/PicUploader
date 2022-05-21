@@ -28,7 +28,7 @@ class MailSearchFolder extends MailFolder
     * Gets the filterQuery
     * The OData query to filter the messages.
     *
-    * @return string The filterQuery
+    * @return string|null The filterQuery
     */
     public function getFilterQuery()
     {
@@ -38,7 +38,7 @@ class MailSearchFolder extends MailFolder
             return null;
         }
     }
-    
+
     /**
     * Sets the filterQuery
     * The OData query to filter the messages.
@@ -52,12 +52,12 @@ class MailSearchFolder extends MailFolder
         $this->_propDict["filterQuery"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the includeNestedFolders
     * Indicates how the mailbox folder hierarchy should be traversed in the search. true means that a deep search should be done to include child folders in the hierarchy of each folder explicitly specified in sourceFolderIds. false means a shallow search of only each of the folders explicitly specified in sourceFolderIds.
     *
-    * @return bool The includeNestedFolders
+    * @return bool|null The includeNestedFolders
     */
     public function getIncludeNestedFolders()
     {
@@ -67,7 +67,7 @@ class MailSearchFolder extends MailFolder
             return null;
         }
     }
-    
+
     /**
     * Sets the includeNestedFolders
     * Indicates how the mailbox folder hierarchy should be traversed in the search. true means that a deep search should be done to include child folders in the hierarchy of each folder explicitly specified in sourceFolderIds. false means a shallow search of only each of the folders explicitly specified in sourceFolderIds.
@@ -81,12 +81,12 @@ class MailSearchFolder extends MailFolder
         $this->_propDict["includeNestedFolders"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the isSupported
     * Indicates whether a search folder is editable using REST APIs.
     *
-    * @return bool The isSupported
+    * @return bool|null The isSupported
     */
     public function getIsSupported()
     {
@@ -96,7 +96,7 @@ class MailSearchFolder extends MailFolder
             return null;
         }
     }
-    
+
     /**
     * Sets the isSupported
     * Indicates whether a search folder is editable using REST APIs.
@@ -110,12 +110,12 @@ class MailSearchFolder extends MailFolder
         $this->_propDict["isSupported"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the sourceFolderIds
     * The mailbox folders that should be mined.
     *
-    * @return string The sourceFolderIds
+    * @return string|null The sourceFolderIds
     */
     public function getSourceFolderIds()
     {
@@ -125,7 +125,7 @@ class MailSearchFolder extends MailFolder
             return null;
         }
     }
-    
+
     /**
     * Sets the sourceFolderIds
     * The mailbox folders that should be mined.
@@ -139,5 +139,5 @@ class MailSearchFolder extends MailFolder
         $this->_propDict["sourceFolderIds"] = $val;
         return $this;
     }
-    
+
 }

@@ -28,12 +28,12 @@ class EducationPointsOutcome extends EducationOutcome
     * Gets the points
     * The numeric grade the teacher has given the student for this assignment.
     *
-    * @return EducationAssignmentPointsGrade The points
+    * @return EducationAssignmentPointsGrade|null The points
     */
     public function getPoints()
     {
         if (array_key_exists("points", $this->_propDict)) {
-            if (is_a($this->_propDict["points"], "\Beta\Microsoft\Graph\Model\EducationAssignmentPointsGrade")) {
+            if (is_a($this->_propDict["points"], "\Beta\Microsoft\Graph\Model\EducationAssignmentPointsGrade") || is_null($this->_propDict["points"])) {
                 return $this->_propDict["points"];
             } else {
                 $this->_propDict["points"] = new EducationAssignmentPointsGrade($this->_propDict["points"]);
@@ -42,7 +42,7 @@ class EducationPointsOutcome extends EducationOutcome
         }
         return null;
     }
-    
+
     /**
     * Sets the points
     * The numeric grade the teacher has given the student for this assignment.
@@ -56,17 +56,17 @@ class EducationPointsOutcome extends EducationOutcome
         $this->_propDict["points"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the publishedPoints
     * A copy of the points property that is made when the grade is released to the student.
     *
-    * @return EducationAssignmentPointsGrade The publishedPoints
+    * @return EducationAssignmentPointsGrade|null The publishedPoints
     */
     public function getPublishedPoints()
     {
         if (array_key_exists("publishedPoints", $this->_propDict)) {
-            if (is_a($this->_propDict["publishedPoints"], "\Beta\Microsoft\Graph\Model\EducationAssignmentPointsGrade")) {
+            if (is_a($this->_propDict["publishedPoints"], "\Beta\Microsoft\Graph\Model\EducationAssignmentPointsGrade") || is_null($this->_propDict["publishedPoints"])) {
                 return $this->_propDict["publishedPoints"];
             } else {
                 $this->_propDict["publishedPoints"] = new EducationAssignmentPointsGrade($this->_propDict["publishedPoints"]);
@@ -75,7 +75,7 @@ class EducationPointsOutcome extends EducationOutcome
         }
         return null;
     }
-    
+
     /**
     * Sets the publishedPoints
     * A copy of the points property that is made when the grade is released to the student.
@@ -89,5 +89,5 @@ class EducationPointsOutcome extends EducationOutcome
         $this->_propDict["publishedPoints"] = $val;
         return $this;
     }
-    
+
 }

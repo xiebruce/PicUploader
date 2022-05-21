@@ -28,12 +28,12 @@ class ListItem extends BaseItem
     * Gets the contentType
     * The content type of this list item
     *
-    * @return ContentTypeInfo The contentType
+    * @return ContentTypeInfo|null The contentType
     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Microsoft\Graph\Model\ContentTypeInfo")) {
+            if (is_a($this->_propDict["contentType"], "\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new ContentTypeInfo($this->_propDict["contentType"]);
@@ -42,7 +42,7 @@ class ListItem extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the contentType
     * The content type of this list item
@@ -56,17 +56,17 @@ class ListItem extends BaseItem
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the sharepointIds
     * Returns identifiers useful for SharePoint REST compatibility. Read-only.
     *
-    * @return SharepointIds The sharepointIds
+    * @return SharepointIds|null The sharepointIds
     */
     public function getSharepointIds()
     {
         if (array_key_exists("sharepointIds", $this->_propDict)) {
-            if (is_a($this->_propDict["sharepointIds"], "\Microsoft\Graph\Model\SharepointIds")) {
+            if (is_a($this->_propDict["sharepointIds"], "\Microsoft\Graph\Model\SharepointIds") || is_null($this->_propDict["sharepointIds"])) {
                 return $this->_propDict["sharepointIds"];
             } else {
                 $this->_propDict["sharepointIds"] = new SharepointIds($this->_propDict["sharepointIds"]);
@@ -75,7 +75,7 @@ class ListItem extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the sharepointIds
     * Returns identifiers useful for SharePoint REST compatibility. Read-only.
@@ -89,17 +89,17 @@ class ListItem extends BaseItem
         $this->_propDict["sharepointIds"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the analytics
     * Analytics about the view activities that took place on this item.
     *
-    * @return ItemAnalytics The analytics
+    * @return ItemAnalytics|null The analytics
     */
     public function getAnalytics()
     {
         if (array_key_exists("analytics", $this->_propDict)) {
-            if (is_a($this->_propDict["analytics"], "\Microsoft\Graph\Model\ItemAnalytics")) {
+            if (is_a($this->_propDict["analytics"], "\Microsoft\Graph\Model\ItemAnalytics") || is_null($this->_propDict["analytics"])) {
                 return $this->_propDict["analytics"];
             } else {
                 $this->_propDict["analytics"] = new ItemAnalytics($this->_propDict["analytics"]);
@@ -108,7 +108,7 @@ class ListItem extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the analytics
     * Analytics about the view activities that took place on this item.
@@ -122,17 +122,17 @@ class ListItem extends BaseItem
         $this->_propDict["analytics"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the driveItem
     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
     *
-    * @return DriveItem The driveItem
+    * @return DriveItem|null The driveItem
     */
     public function getDriveItem()
     {
         if (array_key_exists("driveItem", $this->_propDict)) {
-            if (is_a($this->_propDict["driveItem"], "\Microsoft\Graph\Model\DriveItem")) {
+            if (is_a($this->_propDict["driveItem"], "\Microsoft\Graph\Model\DriveItem") || is_null($this->_propDict["driveItem"])) {
                 return $this->_propDict["driveItem"];
             } else {
                 $this->_propDict["driveItem"] = new DriveItem($this->_propDict["driveItem"]);
@@ -141,7 +141,7 @@ class ListItem extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the driveItem
     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
@@ -155,17 +155,17 @@ class ListItem extends BaseItem
         $this->_propDict["driveItem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the fields
     * The values of the columns set on this list item.
     *
-    * @return FieldValueSet The fields
+    * @return FieldValueSet|null The fields
     */
     public function getFields()
     {
         if (array_key_exists("fields", $this->_propDict)) {
-            if (is_a($this->_propDict["fields"], "\Microsoft\Graph\Model\FieldValueSet")) {
+            if (is_a($this->_propDict["fields"], "\Microsoft\Graph\Model\FieldValueSet") || is_null($this->_propDict["fields"])) {
                 return $this->_propDict["fields"];
             } else {
                 $this->_propDict["fields"] = new FieldValueSet($this->_propDict["fields"]);
@@ -174,7 +174,7 @@ class ListItem extends BaseItem
         }
         return null;
     }
-    
+
     /**
     * Sets the fields
     * The values of the columns set on this list item.
@@ -188,13 +188,13 @@ class ListItem extends BaseItem
         $this->_propDict["fields"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the versions
     * The list of previous versions of the list item.
      *
-     * @return array The versions
+     * @return array|null The versions
      */
     public function getVersions()
     {
@@ -204,19 +204,19 @@ class ListItem extends BaseItem
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the versions
     * The list of previous versions of the list item.
     *
-    * @param ListItemVersion $val The versions
+    * @param ListItemVersion[] $val The versions
     *
     * @return ListItem
     */
     public function setVersions($val)
     {
-		$this->_propDict["versions"] = $val;
+        $this->_propDict["versions"] = $val;
         return $this;
     }
-    
+
 }

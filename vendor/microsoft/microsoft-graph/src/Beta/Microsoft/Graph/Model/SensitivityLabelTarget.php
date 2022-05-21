@@ -33,4 +33,5 @@ class SensitivityLabelTarget extends Enum
     const SITE = "site";
     const UNIFIED_GROUP = "unifiedGroup";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const TEAMWORK = "teamwork";
 }

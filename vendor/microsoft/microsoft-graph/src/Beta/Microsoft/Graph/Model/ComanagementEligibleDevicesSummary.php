@@ -27,7 +27,7 @@ class ComanagementEligibleDevicesSummary extends Entity
     * Gets the comanagedCount
     * Count of devices already Co-Managed
     *
-    * @return int The comanagedCount
+    * @return int|null The comanagedCount
     */
     public function getComanagedCount()
     {
@@ -55,7 +55,7 @@ class ComanagementEligibleDevicesSummary extends Entity
     * Gets the eligibleButNotAzureAdJoinedCount
     * Count of devices eligible for Co-Management but not yet joined to Azure Active Directory
     *
-    * @return int The eligibleButNotAzureAdJoinedCount
+    * @return int|null The eligibleButNotAzureAdJoinedCount
     */
     public function getEligibleButNotAzureAdJoinedCount()
     {
@@ -83,7 +83,7 @@ class ComanagementEligibleDevicesSummary extends Entity
     * Gets the eligibleCount
     * Count of devices fully eligible for Co-Management
     *
-    * @return int The eligibleCount
+    * @return int|null The eligibleCount
     */
     public function getEligibleCount()
     {
@@ -111,7 +111,7 @@ class ComanagementEligibleDevicesSummary extends Entity
     * Gets the ineligibleCount
     * Count of devices ineligible for Co-Management
     *
-    * @return int The ineligibleCount
+    * @return int|null The ineligibleCount
     */
     public function getIneligibleCount()
     {
@@ -139,7 +139,7 @@ class ComanagementEligibleDevicesSummary extends Entity
     * Gets the needsOsUpdateCount
     * Count of devices that will be eligible for Co-Management after an OS update
     *
-    * @return int The needsOsUpdateCount
+    * @return int|null The needsOsUpdateCount
     */
     public function getNeedsOsUpdateCount()
     {

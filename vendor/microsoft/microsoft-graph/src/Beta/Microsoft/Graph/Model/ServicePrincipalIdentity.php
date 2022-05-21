@@ -27,7 +27,7 @@ class ServicePrincipalIdentity extends Identity
     * Gets the appId
     * The application identifier of the service principal.
     *
-    * @return string The appId
+    * @return string|null The appId
     */
     public function getAppId()
     {

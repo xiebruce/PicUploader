@@ -28,12 +28,12 @@ class ManagedEBookAssignment extends Entity
     * Gets the installIntent
     * The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
     *
-    * @return InstallIntent The installIntent
+    * @return InstallIntent|null The installIntent
     */
     public function getInstallIntent()
     {
         if (array_key_exists("installIntent", $this->_propDict)) {
-            if (is_a($this->_propDict["installIntent"], "\Microsoft\Graph\Model\InstallIntent")) {
+            if (is_a($this->_propDict["installIntent"], "\Microsoft\Graph\Model\InstallIntent") || is_null($this->_propDict["installIntent"])) {
                 return $this->_propDict["installIntent"];
             } else {
                 $this->_propDict["installIntent"] = new InstallIntent($this->_propDict["installIntent"]);
@@ -42,7 +42,7 @@ class ManagedEBookAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the installIntent
     * The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
@@ -56,17 +56,17 @@ class ManagedEBookAssignment extends Entity
         $this->_propDict["installIntent"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the target
     * The assignment target for eBook.
     *
-    * @return DeviceAndAppManagementAssignmentTarget The target
+    * @return DeviceAndAppManagementAssignmentTarget|null The target
     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget")) {
+            if (is_a($this->_propDict["target"], "\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -75,7 +75,7 @@ class ManagedEBookAssignment extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the target
     * The assignment target for eBook.
@@ -89,5 +89,5 @@ class ManagedEBookAssignment extends Entity
         $this->_propDict["target"] = $val;
         return $this;
     }
-    
+
 }

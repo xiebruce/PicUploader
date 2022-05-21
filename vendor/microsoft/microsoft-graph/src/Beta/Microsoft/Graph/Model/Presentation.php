@@ -25,10 +25,10 @@ namespace Beta\Microsoft\Graph\Model;
 class Presentation extends Entity
 {
 
-     /** 
+     /**
      * Gets the comments
      *
-     * @return array The comments
+     * @return array|null The comments
      */
     public function getComments()
     {
@@ -38,18 +38,18 @@ class Presentation extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the comments
     *
-    * @param DocumentComment $val The comments
+    * @param DocumentComment[] $val The comments
     *
     * @return Presentation
     */
     public function setComments($val)
     {
-		$this->_propDict["comments"] = $val;
+        $this->_propDict["comments"] = $val;
         return $this;
     }
-    
+
 }

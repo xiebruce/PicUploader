@@ -28,7 +28,7 @@ class DeviceEnrollmentLimitConfiguration extends DeviceEnrollmentConfiguration
     * Gets the limit
     * The maximum number of devices that a user can enroll
     *
-    * @return int The limit
+    * @return int|null The limit
     */
     public function getLimit()
     {
@@ -38,7 +38,7 @@ class DeviceEnrollmentLimitConfiguration extends DeviceEnrollmentConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the limit
     * The maximum number of devices that a user can enroll
@@ -52,5 +52,5 @@ class DeviceEnrollmentLimitConfiguration extends DeviceEnrollmentConfiguration
         $this->_propDict["limit"] = intval($val);
         return $this;
     }
-    
+
 }

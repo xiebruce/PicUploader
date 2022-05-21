@@ -26,14 +26,13 @@ class ExternalConnection extends Entity
 {
     /**
     * Gets the configuration
-    * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
     *
-    * @return Configuration The configuration
+    * @return Configuration|null The configuration
     */
     public function getConfiguration()
     {
         if (array_key_exists("configuration", $this->_propDict)) {
-            if (is_a($this->_propDict["configuration"], "\Beta\Microsoft\Graph\Model\Configuration")) {
+            if (is_a($this->_propDict["configuration"], "\Beta\Microsoft\Graph\Model\Configuration") || is_null($this->_propDict["configuration"])) {
                 return $this->_propDict["configuration"];
             } else {
                 $this->_propDict["configuration"] = new Configuration($this->_propDict["configuration"]);
@@ -42,10 +41,9 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the configuration
-    * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
     *
     * @param Configuration $val The configuration
     *
@@ -56,12 +54,11 @@ class ExternalConnection extends Entity
         $this->_propDict["configuration"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the description
-    * Description of the connection displayed in the Microsoft 365 admin center. Optional.
     *
-    * @return string The description
+    * @return string|null The description
     */
     public function getDescription()
     {
@@ -71,10 +68,9 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the description
-    * Description of the connection displayed in the Microsoft 365 admin center. Optional.
     *
     * @param string $val The description
     *
@@ -85,12 +81,11 @@ class ExternalConnection extends Entity
         $this->_propDict["description"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the name
-    * The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.
     *
-    * @return string The name
+    * @return string|null The name
     */
     public function getName()
     {
@@ -100,10 +95,9 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the name
-    * The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.
     *
     * @param string $val The name
     *
@@ -114,17 +108,16 @@ class ExternalConnection extends Entity
         $this->_propDict["name"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the state
-    * Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
     *
-    * @return ConnectionState The state
+    * @return ConnectionState|null The state
     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectionState")) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectionState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ConnectionState($this->_propDict["state"]);
@@ -133,10 +126,9 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the state
-    * Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.
     *
     * @param ConnectionState $val The state
     *
@@ -147,12 +139,12 @@ class ExternalConnection extends Entity
         $this->_propDict["state"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the groups
      *
-     * @return array The groups
+     * @return array|null The groups
      */
     public function getGroups()
     {
@@ -162,26 +154,25 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the groups
     *
-    * @param ExternalGroup $val The groups
+    * @param ExternalGroup[] $val The groups
     *
     * @return ExternalConnection
     */
     public function setGroups($val)
     {
-		$this->_propDict["groups"] = $val;
+        $this->_propDict["groups"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the items
-    * Read-only. Nullable.
      *
-     * @return array The items
+     * @return array|null The items
      */
     public function getItems()
     {
@@ -191,27 +182,25 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the items
-    * Read-only. Nullable.
     *
-    * @param ExternalItem $val The items
+    * @param ExternalItem[] $val The items
     *
     * @return ExternalConnection
     */
     public function setItems($val)
     {
-		$this->_propDict["items"] = $val;
+        $this->_propDict["items"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the operations
-    * Read-only. Nullable.
      *
-     * @return array The operations
+     * @return array|null The operations
      */
     public function getOperations()
     {
@@ -221,31 +210,29 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the operations
-    * Read-only. Nullable.
     *
-    * @param ConnectionOperation $val The operations
+    * @param ConnectionOperation[] $val The operations
     *
     * @return ExternalConnection
     */
     public function setOperations($val)
     {
-		$this->_propDict["operations"] = $val;
+        $this->_propDict["operations"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the schema
-    * Read-only. Nullable.
     *
-    * @return Schema The schema
+    * @return Schema|null The schema
     */
     public function getSchema()
     {
         if (array_key_exists("schema", $this->_propDict)) {
-            if (is_a($this->_propDict["schema"], "\Beta\Microsoft\Graph\Model\Schema")) {
+            if (is_a($this->_propDict["schema"], "\Beta\Microsoft\Graph\Model\Schema") || is_null($this->_propDict["schema"])) {
                 return $this->_propDict["schema"];
             } else {
                 $this->_propDict["schema"] = new Schema($this->_propDict["schema"]);
@@ -254,10 +241,9 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-    
+
     /**
     * Sets the schema
-    * Read-only. Nullable.
     *
     * @param Schema $val The schema
     *
@@ -268,5 +254,5 @@ class ExternalConnection extends Entity
         $this->_propDict["schema"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class WindowsDeviceAccount extends Entity
     * Gets the password
     * Not yet documented
     *
-    * @return string The password
+    * @return string|null The password
     */
     public function getPassword()
     {

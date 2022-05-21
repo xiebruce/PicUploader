@@ -28,7 +28,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the applicationGuardAllowCameraMicrophoneRedirection
     * Gets or sets whether applications inside Microsoft Defender Application Guard can access the device’s camera and microphone.
     *
-    * @return bool The applicationGuardAllowCameraMicrophoneRedirection
+    * @return bool|null The applicationGuardAllowCameraMicrophoneRedirection
     */
     public function getApplicationGuardAllowCameraMicrophoneRedirection()
     {
@@ -38,7 +38,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowCameraMicrophoneRedirection
     * Gets or sets whether applications inside Microsoft Defender Application Guard can access the device’s camera and microphone.
@@ -52,12 +52,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowCameraMicrophoneRedirection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowFileSaveOnHost
     * Allow users to download files from Edge in the application guard container and save them on the host file system
     *
-    * @return bool The applicationGuardAllowFileSaveOnHost
+    * @return bool|null The applicationGuardAllowFileSaveOnHost
     */
     public function getApplicationGuardAllowFileSaveOnHost()
     {
@@ -67,7 +67,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowFileSaveOnHost
     * Allow users to download files from Edge in the application guard container and save them on the host file system
@@ -81,12 +81,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowFileSaveOnHost"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPersistence
     * Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
     *
-    * @return bool The applicationGuardAllowPersistence
+    * @return bool|null The applicationGuardAllowPersistence
     */
     public function getApplicationGuardAllowPersistence()
     {
@@ -96,7 +96,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPersistence
     * Allow persisting user generated data inside the App Guard Containter (favorites, cookies, web passwords, etc.)
@@ -110,12 +110,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPersistence"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToLocalPrinters
     * Allow printing to Local Printers from Container
     *
-    * @return bool The applicationGuardAllowPrintToLocalPrinters
+    * @return bool|null The applicationGuardAllowPrintToLocalPrinters
     */
     public function getApplicationGuardAllowPrintToLocalPrinters()
     {
@@ -125,7 +125,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToLocalPrinters
     * Allow printing to Local Printers from Container
@@ -139,12 +139,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToLocalPrinters"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToNetworkPrinters
     * Allow printing to Network Printers from Container
     *
-    * @return bool The applicationGuardAllowPrintToNetworkPrinters
+    * @return bool|null The applicationGuardAllowPrintToNetworkPrinters
     */
     public function getApplicationGuardAllowPrintToNetworkPrinters()
     {
@@ -154,7 +154,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToNetworkPrinters
     * Allow printing to Network Printers from Container
@@ -168,12 +168,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToNetworkPrinters"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToPDF
     * Allow printing to PDF from Container
     *
-    * @return bool The applicationGuardAllowPrintToPDF
+    * @return bool|null The applicationGuardAllowPrintToPDF
     */
     public function getApplicationGuardAllowPrintToPDF()
     {
@@ -183,7 +183,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToPDF
     * Allow printing to PDF from Container
@@ -197,12 +197,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToPDF"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowPrintToXPS
     * Allow printing to XPS from Container
     *
-    * @return bool The applicationGuardAllowPrintToXPS
+    * @return bool|null The applicationGuardAllowPrintToXPS
     */
     public function getApplicationGuardAllowPrintToXPS()
     {
@@ -212,7 +212,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowPrintToXPS
     * Allow printing to XPS from Container
@@ -226,12 +226,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowPrintToXPS"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardAllowVirtualGPU
     * Allow application guard to use virtual GPU
     *
-    * @return bool The applicationGuardAllowVirtualGPU
+    * @return bool|null The applicationGuardAllowVirtualGPU
     */
     public function getApplicationGuardAllowVirtualGPU()
     {
@@ -241,7 +241,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardAllowVirtualGPU
     * Allow application guard to use virtual GPU
@@ -255,17 +255,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardAllowVirtualGPU"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardBlockClipboardSharing
     * Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
     *
-    * @return ApplicationGuardBlockClipboardSharingType The applicationGuardBlockClipboardSharing
+    * @return ApplicationGuardBlockClipboardSharingType|null The applicationGuardBlockClipboardSharing
     */
     public function getApplicationGuardBlockClipboardSharing()
     {
         if (array_key_exists("applicationGuardBlockClipboardSharing", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationGuardBlockClipboardSharing"], "\Beta\Microsoft\Graph\Model\ApplicationGuardBlockClipboardSharingType")) {
+            if (is_a($this->_propDict["applicationGuardBlockClipboardSharing"], "\Beta\Microsoft\Graph\Model\ApplicationGuardBlockClipboardSharingType") || is_null($this->_propDict["applicationGuardBlockClipboardSharing"])) {
                 return $this->_propDict["applicationGuardBlockClipboardSharing"];
             } else {
                 $this->_propDict["applicationGuardBlockClipboardSharing"] = new ApplicationGuardBlockClipboardSharingType($this->_propDict["applicationGuardBlockClipboardSharing"]);
@@ -274,7 +274,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the applicationGuardBlockClipboardSharing
     * Block clipboard to share data from Host to Container, or from Container to Host, or both ways, or neither ways. Possible values are: notConfigured, blockBoth, blockHostToContainer, blockContainerToHost, blockNone.
@@ -288,17 +288,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardBlockClipboardSharing"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardBlockFileTransfer
     * Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
     *
-    * @return ApplicationGuardBlockFileTransferType The applicationGuardBlockFileTransfer
+    * @return ApplicationGuardBlockFileTransferType|null The applicationGuardBlockFileTransfer
     */
     public function getApplicationGuardBlockFileTransfer()
     {
         if (array_key_exists("applicationGuardBlockFileTransfer", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationGuardBlockFileTransfer"], "\Beta\Microsoft\Graph\Model\ApplicationGuardBlockFileTransferType")) {
+            if (is_a($this->_propDict["applicationGuardBlockFileTransfer"], "\Beta\Microsoft\Graph\Model\ApplicationGuardBlockFileTransferType") || is_null($this->_propDict["applicationGuardBlockFileTransfer"])) {
                 return $this->_propDict["applicationGuardBlockFileTransfer"];
             } else {
                 $this->_propDict["applicationGuardBlockFileTransfer"] = new ApplicationGuardBlockFileTransferType($this->_propDict["applicationGuardBlockFileTransfer"]);
@@ -307,7 +307,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the applicationGuardBlockFileTransfer
     * Block clipboard to transfer image file, text file or neither of them. Possible values are: notConfigured, blockImageAndTextFile, blockImageFile, blockNone, blockTextFile.
@@ -321,12 +321,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardBlockFileTransfer"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardBlockNonEnterpriseContent
     * Block enterprise sites to load non-enterprise content, such as third party plug-ins
     *
-    * @return bool The applicationGuardBlockNonEnterpriseContent
+    * @return bool|null The applicationGuardBlockNonEnterpriseContent
     */
     public function getApplicationGuardBlockNonEnterpriseContent()
     {
@@ -336,7 +336,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardBlockNonEnterpriseContent
     * Block enterprise sites to load non-enterprise content, such as third party plug-ins
@@ -350,12 +350,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardBlockNonEnterpriseContent"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardCertificateThumbprints
     * Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.
     *
-    * @return string The applicationGuardCertificateThumbprints
+    * @return string|null The applicationGuardCertificateThumbprints
     */
     public function getApplicationGuardCertificateThumbprints()
     {
@@ -365,7 +365,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardCertificateThumbprints
     * Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.
@@ -379,12 +379,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardCertificateThumbprints"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardEnabled
     * Enable Windows Defender Application Guard
     *
-    * @return bool The applicationGuardEnabled
+    * @return bool|null The applicationGuardEnabled
     */
     public function getApplicationGuardEnabled()
     {
@@ -394,7 +394,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardEnabled
     * Enable Windows Defender Application Guard
@@ -408,17 +408,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardEnabled"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardEnabledOptions
     * Enable Windows Defender Application Guard for newer Windows builds. Possible values are: notConfigured, enabledForEdge, enabledForOffice, enabledForEdgeAndOffice.
     *
-    * @return ApplicationGuardEnabledOptions The applicationGuardEnabledOptions
+    * @return ApplicationGuardEnabledOptions|null The applicationGuardEnabledOptions
     */
     public function getApplicationGuardEnabledOptions()
     {
         if (array_key_exists("applicationGuardEnabledOptions", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationGuardEnabledOptions"], "\Beta\Microsoft\Graph\Model\ApplicationGuardEnabledOptions")) {
+            if (is_a($this->_propDict["applicationGuardEnabledOptions"], "\Beta\Microsoft\Graph\Model\ApplicationGuardEnabledOptions") || is_null($this->_propDict["applicationGuardEnabledOptions"])) {
                 return $this->_propDict["applicationGuardEnabledOptions"];
             } else {
                 $this->_propDict["applicationGuardEnabledOptions"] = new ApplicationGuardEnabledOptions($this->_propDict["applicationGuardEnabledOptions"]);
@@ -427,7 +427,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the applicationGuardEnabledOptions
     * Enable Windows Defender Application Guard for newer Windows builds. Possible values are: notConfigured, enabledForEdge, enabledForOffice, enabledForEdgeAndOffice.
@@ -441,12 +441,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardEnabledOptions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the applicationGuardForceAuditing
     * Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
     *
-    * @return bool The applicationGuardForceAuditing
+    * @return bool|null The applicationGuardForceAuditing
     */
     public function getApplicationGuardForceAuditing()
     {
@@ -456,7 +456,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the applicationGuardForceAuditing
     * Force auditing will persist Windows logs and events to meet security/compliance criteria (sample events are user login-logoff, use of privilege rights, software installation, system changes, etc.)
@@ -470,17 +470,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["applicationGuardForceAuditing"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the appLockerApplicationControl
     * Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
     *
-    * @return AppLockerApplicationControlType The appLockerApplicationControl
+    * @return AppLockerApplicationControlType|null The appLockerApplicationControl
     */
     public function getAppLockerApplicationControl()
     {
         if (array_key_exists("appLockerApplicationControl", $this->_propDict)) {
-            if (is_a($this->_propDict["appLockerApplicationControl"], "\Beta\Microsoft\Graph\Model\AppLockerApplicationControlType")) {
+            if (is_a($this->_propDict["appLockerApplicationControl"], "\Beta\Microsoft\Graph\Model\AppLockerApplicationControlType") || is_null($this->_propDict["appLockerApplicationControl"])) {
                 return $this->_propDict["appLockerApplicationControl"];
             } else {
                 $this->_propDict["appLockerApplicationControl"] = new AppLockerApplicationControlType($this->_propDict["appLockerApplicationControl"]);
@@ -489,7 +489,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the appLockerApplicationControl
     * Enables the Admin to choose what types of app to allow on devices. Possible values are: notConfigured, enforceComponentsAndStoreApps, auditComponentsAndStoreApps, enforceComponentsStoreAppsAndSmartlocker, auditComponentsStoreAppsAndSmartlocker.
@@ -503,12 +503,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["appLockerApplicationControl"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerAllowStandardUserEncryption
     * Allows the admin to allow standard users to enable encrpytion during Azure AD Join.
     *
-    * @return bool The bitLockerAllowStandardUserEncryption
+    * @return bool|null The bitLockerAllowStandardUserEncryption
     */
     public function getBitLockerAllowStandardUserEncryption()
     {
@@ -518,7 +518,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerAllowStandardUserEncryption
     * Allows the admin to allow standard users to enable encrpytion during Azure AD Join.
@@ -532,12 +532,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerAllowStandardUserEncryption"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerDisableWarningForOtherDiskEncryption
     * Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
     *
-    * @return bool The bitLockerDisableWarningForOtherDiskEncryption
+    * @return bool|null The bitLockerDisableWarningForOtherDiskEncryption
     */
     public function getBitLockerDisableWarningForOtherDiskEncryption()
     {
@@ -547,7 +547,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerDisableWarningForOtherDiskEncryption
     * Allows the Admin to disable the warning prompt for other disk encryption on the user machines.
@@ -561,12 +561,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerDisableWarningForOtherDiskEncryption"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerEnableStorageCardEncryptionOnMobile
     * Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
     *
-    * @return bool The bitLockerEnableStorageCardEncryptionOnMobile
+    * @return bool|null The bitLockerEnableStorageCardEncryptionOnMobile
     */
     public function getBitLockerEnableStorageCardEncryptionOnMobile()
     {
@@ -576,7 +576,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerEnableStorageCardEncryptionOnMobile
     * Allows the admin to require encryption to be turned on using BitLocker. This policy is valid only for a mobile SKU.
@@ -590,12 +590,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerEnableStorageCardEncryptionOnMobile"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerEncryptDevice
     * Allows the admin to require encryption to be turned on using BitLocker.
     *
-    * @return bool The bitLockerEncryptDevice
+    * @return bool|null The bitLockerEncryptDevice
     */
     public function getBitLockerEncryptDevice()
     {
@@ -605,7 +605,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the bitLockerEncryptDevice
     * Allows the admin to require encryption to be turned on using BitLocker.
@@ -619,17 +619,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerEncryptDevice"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerFixedDrivePolicy
     * BitLocker Fixed Drive Policy.
     *
-    * @return BitLockerFixedDrivePolicy The bitLockerFixedDrivePolicy
+    * @return BitLockerFixedDrivePolicy|null The bitLockerFixedDrivePolicy
     */
     public function getBitLockerFixedDrivePolicy()
     {
         if (array_key_exists("bitLockerFixedDrivePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["bitLockerFixedDrivePolicy"], "\Beta\Microsoft\Graph\Model\BitLockerFixedDrivePolicy")) {
+            if (is_a($this->_propDict["bitLockerFixedDrivePolicy"], "\Beta\Microsoft\Graph\Model\BitLockerFixedDrivePolicy") || is_null($this->_propDict["bitLockerFixedDrivePolicy"])) {
                 return $this->_propDict["bitLockerFixedDrivePolicy"];
             } else {
                 $this->_propDict["bitLockerFixedDrivePolicy"] = new BitLockerFixedDrivePolicy($this->_propDict["bitLockerFixedDrivePolicy"]);
@@ -638,7 +638,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bitLockerFixedDrivePolicy
     * BitLocker Fixed Drive Policy.
@@ -652,17 +652,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerFixedDrivePolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerRecoveryPasswordRotation
     * This setting initiates a client-driven recovery password rotation after an OS drive recovery (either by using bootmgr or WinRE). Possible values are: notConfigured, disabled, enabledForAzureAd, enabledForAzureAdAndHybrid.
     *
-    * @return BitLockerRecoveryPasswordRotationType The bitLockerRecoveryPasswordRotation
+    * @return BitLockerRecoveryPasswordRotationType|null The bitLockerRecoveryPasswordRotation
     */
     public function getBitLockerRecoveryPasswordRotation()
     {
         if (array_key_exists("bitLockerRecoveryPasswordRotation", $this->_propDict)) {
-            if (is_a($this->_propDict["bitLockerRecoveryPasswordRotation"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryPasswordRotationType")) {
+            if (is_a($this->_propDict["bitLockerRecoveryPasswordRotation"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryPasswordRotationType") || is_null($this->_propDict["bitLockerRecoveryPasswordRotation"])) {
                 return $this->_propDict["bitLockerRecoveryPasswordRotation"];
             } else {
                 $this->_propDict["bitLockerRecoveryPasswordRotation"] = new BitLockerRecoveryPasswordRotationType($this->_propDict["bitLockerRecoveryPasswordRotation"]);
@@ -671,7 +671,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bitLockerRecoveryPasswordRotation
     * This setting initiates a client-driven recovery password rotation after an OS drive recovery (either by using bootmgr or WinRE). Possible values are: notConfigured, disabled, enabledForAzureAd, enabledForAzureAdAndHybrid.
@@ -685,17 +685,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerRecoveryPasswordRotation"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerRemovableDrivePolicy
     * BitLocker Removable Drive Policy.
     *
-    * @return BitLockerRemovableDrivePolicy The bitLockerRemovableDrivePolicy
+    * @return BitLockerRemovableDrivePolicy|null The bitLockerRemovableDrivePolicy
     */
     public function getBitLockerRemovableDrivePolicy()
     {
         if (array_key_exists("bitLockerRemovableDrivePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["bitLockerRemovableDrivePolicy"], "\Beta\Microsoft\Graph\Model\BitLockerRemovableDrivePolicy")) {
+            if (is_a($this->_propDict["bitLockerRemovableDrivePolicy"], "\Beta\Microsoft\Graph\Model\BitLockerRemovableDrivePolicy") || is_null($this->_propDict["bitLockerRemovableDrivePolicy"])) {
                 return $this->_propDict["bitLockerRemovableDrivePolicy"];
             } else {
                 $this->_propDict["bitLockerRemovableDrivePolicy"] = new BitLockerRemovableDrivePolicy($this->_propDict["bitLockerRemovableDrivePolicy"]);
@@ -704,7 +704,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bitLockerRemovableDrivePolicy
     * BitLocker Removable Drive Policy.
@@ -718,17 +718,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerRemovableDrivePolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the bitLockerSystemDrivePolicy
     * BitLocker System Drive Policy.
     *
-    * @return BitLockerSystemDrivePolicy The bitLockerSystemDrivePolicy
+    * @return BitLockerSystemDrivePolicy|null The bitLockerSystemDrivePolicy
     */
     public function getBitLockerSystemDrivePolicy()
     {
         if (array_key_exists("bitLockerSystemDrivePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["bitLockerSystemDrivePolicy"], "\Beta\Microsoft\Graph\Model\BitLockerSystemDrivePolicy")) {
+            if (is_a($this->_propDict["bitLockerSystemDrivePolicy"], "\Beta\Microsoft\Graph\Model\BitLockerSystemDrivePolicy") || is_null($this->_propDict["bitLockerSystemDrivePolicy"])) {
                 return $this->_propDict["bitLockerSystemDrivePolicy"];
             } else {
                 $this->_propDict["bitLockerSystemDrivePolicy"] = new BitLockerSystemDrivePolicy($this->_propDict["bitLockerSystemDrivePolicy"]);
@@ -737,7 +737,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the bitLockerSystemDrivePolicy
     * BitLocker System Drive Policy.
@@ -751,12 +751,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["bitLockerSystemDrivePolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderAdditionalGuardedFolders
     * List of folder paths to be added to the list of protected folders
     *
-    * @return string The defenderAdditionalGuardedFolders
+    * @return string|null The defenderAdditionalGuardedFolders
     */
     public function getDefenderAdditionalGuardedFolders()
     {
@@ -766,7 +766,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAdditionalGuardedFolders
     * List of folder paths to be added to the list of protected folders
@@ -780,17 +780,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAdditionalGuardedFolders"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderAdobeReaderLaunchChildProcess
     * Value indicating the behavior of Adobe Reader from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderAdobeReaderLaunchChildProcess
+    * @return DefenderProtectionType|null The defenderAdobeReaderLaunchChildProcess
     */
     public function getDefenderAdobeReaderLaunchChildProcess()
     {
         if (array_key_exists("defenderAdobeReaderLaunchChildProcess", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderAdobeReaderLaunchChildProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderAdobeReaderLaunchChildProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderAdobeReaderLaunchChildProcess"])) {
                 return $this->_propDict["defenderAdobeReaderLaunchChildProcess"];
             } else {
                 $this->_propDict["defenderAdobeReaderLaunchChildProcess"] = new DefenderProtectionType($this->_propDict["defenderAdobeReaderLaunchChildProcess"]);
@@ -799,7 +799,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderAdobeReaderLaunchChildProcess
     * Value indicating the behavior of Adobe Reader from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -813,17 +813,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAdobeReaderLaunchChildProcess"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderAdvancedRansomewareProtectionType
     * Value indicating use of advanced protection against ransomeware. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderAdvancedRansomewareProtectionType
+    * @return DefenderProtectionType|null The defenderAdvancedRansomewareProtectionType
     */
     public function getDefenderAdvancedRansomewareProtectionType()
     {
         if (array_key_exists("defenderAdvancedRansomewareProtectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderAdvancedRansomewareProtectionType"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderAdvancedRansomewareProtectionType"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderAdvancedRansomewareProtectionType"])) {
                 return $this->_propDict["defenderAdvancedRansomewareProtectionType"];
             } else {
                 $this->_propDict["defenderAdvancedRansomewareProtectionType"] = new DefenderProtectionType($this->_propDict["defenderAdvancedRansomewareProtectionType"]);
@@ -832,7 +832,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderAdvancedRansomewareProtectionType
     * Value indicating use of advanced protection against ransomeware. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -846,12 +846,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAdvancedRansomewareProtectionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowBehaviorMonitoring
     * Allows or disallows Windows Defender Behavior Monitoring functionality.
     *
-    * @return bool The defenderAllowBehaviorMonitoring
+    * @return bool|null The defenderAllowBehaviorMonitoring
     */
     public function getDefenderAllowBehaviorMonitoring()
     {
@@ -861,7 +861,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowBehaviorMonitoring
     * Allows or disallows Windows Defender Behavior Monitoring functionality.
@@ -875,12 +875,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowBehaviorMonitoring"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowCloudProtection
     * To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.
     *
-    * @return bool The defenderAllowCloudProtection
+    * @return bool|null The defenderAllowCloudProtection
     */
     public function getDefenderAllowCloudProtection()
     {
@@ -890,7 +890,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowCloudProtection
     * To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.
@@ -904,12 +904,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowCloudProtection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowEndUserAccess
     * Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.
     *
-    * @return bool The defenderAllowEndUserAccess
+    * @return bool|null The defenderAllowEndUserAccess
     */
     public function getDefenderAllowEndUserAccess()
     {
@@ -919,7 +919,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowEndUserAccess
     * Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.
@@ -933,12 +933,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowEndUserAccess"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowIntrusionPreventionSystem
     * Allows or disallows Windows Defender Intrusion Prevention functionality.
     *
-    * @return bool The defenderAllowIntrusionPreventionSystem
+    * @return bool|null The defenderAllowIntrusionPreventionSystem
     */
     public function getDefenderAllowIntrusionPreventionSystem()
     {
@@ -948,7 +948,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowIntrusionPreventionSystem
     * Allows or disallows Windows Defender Intrusion Prevention functionality.
@@ -962,12 +962,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowIntrusionPreventionSystem"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowOnAccessProtection
     * Allows or disallows Windows Defender On Access Protection functionality.
     *
-    * @return bool The defenderAllowOnAccessProtection
+    * @return bool|null The defenderAllowOnAccessProtection
     */
     public function getDefenderAllowOnAccessProtection()
     {
@@ -977,7 +977,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowOnAccessProtection
     * Allows or disallows Windows Defender On Access Protection functionality.
@@ -991,12 +991,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowOnAccessProtection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowRealTimeMonitoring
     * Allows or disallows Windows Defender Realtime Monitoring functionality.
     *
-    * @return bool The defenderAllowRealTimeMonitoring
+    * @return bool|null The defenderAllowRealTimeMonitoring
     */
     public function getDefenderAllowRealTimeMonitoring()
     {
@@ -1006,7 +1006,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowRealTimeMonitoring
     * Allows or disallows Windows Defender Realtime Monitoring functionality.
@@ -1020,12 +1020,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowRealTimeMonitoring"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowScanArchiveFiles
     * Allows or disallows scanning of archives.
     *
-    * @return bool The defenderAllowScanArchiveFiles
+    * @return bool|null The defenderAllowScanArchiveFiles
     */
     public function getDefenderAllowScanArchiveFiles()
     {
@@ -1035,7 +1035,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowScanArchiveFiles
     * Allows or disallows scanning of archives.
@@ -1049,12 +1049,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowScanArchiveFiles"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowScanDownloads
     * Allows or disallows Windows Defender IOAVP Protection functionality.
     *
-    * @return bool The defenderAllowScanDownloads
+    * @return bool|null The defenderAllowScanDownloads
     */
     public function getDefenderAllowScanDownloads()
     {
@@ -1064,7 +1064,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowScanDownloads
     * Allows or disallows Windows Defender IOAVP Protection functionality.
@@ -1078,12 +1078,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowScanDownloads"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowScanNetworkFiles
     * Allows or disallows a scanning of network files.
     *
-    * @return bool The defenderAllowScanNetworkFiles
+    * @return bool|null The defenderAllowScanNetworkFiles
     */
     public function getDefenderAllowScanNetworkFiles()
     {
@@ -1093,7 +1093,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowScanNetworkFiles
     * Allows or disallows a scanning of network files.
@@ -1107,12 +1107,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowScanNetworkFiles"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowScanRemovableDrivesDuringFullScan
     * Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.
     *
-    * @return bool The defenderAllowScanRemovableDrivesDuringFullScan
+    * @return bool|null The defenderAllowScanRemovableDrivesDuringFullScan
     */
     public function getDefenderAllowScanRemovableDrivesDuringFullScan()
     {
@@ -1122,7 +1122,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowScanRemovableDrivesDuringFullScan
     * Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.
@@ -1136,12 +1136,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowScanRemovableDrivesDuringFullScan"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAllowScanScriptsLoadedInInternetExplorer
     * Allows or disallows Windows Defender Script Scanning functionality.
     *
-    * @return bool The defenderAllowScanScriptsLoadedInInternetExplorer
+    * @return bool|null The defenderAllowScanScriptsLoadedInInternetExplorer
     */
     public function getDefenderAllowScanScriptsLoadedInInternetExplorer()
     {
@@ -1151,7 +1151,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAllowScanScriptsLoadedInInternetExplorer
     * Allows or disallows Windows Defender Script Scanning functionality.
@@ -1165,12 +1165,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAllowScanScriptsLoadedInInternetExplorer"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderAttackSurfaceReductionExcludedPaths
     * List of exe files and folders to be excluded from attack surface reduction rules
     *
-    * @return string The defenderAttackSurfaceReductionExcludedPaths
+    * @return string|null The defenderAttackSurfaceReductionExcludedPaths
     */
     public function getDefenderAttackSurfaceReductionExcludedPaths()
     {
@@ -1180,7 +1180,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderAttackSurfaceReductionExcludedPaths
     * List of exe files and folders to be excluded from attack surface reduction rules
@@ -1194,12 +1194,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderAttackSurfaceReductionExcludedPaths"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderBlockEndUserAccess
     * Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.
     *
-    * @return bool The defenderBlockEndUserAccess
+    * @return bool|null The defenderBlockEndUserAccess
     */
     public function getDefenderBlockEndUserAccess()
     {
@@ -1209,7 +1209,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderBlockEndUserAccess
     * Allows or disallows user access to the Windows Defender UI. If disallowed, all Windows Defender notifications will also be suppressed.
@@ -1223,17 +1223,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderBlockEndUserAccess"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderBlockPersistenceThroughWmiType
     * Value indicating the behavior of Block persistence through WMI event subscription. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderBlockPersistenceThroughWmiType
+    * @return DefenderAttackSurfaceType|null The defenderBlockPersistenceThroughWmiType
     */
     public function getDefenderBlockPersistenceThroughWmiType()
     {
         if (array_key_exists("defenderBlockPersistenceThroughWmiType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderBlockPersistenceThroughWmiType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderBlockPersistenceThroughWmiType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderBlockPersistenceThroughWmiType"])) {
                 return $this->_propDict["defenderBlockPersistenceThroughWmiType"];
             } else {
                 $this->_propDict["defenderBlockPersistenceThroughWmiType"] = new DefenderAttackSurfaceType($this->_propDict["defenderBlockPersistenceThroughWmiType"]);
@@ -1242,7 +1242,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderBlockPersistenceThroughWmiType
     * Value indicating the behavior of Block persistence through WMI event subscription. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -1256,12 +1256,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderBlockPersistenceThroughWmiType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderCheckForSignaturesBeforeRunningScan
     * This policy setting allows you to manage whether a check for new virus and spyware definitions will occur before running a scan.
     *
-    * @return bool The defenderCheckForSignaturesBeforeRunningScan
+    * @return bool|null The defenderCheckForSignaturesBeforeRunningScan
     */
     public function getDefenderCheckForSignaturesBeforeRunningScan()
     {
@@ -1271,7 +1271,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderCheckForSignaturesBeforeRunningScan
     * This policy setting allows you to manage whether a check for new virus and spyware definitions will occur before running a scan.
@@ -1285,17 +1285,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderCheckForSignaturesBeforeRunningScan"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderCloudBlockLevel
     * Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
     *
-    * @return DefenderCloudBlockLevelType The defenderCloudBlockLevel
+    * @return DefenderCloudBlockLevelType|null The defenderCloudBlockLevel
     */
     public function getDefenderCloudBlockLevel()
     {
         if (array_key_exists("defenderCloudBlockLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderCloudBlockLevel"], "\Beta\Microsoft\Graph\Model\DefenderCloudBlockLevelType")) {
+            if (is_a($this->_propDict["defenderCloudBlockLevel"], "\Beta\Microsoft\Graph\Model\DefenderCloudBlockLevelType") || is_null($this->_propDict["defenderCloudBlockLevel"])) {
                 return $this->_propDict["defenderCloudBlockLevel"];
             } else {
                 $this->_propDict["defenderCloudBlockLevel"] = new DefenderCloudBlockLevelType($this->_propDict["defenderCloudBlockLevel"]);
@@ -1304,7 +1304,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderCloudBlockLevel
     * Added in Windows 10, version 1709. This policy setting determines how aggressive Windows Defender Antivirus will be in blocking and scanning suspicious files. Value type is integer. This feature requires the 'Join Microsoft MAPS' setting enabled in order to function. Possible values are: notConfigured, high, highPlus, zeroTolerance.
@@ -1318,12 +1318,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderCloudBlockLevel"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderCloudExtendedTimeoutInSeconds
     * Added in Windows 10, version 1709. This feature allows Windows Defender Antivirus to block a suspicious file for up to 60 seconds, and scan it in the cloud to make sure it's safe. Value type is integer, range is 0 - 50. This feature depends on three other MAPS settings the must all be enabled- 'Configure the 'Block at First Sight' feature; 'Join Microsoft MAPS'; 'Send file samples when further analysis is required'. Valid values 0 to 50
     *
-    * @return int The defenderCloudExtendedTimeoutInSeconds
+    * @return int|null The defenderCloudExtendedTimeoutInSeconds
     */
     public function getDefenderCloudExtendedTimeoutInSeconds()
     {
@@ -1333,7 +1333,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderCloudExtendedTimeoutInSeconds
     * Added in Windows 10, version 1709. This feature allows Windows Defender Antivirus to block a suspicious file for up to 60 seconds, and scan it in the cloud to make sure it's safe. Value type is integer, range is 0 - 50. This feature depends on three other MAPS settings the must all be enabled- 'Configure the 'Block at First Sight' feature; 'Join Microsoft MAPS'; 'Send file samples when further analysis is required'. Valid values 0 to 50
@@ -1347,12 +1347,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderCloudExtendedTimeoutInSeconds"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDaysBeforeDeletingQuarantinedMalware
     * Time period (in days) that quarantine items will be stored on the system. Valid values 0 to 90
     *
-    * @return int The defenderDaysBeforeDeletingQuarantinedMalware
+    * @return int|null The defenderDaysBeforeDeletingQuarantinedMalware
     */
     public function getDefenderDaysBeforeDeletingQuarantinedMalware()
     {
@@ -1362,7 +1362,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDaysBeforeDeletingQuarantinedMalware
     * Time period (in days) that quarantine items will be stored on the system. Valid values 0 to 90
@@ -1376,17 +1376,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDaysBeforeDeletingQuarantinedMalware"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDetectedMalwareActions
     * Allows an administrator to specify any valid threat severity levels and the corresponding default action ID to take.
     *
-    * @return DefenderDetectedMalwareActions The defenderDetectedMalwareActions
+    * @return DefenderDetectedMalwareActions|null The defenderDetectedMalwareActions
     */
     public function getDefenderDetectedMalwareActions()
     {
         if (array_key_exists("defenderDetectedMalwareActions", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderDetectedMalwareActions"], "\Beta\Microsoft\Graph\Model\DefenderDetectedMalwareActions")) {
+            if (is_a($this->_propDict["defenderDetectedMalwareActions"], "\Beta\Microsoft\Graph\Model\DefenderDetectedMalwareActions") || is_null($this->_propDict["defenderDetectedMalwareActions"])) {
                 return $this->_propDict["defenderDetectedMalwareActions"];
             } else {
                 $this->_propDict["defenderDetectedMalwareActions"] = new DefenderDetectedMalwareActions($this->_propDict["defenderDetectedMalwareActions"]);
@@ -1395,7 +1395,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderDetectedMalwareActions
     * Allows an administrator to specify any valid threat severity levels and the corresponding default action ID to take.
@@ -1409,12 +1409,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDetectedMalwareActions"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableBehaviorMonitoring
     * Allows or disallows Windows Defender Behavior Monitoring functionality.
     *
-    * @return bool The defenderDisableBehaviorMonitoring
+    * @return bool|null The defenderDisableBehaviorMonitoring
     */
     public function getDefenderDisableBehaviorMonitoring()
     {
@@ -1424,7 +1424,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableBehaviorMonitoring
     * Allows or disallows Windows Defender Behavior Monitoring functionality.
@@ -1438,12 +1438,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableBehaviorMonitoring"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableCatchupFullScan
     * This policy setting allows you to configure catch-up scans for scheduled full scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.
     *
-    * @return bool The defenderDisableCatchupFullScan
+    * @return bool|null The defenderDisableCatchupFullScan
     */
     public function getDefenderDisableCatchupFullScan()
     {
@@ -1453,7 +1453,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableCatchupFullScan
     * This policy setting allows you to configure catch-up scans for scheduled full scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.
@@ -1467,12 +1467,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableCatchupFullScan"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableCatchupQuickScan
     * This policy setting allows you to configure catch-up scans for scheduled quick scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.
     *
-    * @return bool The defenderDisableCatchupQuickScan
+    * @return bool|null The defenderDisableCatchupQuickScan
     */
     public function getDefenderDisableCatchupQuickScan()
     {
@@ -1482,7 +1482,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableCatchupQuickScan
     * This policy setting allows you to configure catch-up scans for scheduled quick scans. A catch-up scan is a scan that is initiated because a regularly scheduled scan was missed. Usually these scheduled scans are missed because the computer was turned off at the scheduled time.
@@ -1496,12 +1496,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableCatchupQuickScan"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableCloudProtection
     * To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.
     *
-    * @return bool The defenderDisableCloudProtection
+    * @return bool|null The defenderDisableCloudProtection
     */
     public function getDefenderDisableCloudProtection()
     {
@@ -1511,7 +1511,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableCloudProtection
     * To best protect your PC, Windows Defender will send information to Microsoft about any problems it finds. Microsoft will analyze that information, learn more about problems affecting you and other customers, and offer improved solutions.
@@ -1525,12 +1525,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableCloudProtection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableIntrusionPreventionSystem
     * Allows or disallows Windows Defender Intrusion Prevention functionality.
     *
-    * @return bool The defenderDisableIntrusionPreventionSystem
+    * @return bool|null The defenderDisableIntrusionPreventionSystem
     */
     public function getDefenderDisableIntrusionPreventionSystem()
     {
@@ -1540,7 +1540,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableIntrusionPreventionSystem
     * Allows or disallows Windows Defender Intrusion Prevention functionality.
@@ -1554,12 +1554,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableIntrusionPreventionSystem"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableOnAccessProtection
     * Allows or disallows Windows Defender On Access Protection functionality.
     *
-    * @return bool The defenderDisableOnAccessProtection
+    * @return bool|null The defenderDisableOnAccessProtection
     */
     public function getDefenderDisableOnAccessProtection()
     {
@@ -1569,7 +1569,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableOnAccessProtection
     * Allows or disallows Windows Defender On Access Protection functionality.
@@ -1583,12 +1583,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableOnAccessProtection"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableRealTimeMonitoring
     * Allows or disallows Windows Defender Realtime Monitoring functionality.
     *
-    * @return bool The defenderDisableRealTimeMonitoring
+    * @return bool|null The defenderDisableRealTimeMonitoring
     */
     public function getDefenderDisableRealTimeMonitoring()
     {
@@ -1598,7 +1598,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableRealTimeMonitoring
     * Allows or disallows Windows Defender Realtime Monitoring functionality.
@@ -1612,12 +1612,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableRealTimeMonitoring"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableScanArchiveFiles
     * Allows or disallows scanning of archives.
     *
-    * @return bool The defenderDisableScanArchiveFiles
+    * @return bool|null The defenderDisableScanArchiveFiles
     */
     public function getDefenderDisableScanArchiveFiles()
     {
@@ -1627,7 +1627,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableScanArchiveFiles
     * Allows or disallows scanning of archives.
@@ -1641,12 +1641,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableScanArchiveFiles"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableScanDownloads
     * Allows or disallows Windows Defender IOAVP Protection functionality.
     *
-    * @return bool The defenderDisableScanDownloads
+    * @return bool|null The defenderDisableScanDownloads
     */
     public function getDefenderDisableScanDownloads()
     {
@@ -1656,7 +1656,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableScanDownloads
     * Allows or disallows Windows Defender IOAVP Protection functionality.
@@ -1670,12 +1670,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableScanDownloads"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableScanNetworkFiles
     * Allows or disallows a scanning of network files.
     *
-    * @return bool The defenderDisableScanNetworkFiles
+    * @return bool|null The defenderDisableScanNetworkFiles
     */
     public function getDefenderDisableScanNetworkFiles()
     {
@@ -1685,7 +1685,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableScanNetworkFiles
     * Allows or disallows a scanning of network files.
@@ -1699,12 +1699,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableScanNetworkFiles"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableScanRemovableDrivesDuringFullScan
     * Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.
     *
-    * @return bool The defenderDisableScanRemovableDrivesDuringFullScan
+    * @return bool|null The defenderDisableScanRemovableDrivesDuringFullScan
     */
     public function getDefenderDisableScanRemovableDrivesDuringFullScan()
     {
@@ -1714,7 +1714,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableScanRemovableDrivesDuringFullScan
     * Allows or disallows a full scan of removable drives. During a quick scan, removable drives may still be scanned.
@@ -1728,12 +1728,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableScanRemovableDrivesDuringFullScan"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderDisableScanScriptsLoadedInInternetExplorer
     * Allows or disallows Windows Defender Script Scanning functionality.
     *
-    * @return bool The defenderDisableScanScriptsLoadedInInternetExplorer
+    * @return bool|null The defenderDisableScanScriptsLoadedInInternetExplorer
     */
     public function getDefenderDisableScanScriptsLoadedInInternetExplorer()
     {
@@ -1743,7 +1743,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderDisableScanScriptsLoadedInInternetExplorer
     * Allows or disallows Windows Defender Script Scanning functionality.
@@ -1757,17 +1757,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderDisableScanScriptsLoadedInInternetExplorer"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderEmailContentExecution
     * Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderEmailContentExecution
+    * @return DefenderProtectionType|null The defenderEmailContentExecution
     */
     public function getDefenderEmailContentExecution()
     {
         if (array_key_exists("defenderEmailContentExecution", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderEmailContentExecution"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderEmailContentExecution"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderEmailContentExecution"])) {
                 return $this->_propDict["defenderEmailContentExecution"];
             } else {
                 $this->_propDict["defenderEmailContentExecution"] = new DefenderProtectionType($this->_propDict["defenderEmailContentExecution"]);
@@ -1776,7 +1776,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderEmailContentExecution
     * Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -1790,17 +1790,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderEmailContentExecution"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderEmailContentExecutionType
     * Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderEmailContentExecutionType
+    * @return DefenderAttackSurfaceType|null The defenderEmailContentExecutionType
     */
     public function getDefenderEmailContentExecutionType()
     {
         if (array_key_exists("defenderEmailContentExecutionType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderEmailContentExecutionType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderEmailContentExecutionType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderEmailContentExecutionType"])) {
                 return $this->_propDict["defenderEmailContentExecutionType"];
             } else {
                 $this->_propDict["defenderEmailContentExecutionType"] = new DefenderAttackSurfaceType($this->_propDict["defenderEmailContentExecutionType"]);
@@ -1809,7 +1809,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderEmailContentExecutionType
     * Value indicating if execution of executable content (exe, dll, ps, js, vbs, etc) should be dropped from email (webmail/mail-client). Possible values are: userDefined, block, auditMode, warn, disable.
@@ -1823,12 +1823,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderEmailContentExecutionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderEnableLowCpuPriority
     * This policy setting allows you to enable or disable low CPU priority for scheduled scans.
     *
-    * @return bool The defenderEnableLowCpuPriority
+    * @return bool|null The defenderEnableLowCpuPriority
     */
     public function getDefenderEnableLowCpuPriority()
     {
@@ -1838,7 +1838,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderEnableLowCpuPriority
     * This policy setting allows you to enable or disable low CPU priority for scheduled scans.
@@ -1852,12 +1852,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderEnableLowCpuPriority"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderEnableScanIncomingMail
     * Allows or disallows scanning of email.
     *
-    * @return bool The defenderEnableScanIncomingMail
+    * @return bool|null The defenderEnableScanIncomingMail
     */
     public function getDefenderEnableScanIncomingMail()
     {
@@ -1867,7 +1867,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderEnableScanIncomingMail
     * Allows or disallows scanning of email.
@@ -1881,12 +1881,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderEnableScanIncomingMail"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderEnableScanMappedNetworkDrivesDuringFullScan
     * Allows or disallows a full scan of mapped network drives.
     *
-    * @return bool The defenderEnableScanMappedNetworkDrivesDuringFullScan
+    * @return bool|null The defenderEnableScanMappedNetworkDrivesDuringFullScan
     */
     public function getDefenderEnableScanMappedNetworkDrivesDuringFullScan()
     {
@@ -1896,7 +1896,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderEnableScanMappedNetworkDrivesDuringFullScan
     * Allows or disallows a full scan of mapped network drives.
@@ -1910,26 +1910,26 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderEnableScanMappedNetworkDrivesDuringFullScan"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderExploitProtectionXml
     * Xml content containing information regarding exploit protection details.
     *
-    * @return \GuzzleHttp\Psr7\Stream The defenderExploitProtectionXml
+    * @return \GuzzleHttp\Psr7\Stream|null The defenderExploitProtectionXml
     */
     public function getDefenderExploitProtectionXml()
     {
         if (array_key_exists("defenderExploitProtectionXml", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderExploitProtectionXml"], "\GuzzleHttp\Psr7\Stream")) {
+            if (is_a($this->_propDict["defenderExploitProtectionXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["defenderExploitProtectionXml"])) {
                 return $this->_propDict["defenderExploitProtectionXml"];
             } else {
-                $this->_propDict["defenderExploitProtectionXml"] = \GuzzleHttp\Psr7\stream_for($this->_propDict["defenderExploitProtectionXml"]);
+                $this->_propDict["defenderExploitProtectionXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["defenderExploitProtectionXml"]);
                 return $this->_propDict["defenderExploitProtectionXml"];
             }
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderExploitProtectionXml
     * Xml content containing information regarding exploit protection details.
@@ -1943,12 +1943,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderExploitProtectionXml"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderExploitProtectionXmlFileName
     * Name of the file from which DefenderExploitProtectionXml was obtained.
     *
-    * @return string The defenderExploitProtectionXmlFileName
+    * @return string|null The defenderExploitProtectionXmlFileName
     */
     public function getDefenderExploitProtectionXmlFileName()
     {
@@ -1958,7 +1958,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderExploitProtectionXmlFileName
     * Name of the file from which DefenderExploitProtectionXml was obtained.
@@ -1972,12 +1972,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderExploitProtectionXmlFileName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @return string The defenderFileExtensionsToExclude
+    * @return string|null The defenderFileExtensionsToExclude
     */
     public function getDefenderFileExtensionsToExclude()
     {
@@ -1987,7 +1987,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
@@ -2001,12 +2001,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderFileExtensionsToExclude"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @return string The defenderFilesAndFoldersToExclude
+    * @return string|null The defenderFilesAndFoldersToExclude
     */
     public function getDefenderFilesAndFoldersToExclude()
     {
@@ -2016,7 +2016,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
@@ -2030,12 +2030,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderFilesAndFoldersToExclude"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderGuardedFoldersAllowedAppPaths
     * List of paths to exe that are allowed to access protected folders
     *
-    * @return string The defenderGuardedFoldersAllowedAppPaths
+    * @return string|null The defenderGuardedFoldersAllowedAppPaths
     */
     public function getDefenderGuardedFoldersAllowedAppPaths()
     {
@@ -2045,7 +2045,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderGuardedFoldersAllowedAppPaths
     * List of paths to exe that are allowed to access protected folders
@@ -2059,17 +2059,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderGuardedFoldersAllowedAppPaths"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderGuardMyFoldersType
     * Value indicating the behavior of protected folders. Possible values are: userDefined, enable, auditMode, blockDiskModification, auditDiskModification.
     *
-    * @return FolderProtectionType The defenderGuardMyFoldersType
+    * @return FolderProtectionType|null The defenderGuardMyFoldersType
     */
     public function getDefenderGuardMyFoldersType()
     {
         if (array_key_exists("defenderGuardMyFoldersType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderGuardMyFoldersType"], "\Beta\Microsoft\Graph\Model\FolderProtectionType")) {
+            if (is_a($this->_propDict["defenderGuardMyFoldersType"], "\Beta\Microsoft\Graph\Model\FolderProtectionType") || is_null($this->_propDict["defenderGuardMyFoldersType"])) {
                 return $this->_propDict["defenderGuardMyFoldersType"];
             } else {
                 $this->_propDict["defenderGuardMyFoldersType"] = new FolderProtectionType($this->_propDict["defenderGuardMyFoldersType"]);
@@ -2078,7 +2078,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderGuardMyFoldersType
     * Value indicating the behavior of protected folders. Possible values are: userDefined, enable, auditMode, blockDiskModification, auditDiskModification.
@@ -2092,17 +2092,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderGuardMyFoldersType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderNetworkProtectionType
     * Value indicating the behavior of NetworkProtection. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderNetworkProtectionType
+    * @return DefenderProtectionType|null The defenderNetworkProtectionType
     */
     public function getDefenderNetworkProtectionType()
     {
         if (array_key_exists("defenderNetworkProtectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderNetworkProtectionType"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderNetworkProtectionType"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderNetworkProtectionType"])) {
                 return $this->_propDict["defenderNetworkProtectionType"];
             } else {
                 $this->_propDict["defenderNetworkProtectionType"] = new DefenderProtectionType($this->_propDict["defenderNetworkProtectionType"]);
@@ -2111,7 +2111,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderNetworkProtectionType
     * Value indicating the behavior of NetworkProtection. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2125,17 +2125,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderNetworkProtectionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeAppsExecutableContentCreationOrLaunch
     * Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderOfficeAppsExecutableContentCreationOrLaunch
+    * @return DefenderProtectionType|null The defenderOfficeAppsExecutableContentCreationOrLaunch
     */
     public function getDefenderOfficeAppsExecutableContentCreationOrLaunch()
     {
         if (array_key_exists("defenderOfficeAppsExecutableContentCreationOrLaunch", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"])) {
                 return $this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"];
             } else {
                 $this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"] = new DefenderProtectionType($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"]);
@@ -2144,7 +2144,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeAppsExecutableContentCreationOrLaunch
     * Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2158,17 +2158,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunch"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeAppsExecutableContentCreationOrLaunchType
     * Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderOfficeAppsExecutableContentCreationOrLaunchType
+    * @return DefenderAttackSurfaceType|null The defenderOfficeAppsExecutableContentCreationOrLaunchType
     */
     public function getDefenderOfficeAppsExecutableContentCreationOrLaunchType()
     {
         if (array_key_exists("defenderOfficeAppsExecutableContentCreationOrLaunchType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"])) {
                 return $this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"];
             } else {
                 $this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"] = new DefenderAttackSurfaceType($this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"]);
@@ -2177,7 +2177,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeAppsExecutableContentCreationOrLaunchType
     * Value indicating the behavior of Office applications/macros creating or launching executable content. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2191,17 +2191,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeAppsExecutableContentCreationOrLaunchType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeAppsLaunchChildProcess
     * Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderOfficeAppsLaunchChildProcess
+    * @return DefenderProtectionType|null The defenderOfficeAppsLaunchChildProcess
     */
     public function getDefenderOfficeAppsLaunchChildProcess()
     {
         if (array_key_exists("defenderOfficeAppsLaunchChildProcess", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeAppsLaunchChildProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderOfficeAppsLaunchChildProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderOfficeAppsLaunchChildProcess"])) {
                 return $this->_propDict["defenderOfficeAppsLaunchChildProcess"];
             } else {
                 $this->_propDict["defenderOfficeAppsLaunchChildProcess"] = new DefenderProtectionType($this->_propDict["defenderOfficeAppsLaunchChildProcess"]);
@@ -2210,7 +2210,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeAppsLaunchChildProcess
     * Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2224,17 +2224,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeAppsLaunchChildProcess"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeAppsLaunchChildProcessType
     * Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderOfficeAppsLaunchChildProcessType
+    * @return DefenderAttackSurfaceType|null The defenderOfficeAppsLaunchChildProcessType
     */
     public function getDefenderOfficeAppsLaunchChildProcessType()
     {
         if (array_key_exists("defenderOfficeAppsLaunchChildProcessType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeAppsLaunchChildProcessType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderOfficeAppsLaunchChildProcessType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderOfficeAppsLaunchChildProcessType"])) {
                 return $this->_propDict["defenderOfficeAppsLaunchChildProcessType"];
             } else {
                 $this->_propDict["defenderOfficeAppsLaunchChildProcessType"] = new DefenderAttackSurfaceType($this->_propDict["defenderOfficeAppsLaunchChildProcessType"]);
@@ -2243,7 +2243,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeAppsLaunchChildProcessType
     * Value indicating the behavior of Office application launching child processes. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2257,17 +2257,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeAppsLaunchChildProcessType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeAppsOtherProcessInjection
     * Value indicating the behavior of  Office applications injecting into other processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderOfficeAppsOtherProcessInjection
+    * @return DefenderProtectionType|null The defenderOfficeAppsOtherProcessInjection
     */
     public function getDefenderOfficeAppsOtherProcessInjection()
     {
         if (array_key_exists("defenderOfficeAppsOtherProcessInjection", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeAppsOtherProcessInjection"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderOfficeAppsOtherProcessInjection"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderOfficeAppsOtherProcessInjection"])) {
                 return $this->_propDict["defenderOfficeAppsOtherProcessInjection"];
             } else {
                 $this->_propDict["defenderOfficeAppsOtherProcessInjection"] = new DefenderProtectionType($this->_propDict["defenderOfficeAppsOtherProcessInjection"]);
@@ -2276,7 +2276,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeAppsOtherProcessInjection
     * Value indicating the behavior of  Office applications injecting into other processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2290,17 +2290,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeAppsOtherProcessInjection"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeAppsOtherProcessInjectionType
     * Value indicating the behavior of Office applications injecting into other processes. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderOfficeAppsOtherProcessInjectionType
+    * @return DefenderAttackSurfaceType|null The defenderOfficeAppsOtherProcessInjectionType
     */
     public function getDefenderOfficeAppsOtherProcessInjectionType()
     {
         if (array_key_exists("defenderOfficeAppsOtherProcessInjectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeAppsOtherProcessInjectionType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderOfficeAppsOtherProcessInjectionType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderOfficeAppsOtherProcessInjectionType"])) {
                 return $this->_propDict["defenderOfficeAppsOtherProcessInjectionType"];
             } else {
                 $this->_propDict["defenderOfficeAppsOtherProcessInjectionType"] = new DefenderAttackSurfaceType($this->_propDict["defenderOfficeAppsOtherProcessInjectionType"]);
@@ -2309,7 +2309,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeAppsOtherProcessInjectionType
     * Value indicating the behavior of Office applications injecting into other processes. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2323,17 +2323,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeAppsOtherProcessInjectionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeCommunicationAppsLaunchChildProcess
     * Value indicating the behavior of Office communication applications, including Microsoft Outlook, from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderOfficeCommunicationAppsLaunchChildProcess
+    * @return DefenderProtectionType|null The defenderOfficeCommunicationAppsLaunchChildProcess
     */
     public function getDefenderOfficeCommunicationAppsLaunchChildProcess()
     {
         if (array_key_exists("defenderOfficeCommunicationAppsLaunchChildProcess", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"])) {
                 return $this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"];
             } else {
                 $this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"] = new DefenderProtectionType($this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"]);
@@ -2342,7 +2342,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeCommunicationAppsLaunchChildProcess
     * Value indicating the behavior of Office communication applications, including Microsoft Outlook, from creating child processes. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2356,17 +2356,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeCommunicationAppsLaunchChildProcess"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeMacroCodeAllowWin32Imports
     * Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderOfficeMacroCodeAllowWin32Imports
+    * @return DefenderProtectionType|null The defenderOfficeMacroCodeAllowWin32Imports
     */
     public function getDefenderOfficeMacroCodeAllowWin32Imports()
     {
         if (array_key_exists("defenderOfficeMacroCodeAllowWin32Imports", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"])) {
                 return $this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"];
             } else {
                 $this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"] = new DefenderProtectionType($this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"]);
@@ -2375,7 +2375,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeMacroCodeAllowWin32Imports
     * Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2389,17 +2389,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeMacroCodeAllowWin32Imports"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderOfficeMacroCodeAllowWin32ImportsType
     * Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderOfficeMacroCodeAllowWin32ImportsType
+    * @return DefenderAttackSurfaceType|null The defenderOfficeMacroCodeAllowWin32ImportsType
     */
     public function getDefenderOfficeMacroCodeAllowWin32ImportsType()
     {
         if (array_key_exists("defenderOfficeMacroCodeAllowWin32ImportsType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"])) {
                 return $this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"];
             } else {
                 $this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"] = new DefenderAttackSurfaceType($this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"]);
@@ -2408,7 +2408,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderOfficeMacroCodeAllowWin32ImportsType
     * Value indicating the behavior of Win32 imports from Macro code in Office. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2422,17 +2422,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderOfficeMacroCodeAllowWin32ImportsType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderPotentiallyUnwantedAppAction
     * Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderPotentiallyUnwantedAppAction
+    * @return DefenderProtectionType|null The defenderPotentiallyUnwantedAppAction
     */
     public function getDefenderPotentiallyUnwantedAppAction()
     {
         if (array_key_exists("defenderPotentiallyUnwantedAppAction", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderPotentiallyUnwantedAppAction"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderPotentiallyUnwantedAppAction"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderPotentiallyUnwantedAppAction"])) {
                 return $this->_propDict["defenderPotentiallyUnwantedAppAction"];
             } else {
                 $this->_propDict["defenderPotentiallyUnwantedAppAction"] = new DefenderProtectionType($this->_propDict["defenderPotentiallyUnwantedAppAction"]);
@@ -2441,7 +2441,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderPotentiallyUnwantedAppAction
     * Added in Windows 10, version 1607. Specifies the level of detection for potentially unwanted applications (PUAs). Windows Defender alerts you when potentially unwanted software is being downloaded or attempts to install itself on your computer. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2455,17 +2455,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderPotentiallyUnwantedAppAction"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderPreventCredentialStealingType
     * Value indicating if credential stealing from the Windows local security authority subsystem is permitted. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderPreventCredentialStealingType
+    * @return DefenderProtectionType|null The defenderPreventCredentialStealingType
     */
     public function getDefenderPreventCredentialStealingType()
     {
         if (array_key_exists("defenderPreventCredentialStealingType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderPreventCredentialStealingType"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderPreventCredentialStealingType"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderPreventCredentialStealingType"])) {
                 return $this->_propDict["defenderPreventCredentialStealingType"];
             } else {
                 $this->_propDict["defenderPreventCredentialStealingType"] = new DefenderProtectionType($this->_propDict["defenderPreventCredentialStealingType"]);
@@ -2474,7 +2474,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderPreventCredentialStealingType
     * Value indicating if credential stealing from the Windows local security authority subsystem is permitted. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2488,17 +2488,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderPreventCredentialStealingType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderProcessCreation
     * Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderProcessCreation
+    * @return DefenderProtectionType|null The defenderProcessCreation
     */
     public function getDefenderProcessCreation()
     {
         if (array_key_exists("defenderProcessCreation", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderProcessCreation"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderProcessCreation"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderProcessCreation"])) {
                 return $this->_propDict["defenderProcessCreation"];
             } else {
                 $this->_propDict["defenderProcessCreation"] = new DefenderProtectionType($this->_propDict["defenderProcessCreation"]);
@@ -2507,7 +2507,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderProcessCreation
     * Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2521,17 +2521,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderProcessCreation"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderProcessCreationType
     * Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderProcessCreationType
+    * @return DefenderAttackSurfaceType|null The defenderProcessCreationType
     */
     public function getDefenderProcessCreationType()
     {
         if (array_key_exists("defenderProcessCreationType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderProcessCreationType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderProcessCreationType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderProcessCreationType"])) {
                 return $this->_propDict["defenderProcessCreationType"];
             } else {
                 $this->_propDict["defenderProcessCreationType"] = new DefenderAttackSurfaceType($this->_propDict["defenderProcessCreationType"]);
@@ -2540,7 +2540,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderProcessCreationType
     * Value indicating response to process creations originating from PSExec and WMI commands. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2554,12 +2554,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderProcessCreationType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @return string The defenderProcessesToExclude
+    * @return string|null The defenderProcessesToExclude
     */
     public function getDefenderProcessesToExclude()
     {
@@ -2569,7 +2569,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
@@ -2583,17 +2583,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderProcessesToExclude"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScanDirection
     * Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
     *
-    * @return DefenderRealtimeScanDirection The defenderScanDirection
+    * @return DefenderRealtimeScanDirection|null The defenderScanDirection
     */
     public function getDefenderScanDirection()
     {
         if (array_key_exists("defenderScanDirection", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScanDirection"], "\Beta\Microsoft\Graph\Model\DefenderRealtimeScanDirection")) {
+            if (is_a($this->_propDict["defenderScanDirection"], "\Beta\Microsoft\Graph\Model\DefenderRealtimeScanDirection") || is_null($this->_propDict["defenderScanDirection"])) {
                 return $this->_propDict["defenderScanDirection"];
             } else {
                 $this->_propDict["defenderScanDirection"] = new DefenderRealtimeScanDirection($this->_propDict["defenderScanDirection"]);
@@ -2602,7 +2602,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScanDirection
     * Controls which sets of files should be monitored. Possible values are: monitorAllFiles, monitorIncomingFilesOnly, monitorOutgoingFilesOnly.
@@ -2616,12 +2616,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScanDirection"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScanMaxCpuPercentage
     * Represents the average CPU load factor for the Windows Defender scan (in percent). The default value is 50. Valid values 0 to 100
     *
-    * @return int The defenderScanMaxCpuPercentage
+    * @return int|null The defenderScanMaxCpuPercentage
     */
     public function getDefenderScanMaxCpuPercentage()
     {
@@ -2631,7 +2631,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderScanMaxCpuPercentage
     * Represents the average CPU load factor for the Windows Defender scan (in percent). The default value is 50. Valid values 0 to 100
@@ -2645,17 +2645,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScanMaxCpuPercentage"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderScanType
     * Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
     *
-    * @return DefenderScanType The defenderScanType
+    * @return DefenderScanType|null The defenderScanType
     */
     public function getDefenderScanType()
     {
         if (array_key_exists("defenderScanType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScanType"], "\Beta\Microsoft\Graph\Model\DefenderScanType")) {
+            if (is_a($this->_propDict["defenderScanType"], "\Beta\Microsoft\Graph\Model\DefenderScanType") || is_null($this->_propDict["defenderScanType"])) {
                 return $this->_propDict["defenderScanType"];
             } else {
                 $this->_propDict["defenderScanType"] = new DefenderScanType($this->_propDict["defenderScanType"]);
@@ -2664,7 +2664,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScanType
     * Selects whether to perform a quick scan or full scan. Possible values are: userDefined, disabled, quick, full.
@@ -2678,17 +2678,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScanType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScheduledQuickScanTime
     * Selects the time of day that the Windows Defender quick scan should run. For example, a value of 0=12:00AM, a value of 60=1:00AM, a value of 120=2:00, and so on, up to a value of 1380=11:00PM. The default value is 120
     *
-    * @return TimeOfDay The defenderScheduledQuickScanTime
+    * @return TimeOfDay|null The defenderScheduledQuickScanTime
     */
     public function getDefenderScheduledQuickScanTime()
     {
         if (array_key_exists("defenderScheduledQuickScanTime", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScheduledQuickScanTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["defenderScheduledQuickScanTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["defenderScheduledQuickScanTime"])) {
                 return $this->_propDict["defenderScheduledQuickScanTime"];
             } else {
                 $this->_propDict["defenderScheduledQuickScanTime"] = new TimeOfDay($this->_propDict["defenderScheduledQuickScanTime"]);
@@ -2697,7 +2697,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScheduledQuickScanTime
     * Selects the time of day that the Windows Defender quick scan should run. For example, a value of 0=12:00AM, a value of 60=1:00AM, a value of 120=2:00, and so on, up to a value of 1380=11:00PM. The default value is 120
@@ -2711,17 +2711,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScheduledQuickScanTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScheduledScanDay
     * Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
     *
-    * @return WeeklySchedule The defenderScheduledScanDay
+    * @return WeeklySchedule|null The defenderScheduledScanDay
     */
     public function getDefenderScheduledScanDay()
     {
         if (array_key_exists("defenderScheduledScanDay", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScheduledScanDay"], "\Beta\Microsoft\Graph\Model\WeeklySchedule")) {
+            if (is_a($this->_propDict["defenderScheduledScanDay"], "\Beta\Microsoft\Graph\Model\WeeklySchedule") || is_null($this->_propDict["defenderScheduledScanDay"])) {
                 return $this->_propDict["defenderScheduledScanDay"];
             } else {
                 $this->_propDict["defenderScheduledScanDay"] = new WeeklySchedule($this->_propDict["defenderScheduledScanDay"]);
@@ -2730,7 +2730,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScheduledScanDay
     * Selects the day that the Windows Defender scan should run. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
@@ -2744,17 +2744,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScheduledScanDay"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScheduledScanTime
     * Selects the time of day that the Windows Defender scan should run.
     *
-    * @return TimeOfDay The defenderScheduledScanTime
+    * @return TimeOfDay|null The defenderScheduledScanTime
     */
     public function getDefenderScheduledScanTime()
     {
         if (array_key_exists("defenderScheduledScanTime", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScheduledScanTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay")) {
+            if (is_a($this->_propDict["defenderScheduledScanTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["defenderScheduledScanTime"])) {
                 return $this->_propDict["defenderScheduledScanTime"];
             } else {
                 $this->_propDict["defenderScheduledScanTime"] = new TimeOfDay($this->_propDict["defenderScheduledScanTime"]);
@@ -2763,7 +2763,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScheduledScanTime
     * Selects the time of day that the Windows Defender scan should run.
@@ -2777,17 +2777,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScheduledScanTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScriptDownloadedPayloadExecution
     * Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderScriptDownloadedPayloadExecution
+    * @return DefenderProtectionType|null The defenderScriptDownloadedPayloadExecution
     */
     public function getDefenderScriptDownloadedPayloadExecution()
     {
         if (array_key_exists("defenderScriptDownloadedPayloadExecution", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScriptDownloadedPayloadExecution"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderScriptDownloadedPayloadExecution"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderScriptDownloadedPayloadExecution"])) {
                 return $this->_propDict["defenderScriptDownloadedPayloadExecution"];
             } else {
                 $this->_propDict["defenderScriptDownloadedPayloadExecution"] = new DefenderProtectionType($this->_propDict["defenderScriptDownloadedPayloadExecution"]);
@@ -2796,7 +2796,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScriptDownloadedPayloadExecution
     * Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2810,17 +2810,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScriptDownloadedPayloadExecution"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScriptDownloadedPayloadExecutionType
     * Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderScriptDownloadedPayloadExecutionType
+    * @return DefenderAttackSurfaceType|null The defenderScriptDownloadedPayloadExecutionType
     */
     public function getDefenderScriptDownloadedPayloadExecutionType()
     {
         if (array_key_exists("defenderScriptDownloadedPayloadExecutionType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScriptDownloadedPayloadExecutionType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderScriptDownloadedPayloadExecutionType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderScriptDownloadedPayloadExecutionType"])) {
                 return $this->_propDict["defenderScriptDownloadedPayloadExecutionType"];
             } else {
                 $this->_propDict["defenderScriptDownloadedPayloadExecutionType"] = new DefenderAttackSurfaceType($this->_propDict["defenderScriptDownloadedPayloadExecutionType"]);
@@ -2829,7 +2829,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScriptDownloadedPayloadExecutionType
     * Value indicating the behavior of js/vbs executing payload downloaded from Internet. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2843,17 +2843,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScriptDownloadedPayloadExecutionType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScriptObfuscatedMacroCode
     * Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderScriptObfuscatedMacroCode
+    * @return DefenderProtectionType|null The defenderScriptObfuscatedMacroCode
     */
     public function getDefenderScriptObfuscatedMacroCode()
     {
         if (array_key_exists("defenderScriptObfuscatedMacroCode", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScriptObfuscatedMacroCode"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderScriptObfuscatedMacroCode"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderScriptObfuscatedMacroCode"])) {
                 return $this->_propDict["defenderScriptObfuscatedMacroCode"];
             } else {
                 $this->_propDict["defenderScriptObfuscatedMacroCode"] = new DefenderProtectionType($this->_propDict["defenderScriptObfuscatedMacroCode"]);
@@ -2862,7 +2862,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScriptObfuscatedMacroCode
     * Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -2876,17 +2876,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScriptObfuscatedMacroCode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderScriptObfuscatedMacroCodeType
     * Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderScriptObfuscatedMacroCodeType
+    * @return DefenderAttackSurfaceType|null The defenderScriptObfuscatedMacroCodeType
     */
     public function getDefenderScriptObfuscatedMacroCodeType()
     {
         if (array_key_exists("defenderScriptObfuscatedMacroCodeType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderScriptObfuscatedMacroCodeType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderScriptObfuscatedMacroCodeType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderScriptObfuscatedMacroCodeType"])) {
                 return $this->_propDict["defenderScriptObfuscatedMacroCodeType"];
             } else {
                 $this->_propDict["defenderScriptObfuscatedMacroCodeType"] = new DefenderAttackSurfaceType($this->_propDict["defenderScriptObfuscatedMacroCodeType"]);
@@ -2895,7 +2895,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderScriptObfuscatedMacroCodeType
     * Value indicating the behavior of obfuscated js/vbs/ps/macro code. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -2909,12 +2909,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderScriptObfuscatedMacroCodeType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterBlockExploitProtectionOverride
     * Indicates whether or not to block user from overriding Exploit Protection settings.
     *
-    * @return bool The defenderSecurityCenterBlockExploitProtectionOverride
+    * @return bool|null The defenderSecurityCenterBlockExploitProtectionOverride
     */
     public function getDefenderSecurityCenterBlockExploitProtectionOverride()
     {
@@ -2924,7 +2924,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterBlockExploitProtectionOverride
     * Indicates whether or not to block user from overriding Exploit Protection settings.
@@ -2938,12 +2938,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterBlockExploitProtectionOverride"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableAccountUI
     * Used to disable the display of the account protection area.
     *
-    * @return bool The defenderSecurityCenterDisableAccountUI
+    * @return bool|null The defenderSecurityCenterDisableAccountUI
     */
     public function getDefenderSecurityCenterDisableAccountUI()
     {
@@ -2953,7 +2953,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableAccountUI
     * Used to disable the display of the account protection area.
@@ -2967,12 +2967,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableAccountUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableAppBrowserUI
     * Used to disable the display of the app and browser protection area.
     *
-    * @return bool The defenderSecurityCenterDisableAppBrowserUI
+    * @return bool|null The defenderSecurityCenterDisableAppBrowserUI
     */
     public function getDefenderSecurityCenterDisableAppBrowserUI()
     {
@@ -2982,7 +2982,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableAppBrowserUI
     * Used to disable the display of the app and browser protection area.
@@ -2996,12 +2996,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableAppBrowserUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableClearTpmUI
     * Used to disable the display of the Clear TPM button.
     *
-    * @return bool The defenderSecurityCenterDisableClearTpmUI
+    * @return bool|null The defenderSecurityCenterDisableClearTpmUI
     */
     public function getDefenderSecurityCenterDisableClearTpmUI()
     {
@@ -3011,7 +3011,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableClearTpmUI
     * Used to disable the display of the Clear TPM button.
@@ -3025,12 +3025,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableClearTpmUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableFamilyUI
     * Used to disable the display of the family options area.
     *
-    * @return bool The defenderSecurityCenterDisableFamilyUI
+    * @return bool|null The defenderSecurityCenterDisableFamilyUI
     */
     public function getDefenderSecurityCenterDisableFamilyUI()
     {
@@ -3040,7 +3040,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableFamilyUI
     * Used to disable the display of the family options area.
@@ -3054,12 +3054,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableFamilyUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableHardwareUI
     * Used to disable the display of the hardware protection area.
     *
-    * @return bool The defenderSecurityCenterDisableHardwareUI
+    * @return bool|null The defenderSecurityCenterDisableHardwareUI
     */
     public function getDefenderSecurityCenterDisableHardwareUI()
     {
@@ -3069,7 +3069,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableHardwareUI
     * Used to disable the display of the hardware protection area.
@@ -3083,12 +3083,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableHardwareUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableHealthUI
     * Used to disable the display of the device performance and health area.
     *
-    * @return bool The defenderSecurityCenterDisableHealthUI
+    * @return bool|null The defenderSecurityCenterDisableHealthUI
     */
     public function getDefenderSecurityCenterDisableHealthUI()
     {
@@ -3098,7 +3098,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableHealthUI
     * Used to disable the display of the device performance and health area.
@@ -3112,12 +3112,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableHealthUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableNetworkUI
     * Used to disable the display of the firewall and network protection area.
     *
-    * @return bool The defenderSecurityCenterDisableNetworkUI
+    * @return bool|null The defenderSecurityCenterDisableNetworkUI
     */
     public function getDefenderSecurityCenterDisableNetworkUI()
     {
@@ -3127,7 +3127,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableNetworkUI
     * Used to disable the display of the firewall and network protection area.
@@ -3141,12 +3141,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableNetworkUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableNotificationAreaUI
     * Used to disable the display of the notification area control. The user needs to either sign out and sign in or reboot the computer for this setting to take effect.
     *
-    * @return bool The defenderSecurityCenterDisableNotificationAreaUI
+    * @return bool|null The defenderSecurityCenterDisableNotificationAreaUI
     */
     public function getDefenderSecurityCenterDisableNotificationAreaUI()
     {
@@ -3156,7 +3156,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableNotificationAreaUI
     * Used to disable the display of the notification area control. The user needs to either sign out and sign in or reboot the computer for this setting to take effect.
@@ -3170,12 +3170,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableNotificationAreaUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableRansomwareUI
     * Used to disable the display of the ransomware protection area.
     *
-    * @return bool The defenderSecurityCenterDisableRansomwareUI
+    * @return bool|null The defenderSecurityCenterDisableRansomwareUI
     */
     public function getDefenderSecurityCenterDisableRansomwareUI()
     {
@@ -3185,7 +3185,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableRansomwareUI
     * Used to disable the display of the ransomware protection area.
@@ -3199,12 +3199,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableRansomwareUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableSecureBootUI
     * Used to disable the display of the secure boot area under Device security.
     *
-    * @return bool The defenderSecurityCenterDisableSecureBootUI
+    * @return bool|null The defenderSecurityCenterDisableSecureBootUI
     */
     public function getDefenderSecurityCenterDisableSecureBootUI()
     {
@@ -3214,7 +3214,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableSecureBootUI
     * Used to disable the display of the secure boot area under Device security.
@@ -3228,12 +3228,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableSecureBootUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableTroubleshootingUI
     * Used to disable the display of the security process troubleshooting under Device security.
     *
-    * @return bool The defenderSecurityCenterDisableTroubleshootingUI
+    * @return bool|null The defenderSecurityCenterDisableTroubleshootingUI
     */
     public function getDefenderSecurityCenterDisableTroubleshootingUI()
     {
@@ -3243,7 +3243,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableTroubleshootingUI
     * Used to disable the display of the security process troubleshooting under Device security.
@@ -3257,12 +3257,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableTroubleshootingUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableVirusUI
     * Used to disable the display of the virus and threat protection area.
     *
-    * @return bool The defenderSecurityCenterDisableVirusUI
+    * @return bool|null The defenderSecurityCenterDisableVirusUI
     */
     public function getDefenderSecurityCenterDisableVirusUI()
     {
@@ -3272,7 +3272,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableVirusUI
     * Used to disable the display of the virus and threat protection area.
@@ -3286,12 +3286,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableVirusUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI
     * Used to disable the display of update TPM Firmware when a vulnerable firmware is detected.
     *
-    * @return bool The defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI
+    * @return bool|null The defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI
     */
     public function getDefenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI()
     {
@@ -3301,7 +3301,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI
     * Used to disable the display of update TPM Firmware when a vulnerable firmware is detected.
@@ -3315,12 +3315,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterDisableVulnerableTpmFirmwareUpdateUI"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterHelpEmail
     * The email address that is displayed to users.
     *
-    * @return string The defenderSecurityCenterHelpEmail
+    * @return string|null The defenderSecurityCenterHelpEmail
     */
     public function getDefenderSecurityCenterHelpEmail()
     {
@@ -3330,7 +3330,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterHelpEmail
     * The email address that is displayed to users.
@@ -3344,12 +3344,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterHelpEmail"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterHelpPhone
     * The phone number or Skype ID that is displayed to users.
     *
-    * @return string The defenderSecurityCenterHelpPhone
+    * @return string|null The defenderSecurityCenterHelpPhone
     */
     public function getDefenderSecurityCenterHelpPhone()
     {
@@ -3359,7 +3359,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterHelpPhone
     * The phone number or Skype ID that is displayed to users.
@@ -3373,12 +3373,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterHelpPhone"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterHelpURL
     * The help portal URL this is displayed to users.
     *
-    * @return string The defenderSecurityCenterHelpURL
+    * @return string|null The defenderSecurityCenterHelpURL
     */
     public function getDefenderSecurityCenterHelpURL()
     {
@@ -3388,7 +3388,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterHelpURL
     * The help portal URL this is displayed to users.
@@ -3402,17 +3402,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterHelpURL"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterITContactDisplay
     * Configure where to display IT contact information to end users. Possible values are: notConfigured, displayInAppAndInNotifications, displayOnlyInApp, displayOnlyInNotifications.
     *
-    * @return DefenderSecurityCenterITContactDisplayType The defenderSecurityCenterITContactDisplay
+    * @return DefenderSecurityCenterITContactDisplayType|null The defenderSecurityCenterITContactDisplay
     */
     public function getDefenderSecurityCenterITContactDisplay()
     {
         if (array_key_exists("defenderSecurityCenterITContactDisplay", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderSecurityCenterITContactDisplay"], "\Beta\Microsoft\Graph\Model\DefenderSecurityCenterITContactDisplayType")) {
+            if (is_a($this->_propDict["defenderSecurityCenterITContactDisplay"], "\Beta\Microsoft\Graph\Model\DefenderSecurityCenterITContactDisplayType") || is_null($this->_propDict["defenderSecurityCenterITContactDisplay"])) {
                 return $this->_propDict["defenderSecurityCenterITContactDisplay"];
             } else {
                 $this->_propDict["defenderSecurityCenterITContactDisplay"] = new DefenderSecurityCenterITContactDisplayType($this->_propDict["defenderSecurityCenterITContactDisplay"]);
@@ -3421,7 +3421,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderSecurityCenterITContactDisplay
     * Configure where to display IT contact information to end users. Possible values are: notConfigured, displayInAppAndInNotifications, displayOnlyInApp, displayOnlyInNotifications.
@@ -3435,17 +3435,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterITContactDisplay"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterNotificationsFromApp
     * Notifications to show from the displayed areas of app. Possible values are: notConfigured, blockNoncriticalNotifications, blockAllNotifications.
     *
-    * @return DefenderSecurityCenterNotificationsFromAppType The defenderSecurityCenterNotificationsFromApp
+    * @return DefenderSecurityCenterNotificationsFromAppType|null The defenderSecurityCenterNotificationsFromApp
     */
     public function getDefenderSecurityCenterNotificationsFromApp()
     {
         if (array_key_exists("defenderSecurityCenterNotificationsFromApp", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderSecurityCenterNotificationsFromApp"], "\Beta\Microsoft\Graph\Model\DefenderSecurityCenterNotificationsFromAppType")) {
+            if (is_a($this->_propDict["defenderSecurityCenterNotificationsFromApp"], "\Beta\Microsoft\Graph\Model\DefenderSecurityCenterNotificationsFromAppType") || is_null($this->_propDict["defenderSecurityCenterNotificationsFromApp"])) {
                 return $this->_propDict["defenderSecurityCenterNotificationsFromApp"];
             } else {
                 $this->_propDict["defenderSecurityCenterNotificationsFromApp"] = new DefenderSecurityCenterNotificationsFromAppType($this->_propDict["defenderSecurityCenterNotificationsFromApp"]);
@@ -3454,7 +3454,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderSecurityCenterNotificationsFromApp
     * Notifications to show from the displayed areas of app. Possible values are: notConfigured, blockNoncriticalNotifications, blockAllNotifications.
@@ -3468,12 +3468,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterNotificationsFromApp"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSecurityCenterOrganizationDisplayName
     * The company name that is displayed to the users.
     *
-    * @return string The defenderSecurityCenterOrganizationDisplayName
+    * @return string|null The defenderSecurityCenterOrganizationDisplayName
     */
     public function getDefenderSecurityCenterOrganizationDisplayName()
     {
@@ -3483,7 +3483,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSecurityCenterOrganizationDisplayName
     * The company name that is displayed to the users.
@@ -3497,12 +3497,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSecurityCenterOrganizationDisplayName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderSignatureUpdateIntervalInHours
     * Specifies the interval (in hours) that will be used to check for signatures, so instead of using the ScheduleDay and ScheduleTime the check for new signatures will be set according to the interval. Valid values 0 to 24
     *
-    * @return int The defenderSignatureUpdateIntervalInHours
+    * @return int|null The defenderSignatureUpdateIntervalInHours
     */
     public function getDefenderSignatureUpdateIntervalInHours()
     {
@@ -3512,7 +3512,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the defenderSignatureUpdateIntervalInHours
     * Specifies the interval (in hours) that will be used to check for signatures, so instead of using the ScheduleDay and ScheduleTime the check for new signatures will be set according to the interval. Valid values 0 to 24
@@ -3526,17 +3526,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSignatureUpdateIntervalInHours"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the defenderSubmitSamplesConsentType
     * Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
     *
-    * @return DefenderSubmitSamplesConsentType The defenderSubmitSamplesConsentType
+    * @return DefenderSubmitSamplesConsentType|null The defenderSubmitSamplesConsentType
     */
     public function getDefenderSubmitSamplesConsentType()
     {
         if (array_key_exists("defenderSubmitSamplesConsentType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderSubmitSamplesConsentType"], "\Beta\Microsoft\Graph\Model\DefenderSubmitSamplesConsentType")) {
+            if (is_a($this->_propDict["defenderSubmitSamplesConsentType"], "\Beta\Microsoft\Graph\Model\DefenderSubmitSamplesConsentType") || is_null($this->_propDict["defenderSubmitSamplesConsentType"])) {
                 return $this->_propDict["defenderSubmitSamplesConsentType"];
             } else {
                 $this->_propDict["defenderSubmitSamplesConsentType"] = new DefenderSubmitSamplesConsentType($this->_propDict["defenderSubmitSamplesConsentType"]);
@@ -3545,7 +3545,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderSubmitSamplesConsentType
     * Checks for the user consent level in Windows Defender to send data. Possible values are: sendSafeSamplesAutomatically, alwaysPrompt, neverSend, sendAllSamplesAutomatically.
@@ -3559,17 +3559,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderSubmitSamplesConsentType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderUntrustedExecutable
     * Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderUntrustedExecutable
+    * @return DefenderProtectionType|null The defenderUntrustedExecutable
     */
     public function getDefenderUntrustedExecutable()
     {
         if (array_key_exists("defenderUntrustedExecutable", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderUntrustedExecutable"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderUntrustedExecutable"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderUntrustedExecutable"])) {
                 return $this->_propDict["defenderUntrustedExecutable"];
             } else {
                 $this->_propDict["defenderUntrustedExecutable"] = new DefenderProtectionType($this->_propDict["defenderUntrustedExecutable"]);
@@ -3578,7 +3578,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderUntrustedExecutable
     * Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -3592,17 +3592,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderUntrustedExecutable"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderUntrustedExecutableType
     * Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderUntrustedExecutableType
+    * @return DefenderAttackSurfaceType|null The defenderUntrustedExecutableType
     */
     public function getDefenderUntrustedExecutableType()
     {
         if (array_key_exists("defenderUntrustedExecutableType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderUntrustedExecutableType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderUntrustedExecutableType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderUntrustedExecutableType"])) {
                 return $this->_propDict["defenderUntrustedExecutableType"];
             } else {
                 $this->_propDict["defenderUntrustedExecutableType"] = new DefenderAttackSurfaceType($this->_propDict["defenderUntrustedExecutableType"]);
@@ -3611,7 +3611,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderUntrustedExecutableType
     * Value indicating response to executables that don't meet a prevalence, age, or trusted list criteria. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -3625,17 +3625,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderUntrustedExecutableType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderUntrustedUSBProcess
     * Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
     *
-    * @return DefenderProtectionType The defenderUntrustedUSBProcess
+    * @return DefenderProtectionType|null The defenderUntrustedUSBProcess
     */
     public function getDefenderUntrustedUSBProcess()
     {
         if (array_key_exists("defenderUntrustedUSBProcess", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderUntrustedUSBProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType")) {
+            if (is_a($this->_propDict["defenderUntrustedUSBProcess"], "\Beta\Microsoft\Graph\Model\DefenderProtectionType") || is_null($this->_propDict["defenderUntrustedUSBProcess"])) {
                 return $this->_propDict["defenderUntrustedUSBProcess"];
             } else {
                 $this->_propDict["defenderUntrustedUSBProcess"] = new DefenderProtectionType($this->_propDict["defenderUntrustedUSBProcess"]);
@@ -3644,7 +3644,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderUntrustedUSBProcess
     * Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, enable, auditMode, warn, notConfigured.
@@ -3658,17 +3658,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderUntrustedUSBProcess"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the defenderUntrustedUSBProcessType
     * Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, block, auditMode, warn, disable.
     *
-    * @return DefenderAttackSurfaceType The defenderUntrustedUSBProcessType
+    * @return DefenderAttackSurfaceType|null The defenderUntrustedUSBProcessType
     */
     public function getDefenderUntrustedUSBProcessType()
     {
         if (array_key_exists("defenderUntrustedUSBProcessType", $this->_propDict)) {
-            if (is_a($this->_propDict["defenderUntrustedUSBProcessType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType")) {
+            if (is_a($this->_propDict["defenderUntrustedUSBProcessType"], "\Beta\Microsoft\Graph\Model\DefenderAttackSurfaceType") || is_null($this->_propDict["defenderUntrustedUSBProcessType"])) {
                 return $this->_propDict["defenderUntrustedUSBProcessType"];
             } else {
                 $this->_propDict["defenderUntrustedUSBProcessType"] = new DefenderAttackSurfaceType($this->_propDict["defenderUntrustedUSBProcessType"]);
@@ -3677,7 +3677,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the defenderUntrustedUSBProcessType
     * Value indicating response to untrusted and unsigned processes that run from USB. Possible values are: userDefined, block, auditMode, warn, disable.
@@ -3691,12 +3691,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["defenderUntrustedUSBProcessType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceGuardEnableSecureBootWithDMA
     * This property will be deprecated in May 2019 and will be replaced with property DeviceGuardSecureBootWithDMA. Specifies whether Platform Security Level is enabled at next reboot.
     *
-    * @return bool The deviceGuardEnableSecureBootWithDMA
+    * @return bool|null The deviceGuardEnableSecureBootWithDMA
     */
     public function getDeviceGuardEnableSecureBootWithDMA()
     {
@@ -3706,7 +3706,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceGuardEnableSecureBootWithDMA
     * This property will be deprecated in May 2019 and will be replaced with property DeviceGuardSecureBootWithDMA. Specifies whether Platform Security Level is enabled at next reboot.
@@ -3720,12 +3720,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["deviceGuardEnableSecureBootWithDMA"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the deviceGuardEnableVirtualizationBasedSecurity
     * Turns On Virtualization Based Security(VBS).
     *
-    * @return bool The deviceGuardEnableVirtualizationBasedSecurity
+    * @return bool|null The deviceGuardEnableVirtualizationBasedSecurity
     */
     public function getDeviceGuardEnableVirtualizationBasedSecurity()
     {
@@ -3735,7 +3735,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceGuardEnableVirtualizationBasedSecurity
     * Turns On Virtualization Based Security(VBS).
@@ -3749,17 +3749,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["deviceGuardEnableVirtualizationBasedSecurity"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the deviceGuardLaunchSystemGuard
     * Allows the IT admin to configure the launch of System Guard. Possible values are: notConfigured, enabled, disabled.
     *
-    * @return Enablement The deviceGuardLaunchSystemGuard
+    * @return Enablement|null The deviceGuardLaunchSystemGuard
     */
     public function getDeviceGuardLaunchSystemGuard()
     {
         if (array_key_exists("deviceGuardLaunchSystemGuard", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceGuardLaunchSystemGuard"], "\Beta\Microsoft\Graph\Model\Enablement")) {
+            if (is_a($this->_propDict["deviceGuardLaunchSystemGuard"], "\Beta\Microsoft\Graph\Model\Enablement") || is_null($this->_propDict["deviceGuardLaunchSystemGuard"])) {
                 return $this->_propDict["deviceGuardLaunchSystemGuard"];
             } else {
                 $this->_propDict["deviceGuardLaunchSystemGuard"] = new Enablement($this->_propDict["deviceGuardLaunchSystemGuard"]);
@@ -3768,7 +3768,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceGuardLaunchSystemGuard
     * Allows the IT admin to configure the launch of System Guard. Possible values are: notConfigured, enabled, disabled.
@@ -3782,17 +3782,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["deviceGuardLaunchSystemGuard"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceGuardLocalSystemAuthorityCredentialGuardSettings
     * Turn on Credential Guard when Platform Security Level with Secure Boot and Virtualization Based Security are both enabled. Possible values are: notConfigured, enableWithUEFILock, enableWithoutUEFILock, disable.
     *
-    * @return DeviceGuardLocalSystemAuthorityCredentialGuardType The deviceGuardLocalSystemAuthorityCredentialGuardSettings
+    * @return DeviceGuardLocalSystemAuthorityCredentialGuardType|null The deviceGuardLocalSystemAuthorityCredentialGuardSettings
     */
     public function getDeviceGuardLocalSystemAuthorityCredentialGuardSettings()
     {
         if (array_key_exists("deviceGuardLocalSystemAuthorityCredentialGuardSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"], "\Beta\Microsoft\Graph\Model\DeviceGuardLocalSystemAuthorityCredentialGuardType")) {
+            if (is_a($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"], "\Beta\Microsoft\Graph\Model\DeviceGuardLocalSystemAuthorityCredentialGuardType") || is_null($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"])) {
                 return $this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"];
             } else {
                 $this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"] = new DeviceGuardLocalSystemAuthorityCredentialGuardType($this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"]);
@@ -3801,7 +3801,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceGuardLocalSystemAuthorityCredentialGuardSettings
     * Turn on Credential Guard when Platform Security Level with Secure Boot and Virtualization Based Security are both enabled. Possible values are: notConfigured, enableWithUEFILock, enableWithoutUEFILock, disable.
@@ -3815,17 +3815,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["deviceGuardLocalSystemAuthorityCredentialGuardSettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the deviceGuardSecureBootWithDMA
     * Specifies whether Platform Security Level is enabled at next reboot. Possible values are: notConfigured, withoutDMA, withDMA.
     *
-    * @return SecureBootWithDMAType The deviceGuardSecureBootWithDMA
+    * @return SecureBootWithDMAType|null The deviceGuardSecureBootWithDMA
     */
     public function getDeviceGuardSecureBootWithDMA()
     {
         if (array_key_exists("deviceGuardSecureBootWithDMA", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceGuardSecureBootWithDMA"], "\Beta\Microsoft\Graph\Model\SecureBootWithDMAType")) {
+            if (is_a($this->_propDict["deviceGuardSecureBootWithDMA"], "\Beta\Microsoft\Graph\Model\SecureBootWithDMAType") || is_null($this->_propDict["deviceGuardSecureBootWithDMA"])) {
                 return $this->_propDict["deviceGuardSecureBootWithDMA"];
             } else {
                 $this->_propDict["deviceGuardSecureBootWithDMA"] = new SecureBootWithDMAType($this->_propDict["deviceGuardSecureBootWithDMA"]);
@@ -3834,7 +3834,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the deviceGuardSecureBootWithDMA
     * Specifies whether Platform Security Level is enabled at next reboot. Possible values are: notConfigured, withoutDMA, withDMA.
@@ -3848,17 +3848,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["deviceGuardSecureBootWithDMA"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the dmaGuardDeviceEnumerationPolicy
     * This policy is intended to provide additional security against external DMA capable devices. It allows for more control over the enumeration of external DMA capable devices incompatible with DMA Remapping/device memory isolation and sandboxing. This policy only takes effect when Kernel DMA Protection is supported and enabled by the system firmware. Kernel DMA Protection is a platform feature that cannot be controlled via policy or by end user. It has to be supported by the system at the time of manufacturing. To check if the system supports Kernel DMA Protection, please check the Kernel DMA Protection field in the Summary page of MSINFO32.exe.
     *
-    * @return DmaGuardDeviceEnumerationPolicyType The dmaGuardDeviceEnumerationPolicy
+    * @return DmaGuardDeviceEnumerationPolicyType|null The dmaGuardDeviceEnumerationPolicy
     */
     public function getDmaGuardDeviceEnumerationPolicy()
     {
         if (array_key_exists("dmaGuardDeviceEnumerationPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["dmaGuardDeviceEnumerationPolicy"], "\Beta\Microsoft\Graph\Model\DmaGuardDeviceEnumerationPolicyType")) {
+            if (is_a($this->_propDict["dmaGuardDeviceEnumerationPolicy"], "\Beta\Microsoft\Graph\Model\DmaGuardDeviceEnumerationPolicyType") || is_null($this->_propDict["dmaGuardDeviceEnumerationPolicy"])) {
                 return $this->_propDict["dmaGuardDeviceEnumerationPolicy"];
             } else {
                 $this->_propDict["dmaGuardDeviceEnumerationPolicy"] = new DmaGuardDeviceEnumerationPolicyType($this->_propDict["dmaGuardDeviceEnumerationPolicy"]);
@@ -3867,7 +3867,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the dmaGuardDeviceEnumerationPolicy
     * This policy is intended to provide additional security against external DMA capable devices. It allows for more control over the enumeration of external DMA capable devices incompatible with DMA Remapping/device memory isolation and sandboxing. This policy only takes effect when Kernel DMA Protection is supported and enabled by the system firmware. Kernel DMA Protection is a platform feature that cannot be controlled via policy or by end user. It has to be supported by the system at the time of manufacturing. To check if the system supports Kernel DMA Protection, please check the Kernel DMA Protection field in the Summary page of MSINFO32.exe.
@@ -3881,12 +3881,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["dmaGuardDeviceEnumerationPolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallBlockStatefulFTP
     * Blocks stateful FTP connections to the device
     *
-    * @return bool The firewallBlockStatefulFTP
+    * @return bool|null The firewallBlockStatefulFTP
     */
     public function getFirewallBlockStatefulFTP()
     {
@@ -3896,7 +3896,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallBlockStatefulFTP
     * Blocks stateful FTP connections to the device
@@ -3910,17 +3910,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallBlockStatefulFTP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallCertificateRevocationListCheckMethod
     * Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
     *
-    * @return FirewallCertificateRevocationListCheckMethodType The firewallCertificateRevocationListCheckMethod
+    * @return FirewallCertificateRevocationListCheckMethodType|null The firewallCertificateRevocationListCheckMethod
     */
     public function getFirewallCertificateRevocationListCheckMethod()
     {
         if (array_key_exists("firewallCertificateRevocationListCheckMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallCertificateRevocationListCheckMethod"], "\Beta\Microsoft\Graph\Model\FirewallCertificateRevocationListCheckMethodType")) {
+            if (is_a($this->_propDict["firewallCertificateRevocationListCheckMethod"], "\Beta\Microsoft\Graph\Model\FirewallCertificateRevocationListCheckMethodType") || is_null($this->_propDict["firewallCertificateRevocationListCheckMethod"])) {
                 return $this->_propDict["firewallCertificateRevocationListCheckMethod"];
             } else {
                 $this->_propDict["firewallCertificateRevocationListCheckMethod"] = new FirewallCertificateRevocationListCheckMethodType($this->_propDict["firewallCertificateRevocationListCheckMethod"]);
@@ -3929,7 +3929,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallCertificateRevocationListCheckMethod
     * Specify how the certificate revocation list is to be enforced. Possible values are: deviceDefault, none, attempt, require.
@@ -3943,12 +3943,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallCertificateRevocationListCheckMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallIdleTimeoutForSecurityAssociationInSeconds
     * Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
     *
-    * @return int The firewallIdleTimeoutForSecurityAssociationInSeconds
+    * @return int|null The firewallIdleTimeoutForSecurityAssociationInSeconds
     */
     public function getFirewallIdleTimeoutForSecurityAssociationInSeconds()
     {
@@ -3958,7 +3958,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIdleTimeoutForSecurityAssociationInSeconds
     * Configures the idle timeout for security associations, in seconds, from 300 to 3600 inclusive. This is the period after which security associations will expire and be deleted. Valid values 300 to 3600
@@ -3972,12 +3972,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIdleTimeoutForSecurityAssociationInSeconds"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowDHCP
     * Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
     *
-    * @return bool The firewallIPSecExemptionsAllowDHCP
+    * @return bool|null The firewallIPSecExemptionsAllowDHCP
     */
     public function getFirewallIPSecExemptionsAllowDHCP()
     {
@@ -3987,7 +3987,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowDHCP
     * Configures IPSec exemptions to allow both IPv4 and IPv6 DHCP traffic
@@ -4001,12 +4001,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowDHCP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowICMP
     * Configures IPSec exemptions to allow ICMP
     *
-    * @return bool The firewallIPSecExemptionsAllowICMP
+    * @return bool|null The firewallIPSecExemptionsAllowICMP
     */
     public function getFirewallIPSecExemptionsAllowICMP()
     {
@@ -4016,7 +4016,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowICMP
     * Configures IPSec exemptions to allow ICMP
@@ -4030,12 +4030,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowICMP"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowNeighborDiscovery
     * Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
     *
-    * @return bool The firewallIPSecExemptionsAllowNeighborDiscovery
+    * @return bool|null The firewallIPSecExemptionsAllowNeighborDiscovery
     */
     public function getFirewallIPSecExemptionsAllowNeighborDiscovery()
     {
@@ -4045,7 +4045,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowNeighborDiscovery
     * Configures IPSec exemptions to allow neighbor discovery IPv6 ICMP type-codes
@@ -4059,12 +4059,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowNeighborDiscovery"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsAllowRouterDiscovery
     * Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
     *
-    * @return bool The firewallIPSecExemptionsAllowRouterDiscovery
+    * @return bool|null The firewallIPSecExemptionsAllowRouterDiscovery
     */
     public function getFirewallIPSecExemptionsAllowRouterDiscovery()
     {
@@ -4074,7 +4074,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsAllowRouterDiscovery
     * Configures IPSec exemptions to allow router discovery IPv6 ICMP type-codes
@@ -4088,12 +4088,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsAllowRouterDiscovery"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallIPSecExemptionsNone
     * Configures IPSec exemptions to no exemptions
     *
-    * @return bool The firewallIPSecExemptionsNone
+    * @return bool|null The firewallIPSecExemptionsNone
     */
     public function getFirewallIPSecExemptionsNone()
     {
@@ -4103,7 +4103,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallIPSecExemptionsNone
     * Configures IPSec exemptions to no exemptions
@@ -4117,12 +4117,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallIPSecExemptionsNone"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallMergeKeyingModuleSettings
     * If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
     *
-    * @return bool The firewallMergeKeyingModuleSettings
+    * @return bool|null The firewallMergeKeyingModuleSettings
     */
     public function getFirewallMergeKeyingModuleSettings()
     {
@@ -4132,7 +4132,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the firewallMergeKeyingModuleSettings
     * If an authentication set is not fully supported by a keying module, direct the module to ignore only unsupported authentication suites rather than the entire set
@@ -4146,17 +4146,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallMergeKeyingModuleSettings"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the firewallPacketQueueingMethod
     * Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
     *
-    * @return FirewallPacketQueueingMethodType The firewallPacketQueueingMethod
+    * @return FirewallPacketQueueingMethodType|null The firewallPacketQueueingMethod
     */
     public function getFirewallPacketQueueingMethod()
     {
         if (array_key_exists("firewallPacketQueueingMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallPacketQueueingMethod"], "\Beta\Microsoft\Graph\Model\FirewallPacketQueueingMethodType")) {
+            if (is_a($this->_propDict["firewallPacketQueueingMethod"], "\Beta\Microsoft\Graph\Model\FirewallPacketQueueingMethodType") || is_null($this->_propDict["firewallPacketQueueingMethod"])) {
                 return $this->_propDict["firewallPacketQueueingMethod"];
             } else {
                 $this->_propDict["firewallPacketQueueingMethod"] = new FirewallPacketQueueingMethodType($this->_propDict["firewallPacketQueueingMethod"]);
@@ -4165,7 +4165,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallPacketQueueingMethod
     * Configures how packet queueing should be applied in the tunnel gateway scenario. Possible values are: deviceDefault, disabled, queueInbound, queueOutbound, queueBoth.
@@ -4179,17 +4179,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallPacketQueueingMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallPreSharedKeyEncodingMethod
     * Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
     *
-    * @return FirewallPreSharedKeyEncodingMethodType The firewallPreSharedKeyEncodingMethod
+    * @return FirewallPreSharedKeyEncodingMethodType|null The firewallPreSharedKeyEncodingMethod
     */
     public function getFirewallPreSharedKeyEncodingMethod()
     {
         if (array_key_exists("firewallPreSharedKeyEncodingMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallPreSharedKeyEncodingMethod"], "\Beta\Microsoft\Graph\Model\FirewallPreSharedKeyEncodingMethodType")) {
+            if (is_a($this->_propDict["firewallPreSharedKeyEncodingMethod"], "\Beta\Microsoft\Graph\Model\FirewallPreSharedKeyEncodingMethodType") || is_null($this->_propDict["firewallPreSharedKeyEncodingMethod"])) {
                 return $this->_propDict["firewallPreSharedKeyEncodingMethod"];
             } else {
                 $this->_propDict["firewallPreSharedKeyEncodingMethod"] = new FirewallPreSharedKeyEncodingMethodType($this->_propDict["firewallPreSharedKeyEncodingMethod"]);
@@ -4198,7 +4198,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallPreSharedKeyEncodingMethod
     * Select the preshared key encoding to be used. Possible values are: deviceDefault, none, utF8.
@@ -4212,17 +4212,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallPreSharedKeyEncodingMethod"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallProfileDomain
     * Configures the firewall profile settings for domain networks
     *
-    * @return WindowsFirewallNetworkProfile The firewallProfileDomain
+    * @return WindowsFirewallNetworkProfile|null The firewallProfileDomain
     */
     public function getFirewallProfileDomain()
     {
         if (array_key_exists("firewallProfileDomain", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallProfileDomain"], "\Beta\Microsoft\Graph\Model\WindowsFirewallNetworkProfile")) {
+            if (is_a($this->_propDict["firewallProfileDomain"], "\Beta\Microsoft\Graph\Model\WindowsFirewallNetworkProfile") || is_null($this->_propDict["firewallProfileDomain"])) {
                 return $this->_propDict["firewallProfileDomain"];
             } else {
                 $this->_propDict["firewallProfileDomain"] = new WindowsFirewallNetworkProfile($this->_propDict["firewallProfileDomain"]);
@@ -4231,7 +4231,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallProfileDomain
     * Configures the firewall profile settings for domain networks
@@ -4245,17 +4245,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallProfileDomain"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallProfilePrivate
     * Configures the firewall profile settings for private networks
     *
-    * @return WindowsFirewallNetworkProfile The firewallProfilePrivate
+    * @return WindowsFirewallNetworkProfile|null The firewallProfilePrivate
     */
     public function getFirewallProfilePrivate()
     {
         if (array_key_exists("firewallProfilePrivate", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallProfilePrivate"], "\Beta\Microsoft\Graph\Model\WindowsFirewallNetworkProfile")) {
+            if (is_a($this->_propDict["firewallProfilePrivate"], "\Beta\Microsoft\Graph\Model\WindowsFirewallNetworkProfile") || is_null($this->_propDict["firewallProfilePrivate"])) {
                 return $this->_propDict["firewallProfilePrivate"];
             } else {
                 $this->_propDict["firewallProfilePrivate"] = new WindowsFirewallNetworkProfile($this->_propDict["firewallProfilePrivate"]);
@@ -4264,7 +4264,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallProfilePrivate
     * Configures the firewall profile settings for private networks
@@ -4278,17 +4278,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallProfilePrivate"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the firewallProfilePublic
     * Configures the firewall profile settings for public networks
     *
-    * @return WindowsFirewallNetworkProfile The firewallProfilePublic
+    * @return WindowsFirewallNetworkProfile|null The firewallProfilePublic
     */
     public function getFirewallProfilePublic()
     {
         if (array_key_exists("firewallProfilePublic", $this->_propDict)) {
-            if (is_a($this->_propDict["firewallProfilePublic"], "\Beta\Microsoft\Graph\Model\WindowsFirewallNetworkProfile")) {
+            if (is_a($this->_propDict["firewallProfilePublic"], "\Beta\Microsoft\Graph\Model\WindowsFirewallNetworkProfile") || is_null($this->_propDict["firewallProfilePublic"])) {
                 return $this->_propDict["firewallProfilePublic"];
             } else {
                 $this->_propDict["firewallProfilePublic"] = new WindowsFirewallNetworkProfile($this->_propDict["firewallProfilePublic"]);
@@ -4297,7 +4297,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the firewallProfilePublic
     * Configures the firewall profile settings for public networks
@@ -4311,13 +4311,13 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["firewallProfilePublic"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the firewallRules
     * Configures the firewall rule settings. This collection can contain a maximum of 150 elements.
      *
-     * @return array The firewallRules
+     * @return array|null The firewallRules
      */
     public function getFirewallRules()
     {
@@ -4327,31 +4327,31 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the firewallRules
     * Configures the firewall rule settings. This collection can contain a maximum of 150 elements.
     *
-    * @param WindowsFirewallRule $val The firewallRules
+    * @param WindowsFirewallRule[] $val The firewallRules
     *
     * @return Windows10EndpointProtectionConfiguration
     */
     public function setFirewallRules($val)
     {
-		$this->_propDict["firewallRules"] = $val;
+        $this->_propDict["firewallRules"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lanManagerAuthenticationLevel
     * This security setting determines which challenge/response authentication protocol is used for network logons. Possible values are: lmAndNltm, lmNtlmAndNtlmV2, lmAndNtlmOnly, lmAndNtlmV2, lmNtlmV2AndNotLm, lmNtlmV2AndNotLmOrNtm.
     *
-    * @return LanManagerAuthenticationLevel The lanManagerAuthenticationLevel
+    * @return LanManagerAuthenticationLevel|null The lanManagerAuthenticationLevel
     */
     public function getLanManagerAuthenticationLevel()
     {
         if (array_key_exists("lanManagerAuthenticationLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["lanManagerAuthenticationLevel"], "\Beta\Microsoft\Graph\Model\LanManagerAuthenticationLevel")) {
+            if (is_a($this->_propDict["lanManagerAuthenticationLevel"], "\Beta\Microsoft\Graph\Model\LanManagerAuthenticationLevel") || is_null($this->_propDict["lanManagerAuthenticationLevel"])) {
                 return $this->_propDict["lanManagerAuthenticationLevel"];
             } else {
                 $this->_propDict["lanManagerAuthenticationLevel"] = new LanManagerAuthenticationLevel($this->_propDict["lanManagerAuthenticationLevel"]);
@@ -4360,7 +4360,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the lanManagerAuthenticationLevel
     * This security setting determines which challenge/response authentication protocol is used for network logons. Possible values are: lmAndNltm, lmNtlmAndNtlmV2, lmAndNtlmOnly, lmAndNtlmV2, lmNtlmV2AndNotLm, lmNtlmV2AndNotLmOrNtm.
@@ -4374,12 +4374,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["lanManagerAuthenticationLevel"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the lanManagerWorkstationDisableInsecureGuestLogons
     * If enabled,the SMB client will allow insecure guest logons. If not configured, the SMB client will reject insecure guest logons.
     *
-    * @return bool The lanManagerWorkstationDisableInsecureGuestLogons
+    * @return bool|null The lanManagerWorkstationDisableInsecureGuestLogons
     */
     public function getLanManagerWorkstationDisableInsecureGuestLogons()
     {
@@ -4389,7 +4389,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the lanManagerWorkstationDisableInsecureGuestLogons
     * If enabled,the SMB client will allow insecure guest logons. If not configured, the SMB client will reject insecure guest logons.
@@ -4403,12 +4403,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["lanManagerWorkstationDisableInsecureGuestLogons"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAdministratorAccountName
     * Define a different account name to be associated with the security identifier (SID) for the account 'Administrator'.
     *
-    * @return string The localSecurityOptionsAdministratorAccountName
+    * @return string|null The localSecurityOptionsAdministratorAccountName
     */
     public function getLocalSecurityOptionsAdministratorAccountName()
     {
@@ -4418,7 +4418,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAdministratorAccountName
     * Define a different account name to be associated with the security identifier (SID) for the account 'Administrator'.
@@ -4432,17 +4432,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAdministratorAccountName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAdministratorElevationPromptBehavior
     * Define the behavior of the elevation prompt for admins in Admin Approval Mode. Possible values are: notConfigured, elevateWithoutPrompting, promptForCredentialsOnTheSecureDesktop, promptForConsentOnTheSecureDesktop, promptForCredentials, promptForConsent, promptForConsentForNonWindowsBinaries.
     *
-    * @return LocalSecurityOptionsAdministratorElevationPromptBehaviorType The localSecurityOptionsAdministratorElevationPromptBehavior
+    * @return LocalSecurityOptionsAdministratorElevationPromptBehaviorType|null The localSecurityOptionsAdministratorElevationPromptBehavior
     */
     public function getLocalSecurityOptionsAdministratorElevationPromptBehavior()
     {
         if (array_key_exists("localSecurityOptionsAdministratorElevationPromptBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsAdministratorElevationPromptBehaviorType")) {
+            if (is_a($this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsAdministratorElevationPromptBehaviorType") || is_null($this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"])) {
                 return $this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"];
             } else {
                 $this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"] = new LocalSecurityOptionsAdministratorElevationPromptBehaviorType($this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"]);
@@ -4451,7 +4451,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsAdministratorElevationPromptBehavior
     * Define the behavior of the elevation prompt for admins in Admin Approval Mode. Possible values are: notConfigured, elevateWithoutPrompting, promptForCredentialsOnTheSecureDesktop, promptForConsentOnTheSecureDesktop, promptForCredentials, promptForConsent, promptForConsentForNonWindowsBinaries.
@@ -4465,12 +4465,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAdministratorElevationPromptBehavior"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares
     * This security setting determines whether to allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares.
     *
-    * @return bool The localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares
+    * @return bool|null The localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares
     */
     public function getLocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares()
     {
@@ -4480,7 +4480,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares
     * This security setting determines whether to allows anonymous users to perform certain activities, such as enumerating the names of domain accounts and network shares.
@@ -4494,12 +4494,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowPKU2UAuthenticationRequests
     * Block PKU2U authentication requests to this device to use online identities.
     *
-    * @return bool The localSecurityOptionsAllowPKU2UAuthenticationRequests
+    * @return bool|null The localSecurityOptionsAllowPKU2UAuthenticationRequests
     */
     public function getLocalSecurityOptionsAllowPKU2UAuthenticationRequests()
     {
@@ -4509,7 +4509,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowPKU2UAuthenticationRequests
     * Block PKU2U authentication requests to this device to use online identities.
@@ -4523,12 +4523,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowPKU2UAuthenticationRequests"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager
     * Edit the default Security Descriptor Definition Language string to allow or deny users and groups to make remote calls to the SAM.
     *
-    * @return string The localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager
+    * @return string|null The localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager
     */
     public function getLocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager()
     {
@@ -4538,7 +4538,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager
     * Edit the default Security Descriptor Definition Language string to allow or deny users and groups to make remote calls to the SAM.
@@ -4552,12 +4552,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowRemoteCallsToSecurityAccountsManager"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool
     * UI helper boolean for LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager entity
     *
-    * @return bool The localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool
+    * @return bool|null The localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool
     */
     public function getLocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool()
     {
@@ -4567,7 +4567,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool
     * UI helper boolean for LocalSecurityOptionsAllowRemoteCallsToSecurityAccountsManager entity
@@ -4581,12 +4581,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowRemoteCallsToSecurityAccountsManagerHelperBool"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn
     * This security setting determines whether a computer can be shut down without having to log on to Windows.
     *
-    * @return bool The localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn
+    * @return bool|null The localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn
     */
     public function getLocalSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn()
     {
@@ -4596,7 +4596,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn
     * This security setting determines whether a computer can be shut down without having to log on to Windows.
@@ -4610,12 +4610,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowSystemToBeShutDownWithoutHavingToLogOn"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowUIAccessApplicationElevation
     * Allow UIAccess apps to prompt for elevation without using the secure desktop.
     *
-    * @return bool The localSecurityOptionsAllowUIAccessApplicationElevation
+    * @return bool|null The localSecurityOptionsAllowUIAccessApplicationElevation
     */
     public function getLocalSecurityOptionsAllowUIAccessApplicationElevation()
     {
@@ -4625,7 +4625,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowUIAccessApplicationElevation
     * Allow UIAccess apps to prompt for elevation without using the secure desktop.
@@ -4639,12 +4639,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowUIAccessApplicationElevation"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowUIAccessApplicationsForSecureLocations
     * Allow UIAccess apps to prompt for elevation without using the secure desktop.Default is enabled
     *
-    * @return bool The localSecurityOptionsAllowUIAccessApplicationsForSecureLocations
+    * @return bool|null The localSecurityOptionsAllowUIAccessApplicationsForSecureLocations
     */
     public function getLocalSecurityOptionsAllowUIAccessApplicationsForSecureLocations()
     {
@@ -4654,7 +4654,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowUIAccessApplicationsForSecureLocations
     * Allow UIAccess apps to prompt for elevation without using the secure desktop.Default is enabled
@@ -4668,12 +4668,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowUIAccessApplicationsForSecureLocations"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsAllowUndockWithoutHavingToLogon
     * Prevent a portable computer from being undocked without having to log in.
     *
-    * @return bool The localSecurityOptionsAllowUndockWithoutHavingToLogon
+    * @return bool|null The localSecurityOptionsAllowUndockWithoutHavingToLogon
     */
     public function getLocalSecurityOptionsAllowUndockWithoutHavingToLogon()
     {
@@ -4683,7 +4683,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsAllowUndockWithoutHavingToLogon
     * Prevent a portable computer from being undocked without having to log in.
@@ -4697,12 +4697,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsAllowUndockWithoutHavingToLogon"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsBlockMicrosoftAccounts
     * Prevent users from adding new Microsoft accounts to this computer.
     *
-    * @return bool The localSecurityOptionsBlockMicrosoftAccounts
+    * @return bool|null The localSecurityOptionsBlockMicrosoftAccounts
     */
     public function getLocalSecurityOptionsBlockMicrosoftAccounts()
     {
@@ -4712,7 +4712,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsBlockMicrosoftAccounts
     * Prevent users from adding new Microsoft accounts to this computer.
@@ -4726,12 +4726,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsBlockMicrosoftAccounts"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsBlockRemoteLogonWithBlankPassword
     * Enable Local accounts that are not password protected to log on from locations other than the physical device.Default is enabled
     *
-    * @return bool The localSecurityOptionsBlockRemoteLogonWithBlankPassword
+    * @return bool|null The localSecurityOptionsBlockRemoteLogonWithBlankPassword
     */
     public function getLocalSecurityOptionsBlockRemoteLogonWithBlankPassword()
     {
@@ -4741,7 +4741,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsBlockRemoteLogonWithBlankPassword
     * Enable Local accounts that are not password protected to log on from locations other than the physical device.Default is enabled
@@ -4755,12 +4755,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsBlockRemoteLogonWithBlankPassword"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsBlockRemoteOpticalDriveAccess
     * Enabling this settings allows only interactively logged on user to access CD-ROM media.
     *
-    * @return bool The localSecurityOptionsBlockRemoteOpticalDriveAccess
+    * @return bool|null The localSecurityOptionsBlockRemoteOpticalDriveAccess
     */
     public function getLocalSecurityOptionsBlockRemoteOpticalDriveAccess()
     {
@@ -4770,7 +4770,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsBlockRemoteOpticalDriveAccess
     * Enabling this settings allows only interactively logged on user to access CD-ROM media.
@@ -4784,12 +4784,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsBlockRemoteOpticalDriveAccess"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsBlockUsersInstallingPrinterDrivers
     * Restrict installing printer drivers as part of connecting to a shared printer to admins only.
     *
-    * @return bool The localSecurityOptionsBlockUsersInstallingPrinterDrivers
+    * @return bool|null The localSecurityOptionsBlockUsersInstallingPrinterDrivers
     */
     public function getLocalSecurityOptionsBlockUsersInstallingPrinterDrivers()
     {
@@ -4799,7 +4799,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsBlockUsersInstallingPrinterDrivers
     * Restrict installing printer drivers as part of connecting to a shared printer to admins only.
@@ -4813,12 +4813,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsBlockUsersInstallingPrinterDrivers"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsClearVirtualMemoryPageFile
     * This security setting determines whether the virtual memory pagefile is cleared when the system is shut down.
     *
-    * @return bool The localSecurityOptionsClearVirtualMemoryPageFile
+    * @return bool|null The localSecurityOptionsClearVirtualMemoryPageFile
     */
     public function getLocalSecurityOptionsClearVirtualMemoryPageFile()
     {
@@ -4828,7 +4828,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsClearVirtualMemoryPageFile
     * This security setting determines whether the virtual memory pagefile is cleared when the system is shut down.
@@ -4842,12 +4842,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsClearVirtualMemoryPageFile"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsClientDigitallySignCommunicationsAlways
     * This security setting determines whether packet signing is required by the SMB client component.
     *
-    * @return bool The localSecurityOptionsClientDigitallySignCommunicationsAlways
+    * @return bool|null The localSecurityOptionsClientDigitallySignCommunicationsAlways
     */
     public function getLocalSecurityOptionsClientDigitallySignCommunicationsAlways()
     {
@@ -4857,7 +4857,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsClientDigitallySignCommunicationsAlways
     * This security setting determines whether packet signing is required by the SMB client component.
@@ -4871,12 +4871,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsClientDigitallySignCommunicationsAlways"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers
     * If this security setting is enabled, the Server Message Block (SMB) redirector is allowed to send plaintext passwords to non-Microsoft SMB servers that do not support password encryption during authentication.
     *
-    * @return bool The localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers
+    * @return bool|null The localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers
     */
     public function getLocalSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers()
     {
@@ -4886,7 +4886,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers
     * If this security setting is enabled, the Server Message Block (SMB) redirector is allowed to send plaintext passwords to non-Microsoft SMB servers that do not support password encryption during authentication.
@@ -4900,12 +4900,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsClientSendUnencryptedPasswordToThirdPartySMBServers"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation
     * App installations requiring elevated privileges will prompt for admin credentials.Default is enabled
     *
-    * @return bool The localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation
+    * @return bool|null The localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation
     */
     public function getLocalSecurityOptionsDetectApplicationInstallationsAndPromptForElevation()
     {
@@ -4915,7 +4915,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation
     * App installations requiring elevated privileges will prompt for admin credentials.Default is enabled
@@ -4929,12 +4929,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDetectApplicationInstallationsAndPromptForElevation"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDisableAdministratorAccount
     * Determines whether the Local Administrator account is enabled or disabled.
     *
-    * @return bool The localSecurityOptionsDisableAdministratorAccount
+    * @return bool|null The localSecurityOptionsDisableAdministratorAccount
     */
     public function getLocalSecurityOptionsDisableAdministratorAccount()
     {
@@ -4944,7 +4944,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDisableAdministratorAccount
     * Determines whether the Local Administrator account is enabled or disabled.
@@ -4958,12 +4958,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDisableAdministratorAccount"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees
     * This security setting determines whether the SMB client attempts to negotiate SMB packet signing.
     *
-    * @return bool The localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees
+    * @return bool|null The localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees
     */
     public function getLocalSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees()
     {
@@ -4973,7 +4973,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees
     * This security setting determines whether the SMB client attempts to negotiate SMB packet signing.
@@ -4987,12 +4987,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDisableClientDigitallySignCommunicationsIfServerAgrees"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDisableGuestAccount
     * Determines if the Guest account is enabled or disabled.
     *
-    * @return bool The localSecurityOptionsDisableGuestAccount
+    * @return bool|null The localSecurityOptionsDisableGuestAccount
     */
     public function getLocalSecurityOptionsDisableGuestAccount()
     {
@@ -5002,7 +5002,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDisableGuestAccount
     * Determines if the Guest account is enabled or disabled.
@@ -5016,12 +5016,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDisableGuestAccount"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDisableServerDigitallySignCommunicationsAlways
     * This security setting determines whether packet signing is required by the SMB server component.
     *
-    * @return bool The localSecurityOptionsDisableServerDigitallySignCommunicationsAlways
+    * @return bool|null The localSecurityOptionsDisableServerDigitallySignCommunicationsAlways
     */
     public function getLocalSecurityOptionsDisableServerDigitallySignCommunicationsAlways()
     {
@@ -5031,7 +5031,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDisableServerDigitallySignCommunicationsAlways
     * This security setting determines whether packet signing is required by the SMB server component.
@@ -5045,12 +5045,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDisableServerDigitallySignCommunicationsAlways"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees
     * This security setting determines whether the SMB server will negotiate SMB packet signing with clients that request it.
     *
-    * @return bool The localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees
+    * @return bool|null The localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees
     */
     public function getLocalSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees()
     {
@@ -5060,7 +5060,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees
     * This security setting determines whether the SMB server will negotiate SMB packet signing with clients that request it.
@@ -5074,12 +5074,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDisableServerDigitallySignCommunicationsIfClientAgrees"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts
     * This security setting determines what additional permissions will be granted for anonymous connections to the computer.
     *
-    * @return bool The localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts
+    * @return bool|null The localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts
     */
     public function getLocalSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts()
     {
@@ -5089,7 +5089,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts
     * This security setting determines what additional permissions will be granted for anonymous connections to the computer.
@@ -5103,12 +5103,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDoNotAllowAnonymousEnumerationOfSAMAccounts"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDoNotRequireCtrlAltDel
     * Require CTRL+ALT+DEL to be pressed before a user can log on.
     *
-    * @return bool The localSecurityOptionsDoNotRequireCtrlAltDel
+    * @return bool|null The localSecurityOptionsDoNotRequireCtrlAltDel
     */
     public function getLocalSecurityOptionsDoNotRequireCtrlAltDel()
     {
@@ -5118,7 +5118,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDoNotRequireCtrlAltDel
     * Require CTRL+ALT+DEL to be pressed before a user can log on.
@@ -5132,12 +5132,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDoNotRequireCtrlAltDel"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange
     * This security setting determines if, at the next password change, the LAN Manager (LM) hash value for the new password is stored. It’s not stored by default.
     *
-    * @return bool The localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange
+    * @return bool|null The localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange
     */
     public function getLocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange()
     {
@@ -5147,7 +5147,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange
     * This security setting determines if, at the next password change, the LAN Manager (LM) hash value for the new password is stored. It’s not stored by default.
@@ -5161,17 +5161,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
     * Define who is allowed to format and eject removable NTFS media. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
     *
-    * @return LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType The localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
+    * @return LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType|null The localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
     */
     public function getLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser()
     {
         if (array_key_exists("localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType")) {
+            if (is_a($this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType") || is_null($this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"])) {
                 return $this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"];
             } else {
                 $this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"] = new LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserType($this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"]);
@@ -5180,7 +5180,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser
     * Define who is allowed to format and eject removable NTFS media. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
@@ -5194,12 +5194,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsGuestAccountName
     * Define a different account name to be associated with the security identifier (SID) for the account 'Guest'.
     *
-    * @return string The localSecurityOptionsGuestAccountName
+    * @return string|null The localSecurityOptionsGuestAccountName
     */
     public function getLocalSecurityOptionsGuestAccountName()
     {
@@ -5209,7 +5209,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsGuestAccountName
     * Define a different account name to be associated with the security identifier (SID) for the account 'Guest'.
@@ -5223,12 +5223,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsGuestAccountName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsHideLastSignedInUser
     * Do not display the username of the last person who signed in on this device.
     *
-    * @return bool The localSecurityOptionsHideLastSignedInUser
+    * @return bool|null The localSecurityOptionsHideLastSignedInUser
     */
     public function getLocalSecurityOptionsHideLastSignedInUser()
     {
@@ -5238,7 +5238,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsHideLastSignedInUser
     * Do not display the username of the last person who signed in on this device.
@@ -5252,12 +5252,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsHideLastSignedInUser"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsHideUsernameAtSignIn
     * Do not display the username of the person signing in to this device after credentials are entered and before the device’s desktop is shown.
     *
-    * @return bool The localSecurityOptionsHideUsernameAtSignIn
+    * @return bool|null The localSecurityOptionsHideUsernameAtSignIn
     */
     public function getLocalSecurityOptionsHideUsernameAtSignIn()
     {
@@ -5267,7 +5267,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsHideUsernameAtSignIn
     * Do not display the username of the person signing in to this device after credentials are entered and before the device’s desktop is shown.
@@ -5281,17 +5281,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsHideUsernameAtSignIn"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsInformationDisplayedOnLockScreen
     * Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
     *
-    * @return LocalSecurityOptionsInformationDisplayedOnLockScreenType The localSecurityOptionsInformationDisplayedOnLockScreen
+    * @return LocalSecurityOptionsInformationDisplayedOnLockScreenType|null The localSecurityOptionsInformationDisplayedOnLockScreen
     */
     public function getLocalSecurityOptionsInformationDisplayedOnLockScreen()
     {
         if (array_key_exists("localSecurityOptionsInformationDisplayedOnLockScreen", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsInformationDisplayedOnLockScreenType")) {
+            if (is_a($this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsInformationDisplayedOnLockScreenType") || is_null($this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"])) {
                 return $this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"];
             } else {
                 $this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"] = new LocalSecurityOptionsInformationDisplayedOnLockScreenType($this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"]);
@@ -5300,7 +5300,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsInformationDisplayedOnLockScreen
     * Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, administrators, administratorsAndPowerUsers, administratorsAndInteractiveUsers.
@@ -5314,17 +5314,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsInformationDisplayedOnLockScreen"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsInformationShownOnLockScreen
     * Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, userDisplayNameDomainUser, userDisplayNameOnly, doNotDisplayUser.
     *
-    * @return LocalSecurityOptionsInformationShownOnLockScreenType The localSecurityOptionsInformationShownOnLockScreen
+    * @return LocalSecurityOptionsInformationShownOnLockScreenType|null The localSecurityOptionsInformationShownOnLockScreen
     */
     public function getLocalSecurityOptionsInformationShownOnLockScreen()
     {
         if (array_key_exists("localSecurityOptionsInformationShownOnLockScreen", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsInformationShownOnLockScreen"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsInformationShownOnLockScreenType")) {
+            if (is_a($this->_propDict["localSecurityOptionsInformationShownOnLockScreen"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsInformationShownOnLockScreenType") || is_null($this->_propDict["localSecurityOptionsInformationShownOnLockScreen"])) {
                 return $this->_propDict["localSecurityOptionsInformationShownOnLockScreen"];
             } else {
                 $this->_propDict["localSecurityOptionsInformationShownOnLockScreen"] = new LocalSecurityOptionsInformationShownOnLockScreenType($this->_propDict["localSecurityOptionsInformationShownOnLockScreen"]);
@@ -5333,7 +5333,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsInformationShownOnLockScreen
     * Configure the user information that is displayed when the session is locked. If not configured, user display name, domain and username are shown. Possible values are: notConfigured, userDisplayNameDomainUser, userDisplayNameOnly, doNotDisplayUser.
@@ -5347,12 +5347,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsInformationShownOnLockScreen"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsLogOnMessageText
     * Set message text for users attempting to log in.
     *
-    * @return string The localSecurityOptionsLogOnMessageText
+    * @return string|null The localSecurityOptionsLogOnMessageText
     */
     public function getLocalSecurityOptionsLogOnMessageText()
     {
@@ -5362,7 +5362,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsLogOnMessageText
     * Set message text for users attempting to log in.
@@ -5376,12 +5376,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsLogOnMessageText"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsLogOnMessageTitle
     * Set message title for users attempting to log in.
     *
-    * @return string The localSecurityOptionsLogOnMessageTitle
+    * @return string|null The localSecurityOptionsLogOnMessageTitle
     */
     public function getLocalSecurityOptionsLogOnMessageTitle()
     {
@@ -5391,7 +5391,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsLogOnMessageTitle
     * Set message title for users attempting to log in.
@@ -5405,12 +5405,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsLogOnMessageTitle"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsMachineInactivityLimit
     * Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999
     *
-    * @return int The localSecurityOptionsMachineInactivityLimit
+    * @return int|null The localSecurityOptionsMachineInactivityLimit
     */
     public function getLocalSecurityOptionsMachineInactivityLimit()
     {
@@ -5420,7 +5420,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsMachineInactivityLimit
     * Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999
@@ -5434,12 +5434,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsMachineInactivityLimit"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsMachineInactivityLimitInMinutes
     * Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999
     *
-    * @return int The localSecurityOptionsMachineInactivityLimitInMinutes
+    * @return int|null The localSecurityOptionsMachineInactivityLimitInMinutes
     */
     public function getLocalSecurityOptionsMachineInactivityLimitInMinutes()
     {
@@ -5449,7 +5449,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsMachineInactivityLimitInMinutes
     * Define maximum minutes of inactivity on the interactive desktop’s login screen until the screen saver runs. Valid values 0 to 9999
@@ -5463,17 +5463,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsMachineInactivityLimitInMinutes"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients
     * This security setting allows a client to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
     *
-    * @return LocalSecurityOptionsMinimumSessionSecurity The localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients
+    * @return LocalSecurityOptionsMinimumSessionSecurity|null The localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients
     */
     public function getLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients()
     {
         if (array_key_exists("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsMinimumSessionSecurity")) {
+            if (is_a($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsMinimumSessionSecurity") || is_null($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"])) {
                 return $this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"];
             } else {
                 $this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"] = new LocalSecurityOptionsMinimumSessionSecurity($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"]);
@@ -5482,7 +5482,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients
     * This security setting allows a client to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
@@ -5496,17 +5496,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers
     * This security setting allows a server to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
     *
-    * @return LocalSecurityOptionsMinimumSessionSecurity The localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers
+    * @return LocalSecurityOptionsMinimumSessionSecurity|null The localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers
     */
     public function getLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers()
     {
         if (array_key_exists("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsMinimumSessionSecurity")) {
+            if (is_a($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsMinimumSessionSecurity") || is_null($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"])) {
                 return $this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"];
             } else {
                 $this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"] = new LocalSecurityOptionsMinimumSessionSecurity($this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"]);
@@ -5515,7 +5515,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers
     * This security setting allows a server to require the negotiation of 128-bit encryption and/or NTLMv2 session security. Possible values are: none, requireNtmlV2SessionSecurity, require128BitEncryption, ntlmV2And128BitEncryption.
@@ -5529,12 +5529,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsOnlyElevateSignedExecutables
     * Enforce PKI certification path validation for a given executable file before it is permitted to run.
     *
-    * @return bool The localSecurityOptionsOnlyElevateSignedExecutables
+    * @return bool|null The localSecurityOptionsOnlyElevateSignedExecutables
     */
     public function getLocalSecurityOptionsOnlyElevateSignedExecutables()
     {
@@ -5544,7 +5544,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsOnlyElevateSignedExecutables
     * Enforce PKI certification path validation for a given executable file before it is permitted to run.
@@ -5558,12 +5558,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsOnlyElevateSignedExecutables"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares
     * By default, this security setting restricts anonymous access to shares and pipes to the settings for named pipes that can be accessed anonymously and Shares that can be accessed anonymously
     *
-    * @return bool The localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares
+    * @return bool|null The localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares
     */
     public function getLocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares()
     {
@@ -5573,7 +5573,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares
     * By default, this security setting restricts anonymous access to shares and pipes to the settings for named pipes that can be accessed anonymously and Shares that can be accessed anonymously
@@ -5587,17 +5587,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsSmartCardRemovalBehavior
-    * This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: lockWorkstation, noAction, forceLogoff, disconnectRemoteDesktopSession.
+    * This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: noAction, lockWorkstation, forceLogoff, disconnectRemoteDesktopSession.
     *
-    * @return LocalSecurityOptionsSmartCardRemovalBehaviorType The localSecurityOptionsSmartCardRemovalBehavior
+    * @return LocalSecurityOptionsSmartCardRemovalBehaviorType|null The localSecurityOptionsSmartCardRemovalBehavior
     */
     public function getLocalSecurityOptionsSmartCardRemovalBehavior()
     {
         if (array_key_exists("localSecurityOptionsSmartCardRemovalBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsSmartCardRemovalBehaviorType")) {
+            if (is_a($this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsSmartCardRemovalBehaviorType") || is_null($this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"])) {
                 return $this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"];
             } else {
                 $this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"] = new LocalSecurityOptionsSmartCardRemovalBehaviorType($this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"]);
@@ -5606,10 +5606,10 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsSmartCardRemovalBehavior
-    * This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: lockWorkstation, noAction, forceLogoff, disconnectRemoteDesktopSession.
+    * This security setting determines what happens when the smart card for a logged-on user is removed from the smart card reader. Possible values are: noAction, lockWorkstation, forceLogoff, disconnectRemoteDesktopSession.
     *
     * @param LocalSecurityOptionsSmartCardRemovalBehaviorType $val The localSecurityOptionsSmartCardRemovalBehavior
     *
@@ -5620,17 +5620,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsSmartCardRemovalBehavior"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsStandardUserElevationPromptBehavior
     * Define the behavior of the elevation prompt for standard users. Possible values are: notConfigured, automaticallyDenyElevationRequests, promptForCredentialsOnTheSecureDesktop, promptForCredentials.
     *
-    * @return LocalSecurityOptionsStandardUserElevationPromptBehaviorType The localSecurityOptionsStandardUserElevationPromptBehavior
+    * @return LocalSecurityOptionsStandardUserElevationPromptBehaviorType|null The localSecurityOptionsStandardUserElevationPromptBehavior
     */
     public function getLocalSecurityOptionsStandardUserElevationPromptBehavior()
     {
         if (array_key_exists("localSecurityOptionsStandardUserElevationPromptBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsStandardUserElevationPromptBehaviorType")) {
+            if (is_a($this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"], "\Beta\Microsoft\Graph\Model\LocalSecurityOptionsStandardUserElevationPromptBehaviorType") || is_null($this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"])) {
                 return $this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"];
             } else {
                 $this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"] = new LocalSecurityOptionsStandardUserElevationPromptBehaviorType($this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"]);
@@ -5639,7 +5639,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the localSecurityOptionsStandardUserElevationPromptBehavior
     * Define the behavior of the elevation prompt for standard users. Possible values are: notConfigured, automaticallyDenyElevationRequests, promptForCredentialsOnTheSecureDesktop, promptForCredentials.
@@ -5653,12 +5653,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsStandardUserElevationPromptBehavior"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation
     * Enable all elevation requests to go to the interactive user's desktop rather than the secure desktop. Prompt behavior policy settings for admins and standard users are used.
     *
-    * @return bool The localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation
+    * @return bool|null The localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation
     */
     public function getLocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation()
     {
@@ -5668,7 +5668,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation
     * Enable all elevation requests to go to the interactive user's desktop rather than the secure desktop. Prompt behavior policy settings for admins and standard users are used.
@@ -5682,12 +5682,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsUseAdminApprovalMode
     * Defines whether the built-in admin account uses Admin Approval Mode or runs all apps with full admin privileges.Default is enabled
     *
-    * @return bool The localSecurityOptionsUseAdminApprovalMode
+    * @return bool|null The localSecurityOptionsUseAdminApprovalMode
     */
     public function getLocalSecurityOptionsUseAdminApprovalMode()
     {
@@ -5697,7 +5697,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsUseAdminApprovalMode
     * Defines whether the built-in admin account uses Admin Approval Mode or runs all apps with full admin privileges.Default is enabled
@@ -5711,12 +5711,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsUseAdminApprovalMode"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsUseAdminApprovalModeForAdministrators
     * Define whether Admin Approval Mode and all UAC policy settings are enabled, default is enabled
     *
-    * @return bool The localSecurityOptionsUseAdminApprovalModeForAdministrators
+    * @return bool|null The localSecurityOptionsUseAdminApprovalModeForAdministrators
     */
     public function getLocalSecurityOptionsUseAdminApprovalModeForAdministrators()
     {
@@ -5726,7 +5726,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsUseAdminApprovalModeForAdministrators
     * Define whether Admin Approval Mode and all UAC policy settings are enabled, default is enabled
@@ -5740,12 +5740,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsUseAdminApprovalModeForAdministrators"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations
     * Virtualize file and registry write failures to per user locations
     *
-    * @return bool The localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations
+    * @return bool|null The localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations
     */
     public function getLocalSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations()
     {
@@ -5755,7 +5755,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations
     * Virtualize file and registry write failures to per user locations
@@ -5769,12 +5769,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["localSecurityOptionsVirtualizeFileAndRegistryWriteFailuresToPerUserLocations"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smartScreenBlockOverrideForFiles
     * Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
     *
-    * @return bool The smartScreenBlockOverrideForFiles
+    * @return bool|null The smartScreenBlockOverrideForFiles
     */
     public function getSmartScreenBlockOverrideForFiles()
     {
@@ -5784,7 +5784,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the smartScreenBlockOverrideForFiles
     * Allows IT Admins to control whether users can can ignore SmartScreen warnings and run malicious files.
@@ -5798,12 +5798,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["smartScreenBlockOverrideForFiles"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the smartScreenEnableInShell
     * Allows IT Admins to configure SmartScreen for Windows.
     *
-    * @return bool The smartScreenEnableInShell
+    * @return bool|null The smartScreenEnableInShell
     */
     public function getSmartScreenEnableInShell()
     {
@@ -5813,7 +5813,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the smartScreenEnableInShell
     * Allows IT Admins to configure SmartScreen for Windows.
@@ -5827,17 +5827,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["smartScreenEnableInShell"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the userRightsAccessCredentialManagerAsTrustedCaller
     * This user right is used by Credential Manager during Backup/Restore. Users' saved credentials might be compromised if this privilege is given to other entities. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsAccessCredentialManagerAsTrustedCaller
+    * @return DeviceManagementUserRightsSetting|null The userRightsAccessCredentialManagerAsTrustedCaller
     */
     public function getUserRightsAccessCredentialManagerAsTrustedCaller()
     {
         if (array_key_exists("userRightsAccessCredentialManagerAsTrustedCaller", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"])) {
                 return $this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"];
             } else {
                 $this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"]);
@@ -5846,7 +5846,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsAccessCredentialManagerAsTrustedCaller
     * This user right is used by Credential Manager during Backup/Restore. Users' saved credentials might be compromised if this privilege is given to other entities. Only states NotConfigured and Allowed are supported
@@ -5860,17 +5860,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsAccessCredentialManagerAsTrustedCaller"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsActAsPartOfTheOperatingSystem
     * This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsActAsPartOfTheOperatingSystem
+    * @return DeviceManagementUserRightsSetting|null The userRightsActAsPartOfTheOperatingSystem
     */
     public function getUserRightsActAsPartOfTheOperatingSystem()
     {
         if (array_key_exists("userRightsActAsPartOfTheOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsActAsPartOfTheOperatingSystem"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsActAsPartOfTheOperatingSystem"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsActAsPartOfTheOperatingSystem"])) {
                 return $this->_propDict["userRightsActAsPartOfTheOperatingSystem"];
             } else {
                 $this->_propDict["userRightsActAsPartOfTheOperatingSystem"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsActAsPartOfTheOperatingSystem"]);
@@ -5879,7 +5879,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsActAsPartOfTheOperatingSystem
     * This user right allows a process to impersonate any user without authentication. The process can therefore gain access to the same local resources as that user. Only states NotConfigured and Allowed are supported
@@ -5893,17 +5893,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsActAsPartOfTheOperatingSystem"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsAllowAccessFromNetwork
     * This user right determines which users and groups are allowed to connect to the computer over the network. State Allowed is supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsAllowAccessFromNetwork
+    * @return DeviceManagementUserRightsSetting|null The userRightsAllowAccessFromNetwork
     */
     public function getUserRightsAllowAccessFromNetwork()
     {
         if (array_key_exists("userRightsAllowAccessFromNetwork", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsAllowAccessFromNetwork"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsAllowAccessFromNetwork"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsAllowAccessFromNetwork"])) {
                 return $this->_propDict["userRightsAllowAccessFromNetwork"];
             } else {
                 $this->_propDict["userRightsAllowAccessFromNetwork"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsAllowAccessFromNetwork"]);
@@ -5912,7 +5912,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsAllowAccessFromNetwork
     * This user right determines which users and groups are allowed to connect to the computer over the network. State Allowed is supported.
@@ -5926,17 +5926,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsAllowAccessFromNetwork"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsBackupData
     * This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when backing up files and directories. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsBackupData
+    * @return DeviceManagementUserRightsSetting|null The userRightsBackupData
     */
     public function getUserRightsBackupData()
     {
         if (array_key_exists("userRightsBackupData", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsBackupData"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsBackupData"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsBackupData"])) {
                 return $this->_propDict["userRightsBackupData"];
             } else {
                 $this->_propDict["userRightsBackupData"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsBackupData"]);
@@ -5945,7 +5945,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsBackupData
     * This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when backing up files and directories. Only states NotConfigured and Allowed are supported
@@ -5959,17 +5959,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsBackupData"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsBlockAccessFromNetwork
     * This user right determines which users and groups are block from connecting to the computer over the network. State Block is supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsBlockAccessFromNetwork
+    * @return DeviceManagementUserRightsSetting|null The userRightsBlockAccessFromNetwork
     */
     public function getUserRightsBlockAccessFromNetwork()
     {
         if (array_key_exists("userRightsBlockAccessFromNetwork", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsBlockAccessFromNetwork"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsBlockAccessFromNetwork"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsBlockAccessFromNetwork"])) {
                 return $this->_propDict["userRightsBlockAccessFromNetwork"];
             } else {
                 $this->_propDict["userRightsBlockAccessFromNetwork"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsBlockAccessFromNetwork"]);
@@ -5978,7 +5978,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsBlockAccessFromNetwork
     * This user right determines which users and groups are block from connecting to the computer over the network. State Block is supported.
@@ -5992,17 +5992,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsBlockAccessFromNetwork"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsChangeSystemTime
     * This user right determines which users and groups can change the time and date on the internal clock of the computer. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsChangeSystemTime
+    * @return DeviceManagementUserRightsSetting|null The userRightsChangeSystemTime
     */
     public function getUserRightsChangeSystemTime()
     {
         if (array_key_exists("userRightsChangeSystemTime", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsChangeSystemTime"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsChangeSystemTime"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsChangeSystemTime"])) {
                 return $this->_propDict["userRightsChangeSystemTime"];
             } else {
                 $this->_propDict["userRightsChangeSystemTime"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsChangeSystemTime"]);
@@ -6011,7 +6011,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsChangeSystemTime
     * This user right determines which users and groups can change the time and date on the internal clock of the computer. Only states NotConfigured and Allowed are supported
@@ -6025,17 +6025,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsChangeSystemTime"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsCreateGlobalObjects
     * This security setting determines whether users can create global objects that are available to all sessions. Users who can create global objects could affect processes that run under other users' sessions, which could lead to application failure or data corruption. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsCreateGlobalObjects
+    * @return DeviceManagementUserRightsSetting|null The userRightsCreateGlobalObjects
     */
     public function getUserRightsCreateGlobalObjects()
     {
         if (array_key_exists("userRightsCreateGlobalObjects", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsCreateGlobalObjects"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsCreateGlobalObjects"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsCreateGlobalObjects"])) {
                 return $this->_propDict["userRightsCreateGlobalObjects"];
             } else {
                 $this->_propDict["userRightsCreateGlobalObjects"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsCreateGlobalObjects"]);
@@ -6044,7 +6044,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsCreateGlobalObjects
     * This security setting determines whether users can create global objects that are available to all sessions. Users who can create global objects could affect processes that run under other users' sessions, which could lead to application failure or data corruption. Only states NotConfigured and Allowed are supported
@@ -6058,17 +6058,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsCreateGlobalObjects"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsCreatePageFile
     * This user right determines which users and groups can call an internal API to create and change the size of a page file. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsCreatePageFile
+    * @return DeviceManagementUserRightsSetting|null The userRightsCreatePageFile
     */
     public function getUserRightsCreatePageFile()
     {
         if (array_key_exists("userRightsCreatePageFile", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsCreatePageFile"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsCreatePageFile"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsCreatePageFile"])) {
                 return $this->_propDict["userRightsCreatePageFile"];
             } else {
                 $this->_propDict["userRightsCreatePageFile"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsCreatePageFile"]);
@@ -6077,7 +6077,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsCreatePageFile
     * This user right determines which users and groups can call an internal API to create and change the size of a page file. Only states NotConfigured and Allowed are supported
@@ -6091,17 +6091,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsCreatePageFile"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsCreatePermanentSharedObjects
     * This user right determines which accounts can be used by processes to create a directory object using the object manager. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsCreatePermanentSharedObjects
+    * @return DeviceManagementUserRightsSetting|null The userRightsCreatePermanentSharedObjects
     */
     public function getUserRightsCreatePermanentSharedObjects()
     {
         if (array_key_exists("userRightsCreatePermanentSharedObjects", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsCreatePermanentSharedObjects"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsCreatePermanentSharedObjects"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsCreatePermanentSharedObjects"])) {
                 return $this->_propDict["userRightsCreatePermanentSharedObjects"];
             } else {
                 $this->_propDict["userRightsCreatePermanentSharedObjects"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsCreatePermanentSharedObjects"]);
@@ -6110,7 +6110,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsCreatePermanentSharedObjects
     * This user right determines which accounts can be used by processes to create a directory object using the object manager. Only states NotConfigured and Allowed are supported
@@ -6124,17 +6124,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsCreatePermanentSharedObjects"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsCreateSymbolicLinks
     * This user right determines if the user can create a symbolic link from the computer to which they are logged on. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsCreateSymbolicLinks
+    * @return DeviceManagementUserRightsSetting|null The userRightsCreateSymbolicLinks
     */
     public function getUserRightsCreateSymbolicLinks()
     {
         if (array_key_exists("userRightsCreateSymbolicLinks", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsCreateSymbolicLinks"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsCreateSymbolicLinks"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsCreateSymbolicLinks"])) {
                 return $this->_propDict["userRightsCreateSymbolicLinks"];
             } else {
                 $this->_propDict["userRightsCreateSymbolicLinks"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsCreateSymbolicLinks"]);
@@ -6143,7 +6143,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsCreateSymbolicLinks
     * This user right determines if the user can create a symbolic link from the computer to which they are logged on. Only states NotConfigured and Allowed are supported
@@ -6157,17 +6157,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsCreateSymbolicLinks"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsCreateToken
     * This user right determines which users/groups can be used by processes to create a token that can then be used to get access to any local resources when the process uses an internal API to create an access token. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsCreateToken
+    * @return DeviceManagementUserRightsSetting|null The userRightsCreateToken
     */
     public function getUserRightsCreateToken()
     {
         if (array_key_exists("userRightsCreateToken", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsCreateToken"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsCreateToken"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsCreateToken"])) {
                 return $this->_propDict["userRightsCreateToken"];
             } else {
                 $this->_propDict["userRightsCreateToken"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsCreateToken"]);
@@ -6176,7 +6176,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsCreateToken
     * This user right determines which users/groups can be used by processes to create a token that can then be used to get access to any local resources when the process uses an internal API to create an access token. Only states NotConfigured and Allowed are supported
@@ -6190,17 +6190,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsCreateToken"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsDebugPrograms
     * This user right determines which users can attach a debugger to any process or to the kernel. Only states NotConfigured and Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsDebugPrograms
+    * @return DeviceManagementUserRightsSetting|null The userRightsDebugPrograms
     */
     public function getUserRightsDebugPrograms()
     {
         if (array_key_exists("userRightsDebugPrograms", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsDebugPrograms"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsDebugPrograms"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsDebugPrograms"])) {
                 return $this->_propDict["userRightsDebugPrograms"];
             } else {
                 $this->_propDict["userRightsDebugPrograms"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsDebugPrograms"]);
@@ -6209,7 +6209,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsDebugPrograms
     * This user right determines which users can attach a debugger to any process or to the kernel. Only states NotConfigured and Allowed are supported
@@ -6223,17 +6223,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsDebugPrograms"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsDelegation
     * This user right determines which users can set the Trusted for Delegation setting on a user or computer object. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsDelegation
+    * @return DeviceManagementUserRightsSetting|null The userRightsDelegation
     */
     public function getUserRightsDelegation()
     {
         if (array_key_exists("userRightsDelegation", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsDelegation"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsDelegation"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsDelegation"])) {
                 return $this->_propDict["userRightsDelegation"];
             } else {
                 $this->_propDict["userRightsDelegation"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsDelegation"]);
@@ -6242,7 +6242,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsDelegation
     * This user right determines which users can set the Trusted for Delegation setting on a user or computer object. Only states NotConfigured and Allowed are supported.
@@ -6256,17 +6256,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsDelegation"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsDenyLocalLogOn
     * This user right determines which users cannot log on to the computer. States NotConfigured, Blocked are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsDenyLocalLogOn
+    * @return DeviceManagementUserRightsSetting|null The userRightsDenyLocalLogOn
     */
     public function getUserRightsDenyLocalLogOn()
     {
         if (array_key_exists("userRightsDenyLocalLogOn", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsDenyLocalLogOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsDenyLocalLogOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsDenyLocalLogOn"])) {
                 return $this->_propDict["userRightsDenyLocalLogOn"];
             } else {
                 $this->_propDict["userRightsDenyLocalLogOn"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsDenyLocalLogOn"]);
@@ -6275,7 +6275,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsDenyLocalLogOn
     * This user right determines which users cannot log on to the computer. States NotConfigured, Blocked are supported
@@ -6289,17 +6289,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsDenyLocalLogOn"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsGenerateSecurityAudits
     * This user right determines which accounts can be used by a process to add entries to the security log. The security log is used to trace unauthorized system access.  Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsGenerateSecurityAudits
+    * @return DeviceManagementUserRightsSetting|null The userRightsGenerateSecurityAudits
     */
     public function getUserRightsGenerateSecurityAudits()
     {
         if (array_key_exists("userRightsGenerateSecurityAudits", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsGenerateSecurityAudits"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsGenerateSecurityAudits"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsGenerateSecurityAudits"])) {
                 return $this->_propDict["userRightsGenerateSecurityAudits"];
             } else {
                 $this->_propDict["userRightsGenerateSecurityAudits"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsGenerateSecurityAudits"]);
@@ -6308,7 +6308,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsGenerateSecurityAudits
     * This user right determines which accounts can be used by a process to add entries to the security log. The security log is used to trace unauthorized system access.  Only states NotConfigured and Allowed are supported.
@@ -6322,17 +6322,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsGenerateSecurityAudits"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsImpersonateClient
     * Assigning this user right to a user allows programs running on behalf of that user to impersonate a client. Requiring this user right for this kind of impersonation prevents an unauthorized user from convincing a client to connect to a service that they have created and then impersonating that client, which can elevate the unauthorized user's permissions to administrative or system levels. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsImpersonateClient
+    * @return DeviceManagementUserRightsSetting|null The userRightsImpersonateClient
     */
     public function getUserRightsImpersonateClient()
     {
         if (array_key_exists("userRightsImpersonateClient", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsImpersonateClient"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsImpersonateClient"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsImpersonateClient"])) {
                 return $this->_propDict["userRightsImpersonateClient"];
             } else {
                 $this->_propDict["userRightsImpersonateClient"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsImpersonateClient"]);
@@ -6341,7 +6341,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsImpersonateClient
     * Assigning this user right to a user allows programs running on behalf of that user to impersonate a client. Requiring this user right for this kind of impersonation prevents an unauthorized user from convincing a client to connect to a service that they have created and then impersonating that client, which can elevate the unauthorized user's permissions to administrative or system levels. Only states NotConfigured and Allowed are supported.
@@ -6355,17 +6355,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsImpersonateClient"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsIncreaseSchedulingPriority
     * This user right determines which accounts can use a process with Write Property access to another process to increase the execution priority assigned to the other process. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsIncreaseSchedulingPriority
+    * @return DeviceManagementUserRightsSetting|null The userRightsIncreaseSchedulingPriority
     */
     public function getUserRightsIncreaseSchedulingPriority()
     {
         if (array_key_exists("userRightsIncreaseSchedulingPriority", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsIncreaseSchedulingPriority"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsIncreaseSchedulingPriority"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsIncreaseSchedulingPriority"])) {
                 return $this->_propDict["userRightsIncreaseSchedulingPriority"];
             } else {
                 $this->_propDict["userRightsIncreaseSchedulingPriority"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsIncreaseSchedulingPriority"]);
@@ -6374,7 +6374,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsIncreaseSchedulingPriority
     * This user right determines which accounts can use a process with Write Property access to another process to increase the execution priority assigned to the other process. Only states NotConfigured and Allowed are supported.
@@ -6388,17 +6388,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsIncreaseSchedulingPriority"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsLoadUnloadDrivers
     * This user right determines which users can dynamically load and unload device drivers or other code in to kernel mode. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsLoadUnloadDrivers
+    * @return DeviceManagementUserRightsSetting|null The userRightsLoadUnloadDrivers
     */
     public function getUserRightsLoadUnloadDrivers()
     {
         if (array_key_exists("userRightsLoadUnloadDrivers", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsLoadUnloadDrivers"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsLoadUnloadDrivers"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsLoadUnloadDrivers"])) {
                 return $this->_propDict["userRightsLoadUnloadDrivers"];
             } else {
                 $this->_propDict["userRightsLoadUnloadDrivers"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsLoadUnloadDrivers"]);
@@ -6407,7 +6407,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsLoadUnloadDrivers
     * This user right determines which users can dynamically load and unload device drivers or other code in to kernel mode. Only states NotConfigured and Allowed are supported.
@@ -6421,17 +6421,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsLoadUnloadDrivers"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsLocalLogOn
     * This user right determines which users can log on to the computer. States NotConfigured, Allowed are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsLocalLogOn
+    * @return DeviceManagementUserRightsSetting|null The userRightsLocalLogOn
     */
     public function getUserRightsLocalLogOn()
     {
         if (array_key_exists("userRightsLocalLogOn", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsLocalLogOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsLocalLogOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsLocalLogOn"])) {
                 return $this->_propDict["userRightsLocalLogOn"];
             } else {
                 $this->_propDict["userRightsLocalLogOn"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsLocalLogOn"]);
@@ -6440,7 +6440,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsLocalLogOn
     * This user right determines which users can log on to the computer. States NotConfigured, Allowed are supported
@@ -6454,17 +6454,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsLocalLogOn"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsLockMemory
     * This user right determines which accounts can use a process to keep data in physical memory, which prevents the system from paging the data to virtual memory on disk. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsLockMemory
+    * @return DeviceManagementUserRightsSetting|null The userRightsLockMemory
     */
     public function getUserRightsLockMemory()
     {
         if (array_key_exists("userRightsLockMemory", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsLockMemory"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsLockMemory"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsLockMemory"])) {
                 return $this->_propDict["userRightsLockMemory"];
             } else {
                 $this->_propDict["userRightsLockMemory"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsLockMemory"]);
@@ -6473,7 +6473,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsLockMemory
     * This user right determines which accounts can use a process to keep data in physical memory, which prevents the system from paging the data to virtual memory on disk. Only states NotConfigured and Allowed are supported.
@@ -6487,17 +6487,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsLockMemory"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsManageAuditingAndSecurityLogs
     * This user right determines which users can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsManageAuditingAndSecurityLogs
+    * @return DeviceManagementUserRightsSetting|null The userRightsManageAuditingAndSecurityLogs
     */
     public function getUserRightsManageAuditingAndSecurityLogs()
     {
         if (array_key_exists("userRightsManageAuditingAndSecurityLogs", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsManageAuditingAndSecurityLogs"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsManageAuditingAndSecurityLogs"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsManageAuditingAndSecurityLogs"])) {
                 return $this->_propDict["userRightsManageAuditingAndSecurityLogs"];
             } else {
                 $this->_propDict["userRightsManageAuditingAndSecurityLogs"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsManageAuditingAndSecurityLogs"]);
@@ -6506,7 +6506,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsManageAuditingAndSecurityLogs
     * This user right determines which users can specify object access auditing options for individual resources, such as files, Active Directory objects, and registry keys. Only states NotConfigured and Allowed are supported.
@@ -6520,17 +6520,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsManageAuditingAndSecurityLogs"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsManageVolumes
     * This user right determines which users and groups can run maintenance tasks on a volume, such as remote defragmentation. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsManageVolumes
+    * @return DeviceManagementUserRightsSetting|null The userRightsManageVolumes
     */
     public function getUserRightsManageVolumes()
     {
         if (array_key_exists("userRightsManageVolumes", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsManageVolumes"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsManageVolumes"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsManageVolumes"])) {
                 return $this->_propDict["userRightsManageVolumes"];
             } else {
                 $this->_propDict["userRightsManageVolumes"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsManageVolumes"]);
@@ -6539,7 +6539,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsManageVolumes
     * This user right determines which users and groups can run maintenance tasks on a volume, such as remote defragmentation. Only states NotConfigured and Allowed are supported.
@@ -6553,17 +6553,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsManageVolumes"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsModifyFirmwareEnvironment
     * This user right determines who can modify firmware environment values. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsModifyFirmwareEnvironment
+    * @return DeviceManagementUserRightsSetting|null The userRightsModifyFirmwareEnvironment
     */
     public function getUserRightsModifyFirmwareEnvironment()
     {
         if (array_key_exists("userRightsModifyFirmwareEnvironment", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsModifyFirmwareEnvironment"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsModifyFirmwareEnvironment"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsModifyFirmwareEnvironment"])) {
                 return $this->_propDict["userRightsModifyFirmwareEnvironment"];
             } else {
                 $this->_propDict["userRightsModifyFirmwareEnvironment"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsModifyFirmwareEnvironment"]);
@@ -6572,7 +6572,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsModifyFirmwareEnvironment
     * This user right determines who can modify firmware environment values. Only states NotConfigured and Allowed are supported.
@@ -6586,17 +6586,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsModifyFirmwareEnvironment"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsModifyObjectLabels
     * This user right determines which user accounts can modify the integrity label of objects, such as files, registry keys, or processes owned by other users. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsModifyObjectLabels
+    * @return DeviceManagementUserRightsSetting|null The userRightsModifyObjectLabels
     */
     public function getUserRightsModifyObjectLabels()
     {
         if (array_key_exists("userRightsModifyObjectLabels", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsModifyObjectLabels"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsModifyObjectLabels"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsModifyObjectLabels"])) {
                 return $this->_propDict["userRightsModifyObjectLabels"];
             } else {
                 $this->_propDict["userRightsModifyObjectLabels"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsModifyObjectLabels"]);
@@ -6605,7 +6605,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsModifyObjectLabels
     * This user right determines which user accounts can modify the integrity label of objects, such as files, registry keys, or processes owned by other users. Only states NotConfigured and Allowed are supported.
@@ -6619,17 +6619,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsModifyObjectLabels"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsProfileSingleProcess
     * This user right determines which users can use performance monitoring tools to monitor the performance of system processes. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsProfileSingleProcess
+    * @return DeviceManagementUserRightsSetting|null The userRightsProfileSingleProcess
     */
     public function getUserRightsProfileSingleProcess()
     {
         if (array_key_exists("userRightsProfileSingleProcess", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsProfileSingleProcess"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsProfileSingleProcess"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsProfileSingleProcess"])) {
                 return $this->_propDict["userRightsProfileSingleProcess"];
             } else {
                 $this->_propDict["userRightsProfileSingleProcess"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsProfileSingleProcess"]);
@@ -6638,7 +6638,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsProfileSingleProcess
     * This user right determines which users can use performance monitoring tools to monitor the performance of system processes. Only states NotConfigured and Allowed are supported.
@@ -6652,17 +6652,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsProfileSingleProcess"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsRemoteDesktopServicesLogOn
     * This user right determines which users and groups are prohibited from logging on as a Remote Desktop Services client. Only states NotConfigured and Blocked are supported
     *
-    * @return DeviceManagementUserRightsSetting The userRightsRemoteDesktopServicesLogOn
+    * @return DeviceManagementUserRightsSetting|null The userRightsRemoteDesktopServicesLogOn
     */
     public function getUserRightsRemoteDesktopServicesLogOn()
     {
         if (array_key_exists("userRightsRemoteDesktopServicesLogOn", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsRemoteDesktopServicesLogOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsRemoteDesktopServicesLogOn"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsRemoteDesktopServicesLogOn"])) {
                 return $this->_propDict["userRightsRemoteDesktopServicesLogOn"];
             } else {
                 $this->_propDict["userRightsRemoteDesktopServicesLogOn"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsRemoteDesktopServicesLogOn"]);
@@ -6671,7 +6671,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsRemoteDesktopServicesLogOn
     * This user right determines which users and groups are prohibited from logging on as a Remote Desktop Services client. Only states NotConfigured and Blocked are supported
@@ -6685,17 +6685,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsRemoteDesktopServicesLogOn"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsRemoteShutdown
     * This user right determines which users are allowed to shut down a computer from a remote location on the network. Misuse of this user right can result in a denial of service. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsRemoteShutdown
+    * @return DeviceManagementUserRightsSetting|null The userRightsRemoteShutdown
     */
     public function getUserRightsRemoteShutdown()
     {
         if (array_key_exists("userRightsRemoteShutdown", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsRemoteShutdown"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsRemoteShutdown"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsRemoteShutdown"])) {
                 return $this->_propDict["userRightsRemoteShutdown"];
             } else {
                 $this->_propDict["userRightsRemoteShutdown"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsRemoteShutdown"]);
@@ -6704,7 +6704,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsRemoteShutdown
     * This user right determines which users are allowed to shut down a computer from a remote location on the network. Misuse of this user right can result in a denial of service. Only states NotConfigured and Allowed are supported.
@@ -6718,17 +6718,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsRemoteShutdown"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsRestoreData
     * This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories, and determines which users can set any valid security principal as the owner of an object. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsRestoreData
+    * @return DeviceManagementUserRightsSetting|null The userRightsRestoreData
     */
     public function getUserRightsRestoreData()
     {
         if (array_key_exists("userRightsRestoreData", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsRestoreData"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsRestoreData"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsRestoreData"])) {
                 return $this->_propDict["userRightsRestoreData"];
             } else {
                 $this->_propDict["userRightsRestoreData"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsRestoreData"]);
@@ -6737,7 +6737,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsRestoreData
     * This user right determines which users can bypass file, directory, registry, and other persistent objects permissions when restoring backed up files and directories, and determines which users can set any valid security principal as the owner of an object. Only states NotConfigured and Allowed are supported.
@@ -6751,17 +6751,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsRestoreData"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the userRightsTakeOwnership
     * This user right determines which users can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads. Only states NotConfigured and Allowed are supported.
     *
-    * @return DeviceManagementUserRightsSetting The userRightsTakeOwnership
+    * @return DeviceManagementUserRightsSetting|null The userRightsTakeOwnership
     */
     public function getUserRightsTakeOwnership()
     {
         if (array_key_exists("userRightsTakeOwnership", $this->_propDict)) {
-            if (is_a($this->_propDict["userRightsTakeOwnership"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting")) {
+            if (is_a($this->_propDict["userRightsTakeOwnership"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsSetting") || is_null($this->_propDict["userRightsTakeOwnership"])) {
                 return $this->_propDict["userRightsTakeOwnership"];
             } else {
                 $this->_propDict["userRightsTakeOwnership"] = new DeviceManagementUserRightsSetting($this->_propDict["userRightsTakeOwnership"]);
@@ -6770,7 +6770,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the userRightsTakeOwnership
     * This user right determines which users can take ownership of any securable object in the system, including Active Directory objects, files and folders, printers, registry keys, processes, and threads. Only states NotConfigured and Allowed are supported.
@@ -6784,17 +6784,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["userRightsTakeOwnership"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the windowsDefenderTamperProtection
     * Configure windows defender TamperProtection settings. Possible values are: notConfigured, enable, disable.
     *
-    * @return WindowsDefenderTamperProtectionOptions The windowsDefenderTamperProtection
+    * @return WindowsDefenderTamperProtectionOptions|null The windowsDefenderTamperProtection
     */
     public function getWindowsDefenderTamperProtection()
     {
         if (array_key_exists("windowsDefenderTamperProtection", $this->_propDict)) {
-            if (is_a($this->_propDict["windowsDefenderTamperProtection"], "\Beta\Microsoft\Graph\Model\WindowsDefenderTamperProtectionOptions")) {
+            if (is_a($this->_propDict["windowsDefenderTamperProtection"], "\Beta\Microsoft\Graph\Model\WindowsDefenderTamperProtectionOptions") || is_null($this->_propDict["windowsDefenderTamperProtection"])) {
                 return $this->_propDict["windowsDefenderTamperProtection"];
             } else {
                 $this->_propDict["windowsDefenderTamperProtection"] = new WindowsDefenderTamperProtectionOptions($this->_propDict["windowsDefenderTamperProtection"]);
@@ -6803,7 +6803,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the windowsDefenderTamperProtection
     * Configure windows defender TamperProtection settings. Possible values are: notConfigured, enable, disable.
@@ -6817,17 +6817,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["windowsDefenderTamperProtection"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the xboxServicesAccessoryManagementServiceStartupMode
     * This setting determines whether the Accessory management service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
     *
-    * @return ServiceStartType The xboxServicesAccessoryManagementServiceStartupMode
+    * @return ServiceStartType|null The xboxServicesAccessoryManagementServiceStartupMode
     */
     public function getXboxServicesAccessoryManagementServiceStartupMode()
     {
         if (array_key_exists("xboxServicesAccessoryManagementServiceStartupMode", $this->_propDict)) {
-            if (is_a($this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType")) {
+            if (is_a($this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType") || is_null($this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"])) {
                 return $this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"];
             } else {
                 $this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"] = new ServiceStartType($this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"]);
@@ -6836,7 +6836,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the xboxServicesAccessoryManagementServiceStartupMode
     * This setting determines whether the Accessory management service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
@@ -6850,12 +6850,12 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["xboxServicesAccessoryManagementServiceStartupMode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the xboxServicesEnableXboxGameSaveTask
     * This setting determines whether xbox game save is enabled (1) or disabled (0).
     *
-    * @return bool The xboxServicesEnableXboxGameSaveTask
+    * @return bool|null The xboxServicesEnableXboxGameSaveTask
     */
     public function getXboxServicesEnableXboxGameSaveTask()
     {
@@ -6865,7 +6865,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
             return null;
         }
     }
-    
+
     /**
     * Sets the xboxServicesEnableXboxGameSaveTask
     * This setting determines whether xbox game save is enabled (1) or disabled (0).
@@ -6879,17 +6879,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["xboxServicesEnableXboxGameSaveTask"] = boolval($val);
         return $this;
     }
-    
+
     /**
     * Gets the xboxServicesLiveAuthManagerServiceStartupMode
     * This setting determines whether Live Auth Manager service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
     *
-    * @return ServiceStartType The xboxServicesLiveAuthManagerServiceStartupMode
+    * @return ServiceStartType|null The xboxServicesLiveAuthManagerServiceStartupMode
     */
     public function getXboxServicesLiveAuthManagerServiceStartupMode()
     {
         if (array_key_exists("xboxServicesLiveAuthManagerServiceStartupMode", $this->_propDict)) {
-            if (is_a($this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType")) {
+            if (is_a($this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType") || is_null($this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"])) {
                 return $this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"];
             } else {
                 $this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"] = new ServiceStartType($this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"]);
@@ -6898,7 +6898,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the xboxServicesLiveAuthManagerServiceStartupMode
     * This setting determines whether Live Auth Manager service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
@@ -6912,17 +6912,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["xboxServicesLiveAuthManagerServiceStartupMode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the xboxServicesLiveGameSaveServiceStartupMode
     * This setting determines whether Live Game save service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
     *
-    * @return ServiceStartType The xboxServicesLiveGameSaveServiceStartupMode
+    * @return ServiceStartType|null The xboxServicesLiveGameSaveServiceStartupMode
     */
     public function getXboxServicesLiveGameSaveServiceStartupMode()
     {
         if (array_key_exists("xboxServicesLiveGameSaveServiceStartupMode", $this->_propDict)) {
-            if (is_a($this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType")) {
+            if (is_a($this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType") || is_null($this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"])) {
                 return $this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"];
             } else {
                 $this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"] = new ServiceStartType($this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"]);
@@ -6931,7 +6931,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the xboxServicesLiveGameSaveServiceStartupMode
     * This setting determines whether Live Game save service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
@@ -6945,17 +6945,17 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["xboxServicesLiveGameSaveServiceStartupMode"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the xboxServicesLiveNetworkingServiceStartupMode
     * This setting determines whether Networking service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
     *
-    * @return ServiceStartType The xboxServicesLiveNetworkingServiceStartupMode
+    * @return ServiceStartType|null The xboxServicesLiveNetworkingServiceStartupMode
     */
     public function getXboxServicesLiveNetworkingServiceStartupMode()
     {
         if (array_key_exists("xboxServicesLiveNetworkingServiceStartupMode", $this->_propDict)) {
-            if (is_a($this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType")) {
+            if (is_a($this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"], "\Beta\Microsoft\Graph\Model\ServiceStartType") || is_null($this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"])) {
                 return $this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"];
             } else {
                 $this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"] = new ServiceStartType($this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"]);
@@ -6964,7 +6964,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         }
         return null;
     }
-    
+
     /**
     * Sets the xboxServicesLiveNetworkingServiceStartupMode
     * This setting determines whether Networking service's start type is Automatic(2), Manual(3), Disabled(4). Default: Manual. Possible values are: manual, automatic, disabled.
@@ -6978,5 +6978,5 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
         $this->_propDict["xboxServicesLiveNetworkingServiceStartupMode"] = $val;
         return $this;
     }
-    
+
 }

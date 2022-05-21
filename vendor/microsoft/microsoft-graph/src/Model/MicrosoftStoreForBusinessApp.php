@@ -28,12 +28,12 @@ class MicrosoftStoreForBusinessApp extends MobileApp
     * Gets the licenseType
     * The app license type. Possible values are: offline, online.
     *
-    * @return MicrosoftStoreForBusinessLicenseType The licenseType
+    * @return MicrosoftStoreForBusinessLicenseType|null The licenseType
     */
     public function getLicenseType()
     {
         if (array_key_exists("licenseType", $this->_propDict)) {
-            if (is_a($this->_propDict["licenseType"], "\Microsoft\Graph\Model\MicrosoftStoreForBusinessLicenseType")) {
+            if (is_a($this->_propDict["licenseType"], "\Microsoft\Graph\Model\MicrosoftStoreForBusinessLicenseType") || is_null($this->_propDict["licenseType"])) {
                 return $this->_propDict["licenseType"];
             } else {
                 $this->_propDict["licenseType"] = new MicrosoftStoreForBusinessLicenseType($this->_propDict["licenseType"]);
@@ -42,7 +42,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp
         }
         return null;
     }
-    
+
     /**
     * Sets the licenseType
     * The app license type. Possible values are: offline, online.
@@ -56,12 +56,12 @@ class MicrosoftStoreForBusinessApp extends MobileApp
         $this->_propDict["licenseType"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the packageIdentityName
     * The app package identifier
     *
-    * @return string The packageIdentityName
+    * @return string|null The packageIdentityName
     */
     public function getPackageIdentityName()
     {
@@ -71,7 +71,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the packageIdentityName
     * The app package identifier
@@ -85,12 +85,12 @@ class MicrosoftStoreForBusinessApp extends MobileApp
         $this->_propDict["packageIdentityName"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the productKey
     * The app product key
     *
-    * @return string The productKey
+    * @return string|null The productKey
     */
     public function getProductKey()
     {
@@ -100,7 +100,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the productKey
     * The app product key
@@ -114,12 +114,12 @@ class MicrosoftStoreForBusinessApp extends MobileApp
         $this->_propDict["productKey"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the totalLicenseCount
     * The total number of Microsoft Store for Business licenses.
     *
-    * @return int The totalLicenseCount
+    * @return int|null The totalLicenseCount
     */
     public function getTotalLicenseCount()
     {
@@ -129,7 +129,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the totalLicenseCount
     * The total number of Microsoft Store for Business licenses.
@@ -143,12 +143,12 @@ class MicrosoftStoreForBusinessApp extends MobileApp
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the usedLicenseCount
     * The number of Microsoft Store for Business licenses in use.
     *
-    * @return int The usedLicenseCount
+    * @return int|null The usedLicenseCount
     */
     public function getUsedLicenseCount()
     {
@@ -158,7 +158,7 @@ class MicrosoftStoreForBusinessApp extends MobileApp
             return null;
         }
     }
-    
+
     /**
     * Sets the usedLicenseCount
     * The number of Microsoft Store for Business licenses in use.
@@ -172,5 +172,5 @@ class MicrosoftStoreForBusinessApp extends MobileApp
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-    
+
 }

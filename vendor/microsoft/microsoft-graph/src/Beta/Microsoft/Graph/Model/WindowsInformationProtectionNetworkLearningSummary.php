@@ -28,7 +28,7 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity
     * Gets the deviceCount
     * Device Count
     *
-    * @return int The deviceCount
+    * @return int|null The deviceCount
     */
     public function getDeviceCount()
     {
@@ -38,7 +38,7 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the deviceCount
     * Device Count
@@ -52,12 +52,12 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity
         $this->_propDict["deviceCount"] = intval($val);
         return $this;
     }
-    
+
     /**
     * Gets the url
     * Website url
     *
-    * @return string The url
+    * @return string|null The url
     */
     public function getUrl()
     {
@@ -67,7 +67,7 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity
             return null;
         }
     }
-    
+
     /**
     * Sets the url
     * Website url
@@ -81,5 +81,5 @@ class WindowsInformationProtectionNetworkLearningSummary extends Entity
         $this->_propDict["url"] = $val;
         return $this;
     }
-    
+
 }

@@ -27,7 +27,7 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the blockDataRecoveryAgent
     * Indicates whether to block certificate-based data recovery agent.
     *
-    * @return bool The blockDataRecoveryAgent
+    * @return bool|null The blockDataRecoveryAgent
     */
     public function getBlockDataRecoveryAgent()
     {
@@ -55,7 +55,7 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the enableBitLockerAfterRecoveryInformationToStore
     * Indicates whether or not to enable BitLocker until recovery information is stored in AD DS.
     *
-    * @return bool The enableBitLockerAfterRecoveryInformationToStore
+    * @return bool|null The enableBitLockerAfterRecoveryInformationToStore
     */
     public function getEnableBitLockerAfterRecoveryInformationToStore()
     {
@@ -83,7 +83,7 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the enableRecoveryInformationSaveToStore
     * Indicates whether or not to allow BitLocker recovery information to store in AD DS.
     *
-    * @return bool The enableRecoveryInformationSaveToStore
+    * @return bool|null The enableRecoveryInformationSaveToStore
     */
     public function getEnableRecoveryInformationSaveToStore()
     {
@@ -111,7 +111,7 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the hideRecoveryOptions
     * Indicates whether or not to allow showing recovery options in BitLocker Setup Wizard for fixed or system disk.
     *
-    * @return bool The hideRecoveryOptions
+    * @return bool|null The hideRecoveryOptions
     */
     public function getHideRecoveryOptions()
     {
@@ -140,12 +140,12 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the recoveryInformationToStore
     * Configure what pieces of BitLocker recovery information are stored to AD DS. Possible values are: passwordAndKey, passwordOnly.
     *
-    * @return BitLockerRecoveryInformationType The recoveryInformationToStore
+    * @return BitLockerRecoveryInformationType|null The recoveryInformationToStore
     */
     public function getRecoveryInformationToStore()
     {
         if (array_key_exists("recoveryInformationToStore", $this->_propDict)) {
-            if (is_a($this->_propDict["recoveryInformationToStore"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryInformationType")) {
+            if (is_a($this->_propDict["recoveryInformationToStore"], "\Beta\Microsoft\Graph\Model\BitLockerRecoveryInformationType") || is_null($this->_propDict["recoveryInformationToStore"])) {
                 return $this->_propDict["recoveryInformationToStore"];
             } else {
                 $this->_propDict["recoveryInformationToStore"] = new BitLockerRecoveryInformationType($this->_propDict["recoveryInformationToStore"]);
@@ -173,12 +173,12 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the recoveryKeyUsage
     * Indicates whether users are allowed or required to generate a 256-bit recovery key for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
     *
-    * @return ConfigurationUsage The recoveryKeyUsage
+    * @return ConfigurationUsage|null The recoveryKeyUsage
     */
     public function getRecoveryKeyUsage()
     {
         if (array_key_exists("recoveryKeyUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["recoveryKeyUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage")) {
+            if (is_a($this->_propDict["recoveryKeyUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage") || is_null($this->_propDict["recoveryKeyUsage"])) {
                 return $this->_propDict["recoveryKeyUsage"];
             } else {
                 $this->_propDict["recoveryKeyUsage"] = new ConfigurationUsage($this->_propDict["recoveryKeyUsage"]);
@@ -206,12 +206,12 @@ class BitLockerRecoveryOptions extends Entity
     * Gets the recoveryPasswordUsage
     * Indicates whether users are allowed or required to generate a 48-digit recovery password for fixed or system disk. Possible values are: blocked, required, allowed, notConfigured.
     *
-    * @return ConfigurationUsage The recoveryPasswordUsage
+    * @return ConfigurationUsage|null The recoveryPasswordUsage
     */
     public function getRecoveryPasswordUsage()
     {
         if (array_key_exists("recoveryPasswordUsage", $this->_propDict)) {
-            if (is_a($this->_propDict["recoveryPasswordUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage")) {
+            if (is_a($this->_propDict["recoveryPasswordUsage"], "\Beta\Microsoft\Graph\Model\ConfigurationUsage") || is_null($this->_propDict["recoveryPasswordUsage"])) {
                 return $this->_propDict["recoveryPasswordUsage"];
             } else {
                 $this->_propDict["recoveryPasswordUsage"] = new ConfigurationUsage($this->_propDict["recoveryPasswordUsage"]);

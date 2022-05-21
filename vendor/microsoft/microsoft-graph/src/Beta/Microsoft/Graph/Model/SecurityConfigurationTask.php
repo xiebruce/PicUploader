@@ -28,12 +28,12 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
     * Gets the applicablePlatform
     * The applicable platform. Possible values are: unknown, macOS, windows10AndLater, windows10AndWindowsServer.
     *
-    * @return EndpointSecurityConfigurationApplicablePlatform The applicablePlatform
+    * @return EndpointSecurityConfigurationApplicablePlatform|null The applicablePlatform
     */
     public function getApplicablePlatform()
     {
         if (array_key_exists("applicablePlatform", $this->_propDict)) {
-            if (is_a($this->_propDict["applicablePlatform"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationApplicablePlatform")) {
+            if (is_a($this->_propDict["applicablePlatform"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationApplicablePlatform") || is_null($this->_propDict["applicablePlatform"])) {
                 return $this->_propDict["applicablePlatform"];
             } else {
                 $this->_propDict["applicablePlatform"] = new EndpointSecurityConfigurationApplicablePlatform($this->_propDict["applicablePlatform"]);
@@ -42,7 +42,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         }
         return null;
     }
-    
+
     /**
     * Sets the applicablePlatform
     * The applicable platform. Possible values are: unknown, macOS, windows10AndLater, windows10AndWindowsServer.
@@ -56,17 +56,17 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         $this->_propDict["applicablePlatform"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the endpointSecurityPolicy
     * The endpoint security policy type. Possible values are: unknown, antivirus, diskEncryption, firewall, endpointDetectionAndResponse, attackSurfaceReduction, accountProtection.
     *
-    * @return EndpointSecurityConfigurationType The endpointSecurityPolicy
+    * @return EndpointSecurityConfigurationType|null The endpointSecurityPolicy
     */
     public function getEndpointSecurityPolicy()
     {
         if (array_key_exists("endpointSecurityPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["endpointSecurityPolicy"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationType")) {
+            if (is_a($this->_propDict["endpointSecurityPolicy"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationType") || is_null($this->_propDict["endpointSecurityPolicy"])) {
                 return $this->_propDict["endpointSecurityPolicy"];
             } else {
                 $this->_propDict["endpointSecurityPolicy"] = new EndpointSecurityConfigurationType($this->_propDict["endpointSecurityPolicy"]);
@@ -75,7 +75,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         }
         return null;
     }
-    
+
     /**
     * Sets the endpointSecurityPolicy
     * The endpoint security policy type. Possible values are: unknown, antivirus, diskEncryption, firewall, endpointDetectionAndResponse, attackSurfaceReduction, accountProtection.
@@ -89,17 +89,17 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         $this->_propDict["endpointSecurityPolicy"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the endpointSecurityPolicyProfile
     * The endpoint security policy profile. Possible values are: unknown, antivirus, windowsSecurity, bitLocker, fileVault, firewall, firewallRules, endpointDetectionAndResponse, deviceControl, appAndBrowserIsolation, exploitProtection, webProtection, applicationControl, attackSurfaceReductionRules, accountProtection.
     *
-    * @return EndpointSecurityConfigurationProfileType The endpointSecurityPolicyProfile
+    * @return EndpointSecurityConfigurationProfileType|null The endpointSecurityPolicyProfile
     */
     public function getEndpointSecurityPolicyProfile()
     {
         if (array_key_exists("endpointSecurityPolicyProfile", $this->_propDict)) {
-            if (is_a($this->_propDict["endpointSecurityPolicyProfile"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationProfileType")) {
+            if (is_a($this->_propDict["endpointSecurityPolicyProfile"], "\Beta\Microsoft\Graph\Model\EndpointSecurityConfigurationProfileType") || is_null($this->_propDict["endpointSecurityPolicyProfile"])) {
                 return $this->_propDict["endpointSecurityPolicyProfile"];
             } else {
                 $this->_propDict["endpointSecurityPolicyProfile"] = new EndpointSecurityConfigurationProfileType($this->_propDict["endpointSecurityPolicyProfile"]);
@@ -108,7 +108,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         }
         return null;
     }
-    
+
     /**
     * Sets the endpointSecurityPolicyProfile
     * The endpoint security policy profile. Possible values are: unknown, antivirus, windowsSecurity, bitLocker, fileVault, firewall, firewallRules, endpointDetectionAndResponse, deviceControl, appAndBrowserIsolation, exploitProtection, webProtection, applicationControl, attackSurfaceReductionRules, accountProtection.
@@ -122,12 +122,12 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         $this->_propDict["endpointSecurityPolicyProfile"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the insights
     * Information about the mitigation.
     *
-    * @return string The insights
+    * @return string|null The insights
     */
     public function getInsights()
     {
@@ -137,7 +137,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
             return null;
         }
     }
-    
+
     /**
     * Sets the insights
     * Information about the mitigation.
@@ -151,13 +151,13 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         $this->_propDict["insights"] = $val;
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the intendedSettings
     * The intended settings and their values.
      *
-     * @return array The intendedSettings
+     * @return array|null The intendedSettings
      */
     public function getIntendedSettings()
     {
@@ -167,26 +167,26 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the intendedSettings
     * The intended settings and their values.
     *
-    * @param KeyValuePair $val The intendedSettings
+    * @param KeyValuePair[] $val The intendedSettings
     *
     * @return SecurityConfigurationTask
     */
     public function setIntendedSettings($val)
     {
-		$this->_propDict["intendedSettings"] = $val;
+        $this->_propDict["intendedSettings"] = $val;
         return $this;
     }
-    
+
     /**
     * Gets the managedDeviceCount
     * The number of vulnerable devices.
     *
-    * @return int The managedDeviceCount
+    * @return int|null The managedDeviceCount
     */
     public function getManagedDeviceCount()
     {
@@ -196,7 +196,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
             return null;
         }
     }
-    
+
     /**
     * Sets the managedDeviceCount
     * The number of vulnerable devices.
@@ -210,13 +210,13 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
         $this->_propDict["managedDeviceCount"] = intval($val);
         return $this;
     }
-    
 
-     /** 
+
+     /**
      * Gets the managedDevices
     * The vulnerable managed devices.
      *
-     * @return array The managedDevices
+     * @return array|null The managedDevices
      */
     public function getManagedDevices()
     {
@@ -226,19 +226,19 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
             return null;
         }
     }
-    
-    /** 
+
+    /**
     * Sets the managedDevices
     * The vulnerable managed devices.
     *
-    * @param VulnerableManagedDevice $val The managedDevices
+    * @param VulnerableManagedDevice[] $val The managedDevices
     *
     * @return SecurityConfigurationTask
     */
     public function setManagedDevices($val)
     {
-		$this->_propDict["managedDevices"] = $val;
+        $this->_propDict["managedDevices"] = $val;
         return $this;
     }
-    
+
 }

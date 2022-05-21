@@ -27,7 +27,7 @@ class Credential extends Entity
     * Gets the fieldId
     * The name of the field for this credential. e.g, username or password or phoneNumber. This is defined by the application. Must match what is in the html field on singleSignOnSettings/password object.
     *
-    * @return string The fieldId
+    * @return string|null The fieldId
     */
     public function getFieldId()
     {
@@ -55,7 +55,7 @@ class Credential extends Entity
     * Gets the type
     * The type for this credential. Valid values: username, password, or other.
     *
-    * @return string The type
+    * @return string|null The type
     */
     public function getType()
     {
@@ -83,7 +83,7 @@ class Credential extends Entity
     * Gets the value
     * The value for this credential. e.g, mysuperhiddenpassword. Note the value for passwords is write-only, the value can never be read back.
     *
-    * @return string The value
+    * @return string|null The value
     */
     public function getValue()
     {

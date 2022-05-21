@@ -25,15 +25,76 @@ class SignInActivity extends Entity
 {
 
     /**
-    * Gets the lastSignInDateTime
-    * The last interactive sign-in date for a specific user. You can use this field to calculate the last time a user signed in to the directory with an interactive authentication method. This field can be used to build reports, such as inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
+    * Gets the lastNonInteractiveSignInDateTime
+    * The last non-interactive sign-in date for a specific user. You can use this field to calculate the last time a client signed in to the directory on behalf of a user. Because some users may use clients to access tenant resources rather than signing into your tenant directly, you can use the non-interactive sign-in date to along with lastSignInDateTime to identify inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. Azure AD maintains non-interactive sign-ins going back to May 2020. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
     *
-    * @return \DateTime The lastSignInDateTime
+    * @return \DateTime|null The lastNonInteractiveSignInDateTime
+    */
+    public function getLastNonInteractiveSignInDateTime()
+    {
+        if (array_key_exists("lastNonInteractiveSignInDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastNonInteractiveSignInDateTime"], "\DateTime") || is_null($this->_propDict["lastNonInteractiveSignInDateTime"])) {
+                return $this->_propDict["lastNonInteractiveSignInDateTime"];
+            } else {
+                $this->_propDict["lastNonInteractiveSignInDateTime"] = new \DateTime($this->_propDict["lastNonInteractiveSignInDateTime"]);
+                return $this->_propDict["lastNonInteractiveSignInDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lastNonInteractiveSignInDateTime
+    * The last non-interactive sign-in date for a specific user. You can use this field to calculate the last time a client signed in to the directory on behalf of a user. Because some users may use clients to access tenant resources rather than signing into your tenant directly, you can use the non-interactive sign-in date to along with lastSignInDateTime to identify inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. Azure AD maintains non-interactive sign-ins going back to May 2020. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
+    *
+    * @param \DateTime $val The value to assign to the lastNonInteractiveSignInDateTime
+    *
+    * @return SignInActivity The SignInActivity
+    */
+    public function setLastNonInteractiveSignInDateTime($val)
+    {
+        $this->_propDict["lastNonInteractiveSignInDateTime"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the lastNonInteractiveSignInRequestId
+    * Request identifier of the last non-interactive sign-in performed by this user.
+    *
+    * @return string|null The lastNonInteractiveSignInRequestId
+    */
+    public function getLastNonInteractiveSignInRequestId()
+    {
+        if (array_key_exists("lastNonInteractiveSignInRequestId", $this->_propDict)) {
+            return $this->_propDict["lastNonInteractiveSignInRequestId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the lastNonInteractiveSignInRequestId
+    * Request identifier of the last non-interactive sign-in performed by this user.
+    *
+    * @param string $val The value of the lastNonInteractiveSignInRequestId
+    *
+    * @return SignInActivity
+    */
+    public function setLastNonInteractiveSignInRequestId($val)
+    {
+        $this->_propDict["lastNonInteractiveSignInRequestId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the lastSignInDateTime
+    * The last interactive sign-in date and time for a specific user. You can use this field to calculate the last time a user signed in to the directory with an interactive authentication method. This field can be used to build reports, such as inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. Azure AD maintains interactive sign-ins going back to April 2020. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
+    *
+    * @return \DateTime|null The lastSignInDateTime
     */
     public function getLastSignInDateTime()
     {
         if (array_key_exists("lastSignInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSignInDateTime"], "\DateTime")) {
+            if (is_a($this->_propDict["lastSignInDateTime"], "\DateTime") || is_null($this->_propDict["lastSignInDateTime"])) {
                 return $this->_propDict["lastSignInDateTime"];
             } else {
                 $this->_propDict["lastSignInDateTime"] = new \DateTime($this->_propDict["lastSignInDateTime"]);
@@ -45,7 +106,7 @@ class SignInActivity extends Entity
 
     /**
     * Sets the lastSignInDateTime
-    * The last interactive sign-in date for a specific user. You can use this field to calculate the last time a user signed in to the directory with an interactive authentication method. This field can be used to build reports, such as inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
+    * The last interactive sign-in date and time for a specific user. You can use this field to calculate the last time a user signed in to the directory with an interactive authentication method. This field can be used to build reports, such as inactive users. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is: '2014-01-01T00:00:00Z'. Azure AD maintains interactive sign-ins going back to April 2020. For more information about using the value of this property, see Manage inactive user accounts in Azure AD.
     *
     * @param \DateTime $val The value to assign to the lastSignInDateTime
     *
@@ -58,9 +119,9 @@ class SignInActivity extends Entity
     }
     /**
     * Gets the lastSignInRequestId
-    * Request ID of the last sign-in performed by this user.
+    * Request identifier of the last interactive sign-in performed by this user.
     *
-    * @return string The lastSignInRequestId
+    * @return string|null The lastSignInRequestId
     */
     public function getLastSignInRequestId()
     {
@@ -73,7 +134,7 @@ class SignInActivity extends Entity
 
     /**
     * Sets the lastSignInRequestId
-    * Request ID of the last sign-in performed by this user.
+    * Request identifier of the last interactive sign-in performed by this user.
     *
     * @param string $val The value of the lastSignInRequestId
     *
