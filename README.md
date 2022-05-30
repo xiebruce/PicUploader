@@ -1,6 +1,8 @@
 PicUploader
 ===============
 ![PicUploader-logo.png](https://img.xiebruce.top/2018/09/19/781e669d020efbde43dc952eb802293b.png)
+本工具使用[PhpStorm](https://jb.gg/OpenSourceSupport)编写
+[![PhpStorm logo](https://resources.jetbrains.com/storage/products/company/brand/logos/PhpStorm.png)](https://jb.gg/OpenSourceSupport)
 
 **PicUploader** 是一个用php编写的图床工具，它能帮助你快速上传你的图片到云图床，并自动返回Markdown格式链接到剪贴板。配置完成后，要获取一个可用于markdown的图片外链只需要：
 
