@@ -84,7 +84,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
     /**
     * Gets the isOrganizationDefault
-    * This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.
+    * This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
     *
     * @return bool|null The isOrganizationDefault
     */
@@ -99,7 +99,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
     /**
     * Sets the isOrganizationDefault
-    * This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.
+    * This can only be set to true for a single tenant-wide policy which will apply to all scopes and roles. Set the scopeId to / and scopeType to Directory. Supports $filter (eq, ne).
     *
     * @param bool $val The isOrganizationDefault
     *
@@ -179,7 +179,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
     /**
     * Gets the scopeId
-    * The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+    * The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
     *
     * @return string|null The scopeId
     */
@@ -194,7 +194,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
     /**
     * Sets the scopeId
-    * The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
+    * The identifier of the scope where the policy is created. Can be / for the tenant or a group ID. Required.
     *
     * @param string $val The scopeId
     *
@@ -238,7 +238,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
      /**
      * Gets the effectiveRules
-    * Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.
+    * The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
      *
      * @return array|null The effectiveRules
      */
@@ -253,7 +253,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
     /**
     * Sets the effectiveRules
-    * Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.
+    * The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. Supports $expand.
     *
     * @param UnifiedRoleManagementPolicyRule[] $val The effectiveRules
     *
@@ -268,7 +268,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
      /**
      * Gets the rules
-    * The collection of rules like approval rules and expiration rules.
+    * The collection of rules like approval rules and expiration rules. Supports $expand.
      *
      * @return array|null The rules
      */
@@ -283,7 +283,7 @@ class UnifiedRoleManagementPolicy extends Entity
 
     /**
     * Sets the rules
-    * The collection of rules like approval rules and expiration rules.
+    * The collection of rules like approval rules and expiration rules. Supports $expand.
     *
     * @param UnifiedRoleManagementPolicyRule[] $val The rules
     *

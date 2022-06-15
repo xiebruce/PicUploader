@@ -26,6 +26,7 @@ class EdiscoveryReviewTag extends Tag
 {
     /**
     * Gets the childSelectability
+    * Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
     *
     * @return ChildSelectability|null The childSelectability
     */
@@ -44,6 +45,7 @@ class EdiscoveryReviewTag extends Tag
 
     /**
     * Sets the childSelectability
+    * Indicates whether a single or multiple child tags can be associated with a document. Possible values are: One, Many.  This value controls whether the UX presents the tags as checkboxes or a radio button group.
     *
     * @param ChildSelectability $val The childSelectability
     *
@@ -58,6 +60,7 @@ class EdiscoveryReviewTag extends Tag
 
      /**
      * Gets the childTags
+    * Returns the tags that are a child of a tag.
      *
      * @return array|null The childTags
      */
@@ -72,6 +75,7 @@ class EdiscoveryReviewTag extends Tag
 
     /**
     * Sets the childTags
+    * Returns the tags that are a child of a tag.
     *
     * @param EdiscoveryReviewTag[] $val The childTags
     *
@@ -85,6 +89,7 @@ class EdiscoveryReviewTag extends Tag
 
     /**
     * Gets the parent
+    * Returns the parent tag of the specified tag.
     *
     * @return EdiscoveryReviewTag|null The parent
     */
@@ -103,6 +108,7 @@ class EdiscoveryReviewTag extends Tag
 
     /**
     * Sets the parent
+    * Returns the parent tag of the specified tag.
     *
     * @param EdiscoveryReviewTag $val The parent
     *

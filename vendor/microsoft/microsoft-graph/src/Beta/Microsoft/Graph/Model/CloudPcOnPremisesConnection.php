@@ -112,6 +112,33 @@ class CloudPcOnPremisesConnection extends Entity
     }
 
     /**
+    * Gets the alternateResourceUrl
+    *
+    * @return string|null The alternateResourceUrl
+    */
+    public function getAlternateResourceUrl()
+    {
+        if (array_key_exists("alternateResourceUrl", $this->_propDict)) {
+            return $this->_propDict["alternateResourceUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the alternateResourceUrl
+    *
+    * @param string $val The alternateResourceUrl
+    *
+    * @return CloudPcOnPremisesConnection
+    */
+    public function setAlternateResourceUrl($val)
+    {
+        $this->_propDict["alternateResourceUrl"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the displayName
     * The display name for the Azure network connection.
     *

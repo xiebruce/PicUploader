@@ -30,6 +30,7 @@ try {
                 'Object' => 'Animation.gif',
             ),
         ),
+        'CallBack' => '',
     ));
     // 请求成功
     print_r($result);
@@ -69,6 +70,7 @@ try {
                 'Object' => 'Animation.gif',
             ),
         ),
+        'CallBack' => '',
     ));
     // 请求成功
     print_r($result);

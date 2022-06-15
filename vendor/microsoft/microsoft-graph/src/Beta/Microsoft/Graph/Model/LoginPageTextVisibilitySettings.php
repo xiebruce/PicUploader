@@ -25,6 +25,7 @@ class LoginPageTextVisibilitySettings extends Entity
 {
     /**
     * Gets the hideAccountResetCredentials
+    * Option to hide the self-service password reset (SSPR) hyperlinks such as 'Can't access your account?', 'Forgot my password' and 'Reset it now' on the sign-in form.
     *
     * @return bool|null The hideAccountResetCredentials
     */
@@ -39,6 +40,7 @@ class LoginPageTextVisibilitySettings extends Entity
 
     /**
     * Sets the hideAccountResetCredentials
+    * Option to hide the self-service password reset (SSPR) hyperlinks such as 'Can't access your account?', 'Forgot my password' and 'Reset it now' on the sign-in form.
     *
     * @param bool $val The value of the hideAccountResetCredentials
     *

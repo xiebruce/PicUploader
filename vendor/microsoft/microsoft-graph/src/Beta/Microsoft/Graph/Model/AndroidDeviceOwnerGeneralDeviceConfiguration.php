@@ -3895,6 +3895,39 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     }
 
     /**
+    * Gets the workProfilePasswordRequireUnlock
+    * Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
+    *
+    * @return AndroidDeviceOwnerRequiredPasswordUnlock|null The workProfilePasswordRequireUnlock
+    */
+    public function getWorkProfilePasswordRequireUnlock()
+    {
+        if (array_key_exists("workProfilePasswordRequireUnlock", $this->_propDict)) {
+            if (is_a($this->_propDict["workProfilePasswordRequireUnlock"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerRequiredPasswordUnlock") || is_null($this->_propDict["workProfilePasswordRequireUnlock"])) {
+                return $this->_propDict["workProfilePasswordRequireUnlock"];
+            } else {
+                $this->_propDict["workProfilePasswordRequireUnlock"] = new AndroidDeviceOwnerRequiredPasswordUnlock($this->_propDict["workProfilePasswordRequireUnlock"]);
+                return $this->_propDict["workProfilePasswordRequireUnlock"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the workProfilePasswordRequireUnlock
+    * Indicates the timeout period after which a work profile must be unlocked using a form of strong authentication. Possible values are: deviceDefault, daily, unkownFutureValue.
+    *
+    * @param AndroidDeviceOwnerRequiredPasswordUnlock $val The workProfilePasswordRequireUnlock
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setWorkProfilePasswordRequireUnlock($val)
+    {
+        $this->_propDict["workProfilePasswordRequireUnlock"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the workProfilePasswordSignInFailureCountBeforeFactoryReset
     * Indicates the number of times a user can enter an incorrect work profile password before the device is wiped. Valid values 4 to 11
     *

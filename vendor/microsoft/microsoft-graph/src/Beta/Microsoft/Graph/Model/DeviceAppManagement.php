@@ -55,7 +55,7 @@ class DeviceAppManagement extends Entity
 
     /**
     * Gets the microsoftStoreForBusinessLanguage
-    * The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -&amp;lt;country/regioncode2&amp;gt;, where  is a lowercase two-letter code derived from ISO 639-1 and &amp;lt;country/regioncode2&amp;gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
+    * The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is &amp;lt;languagecode2&amp;gt;-&amp;lt;country/regioncode2&amp;gt;, where &amp;lt;languagecode2&amp;gt; is a lowercase two-letter code derived from ISO 639-1 and &amp;lt;country/regioncode2&amp;gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
     *
     * @return string|null The microsoftStoreForBusinessLanguage
     */
@@ -70,7 +70,7 @@ class DeviceAppManagement extends Entity
 
     /**
     * Sets the microsoftStoreForBusinessLanguage
-    * The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -&amp;lt;country/regioncode2&amp;gt;, where  is a lowercase two-letter code derived from ISO 639-1 and &amp;lt;country/regioncode2&amp;gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
+    * The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is &amp;lt;languagecode2&amp;gt;-&amp;lt;country/regioncode2&amp;gt;, where &amp;lt;languagecode2&amp;gt; is a lowercase two-letter code derived from ISO 639-1 and &amp;lt;country/regioncode2&amp;gt; is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
     *
     * @param string $val The microsoftStoreForBusinessLanguage
     *
@@ -874,6 +874,36 @@ class DeviceAppManagement extends Entity
     public function setWindowsInformationProtectionWipeActions($val)
     {
         $this->_propDict["windowsInformationProtectionWipeActions"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the windowsManagedAppProtections
+    * Windows managed app policies.
+     *
+     * @return array|null The windowsManagedAppProtections
+     */
+    public function getWindowsManagedAppProtections()
+    {
+        if (array_key_exists("windowsManagedAppProtections", $this->_propDict)) {
+           return $this->_propDict["windowsManagedAppProtections"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the windowsManagedAppProtections
+    * Windows managed app policies.
+    *
+    * @param WindowsManagedAppProtection[] $val The windowsManagedAppProtections
+    *
+    * @return DeviceAppManagement
+    */
+    public function setWindowsManagedAppProtections($val)
+    {
+        $this->_propDict["windowsManagedAppProtections"] = $val;
         return $this;
     }
 

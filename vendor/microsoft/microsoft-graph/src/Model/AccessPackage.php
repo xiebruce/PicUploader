@@ -180,7 +180,6 @@ class AccessPackage extends Entity
 
      /**
      * Gets the assignmentPolicies
-    * Read-only. Nullable.
      *
      * @return array|null The assignmentPolicies
      */
@@ -195,7 +194,6 @@ class AccessPackage extends Entity
 
     /**
     * Sets the assignmentPolicies
-    * Read-only. Nullable.
     *
     * @param AccessPackageAssignmentPolicy[] $val The assignmentPolicies
     *
@@ -209,7 +207,6 @@ class AccessPackage extends Entity
 
     /**
     * Gets the catalog
-    * Read-only. Nullable.
     *
     * @return AccessPackageCatalog|null The catalog
     */
@@ -228,7 +225,6 @@ class AccessPackage extends Entity
 
     /**
     * Sets the catalog
-    * Read-only. Nullable.
     *
     * @param AccessPackageCatalog $val The catalog
     *

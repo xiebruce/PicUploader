@@ -92,6 +92,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Gets the contentQuery
+    * KQL based content query that should be used for search. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @return string|null The contentQuery
     */
@@ -106,6 +107,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the contentQuery
+    * KQL based content query that should be used for search. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @param string $val The contentQuery
     *
@@ -309,6 +311,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Gets the externalId
+    * The external ID for the request that is immutable after creation and is used for tracking the request for the external system. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @return string|null The externalId
     */
@@ -323,6 +326,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the externalId
+    * The external ID for the request that is immutable after creation and is used for tracking the request for the external system. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @param string $val The externalId
     *
@@ -366,6 +370,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Gets the includeAllVersions
+    * Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions will include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @return bool|null The includeAllVersions
     */
@@ -380,6 +385,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the includeAllVersions
+    * Include all versions of the documents. By default, the current copies of the documents will be returned. If SharePoint sites have versioning enabled, including all versions will include the historical copies of the documents. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @param bool $val The includeAllVersions
     *
@@ -393,6 +399,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Gets the includeAuthoredContent
+    * Include content authored by the data subject. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @return bool|null The includeAuthoredContent
     */
@@ -407,6 +414,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the includeAuthoredContent
+    * Include content authored by the data subject. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @param bool $val The includeAuthoredContent
     *
@@ -583,6 +591,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Gets the pauseAfterEstimate
+    * Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @return bool|null The pauseAfterEstimate
     */
@@ -597,6 +606,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the pauseAfterEstimate
+    * Pause the request after estimate has finished. By default, the data estimate will run and then pause, allowing you to preview results and then select the option to retrieve data in the UI. You can set this property to false if you want it to perform the estimate and then automatically begin with the retrieval of the content. This property is defined only for APIs accessed using the /security query path and not the /privacy query path.
     *
     * @param bool $val The pauseAfterEstimate
     *
@@ -700,7 +710,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Gets the status
-    * The status of the request.. Possible values are: active, closed, unknownFutureValue.
+    * The status of the request. Possible values are: active, closed, unknownFutureValue.
     *
     * @return SubjectRightsRequestStatus|null The status
     */
@@ -719,7 +729,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the status
-    * The status of the request.. Possible values are: active, closed, unknownFutureValue.
+    * The status of the request. Possible values are: active, closed, unknownFutureValue.
     *
     * @param SubjectRightsRequestStatus $val The status
     *
@@ -767,7 +777,7 @@ class SubjectRightsRequest extends Entity
 
      /**
      * Gets the notes
-    * List of notes associcated with the request.
+    * List of notes associated with the request.
      *
      * @return array|null The notes
      */
@@ -782,7 +792,7 @@ class SubjectRightsRequest extends Entity
 
     /**
     * Sets the notes
-    * List of notes associcated with the request.
+    * List of notes associated with the request.
     *
     * @param AuthoredNote[] $val The notes
     *

@@ -83,6 +83,33 @@ class BookingStaffMember extends BookingPerson
     }
 
     /**
+    * Gets the isEmailNotificationEnabled
+    *
+    * @return bool|null The isEmailNotificationEnabled
+    */
+    public function getIsEmailNotificationEnabled()
+    {
+        if (array_key_exists("isEmailNotificationEnabled", $this->_propDict)) {
+            return $this->_propDict["isEmailNotificationEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isEmailNotificationEnabled
+    *
+    * @param bool $val The isEmailNotificationEnabled
+    *
+    * @return BookingStaffMember
+    */
+    public function setIsEmailNotificationEnabled($val)
+    {
+        $this->_propDict["isEmailNotificationEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the role
     * The role of the staff member in the business. Possible values are: guest, administrator, viewer, externalGuest and unknownFutureValue. Required.
     *

@@ -27,7 +27,6 @@ class AuditLogRoot extends Entity
 
      /**
      * Gets the directoryAudits
-    * Read-only. Nullable.
      *
      * @return array|null The directoryAudits
      */
@@ -42,7 +41,6 @@ class AuditLogRoot extends Entity
 
     /**
     * Sets the directoryAudits
-    * Read-only. Nullable.
     *
     * @param DirectoryAudit[] $val The directoryAudits
     *
@@ -141,7 +139,6 @@ class AuditLogRoot extends Entity
 
      /**
      * Gets the signIns
-    * Read-only. Nullable.
      *
      * @return array|null The signIns
      */
@@ -156,7 +153,6 @@ class AuditLogRoot extends Entity
 
     /**
     * Sets the signIns
-    * Read-only. Nullable.
     *
     * @param SignIn[] $val The signIns
     *

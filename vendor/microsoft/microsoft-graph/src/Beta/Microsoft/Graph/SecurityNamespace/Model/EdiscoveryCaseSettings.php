@@ -26,6 +26,7 @@ class EdiscoveryCaseSettings extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the ocr
+    * The OCR (Optical Character Recognition) settings for the case.
     *
     * @return OcrSettings|null The ocr
     */
@@ -44,6 +45,7 @@ class EdiscoveryCaseSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the ocr
+    * The OCR (Optical Character Recognition) settings for the case.
     *
     * @param OcrSettings $val The ocr
     *
@@ -57,6 +59,7 @@ class EdiscoveryCaseSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the redundancyDetection
+    * The redundancy (near duplicate and email threading) detection settings for the case.
     *
     * @return RedundancyDetectionSettings|null The redundancyDetection
     */
@@ -75,6 +78,7 @@ class EdiscoveryCaseSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the redundancyDetection
+    * The redundancy (near duplicate and email threading) detection settings for the case.
     *
     * @param RedundancyDetectionSettings $val The redundancyDetection
     *
@@ -88,6 +92,7 @@ class EdiscoveryCaseSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the topicModeling
+    * The Topic Modeling (Themes) settings for the case.
     *
     * @return TopicModelingSettings|null The topicModeling
     */
@@ -106,6 +111,7 @@ class EdiscoveryCaseSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the topicModeling
+    * The Topic Modeling (Themes) settings for the case.
     *
     * @param TopicModelingSettings $val The topicModeling
     *

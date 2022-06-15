@@ -36,6 +36,7 @@ class SubjectRightsRequestEnumeratedSiteLocation extends SubjectRightsRequestSit
 
     /**
     * Gets the urls
+    * Collection of site URLs that should be included. Includes the URL of each site, for example, https://www.contoso.com/site1.
     *
     * @return string|null The urls
     */
@@ -50,6 +51,7 @@ class SubjectRightsRequestEnumeratedSiteLocation extends SubjectRightsRequestSit
 
     /**
     * Sets the urls
+    * Collection of site URLs that should be included. Includes the URL of each site, for example, https://www.contoso.com/site1.
     *
     * @param string $val The value of the urls
     *

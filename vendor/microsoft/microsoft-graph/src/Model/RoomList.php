@@ -56,7 +56,6 @@ class RoomList extends Place
 
      /**
      * Gets the rooms
-    * Read-only. Nullable.
      *
      * @return array|null The rooms
      */
@@ -71,7 +70,6 @@ class RoomList extends Place
 
     /**
     * Sets the rooms
-    * Read-only. Nullable.
     *
     * @param Room[] $val The rooms
     *

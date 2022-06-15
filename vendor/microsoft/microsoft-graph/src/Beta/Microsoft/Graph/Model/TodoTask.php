@@ -92,6 +92,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the categories
+    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     *
     * @return string|null The categories
     */
@@ -106,6 +107,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the categories
+    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     *
     * @param string $val The categories
     *
@@ -213,6 +215,33 @@ class TodoTask extends Entity
     public function setDueDateTime($val)
     {
         $this->_propDict["dueDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the hasAttachments
+    *
+    * @return bool|null The hasAttachments
+    */
+    public function getHasAttachments()
+    {
+        if (array_key_exists("hasAttachments", $this->_propDict)) {
+            return $this->_propDict["hasAttachments"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the hasAttachments
+    *
+    * @param bool $val The hasAttachments
+    *
+    * @return TodoTask
+    */
+    public function setHasAttachments($val)
+    {
+        $this->_propDict["hasAttachments"] = boolval($val);
         return $this;
     }
 
@@ -441,7 +470,64 @@ class TodoTask extends Entity
 
 
      /**
+     * Gets the attachments
+     *
+     * @return array|null The attachments
+     */
+    public function getAttachments()
+    {
+        if (array_key_exists("attachments", $this->_propDict)) {
+           return $this->_propDict["attachments"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the attachments
+    *
+    * @param AttachmentBase[] $val The attachments
+    *
+    * @return TodoTask
+    */
+    public function setAttachments($val)
+    {
+        $this->_propDict["attachments"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the attachmentSessions
+     *
+     * @return array|null The attachmentSessions
+     */
+    public function getAttachmentSessions()
+    {
+        if (array_key_exists("attachmentSessions", $this->_propDict)) {
+           return $this->_propDict["attachmentSessions"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the attachmentSessions
+    *
+    * @param AttachmentSession[] $val The attachmentSessions
+    *
+    * @return TodoTask
+    */
+    public function setAttachmentSessions($val)
+    {
+        $this->_propDict["attachmentSessions"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the checklistItems
+    * A collection of smaller subtasks linked to the more complex parent task.
      *
      * @return array|null The checklistItems
      */
@@ -456,6 +542,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the checklistItems
+    * A collection of smaller subtasks linked to the more complex parent task.
     *
     * @param ChecklistItem[] $val The checklistItems
     *

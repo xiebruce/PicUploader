@@ -8,7 +8,7 @@ namespace Qiniu\Http;
 class Header implements \ArrayAccess, \IteratorAggregate, \Countable
 {
     /** @var array normalized key name map */
-    private $data;
+    private $data = array();
 
     /**
      * @param array $obj non-normalized header object

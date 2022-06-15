@@ -125,7 +125,7 @@ class DelegatedAdminRelationshipRequest extends Entity
 
     /**
     * Gets the status
-    * The status of the request. Read-only. The possible values are: created, pending, complete, failed, unknownFutureValue.
+    * The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
     *
     * @return DelegatedAdminRelationshipRequestStatus|null The status
     */
@@ -144,7 +144,7 @@ class DelegatedAdminRelationshipRequest extends Entity
 
     /**
     * Sets the status
-    * The status of the request. Read-only. The possible values are: created, pending, complete, failed, unknownFutureValue.
+    * The status of the request. Read-only. The possible values are: created, pending, succeeded, failed, unknownFutureValue.
     *
     * @param DelegatedAdminRelationshipRequestStatus $val The status
     *

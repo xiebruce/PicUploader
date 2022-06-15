@@ -25,6 +25,7 @@ class CloudPcReviewStatus extends Entity
 {
     /**
     * Gets the azureStorageAccountId
+    * The resource ID of the Azure Storage account in which the Cloud PC snapshot is being saved.
     *
     * @return string|null The azureStorageAccountId
     */
@@ -39,6 +40,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the azureStorageAccountId
+    * The resource ID of the Azure Storage account in which the Cloud PC snapshot is being saved.
     *
     * @param string $val The value of the azureStorageAccountId
     *
@@ -51,6 +53,7 @@ class CloudPcReviewStatus extends Entity
     }
     /**
     * Gets the azureStorageAccountName
+    * The name of the Azure Storage account in which the Cloud PC snapshot is being saved.
     *
     * @return string|null The azureStorageAccountName
     */
@@ -65,6 +68,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the azureStorageAccountName
+    * The name of the Azure Storage account in which the Cloud PC snapshot is being saved.
     *
     * @param string $val The value of the azureStorageAccountName
     *
@@ -77,6 +81,7 @@ class CloudPcReviewStatus extends Entity
     }
     /**
     * Gets the inReview
+    * True if the Cloud PC is set to in review by the administrator.
     *
     * @return bool|null The inReview
     */
@@ -91,6 +96,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the inReview
+    * True if the Cloud PC is set to in review by the administrator.
     *
     * @param bool $val The value of the inReview
     *
@@ -104,6 +110,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Gets the restorePointDateTime
+    * The specific date and time of the Cloud PC snapshot that was taken and saved automatically, when the Cloud PC is set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The restorePointDateTime
     */
@@ -122,6 +129,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the restorePointDateTime
+    * The specific date and time of the Cloud PC snapshot that was taken and saved automatically, when the Cloud PC is set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The value to assign to the restorePointDateTime
     *
@@ -135,6 +143,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Gets the reviewStartDateTime
+    * The specific date and time when the Cloud PC was set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The reviewStartDateTime
     */
@@ -153,6 +162,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the reviewStartDateTime
+    * The specific date and time when the Cloud PC was set to in review. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The value to assign to the reviewStartDateTime
     *
@@ -165,6 +175,7 @@ class CloudPcReviewStatus extends Entity
     }
     /**
     * Gets the subscriptionId
+    * The ID of the Azure subscription in which the Cloud PC snapshot is being saved, in GUID format.
     *
     * @return string|null The subscriptionId
     */
@@ -179,6 +190,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the subscriptionId
+    * The ID of the Azure subscription in which the Cloud PC snapshot is being saved, in GUID format.
     *
     * @param string $val The value of the subscriptionId
     *
@@ -191,6 +203,7 @@ class CloudPcReviewStatus extends Entity
     }
     /**
     * Gets the subscriptionName
+    * The name of the Azure subscription in which the Cloud PC snapshot is being saved.
     *
     * @return string|null The subscriptionName
     */
@@ -205,6 +218,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the subscriptionName
+    * The name of the Azure subscription in which the Cloud PC snapshot is being saved.
     *
     * @param string $val The value of the subscriptionName
     *
@@ -218,6 +232,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Gets the userAccessLevel
+    * The access level of the end user on the Cloud PC. Possible values are: unrestricted, restricted.
     *
     * @return CloudPcUserAccessLevel|null The userAccessLevel
     */
@@ -236,6 +251,7 @@ class CloudPcReviewStatus extends Entity
 
     /**
     * Sets the userAccessLevel
+    * The access level of the end user on the Cloud PC. Possible values are: unrestricted, restricted.
     *
     * @param CloudPcUserAccessLevel $val The value to assign to the userAccessLevel
     *

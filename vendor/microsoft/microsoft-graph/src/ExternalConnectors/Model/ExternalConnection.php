@@ -151,7 +151,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
      /**
      * Gets the groups
-    * Read-only. Nullable.
      *
      * @return array|null The groups
      */
@@ -166,7 +165,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the groups
-    * Read-only. Nullable.
     *
     * @param ExternalGroup[] $val The groups
     *
@@ -181,7 +179,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
      /**
      * Gets the items
-    * Read-only. Nullable.
      *
      * @return array|null The items
      */
@@ -196,7 +193,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the items
-    * Read-only. Nullable.
     *
     * @param ExternalItem[] $val The items
     *
@@ -211,7 +207,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
      /**
      * Gets the operations
-    * Read-only. Nullable.
      *
      * @return array|null The operations
      */
@@ -226,7 +221,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the operations
-    * Read-only. Nullable.
     *
     * @param ConnectionOperation[] $val The operations
     *
@@ -240,7 +234,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
     /**
     * Gets the schema
-    * Read-only. Nullable.
     *
     * @return Schema|null The schema
     */
@@ -259,7 +252,6 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the schema
-    * Read-only. Nullable.
     *
     * @param Schema $val The schema
     *

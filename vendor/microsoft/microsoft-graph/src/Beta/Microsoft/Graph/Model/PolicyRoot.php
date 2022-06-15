@@ -154,6 +154,37 @@ class PolicyRoot implements \JsonSerializable
         return $this;
     }
 
+    /**
+    * Gets the deviceRegistrationPolicy
+    *
+    * @return DeviceRegistrationPolicy|null The deviceRegistrationPolicy
+    */
+    public function getDeviceRegistrationPolicy()
+    {
+        if (array_key_exists("deviceRegistrationPolicy", $this->_propDict)) {
+            if (is_a($this->_propDict["deviceRegistrationPolicy"], "\Beta\Microsoft\Graph\Model\DeviceRegistrationPolicy") || is_null($this->_propDict["deviceRegistrationPolicy"])) {
+                return $this->_propDict["deviceRegistrationPolicy"];
+            } else {
+                $this->_propDict["deviceRegistrationPolicy"] = new DeviceRegistrationPolicy($this->_propDict["deviceRegistrationPolicy"]);
+                return $this->_propDict["deviceRegistrationPolicy"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the deviceRegistrationPolicy
+    *
+    * @param DeviceRegistrationPolicy $val The deviceRegistrationPolicy
+    *
+    * @return PolicyRoot
+    */
+    public function setDeviceRegistrationPolicy($val)
+    {
+        $this->_propDict["deviceRegistrationPolicy"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the activityBasedTimeoutPolicies
@@ -859,7 +890,7 @@ class PolicyRoot implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

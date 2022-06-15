@@ -26,6 +26,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 {
     /**
     * Gets the defaultLength
+    * Default length, in characters, of a temporaryAccessPass, between 8 and 48 characters.
     *
     * @return int|null The defaultLength
     */
@@ -40,6 +41,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the defaultLength
+    * Default length, in characters, of a temporaryAccessPass, between 8 and 48 characters.
     *
     * @param int $val The defaultLength
     *
@@ -53,6 +55,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the defaultLifetimeInMinutes
+    * Default lifetime, in minutes, for a temporaryAccessPass. Value can be between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
     *
     * @return int|null The defaultLifetimeInMinutes
     */
@@ -67,6 +70,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the defaultLifetimeInMinutes
+    * Default lifetime, in minutes, for a temporaryAccessPass. Value can be between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
     *
     * @param int $val The defaultLifetimeInMinutes
     *
@@ -80,6 +84,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the isUsableOnce
+    * If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or multiple time use.
     *
     * @return bool|null The isUsableOnce
     */
@@ -94,6 +99,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the isUsableOnce
+    * If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or multiple time use.
     *
     * @param bool $val The isUsableOnce
     *
@@ -107,6 +113,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the maximumLifetimeInMinutes
+    * Maximum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @return int|null The maximumLifetimeInMinutes
     */
@@ -121,6 +128,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the maximumLifetimeInMinutes
+    * Maximum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @param int $val The maximumLifetimeInMinutes
     *
@@ -134,6 +142,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the minimumLifetimeInMinutes
+    * Minimum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @return int|null The minimumLifetimeInMinutes
     */
@@ -148,6 +157,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the minimumLifetimeInMinutes
+    * Minimum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @param int $val The minimumLifetimeInMinutes
     *
@@ -162,6 +172,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
      /**
      * Gets the includeTargets
+    * A collection of users or groups who are enabled to use the authentication method.
      *
      * @return array|null The includeTargets
      */
@@ -176,6 +187,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the includeTargets
+    * A collection of users or groups who are enabled to use the authentication method.
     *
     * @param AuthenticationMethodTarget[] $val The includeTargets
     *

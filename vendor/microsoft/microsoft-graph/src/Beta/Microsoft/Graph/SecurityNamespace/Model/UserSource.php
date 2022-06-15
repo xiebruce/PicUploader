@@ -26,6 +26,7 @@ class UserSource extends DataSource
 {
     /**
     * Gets the email
+    * Email address of the user's mailbox.
     *
     * @return string|null The email
     */
@@ -40,6 +41,7 @@ class UserSource extends DataSource
 
     /**
     * Sets the email
+    * Email address of the user's mailbox.
     *
     * @param string $val The email
     *
@@ -53,6 +55,7 @@ class UserSource extends DataSource
 
     /**
     * Gets the includedSources
+    * Specifies which sources are included in this group. Possible values are: mailbox, site.
     *
     * @return SourceType|null The includedSources
     */
@@ -71,6 +74,7 @@ class UserSource extends DataSource
 
     /**
     * Sets the includedSources
+    * Specifies which sources are included in this group. Possible values are: mailbox, site.
     *
     * @param SourceType $val The includedSources
     *
@@ -84,6 +88,7 @@ class UserSource extends DataSource
 
     /**
     * Gets the siteWebUrl
+    * The URL of the user's OneDrive for Business site. Read-only.
     *
     * @return string|null The siteWebUrl
     */
@@ -98,6 +103,7 @@ class UserSource extends DataSource
 
     /**
     * Sets the siteWebUrl
+    * The URL of the user's OneDrive for Business site. Read-only.
     *
     * @param string $val The siteWebUrl
     *

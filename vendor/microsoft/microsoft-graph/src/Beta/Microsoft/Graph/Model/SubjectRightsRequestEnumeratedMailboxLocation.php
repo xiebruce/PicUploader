@@ -36,6 +36,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
 
     /**
     * Gets the upns
+    * Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
     *
     * @return string|null The upns
     */
@@ -50,6 +51,7 @@ class SubjectRightsRequestEnumeratedMailboxLocation extends SubjectRightsRequest
 
     /**
     * Sets the upns
+    * Collection of mailboxes that should be included in the search. Includes the UPN (user principal name) of each mailbox, for example, Monica.Thompson@contoso.com.
     *
     * @param string $val The value of the upns
     *

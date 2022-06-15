@@ -26,6 +26,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the action
+    * The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
     *
     * @return CaseAction|null The action
     */
@@ -44,6 +45,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the action
+    * The type of action the operation represents. Possible values are: addToReviewSet,applyTags,contentExport,convertToPdf,estimateStatistics, purgeData
     *
     * @param CaseAction $val The action
     *
@@ -57,6 +59,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the completedDateTime
+    * The date and time the operation was completed.
     *
     * @return \DateTime|null The completedDateTime
     */
@@ -75,6 +78,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the completedDateTime
+    * The date and time the operation was completed.
     *
     * @param \DateTime $val The completedDateTime
     *
@@ -88,6 +92,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the createdBy
+    * The user that created the operation.
     *
     * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The createdBy
     */
@@ -106,6 +111,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the createdBy
+    * The user that created the operation.
     *
     * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The createdBy
     *
@@ -119,6 +125,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the createdDateTime
+    * The date and time the operation was created.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -137,6 +144,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the createdDateTime
+    * The date and time the operation was created.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -150,6 +158,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the percentProgress
+    * The progress of the operation.
     *
     * @return int|null The percentProgress
     */
@@ -164,6 +173,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the percentProgress
+    * The progress of the operation.
     *
     * @param int $val The percentProgress
     *
@@ -177,6 +187,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the resultInfo
+    * Contains success and failure-specific result information.
     *
     * @return \Beta\Microsoft\Graph\Model\ResultInfo|null The resultInfo
     */
@@ -195,6 +206,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the resultInfo
+    * Contains success and failure-specific result information.
     *
     * @param \Beta\Microsoft\Graph\Model\ResultInfo $val The resultInfo
     *
@@ -208,6 +220,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the status
+    * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
     *
     * @return CaseOperationStatus|null The status
     */
@@ -226,6 +239,7 @@ class CaseOperation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the status
+    * The status of the case operation. Possible values are: notStarted, submissionFailed, running, succeeded, partiallySucceeded, failed.
     *
     * @param CaseOperationStatus $val The status
     *

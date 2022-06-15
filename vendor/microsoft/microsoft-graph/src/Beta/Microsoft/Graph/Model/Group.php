@@ -1144,6 +1144,37 @@ class Group extends DirectoryObject
     }
 
     /**
+    * Gets the writebackConfiguration
+    *
+    * @return GroupWritebackConfiguration|null The writebackConfiguration
+    */
+    public function getWritebackConfiguration()
+    {
+        if (array_key_exists("writebackConfiguration", $this->_propDict)) {
+            if (is_a($this->_propDict["writebackConfiguration"], "\Beta\Microsoft\Graph\Model\GroupWritebackConfiguration") || is_null($this->_propDict["writebackConfiguration"])) {
+                return $this->_propDict["writebackConfiguration"];
+            } else {
+                $this->_propDict["writebackConfiguration"] = new GroupWritebackConfiguration($this->_propDict["writebackConfiguration"]);
+                return $this->_propDict["writebackConfiguration"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the writebackConfiguration
+    *
+    * @param GroupWritebackConfiguration $val The writebackConfiguration
+    *
+    * @return Group
+    */
+    public function setWritebackConfiguration($val)
+    {
+        $this->_propDict["writebackConfiguration"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the accessType
     *
     * @return GroupAccessType|null The accessType
@@ -2225,7 +2256,6 @@ class Group extends DirectoryObject
 
     /**
     * Gets the onenote
-    * Read-only.
     *
     * @return Onenote|null The onenote
     */
@@ -2244,7 +2274,6 @@ class Group extends DirectoryObject
 
     /**
     * Sets the onenote
-    * Read-only.
     *
     * @param Onenote $val The onenote
     *

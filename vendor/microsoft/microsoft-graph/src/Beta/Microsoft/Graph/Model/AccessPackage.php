@@ -325,7 +325,6 @@ class AccessPackage extends Entity
 
     /**
     * Gets the accessPackageCatalog
-    * Read-only. Nullable.
     *
     * @return AccessPackageCatalog|null The accessPackageCatalog
     */
@@ -344,7 +343,6 @@ class AccessPackage extends Entity
 
     /**
     * Sets the accessPackageCatalog
-    * Read-only. Nullable.
     *
     * @param AccessPackageCatalog $val The accessPackageCatalog
     *
@@ -359,7 +357,6 @@ class AccessPackage extends Entity
 
      /**
      * Gets the accessPackageResourceRoleScopes
-    * Nullable.
      *
      * @return array|null The accessPackageResourceRoleScopes
      */
@@ -374,7 +371,6 @@ class AccessPackage extends Entity
 
     /**
     * Sets the accessPackageResourceRoleScopes
-    * Nullable.
     *
     * @param AccessPackageResourceRoleScope[] $val The accessPackageResourceRoleScopes
     *

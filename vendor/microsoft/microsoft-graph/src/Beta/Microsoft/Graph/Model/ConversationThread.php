@@ -265,7 +265,6 @@ class ConversationThread extends Entity
 
      /**
      * Gets the posts
-    * Read-only. Nullable.
      *
      * @return array|null The posts
      */
@@ -280,7 +279,6 @@ class ConversationThread extends Entity
 
     /**
     * Sets the posts
-    * Read-only. Nullable.
     *
     * @param Post[] $val The posts
     *

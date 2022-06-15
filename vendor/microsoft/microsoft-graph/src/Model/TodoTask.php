@@ -92,6 +92,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the categories
+    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     *
     * @return string|null The categories
     */
@@ -106,6 +107,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the categories
+    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     *
     * @param string $val The categories
     *
@@ -442,6 +444,7 @@ class TodoTask extends Entity
 
      /**
      * Gets the checklistItems
+    * A collection of smaller subtasks linked to the more complex parent task.
      *
      * @return array|null The checklistItems
      */
@@ -456,6 +459,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the checklistItems
+    * A collection of smaller subtasks linked to the more complex parent task.
     *
     * @param ChecklistItem[] $val The checklistItems
     *

@@ -287,6 +287,15 @@ class CommandToRequestTransformer {
                 'CreateMediaVideoProcessJobs' => 1,
                 'CreateMediaVideoMontageJobs' => 1,
                 'CreateMediaAnimationJobs' => 1,
+                'CreateMediaPicProcessJobs' => 1,
+                'CreateMediaSegmentJobs' => 1,
+                'CreateMediaVideoTagJobs' => 1,
+                'CreateMediaSuperResolutionJobs' => 1,
+                'CreateMediaSDRtoHDRJobs' => 1,
+                'CreateMediaDigitalWatermarkJobs' => 1,
+                'CreateMediaExtractDigitalWatermarkJobs' => 1,
+                'DetectLiveVideo' => 1,
+                'CancelLiveVideoAuditing' => 1,
             );
             if (key_exists($action, $ciActions)) {
                 $bucketname = $command['Bucket'];

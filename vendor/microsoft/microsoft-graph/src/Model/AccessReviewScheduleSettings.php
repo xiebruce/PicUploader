@@ -85,6 +85,34 @@ class AccessReviewScheduleSettings extends Entity
         return $this;
     }
     /**
+    * Gets the decisionHistoriesForReviewersEnabled
+    * Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+    *
+    * @return bool|null The decisionHistoriesForReviewersEnabled
+    */
+    public function getDecisionHistoriesForReviewersEnabled()
+    {
+        if (array_key_exists("decisionHistoriesForReviewersEnabled", $this->_propDict)) {
+            return $this->_propDict["decisionHistoriesForReviewersEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the decisionHistoriesForReviewersEnabled
+    * Indicates whether decisions on previous access review stages are available for reviewers on an accessReviewInstance with multiple subsequent stages. If not provided, the default is disabled (false).
+    *
+    * @param bool $val The value of the decisionHistoriesForReviewersEnabled
+    *
+    * @return AccessReviewScheduleSettings
+    */
+    public function setDecisionHistoriesForReviewersEnabled($val)
+    {
+        $this->_propDict["decisionHistoriesForReviewersEnabled"] = $val;
+        return $this;
+    }
+    /**
     * Gets the defaultDecision
     * Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
     *

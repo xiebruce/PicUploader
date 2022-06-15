@@ -117,6 +117,7 @@ class CredentialUserRegistrationsSummary extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Gets the mfaExcludedUserCount
+    * The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
     *
     * @return int|null The mfaExcludedUserCount
     */
@@ -131,6 +132,7 @@ class CredentialUserRegistrationsSummary extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Sets the mfaExcludedUserCount
+    * The number of users in the multi-factor authentication exclusion security group (Microsoft 365 Lighthouse - MFA exclusions). Optional. Read-only.
     *
     * @param int $val The mfaExcludedUserCount
     *

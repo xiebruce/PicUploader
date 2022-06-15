@@ -25,6 +25,7 @@ class RoleDefinition extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the description
+    * The description for the role.
     *
     * @return string|null The description
     */
@@ -39,6 +40,7 @@ class RoleDefinition extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
+    * The description for the role.
     *
     * @param string $val The value of the description
     *
@@ -51,6 +53,7 @@ class RoleDefinition extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the displayName
+    * The display name for the role assignment.
     *
     * @return string|null The displayName
     */
@@ -65,6 +68,7 @@ class RoleDefinition extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name for the role assignment.
     *
     * @param string $val The value of the displayName
     *
@@ -77,6 +81,7 @@ class RoleDefinition extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the templateId
+    * The unique identifier for the template.
     *
     * @return string|null The templateId
     */
@@ -91,6 +96,7 @@ class RoleDefinition extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the templateId
+    * The unique identifier for the template.
     *
     * @param string $val The value of the templateId
     *

@@ -115,7 +115,7 @@ class Privacy implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

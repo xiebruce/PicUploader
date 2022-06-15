@@ -145,6 +145,21 @@ class HeaderTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($hasException);
     }
 
+    public function testEmptyHeaderIterator()
+    {
+        $emptyHeader = new Header();
+
+        $hasException = false;
+        try {
+            foreach ($emptyHeader as $k => $v) {
+                $hasException = !isset($header[$k]);
+            }
+        } catch (\Exception $e) {
+            $hasException = true;
+        }
+        $this->assertFalse($hasException);
+    }
+
     public function testCount()
     {
         $header = new Header($this->heads);

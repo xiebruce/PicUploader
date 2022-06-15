@@ -27,6 +27,7 @@ class EdiscoveryReviewSet extends DataSet
 
      /**
      * Gets the files
+    * Represents files within the review set.
      *
      * @return array|null The files
      */
@@ -41,6 +42,7 @@ class EdiscoveryReviewSet extends DataSet
 
     /**
     * Sets the files
+    * Represents files within the review set.
     *
     * @param EdiscoveryFile[] $val The files
     *
@@ -55,6 +57,7 @@ class EdiscoveryReviewSet extends DataSet
 
      /**
      * Gets the queries
+    * Represents queries within the review set.
      *
      * @return array|null The queries
      */
@@ -69,6 +72,7 @@ class EdiscoveryReviewSet extends DataSet
 
     /**
     * Sets the queries
+    * Represents queries within the review set.
     *
     * @param EdiscoveryReviewSetQuery[] $val The queries
     *

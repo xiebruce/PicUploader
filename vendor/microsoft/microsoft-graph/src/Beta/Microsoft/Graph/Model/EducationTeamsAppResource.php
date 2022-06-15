@@ -36,6 +36,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Gets the appIconWebUrl
+    * URL that points to the app's icon.
     *
     * @return string|null The appIconWebUrl
     */
@@ -50,6 +51,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Sets the appIconWebUrl
+    * URL that points to the app's icon.
     *
     * @param string $val The value of the appIconWebUrl
     *
@@ -62,6 +64,7 @@ class EducationTeamsAppResource extends EducationResource
     }
     /**
     * Gets the appId
+    * Teams App ID of the application.
     *
     * @return string|null The appId
     */
@@ -76,6 +79,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Sets the appId
+    * Teams App ID of the application.
     *
     * @param string $val The value of the appId
     *
@@ -88,6 +92,7 @@ class EducationTeamsAppResource extends EducationResource
     }
     /**
     * Gets the teamsEmbeddedContentUrl
+    * URL for the app resource that will be opened by Teams.
     *
     * @return string|null The teamsEmbeddedContentUrl
     */
@@ -102,6 +107,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Sets the teamsEmbeddedContentUrl
+    * URL for the app resource that will be opened by Teams.
     *
     * @param string $val The value of the teamsEmbeddedContentUrl
     *
@@ -114,6 +120,7 @@ class EducationTeamsAppResource extends EducationResource
     }
     /**
     * Gets the webUrl
+    * URL for the app resource that can be opened in the browser.
     *
     * @return string|null The webUrl
     */
@@ -128,6 +135,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Sets the webUrl
+    * URL for the app resource that can be opened in the browser.
     *
     * @param string $val The value of the webUrl
     *

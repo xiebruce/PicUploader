@@ -25,7 +25,7 @@ class TicketInfo extends Entity
 {
     /**
     * Gets the ticketNumber
-    * Ticket number meta data
+    * The ticket number.
     *
     * @return string|null The ticketNumber
     */
@@ -40,7 +40,7 @@ class TicketInfo extends Entity
 
     /**
     * Sets the ticketNumber
-    * Ticket number meta data
+    * The ticket number.
     *
     * @param string $val The value of the ticketNumber
     *
@@ -53,7 +53,7 @@ class TicketInfo extends Entity
     }
     /**
     * Gets the ticketSystem
-    * Ticket system meta data
+    * The description of the ticket system.
     *
     * @return string|null The ticketSystem
     */
@@ -68,7 +68,7 @@ class TicketInfo extends Entity
 
     /**
     * Sets the ticketSystem
-    * Ticket system meta data
+    * The description of the ticket system.
     *
     * @param string $val The value of the ticketSystem
     *

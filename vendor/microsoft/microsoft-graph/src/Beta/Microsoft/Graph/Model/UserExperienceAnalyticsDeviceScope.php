@@ -179,7 +179,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity
 
     /**
     * Gets the operator
-    * Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
+    * Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals. Possible values are: none, equals, unknownFutureValue.
     *
     * @return DeviceScopeOperator|null The operator
     */
@@ -198,7 +198,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity
 
     /**
     * Sets the operator
-    * Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals.
+    * Device scope configuration query operator. Possible values are: equals, notEquals, contains, notContains, greaterThan, lessThan. Default value: equals. Possible values are: none, equals, unknownFutureValue.
     *
     * @param DeviceScopeOperator $val The operator
     *
@@ -241,7 +241,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity
 
     /**
     * Gets the parameter
-    * Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
+    * Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag. Possible values are: none, scopeTag, unknownFutureValue.
     *
     * @return DeviceScopeParameter|null The parameter
     */
@@ -260,7 +260,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity
 
     /**
     * Sets the parameter
-    * Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag.
+    * Device scope configuration parameter. It will be extended in future to add more parameter. Eg: device scope parameter can be OS version, Disk Type, Device manufacturer, device model or Scope tag. Default value: scopeTag. Possible values are: none, scopeTag, unknownFutureValue.
     *
     * @param DeviceScopeParameter $val The parameter
     *
@@ -274,7 +274,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity
 
     /**
     * Gets the status
-    * Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
+    * Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none. Possible values are: none, computing, insufficientData, completed, unknownFutureValue.
     *
     * @return DeviceScopeStatus|null The status
     */
@@ -293,7 +293,7 @@ class UserExperienceAnalyticsDeviceScope extends Entity
 
     /**
     * Sets the status
-    * Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none.
+    * Indicates the device scope status after the device scope has been enabled. Possible values are: none, computing, insufficientData or completed. Default value is none. Possible values are: none, computing, insufficientData, completed, unknownFutureValue.
     *
     * @param DeviceScopeStatus $val The status
     *

@@ -142,7 +142,6 @@ class AccessPackageResourceRole extends Entity
 
     /**
     * Gets the accessPackageResource
-    * Read-only. Nullable.
     *
     * @return AccessPackageResource|null The accessPackageResource
     */
@@ -161,7 +160,6 @@ class AccessPackageResourceRole extends Entity
 
     /**
     * Sets the accessPackageResource
-    * Read-only. Nullable.
     *
     * @param AccessPackageResource $val The accessPackageResource
     *

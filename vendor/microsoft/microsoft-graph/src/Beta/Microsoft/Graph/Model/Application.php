@@ -728,6 +728,35 @@ class Application extends DirectoryObject
     }
 
     /**
+    * Gets the samlMetadataUrl
+    * The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+    *
+    * @return string|null The samlMetadataUrl
+    */
+    public function getSamlMetadataUrl()
+    {
+        if (array_key_exists("samlMetadataUrl", $this->_propDict)) {
+            return $this->_propDict["samlMetadataUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the samlMetadataUrl
+    * The URL where the service exposes SAML metadata for federation. This property is valid only for single-tenant applications. Nullable.
+    *
+    * @param string $val The samlMetadataUrl
+    *
+    * @return Application
+    */
+    public function setSamlMetadataUrl($val)
+    {
+        $this->_propDict["samlMetadataUrl"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the serviceManagementReference
     * References application or service contact information from a Service or Asset Management database. Nullable.
     *
@@ -1069,7 +1098,6 @@ class Application extends DirectoryObject
 
     /**
     * Gets the createdOnBehalfOf
-    * Read-only.
     *
     * @return DirectoryObject|null The createdOnBehalfOf
     */
@@ -1088,7 +1116,6 @@ class Application extends DirectoryObject
 
     /**
     * Sets the createdOnBehalfOf
-    * Read-only.
     *
     * @param DirectoryObject $val The createdOnBehalfOf
     *

@@ -1,5 +1,7 @@
 # Changelog
 
+## 7.6.0 (2022-06-08)
+* 对象存储，管理类 API 发送请求时增加 [X-Qiniu-Date](https://developer.qiniu.com/kodo/3924/common-request-headers) （生成请求的时间） header
 ## 7.5.0 (2022-04-18)
 * 对象存储，新增支持 [深度归档存储类型](https://developer.qiniu.com/kodo/3956/kodo-category#deep_archive)
 

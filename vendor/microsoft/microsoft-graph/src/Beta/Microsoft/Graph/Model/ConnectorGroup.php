@@ -151,7 +151,6 @@ class ConnectorGroup extends Entity
 
      /**
      * Gets the applications
-    * Read-only. Nullable.
      *
      * @return array|null The applications
      */
@@ -166,7 +165,6 @@ class ConnectorGroup extends Entity
 
     /**
     * Sets the applications
-    * Read-only. Nullable.
     *
     * @param Application[] $val The applications
     *
@@ -181,7 +179,6 @@ class ConnectorGroup extends Entity
 
      /**
      * Gets the members
-    * Read-only. Nullable.
      *
      * @return array|null The members
      */
@@ -196,7 +193,6 @@ class ConnectorGroup extends Entity
 
     /**
     * Sets the members
-    * Read-only. Nullable.
     *
     * @param Connector[] $val The members
     *

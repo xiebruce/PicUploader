@@ -3485,6 +3485,19 @@ class Service {
                                     'type' => 'string',
                                     'location' => 'xml',
                                 ),
+                                'UserInfo' => array(
+                                    'location' => 'xml',
+                                    'type' => 'object',
+                                    'properties' => array(
+                                        'TokenId' => array( 'type' => 'string', 'location' => 'xml', ),
+                                        'Nickname' => array( 'type' => 'string', 'location' => 'xml', ),
+                                        'DeviceId' => array( 'type' => 'string', 'location' => 'xml', ),
+                                        'AppId' => array( 'type' => 'string', 'location' => 'xml', ),
+                                        'Room' => array( 'type' => 'string', 'location' => 'xml', ),
+                                        'IP' => array( 'type' => 'string', 'location' => 'xml', ),
+                                        'Type' => array( 'type' => 'string', 'location' => 'xml', ),
+                                    ),
+                                ),
                             ),
                         ),
                         'Conf' => array(
@@ -3696,6 +3709,15 @@ class Service {
                 'CreateMediaVideoProcessJobs' => Descriptions::CreateMediaVideoProcessJobs(), // 提交视频增强任务
                 'CreateMediaVideoMontageJobs' => Descriptions::CreateMediaVideoMontageJobs(), // 提交精彩集锦任务
                 'CreateMediaAnimationJobs' => Descriptions::CreateMediaAnimationJobs(), // 提交动图任务
+                'CreateMediaPicProcessJobs' => Descriptions::CreateMediaPicProcessJobs(), // 提交图片处理任务
+                'CreateMediaSegmentJobs' => Descriptions::CreateMediaSegmentJobs(), // 提交转封装任务
+                'CreateMediaVideoTagJobs' => Descriptions::CreateMediaVideoTagJobs(), // 提交视频标签任务
+                'CreateMediaSuperResolutionJobs' => Descriptions::CreateMediaSuperResolutionJobs(), // 提交超分辨率任务
+                'CreateMediaSDRtoHDRJobs' => Descriptions::CreateMediaSDRtoHDRJobs(), // 提交 SDR to HDR 任务
+                'CreateMediaDigitalWatermarkJobs' => Descriptions::CreateMediaDigitalWatermarkJobs(), // 嵌入数字水印任务(添加水印)
+                'CreateMediaExtractDigitalWatermarkJobs' => Descriptions::CreateMediaExtractDigitalWatermarkJobs(), // 提取数字水印任务(提取水印)
+                'DetectLiveVideo' => Descriptions::DetectLiveVideo(), // 直播流审核
+                'CancelLiveVideoAuditing' => Descriptions::CancelLiveVideoAuditing(), // 取消直播流审核
             ),
             'models' => array(
                 'AbortMultipartUploadOutput' => array(
@@ -6630,6 +6652,19 @@ class Service {
                                         ),
                                     ),
                                 ),
+                                'UserInfo' => array(
+                                    'type' => 'object',
+                                    'location' => 'xml',
+                                    'properties' => array(
+                                        'TokenId' => array( 'type' => 'string', 'location' => 'xml',),
+                                        'Nickname' => array( 'type' => 'string', 'location' => 'xml',),
+                                        'DeviceId' => array( 'type' => 'string', 'location' => 'xml',),
+                                        'AppId' => array( 'type' => 'string', 'location' => 'xml',),
+                                        'Room' => array( 'type' => 'string', 'location' => 'xml',),
+                                        'IP' => array( 'type' => 'string', 'location' => 'xml',),
+                                        'Type' => array( 'type' => 'string', 'location' => 'xml',),
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -7082,6 +7117,15 @@ class Service {
                 'CreateMediaVideoProcessJobsOutput' => Descriptions::CreateMediaVideoProcessJobsOutput(),
                 'CreateMediaVideoMontageJobsOutput' => Descriptions::CreateMediaVideoMontageJobsOutput(),
                 'CreateMediaAnimationJobsOutput' => Descriptions::CreateMediaAnimationJobsOutput(),
+                'CreateMediaPicProcessJobsOutput' => Descriptions::CreateMediaPicProcessJobsOutput(),
+                'CreateMediaSegmentJobsOutput' => Descriptions::CreateMediaSegmentJobsOutput(),
+                'CreateMediaVideoTagJobsOutput' => Descriptions::CreateMediaVideoTagJobsOutput(),
+                'CreateMediaSuperResolutionJobsOutput' => Descriptions::CreateMediaSuperResolutionJobsOutput(),
+                'CreateMediaSDRtoHDRJobsOutput' => Descriptions::CreateMediaSDRtoHDRJobsOutput(),
+                'CreateMediaDigitalWatermarkJobsOutput' => Descriptions::CreateMediaDigitalWatermarkJobsOutput(),
+                'CreateMediaExtractDigitalWatermarkJobsOutput' => Descriptions::CreateMediaExtractDigitalWatermarkJobsOutput(),
+                'DetectLiveVideoOutput' => Descriptions::DetectLiveVideoOutput(),
+                'CancelLiveVideoAuditingOutput' => Descriptions::CancelLiveVideoAuditingOutput(),
             )
         );
     }

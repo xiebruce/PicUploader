@@ -85,7 +85,6 @@ class WorkbookComment extends Entity
 
      /**
      * Gets the replies
-    * Read-only. Nullable.
      *
      * @return array|null The replies
      */
@@ -100,7 +99,6 @@ class WorkbookComment extends Entity
 
     /**
     * Sets the replies
-    * Read-only. Nullable.
     *
     * @param WorkbookCommentReply[] $val The replies
     *

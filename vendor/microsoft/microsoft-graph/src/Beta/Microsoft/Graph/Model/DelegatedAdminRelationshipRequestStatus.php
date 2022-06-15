@@ -31,7 +31,7 @@ class DelegatedAdminRelationshipRequestStatus extends Enum
     */
     const CREATED = "created";
     const PENDING = "pending";
-    const COMPLETE = "complete";
+    const SUCCEEDED = "succeeded";
     const FAILED = "failed";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

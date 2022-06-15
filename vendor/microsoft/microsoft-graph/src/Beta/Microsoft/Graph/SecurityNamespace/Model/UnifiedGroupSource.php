@@ -26,6 +26,7 @@ class UnifiedGroupSource extends DataSource
 {
     /**
     * Gets the includedSources
+    * Specifies which sources are included in this group. Possible values are: mailbox, site.
     *
     * @return SourceType|null The includedSources
     */
@@ -44,6 +45,7 @@ class UnifiedGroupSource extends DataSource
 
     /**
     * Sets the includedSources
+    * Specifies which sources are included in this group. Possible values are: mailbox, site.
     *
     * @param SourceType $val The includedSources
     *
@@ -57,6 +59,7 @@ class UnifiedGroupSource extends DataSource
 
     /**
     * Gets the group
+    * Represent a group.
     *
     * @return \Beta\Microsoft\Graph\Model\Group|null The group
     */
@@ -75,6 +78,7 @@ class UnifiedGroupSource extends DataSource
 
     /**
     * Sets the group
+    * Represent a group.
     *
     * @param \Beta\Microsoft\Graph\Model\Group $val The group
     *

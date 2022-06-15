@@ -202,7 +202,6 @@ class AccessPackageResourceRequest extends Entity
 
     /**
     * Gets the requestStatus
-    * Read-only.
     *
     * @return string|null The requestStatus
     */
@@ -217,7 +216,6 @@ class AccessPackageResourceRequest extends Entity
 
     /**
     * Sets the requestStatus
-    * Read-only.
     *
     * @param string $val The requestStatus
     *
@@ -260,7 +258,6 @@ class AccessPackageResourceRequest extends Entity
 
     /**
     * Gets the accessPackageResource
-    * Nullable.
     *
     * @return AccessPackageResource|null The accessPackageResource
     */
@@ -279,7 +276,6 @@ class AccessPackageResourceRequest extends Entity
 
     /**
     * Sets the accessPackageResource
-    * Nullable.
     *
     * @param AccessPackageResource $val The accessPackageResource
     *

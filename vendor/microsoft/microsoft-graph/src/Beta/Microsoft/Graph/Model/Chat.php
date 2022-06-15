@@ -461,6 +461,36 @@ class Chat extends Entity
 
 
      /**
+     * Gets the pinnedMessages
+    * A collection of all the pinned messages in the chat. Nullable.
+     *
+     * @return array|null The pinnedMessages
+     */
+    public function getPinnedMessages()
+    {
+        if (array_key_exists("pinnedMessages", $this->_propDict)) {
+           return $this->_propDict["pinnedMessages"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the pinnedMessages
+    * A collection of all the pinned messages in the chat. Nullable.
+    *
+    * @param PinnedChatMessageInfo[] $val The pinnedMessages
+    *
+    * @return Chat
+    */
+    public function setPinnedMessages($val)
+    {
+        $this->_propDict["pinnedMessages"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the tabs
     * A collection of all the tabs in the chat. Nullable.
      *

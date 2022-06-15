@@ -25,6 +25,60 @@ namespace Beta\Microsoft\Graph\Model;
 class CloudPcProvisioningPolicy extends Entity
 {
     /**
+    * Gets the alternateResourceUrl
+    *
+    * @return string|null The alternateResourceUrl
+    */
+    public function getAlternateResourceUrl()
+    {
+        if (array_key_exists("alternateResourceUrl", $this->_propDict)) {
+            return $this->_propDict["alternateResourceUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the alternateResourceUrl
+    *
+    * @param string $val The alternateResourceUrl
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setAlternateResourceUrl($val)
+    {
+        $this->_propDict["alternateResourceUrl"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the cloudPcGroupDisplayName
+    *
+    * @return string|null The cloudPcGroupDisplayName
+    */
+    public function getCloudPcGroupDisplayName()
+    {
+        if (array_key_exists("cloudPcGroupDisplayName", $this->_propDict)) {
+            return $this->_propDict["cloudPcGroupDisplayName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the cloudPcGroupDisplayName
+    *
+    * @param string $val The cloudPcGroupDisplayName
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setCloudPcGroupDisplayName($val)
+    {
+        $this->_propDict["cloudPcGroupDisplayName"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the description
     * The provisioning policy description.
     *
@@ -116,6 +170,33 @@ class CloudPcProvisioningPolicy extends Entity
     }
 
     /**
+    * Gets the gracePeriodInHours
+    *
+    * @return int|null The gracePeriodInHours
+    */
+    public function getGracePeriodInHours()
+    {
+        if (array_key_exists("gracePeriodInHours", $this->_propDict)) {
+            return $this->_propDict["gracePeriodInHours"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the gracePeriodInHours
+    *
+    * @param int $val The gracePeriodInHours
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setGracePeriodInHours($val)
+    {
+        $this->_propDict["gracePeriodInHours"] = intval($val);
+        return $this;
+    }
+
+    /**
     * Gets the imageDisplayName
     * The display name for the OS image you’re provisioning.
     *
@@ -203,6 +284,64 @@ class CloudPcProvisioningPolicy extends Entity
     public function setImageType($val)
     {
         $this->_propDict["imageType"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the localAdminEnabled
+    *
+    * @return bool|null The localAdminEnabled
+    */
+    public function getLocalAdminEnabled()
+    {
+        if (array_key_exists("localAdminEnabled", $this->_propDict)) {
+            return $this->_propDict["localAdminEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the localAdminEnabled
+    *
+    * @param bool $val The localAdminEnabled
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setLocalAdminEnabled($val)
+    {
+        $this->_propDict["localAdminEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the managedBy
+    *
+    * @return CloudPcManagementService|null The managedBy
+    */
+    public function getManagedBy()
+    {
+        if (array_key_exists("managedBy", $this->_propDict)) {
+            if (is_a($this->_propDict["managedBy"], "\Beta\Microsoft\Graph\Model\CloudPcManagementService") || is_null($this->_propDict["managedBy"])) {
+                return $this->_propDict["managedBy"];
+            } else {
+                $this->_propDict["managedBy"] = new CloudPcManagementService($this->_propDict["managedBy"]);
+                return $this->_propDict["managedBy"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managedBy
+    *
+    * @param CloudPcManagementService $val The managedBy
+    *
+    * @return CloudPcProvisioningPolicy
+    */
+    public function setManagedBy($val)
+    {
+        $this->_propDict["managedBy"] = $val;
         return $this;
     }
 

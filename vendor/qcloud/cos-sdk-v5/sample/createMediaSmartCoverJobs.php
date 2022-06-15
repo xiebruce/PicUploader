@@ -28,6 +28,7 @@ try {
                 'Object' => 'SmartCover-${Number}.jpg',
             ),
         ),
+        'CallBack' => '',
     ));
     // 请求成功
     print_r($result);

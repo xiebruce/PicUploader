@@ -27,7 +27,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the accessPackageAssignmentApprovals
-    * Approval stages for assignment requests.
+    * Approval stages for decisions associated with access package assignment requests.
      *
      * @return array|null The accessPackageAssignmentApprovals
      */
@@ -42,7 +42,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the accessPackageAssignmentApprovals
-    * Approval stages for assignment requests.
+    * Approval stages for decisions associated with access package assignment requests.
     *
     * @param Approval[] $val The accessPackageAssignmentApprovals
     *
@@ -87,7 +87,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the assignmentPolicies
-    * Access package assignment policies.
+    * Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
      *
      * @return array|null The assignmentPolicies
      */
@@ -102,7 +102,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the assignmentPolicies
-    * Access package assignment policies.
+    * Access package assignment policies govern which subjects can request or be assigned an access package via an access package assignment.
     *
     * @param AccessPackageAssignmentPolicy[] $val The assignmentPolicies
     *
@@ -117,7 +117,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the assignmentRequests
-    * Represents access package assignment requests created by or on behalf of a user.
+    * Access package assignment requests created by or on behalf of a subject.
      *
      * @return array|null The assignmentRequests
      */
@@ -132,7 +132,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the assignmentRequests
-    * Represents access package assignment requests created by or on behalf of a user.
+    * Access package assignment requests created by or on behalf of a subject.
     *
     * @param AccessPackageAssignmentRequest[] $val The assignmentRequests
     *
@@ -147,7 +147,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the assignments
-    * Represents the grant of an access package to a subject (user or group).
+    * The assignment of an access package to a subject for a period of time.
      *
      * @return array|null The assignments
      */
@@ -162,7 +162,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the assignments
-    * Represents the grant of an access package to a subject (user or group).
+    * The assignment of an access package to a subject for a period of time.
     *
     * @param AccessPackageAssignment[] $val The assignments
     *
@@ -177,7 +177,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the catalogs
-    * Represents a collection of access packages.
+    * A container for access packages.
      *
      * @return array|null The catalogs
      */
@@ -192,7 +192,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the catalogs
-    * Represents a collection of access packages.
+    * A container for access packages.
     *
     * @param AccessPackageCatalog[] $val The catalogs
     *

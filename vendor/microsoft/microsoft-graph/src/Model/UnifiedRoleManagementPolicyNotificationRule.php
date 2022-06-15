@@ -26,7 +26,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 {
     /**
     * Gets the isDefaultRecipientsEnabled
-    * Whether default recipient is receiving the email or not.
+    * Indicates whether a default recipient will receive the notification email.
     *
     * @return bool|null The isDefaultRecipientsEnabled
     */
@@ -41,7 +41,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Sets the isDefaultRecipientsEnabled
-    * Whether default recipient is receiving the email or not.
+    * Indicates whether a default recipient will receive the notification email.
     *
     * @param bool $val The isDefaultRecipientsEnabled
     *
@@ -55,7 +55,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Gets the notificationLevel
-    * The level of notification. One of None, Critical, All.
+    * The level of notification. The possible values are None, Critical, All.
     *
     * @return string|null The notificationLevel
     */
@@ -70,7 +70,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Sets the notificationLevel
-    * The level of notification. One of None, Critical, All.
+    * The level of notification. The possible values are None, Critical, All.
     *
     * @param string $val The notificationLevel
     *
@@ -84,7 +84,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Gets the notificationRecipients
-    * The list of notification recepients like email.
+    * The list of recipients of the email notifications.
     *
     * @return string|null The notificationRecipients
     */
@@ -99,7 +99,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Sets the notificationRecipients
-    * The list of notification recepients like email.
+    * The list of recipients of the email notifications.
     *
     * @param string $val The notificationRecipients
     *
@@ -113,7 +113,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Gets the notificationType
-    * The type of notification. One of Email.
+    * The type of notification. Only Email is supported.
     *
     * @return string|null The notificationType
     */
@@ -128,7 +128,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Sets the notificationType
-    * The type of notification. One of Email.
+    * The type of notification. Only Email is supported.
     *
     * @param string $val The notificationType
     *
@@ -142,7 +142,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Gets the recipientType
-    * The type of recipient. One of Requestor, Approver, Admin.
+    * The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
     *
     * @return string|null The recipientType
     */
@@ -157,7 +157,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
 
     /**
     * Sets the recipientType
-    * The type of recipient. One of Requestor, Approver, Admin.
+    * The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
     *
     * @param string $val The recipientType
     *

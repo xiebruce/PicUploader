@@ -129,10 +129,19 @@ use GuzzleHttp\Psr7;
  * @method object CreateMediaVideoProcessJobs(array $args) 提交视频增强任务
  * @method object CreateMediaVideoMontageJobs(array $args) 提交精彩集锦任务
  * @method object CreateMediaAnimationJobs(array $args) 提交动图任务
+ * @method object CreateMediaPicProcessJobs(array $args) 提交图片处理任务
+ * @method object CreateMediaSegmentJobs(array $args) 提交转封装任务
+ * @method object CreateMediaVideoTagJobs(array $args) 提交视频标签任务
+ * @method object CreateMediaSuperResolutionJobs(array $args) 提交超分辨率任务
+ * @method object CreateMediaSDRtoHDRJobs(array $args) 提交 SDR to HDR 任务
+ * @method object CreateMediaDigitalWatermarkJobs(array $args) 嵌入数字水印任务(添加水印)
+ * @method object CreateMediaExtractDigitalWatermarkJobs(array $args) 提取数字水印任务(提取水印)
+ * @method object DetectLiveVideo(array $args) 直播流审核
+ * @method object CancelLiveVideoAuditing(array $args) 取消直播流审核
  * @see \Qcloud\Cos\Service::getService()
  */
 class Client extends GuzzleClient {
-    const VERSION = '2.5.5';
+    const VERSION = '2.5.6';
 
     public $httpClient;
     
@@ -207,7 +216,8 @@ class Client extends GuzzleClient {
         if (empty($this->cosConfig['region'])   &&
             empty($this->cosConfig['domain'])   &&
             empty($this->cosConfig['endpoint']) &&
-            empty($this->cosConfig['ip'])) {
+            empty($this->cosConfig['ip'])       &&
+            !$this->cosConfig['allow_accelerate']) {
             $message = 'Region is empty';
         }
         //检查Secret

@@ -207,5 +207,39 @@ namespace Qiniu\Tests {
             $this->assertNull($err);
             $this->assertEquals("ak:PUFPWsEUIpk_dzUvvxTTmwhp3p4=", $sign);
         }
+
+        public function testDisableQiniuTimestampSignatureDefault()
+        {
+            $auth = new Auth("ak", "sk");
+            $authedHeaders = $auth->authorizationV2("https://example.com", "GET");
+            $this->assertArrayHasKey("X-Qiniu-Date", $authedHeaders);
+        }
+
+        public function testDisableQiniuTimestampSignature()
+        {
+            $auth = new Auth("ak", "sk", array(
+                "disableQiniuTimestampSignature" => true
+            ));
+            $authedHeaders = $auth->authorizationV2("https://example.com", "GET");
+            $this->assertArrayNotHasKey("X-Qiniu-Date", $authedHeaders);
+        }
+        public function testDisableQiniuTimestampSignatureEnv()
+        {
+            putenv("DISABLE_QINIU_TIMESTAMP_SIGNATURE=true");
+            $auth = new Auth("ak", "sk");
+            $authedHeaders = $auth->authorizationV2("https://example.com", "GET");
+            $this->assertArrayNotHasKey("X-Qiniu-Date", $authedHeaders);
+            putenv('DISABLE_QINIU_TIMESTAMP_SIGNATURE');
+        }
+        public function testDisableQiniuTimestampSignatureEnvBeIgnored()
+        {
+            putenv("DISABLE_QINIU_TIMESTAMP_SIGNATURE=true");
+            $auth = new Auth("ak", "sk", array(
+                "disableQiniuTimestampSignature" => false
+            ));
+            $authedHeaders = $auth->authorizationV2("https://example.com", "GET");
+            $this->assertArrayHasKey("X-Qiniu-Date", $authedHeaders);
+            putenv('DISABLE_QINIU_TIMESTAMP_SIGNATURE');
+        }
     }
 }

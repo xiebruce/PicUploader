@@ -204,6 +204,33 @@ class BookingBusiness extends BookingNamedEntity
     }
 
     /**
+    * Gets the languageTag
+    *
+    * @return string|null The languageTag
+    */
+    public function getLanguageTag()
+    {
+        if (array_key_exists("languageTag", $this->_propDict)) {
+            return $this->_propDict["languageTag"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the languageTag
+    *
+    * @param string $val The languageTag
+    *
+    * @return BookingBusiness
+    */
+    public function setLanguageTag($val)
+    {
+        $this->_propDict["languageTag"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the phone
     * The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.
     *

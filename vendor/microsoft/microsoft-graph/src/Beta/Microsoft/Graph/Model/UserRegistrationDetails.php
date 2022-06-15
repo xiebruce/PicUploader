@@ -25,6 +25,39 @@ namespace Beta\Microsoft\Graph\Model;
 class UserRegistrationDetails extends Entity
 {
     /**
+    * Gets the defaultMfaMethod
+    * The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
+    *
+    * @return DefaultMfaMethodType|null The defaultMfaMethod
+    */
+    public function getDefaultMfaMethod()
+    {
+        if (array_key_exists("defaultMfaMethod", $this->_propDict)) {
+            if (is_a($this->_propDict["defaultMfaMethod"], "\Beta\Microsoft\Graph\Model\DefaultMfaMethodType") || is_null($this->_propDict["defaultMfaMethod"])) {
+                return $this->_propDict["defaultMfaMethod"];
+            } else {
+                $this->_propDict["defaultMfaMethod"] = new DefaultMfaMethodType($this->_propDict["defaultMfaMethod"]);
+                return $this->_propDict["defaultMfaMethod"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the defaultMfaMethod
+    * The method the user or admin selected as default for performing multi-factor authentication for the user. The possible values are: none, mobilePhone, alternateMobilePhone, officePhone, microsoftAuthenticatorPush, softwareOneTimePasscode, unknownFutureValue.
+    *
+    * @param DefaultMfaMethodType $val The defaultMfaMethod
+    *
+    * @return UserRegistrationDetails
+    */
+    public function setDefaultMfaMethod($val)
+    {
+        $this->_propDict["defaultMfaMethod"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the isMfaCapable
     * Whether the user has registered a strong authentication method for multi-factor authentication. The method must be allowed by the authentication methods policy. Supports $filter (eq).
     *

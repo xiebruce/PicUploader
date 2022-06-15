@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* DelegatedAdminRelationshipOperationStatus File
+* AccessReviewStageFilterByCurrentUserOptions File
 * PHP version 7
 *
 * @category  Library
@@ -11,12 +11,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace Microsoft\Graph\Model;
 
 use Microsoft\Graph\Core\Enum;
 
 /**
-* DelegatedAdminRelationshipOperationStatus class
+* AccessReviewStageFilterByCurrentUserOptions class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -24,14 +24,11 @@ use Microsoft\Graph\Core\Enum;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class DelegatedAdminRelationshipOperationStatus extends Enum
+class AccessReviewStageFilterByCurrentUserOptions extends Enum
 {
     /**
-    * The Enum DelegatedAdminRelationshipOperationStatus
+    * The Enum AccessReviewStageFilterByCurrentUserOptions
     */
-    const NOT_STARTED = "notStarted";
-    const RUNNING = "running";
-    const COMPLETE = "complete";
-    const FAILED = "failed";
+    const REVIEWER = "reviewer";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

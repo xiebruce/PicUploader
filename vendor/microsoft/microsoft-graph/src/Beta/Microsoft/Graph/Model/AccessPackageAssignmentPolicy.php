@@ -117,7 +117,6 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the createdBy
-    * Read-only.
     *
     * @return string|null The createdBy
     */
@@ -132,7 +131,6 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the createdBy
-    * Read-only.
     *
     * @param string $val The createdBy
     *
@@ -299,7 +297,6 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the modifiedBy
-    * Read-only.
     *
     * @return string|null The modifiedBy
     */
@@ -314,7 +311,6 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the modifiedBy
-    * Read-only.
     *
     * @param string $val The modifiedBy
     *

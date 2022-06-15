@@ -57,7 +57,6 @@ class RoleManagement implements \JsonSerializable
 
     /**
     * Gets the directory
-    * Read-only. Nullable.
     *
     * @return RbacApplication|null The directory
     */
@@ -76,7 +75,6 @@ class RoleManagement implements \JsonSerializable
 
     /**
     * Sets the directory
-    * Read-only. Nullable.
     *
     * @param RbacApplication $val The directory
     *
@@ -217,7 +215,7 @@ class RoleManagement implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

@@ -58,6 +58,7 @@ class MyRole implements \JsonSerializable
 
      /**
      * Gets the assignments
+    * A collection of role assignments for the managed tenant.
      *
      * @return array|null The assignments
      */
@@ -72,6 +73,7 @@ class MyRole implements \JsonSerializable
 
     /**
     * Sets the assignments
+    * A collection of role assignments for the managed tenant.
     *
     * @param RoleAssignment[] $val The assignments
     *
@@ -85,6 +87,7 @@ class MyRole implements \JsonSerializable
 
     /**
     * Gets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
     *
     * @return string|null The tenantId
     */
@@ -99,6 +102,7 @@ class MyRole implements \JsonSerializable
 
     /**
     * Sets the tenantId
+    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
     *
     * @param string $val The tenantId
     *
@@ -142,7 +146,7 @@ class MyRole implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

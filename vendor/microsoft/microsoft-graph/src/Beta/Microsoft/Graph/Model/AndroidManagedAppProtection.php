@@ -726,6 +726,35 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     }
 
     /**
+    * Gets the fingerprintAndBiometricEnabled
+    * If null, this setting will be ignored. If false both fingerprints and biometrics will not be enabled. If true, both fingerprints and biometrics will be enabled.
+    *
+    * @return bool|null The fingerprintAndBiometricEnabled
+    */
+    public function getFingerprintAndBiometricEnabled()
+    {
+        if (array_key_exists("fingerprintAndBiometricEnabled", $this->_propDict)) {
+            return $this->_propDict["fingerprintAndBiometricEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the fingerprintAndBiometricEnabled
+    * If null, this setting will be ignored. If false both fingerprints and biometrics will not be enabled. If true, both fingerprints and biometrics will be enabled.
+    *
+    * @param bool $val The fingerprintAndBiometricEnabled
+    *
+    * @return AndroidManagedAppProtection
+    */
+    public function setFingerprintAndBiometricEnabled($val)
+    {
+        $this->_propDict["fingerprintAndBiometricEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the keyboardsRestricted
     * Indicates if keyboard restriction is enabled. If enabled list of approved keyboards must be provided as well.
     *
@@ -929,6 +958,35 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     }
 
     /**
+    * Gets the requireClass3Biometrics
+    * Require user to apply Class 3 Biometrics on their Android device.
+    *
+    * @return bool|null The requireClass3Biometrics
+    */
+    public function getRequireClass3Biometrics()
+    {
+        if (array_key_exists("requireClass3Biometrics", $this->_propDict)) {
+            return $this->_propDict["requireClass3Biometrics"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the requireClass3Biometrics
+    * Require user to apply Class 3 Biometrics on their Android device.
+    *
+    * @param bool $val The requireClass3Biometrics
+    *
+    * @return AndroidManagedAppProtection
+    */
+    public function setRequireClass3Biometrics($val)
+    {
+        $this->_propDict["requireClass3Biometrics"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the requiredAndroidSafetyNetAppsVerificationType
     * Defines the Android SafetyNet Apps Verification requirement for a managed app to work. Possible values are: none, enabled.
     *
@@ -1024,6 +1082,35 @@ class AndroidManagedAppProtection extends TargetedManagedAppProtection
     public function setRequiredAndroidSafetyNetEvaluationType($val)
     {
         $this->_propDict["requiredAndroidSafetyNetEvaluationType"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the requirePinAfterBiometricChange
+    * A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.
+    *
+    * @return bool|null The requirePinAfterBiometricChange
+    */
+    public function getRequirePinAfterBiometricChange()
+    {
+        if (array_key_exists("requirePinAfterBiometricChange", $this->_propDict)) {
+            return $this->_propDict["requirePinAfterBiometricChange"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the requirePinAfterBiometricChange
+    * A PIN prompt will override biometric prompts if class 3 biometrics are updated on the device.
+    *
+    * @param bool $val The requirePinAfterBiometricChange
+    *
+    * @return AndroidManagedAppProtection
+    */
+    public function setRequirePinAfterBiometricChange($val)
+    {
+        $this->_propDict["requirePinAfterBiometricChange"] = boolval($val);
         return $this;
     }
 

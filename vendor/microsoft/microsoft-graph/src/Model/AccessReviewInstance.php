@@ -272,4 +272,34 @@ class AccessReviewInstance extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the stages
+    * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
+     *
+     * @return array|null The stages
+     */
+    public function getStages()
+    {
+        if (array_key_exists("stages", $this->_propDict)) {
+           return $this->_propDict["stages"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the stages
+    * If the instance has multiple stages, this returns the collection of stages. A new stage will only be created when the previous stage ends. The existence, number, and settings of stages on a review instance are created based on the accessReviewStageSettings on the parent accessReviewScheduleDefinition.
+    *
+    * @param AccessReviewStage[] $val The stages
+    *
+    * @return AccessReviewInstance
+    */
+    public function setStages($val)
+    {
+        $this->_propDict["stages"] = $val;
+        return $this;
+    }
+
 }

@@ -57,7 +57,6 @@ class Entity implements \JsonSerializable
 
     /**
     * Gets the id
-    * Read-only.
     *
     * @return string|null The id
     */
@@ -72,7 +71,6 @@ class Entity implements \JsonSerializable
 
     /**
     * Sets the id
-    * Read-only.
     *
     * @param string $val The id
     *
@@ -116,7 +114,7 @@ class Entity implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

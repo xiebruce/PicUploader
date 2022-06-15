@@ -59,7 +59,6 @@ class PrintJob extends Entity
 
     /**
     * Gets the createdBy
-    * Read-only. Nullable.
     *
     * @return UserIdentity|null The createdBy
     */
@@ -78,7 +77,6 @@ class PrintJob extends Entity
 
     /**
     * Sets the createdBy
-    * Read-only. Nullable.
     *
     * @param UserIdentity $val The createdBy
     *
@@ -246,7 +244,6 @@ class PrintJob extends Entity
 
      /**
      * Gets the documents
-    * Read-only.
      *
      * @return array|null The documents
      */
@@ -261,7 +258,6 @@ class PrintJob extends Entity
 
     /**
     * Sets the documents
-    * Read-only.
     *
     * @param PrintDocument[] $val The documents
     *

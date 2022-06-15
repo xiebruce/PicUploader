@@ -198,4 +198,33 @@ class UserExperienceAnalyticsBatteryHealthModelPerformance extends Entity
         return $this;
     }
 
+    /**
+    * Gets the modelBatteryHealthScore
+    * A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
+    *
+    * @return int|null The modelBatteryHealthScore
+    */
+    public function getModelBatteryHealthScore()
+    {
+        if (array_key_exists("modelBatteryHealthScore", $this->_propDict)) {
+            return $this->_propDict["modelBatteryHealthScore"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the modelBatteryHealthScore
+    * A weighted average of a model’s maximum capacity score and runtime estimate score. Values range from 0-100. Valid values -2147483648 to 2147483647
+    *
+    * @param int $val The modelBatteryHealthScore
+    *
+    * @return UserExperienceAnalyticsBatteryHealthModelPerformance
+    */
+    public function setModelBatteryHealthScore($val)
+    {
+        $this->_propDict["modelBatteryHealthScore"] = intval($val);
+        return $this;
+    }
+
 }

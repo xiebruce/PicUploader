@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* DelegatedAdminRelationshipParticipant File
+* TeamsAppSettings File
 * PHP version 7
 *
 * @category  Library
@@ -12,8 +12,9 @@
 * @link      https://graph.microsoft.com
 */
 namespace Beta\Microsoft\Graph\Model;
+
 /**
-* DelegatedAdminRelationshipParticipant class
+* TeamsAppSettings class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -21,32 +22,33 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class DelegatedAdminRelationshipParticipant extends Entity
+class TeamsAppSettings extends Entity
 {
     /**
-    * Gets the tenantId
+    * Gets the isChatResourceSpecificConsentEnabled
     *
-    * @return string|null The tenantId
+    * @return bool|null The isChatResourceSpecificConsentEnabled
     */
-    public function getTenantId()
+    public function getIsChatResourceSpecificConsentEnabled()
     {
-        if (array_key_exists("tenantId", $this->_propDict)) {
-            return $this->_propDict["tenantId"];
+        if (array_key_exists("isChatResourceSpecificConsentEnabled", $this->_propDict)) {
+            return $this->_propDict["isChatResourceSpecificConsentEnabled"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the tenantId
+    * Sets the isChatResourceSpecificConsentEnabled
     *
-    * @param string $val The value of the tenantId
+    * @param bool $val The isChatResourceSpecificConsentEnabled
     *
-    * @return DelegatedAdminRelationshipParticipant
+    * @return TeamsAppSettings
     */
-    public function setTenantId($val)
+    public function setIsChatResourceSpecificConsentEnabled($val)
     {
-        $this->_propDict["tenantId"] = $val;
+        $this->_propDict["isChatResourceSpecificConsentEnabled"] = boolval($val);
         return $this;
     }
+
 }

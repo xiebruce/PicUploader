@@ -26,7 +26,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 {
     /**
     * Gets the assignmentType
-    * Type of the assignment. It can either be Assigned or Activated.
+    * Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
     *
     * @return string|null The assignmentType
     */
@@ -41,7 +41,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the assignmentType
-    * Type of the assignment. It can either be Assigned or Activated.
+    * Type of the assignment which can either be Assigned or Activated. Supports $filter (eq, ne).
     *
     * @param string $val The assignmentType
     *
@@ -55,7 +55,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the endDateTime
-    * Time that the roleAssignmentInstance will expire
+    * The end date of the schedule instance.
     *
     * @return \DateTime|null The endDateTime
     */
@@ -74,7 +74,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the endDateTime
-    * Time that the roleAssignmentInstance will expire
+    * The end date of the schedule instance.
     *
     * @param \DateTime $val The endDateTime
     *
@@ -88,7 +88,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the memberType
-    * Membership type of the assignment. It can either be Inherited, Direct, or Group.
+    * How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
     *
     * @return string|null The memberType
     */
@@ -103,7 +103,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the memberType
-    * Membership type of the assignment. It can either be Inherited, Direct, or Group.
+    * How the assignments is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleAssignmentSchedule can be managed by the caller. Supports $filter (eq, ne).
     *
     * @param string $val The memberType
     *
@@ -117,7 +117,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the roleAssignmentOriginId
-    * ID of the roleAssignment in the directory
+    * The identifier of the role assignment in Azure AD.
     *
     * @return string|null The roleAssignmentOriginId
     */
@@ -132,7 +132,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the roleAssignmentOriginId
-    * ID of the roleAssignment in the directory
+    * The identifier of the role assignment in Azure AD.
     *
     * @param string $val The roleAssignmentOriginId
     *
@@ -146,7 +146,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the roleAssignmentScheduleId
-    * ID of the parent roleAssignmentSchedule for this instance
+    * The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
     *
     * @return string|null The roleAssignmentScheduleId
     */
@@ -161,7 +161,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the roleAssignmentScheduleId
-    * ID of the parent roleAssignmentSchedule for this instance
+    * The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
     *
     * @param string $val The roleAssignmentScheduleId
     *
@@ -175,7 +175,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the startDateTime
-    * Time that the roleAssignmentInstance will start
+    * When this instance starts.
     *
     * @return \DateTime|null The startDateTime
     */
@@ -194,7 +194,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the startDateTime
-    * Time that the roleAssignmentInstance will start
+    * When this instance starts.
     *
     * @param \DateTime $val The startDateTime
     *
@@ -208,7 +208,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the activatedUsing
-    * If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.
+    * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
     *
     * @return UnifiedRoleEligibilityScheduleInstance|null The activatedUsing
     */
@@ -227,7 +227,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the activatedUsing
-    * If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.
+    * If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. Otherwise, it is null. Supports $expand.
     *
     * @param UnifiedRoleEligibilityScheduleInstance $val The activatedUsing
     *

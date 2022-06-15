@@ -22,10 +22,11 @@ namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class SiteSource extends \Beta\Microsoft\Graph\Ediscovery\Model\DataSource
+class SiteSource extends DataSource
 {
     /**
     * Gets the site
+    * The SharePoint site associated with the siteSource.
     *
     * @return \Beta\Microsoft\Graph\Model\Site|null The site
     */
@@ -44,6 +45,7 @@ class SiteSource extends \Beta\Microsoft\Graph\Ediscovery\Model\DataSource
 
     /**
     * Sets the site
+    * The SharePoint site associated with the siteSource.
     *
     * @param \Beta\Microsoft\Graph\Model\Site $val The site
     *

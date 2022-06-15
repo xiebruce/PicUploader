@@ -26,6 +26,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 {
     /**
     * Gets the contentQuery
+    * KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
     *
     * @return string|null The contentQuery
     */
@@ -40,6 +41,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Sets the contentQuery
+    * KQL query that specifies content to be held in the specified locations. To learn more, see Keyword queries and search conditions for Content Search and eDiscovery.  To hold all content in the specified locations, leave contentQuery blank.
     *
     * @param string $val The contentQuery
     *
@@ -53,6 +55,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Gets the errors
+    * Lists any errors that happened while placing the hold.
     *
     * @return string|null The errors
     */
@@ -67,6 +70,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Sets the errors
+    * Lists any errors that happened while placing the hold.
     *
     * @param string $val The errors
     *
@@ -80,6 +84,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Gets the isEnabled
+    * Indicates whether the hold is enabled and actively holding content.
     *
     * @return bool|null The isEnabled
     */
@@ -94,6 +99,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Sets the isEnabled
+    * Indicates whether the hold is enabled and actively holding content.
     *
     * @param bool $val The isEnabled
     *

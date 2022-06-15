@@ -241,6 +241,32 @@ class BookingCustomerInformation extends BookingCustomerInformationBase
         return $this;
     }
     /**
+    * Gets the smsNotificationsEnabled
+    *
+    * @return bool|null The smsNotificationsEnabled
+    */
+    public function getSmsNotificationsEnabled()
+    {
+        if (array_key_exists("smsNotificationsEnabled", $this->_propDict)) {
+            return $this->_propDict["smsNotificationsEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the smsNotificationsEnabled
+    *
+    * @param bool $val The value of the smsNotificationsEnabled
+    *
+    * @return BookingCustomerInformation
+    */
+    public function setSmsNotificationsEnabled($val)
+    {
+        $this->_propDict["smsNotificationsEnabled"] = $val;
+        return $this;
+    }
+    /**
     * Gets the timeZone
     * The time zone of the customer. For a list of possible values, see dateTimeTimeZone.
     *

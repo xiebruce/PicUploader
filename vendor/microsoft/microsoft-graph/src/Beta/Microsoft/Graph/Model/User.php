@@ -1693,7 +1693,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the showInAddressList
-    * true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in).
+    * Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue.
     *
     * @return bool|null The showInAddressList
     */
@@ -1708,7 +1708,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the showInAddressList
-    * true if the Outlook global address list should contain this user, otherwise false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false. Supports $filter (eq, ne, not, in).
+    * Do not use in Microsoft Graph. Manage this property through the Microsoft 365 admin center instead. Represents whether the user should be included in the Outlook global address list. See Known issue.
     *
     * @param bool $val The showInAddressList
     *
@@ -3076,7 +3076,6 @@ class User extends DirectoryObject
 
      /**
      * Gets the joinedGroups
-    * Read-only. Nullable.
      *
      * @return array|null The joinedGroups
      */
@@ -3091,7 +3090,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the joinedGroups
-    * Read-only. Nullable.
     *
     * @param Group[] $val The joinedGroups
     *
@@ -3767,7 +3765,6 @@ class User extends DirectoryObject
 
     /**
     * Gets the insights
-    * Read-only. Nullable.
     *
     * @return ItemInsights|null The insights
     */
@@ -3786,7 +3783,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the insights
-    * Read-only. Nullable.
     *
     * @param ItemInsights $val The insights
     *
@@ -3800,7 +3796,6 @@ class User extends DirectoryObject
 
     /**
     * Gets the settings
-    * Read-only. Nullable.
     *
     * @return UserSettings|null The settings
     */
@@ -3819,7 +3814,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the settings
-    * Read-only. Nullable.
     *
     * @param UserSettings $val The settings
     *
@@ -3833,7 +3827,6 @@ class User extends DirectoryObject
 
     /**
     * Gets the onenote
-    * Read-only.
     *
     * @return Onenote|null The onenote
     */
@@ -3852,7 +3845,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the onenote
-    * Read-only.
     *
     * @param Onenote $val The onenote
     *
@@ -3900,7 +3892,6 @@ class User extends DirectoryObject
 
      /**
      * Gets the photos
-    * Read-only. Nullable.
      *
      * @return array|null The photos
      */
@@ -3915,7 +3906,6 @@ class User extends DirectoryObject
 
     /**
     * Sets the photos
-    * Read-only. Nullable.
     *
     * @param ProfilePhoto[] $val The photos
     *
@@ -4079,7 +4069,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the authentication
-    * TODO: Add Description
+    * The authentication methods that are supported for the user.
     *
     * @return Authentication|null The authentication
     */
@@ -4098,7 +4088,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the authentication
-    * TODO: Add Description
+    * The authentication methods that are supported for the user.
     *
     * @param Authentication $val The authentication
     *

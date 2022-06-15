@@ -23,6 +23,39 @@ namespace Beta\Microsoft\Graph\CallRecords\Model;
 */
 class MediaStream extends \Beta\Microsoft\Graph\Model\Entity
 {
+
+    /**
+    * Gets the audioCodec
+    * Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue.
+    *
+    * @return AudioCodec|null The audioCodec
+    */
+    public function getAudioCodec()
+    {
+        if (array_key_exists("audioCodec", $this->_propDict)) {
+            if (is_a($this->_propDict["audioCodec"], "\Beta\Microsoft\Graph\CallRecords\Model\AudioCodec") || is_null($this->_propDict["audioCodec"])) {
+                return $this->_propDict["audioCodec"];
+            } else {
+                $this->_propDict["audioCodec"] = new AudioCodec($this->_propDict["audioCodec"]);
+                return $this->_propDict["audioCodec"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the audioCodec
+    * Codec name used to encode audio for transmission on the network. Possible values are: unknown, invalid, cn, pcma, pcmu, amrWide, g722, g7221, g7221c, g729, multiChannelAudio, muchv2, opus, satin, satinFullband, rtAudio8, rtAudio16, silk, silkNarrow, silkWide, siren, xmsRTA, unknownFutureValue.
+    *
+    * @param AudioCodec $val The value to assign to the audioCodec
+    *
+    * @return MediaStream The MediaStream
+    */
+    public function setAudioCodec($val)
+    {
+        $this->_propDict["audioCodec"] = $val;
+         return $this;
+    }
     /**
     * Gets the averageAudioDegradation
     * Average Network Mean Opinion Score degradation for stream. Represents how much the network loss and jitter has impacted the quality of received audio.
@@ -739,6 +772,39 @@ class MediaStream extends \Beta\Microsoft\Graph\Model\Entity
     {
         $this->_propDict["streamId"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the videoCodec
+    * Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.
+    *
+    * @return VideoCodec|null The videoCodec
+    */
+    public function getVideoCodec()
+    {
+        if (array_key_exists("videoCodec", $this->_propDict)) {
+            if (is_a($this->_propDict["videoCodec"], "\Beta\Microsoft\Graph\CallRecords\Model\VideoCodec") || is_null($this->_propDict["videoCodec"])) {
+                return $this->_propDict["videoCodec"];
+            } else {
+                $this->_propDict["videoCodec"] = new VideoCodec($this->_propDict["videoCodec"]);
+                return $this->_propDict["videoCodec"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the videoCodec
+    * Codec name used to encode video for transmission on the network. Possible values are: unknown, invalid, av1, h263, h264, h264s, h264uc, h265, rtvc1, rtVideo, xrtvc1, unknownFutureValue.
+    *
+    * @param VideoCodec $val The value to assign to the videoCodec
+    *
+    * @return MediaStream The MediaStream
+    */
+    public function setVideoCodec($val)
+    {
+        $this->_propDict["videoCodec"] = $val;
+         return $this;
     }
     /**
     * Gets the wasMediaBypassed

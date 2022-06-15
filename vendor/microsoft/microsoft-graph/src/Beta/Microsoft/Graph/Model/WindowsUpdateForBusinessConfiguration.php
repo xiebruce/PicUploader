@@ -154,7 +154,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
 
     /**
     * Gets the deadlineForFeatureUpdatesInDays
-    * Number of days before feature updates are installed automatically with valid range from 2 to 30 days
+    * Number of days before feature updates are installed automatically with valid range from 0 to 30 days
     *
     * @return int|null The deadlineForFeatureUpdatesInDays
     */
@@ -169,7 +169,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
 
     /**
     * Sets the deadlineForFeatureUpdatesInDays
-    * Number of days before feature updates are installed automatically with valid range from 2 to 30 days
+    * Number of days before feature updates are installed automatically with valid range from 0 to 30 days
     *
     * @param int $val The deadlineForFeatureUpdatesInDays
     *
@@ -183,7 +183,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
 
     /**
     * Gets the deadlineForQualityUpdatesInDays
-    * Number of days before quality updates are installed automatically with valid range from 2 to 30 days
+    * Number of days before quality updates are installed automatically with valid range from 0 to 30 days
     *
     * @return int|null The deadlineForQualityUpdatesInDays
     */
@@ -198,7 +198,7 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
 
     /**
     * Sets the deadlineForQualityUpdatesInDays
-    * Number of days before quality updates are installed automatically with valid range from 2 to 30 days
+    * Number of days before quality updates are installed automatically with valid range from 0 to 30 days
     *
     * @param int $val The deadlineForQualityUpdatesInDays
     *

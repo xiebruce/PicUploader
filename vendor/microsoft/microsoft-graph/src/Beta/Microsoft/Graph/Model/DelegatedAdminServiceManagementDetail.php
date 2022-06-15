@@ -25,33 +25,6 @@ namespace Beta\Microsoft\Graph\Model;
 class DelegatedAdminServiceManagementDetail extends Entity
 {
     /**
-    * Gets the serviceId
-    *
-    * @return string|null The serviceId
-    */
-    public function getServiceId()
-    {
-        if (array_key_exists("serviceId", $this->_propDict)) {
-            return $this->_propDict["serviceId"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the serviceId
-    *
-    * @param string $val The serviceId
-    *
-    * @return DelegatedAdminServiceManagementDetail
-    */
-    public function setServiceId($val)
-    {
-        $this->_propDict["serviceId"] = $val;
-        return $this;
-    }
-
-    /**
     * Gets the serviceManagementUrl
     * The URL of the management portal for the managed service. Read-only.
     *

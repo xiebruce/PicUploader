@@ -1912,7 +1912,6 @@ class Group extends DirectoryObject
 
     /**
     * Gets the onenote
-    * Read-only.
     *
     * @return Onenote|null The onenote
     */
@@ -1931,7 +1930,6 @@ class Group extends DirectoryObject
 
     /**
     * Sets the onenote
-    * Read-only.
     *
     * @param Onenote $val The onenote
     *

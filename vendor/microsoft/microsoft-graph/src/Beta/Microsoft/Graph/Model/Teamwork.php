@@ -56,6 +56,34 @@ class Teamwork extends Entity
 
 
      /**
+     * Gets the deletedTeams
+     *
+     * @return array|null The deletedTeams
+     */
+    public function getDeletedTeams()
+    {
+        if (array_key_exists("deletedTeams", $this->_propDict)) {
+           return $this->_propDict["deletedTeams"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deletedTeams
+    *
+    * @param DeletedTeam[] $val The deletedTeams
+    *
+    * @return Teamwork
+    */
+    public function setDeletedTeams($val)
+    {
+        $this->_propDict["deletedTeams"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the devices
     * The Teams devices provisioned for the tenant.
      *
@@ -81,6 +109,37 @@ class Teamwork extends Entity
     public function setDevices($val)
     {
         $this->_propDict["devices"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the teamsAppSettings
+    *
+    * @return TeamsAppSettings|null The teamsAppSettings
+    */
+    public function getTeamsAppSettings()
+    {
+        if (array_key_exists("teamsAppSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["teamsAppSettings"], "\Beta\Microsoft\Graph\Model\TeamsAppSettings") || is_null($this->_propDict["teamsAppSettings"])) {
+                return $this->_propDict["teamsAppSettings"];
+            } else {
+                $this->_propDict["teamsAppSettings"] = new TeamsAppSettings($this->_propDict["teamsAppSettings"]);
+                return $this->_propDict["teamsAppSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the teamsAppSettings
+    *
+    * @param TeamsAppSettings $val The teamsAppSettings
+    *
+    * @return Teamwork
+    */
+    public function setTeamsAppSettings($val)
+    {
+        $this->_propDict["teamsAppSettings"] = $val;
         return $this;
     }
 

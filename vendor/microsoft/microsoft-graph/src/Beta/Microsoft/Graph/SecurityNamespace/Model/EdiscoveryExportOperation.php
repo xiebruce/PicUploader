@@ -26,6 +26,7 @@ class EdiscoveryExportOperation extends CaseOperation
 {
     /**
     * Gets the azureBlobContainer
+    * The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
     *
     * @return string|null The azureBlobContainer
     */
@@ -40,6 +41,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the azureBlobContainer
+    * The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
     *
     * @param string $val The azureBlobContainer
     *
@@ -53,6 +55,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the azureBlobToken
+    * The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
     *
     * @return string|null The azureBlobToken
     */
@@ -67,6 +70,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the azureBlobToken
+    * The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
     *
     * @param string $val The azureBlobToken
     *
@@ -80,6 +84,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the description
+    * The description provided for the export.
     *
     * @return string|null The description
     */
@@ -94,6 +99,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the description
+    * The description provided for the export.
     *
     * @param string $val The description
     *
@@ -107,6 +113,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the exportOptions
+    * The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
     *
     * @return ExportOptions|null The exportOptions
     */
@@ -125,6 +132,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the exportOptions
+    * The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
     *
     * @param ExportOptions $val The exportOptions
     *
@@ -138,6 +146,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the exportStructure
+    * The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
     *
     * @return ExportFileStructure|null The exportStructure
     */
@@ -156,6 +165,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the exportStructure
+    * The options provided that specify the structure of the export. For more details, see reviewSet: export. Possible values are: none, directory, pst.
     *
     * @param ExportFileStructure $val The exportStructure
     *
@@ -196,6 +206,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the outputName
+    * The name provided for the export.
     *
     * @return string|null The outputName
     */
@@ -210,6 +221,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the outputName
+    * The name provided for the export.
     *
     * @param string $val The outputName
     *
@@ -223,6 +235,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the reviewSet
+    * Review set from where documents are exported.
     *
     * @return EdiscoveryReviewSet|null The reviewSet
     */
@@ -241,6 +254,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the reviewSet
+    * Review set from where documents are exported.
     *
     * @param EdiscoveryReviewSet $val The reviewSet
     *
@@ -254,6 +268,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the reviewSetQuery
+    * The review set query which is used to filter the documents for export.
     *
     * @return EdiscoveryReviewSetQuery|null The reviewSetQuery
     */
@@ -272,6 +287,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the reviewSetQuery
+    * The review set query which is used to filter the documents for export.
     *
     * @param EdiscoveryReviewSetQuery $val The reviewSetQuery
     *

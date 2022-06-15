@@ -26,6 +26,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Gets the authenticationType
+    * The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue.
     *
     * @return SignInFrequencyAuthenticationType|null The authenticationType
     */
@@ -44,6 +45,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Sets the authenticationType
+    * The possible values are primaryAndSecondaryAuthentication, secondaryAuthentication, unknownFutureValue.
     *
     * @param SignInFrequencyAuthenticationType $val The value to assign to the authenticationType
     *
@@ -57,6 +59,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Gets the frequencyInterval
+    * The possible values are timeBased, everyTime, unknownFutureValue.
     *
     * @return SignInFrequencyInterval|null The frequencyInterval
     */
@@ -75,6 +78,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Sets the frequencyInterval
+    * The possible values are timeBased, everyTime, unknownFutureValue.
     *
     * @param SignInFrequencyInterval $val The value to assign to the frequencyInterval
     *
@@ -88,7 +92,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Gets the type
-    * Possible values are: days, hours.
+    * Possible values are: days, hours, or null if frequencyInterval is everyTime .
     *
     * @return SigninFrequencyType|null The type
     */
@@ -107,7 +111,7 @@ class SignInFrequencySessionControl extends ConditionalAccessSessionControl
 
     /**
     * Sets the type
-    * Possible values are: days, hours.
+    * Possible values are: days, hours, or null if frequencyInterval is everyTime .
     *
     * @param SigninFrequencyType $val The value to assign to the type
     *

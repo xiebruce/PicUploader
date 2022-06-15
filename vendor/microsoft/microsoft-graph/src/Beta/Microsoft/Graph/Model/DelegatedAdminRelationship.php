@@ -285,37 +285,6 @@ class DelegatedAdminRelationship extends Entity
     }
 
     /**
-    * Gets the partner
-    *
-    * @return DelegatedAdminRelationshipParticipant|null The partner
-    */
-    public function getPartner()
-    {
-        if (array_key_exists("partner", $this->_propDict)) {
-            if (is_a($this->_propDict["partner"], "\Beta\Microsoft\Graph\Model\DelegatedAdminRelationshipParticipant") || is_null($this->_propDict["partner"])) {
-                return $this->_propDict["partner"];
-            } else {
-                $this->_propDict["partner"] = new DelegatedAdminRelationshipParticipant($this->_propDict["partner"]);
-                return $this->_propDict["partner"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the partner
-    *
-    * @param DelegatedAdminRelationshipParticipant $val The partner
-    *
-    * @return DelegatedAdminRelationship
-    */
-    public function setPartner($val)
-    {
-        $this->_propDict["partner"] = $val;
-        return $this;
-    }
-
-    /**
     * Gets the status
     * The status of the relationship. Read Only. The possible values are: activating, active, approvalPending, approved, created, expired, expiring, terminated, terminating, terminationRequested, unknownFutureValue. Supports $orderBy.
     *

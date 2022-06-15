@@ -531,6 +531,7 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the myRoles
+    * The collection of role assignments to a signed-in user for a managed tenant.
      *
      * @return array|null The myRoles
      */
@@ -545,6 +546,7 @@ class ManagedTenant extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the myRoles
+    * The collection of role assignments to a signed-in user for a managed tenant.
     *
     * @param MyRole[] $val The myRoles
     *

@@ -26,6 +26,7 @@ class EdiscoveryFile extends File
 {
     /**
     * Gets the custodian
+    * Custodians associated with the file.
     *
     * @return EdiscoveryCustodian|null The custodian
     */
@@ -44,6 +45,7 @@ class EdiscoveryFile extends File
 
     /**
     * Sets the custodian
+    * Custodians associated with the file.
     *
     * @param EdiscoveryCustodian $val The custodian
     *
@@ -58,6 +60,7 @@ class EdiscoveryFile extends File
 
      /**
      * Gets the tags
+    * Tags associated with the file.
      *
      * @return array|null The tags
      */
@@ -72,6 +75,7 @@ class EdiscoveryFile extends File
 
     /**
     * Sets the tags
+    * Tags associated with the file.
     *
     * @param EdiscoveryReviewTag[] $val The tags
     *

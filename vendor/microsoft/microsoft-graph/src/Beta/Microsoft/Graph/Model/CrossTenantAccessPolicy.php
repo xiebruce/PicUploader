@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase
 {
     /**
+    * Gets the allowedCloudEndpoints
+    * Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
+    *
+    * @return string|null The allowedCloudEndpoints
+    */
+    public function getAllowedCloudEndpoints()
+    {
+        if (array_key_exists("allowedCloudEndpoints", $this->_propDict)) {
+            return $this->_propDict["allowedCloudEndpoints"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowedCloudEndpoints
+    * Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
+    *
+    * @param string $val The allowedCloudEndpoints
+    *
+    * @return CrossTenantAccessPolicy
+    */
+    public function setAllowedCloudEndpoints($val)
+    {
+        $this->_propDict["allowedCloudEndpoints"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the default
     * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
     *

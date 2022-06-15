@@ -25,7 +25,7 @@ class ApprovalSettings extends Entity
 {
     /**
     * Gets the approvalMode
-    * One of NoApproval, SingleStage or Serial. The NoApproval is used when isApprovalRequired is false.
+    * One of SingleStage, Serial, Parallel, NoApproval (default). NoApproval is used when isApprovalRequired is false.
     *
     * @return string|null The approvalMode
     */
@@ -40,7 +40,7 @@ class ApprovalSettings extends Entity
 
     /**
     * Sets the approvalMode
-    * One of NoApproval, SingleStage or Serial. The NoApproval is used when isApprovalRequired is false.
+    * One of SingleStage, Serial, Parallel, NoApproval (default). NoApproval is used when isApprovalRequired is false.
     *
     * @param string $val The value of the approvalMode
     *
@@ -86,7 +86,7 @@ class ApprovalSettings extends Entity
     }
     /**
     * Gets the isApprovalRequired
-    * If false, then approval is not required for requests in this policy.
+    * Indicates whether approval is required for requests in this policy.
     *
     * @return bool|null The isApprovalRequired
     */
@@ -101,7 +101,7 @@ class ApprovalSettings extends Entity
 
     /**
     * Sets the isApprovalRequired
-    * If false, then approval is not required for requests in this policy.
+    * Indicates whether approval is required for requests in this policy.
     *
     * @param bool $val The value of the isApprovalRequired
     *
@@ -114,7 +114,7 @@ class ApprovalSettings extends Entity
     }
     /**
     * Gets the isApprovalRequiredForExtension
-    * If false, then approval is not required for a user who already has an assignment to extend their assignment.
+    * Indicates whether approval is required for a user to extend their assignment.
     *
     * @return bool|null The isApprovalRequiredForExtension
     */
@@ -129,7 +129,7 @@ class ApprovalSettings extends Entity
 
     /**
     * Sets the isApprovalRequiredForExtension
-    * If false, then approval is not required for a user who already has an assignment to extend their assignment.
+    * Indicates whether approval is required for a user to extend their assignment.
     *
     * @param bool $val The value of the isApprovalRequiredForExtension
     *

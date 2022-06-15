@@ -26,6 +26,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the createdBy
+    * The user who created the dataSource.
     *
     * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The createdBy
     */
@@ -44,6 +45,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the createdBy
+    * The user who created the dataSource.
     *
     * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The createdBy
     *
@@ -57,6 +59,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the createdDateTime
+    * The date and time the dataSource was created.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -75,6 +78,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the createdDateTime
+    * The date and time the dataSource was created.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -88,6 +92,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the displayName
+    * The display name of the dataSource. This will be the name of the SharePoint site.
     *
     * @return string|null The displayName
     */
@@ -102,6 +107,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name of the dataSource. This will be the name of the SharePoint site.
     *
     * @param string $val The displayName
     *
@@ -115,6 +121,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the holdStatus
+    * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
     *
     * @return DataSourceHoldStatus|null The holdStatus
     */
@@ -133,6 +140,7 @@ class DataSource extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the holdStatus
+    * The hold status of the dataSource.The possible values are: notApplied, applied, applying, removing, partial
     *
     * @param DataSourceHoldStatus $val The holdStatus
     *

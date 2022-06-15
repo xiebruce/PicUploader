@@ -26,6 +26,7 @@ class EdiscoveryAddToReviewSetOperation extends CaseOperation
 {
     /**
     * Gets the reviewSet
+    * eDiscovery review set to which items matching source collection query gets added.
     *
     * @return EdiscoveryReviewSet|null The reviewSet
     */
@@ -44,6 +45,7 @@ class EdiscoveryAddToReviewSetOperation extends CaseOperation
 
     /**
     * Sets the reviewSet
+    * eDiscovery review set to which items matching source collection query gets added.
     *
     * @param EdiscoveryReviewSet $val The reviewSet
     *
@@ -57,6 +59,7 @@ class EdiscoveryAddToReviewSetOperation extends CaseOperation
 
     /**
     * Gets the search
+    * eDiscovery search that gets added to review set.
     *
     * @return EdiscoverySearch|null The search
     */
@@ -75,6 +78,7 @@ class EdiscoveryAddToReviewSetOperation extends CaseOperation
 
     /**
     * Sets the search
+    * eDiscovery search that gets added to review set.
     *
     * @param EdiscoverySearch $val The search
     *

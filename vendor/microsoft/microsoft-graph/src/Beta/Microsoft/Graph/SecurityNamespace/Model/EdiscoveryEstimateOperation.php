@@ -26,6 +26,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 {
     /**
     * Gets the indexedItemCount
+    * The estimated count of items for the search that matched the content query.
     *
     * @return int|null The indexedItemCount
     */
@@ -40,6 +41,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the indexedItemCount
+    * The estimated count of items for the search that matched the content query.
     *
     * @param int $val The indexedItemCount
     *
@@ -53,6 +55,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Gets the indexedItemsSize
+    * The estimated size of items for the search that matched the content query.
     *
     * @return int|null The indexedItemsSize
     */
@@ -67,6 +70,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the indexedItemsSize
+    * The estimated size of items for the search that matched the content query.
     *
     * @param int $val The indexedItemsSize
     *
@@ -80,6 +84,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Gets the mailboxCount
+    * The number of mailboxes that had search hits.
     *
     * @return int|null The mailboxCount
     */
@@ -94,6 +99,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the mailboxCount
+    * The number of mailboxes that had search hits.
     *
     * @param int $val The mailboxCount
     *
@@ -107,6 +113,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Gets the siteCount
+    * The number of mailboxes that had search hits.
     *
     * @return int|null The siteCount
     */
@@ -121,6 +128,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the siteCount
+    * The number of mailboxes that had search hits.
     *
     * @param int $val The siteCount
     *
@@ -134,6 +142,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Gets the unindexedItemCount
+    * The estimated count of unindexed items for the collection.
     *
     * @return int|null The unindexedItemCount
     */
@@ -148,6 +157,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the unindexedItemCount
+    * The estimated count of unindexed items for the collection.
     *
     * @param int $val The unindexedItemCount
     *
@@ -161,6 +171,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Gets the unindexedItemsSize
+    * The estimated size of unindexed items for the collection.
     *
     * @return int|null The unindexedItemsSize
     */
@@ -175,6 +186,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the unindexedItemsSize
+    * The estimated size of unindexed items for the collection.
     *
     * @param int $val The unindexedItemsSize
     *
@@ -188,6 +200,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Gets the search
+    * eDiscovery search.
     *
     * @return EdiscoverySearch|null The search
     */
@@ -206,6 +219,7 @@ class EdiscoveryEstimateOperation extends CaseOperation
 
     /**
     * Sets the search
+    * eDiscovery search.
     *
     * @param EdiscoverySearch $val The search
     *

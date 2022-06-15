@@ -54,6 +54,35 @@ class UserExperienceAnalyticsDeviceScores extends Entity
     }
 
     /**
+    * Gets the batteryHealthScore
+    * The user experience analytics device battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @return float|null The batteryHealthScore
+    */
+    public function getBatteryHealthScore()
+    {
+        if (array_key_exists("batteryHealthScore", $this->_propDict)) {
+            return $this->_propDict["batteryHealthScore"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the batteryHealthScore
+    * The user experience analytics device battery health score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+    *
+    * @param float $val The batteryHealthScore
+    *
+    * @return UserExperienceAnalyticsDeviceScores
+    */
+    public function setBatteryHealthScore($val)
+    {
+        $this->_propDict["batteryHealthScore"] = floatval($val);
+        return $this;
+    }
+
+    /**
     * Gets the deviceName
     * The user experience analytics device name.
     *

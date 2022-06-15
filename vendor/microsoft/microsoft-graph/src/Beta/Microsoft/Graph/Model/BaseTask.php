@@ -415,7 +415,7 @@ class BaseTask extends Entity
 
      /**
      * Gets the checklistItems
-    * A collection of checklistItems linked to a task.
+    * A collection of smaller subtasks linked to the more complex parent task.
      *
      * @return array|null The checklistItems
      */
@@ -430,7 +430,7 @@ class BaseTask extends Entity
 
     /**
     * Sets the checklistItems
-    * A collection of checklistItems linked to a task.
+    * A collection of smaller subtasks linked to the more complex parent task.
     *
     * @param ChecklistItem[] $val The checklistItems
     *

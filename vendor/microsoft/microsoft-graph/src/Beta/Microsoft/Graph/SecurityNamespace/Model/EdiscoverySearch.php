@@ -26,6 +26,7 @@ class EdiscoverySearch extends Search
 {
     /**
     * Gets the dataSourceScopes
+    * When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
     *
     * @return DataSourceScopes|null The dataSourceScopes
     */
@@ -44,6 +45,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Sets the dataSourceScopes
+    * When specified, the collection will span across a service for an entire workload. Possible values are: none, allTenantMailboxes, allTenantSites, allCaseCustodians, allCaseNoncustodialDataSources.
     *
     * @param DataSourceScopes $val The dataSourceScopes
     *
@@ -58,6 +60,7 @@ class EdiscoverySearch extends Search
 
      /**
      * Gets the additionalSources
+    * Adds an additional source to the eDiscovery search.
      *
      * @return array|null The additionalSources
      */
@@ -72,6 +75,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Sets the additionalSources
+    * Adds an additional source to the eDiscovery search.
     *
     * @param DataSource[] $val The additionalSources
     *
@@ -85,6 +89,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Gets the addToReviewSetOperation
+    * Adds the results of the eDiscovery search to the specified reviewSet.
     *
     * @return EdiscoveryAddToReviewSetOperation|null The addToReviewSetOperation
     */
@@ -103,6 +108,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Sets the addToReviewSetOperation
+    * Adds the results of the eDiscovery search to the specified reviewSet.
     *
     * @param EdiscoveryAddToReviewSetOperation $val The addToReviewSetOperation
     *
@@ -117,6 +123,7 @@ class EdiscoverySearch extends Search
 
      /**
      * Gets the custodianSources
+    * Custodian sources that are included in the eDiscovery search.
      *
      * @return array|null The custodianSources
      */
@@ -131,6 +138,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Sets the custodianSources
+    * Custodian sources that are included in the eDiscovery search.
     *
     * @param DataSource[] $val The custodianSources
     *
@@ -144,6 +152,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Gets the lastEstimateStatisticsOperation
+    * The last estimate operation associated with the eDiscovery search.
     *
     * @return EdiscoveryEstimateOperation|null The lastEstimateStatisticsOperation
     */
@@ -162,6 +171,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Sets the lastEstimateStatisticsOperation
+    * The last estimate operation associated with the eDiscovery search.
     *
     * @param EdiscoveryEstimateOperation $val The lastEstimateStatisticsOperation
     *
@@ -176,6 +186,7 @@ class EdiscoverySearch extends Search
 
      /**
      * Gets the noncustodialSources
+    * noncustodialDataSource sources that are included in the eDiscovery search
      *
      * @return array|null The noncustodialSources
      */
@@ -190,6 +201,7 @@ class EdiscoverySearch extends Search
 
     /**
     * Sets the noncustodialSources
+    * noncustodialDataSource sources that are included in the eDiscovery search
     *
     * @param EdiscoveryNoncustodialDataSource[] $val The noncustodialSources
     *

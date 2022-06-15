@@ -26,6 +26,7 @@ class EdiscoveryCase extends GraphCase
 {
     /**
     * Gets the closedBy
+    * The user who closed the case.
     *
     * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The closedBy
     */
@@ -44,6 +45,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the closedBy
+    * The user who closed the case.
     *
     * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The closedBy
     *
@@ -57,6 +59,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Gets the closedDateTime
+    * The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime|null The closedDateTime
     */
@@ -75,6 +78,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the closedDateTime
+    * The date and time when the case was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The closedDateTime
     *
@@ -88,6 +92,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Gets the externalId
+    * The external case number for customer reference.
     *
     * @return string|null The externalId
     */
@@ -102,6 +107,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the externalId
+    * The external case number for customer reference.
     *
     * @param string $val The externalId
     *
@@ -116,6 +122,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the custodians
+    * Returns a list of case ediscoveryCustodian objects for this case.
      *
      * @return array|null The custodians
      */
@@ -130,6 +137,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the custodians
+    * Returns a list of case ediscoveryCustodian objects for this case.
     *
     * @param EdiscoveryCustodian[] $val The custodians
     *
@@ -144,6 +152,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the legalHolds
+    * Returns a list of case eDiscoveryHoldPolicy objects for this case.
      *
      * @return array|null The legalHolds
      */
@@ -158,6 +167,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the legalHolds
+    * Returns a list of case eDiscoveryHoldPolicy objects for this case.
     *
     * @param EdiscoveryHoldPolicy[] $val The legalHolds
     *
@@ -172,6 +182,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the noncustodialDataSources
+    * Returns a list of case ediscoveryNoncustodialDataSource objects for this case.
      *
      * @return array|null The noncustodialDataSources
      */
@@ -186,6 +197,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the noncustodialDataSources
+    * Returns a list of case ediscoveryNoncustodialDataSource objects for this case.
     *
     * @param EdiscoveryNoncustodialDataSource[] $val The noncustodialDataSources
     *
@@ -200,6 +212,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the operations
+    * Returns a list of case caseOperation objects for this case.
      *
      * @return array|null The operations
      */
@@ -214,6 +227,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the operations
+    * Returns a list of case caseOperation objects for this case.
     *
     * @param CaseOperation[] $val The operations
     *
@@ -228,6 +242,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the reviewSets
+    * Returns a list of eDiscoveryReviewSet objects in the case.
      *
      * @return array|null The reviewSets
      */
@@ -242,6 +257,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the reviewSets
+    * Returns a list of eDiscoveryReviewSet objects in the case.
     *
     * @param EdiscoveryReviewSet[] $val The reviewSets
     *
@@ -256,6 +272,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the searches
+    * Returns a list of eDiscoverySearch objects associated with this case.
      *
      * @return array|null The searches
      */
@@ -270,6 +287,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the searches
+    * Returns a list of eDiscoverySearch objects associated with this case.
     *
     * @param EdiscoverySearch[] $val The searches
     *
@@ -283,6 +301,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Gets the settings
+    * Returns a list of eDIscoverySettings objects in the case.
     *
     * @return EdiscoveryCaseSettings|null The settings
     */
@@ -301,6 +320,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the settings
+    * Returns a list of eDIscoverySettings objects in the case.
     *
     * @param EdiscoveryCaseSettings $val The settings
     *
@@ -315,6 +335,7 @@ class EdiscoveryCase extends GraphCase
 
      /**
      * Gets the tags
+    * Returns a list of ediscoveryReviewTag objects associated to this case.
      *
      * @return array|null The tags
      */
@@ -329,6 +350,7 @@ class EdiscoveryCase extends GraphCase
 
     /**
     * Sets the tags
+    * Returns a list of ediscoveryReviewTag objects associated to this case.
     *
     * @param EdiscoveryReviewTag[] $val The tags
     *

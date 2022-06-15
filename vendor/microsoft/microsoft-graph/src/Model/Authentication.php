@@ -116,6 +116,36 @@ class Authentication extends Entity
 
 
      /**
+     * Gets the temporaryAccessPassMethods
+    * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+     *
+     * @return array|null The temporaryAccessPassMethods
+     */
+    public function getTemporaryAccessPassMethods()
+    {
+        if (array_key_exists("temporaryAccessPassMethods", $this->_propDict)) {
+           return $this->_propDict["temporaryAccessPassMethods"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the temporaryAccessPassMethods
+    * Represents a Temporary Access Pass registered to a user for authentication through time-limited passcodes.
+    *
+    * @param TemporaryAccessPassAuthenticationMethod[] $val The temporaryAccessPassMethods
+    *
+    * @return Authentication
+    */
+    public function setTemporaryAccessPassMethods($val)
+    {
+        $this->_propDict["temporaryAccessPassMethods"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the windowsHelloForBusinessMethods
     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      *

@@ -26,7 +26,7 @@ class DeviceScopeActionResult extends Entity
 
     /**
     * Gets the deviceScopeAction
-    * The triggered action name.
+    * The triggered action name. Possible values are: .
     *
     * @return DeviceScopeAction|null The deviceScopeAction
     */
@@ -45,7 +45,7 @@ class DeviceScopeActionResult extends Entity
 
     /**
     * Sets the deviceScopeAction
-    * The triggered action name.
+    * The triggered action name. Possible values are: .
     *
     * @param DeviceScopeAction $val The value to assign to the deviceScopeAction
     *
@@ -115,7 +115,7 @@ class DeviceScopeActionResult extends Entity
 
     /**
     * Gets the status
-    * Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger.
+    * Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger. Possible values are: failed, succeeded, unknownFutureValue.
     *
     * @return DeviceScopeActionStatus|null The status
     */
@@ -134,7 +134,7 @@ class DeviceScopeActionResult extends Entity
 
     /**
     * Sets the status
-    * Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger.
+    * Indicates the status of the attempt device scope action. When succeeded, the action was succeessfully triggered, When failed, the action was failed to trigger. Possible values are: failed, succeeded, unknownFutureValue.
     *
     * @param DeviceScopeActionStatus $val The value to assign to the status
     *

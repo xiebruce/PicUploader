@@ -2,7 +2,7 @@
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
-* DeviceManagementReportSchedule File
+* NetworkTransportProtocol File
 * PHP version 7
 *
 * @category  Library
@@ -11,10 +11,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace Beta\Microsoft\Graph\CallRecords\Model;
+
+use Microsoft\Graph\Core\Enum;
 
 /**
-* DeviceManagementReportSchedule class
+* NetworkTransportProtocol class
 *
 * @category  Model
 * @package   Microsoft.Graph
@@ -22,6 +24,13 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class DeviceManagementReportSchedule extends Entity
+class NetworkTransportProtocol extends Enum
 {
+    /**
+    * The Enum NetworkTransportProtocol
+    */
+    const UNKNOWN = "unknown";
+    const UDP = "udp";
+    const TCP = "tcp";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

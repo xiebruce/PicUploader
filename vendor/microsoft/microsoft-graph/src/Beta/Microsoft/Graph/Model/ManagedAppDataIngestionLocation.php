@@ -32,4 +32,5 @@ class ManagedAppDataIngestionLocation extends Enum
     const ONE_DRIVE_FOR_BUSINESS = "oneDriveForBusiness";
     const SHARE_POINT = "sharePoint";
     const CAMERA = "camera";
+    const PHOTO_LIBRARY = "photoLibrary";
 }

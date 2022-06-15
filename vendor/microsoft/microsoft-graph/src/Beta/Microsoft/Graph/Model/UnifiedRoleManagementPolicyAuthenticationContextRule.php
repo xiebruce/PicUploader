@@ -26,7 +26,7 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleMa
 {
     /**
     * Gets the claimValue
-    * Value of the authentication context claim.
+    * The value of the authentication context claim.
     *
     * @return string|null The claimValue
     */
@@ -41,7 +41,7 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleMa
 
     /**
     * Sets the claimValue
-    * Value of the authentication context claim.
+    * The value of the authentication context claim.
     *
     * @param string $val The claimValue
     *
@@ -55,7 +55,7 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleMa
 
     /**
     * Gets the isEnabled
-    * Indicates if the setting is enabled.
+    * Whether this rule is enabled.
     *
     * @return bool|null The isEnabled
     */
@@ -70,7 +70,7 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleMa
 
     /**
     * Sets the isEnabled
-    * Indicates if the setting is enabled.
+    * Whether this rule is enabled.
     *
     * @param bool $val The isEnabled
     *

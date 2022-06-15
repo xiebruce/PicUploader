@@ -640,7 +640,6 @@ class Call extends Entity
 
      /**
      * Gets the audioRoutingGroups
-    * Read-only. Nullable.
      *
      * @return array|null The audioRoutingGroups
      */
@@ -655,7 +654,6 @@ class Call extends Entity
 
     /**
     * Sets the audioRoutingGroups
-    * Read-only. Nullable.
     *
     * @param AudioRoutingGroup[] $val The audioRoutingGroups
     *
@@ -670,7 +668,6 @@ class Call extends Entity
 
      /**
      * Gets the operations
-    * Read-only. Nullable.
      *
      * @return array|null The operations
      */
@@ -685,7 +682,6 @@ class Call extends Entity
 
     /**
     * Sets the operations
-    * Read-only. Nullable.
     *
     * @param CommsOperation[] $val The operations
     *
@@ -700,7 +696,6 @@ class Call extends Entity
 
      /**
      * Gets the participants
-    * Read-only. Nullable.
      *
      * @return array|null The participants
      */
@@ -715,7 +710,6 @@ class Call extends Entity
 
     /**
     * Sets the participants
-    * Read-only. Nullable.
     *
     * @param Participant[] $val The participants
     *

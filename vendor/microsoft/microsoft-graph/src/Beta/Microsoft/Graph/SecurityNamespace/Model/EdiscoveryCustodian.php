@@ -26,6 +26,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 {
     /**
     * Gets the acknowledgedDateTime
+    * Date and time the custodian acknowledged a hold notification.
     *
     * @return \DateTime|null The acknowledgedDateTime
     */
@@ -44,6 +45,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the acknowledgedDateTime
+    * Date and time the custodian acknowledged a hold notification.
     *
     * @param \DateTime $val The acknowledgedDateTime
     *
@@ -57,6 +59,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Gets the email
+    * Email address of the custodian.
     *
     * @return string|null The email
     */
@@ -71,6 +74,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the email
+    * Email address of the custodian.
     *
     * @param string $val The email
     *
@@ -84,6 +88,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Gets the lastIndexOperation
+    * Operation entity that represents the latest indexing for the custodian.
     *
     * @return EdiscoveryIndexOperation|null The lastIndexOperation
     */
@@ -102,6 +107,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the lastIndexOperation
+    * Operation entity that represents the latest indexing for the custodian.
     *
     * @param EdiscoveryIndexOperation $val The lastIndexOperation
     *
@@ -116,6 +122,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
      /**
      * Gets the siteSources
+    * Data source entity for SharePoint sites associated with the custodian.
      *
      * @return array|null The siteSources
      */
@@ -130,6 +137,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the siteSources
+    * Data source entity for SharePoint sites associated with the custodian.
     *
     * @param SiteSource[] $val The siteSources
     *
@@ -144,6 +152,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
      /**
      * Gets the unifiedGroupSources
+    * Data source entity for groups associated with the custodian.
      *
      * @return array|null The unifiedGroupSources
      */
@@ -158,6 +167,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the unifiedGroupSources
+    * Data source entity for groups associated with the custodian.
     *
     * @param UnifiedGroupSource[] $val The unifiedGroupSources
     *
@@ -172,6 +182,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
      /**
      * Gets the userSources
+    * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
      *
      * @return array|null The userSources
      */
@@ -186,6 +197,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the userSources
+    * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
     *
     * @param UserSource[] $val The userSources
     *

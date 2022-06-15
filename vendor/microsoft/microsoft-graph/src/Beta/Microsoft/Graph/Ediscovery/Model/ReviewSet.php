@@ -122,7 +122,6 @@ class ReviewSet extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the queries
-    * Read-only. Nullable.
      *
      * @return array|null The queries
      */
@@ -137,7 +136,6 @@ class ReviewSet extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the queries
-    * Read-only. Nullable.
     *
     * @param ReviewSetQuery[] $val The queries
     *

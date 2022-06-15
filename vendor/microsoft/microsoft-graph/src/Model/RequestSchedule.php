@@ -26,7 +26,7 @@ class RequestSchedule extends Entity
 
     /**
     * Gets the expiration
-    * When the access should expire.
+    * In entitlement management, when the access should expire.
     *
     * @return ExpirationPattern|null The expiration
     */
@@ -45,7 +45,7 @@ class RequestSchedule extends Entity
 
     /**
     * Sets the expiration
-    * When the access should expire.
+    * In entitlement management, when the access should expire.
     *
     * @param ExpirationPattern $val The value to assign to the expiration
     *
@@ -59,7 +59,7 @@ class RequestSchedule extends Entity
 
     /**
     * Gets the recurrence
-    * For recurring access. Not used at present.
+    * For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
     *
     * @return PatternedRecurrence|null The recurrence
     */
@@ -78,7 +78,7 @@ class RequestSchedule extends Entity
 
     /**
     * Sets the recurrence
-    * For recurring access. Not used at present.
+    * For recurring access, or eligible or active assignment. This property is currently unsupported in both PIM and entitlement management.
     *
     * @param PatternedRecurrence $val The value to assign to the recurrence
     *
@@ -92,7 +92,7 @@ class RequestSchedule extends Entity
 
     /**
     * Gets the startDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
     *
     * @return \DateTime|null The startDateTime
     */
@@ -111,7 +111,7 @@ class RequestSchedule extends Entity
 
     /**
     * Sets the startDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. In PIM, when the  eligible or active assignment becomes active.
     *
     * @param \DateTime $val The value to assign to the startDateTime
     *

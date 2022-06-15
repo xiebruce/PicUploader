@@ -154,17 +154,17 @@ class DelegatedAdminRelationshipOperation extends Entity
 
     /**
     * Gets the status
-    * The status of the operation. Read-only. The possible values are: notStarted, running, complete, failed, unknownFutureValue. Read-only. Supports $orderBy.
+    * The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
     *
-    * @return DelegatedAdminRelationshipOperationStatus|null The status
+    * @return LongRunningOperationStatus|null The status
     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DelegatedAdminRelationshipOperationStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\LongRunningOperationStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
-                $this->_propDict["status"] = new DelegatedAdminRelationshipOperationStatus($this->_propDict["status"]);
+                $this->_propDict["status"] = new LongRunningOperationStatus($this->_propDict["status"]);
                 return $this->_propDict["status"];
             }
         }
@@ -173,9 +173,9 @@ class DelegatedAdminRelationshipOperation extends Entity
 
     /**
     * Sets the status
-    * The status of the operation. Read-only. The possible values are: notStarted, running, complete, failed, unknownFutureValue. Read-only. Supports $orderBy.
+    * The status of the operation. Read-only. The possible values are: notStarted, running, succeeded, failed, unknownFutureValue. Read-only. Supports $orderBy.
     *
-    * @param DelegatedAdminRelationshipOperationStatus $val The status
+    * @param LongRunningOperationStatus $val The status
     *
     * @return DelegatedAdminRelationshipOperation
     */

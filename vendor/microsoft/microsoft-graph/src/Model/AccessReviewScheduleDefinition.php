@@ -399,6 +399,36 @@ class AccessReviewScheduleDefinition extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the stageSettings
+    * Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.
+     *
+     * @return array|null The stageSettings
+     */
+    public function getStageSettings()
+    {
+        if (array_key_exists("stageSettings", $this->_propDict)) {
+           return $this->_propDict["stageSettings"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the stageSettings
+    * Required only for a multi-stage access review to define the stages and their settings. You can break down each review instance into up to three sequential stages, where each stage can have a different set of reviewers, fallback reviewers, and settings. Stages will be created sequentially based on the dependsOn property. Optional.  When this property is defined, its settings are used instead of the corresponding settings in the accessReviewScheduleDefinition object and its settings, reviewers, and fallbackReviewers properties.
+    *
+    * @param AccessReviewStageSettings[] $val The stageSettings
+    *
+    * @return AccessReviewScheduleDefinition
+    */
+    public function setStageSettings($val)
+    {
+        $this->_propDict["stageSettings"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the status
     * This read-only field specifies the status of an access review. The typical states include Initializing, NotStarted, Starting, InProgress, Completing, Completed, AutoReviewing, and AutoReviewed.  Supports $select, $orderby, and $filter (eq only). Read-only.

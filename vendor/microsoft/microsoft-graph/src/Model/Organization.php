@@ -677,6 +677,7 @@ class Organization extends DirectoryObject
 
     /**
     * Gets the branding
+    * Resource to manage the default branding for the organization. Nullable.
     *
     * @return OrganizationalBranding|null The branding
     */
@@ -695,6 +696,7 @@ class Organization extends DirectoryObject
 
     /**
     * Sets the branding
+    * Resource to manage the default branding for the organization. Nullable.
     *
     * @param OrganizationalBranding $val The branding
     *

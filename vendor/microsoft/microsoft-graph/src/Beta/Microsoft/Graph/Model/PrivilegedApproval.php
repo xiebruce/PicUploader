@@ -324,7 +324,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Gets the roleInfo
-    * Read-only. Nullable.
     *
     * @return PrivilegedRole|null The roleInfo
     */
@@ -343,7 +342,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Sets the roleInfo
-    * Read-only. Nullable.
     *
     * @param PrivilegedRole $val The roleInfo
     *

@@ -25,6 +25,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the isEnabled
+    * Indicates whether or not OCR is enabled for the case.
     *
     * @return bool|null The isEnabled
     */
@@ -39,6 +40,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isEnabled
+    * Indicates whether or not OCR is enabled for the case.
     *
     * @param bool $val The value of the isEnabled
     *
@@ -51,6 +53,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the maxImageSize
+    * Maximum image size that will be processed in KB).
     *
     * @return int|null The maxImageSize
     */
@@ -65,6 +68,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the maxImageSize
+    * Maximum image size that will be processed in KB).
     *
     * @param int $val The value of the maxImageSize
     *
@@ -78,6 +82,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the timeout
+    * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
     *
     * @return \DateInterval|null The timeout
     */
@@ -96,6 +101,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the timeout
+    * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
     *
     * @param \DateInterval $val The value to assign to the timeout
     *

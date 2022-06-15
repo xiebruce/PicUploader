@@ -1,5 +1,14 @@
 # Change Log
 
+## 6.5.7 - 2022-06-09
+
+* Fix failure to strip Authorization header on HTTP downgrade
+* Fix failure to strip the Cookie header on change in host or HTTP downgrade
+
+## 6.5.6 - 2022-05-25
+
+* Fix cross-domain cookie leakage
+
 ## 6.5.5 - 2020-06-16
 
 * Unpin version constraint for `symfony/polyfill-intl-idn` [#2678](https://github.com/guzzle/guzzle/pull/2678)

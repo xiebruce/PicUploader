@@ -8,11 +8,19 @@ final class Auth
 {
     private $accessKey;
     private $secretKey;
+    public $options;
 
-    public function __construct($accessKey, $secretKey)
+    public function __construct($accessKey, $secretKey, $options = null)
     {
         $this->accessKey = $accessKey;
         $this->secretKey = $secretKey;
+        $defaultOptions = array(
+            'disableQiniuTimestampSignature' => null
+        );
+        if ($options == null) {
+            $options = $defaultOptions;
+        }
+        $this->options = array_merge($defaultOptions, $options);
     }
 
     public function getAccessKey()
@@ -216,14 +224,29 @@ final class Auth
 
     public function authorizationV2($url, $method, $body = null, $contentType = null)
     {
-        $headers = null;
+        $headers = new Header();
         $result = array();
         if ($contentType != null) {
-            $headers = new Header(array(
-                'Content-Type' => array($contentType),
-            ));
+            $headers['Content-Type'] = $contentType;
             $result['Content-Type'] = $contentType;
         }
+
+        $signDate = gmdate('Ymd\THis\Z', time());
+        if ($this->options['disableQiniuTimestampSignature'] !== null) {
+            if (!$this->options['disableQiniuTimestampSignature']) {
+                $headers['X-Qiniu-Date'] = $signDate;
+                $result['X-Qiniu-Date'] = $signDate;
+            }
+        } elseif (getenv("DISABLE_QINIU_TIMESTAMP_SIGNATURE")) {
+            if (strtolower(getenv("DISABLE_QINIU_TIMESTAMP_SIGNATURE")) !== "true") {
+                $headers['X-Qiniu-Date'] = $signDate;
+                $result['X-Qiniu-Date'] = $signDate;
+            }
+        } else {
+            $headers['X-Qiniu-Date'] = $signDate;
+            $result['X-Qiniu-Date'] = $signDate;
+        }
+
         list($sign) = $this->signQiniuAuthorization($url, $method, $body, $headers);
         $result['Authorization'] = 'Qiniu ' . $sign;
         return $result;

@@ -335,6 +335,7 @@ class AppliedConditionalAccessPolicy extends Entity
     }
     /**
     * Gets the sessionControlsNotSatisfied
+    * Refers to the session controls that a sign-in activity did not satisfy. (Example: Application enforced Restrictions).
     *
     * @return string|null The sessionControlsNotSatisfied
     */
@@ -349,6 +350,7 @@ class AppliedConditionalAccessPolicy extends Entity
 
     /**
     * Sets the sessionControlsNotSatisfied
+    * Refers to the session controls that a sign-in activity did not satisfy. (Example: Application enforced Restrictions).
     *
     * @param string $val The value of the sessionControlsNotSatisfied
     *

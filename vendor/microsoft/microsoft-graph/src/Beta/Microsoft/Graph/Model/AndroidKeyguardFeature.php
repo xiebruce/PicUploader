@@ -37,4 +37,7 @@ class AndroidKeyguardFeature extends Enum
     const FINGERPRINT = "fingerprint";
     const REMOTE_INPUT = "remoteInput";
     const ALL_FEATURES = "allFeatures";
+    const FACE = "face";
+    const IRIS = "iris";
+    const BIOMETRICS = "biometrics";
 }

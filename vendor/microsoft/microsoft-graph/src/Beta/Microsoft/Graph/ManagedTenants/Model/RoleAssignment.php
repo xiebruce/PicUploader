@@ -26,6 +26,7 @@ class RoleAssignment extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the assignmentType
+    * The type of the admin relationship(s) associated with the role assignment. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges.
     *
     * @return DelegatedPrivilegeStatus|null The assignmentType
     */
@@ -44,6 +45,7 @@ class RoleAssignment extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the assignmentType
+    * The type of the admin relationship(s) associated with the role assignment. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges.
     *
     * @param DelegatedPrivilegeStatus $val The value to assign to the assignmentType
     *
@@ -57,6 +59,7 @@ class RoleAssignment extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the roles
+    * The collection of roles assigned.
     *
     * @return RoleDefinition|null The roles
     */
@@ -75,6 +78,7 @@ class RoleAssignment extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the roles
+    * The collection of roles assigned.
     *
     * @param RoleDefinition $val The value to assign to the roles
     *
