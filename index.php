@@ -173,7 +173,7 @@
 		$data = [
 			'code' => 'success',
 			'data' => [
-				'filename' => $_FILES['file']['name'],
+				'filename' => htmlspecialchars($_FILES['file']['name']),
 				'url' => $isWeb ? $link['formatLink'] : $link,
                 //专用于web上传，其它客户端上传该参数无用
                 'notFormatUrl' => $isWeb ? $link['notFormatLink'] : '',
