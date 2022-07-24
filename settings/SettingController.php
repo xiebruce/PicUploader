@@ -103,7 +103,11 @@ class SettingController extends Controller {
 		}
 		!is_dir($this->storagesDir) && mkdir($this->storagesDir, 0777);
 		$jsonFile = $this->storagesDir.'/storage-'.$key.'.json';
-        $config = json_encode($_POST, JSON_UNESCAPED_SLASHES);
+		$post = [];
+		foreach($_POST as $key=>$val){
+			$post[$key] = htmlspecialchars($val);
+		}
+        $config = json_encode($post, JSON_UNESCAPED_SLASHES);
         //在Win中，如果从"文件→属性→安全→对象名称"中复制路径，会多出一个你看不见的字符"\u202a"，只有变成
         //json后才看的见它的unicode，这样会导致路径明明存在程序却说不存在的情况，所以要把这个字符在json中去掉
         $config = str_replace('\u202a', '', $config);
