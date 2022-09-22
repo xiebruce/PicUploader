@@ -92,25 +92,25 @@ class SettingController extends Controller {
 	 * @return false|string
 	 */
 	public function setStorageParams($params){
-		$key = $params['key'];
-		unset($_POST['key']);
-		foreach($_POST as &$val){
-			$val = trim($val);
+		$storageName = $params['key'];
+		unset($params['key']);
+		unset($params['func']);
+		foreach($params as $key=>$val){
+			$params[$key] = htmlspecialchars(trim($val));
 		}
-		if(in_array($key, ['github', 'gitee', 'gitlab'])){
-			$arr = explode('/', $_POST['repo']);
-			$_POST['repo'] = rtrim($arr[0]) . '/' . ltrim($arr[1]);
+		if(in_array($storageName, ['github', 'gitee', 'gitlab'])){
+			$arr = explode('/', $params['repo']);
+			// 这是因为直接从github复制的repo，它会有空格”xxx / xxx“这种形式，所以要把空格去掉
+			$params['repo'] = rtrim($arr[0]) . '/' . ltrim($arr[1]);
 		}
 		!is_dir($this->storagesDir) && mkdir($this->storagesDir, 0777);
-		$jsonFile = $this->storagesDir.'/storage-'.$key.'.json';
-		$post = [];
-		foreach($_POST as $key=>$val){
-			$post[$key] = htmlspecialchars($val);
-		}
-        $config = json_encode($post, JSON_UNESCAPED_SLASHES);
+		$jsonFile = $this->storagesDir.'/storage-'.$storageName.'.json';
+        $config = json_encode($params, JSON_UNESCAPED_SLASHES);
+		// var_dump($config);exit;
         //在Win中，如果从"文件→属性→安全→对象名称"中复制路径，会多出一个你看不见的字符"\u202a"，只有变成
         //json后才看的见它的unicode，这样会导致路径明明存在程序却说不存在的情况，所以要把这个字符在json中去掉
         $config = str_replace('\u202a', '', $config);
+		// var_dump($config);exit;
 		file_put_contents($jsonFile, $config);
 		return json_encode([
 			'code' => 0,
