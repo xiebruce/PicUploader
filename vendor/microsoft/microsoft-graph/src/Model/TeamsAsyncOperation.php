@@ -154,7 +154,7 @@ class TeamsAsyncOperation extends Entity
 
     /**
     * Gets the operationType
-    * Denotes the type of operation being described.
+    * Denotes which type of operation is being described.
     *
     * @return TeamsAsyncOperationType|null The operationType
     */
@@ -173,7 +173,7 @@ class TeamsAsyncOperation extends Entity
 
     /**
     * Sets the operationType
-    * Denotes the type of operation being described.
+    * Denotes which type of operation is being described.
     *
     * @param TeamsAsyncOperationType $val The operationType
     *

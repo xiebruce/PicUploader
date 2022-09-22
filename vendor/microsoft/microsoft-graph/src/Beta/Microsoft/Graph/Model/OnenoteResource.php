@@ -26,7 +26,6 @@ class OnenoteResource extends OnenoteEntityBaseModel
 {
     /**
     * Gets the content
-    * The content stream
     *
     * @return \GuzzleHttp\Psr7\Stream|null The content
     */
@@ -45,7 +44,6 @@ class OnenoteResource extends OnenoteEntityBaseModel
 
     /**
     * Sets the content
-    * The content stream
     *
     * @param \GuzzleHttp\Psr7\Stream $val The content
     *
@@ -59,7 +57,6 @@ class OnenoteResource extends OnenoteEntityBaseModel
 
     /**
     * Gets the contentUrl
-    * The URL for downloading the content
     *
     * @return string|null The contentUrl
     */
@@ -74,7 +71,6 @@ class OnenoteResource extends OnenoteEntityBaseModel
 
     /**
     * Sets the contentUrl
-    * The URL for downloading the content
     *
     * @param string $val The contentUrl
     *

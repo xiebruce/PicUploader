@@ -26,7 +26,7 @@ class AgreementFileData extends Entity
 
     /**
     * Gets the data
-    * Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
+    * Data that represents the terms of use PDF document. Read-only.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The data
     */
@@ -45,7 +45,7 @@ class AgreementFileData extends Entity
 
     /**
     * Sets the data
-    * Data that represents the terms of use PDF document. Read-only. Note: You can use the .NET Convert.ToBase64String method to convert your file to binary data for uploading using the Create agreements API. A sample syntax using this method in PowerShell is [convert]::ToBase64String((Get-Content -path 'your_file_path' -Encoding byte)).
+    * Data that represents the terms of use PDF document. Read-only.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the data
     *

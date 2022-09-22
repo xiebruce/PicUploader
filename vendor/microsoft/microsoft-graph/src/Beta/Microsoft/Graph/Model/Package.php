@@ -25,7 +25,6 @@ class Package extends Entity
 {
     /**
     * Gets the type
-    * A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
     *
     * @return string|null The type
     */
@@ -40,7 +39,6 @@ class Package extends Entity
 
     /**
     * Sets the type
-    * A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.
     *
     * @param string $val The value of the type
     *

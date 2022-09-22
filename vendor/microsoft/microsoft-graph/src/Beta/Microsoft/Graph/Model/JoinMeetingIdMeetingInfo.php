@@ -36,6 +36,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo
 
     /**
     * Gets the joinMeetingId
+    * The ID used to join the meeting.
     *
     * @return string|null The joinMeetingId
     */
@@ -50,6 +51,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo
 
     /**
     * Sets the joinMeetingId
+    * The ID used to join the meeting.
     *
     * @param string $val The value of the joinMeetingId
     *
@@ -62,6 +64,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo
     }
     /**
     * Gets the passcode
+    * The passcode used to join the meeting. Optional.
     *
     * @return string|null The passcode
     */
@@ -76,6 +79,7 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo
 
     /**
     * Sets the passcode
+    * The passcode used to join the meeting. Optional.
     *
     * @param string $val The value of the passcode
     *

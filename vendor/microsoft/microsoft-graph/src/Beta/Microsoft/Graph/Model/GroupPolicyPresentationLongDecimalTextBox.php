@@ -22,7 +22,7 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyPresentation
+class GroupPolicyPresentationLongDecimalTextBox extends GroupPolicyUploadedPresentation
 {
     /**
     * Gets the defaultValue

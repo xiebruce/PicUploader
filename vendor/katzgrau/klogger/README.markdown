@@ -218,6 +218,7 @@ Special thanks to all contributors:
 * [Tim Kinnane](http://twitter.com/etherealtim)
 * [Onno Vos](https://github.com/onno-vos-dev)
 * [Cameron Will](https://github.com/cwill747)
+* [Kamil Wylegała](https://github.com/kamilwylegala)
 
 ## License
 

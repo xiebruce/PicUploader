@@ -26,7 +26,6 @@ class WorkbookRangeView extends Entity
 {
     /**
     * Gets the cellAddresses
-    * Represents the cell addresses
     *
     * @return string|null The cellAddresses
     */
@@ -41,7 +40,6 @@ class WorkbookRangeView extends Entity
 
     /**
     * Sets the cellAddresses
-    * Represents the cell addresses
     *
     * @param string $val The cellAddresses
     *

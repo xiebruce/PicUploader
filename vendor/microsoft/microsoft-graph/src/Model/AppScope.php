@@ -26,7 +26,7 @@ class AppScope extends Entity
 {
     /**
     * Gets the displayName
-    * Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
+    * Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. Read-only.
     *
     * @return string|null The displayName
     */
@@ -41,7 +41,7 @@ class AppScope extends Entity
 
     /**
     * Sets the displayName
-    * Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
+    * Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. Read-only.
     *
     * @param string $val The displayName
     *
@@ -55,7 +55,7 @@ class AppScope extends Entity
 
     /**
     * Gets the type
-    * Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
+    * Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. Read-only.
     *
     * @return string|null The type
     */
@@ -70,7 +70,7 @@ class AppScope extends Entity
 
     /**
     * Sets the type
-    * Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
+    * Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. Read-only.
     *
     * @param string $val The type
     *

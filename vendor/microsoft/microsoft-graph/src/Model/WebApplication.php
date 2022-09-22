@@ -140,4 +140,35 @@ class WebApplication extends Entity
         $this->_propDict["redirectUris"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the redirectUriSettings
+    *
+    * @return RedirectUriSettings|null The redirectUriSettings
+    */
+    public function getRedirectUriSettings()
+    {
+        if (array_key_exists("redirectUriSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["redirectUriSettings"], "\Microsoft\Graph\Model\RedirectUriSettings") || is_null($this->_propDict["redirectUriSettings"])) {
+                return $this->_propDict["redirectUriSettings"];
+            } else {
+                $this->_propDict["redirectUriSettings"] = new RedirectUriSettings($this->_propDict["redirectUriSettings"]);
+                return $this->_propDict["redirectUriSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the redirectUriSettings
+    *
+    * @param RedirectUriSettings $val The value to assign to the redirectUriSettings
+    *
+    * @return WebApplication The WebApplication
+    */
+    public function setRedirectUriSettings($val)
+    {
+        $this->_propDict["redirectUriSettings"] = $val;
+         return $this;
+    }
 }

@@ -26,6 +26,7 @@ class DecisionItemPrincipalResourceMembership extends Entity
 
     /**
     * Gets the membershipType
+    * Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
     *
     * @return DecisionItemPrincipalResourceMembershipType|null The membershipType
     */
@@ -44,6 +45,7 @@ class DecisionItemPrincipalResourceMembership extends Entity
 
     /**
     * Sets the membershipType
+    * Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
     *
     * @param DecisionItemPrincipalResourceMembershipType $val The value to assign to the membershipType
     *

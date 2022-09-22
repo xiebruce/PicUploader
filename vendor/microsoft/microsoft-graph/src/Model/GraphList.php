@@ -278,7 +278,7 @@ class GraphList extends BaseItem
 
      /**
      * Gets the operations
-    * The collection of long running operations for the list.
+    * The collection of long-running operations on the list.
      *
      * @return array|null The operations
      */
@@ -293,7 +293,7 @@ class GraphList extends BaseItem
 
     /**
     * Sets the operations
-    * The collection of long running operations for the list.
+    * The collection of long-running operations on the list.
     *
     * @param RichLongRunningOperation[] $val The operations
     *

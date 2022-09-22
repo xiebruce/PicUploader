@@ -30,5 +30,6 @@ class ScheduledRetireState extends Enum
     * The Enum ScheduledRetireState
     */
     const CANCEL_RETIRE = "cancelRetire";
-    const COMFIRM_RETIRE = "comfirmRetire";
+    const CONFIRM_RETIRE = "confirmRetire";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -88,7 +88,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
 
     /**
     * Gets the recipientUserId
-    * User id of the recipient of the offer shift request.
+    * User ID of the recipient of the offer shift request.
     *
     * @return string|null The recipientUserId
     */
@@ -103,7 +103,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
 
     /**
     * Sets the recipientUserId
-    * User id of the recipient of the offer shift request.
+    * User ID of the recipient of the offer shift request.
     *
     * @param string $val The recipientUserId
     *
@@ -117,7 +117,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
 
     /**
     * Gets the senderShiftId
-    * User id of the sender of the offer shift request.
+    * User ID of the sender of the offer shift request.
     *
     * @return string|null The senderShiftId
     */
@@ -132,7 +132,7 @@ class OfferShiftRequest extends ScheduleChangeRequest
 
     /**
     * Sets the senderShiftId
-    * User id of the sender of the offer shift request.
+    * User ID of the sender of the offer shift request.
     *
     * @param string $val The senderShiftId
     *

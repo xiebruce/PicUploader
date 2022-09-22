@@ -26,7 +26,6 @@ class UserSettings extends Entity
 {
     /**
     * Gets the contributionToContentDiscoveryAsOrganizationDisabled
-    * Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
     *
     * @return bool|null The contributionToContentDiscoveryAsOrganizationDisabled
     */
@@ -41,7 +40,6 @@ class UserSettings extends Entity
 
     /**
     * Sets the contributionToContentDiscoveryAsOrganizationDisabled
-    * Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
     *
     * @param bool $val The contributionToContentDiscoveryAsOrganizationDisabled
     *
@@ -55,7 +53,6 @@ class UserSettings extends Entity
 
     /**
     * Gets the contributionToContentDiscoveryDisabled
-    * When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
     *
     * @return bool|null The contributionToContentDiscoveryDisabled
     */
@@ -70,7 +67,6 @@ class UserSettings extends Entity
 
     /**
     * Sets the contributionToContentDiscoveryDisabled
-    * When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
     *
     * @param bool $val The contributionToContentDiscoveryDisabled
     *
@@ -84,7 +80,6 @@ class UserSettings extends Entity
 
     /**
     * Gets the shiftPreferences
-    * The shift preferences for the user.
     *
     * @return ShiftPreferences|null The shiftPreferences
     */
@@ -103,7 +98,6 @@ class UserSettings extends Entity
 
     /**
     * Sets the shiftPreferences
-    * The shift preferences for the user.
     *
     * @param ShiftPreferences $val The shiftPreferences
     *

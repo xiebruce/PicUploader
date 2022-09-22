@@ -59,7 +59,7 @@ class UnifiedGroupSource extends DataSource
 
     /**
     * Gets the group
-    * Represent a group.
+    * Represents a group.
     *
     * @return \Beta\Microsoft\Graph\Model\Group|null The group
     */
@@ -78,7 +78,7 @@ class UnifiedGroupSource extends DataSource
 
     /**
     * Sets the group
-    * Represent a group.
+    * Represents a group.
     *
     * @param \Beta\Microsoft\Graph\Model\Group $val The group
     *

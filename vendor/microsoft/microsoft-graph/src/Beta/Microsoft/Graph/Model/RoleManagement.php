@@ -119,7 +119,7 @@ class RoleManagement implements \JsonSerializable
 
     /**
     * Gets the entitlementManagement
-    * Container for roles and assignments for entitlement management resources.
+    * The RbacApplication for Entitlement Management
     *
     * @return RbacApplication|null The entitlementManagement
     */
@@ -138,7 +138,7 @@ class RoleManagement implements \JsonSerializable
 
     /**
     * Sets the entitlementManagement
-    * Container for roles and assignments for entitlement management resources.
+    * The RbacApplication for Entitlement Management
     *
     * @param RbacApplication $val The entitlementManagement
     *
@@ -215,7 +215,8 @@ class RoleManagement implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize(): array
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

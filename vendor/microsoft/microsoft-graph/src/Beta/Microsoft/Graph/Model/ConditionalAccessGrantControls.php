@@ -140,4 +140,35 @@ class ConditionalAccessGrantControls extends Entity
         $this->_propDict["termsOfUse"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the authenticationStrength
+    *
+    * @return AuthenticationStrengthPolicy|null The authenticationStrength
+    */
+    public function getAuthenticationStrength()
+    {
+        if (array_key_exists("authenticationStrength", $this->_propDict)) {
+            if (is_a($this->_propDict["authenticationStrength"], "\Beta\Microsoft\Graph\Model\AuthenticationStrengthPolicy") || is_null($this->_propDict["authenticationStrength"])) {
+                return $this->_propDict["authenticationStrength"];
+            } else {
+                $this->_propDict["authenticationStrength"] = new AuthenticationStrengthPolicy($this->_propDict["authenticationStrength"]);
+                return $this->_propDict["authenticationStrength"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authenticationStrength
+    *
+    * @param AuthenticationStrengthPolicy $val The value to assign to the authenticationStrength
+    *
+    * @return ConditionalAccessGrantControls The ConditionalAccessGrantControls
+    */
+    public function setAuthenticationStrength($val)
+    {
+        $this->_propDict["authenticationStrength"] = $val;
+         return $this;
+    }
 }

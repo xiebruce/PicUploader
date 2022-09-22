@@ -55,7 +55,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Gets the appliedBy
-    * The identifier of the user who applied the decision. Read-only.
+    * The identifier of the user who applied the decision. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't applied the decision or it was automatically applied. Read-only.
     *
     * @return UserIdentity|null The appliedBy
     */
@@ -74,7 +74,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Sets the appliedBy
-    * The identifier of the user who applied the decision. Read-only.
+    * The identifier of the user who applied the decision. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't applied the decision or it was automatically applied. Read-only.
     *
     * @param UserIdentity $val The appliedBy
     *
@@ -270,6 +270,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Gets the principalResourceMembership
+    * Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
     *
     * @return DecisionItemPrincipalResourceMembership|null The principalResourceMembership
     */
@@ -288,6 +289,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Sets the principalResourceMembership
+    * Every decision item in an access review represents a principal's membership to a resource. This property provides the details of the membership. For example, whether the principal has direct access or indirect access to the resource. Supports $select. Read-only.
     *
     * @param DecisionItemPrincipalResourceMembership $val The principalResourceMembership
     *
@@ -392,7 +394,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Gets the reviewedBy
-    * The identifier of the reviewer. Supports $select. Read-only.
+    * The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Supports $select. Read-only.
     *
     * @return UserIdentity|null The reviewedBy
     */
@@ -411,7 +413,7 @@ class AccessReviewInstanceDecisionItem extends Entity
 
     /**
     * Sets the reviewedBy
-    * The identifier of the reviewer. Supports $select. Read-only.
+    * The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Supports $select. Read-only.
     *
     * @param UserIdentity $val The reviewedBy
     *

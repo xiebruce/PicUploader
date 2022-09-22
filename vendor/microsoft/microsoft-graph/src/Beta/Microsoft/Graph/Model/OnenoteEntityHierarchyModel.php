@@ -26,7 +26,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 {
     /**
     * Gets the createdBy
-    * Identity of the user, device, and application which created the item. Read-only.
     *
     * @return IdentitySet|null The createdBy
     */
@@ -45,7 +44,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Sets the createdBy
-    * Identity of the user, device, and application which created the item. Read-only.
     *
     * @param IdentitySet $val The createdBy
     *
@@ -59,7 +57,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Gets the displayName
-    * The name of the notebook.
     *
     * @return string|null The displayName
     */
@@ -74,7 +71,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Sets the displayName
-    * The name of the notebook.
     *
     * @param string $val The displayName
     *
@@ -88,7 +84,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Gets the lastModifiedBy
-    * Identity of the user, device, and application which created the item. Read-only.
     *
     * @return IdentitySet|null The lastModifiedBy
     */
@@ -107,7 +102,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Sets the lastModifiedBy
-    * Identity of the user, device, and application which created the item. Read-only.
     *
     * @param IdentitySet $val The lastModifiedBy
     *
@@ -121,7 +115,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Gets the lastModifiedDateTime
-    * The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
@@ -140,7 +133,6 @@ class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel
 
     /**
     * Sets the lastModifiedDateTime
-    * The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *

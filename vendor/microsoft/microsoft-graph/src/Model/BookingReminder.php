@@ -87,7 +87,7 @@ class BookingReminder extends Entity
 
     /**
     * Gets the recipients
-    * The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+    * The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.
     *
     * @return BookingReminderRecipients|null The recipients
     */
@@ -106,7 +106,7 @@ class BookingReminder extends Entity
 
     /**
     * Sets the recipients
-    * The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+    * The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.
     *
     * @param BookingReminderRecipients $val The value to assign to the recipients
     *

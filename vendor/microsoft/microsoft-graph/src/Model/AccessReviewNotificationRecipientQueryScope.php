@@ -25,7 +25,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
 {
     /**
     * Gets the query
-    * This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+    * Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
     *
     * @return string|null The query
     */
@@ -40,7 +40,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
 
     /**
     * Sets the query
-    * This represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+    * Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
     *
     * @param string $val The value of the query
     *
@@ -53,7 +53,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
     }
     /**
     * Gets the queryRoot
-    * In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.
+    * In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
     *
     * @return string|null The queryRoot
     */
@@ -68,7 +68,7 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
 
     /**
     * Sets the queryRoot
-    * In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query that is, ./manager) is specified.
+    * In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
     *
     * @param string $val The value of the queryRoot
     *

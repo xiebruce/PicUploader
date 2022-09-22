@@ -116,6 +116,36 @@ class VirtualEndpoint extends Entity
 
 
      /**
+     * Gets the externalPartnerSettings
+    * The external partner settings on a Cloud PC.
+     *
+     * @return array|null The externalPartnerSettings
+     */
+    public function getExternalPartnerSettings()
+    {
+        if (array_key_exists("externalPartnerSettings", $this->_propDict)) {
+           return $this->_propDict["externalPartnerSettings"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the externalPartnerSettings
+    * The external partner settings on a Cloud PC.
+    *
+    * @param CloudPcExternalPartnerSetting[] $val The externalPartnerSettings
+    *
+    * @return VirtualEndpoint
+    */
+    public function setExternalPartnerSettings($val)
+    {
+        $this->_propDict["externalPartnerSettings"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the galleryImages
     * The gallery image resource on Cloud PC.
      *

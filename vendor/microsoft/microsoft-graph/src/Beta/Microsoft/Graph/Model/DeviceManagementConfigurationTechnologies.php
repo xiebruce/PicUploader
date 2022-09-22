@@ -37,5 +37,6 @@ class DeviceManagementConfigurationTechnologies extends Enum
     const MICROSOFT_SENSE = "microsoftSense";
     const EXCHANGE_ONLINE = "exchangeOnline";
     const LINUX_MDM = "linuxMdm";
+    const ENROLLMENT = "enrollment";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

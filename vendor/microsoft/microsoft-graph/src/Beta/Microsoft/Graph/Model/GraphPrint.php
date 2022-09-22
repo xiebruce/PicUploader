@@ -121,7 +121,6 @@ class GraphPrint implements \JsonSerializable
 
      /**
      * Gets the operations
-    * The list of print long running operations.
      *
      * @return array|null The operations
      */
@@ -136,7 +135,6 @@ class GraphPrint implements \JsonSerializable
 
     /**
     * Sets the operations
-    * The list of print long running operations.
     *
     * @param PrintOperation[] $val The operations
     *
@@ -300,7 +298,6 @@ class GraphPrint implements \JsonSerializable
 
      /**
      * Gets the taskDefinitions
-    * List of abstract definition for a task that can be triggered when various events occur within Universal Print.
      *
      * @return array|null The taskDefinitions
      */
@@ -315,7 +312,6 @@ class GraphPrint implements \JsonSerializable
 
     /**
     * Sets the taskDefinitions
-    * List of abstract definition for a task that can be triggered when various events occur within Universal Print.
     *
     * @param PrintTaskDefinition[] $val The taskDefinitions
     *
@@ -359,7 +355,8 @@ class GraphPrint implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize(): array
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

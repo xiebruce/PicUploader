@@ -345,7 +345,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity
 
     /**
     * Gets the healthStatus
-    * The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    * The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals, unknownFutureValue.
     *
     * @return UserExperienceAnalyticsHealthState|null The healthStatus
     */
@@ -364,7 +364,7 @@ class UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity
 
     /**
     * Sets the healthStatus
-    * The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    * The user experience work from anywhere per device health status. Possible values are: unknown, insufficientData, needsAttention, meetingGoals, unknownFutureValue.
     *
     * @param UserExperienceAnalyticsHealthState $val The healthStatus
     *

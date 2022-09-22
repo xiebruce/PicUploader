@@ -23,6 +23,62 @@ namespace Beta\Microsoft\Graph\CallRecords\Model;
 */
 class ClientUserAgent extends UserAgent
 {
+    /**
+    * Gets the azureADAppId
+    * The unique identifier of the Azure AD application used by this endpoint.
+    *
+    * @return string|null The azureADAppId
+    */
+    public function getAzureADAppId()
+    {
+        if (array_key_exists("azureADAppId", $this->_propDict)) {
+            return $this->_propDict["azureADAppId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the azureADAppId
+    * The unique identifier of the Azure AD application used by this endpoint.
+    *
+    * @param string $val The value of the azureADAppId
+    *
+    * @return ClientUserAgent
+    */
+    public function setAzureADAppId($val)
+    {
+        $this->_propDict["azureADAppId"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the communicationServiceId
+    * Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs.
+    *
+    * @return string|null The communicationServiceId
+    */
+    public function getCommunicationServiceId()
+    {
+        if (array_key_exists("communicationServiceId", $this->_propDict)) {
+            return $this->_propDict["communicationServiceId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the communicationServiceId
+    * Immutable resource identifier of the Azure Communication Service associated with this endpoint based on Communication Services APIs.
+    *
+    * @param string $val The value of the communicationServiceId
+    *
+    * @return ClientUserAgent
+    */
+    public function setCommunicationServiceId($val)
+    {
+        $this->_propDict["communicationServiceId"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the platform

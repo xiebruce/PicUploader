@@ -303,7 +303,7 @@ class DeviceCompliancePolicy extends Entity
 
      /**
      * Gets the scheduledActionsForRule
-    * The list of scheduled action for this rule
+    * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      *
      * @return array|null The scheduledActionsForRule
      */
@@ -318,7 +318,7 @@ class DeviceCompliancePolicy extends Entity
 
     /**
     * Sets the scheduledActionsForRule
-    * The list of scheduled action for this rule
+    * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
     *
     * @param DeviceComplianceScheduledActionForRule[] $val The scheduledActionsForRule
     *

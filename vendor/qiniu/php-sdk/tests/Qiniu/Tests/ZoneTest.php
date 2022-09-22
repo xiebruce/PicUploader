@@ -99,6 +99,12 @@ class ZoneTest extends \PHPUnit_Framework_TestCase
         $this->assertContains('upload-z2.qiniup.com', $zone->cdnUpHosts);
     }
 
+    public function testZoneCnEast2()
+    {
+        $zone = Zone::zoneCnEast2();
+        $this->assertContains('upload-cn-east-2.qiniup.com', $zone->cdnUpHosts);
+    }
+
     public function testZoneNa0()
     {
         $zone = Zone::zoneNa0();
@@ -109,6 +115,12 @@ class ZoneTest extends \PHPUnit_Framework_TestCase
     {
         $zone = Zone::zoneAs0();
         $this->assertContains('upload-as0.qiniup.com', $zone->cdnUpHosts);
+    }
+
+    public function testZoneApNortheast1()
+    {
+        $zone = Zone::zoneApNortheast1();
+        $this->assertContains('upload-ap-northeast-1.qiniup.com', $zone->cdnUpHosts);
     }
 
     public function testQvmZonez0()

@@ -89,7 +89,6 @@ class RiskUserActivity extends Entity
     }
     /**
     * Gets the riskEventTypes
-    * The type of risk event detected.
     *
     * @return string|null The riskEventTypes
     */
@@ -104,7 +103,6 @@ class RiskUserActivity extends Entity
 
     /**
     * Sets the riskEventTypes
-    * The type of risk event detected.
     *
     * @param string $val The value of the riskEventTypes
     *

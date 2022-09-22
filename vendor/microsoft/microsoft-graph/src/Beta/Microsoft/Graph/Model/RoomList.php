@@ -81,4 +81,32 @@ class RoomList extends Place
         return $this;
     }
 
+
+     /**
+     * Gets the workspaces
+     *
+     * @return array|null The workspaces
+     */
+    public function getWorkspaces()
+    {
+        if (array_key_exists("workspaces", $this->_propDict)) {
+           return $this->_propDict["workspaces"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the workspaces
+    *
+    * @param Workspace[] $val The workspaces
+    *
+    * @return RoomList
+    */
+    public function setWorkspaces($val)
+    {
+        $this->_propDict["workspaces"] = $val;
+        return $this;
+    }
+
 }

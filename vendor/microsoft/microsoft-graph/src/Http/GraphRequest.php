@@ -91,7 +91,7 @@ class GraphRequest
     /**
     * The timeout, in seconds
     *
-    * @var string
+    * @var int
     */
     protected $timeout;
     /**
@@ -276,7 +276,7 @@ class GraphRequest
     /**
     * Sets the timeout limit of the cURL request
     *
-    * @param string $timeout The timeout in seconds
+    * @param int $timeout The timeout in seconds
     *
     * @return $this object
     */
@@ -289,7 +289,7 @@ class GraphRequest
     /**
      * Gets the timeout value of the request
      *
-     * @return string
+     * @return int
      */
     public function getTimeout()
     {

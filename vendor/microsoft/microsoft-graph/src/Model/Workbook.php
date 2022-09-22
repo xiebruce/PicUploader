@@ -147,7 +147,7 @@ class Workbook extends Entity
 
      /**
      * Gets the operations
-    * The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+    * The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
      *
      * @return array|null The operations
      */
@@ -162,7 +162,7 @@ class Workbook extends Entity
 
     /**
     * Sets the operations
-    * The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+    * The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
     *
     * @param WorkbookOperation[] $val The operations
     *

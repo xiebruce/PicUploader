@@ -26,7 +26,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
 {
     /**
     * Gets the memberType
-    * Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
+    * How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
     *
     * @return string|null The memberType
     */
@@ -41,7 +41,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
 
     /**
     * Sets the memberType
-    * Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.
+    * How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
     *
     * @param string $val The memberType
     *
@@ -55,7 +55,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
 
     /**
     * Gets the scheduleInfo
-    * The schedule object of the eligible role assignment request.
+    * The period of the role eligibility.
     *
     * @return RequestSchedule|null The scheduleInfo
     */
@@ -74,7 +74,7 @@ class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase
 
     /**
     * Sets the scheduleInfo
-    * The schedule object of the eligible role assignment request.
+    * The period of the role eligibility.
     *
     * @param RequestSchedule $val The scheduleInfo
     *

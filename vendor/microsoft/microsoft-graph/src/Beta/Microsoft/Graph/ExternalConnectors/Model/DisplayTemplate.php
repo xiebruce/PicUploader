@@ -25,7 +25,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the id
-    * The text identifier for the display template; for example, contosoTickets.
+    * The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
     *
     * @return string|null The id
     */
@@ -40,7 +40,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the id
-    * The text identifier for the display template; for example, contosoTickets.
+    * The text identifier for the display template; for example, contosoTickets. Maximum 16 characters. Only alphanumeric characters allowed.
     *
     * @param string $val The value of the id
     *
@@ -81,7 +81,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the priority
-    * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
+    * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
     *
     * @return int|null The priority
     */
@@ -96,7 +96,7 @@ class DisplayTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the priority
-    * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported.
+    * Defines the priority of a display template. A display template with priority 1 is evaluated before a template with priority 4. Gaps in priority values are supported. Must be positive value.
     *
     * @param int $val The value of the priority
     *

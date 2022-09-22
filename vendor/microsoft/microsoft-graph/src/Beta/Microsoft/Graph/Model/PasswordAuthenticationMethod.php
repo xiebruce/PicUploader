@@ -26,6 +26,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod
 {
     /**
     * Gets the createdDateTime
+    * The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -44,6 +45,7 @@ class PasswordAuthenticationMethod extends AuthenticationMethod
 
     /**
     * Sets the createdDateTime
+    * The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -57,7 +59,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod
 
     /**
     * Gets the creationDateTime
-    * The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The creationDateTime
     */
@@ -76,7 +77,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod
 
     /**
     * Sets the creationDateTime
-    * The date and time when this password was last updated. This property is currently not populated. Read-only. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The creationDateTime
     *

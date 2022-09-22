@@ -54,6 +54,35 @@ class CertificateConnectorDetails extends Entity
     }
 
     /**
+    * Gets the connectorVersion
+    * Version of the connector installed.
+    *
+    * @return string|null The connectorVersion
+    */
+    public function getConnectorVersion()
+    {
+        if (array_key_exists("connectorVersion", $this->_propDict)) {
+            return $this->_propDict["connectorVersion"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the connectorVersion
+    * Version of the connector installed.
+    *
+    * @param string $val The connectorVersion
+    *
+    * @return CertificateConnectorDetails
+    */
+    public function setConnectorVersion($val)
+    {
+        $this->_propDict["connectorVersion"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the enrollmentDateTime
     * Date/time when this connector was enrolled.
     *

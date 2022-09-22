@@ -53,7 +53,7 @@ class GeoCoordinates extends Entity
     }
     /**
     * Gets the latitude
-    * Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+    * Optional. The latitude, in decimal, for the item. Read-only.
     *
     * @return float|null The latitude
     */
@@ -68,7 +68,7 @@ class GeoCoordinates extends Entity
 
     /**
     * Sets the latitude
-    * Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+    * Optional. The latitude, in decimal, for the item. Read-only.
     *
     * @param float $val The value of the latitude
     *
@@ -81,7 +81,7 @@ class GeoCoordinates extends Entity
     }
     /**
     * Gets the longitude
-    * Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
+    * Optional. The longitude, in decimal, for the item. Read-only.
     *
     * @return float|null The longitude
     */
@@ -96,7 +96,7 @@ class GeoCoordinates extends Entity
 
     /**
     * Sets the longitude
-    * Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
+    * Optional. The longitude, in decimal, for the item. Read-only.
     *
     * @param float $val The value of the longitude
     *

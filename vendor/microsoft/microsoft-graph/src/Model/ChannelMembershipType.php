@@ -32,4 +32,5 @@ class ChannelMembershipType extends Enum
     const STANDARD = "standard";
     const GRAPHPRIVATE = "private";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const SHARED = "shared";
 }

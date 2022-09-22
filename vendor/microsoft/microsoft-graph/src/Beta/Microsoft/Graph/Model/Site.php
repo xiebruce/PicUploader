@@ -617,7 +617,6 @@ class Site extends BaseItem
 
     /**
     * Gets the onenote
-    * Calls the OneNote service for notebook related operations.
     *
     * @return Onenote|null The onenote
     */
@@ -636,7 +635,6 @@ class Site extends BaseItem
 
     /**
     * Sets the onenote
-    * Calls the OneNote service for notebook related operations.
     *
     * @param Onenote $val The onenote
     *

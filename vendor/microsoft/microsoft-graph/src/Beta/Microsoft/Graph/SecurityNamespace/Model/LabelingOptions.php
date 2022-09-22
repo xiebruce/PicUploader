@@ -26,6 +26,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the assignmentMethod
+    * Describes whether the label was applied by an automated (standard) process or a person (privileged).
     *
     * @return AssignmentMethod|null The assignmentMethod
     */
@@ -44,6 +45,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the assignmentMethod
+    * Describes whether the label was applied by an automated (standard) process or a person (privileged).
     *
     * @param AssignmentMethod $val The value to assign to the assignmentMethod
     *
@@ -57,6 +59,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the downgradeJustification
+    * The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
     *
     * @return DowngradeJustification|null The downgradeJustification
     */
@@ -75,6 +78,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the downgradeJustification
+    * The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
     *
     * @param DowngradeJustification $val The value to assign to the downgradeJustification
     *
@@ -88,6 +92,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the extendedProperties
+    * Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.
     *
     * @return KeyValuePair|null The extendedProperties
     */
@@ -106,6 +111,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the extendedProperties
+    * Extended properties will be parsed and returned in the standard Microsoft Purview Information Protection labeled metadata format as part of the label information.
     *
     * @param KeyValuePair $val The value to assign to the extendedProperties
     *
@@ -118,6 +124,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the labelId
+    * The GUID of the label that should be applied to the information.
     *
     * @return string|null The labelId
     */
@@ -132,6 +139,7 @@ class LabelingOptions extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the labelId
+    * The GUID of the label that should be applied to the information.
     *
     * @param string $val The value of the labelId
     *

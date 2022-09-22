@@ -299,7 +299,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Gets the requestType
-    * One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
+    * One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd, UserUpdate or UserRemove. Read-only.
     *
     * @return string|null The requestType
     */
@@ -314,7 +314,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Sets the requestType
-    * One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
+    * One of UserAdd, UserExtend, UserUpdate, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd, UserUpdate or UserRemove. Read-only.
     *
     * @param string $val The requestType
     *

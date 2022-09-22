@@ -26,7 +26,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 {
     /**
     * Gets the brandingOptions
-    * Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails.
+    * Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails, unknownFutureValue.
     *
     * @return EnrollmentNotificationBrandingOptions|null The brandingOptions
     */
@@ -45,7 +45,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
     * Sets the brandingOptions
-    * Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails.
+    * Branding Options for the Enrollment Notification. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink, includeDeviceDetails, unknownFutureValue.
     *
     * @param EnrollmentNotificationBrandingOptions $val The brandingOptions
     *
@@ -112,6 +112,35 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     public function setNotificationMessageTemplateId($val)
     {
         $this->_propDict["notificationMessageTemplateId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the notificationTemplates
+    * The list of notification data -
+    *
+    * @return string|null The notificationTemplates
+    */
+    public function getNotificationTemplates()
+    {
+        if (array_key_exists("notificationTemplates", $this->_propDict)) {
+            return $this->_propDict["notificationTemplates"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the notificationTemplates
+    * The list of notification data -
+    *
+    * @param string $val The notificationTemplates
+    *
+    * @return DeviceEnrollmentNotificationConfiguration
+    */
+    public function setNotificationTemplates($val)
+    {
+        $this->_propDict["notificationTemplates"] = $val;
         return $this;
     }
 

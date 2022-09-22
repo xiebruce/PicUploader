@@ -122,14 +122,15 @@ final class Auth
 
         // append body
         $data .= "\n\n";
-        if (strlen($body) > 0
+        if (!is_null($body)
+            && strlen($body) > 0
             && isset($headers["Content-Type"])
             && $headers["Content-Type"] != "application/octet-stream"
         ) {
             $data .= $body;
         }
 
-        return array($this->sign(utf8_encode($data)), null);
+        return array($this->sign($data), null);
     }
 
     public function verifyCallback($contentType, $originAuthorization, $url, $body)

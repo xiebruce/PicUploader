@@ -260,7 +260,6 @@ class SecureScoreControlProfile extends Entity
 
     /**
     * Gets the lastModifiedDateTime
-    * Time at which the control profile entity was last modified. The Timestamp type represents date and time
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
@@ -279,7 +278,6 @@ class SecureScoreControlProfile extends Entity
 
     /**
     * Sets the lastModifiedDateTime
-    * Time at which the control profile entity was last modified. The Timestamp type represents date and time
     *
     * @param \DateTime $val The lastModifiedDateTime
     *

@@ -91,7 +91,7 @@ class DocumentSet extends Entity
     }
     /**
     * Gets the propagateWelcomePageChanges
-    * Indicates whether to add the name of the document set to each file name.
+    * Specifies whether to push welcome page changes to inherited content types.
     *
     * @return bool|null The propagateWelcomePageChanges
     */
@@ -106,7 +106,7 @@ class DocumentSet extends Entity
 
     /**
     * Sets the propagateWelcomePageChanges
-    * Indicates whether to add the name of the document set to each file name.
+    * Specifies whether to push welcome page changes to inherited content types.
     *
     * @param bool $val The value of the propagateWelcomePageChanges
     *
@@ -119,7 +119,7 @@ class DocumentSet extends Entity
     }
     /**
     * Gets the shouldPrefixNameToFile
-    * Add the name of the Document Set to each file name.
+    * Indicates whether to add the name of the document set to each file name.
     *
     * @return bool|null The shouldPrefixNameToFile
     */
@@ -134,7 +134,7 @@ class DocumentSet extends Entity
 
     /**
     * Sets the shouldPrefixNameToFile
-    * Add the name of the Document Set to each file name.
+    * Indicates whether to add the name of the document set to each file name.
     *
     * @param bool $val The value of the shouldPrefixNameToFile
     *

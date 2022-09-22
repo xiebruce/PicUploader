@@ -112,6 +112,35 @@ class Windows10EnrollmentCompletionPageConfiguration extends DeviceEnrollmentCon
     }
 
     /**
+    * Gets the allowNonBlockingAppInstallation
+    * Install all required apps as non blocking apps during white glove
+    *
+    * @return bool|null The allowNonBlockingAppInstallation
+    */
+    public function getAllowNonBlockingAppInstallation()
+    {
+        if (array_key_exists("allowNonBlockingAppInstallation", $this->_propDict)) {
+            return $this->_propDict["allowNonBlockingAppInstallation"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowNonBlockingAppInstallation
+    * Install all required apps as non blocking apps during white glove
+    *
+    * @param bool $val The allowNonBlockingAppInstallation
+    *
+    * @return Windows10EnrollmentCompletionPageConfiguration
+    */
+    public function setAllowNonBlockingAppInstallation($val)
+    {
+        $this->_propDict["allowNonBlockingAppInstallation"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the blockDeviceSetupRetryByUser
     * Allow the user to retry the setup on installation failure
     *

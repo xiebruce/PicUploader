@@ -107,6 +107,19 @@ class Region
         return $regionHuanan;
     }
 
+    //华东2 机房
+    public static function regionHuadong2()
+    {
+        return new Region(
+            array('up-cn-east-2.qiniup.com'),
+            array('upload-cn-east-2.qiniup.com'),
+            "rs-cn-east-2.qiniuapi.com",
+            "rsf-cn-east-2.qiniuapi.com",
+            "api-cn-east-2.qiniuapi.com",
+            "iovip-cn-east-2.qiniuio.com"
+        );
+    }
+
     //北美机房
     public static function regionNorthAmerica()
     {
@@ -135,6 +148,20 @@ class Region
             "iovip-as0.qbox.me"
         );
         return $regionSingapore;
+    }
+
+    //首尔
+    public static function regionSeoul()
+    {
+        //首尔
+        return new Region(
+            array('up-ap-northeast-1.qiniup.com'),
+            array('upload-ap-northeast-1.qiniup.com'),
+            "rs-ap-northeast-1.qiniuapi.com",
+            "rsf-ap-northeast-1.qiniuapi.com",
+            "api-ap-northeast-1.qiniuapi.com",
+            "iovip-ap-northeast-1.qiniuio.com"
+        );
     }
 
     /*
@@ -177,6 +204,10 @@ class Region
             $Region->rsHost = "rs-z2.qbox.me";
             $Region->rsfHost = "rsf-z2.qbox.me";
             $Region->apiHost = "api-z2.qiniu.com";
+        } elseif (strstr($Region->iovipHost, "cn-east-2") !== false) {
+            $Region->rsHost = "rs-cn-east-2.qiniuapi.com";
+            $Region->rsfHost = "rsf-cn-east-2.qiniuapi.com";
+            $Region->apiHost = "api-cn-east-2.qiniuapi.com";
         } elseif (strstr($Region->iovipHost, "na0") !== false) {
             $Region->rsHost = "rs-na0.qbox.me";
             $Region->rsfHost = "rsf-na0.qbox.me";
@@ -185,6 +216,10 @@ class Region
             $Region->rsHost = "rs-as0.qbox.me";
             $Region->rsfHost = "rsf-as0.qbox.me";
             $Region->apiHost = "api-as0.qiniu.com";
+        } elseif (strstr($Region->iovipHost, "ap-northeast-1") !== false) {
+            $Region->rsHost = "rs-ap-northeast-1.qiniuapi.com";
+            $Region->rsfHost = "rsf-ap-northeast-1.qiniuapi.com";
+            $Region->apiHost = "api-ap-northeast-1.qiniuapi.com";
         } else {
             $Region->rsHost = "rs.qbox.me";
             $Region->rsfHost = "rsf.qbox.me";

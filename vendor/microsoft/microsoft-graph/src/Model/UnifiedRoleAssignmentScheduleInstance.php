@@ -117,7 +117,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the roleAssignmentOriginId
-    * The identifier of the role assignment in Azure AD.
+    * The identifier of the role assignment in Azure AD. Supports $filter (eq, ne).
     *
     * @return string|null The roleAssignmentOriginId
     */
@@ -132,7 +132,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the roleAssignmentOriginId
-    * The identifier of the role assignment in Azure AD.
+    * The identifier of the role assignment in Azure AD. Supports $filter (eq, ne).
     *
     * @param string $val The roleAssignmentOriginId
     *
@@ -146,7 +146,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Gets the roleAssignmentScheduleId
-    * The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
+    * The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created. Supports $filter (eq, ne).
     *
     * @return string|null The roleAssignmentScheduleId
     */
@@ -161,7 +161,7 @@ class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceB
 
     /**
     * Sets the roleAssignmentScheduleId
-    * The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created.
+    * The identifier of the unifiedRoleAssignmentSchedule object from which this instance was created. Supports $filter (eq, ne).
     *
     * @param string $val The roleAssignmentScheduleId
     *

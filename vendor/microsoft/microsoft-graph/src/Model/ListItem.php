@@ -123,6 +123,36 @@ class ListItem extends BaseItem
         return $this;
     }
 
+
+     /**
+     * Gets the documentSetVersions
+    * Version information for a document set version created by a user.
+     *
+     * @return array|null The documentSetVersions
+     */
+    public function getDocumentSetVersions()
+    {
+        if (array_key_exists("documentSetVersions", $this->_propDict)) {
+           return $this->_propDict["documentSetVersions"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the documentSetVersions
+    * Version information for a document set version created by a user.
+    *
+    * @param DocumentSetVersion[] $val The documentSetVersions
+    *
+    * @return ListItem
+    */
+    public function setDocumentSetVersions($val)
+    {
+        $this->_propDict["documentSetVersions"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the driveItem
     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]

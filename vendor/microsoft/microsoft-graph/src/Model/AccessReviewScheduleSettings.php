@@ -170,7 +170,7 @@ class AccessReviewScheduleSettings extends Entity
     }
     /**
     * Gets the instanceDurationInDays
-    * Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
+    * Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
     *
     * @return int|null The instanceDurationInDays
     */
@@ -185,7 +185,7 @@ class AccessReviewScheduleSettings extends Entity
 
     /**
     * Sets the instanceDurationInDays
-    * Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
+    * Duration of an access review instance in days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
     *
     * @param int $val The value of the instanceDurationInDays
     *

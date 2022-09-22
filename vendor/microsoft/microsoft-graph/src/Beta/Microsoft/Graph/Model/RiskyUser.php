@@ -275,7 +275,6 @@ class RiskyUser extends Entity
 
      /**
      * Gets the history
-    * The activity related to user risk level change
      *
      * @return array|null The history
      */
@@ -290,7 +289,6 @@ class RiskyUser extends Entity
 
     /**
     * Sets the history
-    * The activity related to user risk level change
     *
     * @param RiskyUserHistoryItem[] $val The history
     *

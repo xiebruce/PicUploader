@@ -1276,7 +1276,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
 
     /**
     * Gets the defenderSystemScanSchedule
-    * Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+    * Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday.
     *
     * @return WeeklySchedule|null The defenderSystemScanSchedule
     */
@@ -1295,7 +1295,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
 
     /**
     * Sets the defenderSystemScanSchedule
-    * Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+    * Defender day of the week for the system scan. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday.
     *
     * @param WeeklySchedule $val The defenderSystemScanSchedule
     *

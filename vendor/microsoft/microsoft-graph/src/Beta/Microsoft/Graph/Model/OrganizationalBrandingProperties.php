@@ -654,6 +654,68 @@ class OrganizationalBrandingProperties extends Entity
     }
 
     /**
+    * Gets the squareLogoDark
+    * A square dark version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
+    *
+    * @return \GuzzleHttp\Psr7\Stream|null The squareLogoDark
+    */
+    public function getSquareLogoDark()
+    {
+        if (array_key_exists("squareLogoDark", $this->_propDict)) {
+            if (is_a($this->_propDict["squareLogoDark"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["squareLogoDark"])) {
+                return $this->_propDict["squareLogoDark"];
+            } else {
+                $this->_propDict["squareLogoDark"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["squareLogoDark"]);
+                return $this->_propDict["squareLogoDark"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the squareLogoDark
+    * A square dark version of your company logo that appears in Windows 10 out-of-box experiences (OOBE) and when Windows Autopilot is enabled for deployment. Allowed types are PNG or JPEG not larger than 240 x 240 pixels and not more than 10 KB in size. We recommend using a transparent image with no padding around the logo.
+    *
+    * @param \GuzzleHttp\Psr7\Stream $val The squareLogoDark
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setSquareLogoDark($val)
+    {
+        $this->_propDict["squareLogoDark"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the squareLogoDarkRelativeUrl
+    * A relative URL for the squareLogoDark property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+    *
+    * @return string|null The squareLogoDarkRelativeUrl
+    */
+    public function getSquareLogoDarkRelativeUrl()
+    {
+        if (array_key_exists("squareLogoDarkRelativeUrl", $this->_propDict)) {
+            return $this->_propDict["squareLogoDarkRelativeUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the squareLogoDarkRelativeUrl
+    * A relative URL for the squareLogoDark property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+    *
+    * @param string $val The squareLogoDarkRelativeUrl
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setSquareLogoDarkRelativeUrl($val)
+    {
+        $this->_propDict["squareLogoDarkRelativeUrl"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the squareLogoRelativeUrl
     * A relative URL for the squareLogo property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
     *

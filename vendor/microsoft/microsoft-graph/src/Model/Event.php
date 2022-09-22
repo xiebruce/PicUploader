@@ -26,7 +26,7 @@ class Event extends OutlookItem
 {
     /**
     * Gets the allowNewTimeProposals
-    * true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
+    * true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
     *
     * @return bool|null The allowNewTimeProposals
     */
@@ -41,7 +41,7 @@ class Event extends OutlookItem
 
     /**
     * Sets the allowNewTimeProposals
-    * true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
+    * true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
     *
     * @param bool $val The allowNewTimeProposals
     *

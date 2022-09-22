@@ -27,6 +27,7 @@ class DeletedTeam extends Entity
 
      /**
      * Gets the channels
+    * The channels those are either shared with this deleted team or created in this deleted team.
      *
      * @return array|null The channels
      */
@@ -41,6 +42,7 @@ class DeletedTeam extends Entity
 
     /**
     * Sets the channels
+    * The channels those are either shared with this deleted team or created in this deleted team.
     *
     * @param Channel[] $val The channels
     *

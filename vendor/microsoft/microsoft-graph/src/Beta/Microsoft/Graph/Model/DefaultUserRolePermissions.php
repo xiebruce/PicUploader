@@ -80,6 +80,34 @@ class DefaultUserRolePermissions extends Entity
         return $this;
     }
     /**
+    * Gets the allowedToReadBitlockerKeysForOwnedDevice
+    * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+    *
+    * @return bool|null The allowedToReadBitlockerKeysForOwnedDevice
+    */
+    public function getAllowedToReadBitlockerKeysForOwnedDevice()
+    {
+        if (array_key_exists("allowedToReadBitlockerKeysForOwnedDevice", $this->_propDict)) {
+            return $this->_propDict["allowedToReadBitlockerKeysForOwnedDevice"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowedToReadBitlockerKeysForOwnedDevice
+    * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+    *
+    * @param bool $val The value of the allowedToReadBitlockerKeysForOwnedDevice
+    *
+    * @return DefaultUserRolePermissions
+    */
+    public function setAllowedToReadBitlockerKeysForOwnedDevice($val)
+    {
+        $this->_propDict["allowedToReadBitlockerKeysForOwnedDevice"] = $val;
+        return $this;
+    }
+    /**
     * Gets the allowedToReadOtherUsers
     * Indicates whether the default user role can read other users.
     *

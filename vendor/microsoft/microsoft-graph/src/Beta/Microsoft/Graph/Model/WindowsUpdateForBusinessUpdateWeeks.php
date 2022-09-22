@@ -35,4 +35,5 @@ class WindowsUpdateForBusinessUpdateWeeks extends Enum
     const THIRD_WEEK = "thirdWeek";
     const FOURTH_WEEK = "fourthWeek";
     const EVERY_WEEK = "everyWeek";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

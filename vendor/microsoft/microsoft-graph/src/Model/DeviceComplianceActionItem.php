@@ -26,7 +26,7 @@ class DeviceComplianceActionItem extends Entity
 {
     /**
     * Gets the actionType
-    * What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+    * What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
     *
     * @return DeviceComplianceActionType|null The actionType
     */
@@ -45,7 +45,7 @@ class DeviceComplianceActionItem extends Entity
 
     /**
     * Sets the actionType
-    * What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+    * What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
     *
     * @param DeviceComplianceActionType $val The actionType
     *

@@ -27,18 +27,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Git config user
       run: |
         git config --global user.email "GraphTooling@service.microsoft.com"
         git config --global user.name "Microsoft Graph DevX Tooling"
-    
+
     - name: Run increment script
-      run: php scripts/IncrementMinorVersion.php
+      run: php scripts/BumpStableSdkVersion.php
 
     - name: Commit and push changes if any
       run: if git commit -am "Bump up minor version"; then git push origin $GITHUB_REF; fi
-        
+
   create-pull-request:
     needs: bump-minor-version
     # The type of runner that the job will run on

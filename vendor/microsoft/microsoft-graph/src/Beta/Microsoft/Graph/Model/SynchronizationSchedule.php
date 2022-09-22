@@ -59,7 +59,7 @@ class SynchronizationSchedule extends Entity
 
     /**
     * Gets the interval
-    * The interval between synchronization iterations.
+    * The interval between synchronization iterations. The value is represented in ISO 8601 format for durations. For example, PT1M represents a period of 1 month.
     *
     * @return \DateInterval|null The interval
     */
@@ -78,7 +78,7 @@ class SynchronizationSchedule extends Entity
 
     /**
     * Sets the interval
-    * The interval between synchronization iterations.
+    * The interval between synchronization iterations. The value is represented in ISO 8601 format for durations. For example, PT1M represents a period of 1 month.
     *
     * @param \DateInterval $val The value to assign to the interval
     *

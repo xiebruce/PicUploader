@@ -53,6 +53,7 @@ class InformationProtectionPolicySetting extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Gets the isDowngradeJustificationRequired
+    * Exposes whether justification input is required on label downgrade.
     *
     * @return bool|null The isDowngradeJustificationRequired
     */
@@ -67,6 +68,7 @@ class InformationProtectionPolicySetting extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Sets the isDowngradeJustificationRequired
+    * Exposes whether justification input is required on label downgrade.
     *
     * @param bool $val The isDowngradeJustificationRequired
     *
@@ -80,6 +82,7 @@ class InformationProtectionPolicySetting extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Gets the isMandatory
+    * Exposes whether mandatory labeling is enabled.
     *
     * @return bool|null The isMandatory
     */
@@ -94,6 +97,7 @@ class InformationProtectionPolicySetting extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Sets the isMandatory
+    * Exposes whether mandatory labeling is enabled.
     *
     * @param bool $val The isMandatory
     *
@@ -107,6 +111,7 @@ class InformationProtectionPolicySetting extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Gets the moreInfoUrl
+    * Exposes the more information URL that can be configured by the administrator.
     *
     * @return string|null The moreInfoUrl
     */
@@ -121,6 +126,7 @@ class InformationProtectionPolicySetting extends \Beta\Microsoft\Graph\Model\Ent
 
     /**
     * Sets the moreInfoUrl
+    * Exposes the more information URL that can be configured by the administrator.
     *
     * @param string $val The moreInfoUrl
     *

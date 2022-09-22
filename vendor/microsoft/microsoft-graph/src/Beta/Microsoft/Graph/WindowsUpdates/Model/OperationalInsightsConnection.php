@@ -26,6 +26,7 @@ class OperationalInsightsConnection extends ResourceConnection
 {
     /**
     * Gets the azureResourceGroupName
+    * The name of the Azure resource group that contains the Log Analytics workspace.
     *
     * @return string|null The azureResourceGroupName
     */
@@ -40,6 +41,7 @@ class OperationalInsightsConnection extends ResourceConnection
 
     /**
     * Sets the azureResourceGroupName
+    * The name of the Azure resource group that contains the Log Analytics workspace.
     *
     * @param string $val The azureResourceGroupName
     *
@@ -53,6 +55,7 @@ class OperationalInsightsConnection extends ResourceConnection
 
     /**
     * Gets the azureSubscriptionId
+    * The Azure subscription ID that contains the Log Analytics workspace.
     *
     * @return string|null The azureSubscriptionId
     */
@@ -67,6 +70,7 @@ class OperationalInsightsConnection extends ResourceConnection
 
     /**
     * Sets the azureSubscriptionId
+    * The Azure subscription ID that contains the Log Analytics workspace.
     *
     * @param string $val The azureSubscriptionId
     *
@@ -80,6 +84,7 @@ class OperationalInsightsConnection extends ResourceConnection
 
     /**
     * Gets the workspaceName
+    * The name of the Log Analytics workspace.
     *
     * @return string|null The workspaceName
     */
@@ -94,6 +99,7 @@ class OperationalInsightsConnection extends ResourceConnection
 
     /**
     * Sets the workspaceName
+    * The name of the Log Analytics workspace.
     *
     * @param string $val The workspaceName
     *

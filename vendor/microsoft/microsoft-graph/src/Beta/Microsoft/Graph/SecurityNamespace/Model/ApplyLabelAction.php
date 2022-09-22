@@ -26,6 +26,7 @@ class ApplyLabelAction extends InformationProtectionAction
 
     /**
     * Gets the actions
+    * The collection of actions that should be implemented by the caller.
     *
     * @return InformationProtectionAction|null The actions
     */
@@ -44,6 +45,7 @@ class ApplyLabelAction extends InformationProtectionAction
 
     /**
     * Sets the actions
+    * The collection of actions that should be implemented by the caller.
     *
     * @param InformationProtectionAction $val The value to assign to the actions
     *
@@ -57,6 +59,7 @@ class ApplyLabelAction extends InformationProtectionAction
 
     /**
     * Gets the actionSource
+    * Specifies why the label was selected. Possible values are: manual, automatic, recommended, default.
     *
     * @return ActionSource|null The actionSource
     */
@@ -75,6 +78,7 @@ class ApplyLabelAction extends InformationProtectionAction
 
     /**
     * Sets the actionSource
+    * Specifies why the label was selected. Possible values are: manual, automatic, recommended, default.
     *
     * @param ActionSource $val The value to assign to the actionSource
     *
@@ -87,6 +91,7 @@ class ApplyLabelAction extends InformationProtectionAction
     }
     /**
     * Gets the responsibleSensitiveTypeIds
+    * If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
     *
     * @return string|null The responsibleSensitiveTypeIds
     */
@@ -101,6 +106,7 @@ class ApplyLabelAction extends InformationProtectionAction
 
     /**
     * Sets the responsibleSensitiveTypeIds
+    * If the label was the result of an automatic classification, supply the list of sensitive info type GUIDs that resulted in the returned label.
     *
     * @param string $val The value of the responsibleSensitiveTypeIds
     *

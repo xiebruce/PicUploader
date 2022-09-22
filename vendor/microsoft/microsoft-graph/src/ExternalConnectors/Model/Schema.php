@@ -26,7 +26,7 @@ class Schema extends \Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the baseType
-    * Must be set to microsoft.graph.externalItem. Required.
+    * Must be set to microsoft.graph.externalConnector.externalItem. Required.
     *
     * @return string|null The baseType
     */
@@ -41,7 +41,7 @@ class Schema extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the baseType
-    * Must be set to microsoft.graph.externalItem. Required.
+    * Must be set to microsoft.graph.externalConnector.externalItem. Required.
     *
     * @param string $val The baseType
     *

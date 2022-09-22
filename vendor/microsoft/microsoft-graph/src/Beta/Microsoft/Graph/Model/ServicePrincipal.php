@@ -1120,6 +1120,39 @@ class ServicePrincipal extends DirectoryObject
         return $this;
     }
 
+    /**
+    * Gets the verifiedPublisher
+    * Specifies the verified publisher of the application which this service principal represents.
+    *
+    * @return VerifiedPublisher|null The verifiedPublisher
+    */
+    public function getVerifiedPublisher()
+    {
+        if (array_key_exists("verifiedPublisher", $this->_propDict)) {
+            if (is_a($this->_propDict["verifiedPublisher"], "\Beta\Microsoft\Graph\Model\VerifiedPublisher") || is_null($this->_propDict["verifiedPublisher"])) {
+                return $this->_propDict["verifiedPublisher"];
+            } else {
+                $this->_propDict["verifiedPublisher"] = new VerifiedPublisher($this->_propDict["verifiedPublisher"]);
+                return $this->_propDict["verifiedPublisher"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the verifiedPublisher
+    * Specifies the verified publisher of the application which this service principal represents.
+    *
+    * @param VerifiedPublisher $val The verifiedPublisher
+    *
+    * @return ServicePrincipal
+    */
+    public function setVerifiedPublisher($val)
+    {
+        $this->_propDict["verifiedPublisher"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the appManagementPolicies

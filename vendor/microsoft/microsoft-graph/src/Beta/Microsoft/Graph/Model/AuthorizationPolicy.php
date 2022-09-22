@@ -145,6 +145,33 @@ class AuthorizationPolicy extends PolicyBase
     }
 
     /**
+    * Gets the allowUserConsentForRiskyApps
+    *
+    * @return bool|null The allowUserConsentForRiskyApps
+    */
+    public function getAllowUserConsentForRiskyApps()
+    {
+        if (array_key_exists("allowUserConsentForRiskyApps", $this->_propDict)) {
+            return $this->_propDict["allowUserConsentForRiskyApps"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowUserConsentForRiskyApps
+    *
+    * @param bool $val The allowUserConsentForRiskyApps
+    *
+    * @return AuthorizationPolicy
+    */
+    public function setAllowUserConsentForRiskyApps($val)
+    {
+        $this->_propDict["allowUserConsentForRiskyApps"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the blockMsolPowerShell
     * To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
     *

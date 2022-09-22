@@ -25,6 +25,7 @@ class CustomAction extends InformationProtectionAction
 {
     /**
     * Gets the name
+    * Name of the custom action.
     *
     * @return string|null The name
     */
@@ -39,6 +40,7 @@ class CustomAction extends InformationProtectionAction
 
     /**
     * Sets the name
+    * Name of the custom action.
     *
     * @param string $val The value of the name
     *
@@ -52,6 +54,7 @@ class CustomAction extends InformationProtectionAction
 
     /**
     * Gets the customActionProperties
+    * Properties, in key-value pair format, of the action.
     *
     * @return KeyValuePair|null The customActionProperties
     */
@@ -70,6 +73,7 @@ class CustomAction extends InformationProtectionAction
 
     /**
     * Sets the customActionProperties
+    * Properties, in key-value pair format, of the action.
     *
     * @param KeyValuePair $val The value to assign to the properties
     *

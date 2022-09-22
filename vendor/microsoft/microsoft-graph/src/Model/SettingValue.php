@@ -25,7 +25,7 @@ class SettingValue extends Entity
 {
     /**
     * Gets the name
-    * Name of the setting (as defined by the directorySettingTemplate).
+    * Name of the setting (as defined by the groupSettingTemplate).
     *
     * @return string|null The name
     */
@@ -40,7 +40,7 @@ class SettingValue extends Entity
 
     /**
     * Sets the name
-    * Name of the setting (as defined by the directorySettingTemplate).
+    * Name of the setting (as defined by the groupSettingTemplate).
     *
     * @param string $val The value of the name
     *

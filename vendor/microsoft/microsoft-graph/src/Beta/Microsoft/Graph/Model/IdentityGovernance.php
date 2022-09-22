@@ -56,6 +56,37 @@ class IdentityGovernance implements \JsonSerializable
     }
 
     /**
+    * Gets the lifecycleWorkflows
+    *
+    * @return \Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\LifecycleWorkflowsContainer|null The lifecycleWorkflows
+    */
+    public function getLifecycleWorkflows()
+    {
+        if (array_key_exists("lifecycleWorkflows", $this->_propDict)) {
+            if (is_a($this->_propDict["lifecycleWorkflows"], "\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\LifecycleWorkflowsContainer") || is_null($this->_propDict["lifecycleWorkflows"])) {
+                return $this->_propDict["lifecycleWorkflows"];
+            } else {
+                $this->_propDict["lifecycleWorkflows"] = new \Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\LifecycleWorkflowsContainer($this->_propDict["lifecycleWorkflows"]);
+                return $this->_propDict["lifecycleWorkflows"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lifecycleWorkflows
+    *
+    * @param \Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\LifecycleWorkflowsContainer $val The lifecycleWorkflows
+    *
+    * @return IdentityGovernance
+    */
+    public function setLifecycleWorkflows($val)
+    {
+        $this->_propDict["lifecycleWorkflows"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the accessReviews
     *
     * @return AccessReviewSet|null The accessReviews
@@ -211,7 +242,8 @@ class IdentityGovernance implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize(): array
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

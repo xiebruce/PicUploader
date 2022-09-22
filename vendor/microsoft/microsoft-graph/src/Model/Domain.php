@@ -374,7 +374,7 @@ class Domain extends Entity
 
     /**
     * Gets the supportedServices
-    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
     *
     * @return string|null The supportedServices
     */
@@ -389,7 +389,7 @@ class Domain extends Entity
 
     /**
     * Sets the supportedServices
-    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
+    * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
     *
     * @param string $val The supportedServices
     *
@@ -434,7 +434,7 @@ class Domain extends Entity
 
      /**
      * Gets the federationConfiguration
-    * Domain settings configured by customer when federated with Azure AD. Supports $expand.
+    * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
      *
      * @return array|null The federationConfiguration
      */
@@ -449,7 +449,7 @@ class Domain extends Entity
 
     /**
     * Sets the federationConfiguration
-    * Domain settings configured by customer when federated with Azure AD. Supports $expand.
+    * Domain settings configured by a customer when federated with Azure AD. Supports $expand.
     *
     * @param InternalDomainFederation[] $val The federationConfiguration
     *

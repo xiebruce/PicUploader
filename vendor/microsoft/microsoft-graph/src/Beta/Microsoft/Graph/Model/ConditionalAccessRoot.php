@@ -24,6 +24,37 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class ConditionalAccessRoot extends Entity
 {
+    /**
+    * Gets the authenticationStrengths
+    *
+    * @return AuthenticationStrengthRoot|null The authenticationStrengths
+    */
+    public function getAuthenticationStrengths()
+    {
+        if (array_key_exists("authenticationStrengths", $this->_propDict)) {
+            if (is_a($this->_propDict["authenticationStrengths"], "\Beta\Microsoft\Graph\Model\AuthenticationStrengthRoot") || is_null($this->_propDict["authenticationStrengths"])) {
+                return $this->_propDict["authenticationStrengths"];
+            } else {
+                $this->_propDict["authenticationStrengths"] = new AuthenticationStrengthRoot($this->_propDict["authenticationStrengths"]);
+                return $this->_propDict["authenticationStrengths"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authenticationStrengths
+    *
+    * @param AuthenticationStrengthRoot $val The authenticationStrengths
+    *
+    * @return ConditionalAccessRoot
+    */
+    public function setAuthenticationStrengths($val)
+    {
+        $this->_propDict["authenticationStrengths"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the authenticationContextClassReferences

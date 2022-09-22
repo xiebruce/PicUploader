@@ -26,7 +26,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
 {
     /**
     * Gets the authenticationMode
-    * Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+    * Determines which types of notifications can be used for sign-in. Possible values are: any, deviceBasedPush (passwordless only), push.
     *
     * @return MicrosoftAuthenticatorAuthenticationMode|null The authenticationMode
     */
@@ -45,7 +45,7 @@ class MicrosoftAuthenticatorAuthenticationMethodTarget extends AuthenticationMet
 
     /**
     * Sets the authenticationMode
-    * Determines which types of notifications can be used for sign-in. The possible values are: deviceBasedPush (passwordless only), push, and any.
+    * Determines which types of notifications can be used for sign-in. Possible values are: any, deviceBasedPush (passwordless only), push.
     *
     * @param MicrosoftAuthenticatorAuthenticationMode $val The authenticationMode
     *

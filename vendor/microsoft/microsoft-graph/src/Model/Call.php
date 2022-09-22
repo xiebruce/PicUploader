@@ -84,7 +84,6 @@ class Call extends Entity
 
     /**
     * Gets the callOptions
-    * Contains the optional features for the call.
     *
     * @return CallOptions|null The callOptions
     */
@@ -103,7 +102,6 @@ class Call extends Entity
 
     /**
     * Sets the callOptions
-    * Contains the optional features for the call.
     *
     * @param CallOptions $val The callOptions
     *
@@ -147,7 +145,7 @@ class Call extends Entity
 
     /**
     * Gets the chatInfo
-    * The chat information. Required information for meeting scenarios.
+    * The chat information. Required information for joining a meeting.
     *
     * @return ChatInfo|null The chatInfo
     */
@@ -166,7 +164,7 @@ class Call extends Entity
 
     /**
     * Sets the chatInfo
-    * The chat information. Required information for meeting scenarios.
+    * The chat information. Required information for joining a meeting.
     *
     * @param ChatInfo $val The chatInfo
     *
@@ -213,7 +211,6 @@ class Call extends Entity
 
     /**
     * Gets the incomingContext
-    * The context associated with an incoming call. Read-only. Server generated.
     *
     * @return IncomingContext|null The incomingContext
     */
@@ -232,7 +229,6 @@ class Call extends Entity
 
     /**
     * Sets the incomingContext
-    * The context associated with an incoming call. Read-only. Server generated.
     *
     * @param IncomingContext $val The incomingContext
     *
@@ -246,7 +242,7 @@ class Call extends Entity
 
     /**
     * Gets the mediaConfig
-    * The media configuration. Required information for creating peer to peer calls or joining meetings.
+    * The media configuration. Required.
     *
     * @return MediaConfig|null The mediaConfig
     */
@@ -265,7 +261,7 @@ class Call extends Entity
 
     /**
     * Sets the mediaConfig
-    * The media configuration. Required information for creating peer to peer calls or joining meetings.
+    * The media configuration. Required.
     *
     * @param MediaConfig $val The mediaConfig
     *
@@ -312,7 +308,7 @@ class Call extends Entity
 
     /**
     * Gets the meetingInfo
-    * The meeting information. Required information for meeting scenarios.
+    * The meeting information that's required for joining a meeting.
     *
     * @return MeetingInfo|null The meetingInfo
     */
@@ -331,7 +327,7 @@ class Call extends Entity
 
     /**
     * Sets the meetingInfo
-    * The meeting information. Required information for meeting scenarios.
+    * The meeting information that's required for joining a meeting.
     *
     * @param MeetingInfo $val The meetingInfo
     *
@@ -606,7 +602,6 @@ class Call extends Entity
 
     /**
     * Gets the transcription
-    * The transcription information for the call. Read-only.
     *
     * @return CallTranscriptionInfo|null The transcription
     */
@@ -625,7 +620,6 @@ class Call extends Entity
 
     /**
     * Sets the transcription
-    * The transcription information for the call. Read-only.
     *
     * @param CallTranscriptionInfo $val The transcription
     *
@@ -662,6 +656,34 @@ class Call extends Entity
     public function setAudioRoutingGroups($val)
     {
         $this->_propDict["audioRoutingGroups"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the contentSharingSessions
+     *
+     * @return array|null The contentSharingSessions
+     */
+    public function getContentSharingSessions()
+    {
+        if (array_key_exists("contentSharingSessions", $this->_propDict)) {
+           return $this->_propDict["contentSharingSessions"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the contentSharingSessions
+    *
+    * @param ContentSharingSession[] $val The contentSharingSessions
+    *
+    * @return Call
+    */
+    public function setContentSharingSessions($val)
+    {
+        $this->_propDict["contentSharingSessions"] = $val;
         return $this;
     }
 

@@ -22,7 +22,7 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class GroupPolicyPresentationCheckBox extends GroupPolicyPresentation
+class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation
 {
     /**
     * Gets the defaultChecked

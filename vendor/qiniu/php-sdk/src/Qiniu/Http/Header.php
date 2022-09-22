@@ -111,6 +111,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange] // temporarily suppress the type check of php 8.x
     public function offsetExists($offset)
     {
         $key = self::normalizeKey($offset);
@@ -122,6 +123,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
      *
      * @return string|null
      */
+    #[\ReturnTypeWillChange] // temporarily suppress the type check of php 8.x
     public function offsetGet($offset)
     {
         $key = self::normalizeKey($offset);
@@ -138,6 +140,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
      *
      * @return void
      */
+    #[\ReturnTypeWillChange] // temporarily suppress the type check of php 8.x
     public function offsetSet($offset, $value)
     {
         $key = self::normalizeKey($offset);
@@ -151,6 +154,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @return void
      */
+    #[\ReturnTypeWillChange] // temporarily suppress the type check of php 8.x
     public function offsetUnset($offset)
     {
         $key = self::normalizeKey($offset);
@@ -160,6 +164,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @return \ArrayIterator
      */
+    #[\ReturnTypeWillChange] // temporarily suppress the type check of php 8.x
     public function getIterator()
     {
         $arr = array();
@@ -172,6 +177,7 @@ class Header implements \ArrayAccess, \IteratorAggregate, \Countable
     /**
      * @return int
      */
+    #[\ReturnTypeWillChange] // temporarily suppress the type check of php 8.x
     public function count()
     {
         return count($this->data);

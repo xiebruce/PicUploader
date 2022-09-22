@@ -516,7 +516,6 @@ class EducationClass extends Entity
 
     /**
     * Gets the group
-    * The underlying Microsoft 365 group object.
     *
     * @return Group|null The group
     */
@@ -535,7 +534,6 @@ class EducationClass extends Entity
 
     /**
     * Sets the group
-    * The underlying Microsoft 365 group object.
     *
     * @param Group $val The group
     *

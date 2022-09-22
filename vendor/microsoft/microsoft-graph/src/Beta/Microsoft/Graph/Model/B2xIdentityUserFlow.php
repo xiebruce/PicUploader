@@ -60,7 +60,6 @@ class B2xIdentityUserFlow extends IdentityUserFlow
 
      /**
      * Gets the identityProviders
-    * The identity providers included in the user flow.
      *
      * @return array|null The identityProviders
      */
@@ -75,7 +74,6 @@ class B2xIdentityUserFlow extends IdentityUserFlow
 
     /**
     * Sets the identityProviders
-    * The identity providers included in the user flow.
     *
     * @param IdentityProvider[] $val The identityProviders
     *

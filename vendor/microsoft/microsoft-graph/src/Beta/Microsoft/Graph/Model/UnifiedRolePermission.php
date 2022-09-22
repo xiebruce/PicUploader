@@ -81,7 +81,6 @@ class UnifiedRolePermission extends Entity
     }
     /**
     * Gets the excludedResourceActions
-    * Set of tasks that may not be performed on a resource. Not yet supported.
     *
     * @return string|null The excludedResourceActions
     */
@@ -96,7 +95,6 @@ class UnifiedRolePermission extends Entity
 
     /**
     * Sets the excludedResourceActions
-    * Set of tasks that may not be performed on a resource. Not yet supported.
     *
     * @param string $val The value of the excludedResourceActions
     *

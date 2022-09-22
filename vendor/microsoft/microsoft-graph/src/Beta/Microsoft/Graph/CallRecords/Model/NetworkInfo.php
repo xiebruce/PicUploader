@@ -484,7 +484,7 @@ class NetworkInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the traceRouteHops
-    * List of network trace route hops collected for this media stream.
+    * List of network trace route hops collected for this media stream.*
     *
     * @return TraceRouteHop|null The traceRouteHops
     */
@@ -503,7 +503,7 @@ class NetworkInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the traceRouteHops
-    * List of network trace route hops collected for this media stream.
+    * List of network trace route hops collected for this media stream.*
     *
     * @param TraceRouteHop $val The value to assign to the traceRouteHops
     *

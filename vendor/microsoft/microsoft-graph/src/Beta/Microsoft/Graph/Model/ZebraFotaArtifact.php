@@ -26,7 +26,7 @@ class ZebraFotaArtifact extends Entity
 {
     /**
     * Gets the boardSupportPackageVersion
-    * The version of the Board Support Package.
+    * The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
     *
     * @return string|null The boardSupportPackageVersion
     */
@@ -41,7 +41,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Sets the boardSupportPackageVersion
-    * The version of the Board Support Package.
+    * The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
     *
     * @param string $val The boardSupportPackageVersion
     *
@@ -54,8 +54,37 @@ class ZebraFotaArtifact extends Entity
     }
 
     /**
+    * Gets the description
+    * Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+    *
+    * @return string|null The description
+    */
+    public function getDescription()
+    {
+        if (array_key_exists("description", $this->_propDict)) {
+            return $this->_propDict["description"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the description
+    * Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+    *
+    * @param string $val The description
+    *
+    * @return ZebraFotaArtifact
+    */
+    public function setDescription($val)
+    {
+        $this->_propDict["description"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the deviceModel
-    * Artifact device model.
+    * Applicable device model (e.g.: TC8300)
     *
     * @return string|null The deviceModel
     */
@@ -70,7 +99,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Sets the deviceModel
-    * Artifact device model.
+    * Applicable device model (e.g.: TC8300)
     *
     * @param string $val The deviceModel
     *
@@ -84,7 +113,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Gets the osVersion
-    * Artifact OS version.
+    * Artifact OS version (e.g.: 8.1.0)
     *
     * @return string|null The osVersion
     */
@@ -99,7 +128,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Sets the osVersion
-    * Artifact OS version.
+    * Artifact OS version (e.g.: 8.1.0)
     *
     * @param string $val The osVersion
     *
@@ -113,7 +142,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Gets the patchVersion
-    * Artifact patch version.
+    * Artifact patch version (e.g.: U00)
     *
     * @return string|null The patchVersion
     */
@@ -128,7 +157,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Sets the patchVersion
-    * Artifact patch version.
+    * Artifact patch version (e.g.: U00)
     *
     * @param string $val The patchVersion
     *
@@ -142,7 +171,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Gets the releaseNotesUrl
-    * Artifact release notes URL.
+    * Artifact release notes URL (e.g.: https://www.zebra.com/&amp;lt;filename.pdf&amp;gt;)
     *
     * @return string|null The releaseNotesUrl
     */
@@ -157,7 +186,7 @@ class ZebraFotaArtifact extends Entity
 
     /**
     * Sets the releaseNotesUrl
-    * Artifact release notes URL.
+    * Artifact release notes URL (e.g.: https://www.zebra.com/&amp;lt;filename.pdf&amp;gt;)
     *
     * @param string $val The releaseNotesUrl
     *

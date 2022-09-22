@@ -59,7 +59,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Gets the activityDisplayName
-    * Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
+    * Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
     *
     * @return string|null The activityDisplayName
     */
@@ -74,7 +74,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Sets the activityDisplayName
-    * Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
+    * Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
     *
     * @param string $val The activityDisplayName
     *
@@ -330,7 +330,7 @@ class DirectoryAudit extends Entity
 
      /**
      * Gets the targetResources
-    * Information about the resource that changed due to the activity.
+    * Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.
      *
      * @return array|null The targetResources
      */
@@ -345,7 +345,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Sets the targetResources
-    * Information about the resource that changed due to the activity.
+    * Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.
     *
     * @param TargetResource[] $val The targetResources
     *

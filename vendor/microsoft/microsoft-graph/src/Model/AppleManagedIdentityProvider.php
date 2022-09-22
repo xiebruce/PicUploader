@@ -26,7 +26,7 @@ class AppleManagedIdentityProvider extends IdentityProviderBase
 {
     /**
     * Gets the certificateData
-    * The certificate data which is a long string of text from the certificate, can be null.
+    * The certificate data, which is a long string of text from the certificate. Can be null.
     *
     * @return string|null The certificateData
     */
@@ -41,7 +41,7 @@ class AppleManagedIdentityProvider extends IdentityProviderBase
 
     /**
     * Sets the certificateData
-    * The certificate data which is a long string of text from the certificate, can be null.
+    * The certificate data, which is a long string of text from the certificate. Can be null.
     *
     * @param string $val The certificateData
     *

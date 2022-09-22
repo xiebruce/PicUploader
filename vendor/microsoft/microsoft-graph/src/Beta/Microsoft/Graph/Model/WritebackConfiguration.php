@@ -25,6 +25,7 @@ class WritebackConfiguration extends Entity
 {
     /**
     * Gets the isEnabled
+    * Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
     *
     * @return bool|null The isEnabled
     */
@@ -39,6 +40,7 @@ class WritebackConfiguration extends Entity
 
     /**
     * Sets the isEnabled
+    * Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
     *
     * @param bool $val The value of the isEnabled
     *

@@ -55,7 +55,7 @@ class WorkbookRangeBorder extends Entity
 
     /**
     * Gets the sideIndex
-    * Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
+    * Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
     *
     * @return string|null The sideIndex
     */
@@ -70,7 +70,7 @@ class WorkbookRangeBorder extends Entity
 
     /**
     * Sets the sideIndex
-    * Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
+    * Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
     *
     * @param string $val The sideIndex
     *
@@ -84,7 +84,7 @@ class WorkbookRangeBorder extends Entity
 
     /**
     * Gets the style
-    * One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
+    * One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
     *
     * @return string|null The style
     */
@@ -99,7 +99,7 @@ class WorkbookRangeBorder extends Entity
 
     /**
     * Sets the style
-    * One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
+    * One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
     *
     * @param string $val The style
     *
@@ -113,7 +113,7 @@ class WorkbookRangeBorder extends Entity
 
     /**
     * Gets the weight
-    * Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.
+    * Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
     *
     * @return string|null The weight
     */
@@ -128,7 +128,7 @@ class WorkbookRangeBorder extends Entity
 
     /**
     * Sets the weight
-    * Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.
+    * Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
     *
     * @param string $val The weight
     *

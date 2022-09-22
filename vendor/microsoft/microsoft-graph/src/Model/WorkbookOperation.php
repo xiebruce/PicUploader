@@ -88,7 +88,7 @@ class WorkbookOperation extends Entity
 
     /**
     * Gets the status
-    * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+    * The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
     *
     * @return WorkbookOperationStatus|null The status
     */
@@ -107,7 +107,7 @@ class WorkbookOperation extends Entity
 
     /**
     * Sets the status
-    * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+    * The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
     *
     * @param WorkbookOperationStatus $val The status
     *

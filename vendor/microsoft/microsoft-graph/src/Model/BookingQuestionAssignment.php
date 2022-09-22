@@ -25,7 +25,7 @@ class BookingQuestionAssignment extends Entity
 {
     /**
     * Gets the isRequired
-    * Indicates whether it is mandatory to answer the custom question.
+    * The ID of the custom question.
     *
     * @return bool|null The isRequired
     */
@@ -40,7 +40,7 @@ class BookingQuestionAssignment extends Entity
 
     /**
     * Sets the isRequired
-    * Indicates whether it is mandatory to answer the custom question.
+    * The ID of the custom question.
     *
     * @param bool $val The value of the isRequired
     *
@@ -53,7 +53,7 @@ class BookingQuestionAssignment extends Entity
     }
     /**
     * Gets the questionId
-    * If it is mandatory to answer the custom question.
+    * Indicates whether it is mandatory to answer the custom question.
     *
     * @return string|null The questionId
     */
@@ -68,7 +68,7 @@ class BookingQuestionAssignment extends Entity
 
     /**
     * Sets the questionId
-    * If it is mandatory to answer the custom question.
+    * Indicates whether it is mandatory to answer the custom question.
     *
     * @param string $val The value of the questionId
     *

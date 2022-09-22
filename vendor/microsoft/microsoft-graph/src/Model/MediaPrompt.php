@@ -26,7 +26,7 @@ class MediaPrompt extends Prompt
 
     /**
     * Gets the mediaInfo
-    * The media information.
+    * The media information
     *
     * @return MediaInfo|null The mediaInfo
     */
@@ -45,7 +45,7 @@ class MediaPrompt extends Prompt
 
     /**
     * Sets the mediaInfo
-    * The media information.
+    * The media information
     *
     * @param MediaInfo $val The value to assign to the mediaInfo
     *

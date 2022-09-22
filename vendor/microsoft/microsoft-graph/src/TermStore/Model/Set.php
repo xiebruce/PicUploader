@@ -59,7 +59,7 @@ class Set extends \Microsoft\Graph\Model\Entity
 
     /**
     * Gets the description
-    * Description giving details on the term usage.
+    * Description that gives details on the term usage.
     *
     * @return string|null The description
     */
@@ -74,7 +74,7 @@ class Set extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
-    * Description giving details on the term usage.
+    * Description that gives details on the term usage.
     *
     * @param string $val The description
     *

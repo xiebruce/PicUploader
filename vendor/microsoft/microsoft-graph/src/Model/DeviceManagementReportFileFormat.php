@@ -31,4 +31,6 @@ class DeviceManagementReportFileFormat extends Enum
     */
     const CSV = "csv";
     const PDF = "pdf";
+    const JSON = "json";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

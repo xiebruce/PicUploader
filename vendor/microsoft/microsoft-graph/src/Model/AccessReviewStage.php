@@ -26,7 +26,7 @@ class AccessReviewStage extends Entity
 {
     /**
     * Gets the endDateTime
-    * DateTime when review stage is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This property is the cumulative total of the durationInDays for all stages. Read-only.
+    * The date and time in ISO 8601 format and UTC time when the review stage is scheduled to end. This property is the cumulative total of the durationInDays for all stages. Read-only.
     *
     * @return \DateTime|null The endDateTime
     */
@@ -45,7 +45,7 @@ class AccessReviewStage extends Entity
 
     /**
     * Sets the endDateTime
-    * DateTime when review stage is scheduled to end. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. This property is the cumulative total of the durationInDays for all stages. Read-only.
+    * The date and time in ISO 8601 format and UTC time when the review stage is scheduled to end. This property is the cumulative total of the durationInDays for all stages. Read-only.
     *
     * @param \DateTime $val The endDateTime
     *
@@ -119,7 +119,7 @@ class AccessReviewStage extends Entity
 
     /**
     * Gets the startDateTime
-    * DateTime when review stage is scheduled to start. May be in the future. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    * The date and time in ISO 8601 format and UTC time when the review stage is scheduled to start. Read-only.
     *
     * @return \DateTime|null The startDateTime
     */
@@ -138,7 +138,7 @@ class AccessReviewStage extends Entity
 
     /**
     * Sets the startDateTime
-    * DateTime when review stage is scheduled to start. May be in the future. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    * The date and time in ISO 8601 format and UTC time when the review stage is scheduled to start. Read-only.
     *
     * @param \DateTime $val The startDateTime
     *

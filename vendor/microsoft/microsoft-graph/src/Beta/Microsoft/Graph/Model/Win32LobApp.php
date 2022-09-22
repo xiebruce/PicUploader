@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class Win32LobApp extends MobileLobApp
 {
     /**
+    * Gets the allowAvailableUninstall
+    * When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+    *
+    * @return bool|null The allowAvailableUninstall
+    */
+    public function getAllowAvailableUninstall()
+    {
+        if (array_key_exists("allowAvailableUninstall", $this->_propDict)) {
+            return $this->_propDict["allowAvailableUninstall"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowAvailableUninstall
+    * When TRUE, indicates that uninstall is supported from the company portal for the Windows app (Win32) with an Available assignment. When FALSE, indicates that uninstall is not supported for the Windows app (Win32) with an Available assignment. Default value is FALSE.
+    *
+    * @param bool $val The allowAvailableUninstall
+    *
+    * @return Win32LobApp
+    */
+    public function setAllowAvailableUninstall($val)
+    {
+        $this->_propDict["allowAvailableUninstall"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the applicableArchitectures
     * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
     *

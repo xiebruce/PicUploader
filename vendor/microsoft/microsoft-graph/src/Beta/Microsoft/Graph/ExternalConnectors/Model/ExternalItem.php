@@ -56,7 +56,7 @@ class ExternalItem extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the content
-    * A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+    * A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
     *
     * @return ExternalItemContent|null The content
     */
@@ -75,7 +75,7 @@ class ExternalItem extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the content
-    * A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
+    * A plain-text representation of the contents of the item. The text in this property is full-text indexed. Optional.
     *
     * @param ExternalItemContent $val The content
     *
@@ -117,6 +117,36 @@ class ExternalItem extends \Beta\Microsoft\Graph\Model\Entity
     public function setExternalItemProperties($val)
     {
         $this->_propDict["properties"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the activities
+    * Write-only property. Returns results.
+     *
+     * @return array|null The activities
+     */
+    public function getActivities()
+    {
+        if (array_key_exists("activities", $this->_propDict)) {
+           return $this->_propDict["activities"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the activities
+    * Write-only property. Returns results.
+    *
+    * @param ExternalActivity[] $val The activities
+    *
+    * @return ExternalItem
+    */
+    public function setActivities($val)
+    {
+        $this->_propDict["activities"] = $val;
         return $this;
     }
 

@@ -171,7 +171,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
 
     /**
     * Gets the platformType
-    * Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+    * Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
     *
     * @return PolicyPlatformType|null The platformType
     */
@@ -190,7 +190,7 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
 
     /**
     * Sets the platformType
-    * Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+    * Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
     *
     * @param PolicyPlatformType $val The platformType
     *

@@ -84,7 +84,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
 
     /**
     * Gets the attestationLevel
-    * The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+    * The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
     *
     * @return AttestationLevel|null The attestationLevel
     */
@@ -103,7 +103,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
 
     /**
     * Sets the attestationLevel
-    * The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+    * The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
     *
     * @param AttestationLevel $val The attestationLevel
     *

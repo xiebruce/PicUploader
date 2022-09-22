@@ -525,4 +525,33 @@ class MobileThreatDefenseConnector extends Entity
         return $this;
     }
 
+    /**
+    * Gets the windowsMobileApplicationManagementEnabled
+    * When TRUE, app protection policies using the Device Threat Level rule will evaluate devices including data from this connector for Windows. When FALSE, Intune will not use device risk details sent over this connector during app protection policies calculation for policies with a Device Threat Level configured. Existing devices that are not compliant due to risk levels obtained from this connector will also become compliant.
+    *
+    * @return bool|null The windowsMobileApplicationManagementEnabled
+    */
+    public function getWindowsMobileApplicationManagementEnabled()
+    {
+        if (array_key_exists("windowsMobileApplicationManagementEnabled", $this->_propDict)) {
+            return $this->_propDict["windowsMobileApplicationManagementEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the windowsMobileApplicationManagementEnabled
+    * When TRUE, app protection policies using the Device Threat Level rule will evaluate devices including data from this connector for Windows. When FALSE, Intune will not use device risk details sent over this connector during app protection policies calculation for policies with a Device Threat Level configured. Existing devices that are not compliant due to risk levels obtained from this connector will also become compliant.
+    *
+    * @param bool $val The windowsMobileApplicationManagementEnabled
+    *
+    * @return MobileThreatDefenseConnector
+    */
+    public function setWindowsMobileApplicationManagementEnabled($val)
+    {
+        $this->_propDict["windowsMobileApplicationManagementEnabled"] = boolval($val);
+        return $this;
+    }
+
 }

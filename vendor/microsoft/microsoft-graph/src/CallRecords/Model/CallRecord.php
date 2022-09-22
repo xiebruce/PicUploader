@@ -214,7 +214,7 @@ class CallRecord extends \Microsoft\Graph\Model\Entity
 
     /**
     * Gets the startDateTime
-    * UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The startDateTime
     */
@@ -233,7 +233,7 @@ class CallRecord extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the startDateTime
-    * UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * UTC time when the first user joined the call. The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The startDateTime
     *
@@ -280,7 +280,7 @@ class CallRecord extends \Microsoft\Graph\Model\Entity
 
     /**
     * Gets the version
-    * Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
+    * Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
     *
     * @return int|null The version
     */
@@ -295,7 +295,7 @@ class CallRecord extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the version
-    * Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
+    * Monotonically increasing version of the call record. Higher version call records with the same id includes additional data compared to the lower version.
     *
     * @param int $val The version
     *

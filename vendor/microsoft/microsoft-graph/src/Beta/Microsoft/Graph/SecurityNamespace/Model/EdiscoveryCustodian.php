@@ -182,7 +182,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
      /**
      * Gets the userSources
-    * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+    * Data source entity for a custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
      *
      * @return array|null The userSources
      */
@@ -197,7 +197,7 @@ class EdiscoveryCustodian extends DataSourceContainer
 
     /**
     * Sets the userSources
-    * Data source entity for a the custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
+    * Data source entity for a custodian. This is the container for a custodian's mailbox and OneDrive for Business site.
     *
     * @param UserSource[] $val The userSources
     *

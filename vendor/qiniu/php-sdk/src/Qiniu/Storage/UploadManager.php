@@ -3,6 +3,7 @@ namespace Qiniu\Storage;
 
 use Qiniu\Config;
 use Qiniu\Http\HttpClient;
+use Qiniu\Http\RequestOptions;
 use Qiniu\Storage\ResumeUploader;
 use Qiniu\Storage\FormUploader;
 
@@ -14,13 +15,27 @@ use Qiniu\Storage\FormUploader;
 final class UploadManager
 {
     private $config;
+    /**
+     * @var RequestOptions
+     */
+    private $reqOpt;
 
-    public function __construct(Config $config = null)
+    /**
+     * @param Config|null $config
+     * @param RequestOptions|null $reqOpt
+     */
+    public function __construct(Config $config = null, RequestOptions $reqOpt = null)
     {
         if ($config === null) {
             $config = new Config();
         }
         $this->config = $config;
+
+        if ($reqOpt === null) {
+            $reqOpt = new RequestOptions();
+        }
+
+        $this->reqOpt = $reqOpt;
     }
 
     /**
@@ -46,8 +61,10 @@ final class UploadManager
         $data,
         $params = null,
         $mime = 'application/octet-stream',
-        $fname = "default_filename"
+        $fname = "default_filename",
+        $reqOpt = null
     ) {
+        $reqOpt = $reqOpt === null ? $this->reqOpt : $reqOpt;
 
         $params = self::trimParams($params);
         return FormUploader::put(
@@ -57,7 +74,8 @@ final class UploadManager
             $this->config,
             $params,
             $mime,
-            $fname
+            $fname,
+            $reqOpt
         );
     }
 
@@ -92,8 +110,10 @@ final class UploadManager
         $checkCrc = false,
         $resumeRecordFile = null,
         $version = 'v1',
-        $partSize = config::BLOCK_SIZE
+        $partSize = config::BLOCK_SIZE,
+        $reqOpt = null
     ) {
+        $reqOpt = $reqOpt === null ? $this->reqOpt : $reqOpt;
 
         $file = fopen($filePath, 'rb');
         if ($file === false) {
@@ -115,7 +135,8 @@ final class UploadManager
                 $this->config,
                 $params,
                 $mime,
-                basename($filePath)
+                basename($filePath),
+                $reqOpt
             );
         }
 
@@ -129,7 +150,8 @@ final class UploadManager
             $this->config,
             $resumeRecordFile,
             $version,
-            $partSize
+            $partSize,
+            $reqOpt
         );
         $ret = $up->upload(basename($filePath));
         fclose($file);

@@ -26,6 +26,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the color
+    * The color that the UI should display for the label, if configured.
     *
     * @return string|null The color
     */
@@ -40,6 +41,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the color
+    * The color that the UI should display for the label, if configured.
     *
     * @param string $val The color
     *
@@ -53,6 +55,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the contentFormats
+    * Returns the supported content formats for the label.
     *
     * @return string|null The contentFormats
     */
@@ -67,6 +70,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the contentFormats
+    * Returns the supported content formats for the label.
     *
     * @param string $val The contentFormats
     *
@@ -80,6 +84,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the description
+    * The admin-defined description for the label.
     *
     * @return string|null The description
     */
@@ -94,6 +99,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
+    * The admin-defined description for the label.
     *
     * @param string $val The description
     *
@@ -107,6 +113,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the hasProtection
+    * Indicates whether the label has protection actions configured.
     *
     * @return bool|null The hasProtection
     */
@@ -121,6 +128,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the hasProtection
+    * Indicates whether the label has protection actions configured.
     *
     * @param bool $val The hasProtection
     *
@@ -134,6 +142,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the isActive
+    * Indicates whether the label is active or not. Active labels should be hidden or disabled in the UI.
     *
     * @return bool|null The isActive
     */
@@ -148,6 +157,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isActive
+    * Indicates whether the label is active or not. Active labels should be hidden or disabled in the UI.
     *
     * @param bool $val The isActive
     *
@@ -161,6 +171,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the isAppliable
+    * Indicates whether the label can be applied to content. False if the label is a parent with child labels.
     *
     * @return bool|null The isAppliable
     */
@@ -175,6 +186,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isAppliable
+    * Indicates whether the label can be applied to content. False if the label is a parent with child labels.
     *
     * @param bool $val The isAppliable
     *
@@ -188,6 +200,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the name
+    * The plaintext name of the label.
     *
     * @return string|null The name
     */
@@ -202,6 +215,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the name
+    * The plaintext name of the label.
     *
     * @param string $val The name
     *
@@ -215,6 +229,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the sensitivity
+    * The sensitivity value of the label, where lower is less sensitive.
     *
     * @return int|null The sensitivity
     */
@@ -229,6 +244,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the sensitivity
+    * The sensitivity value of the label, where lower is less sensitive.
     *
     * @param int $val The sensitivity
     *
@@ -242,6 +258,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the tooltip
+    * The tooltip that should be displayed for the label in a UI.
     *
     * @return string|null The tooltip
     */
@@ -256,6 +273,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the tooltip
+    * The tooltip that should be displayed for the label in a UI.
     *
     * @param string $val The tooltip
     *
@@ -269,6 +287,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the parent
+    * The parent label associated with a child label. Null if the label has no parent.
     *
     * @return SensitivityLabel|null The parent
     */
@@ -287,6 +306,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the parent
+    * The parent label associated with a child label. Null if the label has no parent.
     *
     * @param SensitivityLabel $val The parent
     *

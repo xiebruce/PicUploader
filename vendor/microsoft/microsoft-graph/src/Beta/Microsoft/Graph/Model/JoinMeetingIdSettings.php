@@ -25,6 +25,7 @@ class JoinMeetingIdSettings extends Entity
 {
     /**
     * Gets the isPasscodeRequired
+    * Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
     *
     * @return bool|null The isPasscodeRequired
     */
@@ -39,6 +40,7 @@ class JoinMeetingIdSettings extends Entity
 
     /**
     * Sets the isPasscodeRequired
+    * Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
     *
     * @param bool $val The value of the isPasscodeRequired
     *
@@ -51,6 +53,7 @@ class JoinMeetingIdSettings extends Entity
     }
     /**
     * Gets the joinMeetingId
+    * The meeting ID to be used to join a meeting. Optional. Read-only.
     *
     * @return string|null The joinMeetingId
     */
@@ -65,6 +68,7 @@ class JoinMeetingIdSettings extends Entity
 
     /**
     * Sets the joinMeetingId
+    * The meeting ID to be used to join a meeting. Optional. Read-only.
     *
     * @param string $val The value of the joinMeetingId
     *
@@ -77,6 +81,7 @@ class JoinMeetingIdSettings extends Entity
     }
     /**
     * Gets the passcode
+    * The passcode to join a meeting.  Optional. Read-only.
     *
     * @return string|null The passcode
     */
@@ -91,6 +96,7 @@ class JoinMeetingIdSettings extends Entity
 
     /**
     * Sets the passcode
+    * The passcode to join a meeting.  Optional. Read-only.
     *
     * @param string $val The value of the passcode
     *

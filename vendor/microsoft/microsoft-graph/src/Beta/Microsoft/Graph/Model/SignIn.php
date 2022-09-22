@@ -114,6 +114,34 @@ class SignIn extends Entity
 
 
      /**
+     * Gets the appliedEventListeners
+     *
+     * @return array|null The appliedEventListeners
+     */
+    public function getAppliedEventListeners()
+    {
+        if (array_key_exists("appliedEventListeners", $this->_propDict)) {
+           return $this->_propDict["appliedEventListeners"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the appliedEventListeners
+    *
+    * @param AppliedAuthenticationEventListener[] $val The appliedEventListeners
+    *
+    * @return SignIn
+    */
+    public function setAppliedEventListeners($val)
+    {
+        $this->_propDict["appliedEventListeners"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the authenticationContextClassReferences
     * Contains a collection of values that represent the conditional access authentication contexts applied to the sign-in.
      *

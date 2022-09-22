@@ -113,7 +113,7 @@ class ApprovalStep extends Entity
 
     /**
     * Gets the reviewedBy
-    * The identifier of the reviewer. Read-only.
+    * The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Read-only.
     *
     * @return Identity|null The reviewedBy
     */
@@ -132,7 +132,7 @@ class ApprovalStep extends Entity
 
     /**
     * Sets the reviewedBy
-    * The identifier of the reviewer. Read-only.
+    * The identifier of the reviewer. 00000000-0000-0000-0000-000000000000 if the assigned reviewer hasn't reviewed. Read-only.
     *
     * @param Identity $val The reviewedBy
     *

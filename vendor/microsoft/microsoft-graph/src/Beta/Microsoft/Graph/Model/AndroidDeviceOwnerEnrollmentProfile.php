@@ -54,6 +54,35 @@ class AndroidDeviceOwnerEnrollmentProfile extends Entity
     }
 
     /**
+    * Gets the configureWifi
+    * Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
+    *
+    * @return bool|null The configureWifi
+    */
+    public function getConfigureWifi()
+    {
+        if (array_key_exists("configureWifi", $this->_propDict)) {
+            return $this->_propDict["configureWifi"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the configureWifi
+    * Boolean that indicates that the Wi-Fi network should be configured during device provisioning. When set to TRUE, device provisioning will use Wi-Fi related properties to automatically connect to Wi-Fi networks. When set to FALSE or undefined, other Wi-Fi related properties will be ignored. Default value is TRUE. Returned by default.
+    *
+    * @param bool $val The configureWifi
+    *
+    * @return AndroidDeviceOwnerEnrollmentProfile
+    */
+    public function setConfigureWifi($val)
+    {
+        $this->_propDict["configureWifi"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the createdDateTime
     * Date time the enrollment profile was created.
     *

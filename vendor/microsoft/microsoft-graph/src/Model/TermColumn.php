@@ -25,7 +25,7 @@ class TermColumn extends Entity
 {
     /**
     * Gets the allowMultipleValues
-    * Specifies whether the column will allow more than one value
+    * Specifies whether the column will allow more than one value.
     *
     * @return bool|null The allowMultipleValues
     */
@@ -40,7 +40,7 @@ class TermColumn extends Entity
 
     /**
     * Sets the allowMultipleValues
-    * Specifies whether the column will allow more than one value
+    * Specifies whether the column will allow more than one value.
     *
     * @param bool $val The value of the allowMultipleValues
     *

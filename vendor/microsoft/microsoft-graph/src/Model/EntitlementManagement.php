@@ -57,7 +57,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the accessPackages
-    * Represents access package objects.
+    * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
      *
      * @return array|null The accessPackages
      */
@@ -72,7 +72,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the accessPackages
-    * Represents access package objects.
+    * Access packages define the collection of resource roles and the policies for which subjects can request or be assigned access to those resources.
     *
     * @param AccessPackage[] $val The accessPackages
     *
@@ -207,7 +207,7 @@ class EntitlementManagement extends Entity
 
      /**
      * Gets the connectedOrganizations
-    * Represents references to a directory or domain of another organization whose users can request access.
+    * References to a directory or domain of another organization whose users can request access.
      *
      * @return array|null The connectedOrganizations
      */
@@ -222,7 +222,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the connectedOrganizations
-    * Represents references to a directory or domain of another organization whose users can request access.
+    * References to a directory or domain of another organization whose users can request access.
     *
     * @param ConnectedOrganization[] $val The connectedOrganizations
     *
@@ -236,7 +236,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Gets the settings
-    * Represents the settings that control the behavior of Azure AD entitlement management.
+    * The settings that control the behavior of Azure AD entitlement management.
     *
     * @return EntitlementManagementSettings|null The settings
     */
@@ -255,7 +255,7 @@ class EntitlementManagement extends Entity
 
     /**
     * Sets the settings
-    * Represents the settings that control the behavior of Azure AD entitlement management.
+    * The settings that control the behavior of Azure AD entitlement management.
     *
     * @param EntitlementManagementSettings $val The settings
     *

@@ -25,7 +25,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the dynamicallyAdjustTopicCount
-    * To learn more, see Adjust maximum number of themes dynamically.
+    * Indicates whether the themes model should dynamically optimize the number of generated topics. To learn more, see Adjust maximum number of themes dynamically.
     *
     * @return bool|null The dynamicallyAdjustTopicCount
     */
@@ -40,7 +40,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the dynamicallyAdjustTopicCount
-    * To learn more, see Adjust maximum number of themes dynamically.
+    * Indicates whether the themes model should dynamically optimize the number of generated topics. To learn more, see Adjust maximum number of themes dynamically.
     *
     * @param bool $val The value of the dynamicallyAdjustTopicCount
     *
@@ -53,7 +53,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the ignoreNumbers
-    * To learn more, see Include numbers in themes.
+    * Indicates whether the themes model should exclude numbers while parsing document texts. To learn more, see Include numbers in themes.
     *
     * @return bool|null The ignoreNumbers
     */
@@ -68,7 +68,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the ignoreNumbers
-    * To learn more, see Include numbers in themes.
+    * Indicates whether the themes model should exclude numbers while parsing document texts. To learn more, see Include numbers in themes.
     *
     * @param bool $val The value of the ignoreNumbers
     *
@@ -81,7 +81,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the isEnabled
-    * Indicates whether themes is enabled for the case.
+    * Indicates whether themes model is enabled for the case.
     *
     * @return bool|null The isEnabled
     */
@@ -96,7 +96,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isEnabled
-    * Indicates whether themes is enabled for the case.
+    * Indicates whether themes model is enabled for the case.
     *
     * @param bool $val The value of the isEnabled
     *
@@ -109,7 +109,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the topicCount
-    * To learn more, see Maximum number of themes.
+    * The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes.
     *
     * @return int|null The topicCount
     */
@@ -124,7 +124,7 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the topicCount
-    * To learn more, see Maximum number of themes.
+    * The total number of topics that the themes model will generate for a review set. To learn more, see Maximum number of themes.
     *
     * @param int $val The value of the topicCount
     *

@@ -117,7 +117,7 @@ class OAuth2PermissionGrant extends Entity
 
     /**
     * Gets the principalId
-    * The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal.
+    * The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal. Supports $filter (eq only).
     *
     * @return string|null The principalId
     */
@@ -132,7 +132,7 @@ class OAuth2PermissionGrant extends Entity
 
     /**
     * Sets the principalId
-    * The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal.
+    * The id of the user on behalf of whom the client is authorized to access the resource, when consentType is Principal. If consentType is AllPrincipals this value is null. Required when consentType is Principal. Supports $filter (eq only).
     *
     * @param string $val The principalId
     *
@@ -146,7 +146,7 @@ class OAuth2PermissionGrant extends Entity
 
     /**
     * Gets the resourceId
-    * The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user.
+    * The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user. Supports $filter (eq only).
     *
     * @return string|null The resourceId
     */
@@ -161,7 +161,7 @@ class OAuth2PermissionGrant extends Entity
 
     /**
     * Sets the resourceId
-    * The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user.
+    * The id of the resource service principal to which access is authorized. This identifies the API which the client is authorized to attempt to call on behalf of a signed-in user. Supports $filter (eq only).
     *
     * @param string $val The resourceId
     *

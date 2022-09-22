@@ -26,7 +26,7 @@ class UnifiedRoleManagementPolicyRule extends Entity
 {
     /**
     * Gets the target
-    * Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
+    * Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
     *
     * @return UnifiedRoleManagementPolicyRuleTarget|null The target
     */
@@ -45,7 +45,7 @@ class UnifiedRoleManagementPolicyRule extends Entity
 
     /**
     * Sets the target
-    * Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
+    * Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).
     *
     * @param UnifiedRoleManagementPolicyRuleTarget $val The target
     *

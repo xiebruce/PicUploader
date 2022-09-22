@@ -191,7 +191,7 @@ class ThreatAssessmentRequest extends Entity
 
     /**
     * Gets the requestSource
-    * The source of the threat assessment request. Possible values are: user, administrator.
+    * The source of the threat assessment request. Possible values are: administrator.
     *
     * @return ThreatAssessmentRequestSource|null The requestSource
     */
@@ -210,7 +210,7 @@ class ThreatAssessmentRequest extends Entity
 
     /**
     * Sets the requestSource
-    * The source of the threat assessment request. Possible values are: user, administrator.
+    * The source of the threat assessment request. Possible values are: administrator.
     *
     * @param ThreatAssessmentRequestSource $val The requestSource
     *

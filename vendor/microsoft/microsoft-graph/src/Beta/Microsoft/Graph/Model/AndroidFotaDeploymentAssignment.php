@@ -24,8 +24,36 @@ namespace Beta\Microsoft\Graph\Model;
 class AndroidFotaDeploymentAssignment extends Entity
 {
     /**
+    * Gets the displayName
+    * The display name of the Azure AD security group used for the assignment.
+    *
+    * @return string|null The displayName
+    */
+    public function getDisplayName()
+    {
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the displayName
+    * The display name of the Azure AD security group used for the assignment.
+    *
+    * @param string $val The value of the displayName
+    *
+    * @return AndroidFotaDeploymentAssignment
+    */
+    public function setDisplayName($val)
+    {
+        $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+    /**
     * Gets the id
-    * Key for the Android FOTA Assignment entity
+    * A unique identifier assigned to each Android FOTA Assignment entity
     *
     * @return string|null The id
     */
@@ -40,7 +68,7 @@ class AndroidFotaDeploymentAssignment extends Entity
 
     /**
     * Sets the id
-    * Key for the Android FOTA Assignment entity
+    * A unique identifier assigned to each Android FOTA Assignment entity
     *
     * @param string $val The value of the id
     *

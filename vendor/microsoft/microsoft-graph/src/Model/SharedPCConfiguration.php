@@ -59,7 +59,7 @@ class SharedPCConfiguration extends DeviceConfiguration
 
     /**
     * Gets the allowedAccounts
-    * Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain.
+    * Indicates which type of accounts are allowed to use on a shared PC. Possible values are: guest, domain.
     *
     * @return SharedPCAllowedAccountType|null The allowedAccounts
     */
@@ -78,7 +78,7 @@ class SharedPCConfiguration extends DeviceConfiguration
 
     /**
     * Sets the allowedAccounts
-    * Indicates which type of accounts are allowed to use on a shared PC. Possible values are: notConfigured, guest, domain.
+    * Indicates which type of accounts are allowed to use on a shared PC. Possible values are: guest, domain.
     *
     * @param SharedPCAllowedAccountType $val The allowedAccounts
     *

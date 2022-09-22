@@ -45,6 +45,8 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum
     const ENDPOINT_CONNECTIVITY_CHECK_CLOUD_PC_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckCloudPcUrlNotAllowListed";
     const ENDPOINT_CONNECTIVITY_CHECK_WVD_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckWVDUrlNotAllowListed";
     const ENDPOINT_CONNECTIVITY_CHECK_INTUNE_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckIntuneUrlNotAllowListed";
+    const ENDPOINT_CONNECTIVITY_CHECK_AZURE_AD_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckAzureADUrlNotAllowListed";
+    const ENDPOINT_CONNECTIVITY_CHECK_LOCALE_URL_NOT_ALLOW_LISTED = "endpointConnectivityCheckLocaleUrlNotAllowListed";
     const ENDPOINT_CONNECTIVITY_CHECK_UNKNOWN_ERROR = "endpointConnectivityCheckUnknownError";
     const AZURE_AD_DEVICE_SYNC_CHECK_DEVICE_NOT_FOUND = "azureAdDeviceSyncCheckDeviceNotFound";
     const AZURE_AD_DEVICE_SYNC_CHECK_LONG_SYNC_CIRCLE = "azureAdDeviceSyncCheckLongSyncCircle";
@@ -69,6 +71,9 @@ class CloudPcOnPremisesConnectionHealthCheckErrorType extends Enum
     const RESOURCE_AVAILABILITY_CHECK_SUBNET_WITH_EXTERNAL_RESOURCES = "resourceAvailabilityCheckSubnetWithExternalResources";
     const RESOURCE_AVAILABILITY_CHECK_RESOURCE_GROUP_LOCKED_FOR_READONLY = "resourceAvailabilityCheckResourceGroupLockedForReadonly";
     const RESOURCE_AVAILABILITY_CHECK_RESOURCE_GROUP_LOCKED_FOR_DELETE = "resourceAvailabilityCheckResourceGroupLockedForDelete";
+    const RESOURCE_AVAILABILITY_CHECK_NO_INTUNE_READER_ROLE_ERROR = "resourceAvailabilityCheckNoIntuneReaderRoleError";
+    const RESOURCE_AVAILABILITY_CHECK_INTUNE_DEFAULT_WINDOWS_RESTRICTION_VIOLATION = "resourceAvailabilityCheckIntuneDefaultWindowsRestrictionViolation";
+    const RESOURCE_AVAILABILITY_CHECK_INTUNE_CUSTOM_WINDOWS_RESTRICTION_VIOLATION = "resourceAvailabilityCheckIntuneCustomWindowsRestrictionViolation";
     const RESOURCE_AVAILABILITY_CHECK_TRANSIENT_SERVICE_ERROR = "resourceAvailabilityCheckTransientServiceError";
     const RESOURCE_AVAILABILITY_CHECK_UNKNOWN_ERROR = "resourceAvailabilityCheckUnknownError";
     const PERMISSION_CHECK_NO_SUBSCRIPTION_READER_ROLE = "permissionCheckNoSubscriptionReaderRole";

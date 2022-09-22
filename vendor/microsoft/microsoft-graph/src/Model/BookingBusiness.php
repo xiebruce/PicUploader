@@ -26,7 +26,7 @@ class BookingBusiness extends Entity
 {
     /**
     * Gets the address
-    * The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
+    * The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
     *
     * @return PhysicalAddress|null The address
     */
@@ -45,7 +45,7 @@ class BookingBusiness extends Entity
 
     /**
     * Sets the address
-    * The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
+    * The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
     *
     * @param PhysicalAddress $val The address
     *

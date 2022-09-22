@@ -83,6 +83,68 @@ class DetectedApp extends Entity
     }
 
     /**
+    * Gets the platform
+    * Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0). Possible values are: unknown, windows, windowsMobile, windowsHolographic, ios, macOS, chromeOS, androidOSP, androidDeviceAdministrator, androidWorkProfile, androidDedicatedAndFullyManaged.
+    *
+    * @return DetectedAppPlatformType|null The platform
+    */
+    public function getPlatform()
+    {
+        if (array_key_exists("platform", $this->_propDict)) {
+            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DetectedAppPlatformType") || is_null($this->_propDict["platform"])) {
+                return $this->_propDict["platform"];
+            } else {
+                $this->_propDict["platform"] = new DetectedAppPlatformType($this->_propDict["platform"]);
+                return $this->_propDict["platform"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the platform
+    * Indicates the operating system / platform of the discovered application.  Some possible values are Windows, iOS, macOS. The default value is unknown (0). Possible values are: unknown, windows, windowsMobile, windowsHolographic, ios, macOS, chromeOS, androidOSP, androidDeviceAdministrator, androidWorkProfile, androidDedicatedAndFullyManaged.
+    *
+    * @param DetectedAppPlatformType $val The platform
+    *
+    * @return DetectedApp
+    */
+    public function setPlatform($val)
+    {
+        $this->_propDict["platform"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the publisher
+    * Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string.
+    *
+    * @return string|null The publisher
+    */
+    public function getPublisher()
+    {
+        if (array_key_exists("publisher", $this->_propDict)) {
+            return $this->_propDict["publisher"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the publisher
+    * Indicates the publisher of the discovered application. For example: 'Microsoft'.  The default value is an empty string.
+    *
+    * @param string $val The publisher
+    *
+    * @return DetectedApp
+    */
+    public function setPublisher($val)
+    {
+        $this->_propDict["publisher"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the sizeInByte
     * Discovered application size in bytes. Read-only
     *

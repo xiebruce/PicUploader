@@ -53,7 +53,7 @@ class TeamworkOnlineMeetingInfo extends Entity
     }
     /**
     * Gets the joinWebUrl
-    * The URL which can be clicked on to join or uniquely identify the meeting.
+    * The URL that users click to join or uniquely identify the meeting.
     *
     * @return string|null The joinWebUrl
     */
@@ -68,7 +68,7 @@ class TeamworkOnlineMeetingInfo extends Entity
 
     /**
     * Sets the joinWebUrl
-    * The URL which can be clicked on to join or uniquely identify the meeting.
+    * The URL that users click to join or uniquely identify the meeting.
     *
     * @param string $val The value of the joinWebUrl
     *

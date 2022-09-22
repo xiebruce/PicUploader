@@ -80,6 +80,34 @@ class AuditActor extends Entity
         return $this;
     }
     /**
+    * Gets the auditActorType
+    * Actor Type.
+    *
+    * @return string|null The auditActorType
+    */
+    public function getAuditActorType()
+    {
+        if (array_key_exists("auditActorType", $this->_propDict)) {
+            return $this->_propDict["auditActorType"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the auditActorType
+    * Actor Type.
+    *
+    * @param string $val The value of the auditActorType
+    *
+    * @return AuditActor
+    */
+    public function setAuditActorType($val)
+    {
+        $this->_propDict["auditActorType"] = $val;
+        return $this;
+    }
+    /**
     * Gets the ipAddress
     * IPAddress.
     *

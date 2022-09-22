@@ -1,7 +1,14 @@
 # Changelog
 
+## 7.7.0 (2022-09-02)
+* 对象存储，新增支持设置文件级别生命周期 setObjectLifecycle API
+* 对象存储，内置增加七牛新建存储区域域名信息
+* 修复当前已知问题 
+
 ## 7.6.0 (2022-06-08)
 * 对象存储，管理类 API 发送请求时增加 [X-Qiniu-Date](https://developer.qiniu.com/kodo/3924/common-request-headers) （生成请求的时间） header
+
+
 ## 7.5.0 (2022-04-18)
 * 对象存储，新增支持 [深度归档存储类型](https://developer.qiniu.com/kodo/3956/kodo-category#deep_archive)
 

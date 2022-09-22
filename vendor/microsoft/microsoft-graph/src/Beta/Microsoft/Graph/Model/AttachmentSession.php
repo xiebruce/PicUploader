@@ -26,6 +26,7 @@ class AttachmentSession extends Entity
 {
     /**
     * Gets the content
+    * The content streams that are uploaded.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The content
     */
@@ -44,6 +45,7 @@ class AttachmentSession extends Entity
 
     /**
     * Sets the content
+    * The content streams that are uploaded.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The content
     *
@@ -57,6 +59,7 @@ class AttachmentSession extends Entity
 
     /**
     * Gets the expirationDateTime
+    * The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
     *
     * @return \DateTime|null The expirationDateTime
     */
@@ -75,6 +78,7 @@ class AttachmentSession extends Entity
 
     /**
     * Sets the expirationDateTime
+    * The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -87,29 +91,31 @@ class AttachmentSession extends Entity
     }
 
     /**
-    * Gets the nextExpectedRange
+    * Gets the nextExpectedRanges
+    * Indicates a single value {start} that represents the location in the file where the next upload should begin.
     *
-    * @return string|null The nextExpectedRange
+    * @return string|null The nextExpectedRanges
     */
-    public function getNextExpectedRange()
+    public function getNextExpectedRanges()
     {
-        if (array_key_exists("nextExpectedRange", $this->_propDict)) {
-            return $this->_propDict["nextExpectedRange"];
+        if (array_key_exists("nextExpectedRanges", $this->_propDict)) {
+            return $this->_propDict["nextExpectedRanges"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the nextExpectedRange
+    * Sets the nextExpectedRanges
+    * Indicates a single value {start} that represents the location in the file where the next upload should begin.
     *
-    * @param string $val The nextExpectedRange
+    * @param string $val The nextExpectedRanges
     *
     * @return AttachmentSession
     */
-    public function setNextExpectedRange($val)
+    public function setNextExpectedRanges($val)
     {
-        $this->_propDict["nextExpectedRange"] = $val;
+        $this->_propDict["nextExpectedRanges"] = $val;
         return $this;
     }
 

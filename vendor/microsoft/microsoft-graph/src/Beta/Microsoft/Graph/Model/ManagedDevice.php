@@ -256,6 +256,35 @@ class ManagedDevice extends Entity
     }
 
     /**
+    * Gets the bootstrapTokenEscrowed
+    * Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. To get, include BootstrapTokenEscrowed in the select clause and query with a device id. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+    *
+    * @return bool|null The bootstrapTokenEscrowed
+    */
+    public function getBootstrapTokenEscrowed()
+    {
+        if (array_key_exists("bootstrapTokenEscrowed", $this->_propDict)) {
+            return $this->_propDict["bootstrapTokenEscrowed"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the bootstrapTokenEscrowed
+    * Reports if the managed device has an escrowed Bootstrap Token. This is only for macOS devices. To get, include BootstrapTokenEscrowed in the select clause and query with a device id. If FALSE, no bootstrap token is escrowed. If TRUE, the device has escrowed a bootstrap token with Intune. This property is read-only.
+    *
+    * @param bool $val The bootstrapTokenEscrowed
+    *
+    * @return ManagedDevice
+    */
+    public function setBootstrapTokenEscrowed($val)
+    {
+        $this->_propDict["bootstrapTokenEscrowed"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the chassisType
     * Chassis type of the device. This property is read-only. Possible values are: unknown, desktop, laptop, worksWorkstation, enterpriseServer, phone, tablet, mobileOther, mobileUnknown.
     *
@@ -572,6 +601,35 @@ class ManagedDevice extends Entity
     public function setDeviceEnrollmentType($val)
     {
         $this->_propDict["deviceEnrollmentType"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the deviceFirmwareConfigurationInterfaceManaged
+    * Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+    *
+    * @return bool|null The deviceFirmwareConfigurationInterfaceManaged
+    */
+    public function getDeviceFirmwareConfigurationInterfaceManaged()
+    {
+        if (array_key_exists("deviceFirmwareConfigurationInterfaceManaged", $this->_propDict)) {
+            return $this->_propDict["deviceFirmwareConfigurationInterfaceManaged"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceFirmwareConfigurationInterfaceManaged
+    * Indicates whether the device is DFCI managed. When TRUE the device is DFCI managed. When FALSE, the device is not DFCI managed. The default value is FALSE.
+    *
+    * @param bool $val The deviceFirmwareConfigurationInterfaceManaged
+    *
+    * @return ManagedDevice
+    */
+    public function setDeviceFirmwareConfigurationInterfaceManaged($val)
+    {
+        $this->_propDict["deviceFirmwareConfigurationInterfaceManaged"] = boolval($val);
         return $this;
     }
 

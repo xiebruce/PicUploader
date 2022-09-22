@@ -263,7 +263,7 @@ class Organization extends DirectoryObject
 
     /**
     * Gets the onPremisesLastSyncDateTime
-    * The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    * The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @return \DateTime|null The onPremisesLastSyncDateTime
     */
@@ -282,7 +282,7 @@ class Organization extends DirectoryObject
 
     /**
     * Sets the onPremisesLastSyncDateTime
-    * The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    * The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @param \DateTime $val The onPremisesLastSyncDateTime
     *
@@ -296,7 +296,7 @@ class Organization extends DirectoryObject
 
     /**
     * Gets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
     *
     * @return bool|null The onPremisesSyncEnabled
     */
@@ -311,7 +311,7 @@ class Organization extends DirectoryObject
 
     /**
     * Sets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
     *
     * @param bool $val The onPremisesSyncEnabled
     *
@@ -354,7 +354,7 @@ class Organization extends DirectoryObject
 
     /**
     * Gets the preferredLanguage
-    * The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+    * The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
     *
     * @return string|null The preferredLanguage
     */
@@ -369,7 +369,7 @@ class Organization extends DirectoryObject
 
     /**
     * Sets the preferredLanguage
-    * The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+    * The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
     *
     * @param string $val The preferredLanguage
     *
@@ -677,7 +677,7 @@ class Organization extends DirectoryObject
 
     /**
     * Gets the branding
-    * Resource to manage the default branding for the organization. Nullable.
+    * Branding for the organization. Nullable.
     *
     * @return OrganizationalBranding|null The branding
     */
@@ -696,7 +696,7 @@ class Organization extends DirectoryObject
 
     /**
     * Sets the branding
-    * Resource to manage the default branding for the organization. Nullable.
+    * Branding for the organization. Nullable.
     *
     * @param OrganizationalBranding $val The branding
     *
@@ -741,7 +741,7 @@ class Organization extends DirectoryObject
 
      /**
      * Gets the extensions
-    * The collection of open extensions defined for the organization resource. Nullable.
+    * The collection of open extensions defined for the organization. Read-only. Nullable.
      *
      * @return array|null The extensions
      */
@@ -756,7 +756,7 @@ class Organization extends DirectoryObject
 
     /**
     * Sets the extensions
-    * The collection of open extensions defined for the organization resource. Nullable.
+    * The collection of open extensions defined for the organization. Read-only. Nullable.
     *
     * @param Extension[] $val The extensions
     *

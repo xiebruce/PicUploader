@@ -25,6 +25,39 @@ namespace Beta\Microsoft\Graph\Model;
 class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertificateProfileBase
 {
     /**
+    * Gets the certificateAccessType
+    * Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+    *
+    * @return AndroidDeviceOwnerCertificateAccessType|null The certificateAccessType
+    */
+    public function getCertificateAccessType()
+    {
+        if (array_key_exists("certificateAccessType", $this->_propDict)) {
+            if (is_a($this->_propDict["certificateAccessType"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerCertificateAccessType") || is_null($this->_propDict["certificateAccessType"])) {
+                return $this->_propDict["certificateAccessType"];
+            } else {
+                $this->_propDict["certificateAccessType"] = new AndroidDeviceOwnerCertificateAccessType($this->_propDict["certificateAccessType"]);
+                return $this->_propDict["certificateAccessType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the certificateAccessType
+    * Certificate access type. Possible values are: userApproval, specificApps, unknownFutureValue.
+    *
+    * @param AndroidDeviceOwnerCertificateAccessType $val The certificateAccessType
+    *
+    * @return AndroidDeviceOwnerScepCertificateProfile
+    */
+    public function setCertificateAccessType($val)
+    {
+        $this->_propDict["certificateAccessType"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the certificateStore
     * Target store certificate. Possible values are: user, machine.
     *
@@ -212,6 +245,36 @@ class AndroidDeviceOwnerScepCertificateProfile extends AndroidDeviceOwnerCertifi
     public function setScepServerUrls($val)
     {
         $this->_propDict["scepServerUrls"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the silentCertificateAccessDetails
+    * Certificate access information. This collection can contain a maximum of 50 elements.
+     *
+     * @return array|null The silentCertificateAccessDetails
+     */
+    public function getSilentCertificateAccessDetails()
+    {
+        if (array_key_exists("silentCertificateAccessDetails", $this->_propDict)) {
+           return $this->_propDict["silentCertificateAccessDetails"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the silentCertificateAccessDetails
+    * Certificate access information. This collection can contain a maximum of 50 elements.
+    *
+    * @param AndroidDeviceOwnerSilentCertificateAccess[] $val The silentCertificateAccessDetails
+    *
+    * @return AndroidDeviceOwnerScepCertificateProfile
+    */
+    public function setSilentCertificateAccessDetails($val)
+    {
+        $this->_propDict["silentCertificateAccessDetails"] = $val;
         return $this;
     }
 

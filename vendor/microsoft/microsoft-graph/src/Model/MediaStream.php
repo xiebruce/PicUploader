@@ -119,7 +119,7 @@ class MediaStream extends Entity
     }
     /**
     * Gets the serverMuted
-    * Indicates whether the media is muted by the server.
+    * If the media is muted by the server.
     *
     * @return bool|null The serverMuted
     */
@@ -134,7 +134,7 @@ class MediaStream extends Entity
 
     /**
     * Sets the serverMuted
-    * Indicates whether the media is muted by the server.
+    * If the media is muted by the server.
     *
     * @param bool $val The value of the serverMuted
     *

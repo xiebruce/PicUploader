@@ -52,6 +52,34 @@ class ConfigurationManagerClientInformation extends Entity
         return $this;
     }
     /**
+    * Gets the clientVersion
+    * Configuration Manager Client version from SCCM
+    *
+    * @return string|null The clientVersion
+    */
+    public function getClientVersion()
+    {
+        if (array_key_exists("clientVersion", $this->_propDict)) {
+            return $this->_propDict["clientVersion"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the clientVersion
+    * Configuration Manager Client version from SCCM
+    *
+    * @param string $val The value of the clientVersion
+    *
+    * @return ConfigurationManagerClientInformation
+    */
+    public function setClientVersion($val)
+    {
+        $this->_propDict["clientVersion"] = $val;
+        return $this;
+    }
+    /**
     * Gets the isBlocked
     * Configuration Manager Client blocked status from SCCM
     *

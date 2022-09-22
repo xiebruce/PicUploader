@@ -55,7 +55,7 @@ class AuthenticationMethodTarget extends Entity
 
     /**
     * Gets the targetType
-    * Possible values are: user, group, and unknownFutureValue.
+    * Possible values are: user, group.
     *
     * @return AuthenticationMethodTargetType|null The targetType
     */
@@ -74,7 +74,7 @@ class AuthenticationMethodTarget extends Entity
 
     /**
     * Sets the targetType
-    * Possible values are: user, group, and unknownFutureValue.
+    * Possible values are: user, group.
     *
     * @param AuthenticationMethodTargetType $val The targetType
     *

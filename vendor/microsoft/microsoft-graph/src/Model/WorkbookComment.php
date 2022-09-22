@@ -26,7 +26,7 @@ class WorkbookComment extends Entity
 {
     /**
     * Gets the content
-    * The content of the comment.
+    * The content of comment.
     *
     * @return string|null The content
     */
@@ -41,7 +41,7 @@ class WorkbookComment extends Entity
 
     /**
     * Sets the content
-    * The content of the comment.
+    * The content of comment.
     *
     * @param string $val The content
     *

@@ -88,6 +88,34 @@ class PolicyRoot implements \JsonSerializable
         return $this;
     }
 
+
+     /**
+     * Gets the authenticationStrengthPolicies
+     *
+     * @return array|null The authenticationStrengthPolicies
+     */
+    public function getAuthenticationStrengthPolicies()
+    {
+        if (array_key_exists("authenticationStrengthPolicies", $this->_propDict)) {
+           return $this->_propDict["authenticationStrengthPolicies"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the authenticationStrengthPolicies
+    *
+    * @param AuthenticationStrengthPolicy[] $val The authenticationStrengthPolicies
+    *
+    * @return PolicyRoot
+    */
+    public function setAuthenticationStrengthPolicies($val)
+    {
+        $this->_propDict["authenticationStrengthPolicies"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the authenticationFlowsPolicy
     * The policy configuration of the self-service sign-up experience of external users.
@@ -373,6 +401,7 @@ class PolicyRoot implements \JsonSerializable
 
     /**
     * Gets the externalIdentitiesPolicy
+    * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
     *
     * @return ExternalIdentitiesPolicy|null The externalIdentitiesPolicy
     */
@@ -391,6 +420,7 @@ class PolicyRoot implements \JsonSerializable
 
     /**
     * Sets the externalIdentitiesPolicy
+    * Represents the tenant-wide policy that controls whether external users can leave an Azure AD tenant via self-service controls.
     *
     * @param ExternalIdentitiesPolicy $val The externalIdentitiesPolicy
     *
@@ -890,7 +920,8 @@ class PolicyRoot implements \JsonSerializable
     *
     * @return array The list of properties
     */
-    public function jsonSerialize(): array
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {

@@ -115,7 +115,7 @@ class Store extends \Microsoft\Graph\Model\Entity
 
      /**
      * Gets the sets
-    * Collection of all sets available in the term store.
+    * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
      *
      * @return array|null The sets
      */
@@ -130,7 +130,7 @@ class Store extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the sets
-    * Collection of all sets available in the term store.
+    * Collection of all sets available in the term store. This relationship can only be used to load a specific term set.
     *
     * @param Set[] $val The sets
     *

@@ -25,6 +25,7 @@ class RemoveWatermarkAction extends InformationProtectionAction
 {
     /**
     * Gets the uiElementNames
+    * The name of the UI element of watermark to be removed.
     *
     * @return string|null The uiElementNames
     */
@@ -39,6 +40,7 @@ class RemoveWatermarkAction extends InformationProtectionAction
 
     /**
     * Sets the uiElementNames
+    * The name of the UI element of watermark to be removed.
     *
     * @param string $val The value of the uiElementNames
     *

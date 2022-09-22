@@ -175,7 +175,7 @@ class UnifiedRoleAssignmentScheduleRequest extends Request
 
     /**
     * Gets the principalId
-    * Identifier of the principal that has been granted the assignment. Supports $filter (eq, ne).
+    * Identifier of the principal that has been granted the assignment. Can be a user, role-assignable group, or a service principal. Supports $filter (eq, ne).
     *
     * @return string|null The principalId
     */
@@ -190,7 +190,7 @@ class UnifiedRoleAssignmentScheduleRequest extends Request
 
     /**
     * Sets the principalId
-    * Identifier of the principal that has been granted the assignment. Supports $filter (eq, ne).
+    * Identifier of the principal that has been granted the assignment. Can be a user, role-assignable group, or a service principal. Supports $filter (eq, ne).
     *
     * @param string $val The principalId
     *

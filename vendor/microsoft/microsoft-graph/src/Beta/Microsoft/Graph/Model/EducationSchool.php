@@ -351,7 +351,6 @@ class EducationSchool extends EducationOrganization
 
     /**
     * Gets the administrativeUnit
-    * The underlying administrativeUnit for this school.
     *
     * @return AdministrativeUnit|null The administrativeUnit
     */
@@ -370,7 +369,6 @@ class EducationSchool extends EducationOrganization
 
     /**
     * Sets the administrativeUnit
-    * The underlying administrativeUnit for this school.
     *
     * @param AdministrativeUnit $val The administrativeUnit
     *

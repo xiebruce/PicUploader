@@ -35,4 +35,6 @@ class TeamsAsyncOperationType extends Enum
     const UNARCHIVE_TEAM = "unarchiveTeam";
     const CREATE_TEAM = "createTeam";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const TEAMIFY_GROUP = "teamifyGroup";
+    const CREATE_CHANNEL = "createChannel";
 }

@@ -26,7 +26,7 @@ class InvitationParticipantInfo extends Entity
 
     /**
     * Gets the endpointType
-    * The type of the endpoint. Possible values are: default, voicemail.
+    * The type of endpoint. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
     *
     * @return EndpointType|null The endpointType
     */
@@ -45,7 +45,7 @@ class InvitationParticipantInfo extends Entity
 
     /**
     * Sets the endpointType
-    * The type of the endpoint. Possible values are: default, voicemail.
+    * The type of endpoint. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue.
     *
     * @param EndpointType $val The value to assign to the endpointType
     *

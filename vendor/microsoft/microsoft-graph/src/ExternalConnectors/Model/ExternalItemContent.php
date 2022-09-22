@@ -26,7 +26,7 @@ class ExternalItemContent extends \Microsoft\Graph\Model\Entity
 
     /**
     * Gets the type
-    * The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+    * The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
     *
     * @return ExternalItemContentType|null The type
     */
@@ -45,7 +45,7 @@ class ExternalItemContent extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the type
-    * The type of content in the value property. Possible values are text and html. These are the content types that the indexer supports, and not the file extension types allowed. Required.
+    * The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
     *
     * @param ExternalItemContentType $val The value to assign to the type
     *

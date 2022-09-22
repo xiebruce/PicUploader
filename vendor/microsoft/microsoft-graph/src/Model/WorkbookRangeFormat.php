@@ -55,7 +55,7 @@ class WorkbookRangeFormat extends Entity
 
     /**
     * Gets the horizontalAlignment
-    * Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
+    * Represents the horizontal alignment for the specified object. The possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
     *
     * @return string|null The horizontalAlignment
     */
@@ -70,7 +70,7 @@ class WorkbookRangeFormat extends Entity
 
     /**
     * Sets the horizontalAlignment
-    * Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
+    * Represents the horizontal alignment for the specified object. The possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
     *
     * @param string $val The horizontalAlignment
     *
@@ -113,7 +113,7 @@ class WorkbookRangeFormat extends Entity
 
     /**
     * Gets the verticalAlignment
-    * Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.
+    * Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed.
     *
     * @return string|null The verticalAlignment
     */
@@ -128,7 +128,7 @@ class WorkbookRangeFormat extends Entity
 
     /**
     * Sets the verticalAlignment
-    * Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.
+    * Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed.
     *
     * @param string $val The verticalAlignment
     *

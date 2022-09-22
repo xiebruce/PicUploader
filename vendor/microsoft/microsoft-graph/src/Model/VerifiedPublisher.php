@@ -58,7 +58,7 @@ class VerifiedPublisher extends Entity
     }
     /**
     * Gets the displayName
-    * The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+    * The verified publisher name from the app publisher's Partner Center account.
     *
     * @return string|null The displayName
     */
@@ -73,7 +73,7 @@ class VerifiedPublisher extends Entity
 
     /**
     * Sets the displayName
-    * The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+    * The verified publisher name from the app publisher's Partner Center account.
     *
     * @param string $val The value of the displayName
     *

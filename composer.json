@@ -1,7 +1,7 @@
 {
     "require": {
         "qiniu/php-sdk": "^7.2",
-        "guzzlehttp/guzzle": "^6.5.7",
+        "guzzlehttp/guzzle": "^6.5.8",
         "netease/nos-php-sdk": "^1.0",
         "aws/aws-sdk-php": "^3.63",
         "aliyuncs/oss-sdk-php": "^2.3",

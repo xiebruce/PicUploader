@@ -54,7 +54,7 @@ class AlterationResponse extends Entity
 
     /**
     * Gets the queryAlteration
-    * Defines the details of alteration information for the spelling correction.
+    * Defines the details of the alteration information for the spelling correction.
     *
     * @return SearchAlteration|null The queryAlteration
     */
@@ -73,7 +73,7 @@ class AlterationResponse extends Entity
 
     /**
     * Sets the queryAlteration
-    * Defines the details of alteration information for the spelling correction.
+    * Defines the details of the alteration information for the spelling correction.
     *
     * @param SearchAlteration $val The value to assign to the queryAlteration
     *
@@ -87,7 +87,7 @@ class AlterationResponse extends Entity
 
     /**
     * Gets the queryAlterationType
-    * Defines the type of the spelling correction. Possible values are suggestion, modification.
+    * Defines the type of the spelling correction. Possible values are: suggestion, modification.
     *
     * @return SearchAlterationType|null The queryAlterationType
     */
@@ -106,7 +106,7 @@ class AlterationResponse extends Entity
 
     /**
     * Sets the queryAlterationType
-    * Defines the type of the spelling correction. Possible values are suggestion, modification.
+    * Defines the type of the spelling correction. Possible values are: suggestion, modification.
     *
     * @param SearchAlterationType $val The value to assign to the queryAlterationType
     *

@@ -26,6 +26,7 @@ class CloudPcProvisioningPolicy extends Entity
 {
     /**
     * Gets the alternateResourceUrl
+    * The URL of the alternate resource that links to this provisioning policy. Read-only.
     *
     * @return string|null The alternateResourceUrl
     */
@@ -40,6 +41,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Sets the alternateResourceUrl
+    * The URL of the alternate resource that links to this provisioning policy. Read-only.
     *
     * @param string $val The alternateResourceUrl
     *
@@ -53,6 +55,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Gets the cloudPcGroupDisplayName
+    * The display name of the Cloud PC group that the Cloud PCs reside in. Read-only.
     *
     * @return string|null The cloudPcGroupDisplayName
     */
@@ -67,6 +70,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Sets the cloudPcGroupDisplayName
+    * The display name of the Cloud PC group that the Cloud PCs reside in. Read-only.
     *
     * @param string $val The cloudPcGroupDisplayName
     *
@@ -171,6 +175,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Gets the gracePeriodInHours
+    * The number of hours to wait before reprovisioning/deprovisioning happens. Read-only.
     *
     * @return int|null The gracePeriodInHours
     */
@@ -185,6 +190,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Sets the gracePeriodInHours
+    * The number of hours to wait before reprovisioning/deprovisioning happens. Read-only.
     *
     * @param int $val The gracePeriodInHours
     *
@@ -289,6 +295,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Gets the localAdminEnabled
+    * Indicates whether the local admin option is enabled. If the local admin option is enabled, the end user can be an admin of the Cloud PC device. Read-only.
     *
     * @return bool|null The localAdminEnabled
     */
@@ -303,6 +310,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Sets the localAdminEnabled
+    * Indicates whether the local admin option is enabled. If the local admin option is enabled, the end user can be an admin of the Cloud PC device. Read-only.
     *
     * @param bool $val The localAdminEnabled
     *
@@ -316,6 +324,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Gets the managedBy
+    * Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
     *
     * @return CloudPcManagementService|null The managedBy
     */
@@ -334,6 +343,7 @@ class CloudPcProvisioningPolicy extends Entity
 
     /**
     * Sets the managedBy
+    * Specifies which services manage the Azure network connection. Possible values are: windows365, devBox, unknownFutureValue. Read-only.
     *
     * @param CloudPcManagementService $val The managedBy
     *

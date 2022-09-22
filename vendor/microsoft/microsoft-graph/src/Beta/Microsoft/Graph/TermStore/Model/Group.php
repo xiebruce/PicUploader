@@ -146,7 +146,7 @@ class Group extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the scope
-    * Returns the type of the group. Possible values are global, system, and siteCollection.
+    * Returns the type of the group. Possible values are: global, system, and siteCollection.
     *
     * @return TermGroupScope|null The scope
     */
@@ -165,7 +165,7 @@ class Group extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the scope
-    * Returns the type of the group. Possible values are global, system, and siteCollection.
+    * Returns the type of the group. Possible values are: global, system, and siteCollection.
     *
     * @param TermGroupScope $val The scope
     *

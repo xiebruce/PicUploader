@@ -29,10 +29,13 @@ jobs:
 
       - name: Run cases
         run: |
+          nohup php -S localhost:9000 -t ./tests/mock-server/ > phpd.log 2>&1 &
+          export PHP_SERVER_PID=$!
           ./vendor/bin/phpcs --standard=PSR2 src
           ./vendor/bin/phpcs --standard=PSR2 examples
           ./vendor/bin/phpcs --standard=PSR2 tests
           ./vendor/bin/phpunit --coverage-clover=coverage.xml
+          kill $PHP_SERVER_PID
 
         env:
           QINIU_ACCESS_KEY: ${{ secrets.QINIU_ACCESS_KEY }}

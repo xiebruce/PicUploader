@@ -423,6 +423,7 @@ class OnPremisesPublishing extends Entity
 
     /**
     * Gets the onPremisesApplicationSegments
+    * Represents the application segment collection for an on-premises wildcard application.
     *
     * @return OnPremisesApplicationSegment|null The onPremisesApplicationSegments
     */
@@ -441,6 +442,7 @@ class OnPremisesPublishing extends Entity
 
     /**
     * Sets the onPremisesApplicationSegments
+    * Represents the application segment collection for an on-premises wildcard application.
     *
     * @param OnPremisesApplicationSegment $val The value to assign to the onPremisesApplicationSegments
     *

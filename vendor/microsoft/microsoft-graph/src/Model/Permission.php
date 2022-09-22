@@ -181,7 +181,7 @@ class Permission extends Entity
 
     /**
     * Gets the hasPassword
-    * Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+    * Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..
     *
     * @return bool|null The hasPassword
     */
@@ -196,7 +196,7 @@ class Permission extends Entity
 
     /**
     * Sets the hasPassword
-    * Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+    * Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..
     *
     * @param bool $val The hasPassword
     *
@@ -338,7 +338,7 @@ class Permission extends Entity
 
     /**
     * Gets the shareId
-    * A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+    * A unique token that can be used to access this shared item via the **shares** API. Read-only.
     *
     * @return string|null The shareId
     */
@@ -353,7 +353,7 @@ class Permission extends Entity
 
     /**
     * Sets the shareId
-    * A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+    * A unique token that can be used to access this shared item via the **shares** API. Read-only.
     *
     * @param string $val The shareId
     *

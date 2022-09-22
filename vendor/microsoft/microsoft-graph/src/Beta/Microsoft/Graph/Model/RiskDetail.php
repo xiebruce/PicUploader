@@ -43,4 +43,5 @@ class RiskDetail extends Enum
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     const ADMIN_CONFIRMED_SERVICE_PRINCIPAL_COMPROMISED = "adminConfirmedServicePrincipalCompromised";
     const ADMIN_DISMISSED_ALL_RISK_FOR_SERVICE_PRINCIPAL = "adminDismissedAllRiskForServicePrincipal";
+    const M365_D_ADMIN_DISMISSED_DETECTION = "m365DAdminDismissedDetection";
 }

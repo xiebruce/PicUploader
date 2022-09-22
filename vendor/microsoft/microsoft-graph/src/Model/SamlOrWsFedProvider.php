@@ -113,7 +113,7 @@ class SamlOrWsFedProvider extends IdentityProviderBase
 
     /**
     * Gets the preferredAuthenticationProtocol
-    * Preferred authentication protocol. Supported values include saml or wsfed.
+    * Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.
     *
     * @return AuthenticationProtocol|null The preferredAuthenticationProtocol
     */
@@ -132,7 +132,7 @@ class SamlOrWsFedProvider extends IdentityProviderBase
 
     /**
     * Sets the preferredAuthenticationProtocol
-    * Preferred authentication protocol. Supported values include saml or wsfed.
+    * Preferred authentication protocol. The possible values are: wsFed, saml, unknownFutureValue.
     *
     * @param AuthenticationProtocol $val The preferredAuthenticationProtocol
     *

@@ -58,8 +58,41 @@ class AccessPackageAssignmentPolicy extends Entity
     }
 
     /**
+    * Gets the automaticRequestSettings
+    * This property is only present for an auto assignment policy; if absent, this is a request-based policy.
+    *
+    * @return AccessPackageAutomaticRequestSettings|null The automaticRequestSettings
+    */
+    public function getAutomaticRequestSettings()
+    {
+        if (array_key_exists("automaticRequestSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["automaticRequestSettings"], "\Microsoft\Graph\Model\AccessPackageAutomaticRequestSettings") || is_null($this->_propDict["automaticRequestSettings"])) {
+                return $this->_propDict["automaticRequestSettings"];
+            } else {
+                $this->_propDict["automaticRequestSettings"] = new AccessPackageAutomaticRequestSettings($this->_propDict["automaticRequestSettings"]);
+                return $this->_propDict["automaticRequestSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the automaticRequestSettings
+    * This property is only present for an auto assignment policy; if absent, this is a request-based policy.
+    *
+    * @param AccessPackageAutomaticRequestSettings $val The automaticRequestSettings
+    *
+    * @return AccessPackageAssignmentPolicy
+    */
+    public function setAutomaticRequestSettings($val)
+    {
+        $this->_propDict["automaticRequestSettings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -78,7 +111,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -121,7 +154,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the displayName
-    * The display name of the policy. Supports $filter (eq).
+    * The display name of the policy.
     *
     * @return string|null The displayName
     */
@@ -136,7 +169,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the displayName
-    * The display name of the policy. Supports $filter (eq).
+    * The display name of the policy.
     *
     * @param string $val The displayName
     *
@@ -183,7 +216,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the modifiedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The modifiedDateTime
     */
@@ -202,7 +235,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the modifiedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The modifiedDateTime
     *
@@ -216,7 +249,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the requestApprovalSettings
-    * Who must approve requests for access package in this policy.
+    * Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
     *
     * @return AccessPackageAssignmentApprovalSettings|null The requestApprovalSettings
     */
@@ -235,7 +268,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the requestApprovalSettings
-    * Who must approve requests for access package in this policy.
+    * Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
     *
     * @param AccessPackageAssignmentApprovalSettings $val The requestApprovalSettings
     *
@@ -249,7 +282,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the requestorSettings
-    * Who can request this access package from this policy.
+    * Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
     *
     * @return AccessPackageAssignmentRequestorSettings|null The requestorSettings
     */
@@ -268,7 +301,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the requestorSettings
-    * Who can request this access package from this policy.
+    * Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
     *
     * @param AccessPackageAssignmentRequestorSettings $val The requestorSettings
     *
@@ -345,7 +378,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Gets the accessPackage
-    * The access package with this policy. Read-only. Nullable. Supports $expand.
+    * Access package containing this policy. Read-only.
     *
     * @return AccessPackage|null The accessPackage
     */
@@ -364,7 +397,7 @@ class AccessPackageAssignmentPolicy extends Entity
 
     /**
     * Sets the accessPackage
-    * The access package with this policy. Read-only. Nullable. Supports $expand.
+    * Access package containing this policy. Read-only.
     *
     * @param AccessPackage $val The accessPackage
     *

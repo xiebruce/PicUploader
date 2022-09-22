@@ -88,7 +88,6 @@ class GraphList extends BaseItem
 
     /**
     * Gets the sharepointIds
-    * Returns identifiers useful for SharePoint REST compatibility. Read-only.
     *
     * @return SharepointIds|null The sharepointIds
     */
@@ -107,7 +106,6 @@ class GraphList extends BaseItem
 
     /**
     * Sets the sharepointIds
-    * Returns identifiers useful for SharePoint REST compatibility. Read-only.
     *
     * @param SharepointIds $val The sharepointIds
     *
@@ -185,7 +183,6 @@ class GraphList extends BaseItem
 
      /**
      * Gets the columns
-    * The collection of field definitions for this list.
      *
      * @return array|null The columns
      */
@@ -200,7 +197,6 @@ class GraphList extends BaseItem
 
     /**
     * Sets the columns
-    * The collection of field definitions for this list.
     *
     * @param ColumnDefinition[] $val The columns
     *
@@ -215,7 +211,6 @@ class GraphList extends BaseItem
 
      /**
      * Gets the contentTypes
-    * The collection of content types present in this list.
      *
      * @return array|null The contentTypes
      */
@@ -230,7 +225,6 @@ class GraphList extends BaseItem
 
     /**
     * Sets the contentTypes
-    * The collection of content types present in this list.
     *
     * @param ContentType[] $val The contentTypes
     *

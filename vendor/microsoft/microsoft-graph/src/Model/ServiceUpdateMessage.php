@@ -59,7 +59,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
 
     /**
     * Gets the attachmentsArchive
-    * The zip file of all attachments for a message.
+    * The zip file that contains all attachments for a message.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The attachmentsArchive
     */
@@ -78,7 +78,7 @@ class ServiceUpdateMessage extends ServiceAnnouncementBase
 
     /**
     * Sets the attachmentsArchive
-    * The zip file of all attachments for a message.
+    * The zip file that contains all attachments for a message.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The attachmentsArchive
     *

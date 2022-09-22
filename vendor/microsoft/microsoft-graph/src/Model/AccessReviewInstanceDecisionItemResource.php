@@ -53,7 +53,7 @@ class AccessReviewInstanceDecisionItemResource extends Entity
     }
     /**
     * Gets the id
-    * Resource ID
+    * Identifier of the resource
     *
     * @return string|null The id
     */
@@ -68,7 +68,7 @@ class AccessReviewInstanceDecisionItemResource extends Entity
 
     /**
     * Sets the id
-    * Resource ID
+    * Identifier of the resource
     *
     * @param string $val The value of the id
     *

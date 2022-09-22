@@ -57,6 +57,7 @@ class SynchronizationLinkedObjects extends Entity
 
     /**
     * Gets the members
+    * All group members that you would like to provision.
     *
     * @return SynchronizationJobSubject|null The members
     */
@@ -75,6 +76,7 @@ class SynchronizationLinkedObjects extends Entity
 
     /**
     * Sets the members
+    * All group members that you would like to provision.
     *
     * @param SynchronizationJobSubject $val The value to assign to the members
     *

@@ -26,7 +26,7 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Gets the app
-    * If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
+    * If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
     *
     * @return AppIdentity|null The app
     */
@@ -45,7 +45,7 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Sets the app
-    * If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
+    * If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
     *
     * @param AppIdentity $val The value to assign to the app
     *
@@ -59,7 +59,7 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Gets the user
-    * If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
+    * If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
     *
     * @return UserIdentity|null The user
     */
@@ -78,7 +78,7 @@ class AuditActivityInitiator extends Entity
 
     /**
     * Sets the user
-    * If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
+    * If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
     *
     * @param UserIdentity $val The value to assign to the user
     *

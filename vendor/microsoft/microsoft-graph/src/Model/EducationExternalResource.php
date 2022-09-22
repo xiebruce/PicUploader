@@ -36,7 +36,7 @@ class EducationExternalResource extends EducationResource
 
     /**
     * Gets the webUrl
-    * Location of the resource. Required.
+    * Location of the resource. Required
     *
     * @return string|null The webUrl
     */
@@ -51,7 +51,7 @@ class EducationExternalResource extends EducationResource
 
     /**
     * Sets the webUrl
-    * Location of the resource. Required.
+    * Location of the resource. Required
     *
     * @param string $val The value of the webUrl
     *

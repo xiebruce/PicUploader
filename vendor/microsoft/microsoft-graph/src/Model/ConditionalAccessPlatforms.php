@@ -26,7 +26,7 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Gets the excludePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
     *
     * @return ConditionalAccessDevicePlatform|null The excludePlatforms
     */
@@ -45,7 +45,7 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Sets the excludePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
     *
     * @param ConditionalAccessDevicePlatform $val The value to assign to the excludePlatforms
     *
@@ -59,7 +59,7 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Gets the includePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
     *
     * @return ConditionalAccessDevicePlatform|null The includePlatforms
     */
@@ -78,7 +78,7 @@ class ConditionalAccessPlatforms extends Entity
 
     /**
     * Sets the includePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
+    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
     *
     * @param ConditionalAccessDevicePlatform $val The value to assign to the includePlatforms
     *

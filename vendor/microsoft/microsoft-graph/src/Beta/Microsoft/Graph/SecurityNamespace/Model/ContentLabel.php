@@ -26,6 +26,7 @@ class ContentLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the assignmentMethod
+    * Describes whether the label was applied by an automated (standard) process or a person (privileged).
     *
     * @return AssignmentMethod|null The assignmentMethod
     */
@@ -44,6 +45,7 @@ class ContentLabel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the assignmentMethod
+    * Describes whether the label was applied by an automated (standard) process or a person (privileged).
     *
     * @param AssignmentMethod $val The value to assign to the assignmentMethod
     *

@@ -82,34 +82,6 @@ class AuditLogRoot extends Entity
 
 
      /**
-     * Gets the restrictedSignIns
-     *
-     * @return array|null The restrictedSignIns
-     */
-    public function getRestrictedSignIns()
-    {
-        if (array_key_exists("restrictedSignIns", $this->_propDict)) {
-           return $this->_propDict["restrictedSignIns"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the restrictedSignIns
-    *
-    * @param RestrictedSignIn[] $val The restrictedSignIns
-    *
-    * @return AuditLogRoot
-    */
-    public function setRestrictedSignIns($val)
-    {
-        $this->_propDict["restrictedSignIns"] = $val;
-        return $this;
-    }
-
-
-     /**
      * Gets the signIns
      *
      * @return array|null The signIns

@@ -169,7 +169,6 @@ class AccessPackageSubject extends Entity
 
     /**
     * Gets the onPremisesSecurityIdentifier
-    * A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
     *
     * @return string|null The onPremisesSecurityIdentifier
     */
@@ -184,7 +183,6 @@ class AccessPackageSubject extends Entity
 
     /**
     * Sets the onPremisesSecurityIdentifier
-    * A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.
     *
     * @param string $val The onPremisesSecurityIdentifier
     *
@@ -222,6 +220,37 @@ class AccessPackageSubject extends Entity
     public function setPrincipalName($val)
     {
         $this->_propDict["principalName"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the subjectLifecycle
+    *
+    * @return AccessPackageSubjectLifecycle|null The subjectLifecycle
+    */
+    public function getSubjectLifecycle()
+    {
+        if (array_key_exists("subjectLifecycle", $this->_propDict)) {
+            if (is_a($this->_propDict["subjectLifecycle"], "\Beta\Microsoft\Graph\Model\AccessPackageSubjectLifecycle") || is_null($this->_propDict["subjectLifecycle"])) {
+                return $this->_propDict["subjectLifecycle"];
+            } else {
+                $this->_propDict["subjectLifecycle"] = new AccessPackageSubjectLifecycle($this->_propDict["subjectLifecycle"]);
+                return $this->_propDict["subjectLifecycle"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the subjectLifecycle
+    *
+    * @param AccessPackageSubjectLifecycle $val The subjectLifecycle
+    *
+    * @return AccessPackageSubject
+    */
+    public function setSubjectLifecycle($val)
+    {
+        $this->_propDict["subjectLifecycle"] = $val;
         return $this;
     }
 

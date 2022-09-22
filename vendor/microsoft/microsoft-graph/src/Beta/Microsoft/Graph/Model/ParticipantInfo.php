@@ -54,7 +54,7 @@ class ParticipantInfo extends Entity
 
     /**
     * Gets the endpointType
-    * The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
+    * The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
     *
     * @return EndpointType|null The endpointType
     */
@@ -73,7 +73,7 @@ class ParticipantInfo extends Entity
 
     /**
     * Sets the endpointType
-    * The type of endpoint the participant is using. Possible values are: default, skypeForBusiness, or skypeForBusinessVoipPhone. Read-only.
+    * The type of endpoint the participant is using. Possible values are: default, voicemail, skypeForBusiness, skypeForBusinessVoipPhone and unknownFutureValue. Read-only.
     *
     * @param EndpointType $val The value to assign to the endpointType
     *
@@ -144,6 +144,37 @@ class ParticipantInfo extends Entity
     {
         $this->_propDict["languageId"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the nonAnonymizedIdentity
+    *
+    * @return IdentitySet|null The nonAnonymizedIdentity
+    */
+    public function getNonAnonymizedIdentity()
+    {
+        if (array_key_exists("nonAnonymizedIdentity", $this->_propDict)) {
+            if (is_a($this->_propDict["nonAnonymizedIdentity"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["nonAnonymizedIdentity"])) {
+                return $this->_propDict["nonAnonymizedIdentity"];
+            } else {
+                $this->_propDict["nonAnonymizedIdentity"] = new IdentitySet($this->_propDict["nonAnonymizedIdentity"]);
+                return $this->_propDict["nonAnonymizedIdentity"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the nonAnonymizedIdentity
+    *
+    * @param IdentitySet $val The value to assign to the nonAnonymizedIdentity
+    *
+    * @return ParticipantInfo The ParticipantInfo
+    */
+    public function setNonAnonymizedIdentity($val)
+    {
+        $this->_propDict["nonAnonymizedIdentity"] = $val;
+         return $this;
     }
     /**
     * Gets the participantId

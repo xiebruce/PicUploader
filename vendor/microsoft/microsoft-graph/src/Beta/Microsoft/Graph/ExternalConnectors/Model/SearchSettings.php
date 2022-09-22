@@ -26,7 +26,7 @@ class SearchSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the searchResultTemplates
-    * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed.
+    * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed. Maximum of 2 search result templates per connection.
     *
     * @return DisplayTemplate|null The searchResultTemplates
     */
@@ -45,7 +45,7 @@ class SearchSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the searchResultTemplates
-    * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed.
+    * Enables the developer to define the appearance of the content and configure conditions that dictate when the template should be displayed. Maximum of 2 search result templates per connection.
     *
     * @param DisplayTemplate $val The value to assign to the searchResultTemplates
     *

@@ -183,6 +183,39 @@ class PolicyRoot extends Entity
         return $this;
     }
 
+    /**
+    * Gets the crossTenantAccessPolicy
+    * The custom rules that define an access scenario when interacting with external Azure AD tenants.
+    *
+    * @return CrossTenantAccessPolicy|null The crossTenantAccessPolicy
+    */
+    public function getCrossTenantAccessPolicy()
+    {
+        if (array_key_exists("crossTenantAccessPolicy", $this->_propDict)) {
+            if (is_a($this->_propDict["crossTenantAccessPolicy"], "\Microsoft\Graph\Model\CrossTenantAccessPolicy") || is_null($this->_propDict["crossTenantAccessPolicy"])) {
+                return $this->_propDict["crossTenantAccessPolicy"];
+            } else {
+                $this->_propDict["crossTenantAccessPolicy"] = new CrossTenantAccessPolicy($this->_propDict["crossTenantAccessPolicy"]);
+                return $this->_propDict["crossTenantAccessPolicy"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the crossTenantAccessPolicy
+    * The custom rules that define an access scenario when interacting with external Azure AD tenants.
+    *
+    * @param CrossTenantAccessPolicy $val The crossTenantAccessPolicy
+    *
+    * @return PolicyRoot
+    */
+    public function setCrossTenantAccessPolicy($val)
+    {
+        $this->_propDict["crossTenantAccessPolicy"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the homeRealmDiscoveryPolicies
@@ -432,7 +465,7 @@ class PolicyRoot extends Entity
 
      /**
      * Gets the roleManagementPolicies
-    * Represents the role management policies.
+    * Specifies the various policies associated with scopes and roles.
      *
      * @return array|null The roleManagementPolicies
      */
@@ -447,7 +480,7 @@ class PolicyRoot extends Entity
 
     /**
     * Sets the roleManagementPolicies
-    * Represents the role management policies.
+    * Specifies the various policies associated with scopes and roles.
     *
     * @param UnifiedRoleManagementPolicy[] $val The roleManagementPolicies
     *
@@ -462,7 +495,7 @@ class PolicyRoot extends Entity
 
      /**
      * Gets the roleManagementPolicyAssignments
-    * Represents the role management policy assignments.
+    * The assignment of a role management policy to a role definition object.
      *
      * @return array|null The roleManagementPolicyAssignments
      */
@@ -477,7 +510,7 @@ class PolicyRoot extends Entity
 
     /**
     * Sets the roleManagementPolicyAssignments
-    * Represents the role management policy assignments.
+    * The assignment of a role management policy to a role definition object.
     *
     * @param UnifiedRoleManagementPolicyAssignment[] $val The roleManagementPolicyAssignments
     *

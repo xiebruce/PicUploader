@@ -27,7 +27,7 @@ class BookingCustomer extends BookingCustomerBase
 
      /**
      * Gets the addresses
-    * Addresses associated with the customer, including home, business and other addresses.
+    * Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      *
      * @return array|null The addresses
      */
@@ -42,7 +42,7 @@ class BookingCustomer extends BookingCustomerBase
 
     /**
     * Sets the addresses
-    * Addresses associated with the customer, including home, business and other addresses.
+    * Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
     *
     * @param PhysicalAddress[] $val The addresses
     *

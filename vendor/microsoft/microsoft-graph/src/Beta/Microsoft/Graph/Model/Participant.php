@@ -58,6 +58,33 @@ class Participant extends Entity
     }
 
     /**
+    * Gets the isIdentityAnonymized
+    *
+    * @return bool|null The isIdentityAnonymized
+    */
+    public function getIsIdentityAnonymized()
+    {
+        if (array_key_exists("isIdentityAnonymized", $this->_propDict)) {
+            return $this->_propDict["isIdentityAnonymized"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isIdentityAnonymized
+    *
+    * @param bool $val The isIdentityAnonymized
+    *
+    * @return Participant
+    */
+    public function setIsIdentityAnonymized($val)
+    {
+        $this->_propDict["isIdentityAnonymized"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the isInLobby
     * true if the participant is in lobby.
     *

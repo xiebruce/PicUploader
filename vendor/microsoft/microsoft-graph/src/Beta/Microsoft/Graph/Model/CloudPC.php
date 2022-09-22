@@ -54,6 +54,70 @@ class CloudPC extends Entity
     }
 
     /**
+    * Gets the connectivityResult
+    * The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+    *
+    * @return CloudPcConnectivityResult|null The connectivityResult
+    */
+    public function getConnectivityResult()
+    {
+        if (array_key_exists("connectivityResult", $this->_propDict)) {
+            if (is_a($this->_propDict["connectivityResult"], "\Beta\Microsoft\Graph\Model\CloudPcConnectivityResult") || is_null($this->_propDict["connectivityResult"])) {
+                return $this->_propDict["connectivityResult"];
+            } else {
+                $this->_propDict["connectivityResult"] = new CloudPcConnectivityResult($this->_propDict["connectivityResult"]);
+                return $this->_propDict["connectivityResult"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the connectivityResult
+    * The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+    *
+    * @param CloudPcConnectivityResult $val The connectivityResult
+    *
+    * @return CloudPC
+    */
+    public function setConnectivityResult($val)
+    {
+        $this->_propDict["connectivityResult"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the diskEncryptionState
+    *
+    * @return CloudPcDiskEncryptionState|null The diskEncryptionState
+    */
+    public function getDiskEncryptionState()
+    {
+        if (array_key_exists("diskEncryptionState", $this->_propDict)) {
+            if (is_a($this->_propDict["diskEncryptionState"], "\Beta\Microsoft\Graph\Model\CloudPcDiskEncryptionState") || is_null($this->_propDict["diskEncryptionState"])) {
+                return $this->_propDict["diskEncryptionState"];
+            } else {
+                $this->_propDict["diskEncryptionState"] = new CloudPcDiskEncryptionState($this->_propDict["diskEncryptionState"]);
+                return $this->_propDict["diskEncryptionState"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the diskEncryptionState
+    *
+    * @param CloudPcDiskEncryptionState $val The diskEncryptionState
+    *
+    * @return CloudPC
+    */
+    public function setDiskEncryptionState($val)
+    {
+        $this->_propDict["diskEncryptionState"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the displayName
     * The display name of the Cloud PC.
     *

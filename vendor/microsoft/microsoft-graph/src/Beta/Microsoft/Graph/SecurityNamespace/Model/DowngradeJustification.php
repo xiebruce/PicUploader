@@ -25,6 +25,7 @@ class DowngradeJustification extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the isDowngradeJustified
+    * Indicates whether the downgrade is or is not justified.
     *
     * @return bool|null The isDowngradeJustified
     */
@@ -39,6 +40,7 @@ class DowngradeJustification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isDowngradeJustified
+    * Indicates whether the downgrade is or is not justified.
     *
     * @param bool $val The value of the isDowngradeJustified
     *
@@ -51,6 +53,7 @@ class DowngradeJustification extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the justificationMessage
+    * Message that indicates why a downgrade is justified. The message will appear in administrative logs.
     *
     * @return string|null The justificationMessage
     */
@@ -65,6 +68,7 @@ class DowngradeJustification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the justificationMessage
+    * Message that indicates why a downgrade is justified. The message will appear in administrative logs.
     *
     * @param string $val The value of the justificationMessage
     *

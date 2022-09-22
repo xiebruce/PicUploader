@@ -26,7 +26,6 @@ class WorkbookFilter extends Entity
 {
     /**
     * Gets the criteria
-    * The currently applied filter on the given column. Read-only.
     *
     * @return WorkbookFilterCriteria|null The criteria
     */
@@ -45,7 +44,6 @@ class WorkbookFilter extends Entity
 
     /**
     * Sets the criteria
-    * The currently applied filter on the given column. Read-only.
     *
     * @param WorkbookFilterCriteria $val The criteria
     *

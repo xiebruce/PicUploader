@@ -26,6 +26,7 @@ class TeamsAppSettings extends Entity
 {
     /**
     * Gets the isChatResourceSpecificConsentEnabled
+    * Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
     *
     * @return bool|null The isChatResourceSpecificConsentEnabled
     */
@@ -40,6 +41,7 @@ class TeamsAppSettings extends Entity
 
     /**
     * Sets the isChatResourceSpecificConsentEnabled
+    * Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
     *
     * @param bool $val The isChatResourceSpecificConsentEnabled
     *

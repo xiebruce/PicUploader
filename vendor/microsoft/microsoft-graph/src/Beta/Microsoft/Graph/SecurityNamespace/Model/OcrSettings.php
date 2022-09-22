@@ -82,7 +82,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the timeout
-    * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+    * The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time.
     *
     * @return \DateInterval|null The timeout
     */
@@ -101,7 +101,7 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the timeout
-    * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+    * The timeout duration for the OCR engine. A longer timeout might increase success of OCR, but might add to the total processing time.
     *
     * @param \DateInterval $val The value to assign to the timeout
     *

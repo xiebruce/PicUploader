@@ -25,7 +25,7 @@ class NetworkInterface extends Entity
 {
     /**
     * Gets the description
-    * Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection &amp;lt;#&amp;gt;, etc.).
+    * Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
     *
     * @return string|null The description
     */
@@ -40,7 +40,7 @@ class NetworkInterface extends Entity
 
     /**
     * Sets the description
-    * Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection &amp;lt;#&amp;gt;, etc.).
+    * Description of the NIC (e.g. Ethernet adapter, Wireless LAN adapter Local Area Connection, and so on).
     *
     * @param string $val The value of the description
     *

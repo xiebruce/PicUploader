@@ -25,7 +25,7 @@ class SearchHit extends Entity
 {
     /**
     * Gets the contentSource
-    * The name of the content source which the externalItem is part of .
+    * The name of the content source that the externalItem is part of.
     *
     * @return string|null The contentSource
     */
@@ -40,7 +40,7 @@ class SearchHit extends Entity
 
     /**
     * Sets the contentSource
-    * The name of the content source which the externalItem is part of .
+    * The name of the content source that the externalItem is part of.
     *
     * @param string $val The value of the contentSource
     *
@@ -53,7 +53,7 @@ class SearchHit extends Entity
     }
     /**
     * Gets the hitId
-    * The internal identifier for the item.
+    * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
     *
     * @return string|null The hitId
     */
@@ -68,7 +68,7 @@ class SearchHit extends Entity
 
     /**
     * Sets the hitId
-    * The internal identifier for the item.
+    * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
     *
     * @param string $val The value of the hitId
     *
@@ -109,7 +109,7 @@ class SearchHit extends Entity
     }
     /**
     * Gets the resultTemplateId
-    * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+    * ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
     *
     * @return string|null The resultTemplateId
     */
@@ -124,7 +124,7 @@ class SearchHit extends Entity
 
     /**
     * Sets the resultTemplateId
-    * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+    * ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
     *
     * @param string $val The value of the resultTemplateId
     *

@@ -468,7 +468,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Gets the indexed
-    * Specifies whether the column values can used for sorting and searching.
+    * Specifies whether the column values can be used for sorting and searching.
     *
     * @return bool|null The indexed
     */
@@ -483,7 +483,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Sets the indexed
-    * Specifies whether the column values can used for sorting and searching.
+    * Specifies whether the column values can be used for sorting and searching.
     *
     * @param bool $val The indexed
     *
@@ -712,7 +712,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Gets the propagateChanges
-    * If true, changes to this column will be propagated to lists that implement the column.
+    * If 'true', changes to this column will be propagated to lists that implement the column.
     *
     * @return bool|null The propagateChanges
     */
@@ -727,7 +727,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Sets the propagateChanges
-    * If true, changes to this column will be propagated to lists that implement the column.
+    * If 'true', changes to this column will be propagated to lists that implement the column.
     *
     * @param bool $val The propagateChanges
     *
@@ -799,7 +799,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Gets the sourceContentType
-    * ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
+    * ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
     *
     * @return ContentTypeInfo|null The sourceContentType
     */
@@ -818,7 +818,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Sets the sourceContentType
-    * ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
+    * ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
     *
     * @param ContentTypeInfo $val The sourceContentType
     *
@@ -997,7 +997,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Gets the sourceColumn
-    * The source column for content type column.
+    * The source column for the content type column.
     *
     * @return ColumnDefinition|null The sourceColumn
     */
@@ -1016,7 +1016,7 @@ class ColumnDefinition extends Entity
 
     /**
     * Sets the sourceColumn
-    * The source column for content type column.
+    * The source column for the content type column.
     *
     * @param ColumnDefinition $val The sourceColumn
     *

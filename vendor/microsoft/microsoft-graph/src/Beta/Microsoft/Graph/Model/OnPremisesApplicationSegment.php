@@ -25,6 +25,7 @@ class OnPremisesApplicationSegment extends Entity
 {
     /**
     * Gets the alternateUrl
+    * If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
     *
     * @return string|null The alternateUrl
     */
@@ -39,6 +40,7 @@ class OnPremisesApplicationSegment extends Entity
 
     /**
     * Sets the alternateUrl
+    * If you're configuring a traffic manager in front of multiple App Proxy application segments, contains the user-friendly URL that will point to the traffic manager.
     *
     * @param string $val The value of the alternateUrl
     *
@@ -52,6 +54,7 @@ class OnPremisesApplicationSegment extends Entity
 
     /**
     * Gets the corsConfigurations
+    * CORS Rule definition for a particular application segment.
     *
     * @return CorsConfiguration|null The corsConfigurations
     */
@@ -70,6 +73,7 @@ class OnPremisesApplicationSegment extends Entity
 
     /**
     * Sets the corsConfigurations
+    * CORS Rule definition for a particular application segment.
     *
     * @param CorsConfiguration $val The value to assign to the corsConfigurations
     *
@@ -82,6 +86,7 @@ class OnPremisesApplicationSegment extends Entity
     }
     /**
     * Gets the externalUrl
+    * The published external URL for the application segment; for example, https://intranet.contoso.com./
     *
     * @return string|null The externalUrl
     */
@@ -96,6 +101,7 @@ class OnPremisesApplicationSegment extends Entity
 
     /**
     * Sets the externalUrl
+    * The published external URL for the application segment; for example, https://intranet.contoso.com./
     *
     * @param string $val The value of the externalUrl
     *
@@ -108,6 +114,7 @@ class OnPremisesApplicationSegment extends Entity
     }
     /**
     * Gets the internalUrl
+    * The internal URL of the application segment; for example, https://intranet/.
     *
     * @return string|null The internalUrl
     */
@@ -122,6 +129,7 @@ class OnPremisesApplicationSegment extends Entity
 
     /**
     * Sets the internalUrl
+    * The internal URL of the application segment; for example, https://intranet/.
     *
     * @param string $val The value of the internalUrl
     *

@@ -114,6 +114,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
      /**
      * Gets the siteSources
+    * Data sources that represent SharePoint sites.
      *
      * @return array|null The siteSources
      */
@@ -128,6 +129,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Sets the siteSources
+    * Data sources that represent SharePoint sites.
     *
     * @param SiteSource[] $val The siteSources
     *
@@ -142,6 +144,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
      /**
      * Gets the userSources
+    * Data sources that represent Exchange mailboxes.
      *
      * @return array|null The userSources
      */
@@ -156,6 +159,7 @@ class EdiscoveryHoldPolicy extends PolicyBase
 
     /**
     * Sets the userSources
+    * Data sources that represent Exchange mailboxes.
     *
     * @param UserSource[] $val The userSources
     *

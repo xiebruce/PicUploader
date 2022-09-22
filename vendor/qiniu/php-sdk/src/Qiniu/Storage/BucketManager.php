@@ -39,7 +39,7 @@ final class BucketManager
         if ($shared === true) {
             $includeShared = "true";
         }
-        return $this->rsGet('/buckets?shared=' . $includeShared);
+        return $this->getV2($this->getUcHost(). '/buckets?shared=' . $includeShared);
     }
 
     /**
@@ -71,7 +71,7 @@ final class BucketManager
     public function createBucket($name, $region = 'z0')
     {
         $path = '/mkbucketv3/' . $name . '/region/' . $region;
-        return $this->rsPost($path, null);
+        return $this->postV2($this->getUcHost() . $path, null);
     }
 
     /**
@@ -85,7 +85,7 @@ final class BucketManager
     public function deleteBucket($name)
     {
         $path = '/drop/' . $name;
-        return $this->rsPost($path, null);
+        return $this->postV2($this->getUcHost() . $path, null);
     }
 
     /**
@@ -96,7 +96,7 @@ final class BucketManager
      */
     public function domains($bucket)
     {
-        return $this->apiGet('/v6/domain/list?tbl=' . $bucket);
+        return $this->apiGet($bucket, '/v6/domain/list?tbl=' . $bucket);
     }
 
     /**
@@ -149,8 +149,7 @@ final class BucketManager
         \Qiniu\setWithoutEmpty($query, 'marker', $marker);
         \Qiniu\setWithoutEmpty($query, 'limit', $limit);
         \Qiniu\setWithoutEmpty($query, 'delimiter', $delimiter);
-        $url = $this->getRsfHost() . '/list?' . http_build_query($query);
-        return $this->getV2($url);
+        return $this->rsfGet($bucket, '/list?' . http_build_query($query));
     }
 
     /**
@@ -181,7 +180,14 @@ final class BucketManager
         \Qiniu\setWithoutEmpty($query, 'delimiter', $delimiter);
         \Qiniu\setWithoutEmpty($query, 'skipconfirm', $skipconfirm);
         $path = '/v2/list?' . http_build_query($query);
-        $url = $this->getRsfHost() . $path;
+
+        list($host, $err) = $this->config->getRsfHostV2($this->auth->getAccessKey(), $bucket);
+
+        if ($err != null) {
+            return array(null, $err);
+        }
+
+        $url = $host . $path;
         $headers = $this->auth->authorizationV2($url, 'POST', null, 'application/x-www-form-urlencoded');
         $ret = Client::post($url, null, $headers);
         if (!$ret->ok()) {
@@ -572,7 +578,7 @@ final class BucketManager
     public function putBucketQuota($bucket, $size, $count)
     {
         $path = '/setbucketquota/' . $bucket . '/size/' . $size . '/count/' . $count;
-        return $this->apiPost($path, null);
+        return $this->apiPost($bucket, $path);
     }
 
     /**
@@ -584,7 +590,7 @@ final class BucketManager
     public function getBucketQuota($bucket)
     {
         $path = '/getbucketquota/' . $bucket;
-        return $this->apiPost($path, null);
+        return $this->apiPost($bucket, $path);
     }
 
     /**
@@ -599,7 +605,7 @@ final class BucketManager
     public function stat($bucket, $key)
     {
         $path = '/stat/' . \Qiniu\entry($bucket, $key);
-        return $this->rsGet($path);
+        return $this->rsGet($bucket, $path);
     }
 
     /**
@@ -614,7 +620,7 @@ final class BucketManager
     public function delete($bucket, $key)
     {
         $path = '/delete/' . \Qiniu\entry($bucket, $key);
-        return $this->rsPost($path);
+        return $this->rsPost($bucket, $path);
     }
 
     /**
@@ -650,7 +656,7 @@ final class BucketManager
         if ($force === true) {
             $path .= '/force/true';
         }
-        return $this->rsPost($path);
+        return $this->rsPost($from_bucket, $path);
     }
 
     /**
@@ -672,7 +678,7 @@ final class BucketManager
         if ($force) {
             $path .= '/force/true';
         }
-        return $this->rsPost($path);
+        return $this->rsPost($from_bucket, $path);
     }
 
     /**
@@ -690,7 +696,7 @@ final class BucketManager
         $resource = \Qiniu\entry($bucket, $key);
         $encode_mime = \Qiniu\base64_urlSafeEncode($mime);
         $path = '/chgm/' . $resource . '/mime/' . $encode_mime;
-        return $this->rsPost($path);
+        return $this->rsPost($bucket, $path);
     }
 
 
@@ -708,7 +714,7 @@ final class BucketManager
     {
         $resource = \Qiniu\entry($bucket, $key);
         $path = '/chtype/' . $resource . '/type/' . $fileType;
-        return $this->rsPost($path);
+        return $this->rsPost($bucket, $path);
     }
 
     /**
@@ -725,7 +731,7 @@ final class BucketManager
     {
         $resource = \Qiniu\entry($bucket, $key);
         $path = '/restoreAr/' . $resource . '/freezeAfterDays/' . $freezeAfterDays;
-        return $this->rsPost($path);
+        return $this->rsPost($bucket, $path);
     }
 
     /**
@@ -742,7 +748,7 @@ final class BucketManager
     {
         $resource = \Qiniu\entry($bucket, $key);
         $path = '/chstatus/' . $resource . '/status/' . $status;
-        return $this->rsPost($path);
+        return $this->rsPost($bucket, $path);
     }
 
     /**
@@ -763,9 +769,10 @@ final class BucketManager
         $path = '/fetch/' . $resource . '/to/' . $to;
 
         $ak = $this->auth->getAccessKey();
-        try {
-            $ioHost = $this->config->getIovipHost($ak, $bucket);
-        } catch (\Exception $err) {
+
+
+        list($ioHost, $err) = $this->config->getIovipHostV2($ak, $bucket);
+        if ($err != null) {
             return array(null, $err);
         }
 
@@ -820,15 +827,7 @@ final class BucketManager
         \Qiniu\setWithoutEmpty($params, 'ignore_same_key', $ignore_same_key);
         $data = json_encode($params);
 
-        $ak = $this->auth->getAccessKey();
-        try {
-            $apiHost = $this->config->getApiHost($ak, $bucket);
-        } catch (\Exception $err) {
-            return array(null, $err);
-        }
-        $url = $apiHost . $path;
-
-        return $this->postV2($url, $data);
+        return $this->apiPost($bucket, $path, $data);
     }
 
 
@@ -874,9 +873,9 @@ final class BucketManager
         $path = '/prefetch/' . $resource;
 
         $ak = $this->auth->getAccessKey();
-        try {
-            $ioHost = $this->config->getIovipHost($ak, $bucket);
-        } catch (\Exception $err) {
+        list($ioHost, $err) = $this->config->getIovipHostV2($ak, $bucket);
+
+        if ($err != null) {
             return array(null, $err);
         }
 
@@ -902,8 +901,12 @@ final class BucketManager
      */
     public function batch($operations)
     {
+        $scheme = "http://";
+        if ($this->config->useHTTPS === true) {
+            $scheme = "https://";
+        }
         $params = 'op=' . implode('&op=', $operations);
-        return $this->rsPost('/batch', $params);
+        return $this->postV2($scheme . Config::RS_HOST . '/batch', $params);
     }
 
     /**
@@ -920,34 +923,75 @@ final class BucketManager
     {
         $entry = \Qiniu\entry($bucket, $key);
         $path = "/deleteAfterDays/$entry/$days";
-        return $this->rsPost($path);
+        return $this->rsPost($bucket, $path);
     }
 
-    private function getRsfHost()
-    {
-        $scheme = "http://";
-        if ($this->config->useHTTPS === true) {
-            $scheme = "https://";
-        }
-        return $scheme . Config::RSF_HOST;
+    /**
+     * 更新 object 生命周期
+     *
+     * @param string $bucket 空间名
+     * @param string $key 目标资源
+     * @param int $to_line_after_days 多少天后将文件转为低频存储，设置为 -1 表示取消已设置的转低频存储的生命周期规则， 0 表示不修改转低频生命周期规则。
+     * @param int $to_archive_after_days 多少天后将文件转为归档存储，设置为 -1 表示取消已设置的转归档存储的生命周期规则， 0 表示不修改转归档生命周期规则。
+     * @param int $to_deep_archive_after_days 多少天后将文件转为深度归档存储，设置为 -1 表示取消已设置的转深度归档存储的生命周期规则， 0 表示不修改转深度归档生命周期规则。
+     * @param int $delete_after_days 多少天后将文件删除，设置为 -1 表示取消已设置的删除存储的生命周期规则， 0 表示不修改删除存储的生命周期规则。
+     * @return array
+     */
+    public function setObjectLifecycle(
+        $bucket,
+        $key,
+        $to_line_after_days = 0,
+        $to_archive_after_days = 0,
+        $to_deep_archive_after_days = 0,
+        $delete_after_days = 0
+    ) {
+        return $this->setObjectLifecycleWithCond(
+            $bucket,
+            $key,
+            null,
+            $to_line_after_days,
+            $to_archive_after_days,
+            $to_deep_archive_after_days,
+            $delete_after_days
+        );
     }
 
-    private function getRsHost()
-    {
-        $scheme = "http://";
-        if ($this->config->useHTTPS === true) {
-            $scheme = "https://";
+    /**
+     * 更新 object 生命周期
+     *
+     * @param string $bucket 空间名
+     * @param string $key 目标资源
+     * @param int $to_line_after_days 多少天后将文件转为低频存储，设置为 -1 表示取消已设置的转低频存储的生命周期规则， 0 表示不修改转低频生命周期规则。
+     * @param int $to_archive_after_days 多少天后将文件转为归档存储，设置为 -1 表示取消已设置的转归档存储的生命周期规则， 0 表示不修改转归档生命周期规则。
+     * @param int $to_deep_archive_after_days 多少天后将文件转为深度归档存储，设置为 -1 表示取消已设置的转深度归档存储的生命周期规则， 0 表示不修改转深度归档生命周期规则。
+     * @param int $delete_after_days 多少天后将文件删除，设置为 -1 表示取消已设置的删除存储的生命周期规则， 0 表示不修改删除存储的生命周期规则。
+     * @param array<string, mixed> $cond 匹配条件，只有条件匹配才会设置成功，目前支持：hash、mime、fsize、putTime
+     * @return array
+     */
+    public function setObjectLifecycleWithCond(
+        $bucket,
+        $key,
+        $cond = null,
+        $to_line_after_days = 0,
+        $to_archive_after_days = 0,
+        $to_deep_archive_after_days = 0,
+        $delete_after_days = 0
+    ) {
+        $encodedEntry = \Qiniu\entry($bucket, $key);
+        $path = '/lifecycle/' . $encodedEntry .
+            '/toIAAfterDays/' . $to_line_after_days .
+            '/toArchiveAfterDays/' . $to_archive_after_days .
+            '/toDeepArchiveAfterDays/' . $to_deep_archive_after_days .
+            '/deleteAfterDays/' . $delete_after_days;
+        if ($cond != null) {
+            $condStrArr = array();
+            foreach ($cond as $key => $value) {
+                array_push($condStrArr, $key . '=' . $value);
+            }
+            $condStr = implode('&', $condStrArr);
+            $path .= '/cond' . \Qiniu\base64_urlSafeEncode($condStr);
         }
-        return $scheme . Config::RS_HOST;
-    }
-
-    private function getApiHost()
-    {
-        $scheme = "http://";
-        if ($this->config->useHTTPS === true) {
-            $scheme = "https://";
-        }
-        return $scheme . Config::API_HOST;
+        return $this->rsPost($bucket, $path);
     }
 
     private function getUcHost()
@@ -959,22 +1003,60 @@ final class BucketManager
         return $scheme . Config::UC_HOST;
     }
 
-    private function rsPost($path, $body = null)
+    private function rsfGet($bucket, $path)
     {
-        $url = $this->getRsHost() . $path;
-        return $this->postV2($url, $body);
+        list($host, $err) = $this->config->getRsfHostV2($this->auth->getAccessKey(), $bucket);
+
+        if ($err != null) {
+            return array(null, $err);
+        }
+
+        return $this->getV2($host . $path);
     }
 
-    private function apiPost($path, $body = null)
+    private function rsGet($bucket, $path)
     {
-        $url = $this->getApiHost() . $path;
-        return $this->postV2($url, $body);
+        list($host, $err) = $this->config->getRsHostV2($this->auth->getAccessKey(), $bucket);
+
+        if ($err != null) {
+            return array(null, $err);
+        }
+
+        return $this->getV2($host . $path);
     }
 
-    private function ucPost($path, $body = null)
+    private function rsPost($bucket, $path, $body = null)
     {
-        $url = $this->getUcHost() . $path;
-        return $this->postV2($url, $body);
+        list($host, $err) = $this->config->getRsHostV2($this->auth->getAccessKey(), $bucket);
+
+        if ($err != null) {
+            return array(null, $err);
+        }
+
+        return $this->postV2($host . $path, $body);
+    }
+
+    private function apiGet($bucket, $path)
+    {
+        list($host, $err) = $this->config->getApiHostV2($this->auth->getAccessKey(), $bucket);
+
+        if ($err != null) {
+            return array(null, $err);
+        }
+
+        return $this->getV2($host . $path);
+    }
+
+    private function apiPost($bucket, $path, $body = null)
+    {
+
+        list($host, $err) = $this->config->getApiHostV2($this->auth->getAccessKey(), $bucket);
+
+        if ($err != null) {
+            return array(null, $err);
+        }
+
+        return $this->postV2($host . $path, $body);
     }
 
     private function ucGet($path)
@@ -983,16 +1065,10 @@ final class BucketManager
         return $this->getV2($url);
     }
 
-    private function apiGet($path)
+    private function ucPost($path, $body = null)
     {
-        $url = $this->getApiHost() . $path;
-        return $this->getV2($url);
-    }
-
-    private function rsGet($path)
-    {
-        $url = $this->getRsHost() . $path;
-        return $this->getV2($url);
+        $url = $this->getUcHost() . $path;
+        return $this->postV2($url, $body);
     }
 
     private function getV2($url)
@@ -1052,6 +1128,37 @@ final class BucketManager
             array_push($data, '/deleteAfterDays/' . \Qiniu\entry($bucket, $key) . '/' . $day);
         }
         return $data;
+    }
+
+    /**
+     * @param string $bucket 空间名
+     * @param array<string> $keys 目标资源
+     * @param int $to_line_after_days 多少天后将文件转为低频存储，设置为 -1 表示取消已设置的转低频存储的生命周期规则， 0 表示不修改转低频生命周期规则。
+     * @param int $to_archive_after_days 多少天后将文件转为归档存储，设置为 -1 表示取消已设置的转归档存储的生命周期规则， 0 表示不修改转归档生命周期规则。
+     * @param int $to_deep_archive_after_days 多少天后将文件转为深度归档存储，设置为 -1 表示取消已设置的转深度归档存储的生命周期规则， 0 表示不修改转深度归档生命周期规则。
+     * @param int $delete_after_days 多少天后将文件删除，设置为 -1 表示取消已设置的删除存储的生命周期规则， 0 表示不修改删除存储的生命周期规则。
+     *
+     * @retrun array<string>
+     */
+    public static function buildBatchSetObjectLifecycle(
+        $bucket,
+        $keys,
+        $to_line_after_days,
+        $to_archive_after_days,
+        $to_deep_archive_after_days,
+        $delete_after_days
+    ) {
+        $result = array();
+        foreach ($keys as $key) {
+            $encodedEntry = \Qiniu\entry($bucket, $key);
+            $op = '/lifecycle/' . $encodedEntry .
+                '/toIAAfterDays/' . $to_line_after_days .
+                '/toArchiveAfterDays/' . $to_archive_after_days .
+                '/toDeepArchiveAfterDays/' . $to_deep_archive_after_days .
+                '/deleteAfterDays/' . $delete_after_days;
+            array_push($result, $op);
+        }
+        return $result;
     }
 
     public static function buildBatchChangeMime($bucket, $key_mime_pairs)

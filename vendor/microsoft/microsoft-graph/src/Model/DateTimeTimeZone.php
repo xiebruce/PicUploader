@@ -25,7 +25,7 @@ class DateTimeTimeZone extends Entity
 {
     /**
     * Gets the dateTime
-    * A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
+    * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
     *
     * @return string|null The dateTime
     */
@@ -40,7 +40,7 @@ class DateTimeTimeZone extends Entity
 
     /**
     * Sets the dateTime
-    * A single point of time in a combined date and time representation ({date}T{time}). For example, '2019-04-16T09:00:00'.
+    * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
     *
     * @param string $val The value of the dateTime
     *
@@ -53,7 +53,7 @@ class DateTimeTimeZone extends Entity
     }
     /**
     * Gets the timeZone
-    * Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
+    * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
     *
     * @return string|null The timeZone
     */
@@ -68,7 +68,7 @@ class DateTimeTimeZone extends Entity
 
     /**
     * Sets the timeZone
-    * Represents a time zone, for example, 'Pacific Standard Time'. See below for possible values.
+    * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
     *
     * @param string $val The value of the timeZone
     *

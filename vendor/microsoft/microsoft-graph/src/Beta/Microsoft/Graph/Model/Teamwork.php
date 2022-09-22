@@ -57,6 +57,7 @@ class Teamwork extends Entity
 
      /**
      * Gets the deletedTeams
+    * A collection of deleted teams.
      *
      * @return array|null The deletedTeams
      */
@@ -71,6 +72,7 @@ class Teamwork extends Entity
 
     /**
     * Sets the deletedTeams
+    * A collection of deleted teams.
     *
     * @param DeletedTeam[] $val The deletedTeams
     *
@@ -114,6 +116,7 @@ class Teamwork extends Entity
 
     /**
     * Gets the teamsAppSettings
+    * Represents tenant-wide settings for all Teams apps in the tenant.
     *
     * @return TeamsAppSettings|null The teamsAppSettings
     */
@@ -132,6 +135,7 @@ class Teamwork extends Entity
 
     /**
     * Sets the teamsAppSettings
+    * Represents tenant-wide settings for all Teams apps in the tenant.
     *
     * @param TeamsAppSettings $val The teamsAppSettings
     *
@@ -140,6 +144,36 @@ class Teamwork extends Entity
     public function setTeamsAppSettings($val)
     {
         $this->_propDict["teamsAppSettings"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the teamTemplates
+    * The templates associated with a team.
+     *
+     * @return array|null The teamTemplates
+     */
+    public function getTeamTemplates()
+    {
+        if (array_key_exists("teamTemplates", $this->_propDict)) {
+           return $this->_propDict["teamTemplates"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the teamTemplates
+    * The templates associated with a team.
+    *
+    * @param TeamTemplate[] $val The teamTemplates
+    *
+    * @return Teamwork
+    */
+    public function setTeamTemplates($val)
+    {
+        $this->_propDict["teamTemplates"] = $val;
         return $this;
     }
 

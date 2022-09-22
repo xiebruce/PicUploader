@@ -54,6 +54,39 @@ class GroupPolicyCategory extends Entity
     }
 
     /**
+    * Gets the ingestionSource
+    * Defines this category's ingestion source (0 - unknown, 1 - custom, 2 - global). Possible values are: unknown, custom, builtIn, unknownFutureValue.
+    *
+    * @return IngestionSource|null The ingestionSource
+    */
+    public function getIngestionSource()
+    {
+        if (array_key_exists("ingestionSource", $this->_propDict)) {
+            if (is_a($this->_propDict["ingestionSource"], "\Beta\Microsoft\Graph\Model\IngestionSource") || is_null($this->_propDict["ingestionSource"])) {
+                return $this->_propDict["ingestionSource"];
+            } else {
+                $this->_propDict["ingestionSource"] = new IngestionSource($this->_propDict["ingestionSource"]);
+                return $this->_propDict["ingestionSource"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the ingestionSource
+    * Defines this category's ingestion source (0 - unknown, 1 - custom, 2 - global). Possible values are: unknown, custom, builtIn, unknownFutureValue.
+    *
+    * @param IngestionSource $val The ingestionSource
+    *
+    * @return GroupPolicyCategory
+    */
+    public function setIngestionSource($val)
+    {
+        $this->_propDict["ingestionSource"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the isRoot
     * Defines if the category is a root category
     *

@@ -141,6 +141,39 @@ class Settings extends \Beta\Microsoft\Graph\Model\Entity
     }
 
     /**
+    * Gets the idleSessionSignOut
+    * Specifies the idle session sign-out policies for the tenant.
+    *
+    * @return IdleSessionSignOut|null The idleSessionSignOut
+    */
+    public function getIdleSessionSignOut()
+    {
+        if (array_key_exists("idleSessionSignOut", $this->_propDict)) {
+            if (is_a($this->_propDict["idleSessionSignOut"], "\Beta\Microsoft\Graph\TenantAdmin\Model\IdleSessionSignOut") || is_null($this->_propDict["idleSessionSignOut"])) {
+                return $this->_propDict["idleSessionSignOut"];
+            } else {
+                $this->_propDict["idleSessionSignOut"] = new IdleSessionSignOut($this->_propDict["idleSessionSignOut"]);
+                return $this->_propDict["idleSessionSignOut"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the idleSessionSignOut
+    * Specifies the idle session sign-out policies for the tenant.
+    *
+    * @param IdleSessionSignOut $val The idleSessionSignOut
+    *
+    * @return Settings
+    */
+    public function setIdleSessionSignOut($val)
+    {
+        $this->_propDict["idleSessionSignOut"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the imageTaggingOption
     * Specifies the image tagging option for the tenant. Possible values are: disabled, basic, enhanced.
     *
@@ -232,6 +265,35 @@ class Settings extends \Beta\Microsoft\Graph\Model\Entity
     }
 
     /**
+    * Gets the isLegacyAuthProtocolsEnabled
+    * Indicates whether legacy authentication protocols are enabled for the tenant.
+    *
+    * @return bool|null The isLegacyAuthProtocolsEnabled
+    */
+    public function getIsLegacyAuthProtocolsEnabled()
+    {
+        if (array_key_exists("isLegacyAuthProtocolsEnabled", $this->_propDict)) {
+            return $this->_propDict["isLegacyAuthProtocolsEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isLegacyAuthProtocolsEnabled
+    * Indicates whether legacy authentication protocols are enabled for the tenant.
+    *
+    * @param bool $val The isLegacyAuthProtocolsEnabled
+    *
+    * @return Settings
+    */
+    public function setIsLegacyAuthProtocolsEnabled($val)
+    {
+        $this->_propDict["isLegacyAuthProtocolsEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the isLoopEnabled
     * Indicates whetherif Fluid Framework is allowed on SharePoint sites.
     *
@@ -286,6 +348,35 @@ class Settings extends \Beta\Microsoft\Graph\Model\Entity
     public function setIsMacSyncAppEnabled($val)
     {
         $this->_propDict["isMacSyncAppEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the isRequireAcceptingUserToMatchInvitedUserEnabled
+    * Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+    *
+    * @return bool|null The isRequireAcceptingUserToMatchInvitedUserEnabled
+    */
+    public function getIsRequireAcceptingUserToMatchInvitedUserEnabled()
+    {
+        if (array_key_exists("isRequireAcceptingUserToMatchInvitedUserEnabled", $this->_propDict)) {
+            return $this->_propDict["isRequireAcceptingUserToMatchInvitedUserEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isRequireAcceptingUserToMatchInvitedUserEnabled
+    * Indicates whether guests must sign in using the same account to which sharing invitations are sent.
+    *
+    * @param bool $val The isRequireAcceptingUserToMatchInvitedUserEnabled
+    *
+    * @return Settings
+    */
+    public function setIsRequireAcceptingUserToMatchInvitedUserEnabled($val)
+    {
+        $this->_propDict["isRequireAcceptingUserToMatchInvitedUserEnabled"] = boolval($val);
         return $this;
     }
 

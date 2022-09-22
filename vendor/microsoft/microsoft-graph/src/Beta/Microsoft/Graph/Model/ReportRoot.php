@@ -371,4 +371,37 @@ class ReportRoot extends Entity
         return $this;
     }
 
+    /**
+    * Gets the security
+    * Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
+    *
+    * @return SecurityReportsRoot|null The security
+    */
+    public function getSecurity()
+    {
+        if (array_key_exists("security", $this->_propDict)) {
+            if (is_a($this->_propDict["security"], "\Beta\Microsoft\Graph\Model\SecurityReportsRoot") || is_null($this->_propDict["security"])) {
+                return $this->_propDict["security"];
+            } else {
+                $this->_propDict["security"] = new SecurityReportsRoot($this->_propDict["security"]);
+                return $this->_propDict["security"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the security
+    * Provides the ability to launch a realistic simulated phishing attack that organizations can learn from.
+    *
+    * @param SecurityReportsRoot $val The security
+    *
+    * @return ReportRoot
+    */
+    public function setSecurity($val)
+    {
+        $this->_propDict["security"] = $val;
+        return $this;
+    }
+
 }

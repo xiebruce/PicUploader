@@ -41,4 +41,5 @@ class RiskDetail extends Enum
     const HIDDEN = "hidden";
     const ADMIN_CONFIRMED_USER_COMPROMISED = "adminConfirmedUserCompromised";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const M365_D_ADMIN_DISMISSED_DETECTION = "m365DAdminDismissedDetection";
 }

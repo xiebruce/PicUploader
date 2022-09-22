@@ -26,7 +26,7 @@ class AuthenticationContextClassReference extends Entity
 {
     /**
     * Gets the description
-    * A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX.
+    * A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user-facing admin experiences. For example, a selection UX.
     *
     * @return string|null The description
     */
@@ -41,7 +41,7 @@ class AuthenticationContextClassReference extends Entity
 
     /**
     * Sets the description
-    * A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user facing admin experiences. For example, selection UX.
+    * A short explanation of the policies that are enforced by authenticationContextClassReference. This value should be used to provide secondary text to describe the authentication context class reference when building user-facing admin experiences. For example, a selection UX.
     *
     * @param string $val The description
     *
@@ -55,7 +55,7 @@ class AuthenticationContextClassReference extends Entity
 
     /**
     * Gets the displayName
-    * The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX.
+    * A friendly name that identifies the authenticationContextClassReference object when building user-facing admin experiences. For example, a selection UX.
     *
     * @return string|null The displayName
     */
@@ -70,7 +70,7 @@ class AuthenticationContextClassReference extends Entity
 
     /**
     * Sets the displayName
-    * The display name is the friendly name of the authenticationContextClassReference. This value should be used to identify the authentication context class reference when building user facing admin experiences. For example, selection UX.
+    * A friendly name that identifies the authenticationContextClassReference object when building user-facing admin experiences. For example, a selection UX.
     *
     * @param string $val The displayName
     *
@@ -84,7 +84,7 @@ class AuthenticationContextClassReference extends Entity
 
     /**
     * Gets the isAvailable
-    * Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection.
+    * Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false, it should not be shown in admin UX experiences because the value is not currently available for selection.  Supports $filter (eq).
     *
     * @return bool|null The isAvailable
     */
@@ -99,7 +99,7 @@ class AuthenticationContextClassReference extends Entity
 
     /**
     * Sets the isAvailable
-    * Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false it should not be shown in admin UX experiences because the value is not currently available for selection.
+    * Indicates whether the authenticationContextClassReference has been published by the security admin and is ready for use by apps. When it is set to false, it should not be shown in admin UX experiences because the value is not currently available for selection.  Supports $filter (eq).
     *
     * @param bool $val The isAvailable
     *

@@ -508,7 +508,6 @@ class Alert extends Entity
 
      /**
      * Gets the historyStates
-    * A collection of alertHistoryStates comprising an audit log of all updates made to an alert.
      *
      * @return array|null The historyStates
      */
@@ -523,7 +522,6 @@ class Alert extends Entity
 
     /**
     * Sets the historyStates
-    * A collection of alertHistoryStates comprising an audit log of all updates made to an alert.
     *
     * @param AlertHistoryState[] $val The historyStates
     *

@@ -339,6 +339,39 @@ class DeviceManagement extends Entity
     }
 
     /**
+    * Gets the dataProcessorServiceForWindowsFeaturesOnboarding
+    * A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+    *
+    * @return DataProcessorServiceForWindowsFeaturesOnboarding|null The dataProcessorServiceForWindowsFeaturesOnboarding
+    */
+    public function getDataProcessorServiceForWindowsFeaturesOnboarding()
+    {
+        if (array_key_exists("dataProcessorServiceForWindowsFeaturesOnboarding", $this->_propDict)) {
+            if (is_a($this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"], "\Beta\Microsoft\Graph\Model\DataProcessorServiceForWindowsFeaturesOnboarding") || is_null($this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"])) {
+                return $this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"];
+            } else {
+                $this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"] = new DataProcessorServiceForWindowsFeaturesOnboarding($this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"]);
+                return $this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the dataProcessorServiceForWindowsFeaturesOnboarding
+    * A configuration entity for MEM features that utilize Data Processor Service for Windows (DPSW) data.
+    *
+    * @param DataProcessorServiceForWindowsFeaturesOnboarding $val The dataProcessorServiceForWindowsFeaturesOnboarding
+    *
+    * @return DeviceManagement
+    */
+    public function setDataProcessorServiceForWindowsFeaturesOnboarding($val)
+    {
+        $this->_propDict["dataProcessorServiceForWindowsFeaturesOnboarding"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the deviceProtectionOverview
     * Device protection overview.
     *
@@ -536,33 +569,34 @@ class DeviceManagement extends Entity
         return $this;
     }
 
-
-     /**
-     * Gets the androidDeviceOwnerEnrollmentProfiles
-    * Android device owner enrollment profile entities.
-     *
-     * @return array|null The androidDeviceOwnerEnrollmentProfiles
-     */
-    public function getAndroidDeviceOwnerEnrollmentProfiles()
+    /**
+    * Gets the monitoring
+    *
+    * @return \Beta\Microsoft\Graph\DeviceManagementNamespace\Model\Monitoring|null The monitoring
+    */
+    public function getMonitoring()
     {
-        if (array_key_exists("androidDeviceOwnerEnrollmentProfiles", $this->_propDict)) {
-           return $this->_propDict["androidDeviceOwnerEnrollmentProfiles"];
-        } else {
-            return null;
+        if (array_key_exists("monitoring", $this->_propDict)) {
+            if (is_a($this->_propDict["monitoring"], "\Beta\Microsoft\Graph\DeviceManagementNamespace\Model\Monitoring") || is_null($this->_propDict["monitoring"])) {
+                return $this->_propDict["monitoring"];
+            } else {
+                $this->_propDict["monitoring"] = new \Beta\Microsoft\Graph\DeviceManagementNamespace\Model\Monitoring($this->_propDict["monitoring"]);
+                return $this->_propDict["monitoring"];
+            }
         }
+        return null;
     }
 
     /**
-    * Sets the androidDeviceOwnerEnrollmentProfiles
-    * Android device owner enrollment profile entities.
+    * Sets the monitoring
     *
-    * @param AndroidDeviceOwnerEnrollmentProfile[] $val The androidDeviceOwnerEnrollmentProfiles
+    * @param \Beta\Microsoft\Graph\DeviceManagementNamespace\Model\Monitoring $val The monitoring
     *
     * @return DeviceManagement
     */
-    public function setAndroidDeviceOwnerEnrollmentProfiles($val)
+    public function setMonitoring($val)
     {
-        $this->_propDict["androidDeviceOwnerEnrollmentProfiles"] = $val;
+        $this->_propDict["monitoring"] = $val;
         return $this;
     }
 
@@ -594,6 +628,36 @@ class DeviceManagement extends Entity
     public function setVirtualEndpoint($val)
     {
         $this->_propDict["virtualEndpoint"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the androidDeviceOwnerEnrollmentProfiles
+    * Android device owner enrollment profile entities.
+     *
+     * @return array|null The androidDeviceOwnerEnrollmentProfiles
+     */
+    public function getAndroidDeviceOwnerEnrollmentProfiles()
+    {
+        if (array_key_exists("androidDeviceOwnerEnrollmentProfiles", $this->_propDict)) {
+           return $this->_propDict["androidDeviceOwnerEnrollmentProfiles"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the androidDeviceOwnerEnrollmentProfiles
+    * Android device owner enrollment profile entities.
+    *
+    * @param AndroidDeviceOwnerEnrollmentProfile[] $val The androidDeviceOwnerEnrollmentProfiles
+    *
+    * @return DeviceManagement
+    */
+    public function setAndroidDeviceOwnerEnrollmentProfiles($val)
+    {
+        $this->_propDict["androidDeviceOwnerEnrollmentProfiles"] = $val;
         return $this;
     }
 
@@ -4647,6 +4711,66 @@ class DeviceManagement extends Entity
     public function setConfigManagerCollections($val)
     {
         $this->_propDict["configManagerCollections"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the organizationalMessageDetails
+    * A list of OrganizationalMessageDetails
+     *
+     * @return array|null The organizationalMessageDetails
+     */
+    public function getOrganizationalMessageDetails()
+    {
+        if (array_key_exists("organizationalMessageDetails", $this->_propDict)) {
+           return $this->_propDict["organizationalMessageDetails"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the organizationalMessageDetails
+    * A list of OrganizationalMessageDetails
+    *
+    * @param OrganizationalMessageDetail[] $val The organizationalMessageDetails
+    *
+    * @return DeviceManagement
+    */
+    public function setOrganizationalMessageDetails($val)
+    {
+        $this->_propDict["organizationalMessageDetails"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the organizationalMessageGuidedContents
+    * A list of OrganizationalMessageGuidedContents
+     *
+     * @return array|null The organizationalMessageGuidedContents
+     */
+    public function getOrganizationalMessageGuidedContents()
+    {
+        if (array_key_exists("organizationalMessageGuidedContents", $this->_propDict)) {
+           return $this->_propDict["organizationalMessageGuidedContents"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the organizationalMessageGuidedContents
+    * A list of OrganizationalMessageGuidedContents
+    *
+    * @param OrganizationalMessageGuidedContent[] $val The organizationalMessageGuidedContents
+    *
+    * @return DeviceManagement
+    */
+    public function setOrganizationalMessageGuidedContents($val)
+    {
+        $this->_propDict["organizationalMessageGuidedContents"] = $val;
         return $this;
     }
 

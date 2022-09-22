@@ -55,7 +55,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
 
     /**
     * Gets the licenseType
-    * Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+    * Edition Upgrade License Type. Possible values are: productKey, licenseFile.
     *
     * @return EditionUpgradeLicenseType|null The licenseType
     */
@@ -74,7 +74,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
 
     /**
     * Sets the licenseType
-    * Edition Upgrade License Type. Possible values are: productKey, licenseFile, notConfigured.
+    * Edition Upgrade License Type. Possible values are: productKey, licenseFile.
     *
     * @param EditionUpgradeLicenseType $val The licenseType
     *
@@ -117,7 +117,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
 
     /**
     * Gets the targetEdition
-    * Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+    * Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN.
     *
     * @return Windows10EditionType|null The targetEdition
     */
@@ -136,7 +136,7 @@ class EditionUpgradeConfiguration extends DeviceConfiguration
 
     /**
     * Sets the targetEdition
-    * Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN, notConfigured, windows10Home, windows10HomeChina, windows10HomeN, windows10HomeSingleLanguage, windows10Mobile, windows10IoTCore, windows10IoTCoreCommercial.
+    * Edition Upgrade Target Edition. Possible values are: windows10Enterprise, windows10EnterpriseN, windows10Education, windows10EducationN, windows10MobileEnterprise, windows10HolographicEnterprise, windows10Professional, windows10ProfessionalN, windows10ProfessionalEducation, windows10ProfessionalEducationN, windows10ProfessionalWorkstation, windows10ProfessionalWorkstationN.
     *
     * @param Windows10EditionType $val The targetEdition
     *

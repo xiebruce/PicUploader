@@ -84,6 +84,34 @@ class VpnOnDemandRule extends Entity
         $this->_propDict["dnsSearchDomains"] = $val;
         return $this;
     }
+    /**
+    * Gets the dnsServerAddressMatch
+    * DNS Search Server Address.
+    *
+    * @return string|null The dnsServerAddressMatch
+    */
+    public function getDnsServerAddressMatch()
+    {
+        if (array_key_exists("dnsServerAddressMatch", $this->_propDict)) {
+            return $this->_propDict["dnsServerAddressMatch"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the dnsServerAddressMatch
+    * DNS Search Server Address.
+    *
+    * @param string $val The value of the dnsServerAddressMatch
+    *
+    * @return VpnOnDemandRule
+    */
+    public function setDnsServerAddressMatch($val)
+    {
+        $this->_propDict["dnsServerAddressMatch"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the domainAction
@@ -144,6 +172,39 @@ class VpnOnDemandRule extends Entity
     {
         $this->_propDict["domains"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the interfaceTypeMatch
+    * Network interface to trigger VPN. Possible values are: notConfigured, ethernet, wiFi, cellular.
+    *
+    * @return VpnOnDemandRuleInterfaceTypeMatch|null The interfaceTypeMatch
+    */
+    public function getInterfaceTypeMatch()
+    {
+        if (array_key_exists("interfaceTypeMatch", $this->_propDict)) {
+            if (is_a($this->_propDict["interfaceTypeMatch"], "\Beta\Microsoft\Graph\Model\VpnOnDemandRuleInterfaceTypeMatch") || is_null($this->_propDict["interfaceTypeMatch"])) {
+                return $this->_propDict["interfaceTypeMatch"];
+            } else {
+                $this->_propDict["interfaceTypeMatch"] = new VpnOnDemandRuleInterfaceTypeMatch($this->_propDict["interfaceTypeMatch"]);
+                return $this->_propDict["interfaceTypeMatch"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the interfaceTypeMatch
+    * Network interface to trigger VPN. Possible values are: notConfigured, ethernet, wiFi, cellular.
+    *
+    * @param VpnOnDemandRuleInterfaceTypeMatch $val The value to assign to the interfaceTypeMatch
+    *
+    * @return VpnOnDemandRule The VpnOnDemandRule
+    */
+    public function setInterfaceTypeMatch($val)
+    {
+        $this->_propDict["interfaceTypeMatch"] = $val;
+         return $this;
     }
     /**
     * Gets the probeRequiredUrl

@@ -26,7 +26,7 @@ class RichLongRunningOperation extends LongRunningOperation
 {
     /**
     * Gets the error
-    * Error due to which the operation failed.
+    * Error that caused the operation to fail.
     *
     * @return PublicError|null The error
     */
@@ -45,7 +45,7 @@ class RichLongRunningOperation extends LongRunningOperation
 
     /**
     * Sets the error
-    * Error due to which the operation failed.
+    * Error that caused the operation to fail.
     *
     * @param PublicError $val The error
     *
@@ -88,7 +88,7 @@ class RichLongRunningOperation extends LongRunningOperation
 
     /**
     * Gets the resourceId
-    * A unique identifier for the result.
+    * The unique identifier for the result.
     *
     * @return string|null The resourceId
     */
@@ -103,7 +103,7 @@ class RichLongRunningOperation extends LongRunningOperation
 
     /**
     * Sets the resourceId
-    * A unique identifier for the result.
+    * The unique identifier for the result.
     *
     * @param string $val The resourceId
     *
@@ -117,7 +117,7 @@ class RichLongRunningOperation extends LongRunningOperation
 
     /**
     * Gets the type
-    * Type of the operation.
+    * The type of the operation.
     *
     * @return string|null The type
     */
@@ -132,7 +132,7 @@ class RichLongRunningOperation extends LongRunningOperation
 
     /**
     * Sets the type
-    * Type of the operation.
+    * The type of the operation.
     *
     * @param string $val The type
     *

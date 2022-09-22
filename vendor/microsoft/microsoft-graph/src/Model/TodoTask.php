@@ -59,7 +59,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the bodyLastModifiedDateTime
-    * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     *
     * @return \DateTime|null The bodyLastModifiedDateTime
     */
@@ -78,7 +78,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the bodyLastModifiedDateTime
-    * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+    * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
     *
     * @param \DateTime $val The bodyLastModifiedDateTime
     *
@@ -121,7 +121,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the completedDateTime
-    * The date in the specified time zone that the task was finished.
+    * The date and time in the specified time zone that the task was finished.
     *
     * @return DateTimeTimeZone|null The completedDateTime
     */
@@ -140,7 +140,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the completedDateTime
-    * The date in the specified time zone that the task was finished.
+    * The date and time in the specified time zone that the task was finished.
     *
     * @param DateTimeTimeZone $val The completedDateTime
     *
@@ -187,7 +187,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the dueDateTime
-    * The date in the specified time zone that the task is to be finished.
+    * The date and time in the specified time zone that the task is to be finished.
     *
     * @return DateTimeTimeZone|null The dueDateTime
     */
@@ -206,7 +206,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the dueDateTime
-    * The date in the specified time zone that the task is to be finished.
+    * The date and time in the specified time zone that the task is to be finished.
     *
     * @param DateTimeTimeZone $val The dueDateTime
     *
@@ -215,6 +215,33 @@ class TodoTask extends Entity
     public function setDueDateTime($val)
     {
         $this->_propDict["dueDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the hasAttachments
+    *
+    * @return bool|null The hasAttachments
+    */
+    public function getHasAttachments()
+    {
+        if (array_key_exists("hasAttachments", $this->_propDict)) {
+            return $this->_propDict["hasAttachments"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the hasAttachments
+    *
+    * @param bool $val The hasAttachments
+    *
+    * @return TodoTask
+    */
+    public function setHasAttachments($val)
+    {
+        $this->_propDict["hasAttachments"] = boolval($val);
         return $this;
     }
 
@@ -348,7 +375,7 @@ class TodoTask extends Entity
 
     /**
     * Gets the reminderDateTime
-    * The date and time for a reminder alert of the task to occur.
+    * The date and time in the specified time zone for a reminder alert of the task to occur.
     *
     * @return DateTimeTimeZone|null The reminderDateTime
     */
@@ -367,7 +394,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the reminderDateTime
-    * The date and time for a reminder alert of the task to occur.
+    * The date and time in the specified time zone for a reminder alert of the task to occur.
     *
     * @param DateTimeTimeZone $val The reminderDateTime
     *
@@ -376,6 +403,37 @@ class TodoTask extends Entity
     public function setReminderDateTime($val)
     {
         $this->_propDict["reminderDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the startDateTime
+    *
+    * @return DateTimeTimeZone|null The startDateTime
+    */
+    public function getStartDateTime()
+    {
+        if (array_key_exists("startDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["startDateTime"], "\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["startDateTime"])) {
+                return $this->_propDict["startDateTime"];
+            } else {
+                $this->_propDict["startDateTime"] = new DateTimeTimeZone($this->_propDict["startDateTime"]);
+                return $this->_propDict["startDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the startDateTime
+    *
+    * @param DateTimeTimeZone $val The startDateTime
+    *
+    * @return TodoTask
+    */
+    public function setStartDateTime($val)
+    {
+        $this->_propDict["startDateTime"] = $val;
         return $this;
     }
 
@@ -443,8 +501,64 @@ class TodoTask extends Entity
 
 
      /**
+     * Gets the attachments
+     *
+     * @return array|null The attachments
+     */
+    public function getAttachments()
+    {
+        if (array_key_exists("attachments", $this->_propDict)) {
+           return $this->_propDict["attachments"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the attachments
+    *
+    * @param AttachmentBase[] $val The attachments
+    *
+    * @return TodoTask
+    */
+    public function setAttachments($val)
+    {
+        $this->_propDict["attachments"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the attachmentSessions
+     *
+     * @return array|null The attachmentSessions
+     */
+    public function getAttachmentSessions()
+    {
+        if (array_key_exists("attachmentSessions", $this->_propDict)) {
+           return $this->_propDict["attachmentSessions"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the attachmentSessions
+    *
+    * @param AttachmentSession[] $val The attachmentSessions
+    *
+    * @return TodoTask
+    */
+    public function setAttachmentSessions($val)
+    {
+        $this->_propDict["attachmentSessions"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the checklistItems
-    * A collection of smaller subtasks linked to the more complex parent task.
+    * A collection of checklistItems linked to a task.
      *
      * @return array|null The checklistItems
      */
@@ -459,7 +573,7 @@ class TodoTask extends Entity
 
     /**
     * Sets the checklistItems
-    * A collection of smaller subtasks linked to the more complex parent task.
+    * A collection of checklistItems linked to a task.
     *
     * @param ChecklistItem[] $val The checklistItems
     *

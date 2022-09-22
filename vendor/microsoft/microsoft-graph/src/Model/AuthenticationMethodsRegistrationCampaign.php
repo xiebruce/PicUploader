@@ -91,7 +91,7 @@ class AuthenticationMethodsRegistrationCampaign extends Entity
     }
     /**
     * Gets the snoozeDurationInDays
-    * Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is '0' – The user is prompted during every MFA attempt.
+    * Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum: 0 days. Maximum: 14 days. If the value is '0', the user is prompted during every MFA attempt.
     *
     * @return int|null The snoozeDurationInDays
     */
@@ -106,7 +106,7 @@ class AuthenticationMethodsRegistrationCampaign extends Entity
 
     /**
     * Sets the snoozeDurationInDays
-    * Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum 0 days. Maximum: 14 days. If the value is '0' – The user is prompted during every MFA attempt.
+    * Specifies the number of days that the user sees a prompt again if they select 'Not now' and snoozes the prompt. Minimum: 0 days. Maximum: 14 days. If the value is '0', the user is prompted during every MFA attempt.
     *
     * @param int $val The value of the snoozeDurationInDays
     *
@@ -120,7 +120,7 @@ class AuthenticationMethodsRegistrationCampaign extends Entity
 
     /**
     * Gets the state
-    * Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled.
+    * Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure Active Directory for the setting. The default value is disabled.
     *
     * @return AdvancedConfigState|null The state
     */
@@ -139,7 +139,7 @@ class AuthenticationMethodsRegistrationCampaign extends Entity
 
     /**
     * Sets the state
-    * Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure AD for the setting. The default value is disabled.
+    * Enable or disable the feature. Possible values are: default, enabled, disabled, unknownFutureValue. The default value is used when the configuration hasn't been explicitly set and uses the default behavior of Azure Active Directory for the setting. The default value is disabled.
     *
     * @param AdvancedConfigState $val The value to assign to the state
     *

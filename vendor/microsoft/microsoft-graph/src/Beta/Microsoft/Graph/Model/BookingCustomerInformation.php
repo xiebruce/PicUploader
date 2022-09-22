@@ -242,6 +242,7 @@ class BookingCustomerInformation extends BookingCustomerInformationBase
     }
     /**
     * Gets the smsNotificationsEnabled
+    * Indicates if the SMS notifications will be sent to the customer for the appointment
     *
     * @return bool|null The smsNotificationsEnabled
     */
@@ -256,6 +257,7 @@ class BookingCustomerInformation extends BookingCustomerInformationBase
 
     /**
     * Sets the smsNotificationsEnabled
+    * Indicates if the SMS notifications will be sent to the customer for the appointment
     *
     * @param bool $val The value of the smsNotificationsEnabled
     *

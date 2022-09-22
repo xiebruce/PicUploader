@@ -24,10 +24,40 @@ namespace Microsoft\Graph\Model;
 */
 class Security extends Entity
 {
+    /**
+    * Gets the cases
+    *
+    * @return \Microsoft\Graph\SecurityNamespace\Model\CasesRoot|null The cases
+    */
+    public function getCases()
+    {
+        if (array_key_exists("cases", $this->_propDict)) {
+            if (is_a($this->_propDict["cases"], "\Microsoft\Graph\SecurityNamespace\Model\CasesRoot") || is_null($this->_propDict["cases"])) {
+                return $this->_propDict["cases"];
+            } else {
+                $this->_propDict["cases"] = new \Microsoft\Graph\SecurityNamespace\Model\CasesRoot($this->_propDict["cases"]);
+                return $this->_propDict["cases"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the cases
+    *
+    * @param \Microsoft\Graph\SecurityNamespace\Model\CasesRoot $val The cases
+    *
+    * @return Security
+    */
+    public function setCases($val)
+    {
+        $this->_propDict["cases"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the alerts
-    * Notifications for suspicious or potential security issues in a customer’s tenant.
      *
      * @return array|null The alerts
      */
@@ -42,7 +72,6 @@ class Security extends Entity
 
     /**
     * Sets the alerts
-    * Notifications for suspicious or potential security issues in a customer’s tenant.
     *
     * @param Alert[] $val The alerts
     *

@@ -83,6 +83,35 @@ class MicrosoftTunnelSite extends Entity
     }
 
     /**
+    * Gets the enableCertificatePinning
+    * When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
+    *
+    * @return bool|null The enableCertificatePinning
+    */
+    public function getEnableCertificatePinning()
+    {
+        if (array_key_exists("enableCertificatePinning", $this->_propDict)) {
+            return $this->_propDict["enableCertificatePinning"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enableCertificatePinning
+    * When set to true, certificate pinning will be enforced on connections between the Microsoft Tunnel server and Microsoft Tunnel clients. When set to false, certificate pinning will be disabled.
+    *
+    * @param bool $val The enableCertificatePinning
+    *
+    * @return MicrosoftTunnelSite
+    */
+    public function setEnableCertificatePinning($val)
+    {
+        $this->_propDict["enableCertificatePinning"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the internalNetworkProbeUrl
     * The MicrosoftTunnelSite's Internal Network Access Probe URL
     *

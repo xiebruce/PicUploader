@@ -80,6 +80,34 @@ class HardwareInformation extends Entity
         return $this;
     }
     /**
+    * Gets the batteryLevelPercentage
+    * The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
+    *
+    * @return float|null The batteryLevelPercentage
+    */
+    public function getBatteryLevelPercentage()
+    {
+        if (array_key_exists("batteryLevelPercentage", $this->_propDict)) {
+            return $this->_propDict["batteryLevelPercentage"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the batteryLevelPercentage
+    * The battery level, between 0.0 and 100, or null if the battery level cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 5.0 and later, and is available only when Device Information access right is obtained. Valid values 0 to 100
+    *
+    * @param float $val The value of the batteryLevelPercentage
+    *
+    * @return HardwareInformation
+    */
+    public function setBatteryLevelPercentage($val)
+    {
+        $this->_propDict["batteryLevelPercentage"] = $val;
+        return $this;
+    }
+    /**
     * Gets the batterySerialNumber
     * The serial number of the device’s current battery
     *
@@ -260,6 +288,95 @@ class HardwareInformation extends Entity
     public function setDeviceGuardVirtualizationBasedSecurityState($val)
     {
         $this->_propDict["deviceGuardVirtualizationBasedSecurityState"] = $val;
+         return $this;
+    }
+    /**
+    * Gets the deviceLicensingLastErrorCode
+    * A standard error code indicating the last error, or 0 indicating no error (default). The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. Valid values 0 to 2147483647
+    *
+    * @return int|null The deviceLicensingLastErrorCode
+    */
+    public function getDeviceLicensingLastErrorCode()
+    {
+        if (array_key_exists("deviceLicensingLastErrorCode", $this->_propDict)) {
+            return $this->_propDict["deviceLicensingLastErrorCode"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceLicensingLastErrorCode
+    * A standard error code indicating the last error, or 0 indicating no error (default). The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. Valid values 0 to 2147483647
+    *
+    * @param int $val The value of the deviceLicensingLastErrorCode
+    *
+    * @return HardwareInformation
+    */
+    public function setDeviceLicensingLastErrorCode($val)
+    {
+        $this->_propDict["deviceLicensingLastErrorCode"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the deviceLicensingLastErrorDescription
+    * Error text message as a descripition for deviceLicensingLastErrorCode. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing.
+    *
+    * @return string|null The deviceLicensingLastErrorDescription
+    */
+    public function getDeviceLicensingLastErrorDescription()
+    {
+        if (array_key_exists("deviceLicensingLastErrorDescription", $this->_propDict)) {
+            return $this->_propDict["deviceLicensingLastErrorDescription"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceLicensingLastErrorDescription
+    * Error text message as a descripition for deviceLicensingLastErrorCode. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing.
+    *
+    * @param string $val The value of the deviceLicensingLastErrorDescription
+    *
+    * @return HardwareInformation
+    */
+    public function setDeviceLicensingLastErrorDescription($val)
+    {
+        $this->_propDict["deviceLicensingLastErrorDescription"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the deviceLicensingStatus
+    * Device based subscription licensing status. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. In case it is not supported, the value will be set to unknown (-1). Possible values are: licenseRefreshStarted, licenseRefreshPending, deviceIsNotAzureActiveDirectoryJoined, verifyingMicrosoftDeviceIdentity, deviceIdentityVerificationFailed, verifyingMirosoftAccountIdentity, mirosoftAccountVerificationFailed, acquiringDeviceLicense, refreshingDeviceLicense, deviceLicenseRefreshSucceed, deviceLicenseRefreshFailed, removingDeviceLicense, deviceLicenseRemoveSucceed, deviceLicenseRemoveFailed, unknownFutureValue, unknown.
+    *
+    * @return DeviceLicensingStatus|null The deviceLicensingStatus
+    */
+    public function getDeviceLicensingStatus()
+    {
+        if (array_key_exists("deviceLicensingStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["deviceLicensingStatus"], "\Beta\Microsoft\Graph\Model\DeviceLicensingStatus") || is_null($this->_propDict["deviceLicensingStatus"])) {
+                return $this->_propDict["deviceLicensingStatus"];
+            } else {
+                $this->_propDict["deviceLicensingStatus"] = new DeviceLicensingStatus($this->_propDict["deviceLicensingStatus"]);
+                return $this->_propDict["deviceLicensingStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the deviceLicensingStatus
+    * Device based subscription licensing status. The update frequency of this property is daily. Note this property is currently supported only for Windows based Device based subscription licensing. In case it is not supported, the value will be set to unknown (-1). Possible values are: licenseRefreshStarted, licenseRefreshPending, deviceIsNotAzureActiveDirectoryJoined, verifyingMicrosoftDeviceIdentity, deviceIdentityVerificationFailed, verifyingMirosoftAccountIdentity, mirosoftAccountVerificationFailed, acquiringDeviceLicense, refreshingDeviceLicense, deviceLicenseRefreshSucceed, deviceLicenseRefreshFailed, removingDeviceLicense, deviceLicenseRemoveSucceed, deviceLicenseRemoveFailed, unknownFutureValue, unknown.
+    *
+    * @param DeviceLicensingStatus $val The value to assign to the deviceLicensingStatus
+    *
+    * @return HardwareInformation The HardwareInformation
+    */
+    public function setDeviceLicensingStatus($val)
+    {
+        $this->_propDict["deviceLicensingStatus"] = $val;
          return $this;
     }
     /**
@@ -683,6 +800,62 @@ class HardwareInformation extends Entity
         return $this;
     }
     /**
+    * Gets the productName
+    * The product name, e.g. iPad8,12 etc. The update frequency of this property is weekly. Note this property is currently supported only on iOS/MacOS devices, and is available only when Device Information access right is obtained.
+    *
+    * @return string|null The productName
+    */
+    public function getProductName()
+    {
+        if (array_key_exists("productName", $this->_propDict)) {
+            return $this->_propDict["productName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the productName
+    * The product name, e.g. iPad8,12 etc. The update frequency of this property is weekly. Note this property is currently supported only on iOS/MacOS devices, and is available only when Device Information access right is obtained.
+    *
+    * @param string $val The value of the productName
+    *
+    * @return HardwareInformation
+    */
+    public function setProductName($val)
+    {
+        $this->_propDict["productName"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the residentUsersCount
+    * The number of users currently on this device, or null (default) if the value of this property cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 13.4 and later, and is available only when Device Information access right is obtained. Valid values 0 to 2147483647
+    *
+    * @return int|null The residentUsersCount
+    */
+    public function getResidentUsersCount()
+    {
+        if (array_key_exists("residentUsersCount", $this->_propDict)) {
+            return $this->_propDict["residentUsersCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the residentUsersCount
+    * The number of users currently on this device, or null (default) if the value of this property cannot be determined. The update frequency of this property is per-checkin. Note this property is currently supported only on devices running iOS 13.4 and later, and is available only when Device Information access right is obtained. Valid values 0 to 2147483647
+    *
+    * @param int $val The value of the residentUsersCount
+    *
+    * @return HardwareInformation
+    */
+    public function setResidentUsersCount($val)
+    {
+        $this->_propDict["residentUsersCount"] = $val;
+        return $this;
+    }
+    /**
     * Gets the serialNumber
     * Serial number.
     *
@@ -965,6 +1138,34 @@ class HardwareInformation extends Entity
     public function setWifiMac($val)
     {
         $this->_propDict["wifiMac"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the wiredIPv4Addresses
+    * A list of wired IPv4 addresses. The update frequency (the maximum delay for the change of property value to be synchronized from the device to the cloud storage) of this property is daily. Note this property is currently supported only on devices running on Windows.
+    *
+    * @return string|null The wiredIPv4Addresses
+    */
+    public function getWiredIPv4Addresses()
+    {
+        if (array_key_exists("wiredIPv4Addresses", $this->_propDict)) {
+            return $this->_propDict["wiredIPv4Addresses"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the wiredIPv4Addresses
+    * A list of wired IPv4 addresses. The update frequency (the maximum delay for the change of property value to be synchronized from the device to the cloud storage) of this property is daily. Note this property is currently supported only on devices running on Windows.
+    *
+    * @param string $val The value of the wiredIPv4Addresses
+    *
+    * @return HardwareInformation
+    */
+    public function setWiredIPv4Addresses($val)
+    {
+        $this->_propDict["wiredIPv4Addresses"] = $val;
         return $this;
     }
 }

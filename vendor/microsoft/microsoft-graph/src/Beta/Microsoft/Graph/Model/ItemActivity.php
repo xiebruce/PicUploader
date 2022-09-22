@@ -59,7 +59,6 @@ class ItemActivity extends Entity
 
     /**
     * Gets the activityDateTime
-    * Details about when the activity took place. Read-only.
     *
     * @return \DateTime|null The activityDateTime
     */
@@ -78,7 +77,6 @@ class ItemActivity extends Entity
 
     /**
     * Sets the activityDateTime
-    * Details about when the activity took place. Read-only.
     *
     * @param \DateTime $val The activityDateTime
     *

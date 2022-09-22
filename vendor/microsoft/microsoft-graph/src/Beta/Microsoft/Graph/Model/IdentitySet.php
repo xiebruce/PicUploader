@@ -26,7 +26,7 @@ class IdentitySet extends Entity
 
     /**
     * Gets the application
-    * Optional. The application associated with this action.
+    * The Identity of the Application. This property is read-only.
     *
     * @return Identity|null The application
     */
@@ -45,7 +45,7 @@ class IdentitySet extends Entity
 
     /**
     * Sets the application
-    * Optional. The application associated with this action.
+    * The Identity of the Application. This property is read-only.
     *
     * @param Identity $val The value to assign to the application
     *
@@ -59,7 +59,7 @@ class IdentitySet extends Entity
 
     /**
     * Gets the device
-    * Optional. The device associated with this action.
+    * The Identity of the Device. This property is read-only.
     *
     * @return Identity|null The device
     */
@@ -78,7 +78,7 @@ class IdentitySet extends Entity
 
     /**
     * Sets the device
-    * Optional. The device associated with this action.
+    * The Identity of the Device. This property is read-only.
     *
     * @param Identity $val The value to assign to the device
     *
@@ -92,7 +92,7 @@ class IdentitySet extends Entity
 
     /**
     * Gets the user
-    * Optional. The user associated with this action.
+    * The Identity of the User. This property is read-only.
     *
     * @return Identity|null The user
     */
@@ -111,7 +111,7 @@ class IdentitySet extends Entity
 
     /**
     * Sets the user
-    * Optional. The user associated with this action.
+    * The Identity of the User. This property is read-only.
     *
     * @param Identity $val The value to assign to the user
     *

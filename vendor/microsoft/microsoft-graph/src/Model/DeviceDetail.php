@@ -25,7 +25,7 @@ class DeviceDetail extends Entity
 {
     /**
     * Gets the browser
-    * Indicates the browser information of the used for signing-in.
+    * Indicates the browser information of the used for signing in.
     *
     * @return string|null The browser
     */
@@ -40,7 +40,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the browser
-    * Indicates the browser information of the used for signing-in.
+    * Indicates the browser information of the used for signing in.
     *
     * @param string $val The value of the browser
     *
@@ -53,7 +53,7 @@ class DeviceDetail extends Entity
     }
     /**
     * Gets the deviceId
-    * Refers to the UniqueID of the device used for signing-in.
+    * Refers to the UniqueID of the device used for signing in.
     *
     * @return string|null The deviceId
     */
@@ -68,7 +68,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the deviceId
-    * Refers to the UniqueID of the device used for signing-in.
+    * Refers to the UniqueID of the device used for signing in.
     *
     * @param string $val The value of the deviceId
     *
@@ -81,7 +81,7 @@ class DeviceDetail extends Entity
     }
     /**
     * Gets the displayName
-    * Refers to the name of the device used for signing-in.
+    * Refers to the name of the device used for signing in.
     *
     * @return string|null The displayName
     */
@@ -96,7 +96,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the displayName
-    * Refers to the name of the device used for signing-in.
+    * Refers to the name of the device used for signing in.
     *
     * @param string $val The value of the displayName
     *
@@ -109,7 +109,7 @@ class DeviceDetail extends Entity
     }
     /**
     * Gets the isCompliant
-    * Indicates whether the device is compliant or not.
+    * Indicates whether the device is compliant.
     *
     * @return bool|null The isCompliant
     */
@@ -124,7 +124,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the isCompliant
-    * Indicates whether the device is compliant or not.
+    * Indicates whether the device is compliant.
     *
     * @param bool $val The value of the isCompliant
     *
@@ -137,7 +137,7 @@ class DeviceDetail extends Entity
     }
     /**
     * Gets the isManaged
-    * Indicates if the device is managed or not.
+    * Indicates whether the device is managed.
     *
     * @return bool|null The isManaged
     */
@@ -152,7 +152,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the isManaged
-    * Indicates if the device is managed or not.
+    * Indicates whether the device is managed.
     *
     * @param bool $val The value of the isManaged
     *
@@ -165,7 +165,7 @@ class DeviceDetail extends Entity
     }
     /**
     * Gets the operatingSystem
-    * Indicates the OS name and version used for signing-in.
+    * Indicates the operating system name and version used for signing in.
     *
     * @return string|null The operatingSystem
     */
@@ -180,7 +180,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the operatingSystem
-    * Indicates the OS name and version used for signing-in.
+    * Indicates the operating system name and version used for signing in.
     *
     * @param string $val The value of the operatingSystem
     *
@@ -193,7 +193,7 @@ class DeviceDetail extends Entity
     }
     /**
     * Gets the trustType
-    * Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+    * Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
     *
     * @return string|null The trustType
     */
@@ -208,7 +208,7 @@ class DeviceDetail extends Entity
 
     /**
     * Sets the trustType
-    * Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+    * Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
     *
     * @param string $val The value of the trustType
     *

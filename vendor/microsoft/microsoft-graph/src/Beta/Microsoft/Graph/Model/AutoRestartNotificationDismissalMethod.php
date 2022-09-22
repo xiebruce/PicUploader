@@ -32,4 +32,5 @@ class AutoRestartNotificationDismissalMethod extends Enum
     const NOT_CONFIGURED = "notConfigured";
     const AUTOMATIC = "automatic";
     const USER = "user";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

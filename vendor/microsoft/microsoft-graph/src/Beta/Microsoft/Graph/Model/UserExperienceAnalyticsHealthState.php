@@ -33,4 +33,5 @@ class UserExperienceAnalyticsHealthState extends Enum
     const INSUFFICIENT_DATA = "insufficientData";
     const NEEDS_ATTENTION = "needsAttention";
     const MEETING_GOALS = "meetingGoals";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

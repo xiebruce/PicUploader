@@ -26,6 +26,7 @@ class ResourceConnection extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the state
+    * The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
     *
     * @return ResourceConnectionState|null The state
     */
@@ -44,6 +45,7 @@ class ResourceConnection extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the state
+    * The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.
     *
     * @param ResourceConnectionState $val The state
     *

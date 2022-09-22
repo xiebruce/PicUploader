@@ -647,6 +647,7 @@ class Team extends Entity
 
      /**
      * Gets the incomingChannels
+    * List of channels shared with the team.
      *
      * @return array|null The incomingChannels
      */
@@ -661,6 +662,7 @@ class Team extends Entity
 
     /**
     * Sets the incomingChannels
+    * List of channels shared with the team.
     *
     * @param Channel[] $val The incomingChannels
     *
@@ -948,6 +950,37 @@ class Team extends Entity
     public function setTemplate($val)
     {
         $this->_propDict["template"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the templateDefinition
+    *
+    * @return TeamTemplateDefinition|null The templateDefinition
+    */
+    public function getTemplateDefinition()
+    {
+        if (array_key_exists("templateDefinition", $this->_propDict)) {
+            if (is_a($this->_propDict["templateDefinition"], "\Beta\Microsoft\Graph\Model\TeamTemplateDefinition") || is_null($this->_propDict["templateDefinition"])) {
+                return $this->_propDict["templateDefinition"];
+            } else {
+                $this->_propDict["templateDefinition"] = new TeamTemplateDefinition($this->_propDict["templateDefinition"]);
+                return $this->_propDict["templateDefinition"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the templateDefinition
+    *
+    * @param TeamTemplateDefinition $val The templateDefinition
+    *
+    * @return Team
+    */
+    public function setTemplateDefinition($val)
+    {
+        $this->_propDict["templateDefinition"] = $val;
         return $this;
     }
 

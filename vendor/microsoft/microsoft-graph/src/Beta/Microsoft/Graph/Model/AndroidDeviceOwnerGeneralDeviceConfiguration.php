@@ -535,6 +535,39 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     }
 
     /**
+    * Gets the deviceOwnerLockScreenMessage
+    * Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
+    *
+    * @return AndroidDeviceOwnerUserFacingMessage|null The deviceOwnerLockScreenMessage
+    */
+    public function getDeviceOwnerLockScreenMessage()
+    {
+        if (array_key_exists("deviceOwnerLockScreenMessage", $this->_propDict)) {
+            if (is_a($this->_propDict["deviceOwnerLockScreenMessage"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerUserFacingMessage") || is_null($this->_propDict["deviceOwnerLockScreenMessage"])) {
+                return $this->_propDict["deviceOwnerLockScreenMessage"];
+            } else {
+                $this->_propDict["deviceOwnerLockScreenMessage"] = new AndroidDeviceOwnerUserFacingMessage($this->_propDict["deviceOwnerLockScreenMessage"]);
+                return $this->_propDict["deviceOwnerLockScreenMessage"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the deviceOwnerLockScreenMessage
+    * Represents the customized lock screen message provided to users when they attempt to modify managed settings on their device.
+    *
+    * @param AndroidDeviceOwnerUserFacingMessage $val The deviceOwnerLockScreenMessage
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setDeviceOwnerLockScreenMessage($val)
+    {
+        $this->_propDict["deviceOwnerLockScreenMessage"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the enrollmentProfile
     * Indicates which enrollment profile you want to configure. Possible values are: notConfigured, dedicatedDevice, fullyManaged.
     *
@@ -3007,6 +3040,35 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function setScreenCaptureBlocked($val)
     {
         $this->_propDict["screenCaptureBlocked"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the securityCommonCriteriaModeEnabled
+    * Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.
+    *
+    * @return bool|null The securityCommonCriteriaModeEnabled
+    */
+    public function getSecurityCommonCriteriaModeEnabled()
+    {
+        if (array_key_exists("securityCommonCriteriaModeEnabled", $this->_propDict)) {
+            return $this->_propDict["securityCommonCriteriaModeEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the securityCommonCriteriaModeEnabled
+    * Represents the security common criteria mode enabled provided to users when they attempt to modify managed settings on their device.
+    *
+    * @param bool $val The securityCommonCriteriaModeEnabled
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setSecurityCommonCriteriaModeEnabled($val)
+    {
+        $this->_propDict["securityCommonCriteriaModeEnabled"] = boolval($val);
         return $this;
     }
 

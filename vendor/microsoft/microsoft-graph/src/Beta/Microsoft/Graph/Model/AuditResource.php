@@ -24,6 +24,34 @@ namespace Beta\Microsoft\Graph\Model;
 class AuditResource extends Entity
 {
     /**
+    * Gets the auditResourceType
+    * Audit resource's type.
+    *
+    * @return string|null The auditResourceType
+    */
+    public function getAuditResourceType()
+    {
+        if (array_key_exists("auditResourceType", $this->_propDict)) {
+            return $this->_propDict["auditResourceType"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the auditResourceType
+    * Audit resource's type.
+    *
+    * @param string $val The value of the auditResourceType
+    *
+    * @return AuditResource
+    */
+    public function setAuditResourceType($val)
+    {
+        $this->_propDict["auditResourceType"] = $val;
+        return $this;
+    }
+    /**
     * Gets the displayName
     * Display name.
     *

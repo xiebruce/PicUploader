@@ -250,7 +250,7 @@ class Photo extends Entity
 
     /**
     * Gets the takenDateTime
-    * The date and time the photo was taken in UTC time. Read-only.
+    * Represents the date and time the photo was taken. Read-only.
     *
     * @return \DateTime|null The takenDateTime
     */
@@ -269,7 +269,7 @@ class Photo extends Entity
 
     /**
     * Sets the takenDateTime
-    * The date and time the photo was taken in UTC time. Read-only.
+    * Represents the date and time the photo was taken. Read-only.
     *
     * @param \DateTime $val The value to assign to the takenDateTime
     *

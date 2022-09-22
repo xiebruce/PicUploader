@@ -58,7 +58,7 @@ class DocumentSetContent extends Entity
     }
     /**
     * Gets the fileName
-    * Name of the file in resource folder that should be added as a default content or a template in the document set
+    * Name of the file in resource folder that should be added as a default content or a template in the document set.
     *
     * @return string|null The fileName
     */
@@ -73,7 +73,7 @@ class DocumentSetContent extends Entity
 
     /**
     * Sets the fileName
-    * Name of the file in resource folder that should be added as a default content or a template in the document set
+    * Name of the file in resource folder that should be added as a default content or a template in the document set.
     *
     * @param string $val The value of the fileName
     *

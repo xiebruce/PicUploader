@@ -81,7 +81,7 @@ class TeamMemberSettings extends Entity
     }
     /**
     * Gets the allowCreateUpdateChannels
-    * If set to true, members can add and update any channels.
+    * If set to true, members can add and update channels.
     *
     * @return bool|null The allowCreateUpdateChannels
     */
@@ -96,7 +96,7 @@ class TeamMemberSettings extends Entity
 
     /**
     * Sets the allowCreateUpdateChannels
-    * If set to true, members can add and update any channels.
+    * If set to true, members can add and update channels.
     *
     * @param bool $val The value of the allowCreateUpdateChannels
     *

@@ -26,7 +26,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 {
     /**
     * Gets the defaultLength
-    * Default length, in characters, of a temporaryAccessPass, between 8 and 48 characters.
+    * Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters.
     *
     * @return int|null The defaultLength
     */
@@ -41,7 +41,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the defaultLength
-    * Default length, in characters, of a temporaryAccessPass, between 8 and 48 characters.
+    * Default length in characters of a Temporary Access Pass object. Must be between 8 and 48 characters.
     *
     * @param int $val The defaultLength
     *
@@ -55,7 +55,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the defaultLifetimeInMinutes
-    * Default lifetime, in minutes, for a temporaryAccessPass. Value can be between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
+    * Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
     *
     * @return int|null The defaultLifetimeInMinutes
     */
@@ -70,7 +70,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the defaultLifetimeInMinutes
-    * Default lifetime, in minutes, for a temporaryAccessPass. Value can be between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
+    * Default lifetime in minutes for a Temporary Access Pass. Value can be any integer between the minimumLifetimeInMinutes and maximumLifetimeInMinutes.
     *
     * @param int $val The defaultLifetimeInMinutes
     *
@@ -84,7 +84,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the isUsableOnce
-    * If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or multiple time use.
+    * If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable.
     *
     * @return bool|null The isUsableOnce
     */
@@ -99,7 +99,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the isUsableOnce
-    * If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or multiple time use.
+    * If true, all the passes in the tenant will be restricted to one-time use. If false, passes in the tenant can be created to be either one-time use or reusable.
     *
     * @param bool $val The isUsableOnce
     *
@@ -113,7 +113,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the maximumLifetimeInMinutes
-    * Maximum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+    * Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @return int|null The maximumLifetimeInMinutes
     */
@@ -128,7 +128,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the maximumLifetimeInMinutes
-    * Maximum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+    * Maximum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @param int $val The maximumLifetimeInMinutes
     *
@@ -142,7 +142,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Gets the minimumLifetimeInMinutes
-    * Minimum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+    * Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @return int|null The minimumLifetimeInMinutes
     */
@@ -157,7 +157,7 @@ class TemporaryAccessPassAuthenticationMethodConfiguration extends Authenticatio
 
     /**
     * Sets the minimumLifetimeInMinutes
-    * Minimum lifetime in minutes for any temporaryAccessPass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
+    * Minimum lifetime in minutes for any Temporary Access Pass created in the tenant. Value can be between 10 and 43200 minutes (equivalent to 30 days).
     *
     * @param int $val The minimumLifetimeInMinutes
     *

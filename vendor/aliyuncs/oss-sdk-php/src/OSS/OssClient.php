@@ -3,6 +3,9 @@ namespace OSS;
 
 use OSS\Core\MimeTypes;
 use OSS\Core\OssException;
+use OSS\Credentials\Credentials;
+use OSS\Credentials\CredentialsProvider;
+use OSS\Credentials\StaticCredentialsProvider;
 use OSS\Http\RequestCore;
 use OSS\Http\RequestCore_Exception;
 use OSS\Http\ResponseCore;
@@ -89,12 +92,25 @@ use OSS\Result\GetBucketCnameTokenResult;
  */
 class OssClient
 {
+
     /**
-     * Constructor
-     *
+     * OssClient constructor.
+     */
+    public function __construct()
+    {
+        $argNum = func_num_args();
+        $args = func_get_args();
+        if($argNum == 1 && is_array($args[0])){
+            call_user_func_array(array($this,'__initNewClient'),$args);
+        }else{
+            call_user_func_array(array($this,'__initClient'),$args);
+        }
+    }
+
+    /**
      * There're a few different ways to create an OssClient object:
      * 1. Most common one from access Id, access Key and the endpoint: $ossClient = new OssClient($id, $key, $endpoint)
-     * 2. If the endpoint is the CName (such as www.testoss.com, make sure it's CName binded in the OSS console), 
+     * 2. If the endpoint is the CName (such as www.testoss.com, make sure it's CName binded in the OSS console),
      *    uses $ossClient = new OssClient($id, $key, $endpoint, true)
      * 3. If using Alicloud's security token service (STS), then the AccessKeyId, AccessKeySecret and STS token are all got from STS.
      * Use this: $ossClient = new OssClient($id, $key, $endpoint, false, $token)
@@ -108,7 +124,7 @@ class OssClient
      * @param string $requestProxy
      * @throws OssException
      */
-    public function __construct($accessKeyId, $accessKeySecret, $endpoint, $isCName = false, $securityToken = NULL, $requestProxy = NULL)
+    private function __initClient($accessKeyId, $accessKeySecret, $endpoint, $isCName = false, $securityToken = NULL, $requestProxy = NULL)
     {
         $accessKeyId = trim($accessKeyId);
         $accessKeySecret = trim($accessKeySecret);
@@ -120,17 +136,36 @@ class OssClient
         if (empty($accessKeySecret)) {
             throw new OssException("access key secret is empty");
         }
+        $provider = new StaticCredentialsProvider($accessKeyId,$accessKeySecret,$securityToken);
+        $config = array(
+            'endpoint'              => $endpoint,
+            'cname'                 => $isCName,
+            'request_proxy'         => $requestProxy,
+            'provider'              => $provider
+        );
+        $this->__initNewClient($config);
+    }
+
+    /**
+     * @param array $config
+     * @throws OssException
+     */
+    private function __initNewClient($config=array()){
+        $isCName = isset($config['cname']) ? $config['cname']: false;
+        $endpoint = isset($config['endpoint']) ? $config['endpoint'] : '';
+        $requestProxy = isset($config['request_proxy']) ? $config['request_proxy']: null;
+        $provider = isset($config['provider']) ? $config['provider'] : '';
         if (empty($endpoint)) {
             throw new OssException("endpoint is empty");
         }
         $this->hostname = $this->checkEndpoint($endpoint, $isCName);
-        $this->accessKeyId = $accessKeyId;
-        $this->accessKeySecret = $accessKeySecret;
-        $this->securityToken = $securityToken;
         $this->requestProxy = $requestProxy;
+        if(!$provider instanceof CredentialsProvider){
+            throw new OssException("provider must be an instance of CredentialsProvider");
+        }
+        $this->provider = $provider;
         self::checkEnv();
     }
-
     /**
      * Lists the Bucket [GetService]. Not applicable if the endpoint is CName (because CName must be binded to a specific bucket).
      *
@@ -877,9 +912,12 @@ class OssClient
         $resource = '/' . $bucket . '/' . $channelName;
 
         $string_to_sign = $expires . "\n" . $cano_params . $resource;
-        $signature = base64_encode(hash_hmac('sha1', $string_to_sign, $this->accessKeySecret, true));
+        $cred = $this->provider->getCredentials();
+        $this->checkCredentials($cred);
 
-        $query_items[] = 'OSSAccessKeyId=' . rawurlencode($this->accessKeyId);
+        $signature = base64_encode(hash_hmac('sha1', $string_to_sign, $cred->getAccessKeySecret(), true));
+
+        $query_items[] = 'OSSAccessKeyId=' . rawurlencode($cred->getAccessKeyId());
         $query_items[] = 'Expires=' . rawurlencode($expires);
         $query_items[] = 'Signature=' . rawurlencode($signature);
 
@@ -912,9 +950,12 @@ class OssClient
         $resource = '/' . $bucket . '/' . $channelName;
 
         $string_to_sign = $expiration . "\n" . $cano_params . $resource;
-        $signature = base64_encode(hash_hmac('sha1', $string_to_sign, $this->accessKeySecret, true));
+        $cred = $this->provider->getCredentials();
+        $this->checkCredentials($cred);
 
-        $query_items[] = 'OSSAccessKeyId=' . rawurlencode($this->accessKeyId);
+        $signature = base64_encode(hash_hmac('sha1', $string_to_sign, $cred->getAccessKeySecret(), true));
+
+        $query_items[] = 'OSSAccessKeyId=' . rawurlencode($cred->getAccessKeyId());
         $query_items[] = 'Expires=' . rawurlencode($expiration);
         $query_items[] = 'Signature=' . rawurlencode($signature);
 
@@ -2967,13 +3008,16 @@ class OssClient
         $this->authPrecheckObjectEncoding($options);
         //Validates ACL
         $this->authPrecheckAcl($options);
+        $cred = $this->provider->getCredentials();
+        $this->checkCredentials($cred);
+
         // Should https or http be used?
         $scheme = $this->useSSL ? 'https://' : 'http://';
         // gets the host name. If the host name is public domain or private domain, form a third level domain by prefixing the bucket name on the domain name.
         $hostname = $this->generateHostname($options[self::OSS_BUCKET]);
         $string_to_sign = '';
-        $headers = $this->generateHeaders($options, $hostname);
-        $signable_query_string_params = $this->generateSignableQueryStringParam($options);
+        $headers = $this->generateHeaders($options, $hostname,$cred);
+        $signable_query_string_params = $this->generateSignableQueryStringParam($options,$cred);
         $signable_query_string = OssUtil::toQueryString($signable_query_string_params);
         $resource_uri = $this->generateResourceUri($options);
         //Generates the URL (add query parameters)
@@ -3086,12 +3130,11 @@ class OssClient
         // Sort the strings to be signed.
         $string_to_sign_ordered .= $this->stringToSignSorted($signable_resource);
 
-
-        $signature = base64_encode(hash_hmac('sha1', $string_to_sign_ordered, $this->accessKeySecret, true));
-        $request->add_header('Authorization', 'OSS ' . $this->accessKeyId . ':' . $signature);
+        $signature = base64_encode(hash_hmac('sha1', $string_to_sign_ordered,$cred->getAccessKeySecret(), true));
+        $request->add_header('Authorization', 'OSS ' . $cred->getAccessKeyId() . ':' . $signature);
 
         if (isset($options[self::OSS_PREAUTH]) && (integer)$options[self::OSS_PREAUTH] > 0) {
-            $signed_url = $requestUrl . $conjunction . self::OSS_URL_ACCESS_KEY_ID . '=' . rawurlencode($this->accessKeyId) . '&' . self::OSS_URL_EXPIRES . '=' . $options[self::OSS_PREAUTH] . '&' . self::OSS_URL_SIGNATURE . '=' . rawurlencode($signature);
+            $signed_url = $requestUrl . $conjunction . self::OSS_URL_ACCESS_KEY_ID . '=' . rawurlencode($cred->getAccessKeyId()) . '&' . self::OSS_URL_EXPIRES . '=' . $options[self::OSS_PREAUTH] . '&' . self::OSS_URL_SIGNATURE . '=' . rawurlencode($signature);
             return $signed_url;
         } elseif (isset($options[self::OSS_PREAUTH])) {
             return $requestUrl;
@@ -3301,9 +3344,10 @@ class OssClient
      * Generates the signalbe query string parameters in array type
      *
      * @param array $options
+     * @param Credentials $cred
      * @return array
      */
-    private function generateSignableQueryStringParam($options)
+    private function generateSignableQueryStringParam($options,$cred)
     {
         $signableQueryStringParams = array();
         $signableList = array(
@@ -3337,8 +3381,8 @@ class OssClient
             }
         }
 
-        if ($this->enableStsInUrl && (!is_null($this->securityToken))) {
-            $signableQueryStringParams["security-token"] = $this->securityToken;
+        if ($this->enableStsInUrl && (!empty($cred->getSecurityToken()))) {
+            $signableQueryStringParams["security-token"] = $cred->getSecurityToken();
         }
 
         return $signableQueryStringParams;
@@ -3420,9 +3464,10 @@ class OssClient
      *
      * @param mixed $options
      * @param string $hostname hostname
+     * @param Credentials $cred
      * @return array
      */
-    private function generateHeaders($options, $hostname)
+    private function generateHeaders($options, $hostname,$cred)
     {
         $headers = array(
             self::OSS_CONTENT_MD5 => '',
@@ -3435,8 +3480,8 @@ class OssClient
         }
 
         //Add stsSecurityToken
-        if ((!is_null($this->securityToken)) && (!$this->enableStsInUrl)) {
-            $headers[self::OSS_SECURITY_TOKEN] = $this->securityToken;
+        if ((!empty($cred->getSecurityToken())) && (!$this->enableStsInUrl)) {
+            $headers[self::OSS_SECURITY_TOKEN] = $cred->getSecurityToken();
         }
         //Merge HTTP headers
         if (isset($options[self::OSS_HEADERS])) {
@@ -3485,6 +3530,23 @@ class OssClient
             $this->hostType = self::OSS_HOST_TYPE_NORMAL;
         }
         return $ret_endpoint;
+    }
+
+    /**
+     * @param Credentials $credential
+     * @return OssException
+     */
+    private function checkCredentials($credential)
+    {
+        if (empty($credential)) {
+            throw new OssException("credentials is empty.");
+        }
+        if (empty($credential->getAccessKeyId())) {
+            throw new OssException("access key id is empty");
+        }
+        if (empty($credential->getAccessKeySecret())) {
+            throw new OssException("access key secret is empty");
+        }
     }
 
     /**
@@ -3664,8 +3726,8 @@ class OssClient
     );
     // OssClient version information
     const OSS_NAME = "aliyun-sdk-php";
-    const OSS_VERSION = "2.5.0";
-    const OSS_BUILD = "20220513";
+    const OSS_VERSION = "2.6.0";
+    const OSS_BUILD = "20220803";
     const OSS_AUTHOR = "";
     const OSS_OPTIONS_ORIGIN = 'Origin';
     const OSS_OPTIONS_REQUEST_METHOD = 'Access-Control-Request-Method';
@@ -3679,10 +3741,11 @@ class OssClient
     // user's domain type. It could be one of the four: OSS_HOST_TYPE_NORMAL, OSS_HOST_TYPE_IP, OSS_HOST_TYPE_SPECIAL, OSS_HOST_TYPE_CNAME
     private $hostType = self::OSS_HOST_TYPE_NORMAL;
     private $requestProxy = null;
-    private $accessKeyId;
-    private $accessKeySecret;
+    /**
+     * @var CredentialsProvider
+     */
+    private $provider;
     private $hostname;
-    private $securityToken;
     private $enableStsInUrl = false;
     private $timeout = 0;
     private $connectTimeout = 0;

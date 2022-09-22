@@ -6,6 +6,7 @@ use Qiniu\Config;
 use Qiniu\Http\Client;
 use Qiniu\Http\Error;
 use Qiniu\Enum\SplitUploadVersion;
+use Qiniu\Http\RequestOptions;
 
 /**
  * 断点续上传类, 该类主要实现了断点续上传中的分块上传,
@@ -31,6 +32,10 @@ final class ResumeUploader
     private $resumeRecordFile;
     private $version;
     private $partSize;
+    /**
+     * @var RequestOptions
+     */
+    private $reqOpt;
 
     /**
      * 上传二进制流到七牛
@@ -44,9 +49,11 @@ final class ResumeUploader
      * @param Config $config
      * @param string $resumeRecordFile 断点续传的已上传的部分信息记录文件
      * @param string $version 分片上传版本 目前支持v1/v2版本 默认v1
-     * @param string $partSize 分片上传v2字段 默认大小为4MB 分片大小范围为1 MB - 1 GB
-     *
+     * @param int $partSize 分片上传v2字段 默认大小为4MB 分片大小范围为1 MB - 1 GB
+     * @param RequestOptions $reqOpt 分片上传v2字段 默认大小为4MB 分片大小范围为1 MB - 1 GB
      * @link http://developer.qiniu.com/docs/v6/api/overview/up/response/vars.html#xvar
+     *
+     * @throws \Exception
      */
     public function __construct(
         $upToken,
@@ -58,7 +65,8 @@ final class ResumeUploader
         $config,
         $resumeRecordFile = null,
         $version = 'v1',
-        $partSize = config::BLOCK_SIZE
+        $partSize = config::BLOCK_SIZE,
+        $reqOpt = null
     ) {
 
         $this->upToken = $upToken;
@@ -68,10 +76,15 @@ final class ResumeUploader
         $this->params = $params;
         $this->mime = $mime;
         $this->contexts = array();
-        $this->finishedEtags = array("etags"=>array(), "uploadId"=>"", "expiredAt"=>0, "uploaded"=>0);
+        $this->finishedEtags = array("etags" => array(), "uploadId" => "", "expiredAt" => 0, "uploaded" => 0);
         $this->config = $config;
         $this->resumeRecordFile = $resumeRecordFile ? $resumeRecordFile : null;
         $this->partSize = $partSize ? $partSize : config::BLOCK_SIZE;
+
+        if ($reqOpt === null) {
+            $reqOpt = new RequestOptions();
+        }
+        $this->reqOpt = $reqOpt;
 
         try {
             $this->version = SplitUploadVersion::from($version ? $version : 'v1');
@@ -85,7 +98,7 @@ final class ResumeUploader
             return array(null, $err);
         }
 
-        $upHost = $config->getUpHost($accessKey, $bucket);
+        list($upHost, $err) = $config->getUpHostV2($accessKey, $bucket);
         if ($err != null) {
             throw new \Exception($err->message(), 1);
         }
@@ -100,7 +113,7 @@ final class ResumeUploader
         $uploaded = 0;
         if ($this->version == SplitUploadVersion::V2) {
             $partNumber = 1;
-            $encodedObjectName = $this->key? \Qiniu\base64_urlSafeEncode($this->key) : '~';
+            $encodedObjectName = $this->key ? \Qiniu\base64_urlSafeEncode($this->key) : '~';
         };
         // get upload record from resumeRecordFile
         if ($this->resumeRecordFile != null) {
@@ -197,7 +210,10 @@ final class ResumeUploader
                 if ($err != null) {
                     return array(null, $err);
                 }
-                $upHostBackup = $this->config->getUpBackupHost($accessKey, $bucket);
+                list($upHostBackup, $err) = $this->config->getUpBackupHostV2($accessKey, $bucket);
+                if ($err != null) {
+                    return array(null, $err);
+                }
                 $this->host = $upHostBackup;
             }
 
@@ -316,7 +332,7 @@ final class ResumeUploader
     {
         $this->currentUrl = $url;
         $headers = array('Authorization' => 'UpToken ' . $this->upToken);
-        return Client::post($url, $data, $headers);
+        return Client::post($url, $data, $headers, $this->reqOpt);
     }
 
     private function blockSize($uploaded)
@@ -339,7 +355,7 @@ final class ResumeUploader
      */
     private function initReq($encodedObjectName)
     {
-        $url = $this->host.'/buckets/'.$this->bucket.'/objects/'.$encodedObjectName.'/uploads';
+        $url = $this->host . '/buckets/' . $this->bucket . '/objects/' . $encodedObjectName . '/uploads';
         $headers = array(
             'Authorization' => 'UpToken ' . $this->upToken,
             'Content-Type' => 'application/json'
@@ -358,8 +374,8 @@ final class ResumeUploader
             'Content-Type' => 'application/octet-stream',
             'Content-MD5' => $md5
         );
-        $url = $this->host.'/buckets/'.$this->bucket.'/objects/'.$encodedObjectName.
-            '/uploads/'.$uploadId.'/'.$partNumber;
+        $url = $this->host . '/buckets/' . $this->bucket . '/objects/' . $encodedObjectName .
+            '/uploads/' . $uploadId . '/' . $partNumber;
         $response = $this->put($url, $block, $headers);
         return $response;
     }
@@ -367,7 +383,7 @@ final class ResumeUploader
     private function completeParts($fname, $uploadId, $encodedObjectName)
     {
         $headers = array(
-            'Authorization' => 'UpToken '.$this->upToken,
+            'Authorization' => 'UpToken ' . $this->upToken,
             'Content-Type' => 'application/json'
         );
         $etags = $this->finishedEtags['etags'];
@@ -397,7 +413,7 @@ final class ResumeUploader
             'parts' => $sortedEtags
         );
         $jsonBody = json_encode($body);
-        $url = $this->host.'/buckets/'.$this->bucket.'/objects/'.$encodedObjectName.'/uploads/'.$uploadId;
+        $url = $this->host . '/buckets/' . $this->bucket . '/objects/' . $encodedObjectName . '/uploads/' . $uploadId;
         $response = $this->postWithHeaders($url, $jsonBody, $headers);
         if ($response->needRetry()) {
             $response = $this->postWithHeaders($url, $jsonBody, $headers);
@@ -411,12 +427,12 @@ final class ResumeUploader
     private function put($url, $data, $headers)
     {
         $this->currentUrl = $url;
-        return Client::put($url, $data, $headers);
+        return Client::put($url, $data, $headers, $this->reqOpt);
     }
 
     private function postWithHeaders($url, $data, $headers)
     {
         $this->currentUrl = $url;
-        return Client::post($url, $data, $headers);
+        return Client::post($url, $data, $headers, $this->reqOpt);
     }
 }

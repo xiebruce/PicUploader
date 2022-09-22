@@ -26,6 +26,7 @@ class AttachmentBase extends Entity
 {
     /**
     * Gets the contentType
+    * The MIME type.
     *
     * @return string|null The contentType
     */
@@ -40,6 +41,7 @@ class AttachmentBase extends Entity
 
     /**
     * Sets the contentType
+    * The MIME type.
     *
     * @param string $val The contentType
     *
@@ -53,6 +55,7 @@ class AttachmentBase extends Entity
 
     /**
     * Gets the lastModifiedDateTime
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
@@ -71,6 +74,7 @@ class AttachmentBase extends Entity
 
     /**
     * Sets the lastModifiedDateTime
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -84,6 +88,7 @@ class AttachmentBase extends Entity
 
     /**
     * Gets the name
+    * The display name of the attachment. This does not need to be the actual file name.
     *
     * @return string|null The name
     */
@@ -98,6 +103,7 @@ class AttachmentBase extends Entity
 
     /**
     * Sets the name
+    * The display name of the attachment. This does not need to be the actual file name.
     *
     * @param string $val The name
     *
@@ -111,6 +117,7 @@ class AttachmentBase extends Entity
 
     /**
     * Gets the size
+    * The length of the attachment in bytes.
     *
     * @return int|null The size
     */
@@ -125,6 +132,7 @@ class AttachmentBase extends Entity
 
     /**
     * Sets the size
+    * The length of the attachment in bytes.
     *
     * @param int $val The size
     *

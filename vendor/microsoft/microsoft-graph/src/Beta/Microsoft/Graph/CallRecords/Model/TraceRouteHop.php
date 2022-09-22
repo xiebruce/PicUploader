@@ -25,7 +25,7 @@ class TraceRouteHop extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the hopCount
-    * The network path count of this hop that was used to compute the RTT.
+    * The network path count of this hop that was used to compute the round-trip time.
     *
     * @return int|null The hopCount
     */
@@ -40,7 +40,7 @@ class TraceRouteHop extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the hopCount
-    * The network path count of this hop that was used to compute the RTT.
+    * The network path count of this hop that was used to compute the round-trip time.
     *
     * @param int $val The value of the hopCount
     *

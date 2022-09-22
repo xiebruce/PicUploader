@@ -26,6 +26,7 @@ class DriveItemVersion extends BaseItemVersion
 {
     /**
     * Gets the content
+    * The content stream for this version of the item.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The content
     */
@@ -44,6 +45,7 @@ class DriveItemVersion extends BaseItemVersion
 
     /**
     * Sets the content
+    * The content stream for this version of the item.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The content
     *

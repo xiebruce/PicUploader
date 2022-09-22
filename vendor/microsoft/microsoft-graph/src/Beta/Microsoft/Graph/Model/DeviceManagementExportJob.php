@@ -88,7 +88,7 @@ class DeviceManagementExportJob extends Entity
 
     /**
     * Gets the format
-    * Format of the exported report. Possible values are: csv, pdf.
+    * Format of the exported report. Possible values are: csv, pdf, json, unknownFutureValue.
     *
     * @return DeviceManagementReportFileFormat|null The format
     */
@@ -107,7 +107,7 @@ class DeviceManagementExportJob extends Entity
 
     /**
     * Sets the format
-    * Format of the exported report. Possible values are: csv, pdf.
+    * Format of the exported report. Possible values are: csv, pdf, json, unknownFutureValue.
     *
     * @param DeviceManagementReportFileFormat $val The format
     *

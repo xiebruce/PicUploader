@@ -25,7 +25,7 @@ class BroadcastMeetingCaptionSettings extends Entity
 {
     /**
     * Gets the isCaptionEnabled
-    * Indicates whether caption is enabled for this Teams live event.
+    * Indicates whether captions are enabled for this Teams live event.
     *
     * @return bool|null The isCaptionEnabled
     */
@@ -40,7 +40,7 @@ class BroadcastMeetingCaptionSettings extends Entity
 
     /**
     * Sets the isCaptionEnabled
-    * Indicates whether caption is enabled for this Teams live event.
+    * Indicates whether captions are enabled for this Teams live event.
     *
     * @param bool $val The value of the isCaptionEnabled
     *

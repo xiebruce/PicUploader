@@ -59,7 +59,7 @@ class TeamworkHostedContent extends Entity
 
     /**
     * Gets the contentType
-    * Write only. Content type, such as image/png, image/jpg.
+    * Write only. Content type. sicj as image/png, image/jpg.
     *
     * @return string|null The contentType
     */
@@ -74,7 +74,7 @@ class TeamworkHostedContent extends Entity
 
     /**
     * Sets the contentType
-    * Write only. Content type, such as image/png, image/jpg.
+    * Write only. Content type. sicj as image/png, image/jpg.
     *
     * @param string $val The contentType
     *

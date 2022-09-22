@@ -55,6 +55,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the anonymousJoinWebUrl
+    * Url of meeting to join anonymously.
     *
     * @return string|null The anonymousJoinWebUrl
     */
@@ -69,6 +70,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the anonymousJoinWebUrl
+    * Url of meeting to join anonymously.
     *
     * @param string $val The anonymousJoinWebUrl
     *

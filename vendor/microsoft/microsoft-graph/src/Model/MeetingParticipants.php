@@ -26,7 +26,6 @@ class MeetingParticipants extends Entity
 
     /**
     * Gets the attendees
-    * Information of the meeting attendees.
     *
     * @return MeetingParticipantInfo|null The attendees
     */
@@ -45,7 +44,6 @@ class MeetingParticipants extends Entity
 
     /**
     * Sets the attendees
-    * Information of the meeting attendees.
     *
     * @param MeetingParticipantInfo $val The value to assign to the attendees
     *
@@ -59,7 +57,6 @@ class MeetingParticipants extends Entity
 
     /**
     * Gets the organizer
-    * Information of the meeting organizer.
     *
     * @return MeetingParticipantInfo|null The organizer
     */
@@ -78,7 +75,6 @@ class MeetingParticipants extends Entity
 
     /**
     * Sets the organizer
-    * Information of the meeting organizer.
     *
     * @param MeetingParticipantInfo $val The value to assign to the organizer
     *

@@ -26,7 +26,7 @@ class TimeConstraint extends Entity
 
     /**
     * Gets the activityDomain
-    * The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+    * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
     *
     * @return ActivityDomain|null The activityDomain
     */
@@ -45,7 +45,7 @@ class TimeConstraint extends Entity
 
     /**
     * Sets the activityDomain
-    * The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+    * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
     *
     * @param ActivityDomain $val The value to assign to the activityDomain
     *

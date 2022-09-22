@@ -51,6 +51,37 @@ class ConditionalAccessUsers extends Entity
         $this->_propDict["excludeGroups"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the excludeGuestsOrExternalUsers
+    *
+    * @return ConditionalAccessGuestsOrExternalUsers|null The excludeGuestsOrExternalUsers
+    */
+    public function getExcludeGuestsOrExternalUsers()
+    {
+        if (array_key_exists("excludeGuestsOrExternalUsers", $this->_propDict)) {
+            if (is_a($this->_propDict["excludeGuestsOrExternalUsers"], "\Beta\Microsoft\Graph\Model\ConditionalAccessGuestsOrExternalUsers") || is_null($this->_propDict["excludeGuestsOrExternalUsers"])) {
+                return $this->_propDict["excludeGuestsOrExternalUsers"];
+            } else {
+                $this->_propDict["excludeGuestsOrExternalUsers"] = new ConditionalAccessGuestsOrExternalUsers($this->_propDict["excludeGuestsOrExternalUsers"]);
+                return $this->_propDict["excludeGuestsOrExternalUsers"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the excludeGuestsOrExternalUsers
+    *
+    * @param ConditionalAccessGuestsOrExternalUsers $val The value to assign to the excludeGuestsOrExternalUsers
+    *
+    * @return ConditionalAccessUsers The ConditionalAccessUsers
+    */
+    public function setExcludeGuestsOrExternalUsers($val)
+    {
+        $this->_propDict["excludeGuestsOrExternalUsers"] = $val;
+         return $this;
+    }
     /**
     * Gets the excludeRoles
     * Role IDs excluded from scope of policy.
@@ -134,6 +165,37 @@ class ConditionalAccessUsers extends Entity
     {
         $this->_propDict["includeGroups"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the includeGuestsOrExternalUsers
+    *
+    * @return ConditionalAccessGuestsOrExternalUsers|null The includeGuestsOrExternalUsers
+    */
+    public function getIncludeGuestsOrExternalUsers()
+    {
+        if (array_key_exists("includeGuestsOrExternalUsers", $this->_propDict)) {
+            if (is_a($this->_propDict["includeGuestsOrExternalUsers"], "\Beta\Microsoft\Graph\Model\ConditionalAccessGuestsOrExternalUsers") || is_null($this->_propDict["includeGuestsOrExternalUsers"])) {
+                return $this->_propDict["includeGuestsOrExternalUsers"];
+            } else {
+                $this->_propDict["includeGuestsOrExternalUsers"] = new ConditionalAccessGuestsOrExternalUsers($this->_propDict["includeGuestsOrExternalUsers"]);
+                return $this->_propDict["includeGuestsOrExternalUsers"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the includeGuestsOrExternalUsers
+    *
+    * @param ConditionalAccessGuestsOrExternalUsers $val The value to assign to the includeGuestsOrExternalUsers
+    *
+    * @return ConditionalAccessUsers The ConditionalAccessUsers
+    */
+    public function setIncludeGuestsOrExternalUsers($val)
+    {
+        $this->_propDict["includeGuestsOrExternalUsers"] = $val;
+         return $this;
     }
     /**
     * Gets the includeRoles

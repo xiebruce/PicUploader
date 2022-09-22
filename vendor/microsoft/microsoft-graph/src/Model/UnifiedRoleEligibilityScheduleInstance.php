@@ -26,7 +26,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 {
     /**
     * Gets the endDateTime
-    * Time that the roleEligibilityScheduleInstance will expire.
+    * The end date of the schedule instance.
     *
     * @return \DateTime|null The endDateTime
     */
@@ -45,7 +45,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Sets the endDateTime
-    * Time that the roleEligibilityScheduleInstance will expire.
+    * The end date of the schedule instance.
     *
     * @param \DateTime $val The endDateTime
     *
@@ -59,7 +59,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Gets the memberType
-    * Membership type of the assignment. It can either be Inherited, Direct, or Group.
+    * How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
     *
     * @return string|null The memberType
     */
@@ -74,7 +74,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Sets the memberType
-    * Membership type of the assignment. It can either be Inherited, Direct, or Group.
+    * How the role eligibility is inherited. It can either be Inherited, Direct, or Group. It can further imply whether the unifiedRoleEligibilitySchedule can be managed by the caller. Supports $filter (eq, ne).
     *
     * @param string $val The memberType
     *
@@ -88,7 +88,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Gets the roleEligibilityScheduleId
-    * Identifier of the parent roleEligibilitySchedule for this instance.
+    * The identifier of the unifiedRoleEligibilitySchedule object from which this instance was created. Supports $filter (eq, ne).
     *
     * @return string|null The roleEligibilityScheduleId
     */
@@ -103,7 +103,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Sets the roleEligibilityScheduleId
-    * Identifier of the parent roleEligibilitySchedule for this instance.
+    * The identifier of the unifiedRoleEligibilitySchedule object from which this instance was created. Supports $filter (eq, ne).
     *
     * @param string $val The roleEligibilityScheduleId
     *
@@ -117,7 +117,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Gets the startDateTime
-    * Time that the roleEligibilityScheduleInstance will start.
+    * When this instance starts.
     *
     * @return \DateTime|null The startDateTime
     */
@@ -136,7 +136,7 @@ class UnifiedRoleEligibilityScheduleInstance extends UnifiedRoleScheduleInstance
 
     /**
     * Sets the startDateTime
-    * Time that the roleEligibilityScheduleInstance will start.
+    * When this instance starts.
     *
     * @param \DateTime $val The startDateTime
     *

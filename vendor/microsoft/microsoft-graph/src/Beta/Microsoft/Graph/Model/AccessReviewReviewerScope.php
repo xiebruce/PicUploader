@@ -25,7 +25,7 @@ class AccessReviewReviewerScope extends AccessReviewScope
 {
     /**
     * Gets the query
-    * The query specifying who will be the reviewer. See table for examples.
+    * The query specifying who will be the reviewer.
     *
     * @return string|null The query
     */
@@ -40,7 +40,7 @@ class AccessReviewReviewerScope extends AccessReviewScope
 
     /**
     * Sets the query
-    * The query specifying who will be the reviewer. See table for examples.
+    * The query specifying who will be the reviewer.
     *
     * @param string $val The value of the query
     *

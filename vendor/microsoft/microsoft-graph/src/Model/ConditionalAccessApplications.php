@@ -25,7 +25,7 @@ class ConditionalAccessApplications extends Entity
 {
     /**
     * Gets the excludeApplications
-    * The list of application IDs explicitly excluded from the policy.
+    * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
     *
     * @return string|null The excludeApplications
     */
@@ -40,7 +40,7 @@ class ConditionalAccessApplications extends Entity
 
     /**
     * Sets the excludeApplications
-    * The list of application IDs explicitly excluded from the policy.
+    * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
     *
     * @param string $val The value of the excludeApplications
     *
@@ -53,7 +53,7 @@ class ConditionalAccessApplications extends Entity
     }
     /**
     * Gets the includeApplications
-    * The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
+    * Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
     *
     * @return string|null The includeApplications
     */
@@ -68,7 +68,7 @@ class ConditionalAccessApplications extends Entity
 
     /**
     * Sets the includeApplications
-    * The list of application IDs the policy applies to, unless explicitly excluded (in excludeApplications). Can also be set to All.
+    * Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
     *
     * @param string $val The value of the includeApplications
     *
@@ -81,7 +81,6 @@ class ConditionalAccessApplications extends Entity
     }
     /**
     * Gets the includeAuthenticationContextClassReferences
-    * Authentication context class references include. Supported values are c1 through c25.
     *
     * @return string|null The includeAuthenticationContextClassReferences
     */
@@ -96,7 +95,6 @@ class ConditionalAccessApplications extends Entity
 
     /**
     * Sets the includeAuthenticationContextClassReferences
-    * Authentication context class references include. Supported values are c1 through c25.
     *
     * @param string $val The value of the includeAuthenticationContextClassReferences
     *

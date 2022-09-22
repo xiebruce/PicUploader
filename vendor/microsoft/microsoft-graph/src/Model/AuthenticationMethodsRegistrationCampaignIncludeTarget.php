@@ -25,7 +25,7 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget extends Entity
 {
     /**
     * Gets the id
-    * The object identifier of an Azure AD user or group.
+    * The object identifier of an Azure Active Directory user or group.
     *
     * @return string|null The id
     */
@@ -40,7 +40,7 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget extends Entity
 
     /**
     * Sets the id
-    * The object identifier of an Azure AD user or group.
+    * The object identifier of an Azure Active Directory user or group.
     *
     * @param string $val The value of the id
     *

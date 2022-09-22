@@ -120,7 +120,7 @@ class KeyCredential extends Entity
 
     /**
     * Gets the key
-    * Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+    * The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The key
     */
@@ -139,7 +139,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the key
-    * Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+    * The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the key
     *
@@ -152,7 +152,7 @@ class KeyCredential extends Entity
     }
     /**
     * Gets the keyId
-    * The unique identifier for the key.
+    * The unique identifier (GUID) for the key.
     *
     * @return string|null The keyId
     */
@@ -167,7 +167,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the keyId
-    * The unique identifier for the key.
+    * The unique identifier (GUID) for the key.
     *
     * @param string $val The value of the keyId
     *

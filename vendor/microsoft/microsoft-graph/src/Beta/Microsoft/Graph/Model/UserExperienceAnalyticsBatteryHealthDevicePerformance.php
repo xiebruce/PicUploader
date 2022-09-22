@@ -171,7 +171,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity
 
     /**
     * Gets the healthStatus
-    * The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    * The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals, unknownFutureValue.
     *
     * @return UserExperienceAnalyticsHealthState|null The healthStatus
     */
@@ -190,7 +190,7 @@ class UserExperienceAnalyticsBatteryHealthDevicePerformance extends Entity
 
     /**
     * Sets the healthStatus
-    * The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals.
+    * The overall battery health status of the device. Possible values are: unknown, insufficientData, needsAttention, meetingGoals, unknownFutureValue.
     *
     * @param UserExperienceAnalyticsHealthState $val The healthStatus
     *

@@ -27,7 +27,6 @@ class WorkbookTableSort extends Entity
 
      /**
      * Gets the fields
-    * Represents the current conditions used to last sort the table. Read-only.
      *
      * @return array|null The fields
      */
@@ -42,7 +41,6 @@ class WorkbookTableSort extends Entity
 
     /**
     * Sets the fields
-    * Represents the current conditions used to last sort the table. Read-only.
     *
     * @param WorkbookSortField[] $val The fields
     *

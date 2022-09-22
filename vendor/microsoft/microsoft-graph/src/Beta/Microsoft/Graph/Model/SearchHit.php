@@ -53,7 +53,7 @@ class SearchHit extends Entity
     }
     /**
     * Gets the hitId
-    * The internal identifier for the item.
+    * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
     *
     * @return string|null The hitId
     */
@@ -68,7 +68,7 @@ class SearchHit extends Entity
 
     /**
     * Sets the hitId
-    * The internal identifier for the item.
+    * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
     *
     * @param string $val The value of the hitId
     *

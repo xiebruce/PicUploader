@@ -26,7 +26,7 @@ class InferenceClassificationOverride extends Entity
 {
     /**
     * Gets the classifyAs
-    * Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+    * Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
     *
     * @return InferenceClassificationType|null The classifyAs
     */
@@ -45,7 +45,7 @@ class InferenceClassificationOverride extends Entity
 
     /**
     * Sets the classifyAs
-    * Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+    * Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
     *
     * @param InferenceClassificationType $val The classifyAs
     *

@@ -26,7 +26,7 @@ class TeamworkApplicationIdentity extends Identity
 
     /**
     * Gets the applicationIdentityType
-    * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.
+    * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
     *
     * @return TeamworkApplicationIdentityType|null The applicationIdentityType
     */
@@ -45,7 +45,7 @@ class TeamworkApplicationIdentity extends Identity
 
     /**
     * Sets the applicationIdentityType
-    * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, and outgoingWebhook.
+    * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
     *
     * @param TeamworkApplicationIdentityType $val The value to assign to the applicationIdentityType
     *

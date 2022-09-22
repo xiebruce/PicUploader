@@ -80,6 +80,34 @@ class CloudPcReviewStatus extends Entity
         return $this;
     }
     /**
+    * Gets the azureStorageContainerName
+    * The name of the container in an Azure Storage account in which the Cloud PC snapshot is being saved.
+    *
+    * @return string|null The azureStorageContainerName
+    */
+    public function getAzureStorageContainerName()
+    {
+        if (array_key_exists("azureStorageContainerName", $this->_propDict)) {
+            return $this->_propDict["azureStorageContainerName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the azureStorageContainerName
+    * The name of the container in an Azure Storage account in which the Cloud PC snapshot is being saved.
+    *
+    * @param string $val The value of the azureStorageContainerName
+    *
+    * @return CloudPcReviewStatus
+    */
+    public function setAzureStorageContainerName($val)
+    {
+        $this->_propDict["azureStorageContainerName"] = $val;
+        return $this;
+    }
+    /**
     * Gets the inReview
     * True if the Cloud PC is set to in review by the administrator.
     *

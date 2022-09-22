@@ -26,7 +26,7 @@ class CountryNamedLocation extends NamedLocation
 {
     /**
     * Gets the countriesAndRegions
-    * List of countries and/or regions in two-letter format specified by ISO 3166-2.
+    * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
     *
     * @return string|null The countriesAndRegions
     */
@@ -41,7 +41,7 @@ class CountryNamedLocation extends NamedLocation
 
     /**
     * Sets the countriesAndRegions
-    * List of countries and/or regions in two-letter format specified by ISO 3166-2.
+    * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
     *
     * @param string $val The countriesAndRegions
     *
@@ -55,7 +55,7 @@ class CountryNamedLocation extends NamedLocation
 
     /**
     * Gets the countryLookupMethod
-    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.
+    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.
     *
     * @return CountryLookupMethodType|null The countryLookupMethod
     */
@@ -74,7 +74,7 @@ class CountryNamedLocation extends NamedLocation
 
     /**
     * Sets the countryLookupMethod
-    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress (default) and authenticatorAppGps.
+    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.
     *
     * @param CountryLookupMethodType $val The countryLookupMethod
     *

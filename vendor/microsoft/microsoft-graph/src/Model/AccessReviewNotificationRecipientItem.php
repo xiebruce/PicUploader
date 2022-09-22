@@ -58,7 +58,7 @@ class AccessReviewNotificationRecipientItem extends Entity
     }
     /**
     * Gets the notificationTemplateType
-    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
     *
     * @return string|null The notificationTemplateType
     */
@@ -73,7 +73,7 @@ class AccessReviewNotificationRecipientItem extends Entity
 
     /**
     * Sets the notificationTemplateType
-    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
     *
     * @param string $val The value of the notificationTemplateType
     *

@@ -342,7 +342,6 @@ class Site extends BaseItem
 
      /**
      * Gets the externalColumns
-    * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
      *
      * @return array|null The externalColumns
      */
@@ -357,7 +356,6 @@ class Site extends BaseItem
 
     /**
     * Sets the externalColumns
-    * The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
     *
     * @param ColumnDefinition[] $val The externalColumns
     *
@@ -372,7 +370,7 @@ class Site extends BaseItem
 
      /**
      * Gets the items
-    * Used to address any item contained in this site. This collection cannot be enumerated.
+    * Used to address any item contained in this site. This collection can't be enumerated.
      *
      * @return array|null The items
      */
@@ -387,7 +385,7 @@ class Site extends BaseItem
 
     /**
     * Sets the items
-    * Used to address any item contained in this site. This collection cannot be enumerated.
+    * Used to address any item contained in this site. This collection can't be enumerated.
     *
     * @param BaseItem[] $val The items
     *
@@ -432,7 +430,7 @@ class Site extends BaseItem
 
      /**
      * Gets the operations
-    * The collection of long running operations for the site.
+    * The collection of long-running operations on the site.
      *
      * @return array|null The operations
      */
@@ -447,7 +445,7 @@ class Site extends BaseItem
 
     /**
     * Sets the operations
-    * The collection of long running operations for the site.
+    * The collection of long-running operations on the site.
     *
     * @param RichLongRunningOperation[] $val The operations
     *
@@ -521,7 +519,7 @@ class Site extends BaseItem
 
     /**
     * Gets the termStore
-    * The termStore under this site.
+    * The default termStore under this site.
     *
     * @return \Microsoft\Graph\TermStore\Model\Store|null The termStore
     */
@@ -540,7 +538,7 @@ class Site extends BaseItem
 
     /**
     * Sets the termStore
-    * The termStore under this site.
+    * The default termStore under this site.
     *
     * @param \Microsoft\Graph\TermStore\Model\Store $val The termStore
     *

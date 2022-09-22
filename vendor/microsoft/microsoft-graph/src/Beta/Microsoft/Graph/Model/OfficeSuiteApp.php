@@ -214,6 +214,39 @@ class OfficeSuiteApp extends MobileApp
         return $this;
     }
 
+    /**
+    * Gets the officeSuiteAppDefaultFileFormat
+    * The property to represent the Office365 default file format type. Possible values are: notConfigured, officeOpenXMLFormat, officeOpenDocumentFormat, unknownFutureValue.
+    *
+    * @return OfficeSuiteDefaultFileFormatType|null The officeSuiteAppDefaultFileFormat
+    */
+    public function getOfficeSuiteAppDefaultFileFormat()
+    {
+        if (array_key_exists("officeSuiteAppDefaultFileFormat", $this->_propDict)) {
+            if (is_a($this->_propDict["officeSuiteAppDefaultFileFormat"], "\Beta\Microsoft\Graph\Model\OfficeSuiteDefaultFileFormatType") || is_null($this->_propDict["officeSuiteAppDefaultFileFormat"])) {
+                return $this->_propDict["officeSuiteAppDefaultFileFormat"];
+            } else {
+                $this->_propDict["officeSuiteAppDefaultFileFormat"] = new OfficeSuiteDefaultFileFormatType($this->_propDict["officeSuiteAppDefaultFileFormat"]);
+                return $this->_propDict["officeSuiteAppDefaultFileFormat"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the officeSuiteAppDefaultFileFormat
+    * The property to represent the Office365 default file format type. Possible values are: notConfigured, officeOpenXMLFormat, officeOpenDocumentFormat, unknownFutureValue.
+    *
+    * @param OfficeSuiteDefaultFileFormatType $val The officeSuiteAppDefaultFileFormat
+    *
+    * @return OfficeSuiteApp
+    */
+    public function setOfficeSuiteAppDefaultFileFormat($val)
+    {
+        $this->_propDict["officeSuiteAppDefaultFileFormat"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the productIds

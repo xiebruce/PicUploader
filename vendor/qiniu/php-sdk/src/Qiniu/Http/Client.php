@@ -2,35 +2,70 @@
 namespace Qiniu\Http;
 
 use Qiniu\Config;
-use Qiniu\Http\Request;
-use Qiniu\Http\Response;
 
 final class Client
 {
-    public static function get($url, array $headers = array())
+    /**
+     * @param $url
+     * @param array $headers
+     * @param RequestOptions $opt
+     * @return Response
+     */
+    public static function get($url, array $headers = array(), $opt = null)
     {
-        $request = new Request('GET', $url, $headers);
+        $request = new Request('GET', $url, $headers, null, $opt);
         return self::sendRequest($request);
     }
 
-    public static function delete($url, array $headers = array())
+    /**
+     * @param $url
+     * @param array $headers
+     * @param array $opt detail see {@see Request::$opt}
+     * @return Response
+     */
+    public static function delete($url, array $headers = array(), $opt = null)
     {
-        $request = new Request('DELETE', $url, $headers);
+        $request = new Request('DELETE', $url, $headers, null, $opt);
         return self::sendRequest($request);
     }
 
-    public static function post($url, $body, array $headers = array())
+    /**
+     * @param $url
+     * @param $body
+     * @param array $headers
+     * @param RequestOptions $opt
+     * @return Response
+     */
+    public static function post($url, $body, array $headers = array(), $opt = null)
     {
-        $request = new Request('POST', $url, $headers, $body);
+        $request = new Request('POST', $url, $headers, $body, $opt);
         return self::sendRequest($request);
     }
 
-    public static function PUT($url, $body, array $headers = array())
+    /**
+     * @param $url
+     * @param $body
+     * @param array $headers
+     * @param RequestOptions $opt
+     * @return Response
+     */
+    public static function PUT($url, $body, array $headers = array(), $opt = null)
     {
-        $request = new Request('PUT', $url, $headers, $body);
+        $request = new Request('PUT', $url, $headers, $body, $opt);
         return self::sendRequest($request);
     }
 
+    /**
+     * @param $url
+     * @param array $fields
+     * @param string $name
+     * @param string $fileName
+     * @param $fileBody
+     * @param null $mimeType
+     * @param array $headers
+     * @param RequestOptions $opt
+     * @return Response
+     */
     public static function multipartPost(
         $url,
         $fields,
@@ -38,7 +73,8 @@ final class Client
         $fileName,
         $fileBody,
         $mimeType = null,
-        array $headers = array()
+        $headers = array(),
+        $opt = null
     ) {
         $data = array();
         $mimeBoundary = md5(microtime());
@@ -62,10 +98,9 @@ final class Client
         array_push($data, '');
 
         $body = implode("\r\n", $data);
-        // var_dump($data);exit;
         $contentType = 'multipart/form-data; boundary=' . $mimeBoundary;
         $headers['Content-Type'] = $contentType;
-        $request = new Request('POST', $url, $headers, $body);
+        $request = new Request('POST', $url, $headers, $body, $opt);
         return self::sendRequest($request);
     }
 
@@ -84,6 +119,10 @@ final class Client
         return $ua;
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public static function sendRequest($request)
     {
         $t1 = microtime(true);
@@ -98,6 +137,9 @@ final class Client
             CURLOPT_CUSTOMREQUEST => $request->method,
             CURLOPT_URL => $request->url,
         );
+        foreach ($request->opt->getCurlOpt() as $k => $v) {
+            $options[$k] = $v;
+        }
         // Handle open_basedir & safe mode
         if (!ini_get('safe_mode') && !ini_get('open_basedir')) {
             $options[CURLOPT_FOLLOWLOCATION] = true;
@@ -133,6 +175,9 @@ final class Client
 
     private static function escapeQuotes($str)
     {
+        if (is_null($str)) {
+            return null;
+        }
         $find = array("\\", "\"");
         $replace = array("\\\\", "\\\"");
         return str_replace($find, $replace, $str);

@@ -783,7 +783,6 @@ class EducationUser extends Entity
 
     /**
     * Gets the showInAddressList
-    * True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false.
     *
     * @return bool|null The showInAddressList
     */
@@ -798,7 +797,6 @@ class EducationUser extends Entity
 
     /**
     * Sets the showInAddressList
-    * True if the Outlook Global Address List should contain this user; otherwise, false. If not set, this will be treated as true. For users invited through the invitation manager, this property will be set to false.
     *
     * @param bool $val The showInAddressList
     *
@@ -1144,7 +1142,6 @@ class EducationUser extends Entity
 
     /**
     * Gets the user
-    * The directory user that corresponds to this user.
     *
     * @return User|null The user
     */
@@ -1163,7 +1160,6 @@ class EducationUser extends Entity
 
     /**
     * Sets the user
-    * The directory user that corresponds to this user.
     *
     * @param User $val The user
     *

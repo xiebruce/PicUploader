@@ -113,6 +113,34 @@ class AssignmentFilterEvaluateRequest extends Entity
         return $this;
     }
     /**
+    * Gets the search
+    * Search keyword applied to scope found devices.
+    *
+    * @return string|null The search
+    */
+    public function getSearch()
+    {
+        if (array_key_exists("search", $this->_propDict)) {
+            return $this->_propDict["search"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the search
+    * Search keyword applied to scope found devices.
+    *
+    * @param string $val The value of the search
+    *
+    * @return AssignmentFilterEvaluateRequest
+    */
+    public function setSearch($val)
+    {
+        $this->_propDict["search"] = $val;
+        return $this;
+    }
+    /**
     * Gets the skip
     * Number of records to skip. Default value is 0
     *

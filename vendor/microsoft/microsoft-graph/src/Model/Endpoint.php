@@ -26,7 +26,6 @@ class Endpoint extends DirectoryObject
 {
     /**
     * Gets the capability
-    * Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only.
     *
     * @return string|null The capability
     */
@@ -41,7 +40,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Sets the capability
-    * Describes the capability that is associated with this resource. (e.g. Messages, Conversations, etc.) Not nullable. Read-only.
     *
     * @param string $val The capability
     *
@@ -55,7 +53,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Gets the providerId
-    * Application id of the publishing underlying service. Not nullable. Read-only.
     *
     * @return string|null The providerId
     */
@@ -70,7 +67,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Sets the providerId
-    * Application id of the publishing underlying service. Not nullable. Read-only.
     *
     * @param string $val The providerId
     *
@@ -84,7 +80,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Gets the providerName
-    * Name of the publishing underlying service. Read-only.
     *
     * @return string|null The providerName
     */
@@ -99,7 +94,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Sets the providerName
-    * Name of the publishing underlying service. Read-only.
     *
     * @param string $val The providerName
     *
@@ -113,7 +107,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Gets the providerResourceId
-    * For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.
     *
     * @return string|null The providerResourceId
     */
@@ -128,7 +121,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Sets the providerResourceId
-    * For Microsoft 365 groups, this is set to a well-known name for the resource (e.g. Yammer.FeedURL etc.). Not nullable. Read-only.
     *
     * @param string $val The providerResourceId
     *
@@ -142,7 +134,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Gets the uri
-    * URL of the published resource. Not nullable. Read-only.
     *
     * @return string|null The uri
     */
@@ -157,7 +148,6 @@ class Endpoint extends DirectoryObject
 
     /**
     * Sets the uri
-    * URL of the published resource. Not nullable. Read-only.
     *
     * @param string $val The uri
     *

@@ -90,6 +90,7 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the resourceConnections
+    * Service connections to external resources such as analytics workspaces.
      *
      * @return array|null The resourceConnections
      */
@@ -104,6 +105,7 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the resourceConnections
+    * Service connections to external resources such as analytics workspaces.
     *
     * @param ResourceConnection[] $val The resourceConnections
     *

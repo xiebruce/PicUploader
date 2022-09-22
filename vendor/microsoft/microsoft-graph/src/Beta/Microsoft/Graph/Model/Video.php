@@ -221,7 +221,6 @@ class Video extends Entity
     }
     /**
     * Gets the frameRate
-    * Frame rate of the video.
     *
     * @return float|null The frameRate
     */
@@ -236,7 +235,6 @@ class Video extends Entity
 
     /**
     * Sets the frameRate
-    * Frame rate of the video.
     *
     * @param float $val The value of the frameRate
     *

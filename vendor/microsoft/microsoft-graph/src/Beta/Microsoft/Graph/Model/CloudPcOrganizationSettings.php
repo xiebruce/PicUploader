@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class CloudPcOrganizationSettings extends Entity
 {
     /**
+    * Gets the enableMEMAutoEnroll
+    * Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+    *
+    * @return bool|null The enableMEMAutoEnroll
+    */
+    public function getEnableMEMAutoEnroll()
+    {
+        if (array_key_exists("enableMEMAutoEnroll", $this->_propDict)) {
+            return $this->_propDict["enableMEMAutoEnroll"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enableMEMAutoEnroll
+    * Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+    *
+    * @param bool $val The enableMEMAutoEnroll
+    *
+    * @return CloudPcOrganizationSettings
+    */
+    public function setEnableMEMAutoEnroll($val)
+    {
+        $this->_propDict["enableMEMAutoEnroll"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the osVersion
     * The version of the operating system (OS) to provision on Cloud PCs. The possible values are: windows10, windows11, unknownFutureValue.
     *

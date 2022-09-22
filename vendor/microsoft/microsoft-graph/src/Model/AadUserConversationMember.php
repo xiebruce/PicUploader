@@ -84,7 +84,7 @@ class AadUserConversationMember extends ConversationMember
 
     /**
     * Gets the userId
-    * The GUID of the user.
+    * The guid of the user.
     *
     * @return string|null The userId
     */
@@ -99,7 +99,7 @@ class AadUserConversationMember extends ConversationMember
 
     /**
     * Sets the userId
-    * The GUID of the user.
+    * The guid of the user.
     *
     * @param string $val The userId
     *

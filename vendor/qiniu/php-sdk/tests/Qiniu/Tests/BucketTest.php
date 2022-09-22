@@ -476,6 +476,90 @@ class BucketTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(null, $ret);
     }
 
+    public function testSetObjectLifecycle()
+    {
+        $key = 'setObjectLifeCycle' . rand();
+        $this->bucketManager->delete($this->bucketName, $key);
+
+        $this->bucketManager->copy(
+            $this->bucketName,
+            $this->key,
+            $this->bucketName,
+            $key
+        );
+        list($ret, $err) = $this->bucketManager->setObjectLifecycle(
+            $this->bucketName,
+            $key,
+            10,
+            20,
+            30,
+            40
+        );
+        $this->assertNull($err);
+
+        $this->bucketManager->delete($this->bucketName, $key);
+    }
+
+    public function testSetObjectLifecycleWithCond()
+    {
+        $key = 'setObjectLifeCycleWithCond' . rand();
+        $this->bucketManager->delete($this->bucketName, $key);
+
+        $this->bucketManager->copy(
+            $this->bucketName,
+            $this->key,
+            $this->bucketName,
+            $key
+        );
+
+        list($ret, $err) = $this->bucketManager->stat($this->bucketName, $key);
+        $this->assertNull($err);
+        $key_hash = $ret['hash'];
+        $key_fsize = $ret['fsize'];
+
+        list($ret, $err) = $this->bucketManager->setObjectLifecycleWithCond(
+            $this->bucketName,
+            $key,
+            array(
+                'hash' => $key_hash,
+                'fsize' => $key_fsize
+            ),
+            10,
+            20,
+            30,
+            40
+        );
+        $this->assertNull($err);
+
+        $this->bucketManager->delete($this->bucketName, $key);
+    }
+
+    public function testBatchSetObjectLifecycle()
+    {
+        $key = 'batchSetObjectLifeCycle' . rand();
+        $this->bucketManager->delete($this->bucketName, $key);
+
+        $this->bucketManager->copy(
+            $this->bucketName,
+            $this->key,
+            $this->bucketName,
+            $key
+        );
+        $ops = BucketManager::buildBatchSetObjectLifecycle(
+            $this->bucketName,
+            array($key),
+            10,
+            20,
+            30,
+            40
+        );
+        list($ret, $err) = $this->bucketManager->batch($ops);
+        $this->assertNull($err);
+        $this->assertEquals(200, $ret[0]['code']);
+
+        $this->bucketManager->delete($this->bucketName, $key);
+    }
+
     public function testGetCorsRules()
     {
         list($ret, $err) = $this->bucketManager->getCorsRules($this->bucketName);

@@ -22,6 +22,6 @@ namespace Beta\Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class GroupPolicyPresentationText extends GroupPolicyPresentation
+class GroupPolicyPresentationText extends GroupPolicyUploadedPresentation
 {
 }

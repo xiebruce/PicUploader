@@ -119,7 +119,6 @@ class TeamsAppDefinition extends Entity
 
     /**
     * Gets the description
-    * Verbose description of the application.
     *
     * @return string|null The description
     */
@@ -134,7 +133,6 @@ class TeamsAppDefinition extends Entity
 
     /**
     * Sets the description
-    * Verbose description of the application.
     *
     * @param string $val The description
     *

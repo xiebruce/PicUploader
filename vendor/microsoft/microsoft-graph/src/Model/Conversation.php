@@ -55,7 +55,7 @@ class Conversation extends Entity
 
     /**
     * Gets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime|null The lastDeliveredDateTime
     */
@@ -74,7 +74,7 @@ class Conversation extends Entity
 
     /**
     * Sets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The lastDeliveredDateTime
     *
@@ -88,7 +88,7 @@ class Conversation extends Entity
 
     /**
     * Gets the preview
-    * A short summary from the body of the latest post in this conversation.
+    * A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
     *
     * @return string|null The preview
     */
@@ -103,7 +103,7 @@ class Conversation extends Entity
 
     /**
     * Sets the preview
-    * A short summary from the body of the latest post in this conversation.
+    * A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
     *
     * @param string $val The preview
     *

@@ -26,6 +26,7 @@ class InformationProtection extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the labelPolicySettings
+    * Read the Microsoft Purview Information Protection policy settings for the user or organization.
     *
     * @return InformationProtectionPolicySetting|null The labelPolicySettings
     */
@@ -44,6 +45,7 @@ class InformationProtection extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the labelPolicySettings
+    * Read the Microsoft Purview Information Protection policy settings for the user or organization.
     *
     * @param InformationProtectionPolicySetting $val The labelPolicySettings
     *
@@ -58,6 +60,7 @@ class InformationProtection extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the sensitivityLabels
+    * Read the Microsoft Purview Information Protection labels for the user or organization.
      *
      * @return array|null The sensitivityLabels
      */
@@ -72,6 +75,7 @@ class InformationProtection extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the sensitivityLabels
+    * Read the Microsoft Purview Information Protection labels for the user or organization.
     *
     * @param SensitivityLabel[] $val The sensitivityLabels
     *

@@ -23,6 +23,34 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition
 {
+    /**
+    * Gets the fileTypes
+    * Supported file types for this setting.
+    *
+    * @return string|null The fileTypes
+    */
+    public function getFileTypes()
+    {
+        if (array_key_exists("fileTypes", $this->_propDict)) {
+            return $this->_propDict["fileTypes"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the fileTypes
+    * Supported file types for this setting.
+    *
+    * @param string $val The value of the fileTypes
+    *
+    * @return DeviceManagementConfigurationStringSettingValueDefinition
+    */
+    public function setFileTypes($val)
+    {
+        $this->_propDict["fileTypes"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the format

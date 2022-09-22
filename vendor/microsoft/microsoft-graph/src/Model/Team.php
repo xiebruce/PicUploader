@@ -368,6 +368,66 @@ class Team extends Entity
     }
 
     /**
+    * Gets the summary
+    *
+    * @return TeamSummary|null The summary
+    */
+    public function getSummary()
+    {
+        if (array_key_exists("summary", $this->_propDict)) {
+            if (is_a($this->_propDict["summary"], "\Microsoft\Graph\Model\TeamSummary") || is_null($this->_propDict["summary"])) {
+                return $this->_propDict["summary"];
+            } else {
+                $this->_propDict["summary"] = new TeamSummary($this->_propDict["summary"]);
+                return $this->_propDict["summary"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the summary
+    *
+    * @param TeamSummary $val The summary
+    *
+    * @return Team
+    */
+    public function setSummary($val)
+    {
+        $this->_propDict["summary"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the tenantId
+    * The ID of the Azure Active Directory tenant.
+    *
+    * @return string|null The tenantId
+    */
+    public function getTenantId()
+    {
+        if (array_key_exists("tenantId", $this->_propDict)) {
+            return $this->_propDict["tenantId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the tenantId
+    * The ID of the Azure Active Directory tenant.
+    *
+    * @param string $val The tenantId
+    *
+    * @return Team
+    */
+    public function setTenantId($val)
+    {
+        $this->_propDict["tenantId"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the visibility
     * The visibility of the group and team. Defaults to Public.
     *
@@ -431,6 +491,36 @@ class Team extends Entity
 
 
      /**
+     * Gets the allChannels
+    * List of channels either hosted in or shared with the team (incoming channels).
+     *
+     * @return array|null The allChannels
+     */
+    public function getAllChannels()
+    {
+        if (array_key_exists("allChannels", $this->_propDict)) {
+           return $this->_propDict["allChannels"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allChannels
+    * List of channels either hosted in or shared with the team (incoming channels).
+    *
+    * @param Channel[] $val The allChannels
+    *
+    * @return Team
+    */
+    public function setAllChannels($val)
+    {
+        $this->_propDict["allChannels"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the channels
     * The collection of channels and messages associated with the team.
      *
@@ -487,6 +577,36 @@ class Team extends Entity
     public function setGroup($val)
     {
         $this->_propDict["group"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the incomingChannels
+    * List of channels shared with the team.
+     *
+     * @return array|null The incomingChannels
+     */
+    public function getIncomingChannels()
+    {
+        if (array_key_exists("incomingChannels", $this->_propDict)) {
+           return $this->_propDict["incomingChannels"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the incomingChannels
+    * List of channels shared with the team.
+    *
+    * @param Channel[] $val The incomingChannels
+    *
+    * @return Team
+    */
+    public function setIncomingChannels($val)
+    {
+        $this->_propDict["incomingChannels"] = $val;
         return $this;
     }
 
@@ -577,6 +697,39 @@ class Team extends Entity
     public function setOperations($val)
     {
         $this->_propDict["operations"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the photo
+    * The profile photo for the team.
+    *
+    * @return ProfilePhoto|null The photo
+    */
+    public function getPhoto()
+    {
+        if (array_key_exists("photo", $this->_propDict)) {
+            if (is_a($this->_propDict["photo"], "\Microsoft\Graph\Model\ProfilePhoto") || is_null($this->_propDict["photo"])) {
+                return $this->_propDict["photo"];
+            } else {
+                $this->_propDict["photo"] = new ProfilePhoto($this->_propDict["photo"]);
+                return $this->_propDict["photo"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the photo
+    * The profile photo for the team.
+    *
+    * @param ProfilePhoto $val The photo
+    *
+    * @return Team
+    */
+    public function setPhoto($val)
+    {
+        $this->_propDict["photo"] = $val;
         return $this;
     }
 

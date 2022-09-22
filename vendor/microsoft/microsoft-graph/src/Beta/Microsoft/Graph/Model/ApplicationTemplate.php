@@ -230,6 +230,37 @@ class ApplicationTemplate extends Entity
     }
 
     /**
+    * Gets the supportedClaimConfiguration
+    *
+    * @return SupportedClaimConfiguration|null The supportedClaimConfiguration
+    */
+    public function getSupportedClaimConfiguration()
+    {
+        if (array_key_exists("supportedClaimConfiguration", $this->_propDict)) {
+            if (is_a($this->_propDict["supportedClaimConfiguration"], "\Beta\Microsoft\Graph\Model\SupportedClaimConfiguration") || is_null($this->_propDict["supportedClaimConfiguration"])) {
+                return $this->_propDict["supportedClaimConfiguration"];
+            } else {
+                $this->_propDict["supportedClaimConfiguration"] = new SupportedClaimConfiguration($this->_propDict["supportedClaimConfiguration"]);
+                return $this->_propDict["supportedClaimConfiguration"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the supportedClaimConfiguration
+    *
+    * @param SupportedClaimConfiguration $val The supportedClaimConfiguration
+    *
+    * @return ApplicationTemplate
+    */
+    public function setSupportedClaimConfiguration($val)
+    {
+        $this->_propDict["supportedClaimConfiguration"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the supportedProvisioningTypes
     * The list of provisioning modes supported by this application. The only valid value is sync.
     *

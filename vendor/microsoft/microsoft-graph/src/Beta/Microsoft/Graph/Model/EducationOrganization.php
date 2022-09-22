@@ -117,7 +117,6 @@ class EducationOrganization extends Entity
 
     /**
     * Gets the externalSourceDetail
-    * The name of the external source this resources was generated from.
     *
     * @return string|null The externalSourceDetail
     */
@@ -132,7 +131,6 @@ class EducationOrganization extends Entity
 
     /**
     * Sets the externalSourceDetail
-    * The name of the external source this resources was generated from.
     *
     * @param string $val The externalSourceDetail
     *

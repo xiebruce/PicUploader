@@ -33,4 +33,5 @@ class WindowsUpdateNotificationDisplayOption extends Enum
     const DEFAULT_NOTIFICATIONS = "defaultNotifications";
     const RESTART_WARNINGS_ONLY = "restartWarningsOnly";
     const DISABLE_ALL_NOTIFICATIONS = "disableAllNotifications";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

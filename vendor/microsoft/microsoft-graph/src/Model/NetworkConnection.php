@@ -25,7 +25,7 @@ class NetworkConnection extends Entity
 {
     /**
     * Gets the applicationName
-    * Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
+    * Name of the application managing the network connection (for example, Facebook or SMTP).
     *
     * @return string|null The applicationName
     */
@@ -40,7 +40,7 @@ class NetworkConnection extends Entity
 
     /**
     * Sets the applicationName
-    * Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
+    * Name of the application managing the network connection (for example, Facebook or SMTP).
     *
     * @param string $val The value of the applicationName
     *

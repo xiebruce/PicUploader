@@ -62,4 +62,32 @@ class AccessPackageTextInputQuestion extends AccessPackageQuestion
         $this->_propDict["isSingleLineQuestion"] = $val;
         return $this;
     }
+    /**
+    * Gets the regexPattern
+    * This is the regex pattern that the corresponding text answer must follow.
+    *
+    * @return string|null The regexPattern
+    */
+    public function getRegexPattern()
+    {
+        if (array_key_exists("regexPattern", $this->_propDict)) {
+            return $this->_propDict["regexPattern"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the regexPattern
+    * This is the regex pattern that the corresponding text answer must follow.
+    *
+    * @param string $val The value of the regexPattern
+    *
+    * @return AccessPackageTextInputQuestion
+    */
+    public function setRegexPattern($val)
+    {
+        $this->_propDict["regexPattern"] = $val;
+        return $this;
+    }
 }
