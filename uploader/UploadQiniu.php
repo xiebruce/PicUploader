@@ -24,6 +24,7 @@ class UploadQiniu extends Common {
     public $directory;
 	//上传目标服务器名称
 	public $uploadServer;
+    public $optimize;
     
     //config from config.php, using static because the parent class needs to use it.
     public static $config;
