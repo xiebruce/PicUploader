@@ -43,6 +43,7 @@ class UploadQiniu extends Common {
         $this->secretKey = $ServerConfig['SK'];
         $this->bucket = $ServerConfig['bucket'];
         $this->domain = $ServerConfig['domain'] ?? '';
+        $this->optimize = $ServerConfig['optimize'] ?? '';
 	
 	    if(!isset($ServerConfig['directory']) || ($ServerConfig['directory']=='' && $ServerConfig['directory']!==false)){
 		    //如果没有设置，使用默认的按年/月/日方式使用目录
@@ -109,8 +110,7 @@ class UploadQiniu extends Common {
 			}
 			
 			//拼接域名和优化参数
-			$optimize = isset(static::$config['optimize']) ? static::$config['optimize'] : '';
-			$optimize && $key .= $optimize;
+            $this->optimize && $key .= $this->optimize;
 			
 			$data = [
 				'code' => 0,
