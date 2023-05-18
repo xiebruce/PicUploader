@@ -25,6 +25,7 @@ class UpdateAllowedCombinationsResult extends Entity
 {
     /**
     * Gets the additionalInformation
+    * Information about why the updateAllowedCombinations action was successful or failed.
     *
     * @return string|null The additionalInformation
     */
@@ -39,6 +40,7 @@ class UpdateAllowedCombinationsResult extends Entity
 
     /**
     * Sets the additionalInformation
+    * Information about why the updateAllowedCombinations action was successful or failed.
     *
     * @param string $val The value of the additionalInformation
     *
@@ -51,6 +53,7 @@ class UpdateAllowedCombinationsResult extends Entity
     }
     /**
     * Gets the conditionalAccessReferences
+    * References to existing Conditional Access policies that use this authentication strength.
     *
     * @return string|null The conditionalAccessReferences
     */
@@ -65,6 +68,7 @@ class UpdateAllowedCombinationsResult extends Entity
 
     /**
     * Sets the conditionalAccessReferences
+    * References to existing Conditional Access policies that use this authentication strength.
     *
     * @param string $val The value of the conditionalAccessReferences
     *
@@ -78,6 +82,7 @@ class UpdateAllowedCombinationsResult extends Entity
 
     /**
     * Gets the currentCombinations
+    * The list of current authentication method combinations allowed by the authentication strength.
     *
     * @return AuthenticationMethodModes|null The currentCombinations
     */
@@ -96,6 +101,7 @@ class UpdateAllowedCombinationsResult extends Entity
 
     /**
     * Sets the currentCombinations
+    * The list of current authentication method combinations allowed by the authentication strength.
     *
     * @param AuthenticationMethodModes $val The value to assign to the currentCombinations
     *
@@ -109,6 +115,7 @@ class UpdateAllowedCombinationsResult extends Entity
 
     /**
     * Gets the previousCombinations
+    * The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
     *
     * @return AuthenticationMethodModes|null The previousCombinations
     */
@@ -127,6 +134,7 @@ class UpdateAllowedCombinationsResult extends Entity
 
     /**
     * Sets the previousCombinations
+    * The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
     *
     * @param AuthenticationMethodModes $val The value to assign to the previousCombinations
     *

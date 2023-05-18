@@ -59,7 +59,7 @@ class RiskyUserHistoryItem extends RiskyUser
 
     /**
     * Gets the initiatedBy
-    * The id of actor that does the operation.
+    * The ID of actor that does the operation.
     *
     * @return string|null The initiatedBy
     */
@@ -74,7 +74,7 @@ class RiskyUserHistoryItem extends RiskyUser
 
     /**
     * Sets the initiatedBy
-    * The id of actor that does the operation.
+    * The ID of actor that does the operation.
     *
     * @param string $val The initiatedBy
     *
@@ -88,7 +88,7 @@ class RiskyUserHistoryItem extends RiskyUser
 
     /**
     * Gets the userId
-    * The id of the user.
+    * The ID of the user.
     *
     * @return string|null The userId
     */
@@ -103,7 +103,7 @@ class RiskyUserHistoryItem extends RiskyUser
 
     /**
     * Sets the userId
-    * The id of the user.
+    * The ID of the user.
     *
     * @param string $val The userId
     *

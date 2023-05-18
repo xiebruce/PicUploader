@@ -229,7 +229,7 @@ class AccessPackageResourceRequest extends Entity
 
     /**
     * Gets the requestType
-    * Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource.
+    * Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
     *
     * @return string|null The requestType
     */
@@ -244,7 +244,7 @@ class AccessPackageResourceRequest extends Entity
 
     /**
     * Sets the requestType
-    * Use AdminAdd to add a resource, if the caller is an administrator or resource owner, or AdminRemove to remove a resource.
+    * Use AdminAdd to add a resource, if the caller is an administrator or resource owner, AdminUpdate to update a resource, or AdminRemove to remove a resource.
     *
     * @param string $val The requestType
     *

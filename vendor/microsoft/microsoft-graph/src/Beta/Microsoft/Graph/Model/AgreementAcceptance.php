@@ -113,7 +113,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Gets the deviceId
-    * The unique identifier of the device used for accepting the agreement.
+    * The unique identifier of the device used for accepting the agreement. Supports $filter (eq) and eq for null values.
     *
     * @return string|null The deviceId
     */
@@ -128,7 +128,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Sets the deviceId
-    * The unique identifier of the device used for accepting the agreement.
+    * The unique identifier of the device used for accepting the agreement. Supports $filter (eq) and eq for null values.
     *
     * @param string $val The deviceId
     *
@@ -200,7 +200,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Gets the expirationDateTime
-    * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and eq for null values.
     *
     * @return \DateTime|null The expirationDateTime
     */
@@ -219,7 +219,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Sets the expirationDateTime
-    * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ge, le) and eq for null values.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -233,7 +233,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Gets the recordedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq) and eq for null values.
     *
     * @return \DateTime|null The recordedDateTime
     */
@@ -252,7 +252,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Sets the recordedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq) and eq for null values.
     *
     * @param \DateTime $val The recordedDateTime
     *
@@ -357,7 +357,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Gets the userId
-    * ID of the user who accepted the agreement.
+    * ID of the user who accepted the agreement. Supports $filter (eq).
     *
     * @return string|null The userId
     */
@@ -372,7 +372,7 @@ class AgreementAcceptance extends Entity
 
     /**
     * Sets the userId
-    * ID of the user who accepted the agreement.
+    * ID of the user who accepted the agreement. Supports $filter (eq).
     *
     * @param string $val The userId
     *

@@ -26,7 +26,7 @@ class IosiPadOSWebClip extends MobileApp
 {
     /**
     * Gets the appUrl
-    * The web app URL.
+    * Indicates iOS/iPadOS web clip app URL. Example: 'https://www.contoso.com'
     *
     * @return string|null The appUrl
     */
@@ -41,7 +41,7 @@ class IosiPadOSWebClip extends MobileApp
 
     /**
     * Sets the appUrl
-    * The web app URL.
+    * Indicates iOS/iPadOS web clip app URL. Example: 'https://www.contoso.com'
     *
     * @param string $val The appUrl
     *
@@ -55,7 +55,7 @@ class IosiPadOSWebClip extends MobileApp
 
     /**
     * Gets the useManagedBrowser
-    * Whether or not to use managed browser. When true, the app will be required to be opened in an Intune-protected browser. When false, the app will not be required to be opened in an Intune-protected browser.
+    * Whether or not to use managed browser. When TRUE, the app will be required to be opened in Microsoft Edge. When FALSE, the app will not be required to be opened in Microsoft Edge. By default, this property is set to FALSE.
     *
     * @return bool|null The useManagedBrowser
     */
@@ -70,7 +70,7 @@ class IosiPadOSWebClip extends MobileApp
 
     /**
     * Sets the useManagedBrowser
-    * Whether or not to use managed browser. When true, the app will be required to be opened in an Intune-protected browser. When false, the app will not be required to be opened in an Intune-protected browser.
+    * Whether or not to use managed browser. When TRUE, the app will be required to be opened in Microsoft Edge. When FALSE, the app will not be required to be opened in Microsoft Edge. By default, this property is set to FALSE.
     *
     * @param bool $val The useManagedBrowser
     *

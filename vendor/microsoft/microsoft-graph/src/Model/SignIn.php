@@ -85,6 +85,7 @@ class SignIn extends Entity
 
      /**
      * Gets the appliedConditionalAccessPolicies
+    * Provides a list of conditional access policies that are triggered by the corresponding sign-in activity.
      *
      * @return array|null The appliedConditionalAccessPolicies
      */
@@ -99,6 +100,7 @@ class SignIn extends Entity
 
     /**
     * Sets the appliedConditionalAccessPolicies
+    * Provides a list of conditional access policies that are triggered by the corresponding sign-in activity.
     *
     * @param AppliedConditionalAccessPolicy[] $val The appliedConditionalAccessPolicies
     *
@@ -483,7 +485,7 @@ class SignIn extends Entity
     * Gets the riskEventTypesV2
     * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
     *
-    * @return string|null The riskEventTypesV2
+    * @return array|null The riskEventTypesV2
     */
     public function getRiskEventTypesV2()
     {
@@ -498,7 +500,7 @@ class SignIn extends Entity
     * Sets the riskEventTypesV2
     * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
     *
-    * @param string $val The riskEventTypesV2
+    * @param string[] $val The riskEventTypesV2
     *
     * @return SignIn
     */

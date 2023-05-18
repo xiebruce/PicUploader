@@ -5,9 +5,9 @@ name: "Validate Pull Request"
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main, dev, feat/kiota-preview ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main, dev, feat/kiota-preview ]
     # Add assigned to defaults as a hack to easily trigger code-gen PRs to run validation
     types: [assigned, opened, synchronize, reopened]
 
@@ -29,6 +29,6 @@ jobs:
     - name: run tests
       run : |
         vendor/bin/phpunit --exclude-group functional
-#    - name: Run static analysis
-#      run: |
-#        vendor/bin/phpstan analyse --memory-limit=1500M --error-format=github
+    - name: Run static analysis
+      run: |
+        vendor/bin/phpstan analyse --memory-limit=1500M --error-format=github

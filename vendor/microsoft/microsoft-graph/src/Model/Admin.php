@@ -56,6 +56,70 @@ class Admin implements \JsonSerializable
     }
 
     /**
+    * Gets the edge
+    * A container for Microsoft Edge resources. Read-only.
+    *
+    * @return Edge|null The edge
+    */
+    public function getEdge()
+    {
+        if (array_key_exists("edge", $this->_propDict)) {
+            if (is_a($this->_propDict["edge"], "\Microsoft\Graph\Model\Edge") || is_null($this->_propDict["edge"])) {
+                return $this->_propDict["edge"];
+            } else {
+                $this->_propDict["edge"] = new Edge($this->_propDict["edge"]);
+                return $this->_propDict["edge"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the edge
+    * A container for Microsoft Edge resources. Read-only.
+    *
+    * @param Edge $val The edge
+    *
+    * @return Admin
+    */
+    public function setEdge($val)
+    {
+        $this->_propDict["edge"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the sharepoint
+    *
+    * @return Sharepoint|null The sharepoint
+    */
+    public function getSharepoint()
+    {
+        if (array_key_exists("sharepoint", $this->_propDict)) {
+            if (is_a($this->_propDict["sharepoint"], "\Microsoft\Graph\Model\Sharepoint") || is_null($this->_propDict["sharepoint"])) {
+                return $this->_propDict["sharepoint"];
+            } else {
+                $this->_propDict["sharepoint"] = new Sharepoint($this->_propDict["sharepoint"]);
+                return $this->_propDict["sharepoint"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the sharepoint
+    *
+    * @param Sharepoint $val The sharepoint
+    *
+    * @return Admin
+    */
+    public function setSharepoint($val)
+    {
+        $this->_propDict["sharepoint"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the serviceAnnouncement
     * A container for service communications resources. Read-only.
     *
@@ -131,6 +195,8 @@ class Admin implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

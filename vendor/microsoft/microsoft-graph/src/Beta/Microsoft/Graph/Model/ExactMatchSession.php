@@ -81,7 +81,7 @@ class ExactMatchSession extends ExactMatchSessionBase
     /**
     * Gets the fields
     *
-    * @return string|null The fields
+    * @return array|null The fields
     */
     public function getFields()
     {
@@ -95,7 +95,7 @@ class ExactMatchSession extends ExactMatchSessionBase
     /**
     * Sets the fields
     *
-    * @param string $val The fields
+    * @param string[] $val The fields
     *
     * @return ExactMatchSession
     */

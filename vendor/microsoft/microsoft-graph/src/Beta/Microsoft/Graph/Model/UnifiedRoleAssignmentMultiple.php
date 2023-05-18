@@ -28,7 +28,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
     * Gets the appScopeIds
     * Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
     *
-    * @return string|null The appScopeIds
+    * @return array|null The appScopeIds
     */
     public function getAppScopeIds()
     {
@@ -43,7 +43,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
     * Sets the appScopeIds
     * Ids of the app specific scopes when the assignment scopes are app specific. The scopes of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. App scopes are scopes that are defined and understood by this application only.
     *
-    * @param string $val The appScopeIds
+    * @param string[] $val The appScopeIds
     *
     * @return UnifiedRoleAssignmentMultiple
     */
@@ -113,7 +113,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
     * Gets the directoryScopeIds
     * Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
     *
-    * @return string|null The directoryScopeIds
+    * @return array|null The directoryScopeIds
     */
     public function getDirectoryScopeIds()
     {
@@ -128,7 +128,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
     * Sets the directoryScopeIds
     * Ids of the directory objects representing the scopes of the assignment. The scopes of an assignment determine the set of resources for which the principals have been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. App scopes are scopes that are defined and understood by this application only.
     *
-    * @param string $val The directoryScopeIds
+    * @param string[] $val The directoryScopeIds
     *
     * @return UnifiedRoleAssignmentMultiple
     */
@@ -171,7 +171,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
     * Gets the principalIds
     * Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
     *
-    * @return string|null The principalIds
+    * @return array|null The principalIds
     */
     public function getPrincipalIds()
     {
@@ -186,7 +186,7 @@ class UnifiedRoleAssignmentMultiple extends Entity
     * Sets the principalIds
     * Identifiers of the principals to which the assignment is granted.  Supports $filter (any operator only).
     *
-    * @param string $val The principalIds
+    * @param string[] $val The principalIds
     *
     * @return UnifiedRoleAssignmentMultiple
     */

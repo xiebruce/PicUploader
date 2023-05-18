@@ -58,37 +58,6 @@ class PasswordAuthenticationMethod extends AuthenticationMethod
     }
 
     /**
-    * Gets the creationDateTime
-    *
-    * @return \DateTime|null The creationDateTime
-    */
-    public function getCreationDateTime()
-    {
-        if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
-                return $this->_propDict["creationDateTime"];
-            } else {
-                $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
-                return $this->_propDict["creationDateTime"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the creationDateTime
-    *
-    * @param \DateTime $val The creationDateTime
-    *
-    * @return PasswordAuthenticationMethod
-    */
-    public function setCreationDateTime($val)
-    {
-        $this->_propDict["creationDateTime"] = $val;
-        return $this;
-    }
-
-    /**
     * Gets the password
     * For security, the password is always returned as null from a LIST or GET operation.
     *

@@ -26,6 +26,7 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the notificationChannelType
+    * The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
     *
     * @return NotificationChannelType|null The notificationChannelType
     */
@@ -44,6 +45,7 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the notificationChannelType
+    * The type of the notification channel. The possible values are: portal, email, phoneCall, sms, unknownFutureValue.
     *
     * @param NotificationChannelType $val The value to assign to the notificationChannelType
     *
@@ -57,6 +59,7 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the notificationReceivers
+    * Information about the notification receivers, such as locale and contact information. For example, en-us for locale and serena.davis@contoso.com for contact information.
     *
     * @return NotificationReceiver|null The notificationReceivers
     */
@@ -75,6 +78,7 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the notificationReceivers
+    * Information about the notification receivers, such as locale and contact information. For example, en-us for locale and serena.davis@contoso.com for contact information.
     *
     * @param NotificationReceiver $val The value to assign to the notificationReceivers
     *
@@ -87,6 +91,7 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the receivers
+    * The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
     *
     * @return string|null The receivers
     */
@@ -101,6 +106,7 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the receivers
+    * The contact information about the notification receivers, such as email addresses. For portal notifications, receivers can be left blank. For email notifications, receivers consists of email addresses such as serena.davis@contoso.com.
     *
     * @param string $val The value of the receivers
     *

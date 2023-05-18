@@ -25,7 +25,7 @@ class KeyValue extends Entity
 {
     /**
     * Gets the key
-    * Key.
+    * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
     *
     * @return string|null The key
     */
@@ -40,7 +40,7 @@ class KeyValue extends Entity
 
     /**
     * Sets the key
-    * Key.
+    * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
     *
     * @param string $val The value of the key
     *
@@ -53,7 +53,7 @@ class KeyValue extends Entity
     }
     /**
     * Gets the value
-    * Value.
+    * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
     *
     * @return string|null The value
     */
@@ -68,7 +68,7 @@ class KeyValue extends Entity
 
     /**
     * Sets the value
-    * Value.
+    * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
     *
     * @param string $val The value of the value
     *

@@ -26,7 +26,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the operation
-    * Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
+    * Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith. Required.
     *
     * @return RuleOperation|null The operation
     */
@@ -45,7 +45,7 @@ class PropertyRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the operation
-    * Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith, unknownFutureValue. Required.
+    * Specifies the operations to be performed during evaluation of a single propertyRule, where property and a string from the values collection are the respective operands. Possible values are: null, equals, notEquals, contains, notContains, lessThan, greaterThan, startsWith. Required.
     *
     * @param RuleOperation $val The value to assign to the operation
     *

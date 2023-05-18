@@ -1,9 +1,11 @@
 <?php
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu\Etag;
 
-class EtagTest extends \PHPUnit_Framework_TestCase
+class EtagTest extends TestCase
 {
     public function test0M()
     {

@@ -504,6 +504,39 @@ class DeviceManagement extends Entity
     }
 
     /**
+    * Gets the userExperienceAnalyticsAnomalySeverityOverview
+    * The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
+    *
+    * @return UserExperienceAnalyticsAnomalySeverityOverview|null The userExperienceAnalyticsAnomalySeverityOverview
+    */
+    public function getUserExperienceAnalyticsAnomalySeverityOverview()
+    {
+        if (array_key_exists("userExperienceAnalyticsAnomalySeverityOverview", $this->_propDict)) {
+            if (is_a($this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsAnomalySeverityOverview") || is_null($this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"])) {
+                return $this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"];
+            } else {
+                $this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"] = new UserExperienceAnalyticsAnomalySeverityOverview($this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"]);
+                return $this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the userExperienceAnalyticsAnomalySeverityOverview
+    * The user experience analytics anomaly severity overview entity contains the count information for each severity of anomaly.
+    *
+    * @param UserExperienceAnalyticsAnomalySeverityOverview $val The userExperienceAnalyticsAnomalySeverityOverview
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsAnomalySeverityOverview($val)
+    {
+        $this->_propDict["userExperienceAnalyticsAnomalySeverityOverview"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the userExperienceAnalyticsSettings
     * User experience analytics device settings
     *
@@ -566,6 +599,36 @@ class DeviceManagement extends Entity
     public function setWindowsMalwareOverview($val)
     {
         $this->_propDict["windowsMalwareOverview"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the connectorStatus
+    * The list of connector status for the tenant.
+     *
+     * @return array|null The connectorStatus
+     */
+    public function getConnectorStatus()
+    {
+        if (array_key_exists("connectorStatus", $this->_propDict)) {
+           return $this->_propDict["connectorStatus"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the connectorStatus
+    * The list of connector status for the tenant.
+    *
+    * @param ConnectorStatusDetails[] $val The connectorStatus
+    *
+    * @return DeviceManagement
+    */
+    public function setConnectorStatus($val)
+    {
+        $this->_propDict["connectorStatus"] = $val;
         return $this;
     }
 
@@ -934,6 +997,36 @@ class DeviceManagement extends Entity
     public function setTermsAndConditions($val)
     {
         $this->_propDict["termsAndConditions"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the serviceNowConnections
+    * A list of ServiceNowConnections
+     *
+     * @return array|null The serviceNowConnections
+     */
+    public function getServiceNowConnections()
+    {
+        if (array_key_exists("serviceNowConnections", $this->_propDict)) {
+           return $this->_propDict["serviceNowConnections"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the serviceNowConnections
+    * A list of ServiceNowConnections
+    *
+    * @param ServiceNowConnection[] $val The serviceNowConnections
+    *
+    * @return DeviceManagement
+    */
+    public function setServiceNowConnections($val)
+    {
+        $this->_propDict["serviceNowConnections"] = $val;
         return $this;
     }
 
@@ -1699,6 +1792,36 @@ class DeviceManagement extends Entity
     public function setReusableSettings($val)
     {
         $this->_propDict["reusableSettings"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the templateInsights
+    * List of setting insights in a template
+     *
+     * @return array|null The templateInsights
+     */
+    public function getTemplateInsights()
+    {
+        if (array_key_exists("templateInsights", $this->_propDict)) {
+           return $this->_propDict["templateInsights"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the templateInsights
+    * List of setting insights in a template
+    *
+    * @param DeviceManagementTemplateInsightsDefinition[] $val The templateInsights
+    *
+    * @return DeviceManagement
+    */
+    public function setTemplateInsights($val)
+    {
+        $this->_propDict["templateInsights"] = $val;
         return $this;
     }
 
@@ -2556,36 +2679,6 @@ class DeviceManagement extends Entity
 
 
      /**
-     * Gets the oemWarrantyInformationOnboarding
-    * List of OEM Warranty Statuses
-     *
-     * @return array|null The oemWarrantyInformationOnboarding
-     */
-    public function getOemWarrantyInformationOnboarding()
-    {
-        if (array_key_exists("oemWarrantyInformationOnboarding", $this->_propDict)) {
-           return $this->_propDict["oemWarrantyInformationOnboarding"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the oemWarrantyInformationOnboarding
-    * List of OEM Warranty Statuses
-    *
-    * @param OemWarrantyInformationOnboarding[] $val The oemWarrantyInformationOnboarding
-    *
-    * @return DeviceManagement
-    */
-    public function setOemWarrantyInformationOnboarding($val)
-    {
-        $this->_propDict["oemWarrantyInformationOnboarding"] = $val;
-        return $this;
-    }
-
-
-     /**
      * Gets the remoteActionAudits
     * The list of device remote action audits with the tenant.
      *
@@ -2644,6 +2737,66 @@ class DeviceManagement extends Entity
     public function setTenantAttachRBAC($val)
     {
         $this->_propDict["tenantAttachRBAC"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the userExperienceAnalyticsAnomaly
+    * The user experience analytics anomaly entity contains anomaly details.
+     *
+     * @return array|null The userExperienceAnalyticsAnomaly
+     */
+    public function getUserExperienceAnalyticsAnomaly()
+    {
+        if (array_key_exists("userExperienceAnalyticsAnomaly", $this->_propDict)) {
+           return $this->_propDict["userExperienceAnalyticsAnomaly"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the userExperienceAnalyticsAnomaly
+    * The user experience analytics anomaly entity contains anomaly details.
+    *
+    * @param UserExperienceAnalyticsAnomaly[] $val The userExperienceAnalyticsAnomaly
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsAnomaly($val)
+    {
+        $this->_propDict["userExperienceAnalyticsAnomaly"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the userExperienceAnalyticsAnomalyDevice
+    * The user experience analytics anomaly entity contains device details.
+     *
+     * @return array|null The userExperienceAnalyticsAnomalyDevice
+     */
+    public function getUserExperienceAnalyticsAnomalyDevice()
+    {
+        if (array_key_exists("userExperienceAnalyticsAnomalyDevice", $this->_propDict)) {
+           return $this->_propDict["userExperienceAnalyticsAnomalyDevice"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the userExperienceAnalyticsAnomalyDevice
+    * The user experience analytics anomaly entity contains device details.
+    *
+    * @param UserExperienceAnalyticsAnomalyDevice[] $val The userExperienceAnalyticsAnomalyDevice
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsAnomalyDevice($val)
+    {
+        $this->_propDict["userExperienceAnalyticsAnomalyDevice"] = $val;
         return $this;
     }
 
@@ -3531,6 +3684,36 @@ class DeviceManagement extends Entity
 
 
      /**
+     * Gets the userExperienceAnalyticsDeviceTimelineEvent
+    * The user experience analytics device events entity contains NRT device timeline event details.
+     *
+     * @return array|null The userExperienceAnalyticsDeviceTimelineEvent
+     */
+    public function getUserExperienceAnalyticsDeviceTimelineEvent()
+    {
+        if (array_key_exists("userExperienceAnalyticsDeviceTimelineEvent", $this->_propDict)) {
+           return $this->_propDict["userExperienceAnalyticsDeviceTimelineEvent"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the userExperienceAnalyticsDeviceTimelineEvent
+    * The user experience analytics device events entity contains NRT device timeline event details.
+    *
+    * @param UserExperienceAnalyticsDeviceTimelineEvent[] $val The userExperienceAnalyticsDeviceTimelineEvent
+    *
+    * @return DeviceManagement
+    */
+    public function setUserExperienceAnalyticsDeviceTimelineEvent($val)
+    {
+        $this->_propDict["userExperienceAnalyticsDeviceTimelineEvent"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the userExperienceAnalyticsImpactingProcess
     * User experience analytics impacting process
      *
@@ -3679,39 +3862,6 @@ class DeviceManagement extends Entity
     public function setUserExperienceAnalyticsOverview($val)
     {
         $this->_propDict["userExperienceAnalyticsOverview"] = $val;
-        return $this;
-    }
-
-    /**
-    * Gets the userExperienceAnalyticsRegressionSummary
-    * User experience analytics regression summary
-    *
-    * @return UserExperienceAnalyticsRegressionSummary|null The userExperienceAnalyticsRegressionSummary
-    */
-    public function getUserExperienceAnalyticsRegressionSummary()
-    {
-        if (array_key_exists("userExperienceAnalyticsRegressionSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["userExperienceAnalyticsRegressionSummary"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsRegressionSummary") || is_null($this->_propDict["userExperienceAnalyticsRegressionSummary"])) {
-                return $this->_propDict["userExperienceAnalyticsRegressionSummary"];
-            } else {
-                $this->_propDict["userExperienceAnalyticsRegressionSummary"] = new UserExperienceAnalyticsRegressionSummary($this->_propDict["userExperienceAnalyticsRegressionSummary"]);
-                return $this->_propDict["userExperienceAnalyticsRegressionSummary"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the userExperienceAnalyticsRegressionSummary
-    * User experience analytics regression summary
-    *
-    * @param UserExperienceAnalyticsRegressionSummary $val The userExperienceAnalyticsRegressionSummary
-    *
-    * @return DeviceManagement
-    */
-    public function setUserExperienceAnalyticsRegressionSummary($val)
-    {
-        $this->_propDict["userExperienceAnalyticsRegressionSummary"] = $val;
         return $this;
     }
 
@@ -4711,66 +4861,6 @@ class DeviceManagement extends Entity
     public function setConfigManagerCollections($val)
     {
         $this->_propDict["configManagerCollections"] = $val;
-        return $this;
-    }
-
-
-     /**
-     * Gets the organizationalMessageDetails
-    * A list of OrganizationalMessageDetails
-     *
-     * @return array|null The organizationalMessageDetails
-     */
-    public function getOrganizationalMessageDetails()
-    {
-        if (array_key_exists("organizationalMessageDetails", $this->_propDict)) {
-           return $this->_propDict["organizationalMessageDetails"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the organizationalMessageDetails
-    * A list of OrganizationalMessageDetails
-    *
-    * @param OrganizationalMessageDetail[] $val The organizationalMessageDetails
-    *
-    * @return DeviceManagement
-    */
-    public function setOrganizationalMessageDetails($val)
-    {
-        $this->_propDict["organizationalMessageDetails"] = $val;
-        return $this;
-    }
-
-
-     /**
-     * Gets the organizationalMessageGuidedContents
-    * A list of OrganizationalMessageGuidedContents
-     *
-     * @return array|null The organizationalMessageGuidedContents
-     */
-    public function getOrganizationalMessageGuidedContents()
-    {
-        if (array_key_exists("organizationalMessageGuidedContents", $this->_propDict)) {
-           return $this->_propDict["organizationalMessageGuidedContents"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the organizationalMessageGuidedContents
-    * A list of OrganizationalMessageGuidedContents
-    *
-    * @param OrganizationalMessageGuidedContent[] $val The organizationalMessageGuidedContents
-    *
-    * @return DeviceManagement
-    */
-    public function setOrganizationalMessageGuidedContents($val)
-    {
-        $this->_propDict["organizationalMessageGuidedContents"] = $val;
         return $this;
     }
 

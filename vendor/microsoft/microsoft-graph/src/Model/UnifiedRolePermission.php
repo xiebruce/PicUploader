@@ -53,7 +53,7 @@ class UnifiedRolePermission extends Entity
     }
     /**
     * Gets the condition
-    * Optional constraints that must be met for the permission to be effective.
+    * Optional constraints that must be met for the permission to be effective. Not supported for custom roles.
     *
     * @return string|null The condition
     */
@@ -68,7 +68,7 @@ class UnifiedRolePermission extends Entity
 
     /**
     * Sets the condition
-    * Optional constraints that must be met for the permission to be effective.
+    * Optional constraints that must be met for the permission to be effective. Not supported for custom roles.
     *
     * @param string $val The value of the condition
     *

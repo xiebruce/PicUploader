@@ -25,6 +25,39 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
 {
 
     /**
+    * Gets the effectiveValue
+    * Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
+    *
+    * @return DeploymentStateValue|null The effectiveValue
+    */
+    public function getEffectiveValue()
+    {
+        if (array_key_exists("effectiveValue", $this->_propDict)) {
+            if (is_a($this->_propDict["effectiveValue"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\DeploymentStateValue") || is_null($this->_propDict["effectiveValue"])) {
+                return $this->_propDict["effectiveValue"];
+            } else {
+                $this->_propDict["effectiveValue"] = new DeploymentStateValue($this->_propDict["effectiveValue"]);
+                return $this->_propDict["effectiveValue"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the effectiveValue
+    * Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
+    *
+    * @param DeploymentStateValue $val The value to assign to the effectiveValue
+    *
+    * @return DeploymentState The DeploymentState
+    */
+    public function setEffectiveValue($val)
+    {
+        $this->_propDict["effectiveValue"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the reasons
     * Specifies the reasons the deployment has its state value. Read-only.
     *
@@ -87,39 +120,6 @@ class DeploymentState extends \Beta\Microsoft\Graph\Model\Entity
     public function setRequestedValue($val)
     {
         $this->_propDict["requestedValue"] = $val;
-         return $this;
-    }
-
-    /**
-    * Gets the value
-    * Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
-    *
-    * @return DeploymentStateValue|null The value
-    */
-    public function getValue()
-    {
-        if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\DeploymentStateValue") || is_null($this->_propDict["value"])) {
-                return $this->_propDict["value"];
-            } else {
-                $this->_propDict["value"] = new DeploymentStateValue($this->_propDict["value"]);
-                return $this->_propDict["value"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the value
-    * Specifies the state of the deployment. Supports a subset of the values for deploymentStateValue. Possible values are: scheduled, offering, paused, unknownFutureValue. Read-only.
-    *
-    * @param DeploymentStateValue $val The value to assign to the value
-    *
-    * @return DeploymentState The DeploymentState
-    */
-    public function setValue($val)
-    {
-        $this->_propDict["value"] = $val;
          return $this;
     }
 }

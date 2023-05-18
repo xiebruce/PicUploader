@@ -32,4 +32,7 @@ class AppleUserInitiatedEnrollmentType extends Enum
     const UNKNOWN = "unknown";
     const DEVICE = "device";
     const USER = "user";
+    const ACCOUNT_DRIVEN_USER_ENROLLMENT = "accountDrivenUserEnrollment";
+    const WEB_DEVICE_ENROLLMENT = "webDeviceEnrollment";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

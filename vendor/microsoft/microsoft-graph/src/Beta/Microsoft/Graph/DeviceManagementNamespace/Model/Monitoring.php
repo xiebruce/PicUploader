@@ -27,6 +27,7 @@ class Monitoring extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the alertRecords
+    * The collection of records of alert events.
      *
      * @return array|null The alertRecords
      */
@@ -41,6 +42,7 @@ class Monitoring extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRecords
+    * The collection of records of alert events.
     *
     * @param AlertRecord[] $val The alertRecords
     *
@@ -55,6 +57,7 @@ class Monitoring extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the alertRules
+    * The collection of alert rules.
      *
      * @return array|null The alertRules
      */
@@ -69,6 +72,7 @@ class Monitoring extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRules
+    * The collection of alert rules.
     *
     * @param AlertRule[] $val The alertRules
     *

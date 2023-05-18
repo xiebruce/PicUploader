@@ -271,7 +271,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     * Gets the targetedPackageIds
     * Targeted App package IDs.
     *
-    * @return string|null The targetedPackageIds
+    * @return array|null The targetedPackageIds
     */
     public function getTargetedPackageIds()
     {
@@ -286,7 +286,7 @@ class AndroidDeviceOwnerVpnConfiguration extends VpnConfiguration
     * Sets the targetedPackageIds
     * Targeted App package IDs.
     *
-    * @param string $val The targetedPackageIds
+    * @param string[] $val The targetedPackageIds
     *
     * @return AndroidDeviceOwnerVpnConfiguration
     */

@@ -26,7 +26,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the delegatedPrivilegeStatus
-    * The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
+    * The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
     *
     * @return DelegatedPrivilegeStatus|null The delegatedPrivilegeStatus
     */
@@ -45,7 +45,7 @@ class TenantStatusInformation extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the delegatedPrivilegeStatus
-    * The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue. Optional. Read-only.
+    * The status of the delegated admin privilege relationship between the managing entity and the managed tenant. Possible values are: none, delegatedAdminPrivileges, unknownFutureValue, granularDelegatedAdminPrivileges, delegatedAndGranularDelegetedAdminPrivileges. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: granularDelegatedAdminPrivileges , delegatedAndGranularDelegetedAdminPrivileges. Optional. Read-only.
     *
     * @param DelegatedPrivilegeStatus $val The value to assign to the delegatedPrivilegeStatus
     *

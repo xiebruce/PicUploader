@@ -22,8 +22,39 @@ namespace Microsoft\Graph\Model;
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ReportRoot extends Entity
+class ReportRoot implements \JsonSerializable
 {
+    /**
+    * The array of properties available
+    * to the model
+    *
+    * @var array $_propDict
+    */
+    protected $_propDict;
+
+    /**
+    * Construct a new ReportRoot
+    *
+    * @param array $propDict A list of properties to set
+    */
+    function __construct($propDict = array())
+    {
+        if (!is_array($propDict)) {
+           $propDict = array();
+        }
+        $this->_propDict = $propDict;
+    }
+
+    /**
+    * Gets the property dictionary of the ReportRoot
+    *
+    * @return array The list of properties
+    */
+    public function getProperties()
+    {
+        return $this->_propDict;
+    }
+
 
      /**
      * Gets the dailyPrintUsageByPrinter
@@ -136,4 +167,84 @@ class ReportRoot extends Entity
         return $this;
     }
 
+    /**
+    * Gets the security
+    *
+    * @return SecurityReportsRoot|null The security
+    */
+    public function getSecurity()
+    {
+        if (array_key_exists("security", $this->_propDict)) {
+            if (is_a($this->_propDict["security"], "\Microsoft\Graph\Model\SecurityReportsRoot") || is_null($this->_propDict["security"])) {
+                return $this->_propDict["security"];
+            } else {
+                $this->_propDict["security"] = new SecurityReportsRoot($this->_propDict["security"]);
+                return $this->_propDict["security"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the security
+    *
+    * @param SecurityReportsRoot $val The security
+    *
+    * @return ReportRoot
+    */
+    public function setSecurity($val)
+    {
+        $this->_propDict["security"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the ODataType
+    *
+    * @return string|null The ODataType
+    */
+    public function getODataType()
+    {
+        if (array_key_exists('@odata.type', $this->_propDict)) {
+            return $this->_propDict["@odata.type"];
+        }
+        return null;
+    }
+
+    /**
+    * Sets the ODataType
+    *
+    * @param string $val The ODataType
+    *
+    * @return ReportRoot
+    */
+    public function setODataType($val)
+    {
+        $this->_propDict["@odata.type"] = $val;
+        return $this;
+    }
+
+    /**
+    * Serializes the object by property array
+    * Manually serialize DateTime into RFC3339 format
+    *
+    * @return array The list of properties
+    */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        $serializableProperties = $this->getProperties();
+        foreach ($serializableProperties as $property => $val) {
+            if (is_a($val, "\DateTime")) {
+                $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
+            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+                $serializableProperties[$property] = $val->value();
+            } else if (is_a($val, "\Entity")) {
+                $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
+            }
+        }
+        return $serializableProperties;
+    }
 }

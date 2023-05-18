@@ -57,6 +57,7 @@ class OutboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Gets the userId
+    * The object id of the external user. Read-only.
     *
     * @return string|null The userId
     */
@@ -71,6 +72,7 @@ class OutboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Sets the userId
+    * The object id of the external user. Read-only.
     *
     * @param string $val The userId
     *
@@ -85,6 +87,7 @@ class OutboundSharedUserProfile implements \JsonSerializable
 
      /**
      * Gets the tenants
+    * The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
      *
      * @return array|null The tenants
      */
@@ -99,6 +102,7 @@ class OutboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Sets the tenants
+    * The collection of external Azure AD tenants that the user has shared profile data with. Read-only.
     *
     * @param TenantReference[] $val The tenants
     *
@@ -153,6 +157,8 @@ class OutboundSharedUserProfile implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

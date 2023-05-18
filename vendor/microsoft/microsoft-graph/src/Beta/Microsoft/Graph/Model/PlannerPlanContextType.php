@@ -34,4 +34,5 @@ class PlannerPlanContextType extends Enum
     const MEETING_NOTES = "meetingNotes";
     const OTHER = "other";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const LOOP_PAGE = "loopPage";
 }

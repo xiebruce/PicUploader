@@ -28,7 +28,7 @@ class ExceptionParser {
         }
 
         try {
-            $xml = new \SimpleXMLElement(utf8_encode($body));
+            $xml = new \SimpleXMLElement(mb_convert_encoding($body, 'UTF-8'));
             $this->parseBody($xml, $data);
             return $data;
         } catch (\Exception $e) {
@@ -41,9 +41,9 @@ class ExceptionParser {
     /**
      * Parses additional exception information from the response headers
      *
-     * @param RequestInterface $request  Request that was issued
-     * @param Response         $response The response from the request
-     * @param array            $data     The current set of exception data
+     * @param RequestInterface  $request  Request that was issued
+     * @param ResponseInterface $response The response from the request
+     * @param array             $data     The current set of exception data
      */
     protected function parseHeaders(RequestInterface $request, ResponseInterface $response, array &$data) {
         $data['message'] = $response->getStatusCode() . ' ' . $response->getReasonPhrase();

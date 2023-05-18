@@ -26,8 +26,9 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
 {
     /**
     * Gets the allowedAAGUIDs
+    * A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
     *
-    * @return string|null The allowedAAGUIDs
+    * @return array|null The allowedAAGUIDs
     */
     public function getAllowedAAGUIDs()
     {
@@ -40,8 +41,9 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
 
     /**
     * Sets the allowedAAGUIDs
+    * A list of AAGUIDs allowed to be used as part of the specified authentication method combinations.
     *
-    * @param string $val The allowedAAGUIDs
+    * @param string[] $val The allowedAAGUIDs
     *
     * @return Fido2CombinationConfiguration
     */

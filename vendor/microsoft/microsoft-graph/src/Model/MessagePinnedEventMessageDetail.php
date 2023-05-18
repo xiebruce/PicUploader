@@ -37,6 +37,7 @@ class MessagePinnedEventMessageDetail extends EventMessageDetail
 
     /**
     * Gets the eventDateTime
+    * Date and time when the event occurred.
     *
     * @return \DateTime|null The eventDateTime
     */
@@ -55,6 +56,7 @@ class MessagePinnedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the eventDateTime
+    * Date and time when the event occurred.
     *
     * @param \DateTime $val The value to assign to the eventDateTime
     *
@@ -68,6 +70,7 @@ class MessagePinnedEventMessageDetail extends EventMessageDetail
 
     /**
     * Gets the initiator
+    * Initiator of the event.
     *
     * @return IdentitySet|null The initiator
     */
@@ -86,6 +89,7 @@ class MessagePinnedEventMessageDetail extends EventMessageDetail
 
     /**
     * Sets the initiator
+    * Initiator of the event.
     *
     * @param IdentitySet $val The value to assign to the initiator
     *

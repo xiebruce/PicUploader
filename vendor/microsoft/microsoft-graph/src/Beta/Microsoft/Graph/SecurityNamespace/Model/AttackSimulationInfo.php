@@ -26,7 +26,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the attackSimDateTime
-    * Specifies the date time of the attack simulation.
+    * The date and time of the attack simulation.
     *
     * @return \DateTime|null The attackSimDateTime
     */
@@ -45,7 +45,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the attackSimDateTime
-    * Specifies the date time of the attack simulation.
+    * The date and time of the attack simulation.
     *
     * @param \DateTime $val The value to assign to the attackSimDateTime
     *
@@ -59,7 +59,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the attackSimDurationTime
-    * Specifies the duration (in time) for the attack simulation
+    * The duration (in time) for the attack simulation.
     *
     * @return \DateInterval|null The attackSimDurationTime
     */
@@ -78,7 +78,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the attackSimDurationTime
-    * Specifies the duration (in time) for the attack simulation
+    * The duration (in time) for the attack simulation.
     *
     * @param \DateInterval $val The value to assign to the attackSimDurationTime
     *
@@ -91,7 +91,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the attackSimId
-    * Specifies the activity id for the attack simulation.
+    * The activity ID for the attack simulation.
     *
     * @return string|null The attackSimId
     */
@@ -106,7 +106,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the attackSimId
-    * Specifies the activity id for the attack simulation.
+    * The activity ID for the attack simulation.
     *
     * @param string $val The value of the attackSimId
     *
@@ -119,7 +119,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the attackSimUserId
-    * Specifies the user id of the user who got the attack simulation email
+    * The unique identifier for the user who got the attack simulation email.
     *
     * @return string|null The attackSimUserId
     */
@@ -134,7 +134,7 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the attackSimUserId
-    * Specifies the user id of the user who got the attack simulation email
+    * The unique identifier for the user who got the attack simulation email.
     *
     * @param string $val The value of the attackSimUserId
     *

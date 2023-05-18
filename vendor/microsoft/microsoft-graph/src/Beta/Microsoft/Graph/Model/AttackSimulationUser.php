@@ -80,8 +80,34 @@ class AttackSimulationUser extends Entity
         return $this;
     }
     /**
+    * Gets the outOfOfficeDays
+    *
+    * @return int|null The outOfOfficeDays
+    */
+    public function getOutOfOfficeDays()
+    {
+        if (array_key_exists("outOfOfficeDays", $this->_propDict)) {
+            return $this->_propDict["outOfOfficeDays"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the outOfOfficeDays
+    *
+    * @param int $val The value of the outOfOfficeDays
+    *
+    * @return AttackSimulationUser
+    */
+    public function setOutOfOfficeDays($val)
+    {
+        $this->_propDict["outOfOfficeDays"] = $val;
+        return $this;
+    }
+    /**
     * Gets the userId
-    * This is the id property value of the user resource that represents the user in the Azure AD tenant.
+    * id property value of the user resource that represents the user in the Azure Active Directory tenant.
     *
     * @return string|null The userId
     */
@@ -96,7 +122,7 @@ class AttackSimulationUser extends Entity
 
     /**
     * Sets the userId
-    * This is the id property value of the user resource that represents the user in the Azure AD tenant.
+    * id property value of the user resource that represents the user in the Azure Active Directory tenant.
     *
     * @param string $val The value of the userId
     *

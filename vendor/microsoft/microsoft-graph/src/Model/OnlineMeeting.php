@@ -494,6 +494,39 @@ class OnlineMeeting extends Entity
     }
 
     /**
+    * Gets the joinMeetingIdSettings
+    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
+    *
+    * @return JoinMeetingIdSettings|null The joinMeetingIdSettings
+    */
+    public function getJoinMeetingIdSettings()
+    {
+        if (array_key_exists("joinMeetingIdSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["joinMeetingIdSettings"], "\Microsoft\Graph\Model\JoinMeetingIdSettings") || is_null($this->_propDict["joinMeetingIdSettings"])) {
+                return $this->_propDict["joinMeetingIdSettings"];
+            } else {
+                $this->_propDict["joinMeetingIdSettings"] = new JoinMeetingIdSettings($this->_propDict["joinMeetingIdSettings"]);
+                return $this->_propDict["joinMeetingIdSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the joinMeetingIdSettings
+    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
+    *
+    * @param JoinMeetingIdSettings $val The joinMeetingIdSettings
+    *
+    * @return OnlineMeeting
+    */
+    public function setJoinMeetingIdSettings($val)
+    {
+        $this->_propDict["joinMeetingIdSettings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the joinWebUrl
     * The join URL of the online meeting. Read-only.
     *
@@ -705,6 +738,39 @@ class OnlineMeeting extends Entity
     public function setVideoTeleconferenceId($val)
     {
         $this->_propDict["videoTeleconferenceId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the watermarkProtection
+    * Specifies whether a watermark should be applied to a content type by the client application.
+    *
+    * @return WatermarkProtectionValues|null The watermarkProtection
+    */
+    public function getWatermarkProtection()
+    {
+        if (array_key_exists("watermarkProtection", $this->_propDict)) {
+            if (is_a($this->_propDict["watermarkProtection"], "\Microsoft\Graph\Model\WatermarkProtectionValues") || is_null($this->_propDict["watermarkProtection"])) {
+                return $this->_propDict["watermarkProtection"];
+            } else {
+                $this->_propDict["watermarkProtection"] = new WatermarkProtectionValues($this->_propDict["watermarkProtection"]);
+                return $this->_propDict["watermarkProtection"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the watermarkProtection
+    * Specifies whether a watermark should be applied to a content type by the client application.
+    *
+    * @param WatermarkProtectionValues $val The watermarkProtection
+    *
+    * @return OnlineMeeting
+    */
+    public function setWatermarkProtection($val)
+    {
+        $this->_propDict["watermarkProtection"] = $val;
         return $this;
     }
 

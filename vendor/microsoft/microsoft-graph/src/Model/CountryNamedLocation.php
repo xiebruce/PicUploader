@@ -28,7 +28,7 @@ class CountryNamedLocation extends NamedLocation
     * Gets the countriesAndRegions
     * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
     *
-    * @return string|null The countriesAndRegions
+    * @return array|null The countriesAndRegions
     */
     public function getCountriesAndRegions()
     {
@@ -43,7 +43,7 @@ class CountryNamedLocation extends NamedLocation
     * Sets the countriesAndRegions
     * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
     *
-    * @param string $val The countriesAndRegions
+    * @param string[] $val The countriesAndRegions
     *
     * @return CountryNamedLocation
     */

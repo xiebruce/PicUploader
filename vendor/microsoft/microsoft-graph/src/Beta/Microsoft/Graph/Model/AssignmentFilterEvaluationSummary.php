@@ -115,7 +115,7 @@ class AssignmentFilterEvaluationSummary extends Entity
 
     /**
     * Gets the assignmentFilterPlatform
-    * The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+    * The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
     *
     * @return DevicePlatformType|null The assignmentFilterPlatform
     */
@@ -134,7 +134,7 @@ class AssignmentFilterEvaluationSummary extends Entity
 
     /**
     * Sets the assignmentFilterPlatform
-    * The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+    * The platform for which this assignment filter is created. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
     *
     * @param DevicePlatformType $val The value to assign to the assignmentFilterPlatform
     *

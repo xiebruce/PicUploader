@@ -727,7 +727,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile
 
     /**
     * Gets the userlessSharedAadModeEnabled
-    * Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
+    * Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://learn.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
     *
     * @return bool|null The userlessSharedAadModeEnabled
     */
@@ -742,7 +742,7 @@ class DepIOSEnrollmentProfile extends DepEnrollmentBaseProfile
 
     /**
     * Sets the userlessSharedAadModeEnabled
-    * Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://docs.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
+    * Indicates that this apple device is designated to support 'shared device mode' scenarios. This is distinct from the 'shared iPad' scenario. See https://learn.microsoft.com/mem/intune/enrollment/device-enrollment-shared-ios
     *
     * @param bool $val The userlessSharedAadModeEnabled
     *

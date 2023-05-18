@@ -26,6 +26,7 @@ class PinnedChatMessageInfo extends Entity
 {
     /**
     * Gets the message
+    * Represents details about the chat message that is pinned.
     *
     * @return ChatMessage|null The message
     */
@@ -44,6 +45,7 @@ class PinnedChatMessageInfo extends Entity
 
     /**
     * Sets the message
+    * Represents details about the chat message that is pinned.
     *
     * @param ChatMessage $val The message
     *

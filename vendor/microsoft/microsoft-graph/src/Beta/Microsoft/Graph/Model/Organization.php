@@ -58,7 +58,7 @@ class Organization extends DirectoryObject
     * Gets the businessPhones
     * Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
     *
-    * @return string|null The businessPhones
+    * @return array|null The businessPhones
     */
     public function getBusinessPhones()
     {
@@ -73,7 +73,7 @@ class Organization extends DirectoryObject
     * Sets the businessPhones
     * Telephone number for the organization. Although this is a string collection, only one number can be set for this property.
     *
-    * @param string $val The businessPhones
+    * @param string[] $val The businessPhones
     *
     * @return Organization
     */
@@ -204,6 +204,35 @@ class Organization extends DirectoryObject
     }
 
     /**
+    * Gets the defaultUsageLocation
+    * Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+    *
+    * @return string|null The defaultUsageLocation
+    */
+    public function getDefaultUsageLocation()
+    {
+        if (array_key_exists("defaultUsageLocation", $this->_propDict)) {
+            return $this->_propDict["defaultUsageLocation"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the defaultUsageLocation
+    * Two-letter ISO 3166 country code indicating the default service usage location of an organization.
+    *
+    * @param string $val The defaultUsageLocation
+    *
+    * @return Organization
+    */
+    public function setDefaultUsageLocation($val)
+    {
+        $this->_propDict["defaultUsageLocation"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the directorySizeQuota
     * The directory size quota information of an organization.
     *
@@ -298,7 +327,7 @@ class Organization extends DirectoryObject
     * Gets the marketingNotificationEmails
     * Not nullable.
     *
-    * @return string|null The marketingNotificationEmails
+    * @return array|null The marketingNotificationEmails
     */
     public function getMarketingNotificationEmails()
     {
@@ -313,7 +342,7 @@ class Organization extends DirectoryObject
     * Sets the marketingNotificationEmails
     * Not nullable.
     *
-    * @param string $val The marketingNotificationEmails
+    * @param string[] $val The marketingNotificationEmails
     *
     * @return Organization
     */
@@ -382,6 +411,39 @@ class Organization extends DirectoryObject
     public function setOnPremisesSyncEnabled($val)
     {
         $this->_propDict["onPremisesSyncEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the partnerTenantType
+    * The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.
+    *
+    * @return PartnerTenantType|null The partnerTenantType
+    */
+    public function getPartnerTenantType()
+    {
+        if (array_key_exists("partnerTenantType", $this->_propDict)) {
+            if (is_a($this->_propDict["partnerTenantType"], "\Beta\Microsoft\Graph\Model\PartnerTenantType") || is_null($this->_propDict["partnerTenantType"])) {
+                return $this->_propDict["partnerTenantType"];
+            } else {
+                $this->_propDict["partnerTenantType"] = new PartnerTenantType($this->_propDict["partnerTenantType"]);
+                return $this->_propDict["partnerTenantType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the partnerTenantType
+    * The type of partnership this tenant has with Microsoft. The possible values are: microsoftSupport, syndicatePartner, breadthPartner, breadthPartnerDelegatedAdmin, resellerPartnerDelegatedAdmin, valueAddedResellerPartnerDelegatedAdmin, unknownFutureValue. Nullable. For more information about the possible types, see partnerTenantType values.
+    *
+    * @param PartnerTenantType $val The partnerTenantType
+    *
+    * @return Organization
+    */
+    public function setPartnerTenantType($val)
+    {
+        $this->_propDict["partnerTenantType"] = $val;
         return $this;
     }
 
@@ -509,7 +571,7 @@ class Organization extends DirectoryObject
     /**
     * Gets the securityComplianceNotificationMails
     *
-    * @return string|null The securityComplianceNotificationMails
+    * @return array|null The securityComplianceNotificationMails
     */
     public function getSecurityComplianceNotificationMails()
     {
@@ -523,7 +585,7 @@ class Organization extends DirectoryObject
     /**
     * Sets the securityComplianceNotificationMails
     *
-    * @param string $val The securityComplianceNotificationMails
+    * @param string[] $val The securityComplianceNotificationMails
     *
     * @return Organization
     */
@@ -536,7 +598,7 @@ class Organization extends DirectoryObject
     /**
     * Gets the securityComplianceNotificationPhones
     *
-    * @return string|null The securityComplianceNotificationPhones
+    * @return array|null The securityComplianceNotificationPhones
     */
     public function getSecurityComplianceNotificationPhones()
     {
@@ -550,7 +612,7 @@ class Organization extends DirectoryObject
     /**
     * Sets the securityComplianceNotificationPhones
     *
-    * @param string $val The securityComplianceNotificationPhones
+    * @param string[] $val The securityComplianceNotificationPhones
     *
     * @return Organization
     */
@@ -622,7 +684,7 @@ class Organization extends DirectoryObject
     * Gets the technicalNotificationMails
     * Not nullable.
     *
-    * @return string|null The technicalNotificationMails
+    * @return array|null The technicalNotificationMails
     */
     public function getTechnicalNotificationMails()
     {
@@ -637,7 +699,7 @@ class Organization extends DirectoryObject
     * Sets the technicalNotificationMails
     * Not nullable.
     *
-    * @param string $val The technicalNotificationMails
+    * @param string[] $val The technicalNotificationMails
     *
     * @return Organization
     */
@@ -803,6 +865,37 @@ class Organization extends DirectoryObject
     public function setCertificateBasedAuthConfiguration($val)
     {
         $this->_propDict["certificateBasedAuthConfiguration"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the partnerInformation
+    *
+    * @return PartnerInformation|null The partnerInformation
+    */
+    public function getPartnerInformation()
+    {
+        if (array_key_exists("partnerInformation", $this->_propDict)) {
+            if (is_a($this->_propDict["partnerInformation"], "\Beta\Microsoft\Graph\Model\PartnerInformation") || is_null($this->_propDict["partnerInformation"])) {
+                return $this->_propDict["partnerInformation"];
+            } else {
+                $this->_propDict["partnerInformation"] = new PartnerInformation($this->_propDict["partnerInformation"]);
+                return $this->_propDict["partnerInformation"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the partnerInformation
+    *
+    * @param PartnerInformation $val The partnerInformation
+    *
+    * @return Organization
+    */
+    public function setPartnerInformation($val)
+    {
+        $this->_propDict["partnerInformation"] = $val;
         return $this;
     }
 

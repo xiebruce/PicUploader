@@ -178,7 +178,7 @@ class RelyingPartyDetailedSummary extends Entity
     * Gets the replyUrls
     * Specifies where the relying party expects to receive the token.
     *
-    * @return string|null The replyUrls
+    * @return array|null The replyUrls
     */
     public function getReplyUrls()
     {
@@ -193,7 +193,7 @@ class RelyingPartyDetailedSummary extends Entity
     * Sets the replyUrls
     * Specifies where the relying party expects to receive the token.
     *
-    * @param string $val The replyUrls
+    * @param string[] $val The replyUrls
     *
     * @return RelyingPartyDetailedSummary
     */

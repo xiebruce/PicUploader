@@ -26,6 +26,7 @@ class AuthenticationEventListener extends Entity
 {
     /**
     * Gets the authenticationEventsFlowId
+    * The identifier of the authenticationEventsFlow object.
     *
     * @return string|null The authenticationEventsFlowId
     */
@@ -40,6 +41,7 @@ class AuthenticationEventListener extends Entity
 
     /**
     * Sets the authenticationEventsFlowId
+    * The identifier of the authenticationEventsFlow object.
     *
     * @param string $val The authenticationEventsFlowId
     *
@@ -53,6 +55,7 @@ class AuthenticationEventListener extends Entity
 
     /**
     * Gets the conditions
+    * The conditions on which this authenticationEventListener should trigger.
     *
     * @return AuthenticationConditions|null The conditions
     */
@@ -71,6 +74,7 @@ class AuthenticationEventListener extends Entity
 
     /**
     * Sets the conditions
+    * The conditions on which this authenticationEventListener should trigger.
     *
     * @param AuthenticationConditions $val The conditions
     *
@@ -84,6 +88,7 @@ class AuthenticationEventListener extends Entity
 
     /**
     * Gets the priority
+    * The priority of this handler. Between 0 (lower priority) and 1000 (higher priority).
     *
     * @return int|null The priority
     */
@@ -98,6 +103,7 @@ class AuthenticationEventListener extends Entity
 
     /**
     * Sets the priority
+    * The priority of this handler. Between 0 (lower priority) and 1000 (higher priority).
     *
     * @param int $val The priority
     *
@@ -106,34 +112,6 @@ class AuthenticationEventListener extends Entity
     public function setPriority($val)
     {
         $this->_propDict["priority"] = intval($val);
-        return $this;
-    }
-
-
-     /**
-     * Gets the tags
-     *
-     * @return array|null The tags
-     */
-    public function getTags()
-    {
-        if (array_key_exists("tags", $this->_propDict)) {
-           return $this->_propDict["tags"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the tags
-    *
-    * @param KeyValuePair[] $val The tags
-    *
-    * @return AuthenticationEventListener
-    */
-    public function setTags($val)
-    {
-        $this->_propDict["tags"] = $val;
         return $this;
     }
 

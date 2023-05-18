@@ -56,6 +56,39 @@ class CrossTenantAccessPolicyConfigurationPartner implements \JsonSerializable
     }
 
     /**
+    * Gets the automaticUserConsentSettings
+    * Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
+    *
+    * @return InboundOutboundPolicyConfiguration|null The automaticUserConsentSettings
+    */
+    public function getAutomaticUserConsentSettings()
+    {
+        if (array_key_exists("automaticUserConsentSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["automaticUserConsentSettings"], "\Beta\Microsoft\Graph\Model\InboundOutboundPolicyConfiguration") || is_null($this->_propDict["automaticUserConsentSettings"])) {
+                return $this->_propDict["automaticUserConsentSettings"];
+            } else {
+                $this->_propDict["automaticUserConsentSettings"] = new InboundOutboundPolicyConfiguration($this->_propDict["automaticUserConsentSettings"]);
+                return $this->_propDict["automaticUserConsentSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the automaticUserConsentSettings
+    * Determines the partner-specific configuration for automatic user consent settings. Unless specifically configured, the inboundAllowed and outboundAllowed properties are null and inherit from the default settings, which is always false.
+    *
+    * @param InboundOutboundPolicyConfiguration $val The automaticUserConsentSettings
+    *
+    * @return CrossTenantAccessPolicyConfigurationPartner
+    */
+    public function setAutomaticUserConsentSettings($val)
+    {
+        $this->_propDict["automaticUserConsentSettings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the b2bCollaborationInbound
     * Defines your partner-specific configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.
     *
@@ -310,6 +343,39 @@ class CrossTenantAccessPolicyConfigurationPartner implements \JsonSerializable
     }
 
     /**
+    * Gets the identitySynchronization
+    * Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating the creation, update, and deletion of users from one tenant to another.
+    *
+    * @return CrossTenantIdentitySyncPolicyPartner|null The identitySynchronization
+    */
+    public function getIdentitySynchronization()
+    {
+        if (array_key_exists("identitySynchronization", $this->_propDict)) {
+            if (is_a($this->_propDict["identitySynchronization"], "\Beta\Microsoft\Graph\Model\CrossTenantIdentitySyncPolicyPartner") || is_null($this->_propDict["identitySynchronization"])) {
+                return $this->_propDict["identitySynchronization"];
+            } else {
+                $this->_propDict["identitySynchronization"] = new CrossTenantIdentitySyncPolicyPartner($this->_propDict["identitySynchronization"]);
+                return $this->_propDict["identitySynchronization"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the identitySynchronization
+    * Defines the cross-tenant policy for the synchronization of users from a partner tenant. Use this user synchronization policy to streamline collaboration between users in a multi-tenant organization by automating the creation, update, and deletion of users from one tenant to another.
+    *
+    * @param CrossTenantIdentitySyncPolicyPartner $val The identitySynchronization
+    *
+    * @return CrossTenantAccessPolicyConfigurationPartner
+    */
+    public function setIdentitySynchronization($val)
+    {
+        $this->_propDict["identitySynchronization"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the ODataType
     *
     * @return string|null The ODataType
@@ -352,6 +418,8 @@ class CrossTenantAccessPolicyConfigurationPartner implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

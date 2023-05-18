@@ -34,4 +34,5 @@ class RemediationState extends Enum
     const SUCCESS = "success";
     const REMEDIATION_FAILED = "remediationFailed";
     const SCRIPT_ERROR = "scriptError";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

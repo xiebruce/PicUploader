@@ -26,7 +26,7 @@ class WindowsAppX extends MobileLobApp
 {
     /**
     * Gets the applicableArchitectures
-    * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+    * The Windows architecture(s) on which this app can run. Possible values are: none, x86, x64, arm, neutral; default value is none. Possible values are: none, x86, x64, arm, neutral, arm64.
     *
     * @return WindowsArchitecture|null The applicableArchitectures
     */
@@ -45,7 +45,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the applicableArchitectures
-    * The Windows architecture(s) for which this app can run on. Possible values are: none, x86, x64, arm, neutral, arm64.
+    * The Windows architecture(s) on which this app can run. Possible values are: none, x86, x64, arm, neutral; default value is none. Possible values are: none, x86, x64, arm, neutral, arm64.
     *
     * @param WindowsArchitecture $val The applicableArchitectures
     *
@@ -59,7 +59,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Gets the identityName
-    * The Identity Name.
+    * The identity name of the uploaded app package. For example: 'Contoso.DemoApp'.
     *
     * @return string|null The identityName
     */
@@ -74,7 +74,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the identityName
-    * The Identity Name.
+    * The identity name of the uploaded app package. For example: 'Contoso.DemoApp'.
     *
     * @param string $val The identityName
     *
@@ -88,7 +88,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Gets the identityPublisherHash
-    * The Identity Publisher Hash.
+    * The identity publisher hash of the uploaded app package. This is the hash of the publisher from the manifest. For example: 'AB82CD0XYZ'.
     *
     * @return string|null The identityPublisherHash
     */
@@ -103,7 +103,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the identityPublisherHash
-    * The Identity Publisher Hash.
+    * The identity publisher hash of the uploaded app package. This is the hash of the publisher from the manifest. For example: 'AB82CD0XYZ'.
     *
     * @param string $val The identityPublisherHash
     *
@@ -117,7 +117,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Gets the identityResourceIdentifier
-    * The Identity Resource Identifier.
+    * The identity resource identifier of the uploaded app package. For example: 'TestResourceId'.
     *
     * @return string|null The identityResourceIdentifier
     */
@@ -132,7 +132,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the identityResourceIdentifier
-    * The Identity Resource Identifier.
+    * The identity resource identifier of the uploaded app package. For example: 'TestResourceId'.
     *
     * @param string $val The identityResourceIdentifier
     *
@@ -146,7 +146,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Gets the identityVersion
-    * The identity version.
+    * The identity version of the uploaded app package. For example: '1.0.0.0'.
     *
     * @return string|null The identityVersion
     */
@@ -161,7 +161,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the identityVersion
-    * The identity version.
+    * The identity version of the uploaded app package. For example: '1.0.0.0'.
     *
     * @param string $val The identityVersion
     *
@@ -175,7 +175,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Gets the isBundle
-    * Whether or not the app is a bundle.
+    * When TRUE, indicates that the app is a bundle. When FALSE, indicates that the app is not a bundle. By default, property is set to FALSE.
     *
     * @return bool|null The isBundle
     */
@@ -190,7 +190,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the isBundle
-    * Whether or not the app is a bundle.
+    * When TRUE, indicates that the app is a bundle. When FALSE, indicates that the app is not a bundle. By default, property is set to FALSE.
     *
     * @param bool $val The isBundle
     *
@@ -204,7 +204,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Gets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
+    * The value for the minimum applicable operating system. Valid values for a WindowsAppX app include v8_0, v8_1 and v10_0. If the app is a bundle, the minimum supported OS has to be at least v8_1.
     *
     * @return WindowsMinimumOperatingSystem|null The minimumSupportedOperatingSystem
     */
@@ -223,7 +223,7 @@ class WindowsAppX extends MobileLobApp
 
     /**
     * Sets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
+    * The value for the minimum applicable operating system. Valid values for a WindowsAppX app include v8_0, v8_1 and v10_0. If the app is a bundle, the minimum supported OS has to be at least v8_1.
     *
     * @param WindowsMinimumOperatingSystem $val The minimumSupportedOperatingSystem
     *

@@ -26,7 +26,6 @@ class EdiscoveryExportOperation extends CaseOperation
 {
     /**
     * Gets the azureBlobContainer
-    * The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
     *
     * @return string|null The azureBlobContainer
     */
@@ -41,7 +40,6 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the azureBlobContainer
-    * The name of the Azure storage location where the export will be stored. This only applies to exports stored in your own Azure storage location.
     *
     * @param string $val The azureBlobContainer
     *
@@ -55,7 +53,6 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Gets the azureBlobToken
-    * The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
     *
     * @return string|null The azureBlobToken
     */
@@ -70,7 +67,6 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the azureBlobToken
-    * The SAS token for the Azure storage location.  This only applies to exports stored in your own Azure storage location.
     *
     * @param string $val The azureBlobToken
     *
@@ -111,9 +107,37 @@ class EdiscoveryExportOperation extends CaseOperation
         return $this;
     }
 
+
+     /**
+     * Gets the exportFileMetadata
+     *
+     * @return array|null The exportFileMetadata
+     */
+    public function getExportFileMetadata()
+    {
+        if (array_key_exists("exportFileMetadata", $this->_propDict)) {
+           return $this->_propDict["exportFileMetadata"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the exportFileMetadata
+    *
+    * @param ExportFileMetadata[] $val The exportFileMetadata
+    *
+    * @return EdiscoveryExportOperation
+    */
+    public function setExportFileMetadata($val)
+    {
+        $this->_propDict["exportFileMetadata"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the exportOptions
-    * The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
+    * The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30th, 2023. Going forward, the summary and load file are always included.
     *
     * @return ExportOptions|null The exportOptions
     */
@@ -132,7 +156,7 @@ class EdiscoveryExportOperation extends CaseOperation
 
     /**
     * Sets the exportOptions
-    * The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags.
+    * The options provided for the export. For more details, see reviewSet: export. Possible values are: originalFiles, text, pdfReplacement, fileInfo, tags. The fileInfo member is deprecated and will stop returning data on April 30th, 2023. Going forward, the summary and load file are always included.
     *
     * @param ExportOptions $val The exportOptions
     *

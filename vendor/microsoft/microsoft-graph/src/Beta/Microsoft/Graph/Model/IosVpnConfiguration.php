@@ -57,7 +57,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration
     * Gets the excludeList
     * Zscaler only. List of network addresses which are not sent through the Zscaler cloud.
     *
-    * @return string|null The excludeList
+    * @return array|null The excludeList
     */
     public function getExcludeList()
     {
@@ -72,7 +72,7 @@ class IosVpnConfiguration extends AppleVpnConfiguration
     * Sets the excludeList
     * Zscaler only. List of network addresses which are not sent through the Zscaler cloud.
     *
-    * @param string $val The excludeList
+    * @param string[] $val The excludeList
     *
     * @return IosVpnConfiguration
     */

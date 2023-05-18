@@ -26,7 +26,7 @@ class MacOSMicrosoftEdgeApp extends MobileApp
 {
     /**
     * Gets the channel
-    * The channel to install on target devices. Possible values are: dev, beta, stable.
+    * The channel to install on target devices. Possible values are: dev, beta, stable, unknownFutureValue.
     *
     * @return MicrosoftEdgeChannel|null The channel
     */
@@ -45,7 +45,7 @@ class MacOSMicrosoftEdgeApp extends MobileApp
 
     /**
     * Sets the channel
-    * The channel to install on target devices. Possible values are: dev, beta, stable.
+    * The channel to install on target devices. Possible values are: dev, beta, stable, unknownFutureValue.
     *
     * @param MicrosoftEdgeChannel $val The channel
     *

@@ -26,6 +26,7 @@ class AttachmentSession extends Entity
 {
     /**
     * Gets the content
+    * The content streams that are uploaded.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The content
     */
@@ -44,6 +45,7 @@ class AttachmentSession extends Entity
 
     /**
     * Sets the content
+    * The content streams that are uploaded.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The content
     *
@@ -57,6 +59,7 @@ class AttachmentSession extends Entity
 
     /**
     * Gets the expirationDateTime
+    * The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
     *
     * @return \DateTime|null The expirationDateTime
     */
@@ -75,6 +78,7 @@ class AttachmentSession extends Entity
 
     /**
     * Sets the expirationDateTime
+    * The date and time in UTC when the upload session will expire. The complete file must be uploaded before this expiration time is reached.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -88,8 +92,9 @@ class AttachmentSession extends Entity
 
     /**
     * Gets the nextExpectedRanges
+    * Indicates a single value {start} that represents the location in the file where the next upload should begin.
     *
-    * @return string|null The nextExpectedRanges
+    * @return array|null The nextExpectedRanges
     */
     public function getNextExpectedRanges()
     {
@@ -102,8 +107,9 @@ class AttachmentSession extends Entity
 
     /**
     * Sets the nextExpectedRanges
+    * Indicates a single value {start} that represents the location in the file where the next upload should begin.
     *
-    * @param string $val The nextExpectedRanges
+    * @param string[] $val The nextExpectedRanges
     *
     * @return AttachmentSession
     */

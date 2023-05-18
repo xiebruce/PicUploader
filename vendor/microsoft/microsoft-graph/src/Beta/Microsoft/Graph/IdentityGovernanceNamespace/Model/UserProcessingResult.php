@@ -26,7 +26,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the completedDateTime
-    * The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
+    * The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The completedDateTime
     */
@@ -45,7 +45,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the completedDateTime
-    * The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed. Supports $filter(lt, gt) and $orderby.
+    * The date time that the workflow execution for a user completed. Value is null if the workflow hasn't completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The completedDateTime
     *
@@ -88,7 +88,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the processingStatus
-    * The workflow execution status. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue.
+    * The workflow execution status. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue.Supports $filter(eq, ne) and $orderby.
     *
     * @return LifecycleWorkflowProcessingStatus|null The processingStatus
     */
@@ -107,7 +107,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the processingStatus
-    * The workflow execution status. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue.
+    * The workflow execution status. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue.Supports $filter(eq, ne) and $orderby.
     *
     * @param LifecycleWorkflowProcessingStatus $val The processingStatus
     *
@@ -121,7 +121,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the scheduledDateTime
-    * The date time that the workflow is scheduled to be executed for a user.
+    * The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The scheduledDateTime
     */
@@ -140,7 +140,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the scheduledDateTime
-    * The date time that the workflow is scheduled to be executed for a user.
+    * The date time that the workflow is scheduled to be executed for a user.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The scheduledDateTime
     *
@@ -154,7 +154,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the startedDateTime
-    * The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
+    * The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The startedDateTime
     */
@@ -173,7 +173,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the startedDateTime
-    * The date time that the workflow execution started. Value is null if the workflow execution has not started. Supports $filter(lt, gt) and $orderby.
+    * The date time that the workflow execution started. Value is null if the workflow execution has not started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The startedDateTime
     *
@@ -245,7 +245,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the workflowExecutionType
-    * Describes the execution type of the workflow. The possible values are: scheduled, onDemand, unknownFutureValue. Supports $filter(eq, ne).
+    * Describes the execution type of the workflow. The possible values are: scheduled, onDemand, unknownFutureValue.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return WorkflowExecutionType|null The workflowExecutionType
     */
@@ -264,7 +264,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the workflowExecutionType
-    * Describes the execution type of the workflow. The possible values are: scheduled, onDemand, unknownFutureValue. Supports $filter(eq, ne).
+    * Describes the execution type of the workflow. The possible values are: scheduled, onDemand, unknownFutureValue.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param WorkflowExecutionType $val The workflowExecutionType
     *
@@ -307,7 +307,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the subject
-    * The unique identifier of the AAD user targeted for the taskProcessingResult.
+    * The unique identifier of the AAD user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
     *
     * @return \Beta\Microsoft\Graph\Model\User|null The subject
     */
@@ -326,7 +326,7 @@ class UserProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the subject
-    * The unique identifier of the AAD user targeted for the taskProcessingResult.
+    * The unique identifier of the AAD user targeted for the taskProcessingResult.Supports $filter(eq, ne) and $expand.
     *
     * @param \Beta\Microsoft\Graph\Model\User $val The subject
     *

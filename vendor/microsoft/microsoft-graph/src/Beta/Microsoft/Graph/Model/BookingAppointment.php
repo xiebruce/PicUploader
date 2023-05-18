@@ -55,7 +55,7 @@ class BookingAppointment extends Entity
 
     /**
     * Gets the anonymousJoinWebUrl
-    * Url of meeting to join anonymously.
+    * The URL of the meeting to join anonymously.
     *
     * @return string|null The anonymousJoinWebUrl
     */
@@ -70,7 +70,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the anonymousJoinWebUrl
-    * Url of meeting to join anonymously.
+    * The URL of the meeting to join anonymously.
     *
     * @param string $val The anonymousJoinWebUrl
     *
@@ -263,7 +263,7 @@ class BookingAppointment extends Entity
 
      /**
      * Gets the customers
-    * It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
+    * A collection of the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
      *
      * @return array|null The customers
      */
@@ -278,7 +278,7 @@ class BookingAppointment extends Entity
 
     /**
     * Sets the customers
-    * It lists down the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
+    * A collection of the customer properties for an appointment. An appointment will contain a list of customer information and each unit will indicate the properties of a customer who is part of that appointment. Optional.
     *
     * @param BookingCustomerInformationBase[] $val The customers
     *
@@ -1050,7 +1050,7 @@ class BookingAppointment extends Entity
     * Gets the staffMemberIds
     * The ID of each bookingStaffMember who is scheduled in this appointment.
     *
-    * @return string|null The staffMemberIds
+    * @return array|null The staffMemberIds
     */
     public function getStaffMemberIds()
     {
@@ -1065,7 +1065,7 @@ class BookingAppointment extends Entity
     * Sets the staffMemberIds
     * The ID of each bookingStaffMember who is scheduled in this appointment.
     *
-    * @param string $val The staffMemberIds
+    * @param string[] $val The staffMemberIds
     *
     * @return BookingAppointment
     */

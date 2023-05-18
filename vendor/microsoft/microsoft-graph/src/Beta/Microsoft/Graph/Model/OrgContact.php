@@ -56,7 +56,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the companyName
-    * Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @return string|null The companyName
     */
@@ -71,7 +71,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the companyName
-    * Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @param string $val The companyName
     *
@@ -85,7 +85,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the department
-    * The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @return string|null The department
     */
@@ -100,7 +100,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the department
-    * The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @param string $val The department
     *
@@ -114,7 +114,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the displayName
-    * Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+    * Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.
     *
     * @return string|null The displayName
     */
@@ -129,7 +129,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the displayName
-    * Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+    * Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values), $search, and $orderBy.
     *
     * @param string $val The displayName
     *
@@ -143,7 +143,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the givenName
-    * First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @return string|null The givenName
     */
@@ -158,7 +158,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the givenName
-    * First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @param string $val The givenName
     *
@@ -172,7 +172,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the jobTitle
-    * Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @return string|null The jobTitle
     */
@@ -187,7 +187,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the jobTitle
-    * Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @param string $val The jobTitle
     *
@@ -201,7 +201,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the mail
-    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @return string|null The mail
     */
@@ -216,7 +216,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the mail
-    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @param string $val The mail
     *
@@ -230,7 +230,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the mailNickname
-    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @return string|null The mailNickname
     */
@@ -245,7 +245,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the mailNickname
-    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
+    * Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
     *
     * @param string $val The mailNickname
     *
@@ -293,7 +293,7 @@ class OrgContact extends DirectoryObject
 
      /**
      * Gets the onPremisesProvisioningErrors
-    * List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
+    * List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not for category and propertyCausingError), /$count eq 0, /$count ne 0.
      *
      * @return array|null The onPremisesProvisioningErrors
      */
@@ -308,7 +308,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the onPremisesProvisioningErrors
-    * List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).
+    * List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not for category and propertyCausingError), /$count eq 0, /$count ne 0.
     *
     * @param OnPremisesProvisioningError[] $val The onPremisesProvisioningErrors
     *
@@ -322,7 +322,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq for null values).
     *
     * @return bool|null The onPremisesSyncEnabled
     */
@@ -337,7 +337,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the onPremisesSyncEnabled
-    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).
+    * true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq for null values).
     *
     * @param bool $val The onPremisesSyncEnabled
     *
@@ -381,9 +381,9 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the proxyAddresses
-    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).
     *
-    * @return string|null The proxyAddresses
+    * @return array|null The proxyAddresses
     */
     public function getProxyAddresses()
     {
@@ -396,9 +396,9 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the proxyAddresses
-    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+    * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).
     *
-    * @param string $val The proxyAddresses
+    * @param string[] $val The proxyAddresses
     *
     * @return OrgContact
     */
@@ -408,9 +408,39 @@ class OrgContact extends DirectoryObject
         return $this;
     }
 
+
+     /**
+     * Gets the serviceProvisioningErrors
+    * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from an orgContact object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+     *
+     * @return array|null The serviceProvisioningErrors
+     */
+    public function getServiceProvisioningErrors()
+    {
+        if (array_key_exists("serviceProvisioningErrors", $this->_propDict)) {
+           return $this->_propDict["serviceProvisioningErrors"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the serviceProvisioningErrors
+    * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from an orgContact object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+    *
+    * @param ServiceProvisioningError[] $val The serviceProvisioningErrors
+    *
+    * @return OrgContact
+    */
+    public function setServiceProvisioningErrors($val)
+    {
+        $this->_propDict["serviceProvisioningErrors"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the surname
-    * Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+    * Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values)
     *
     * @return string|null The surname
     */
@@ -425,7 +455,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the surname
-    * Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)
+    * Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values)
     *
     * @param string $val The surname
     *
@@ -469,7 +499,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Gets the manager
-    * The user or contact that is this contact's manager. Read-only. Supports $expand.
+    * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
     *
     * @return DirectoryObject|null The manager
     */
@@ -488,7 +518,7 @@ class OrgContact extends DirectoryObject
 
     /**
     * Sets the manager
-    * The user or contact that is this contact's manager. Read-only. Supports $expand.
+    * The user or contact that is this contact's manager. Read-only. Supports $expand and $filter (eq) by id.
     *
     * @param DirectoryObject $val The manager
     *

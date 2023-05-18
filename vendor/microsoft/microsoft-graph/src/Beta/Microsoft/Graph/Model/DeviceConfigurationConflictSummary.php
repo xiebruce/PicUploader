@@ -58,7 +58,7 @@ class DeviceConfigurationConflictSummary extends Entity
     * Gets the contributingSettings
     * The set of settings in conflict with the given policies
     *
-    * @return string|null The contributingSettings
+    * @return array|null The contributingSettings
     */
     public function getContributingSettings()
     {
@@ -73,7 +73,7 @@ class DeviceConfigurationConflictSummary extends Entity
     * Sets the contributingSettings
     * The set of settings in conflict with the given policies
     *
-    * @param string $val The contributingSettings
+    * @param string[] $val The contributingSettings
     *
     * @return DeviceConfigurationConflictSummary
     */

@@ -26,6 +26,7 @@ class HuntingQueryResults extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the results
+    * The results of the hunting query.
     *
     * @return HuntingRowResult|null The results
     */
@@ -44,6 +45,7 @@ class HuntingQueryResults extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the results
+    * The results of the hunting query.
     *
     * @param HuntingRowResult $val The value to assign to the results
     *
@@ -57,6 +59,7 @@ class HuntingQueryResults extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the schema
+    * The schema for the response.
     *
     * @return SinglePropertySchema|null The schema
     */
@@ -75,6 +78,7 @@ class HuntingQueryResults extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the schema
+    * The schema for the response.
     *
     * @param SinglePropertySchema $val The value to assign to the schema
     *

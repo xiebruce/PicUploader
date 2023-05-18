@@ -57,7 +57,7 @@ class DispositionReviewStage extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the reviewersEmailAddresses
     * A collection of reviewers at each stage.
     *
-    * @return string|null The reviewersEmailAddresses
+    * @return array|null The reviewersEmailAddresses
     */
     public function getReviewersEmailAddresses()
     {
@@ -72,7 +72,7 @@ class DispositionReviewStage extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the reviewersEmailAddresses
     * A collection of reviewers at each stage.
     *
-    * @param string $val The reviewersEmailAddresses
+    * @param string[] $val The reviewersEmailAddresses
     *
     * @return DispositionReviewStage
     */

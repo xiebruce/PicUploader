@@ -26,7 +26,7 @@ class EducationAssignment extends Entity
 {
     /**
     * Gets the addedStudentAction
-    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
+    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
     *
     * @return EducationAddedStudentAction|null The addedStudentAction
     */
@@ -45,7 +45,7 @@ class EducationAssignment extends Entity
 
     /**
     * Sets the addedStudentAction
-    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
+    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
     *
     * @param EducationAddedStudentAction $val The addedStudentAction
     *
@@ -658,7 +658,7 @@ class EducationAssignment extends Entity
 
     /**
     * Gets the status
-    * Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+    * Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
     *
     * @return EducationAssignmentStatus|null The status
     */
@@ -677,7 +677,7 @@ class EducationAssignment extends Entity
 
     /**
     * Sets the status
-    * Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+    * Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned, unknownFutureValue and inactive. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: inactive.
     *
     * @param EducationAssignmentStatus $val The status
     *
@@ -745,6 +745,37 @@ class EducationAssignment extends Entity
     public function setCategories($val)
     {
         $this->_propDict["categories"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the gradingCategory
+    *
+    * @return EducationGradingCategory|null The gradingCategory
+    */
+    public function getGradingCategory()
+    {
+        if (array_key_exists("gradingCategory", $this->_propDict)) {
+            if (is_a($this->_propDict["gradingCategory"], "\Beta\Microsoft\Graph\Model\EducationGradingCategory") || is_null($this->_propDict["gradingCategory"])) {
+                return $this->_propDict["gradingCategory"];
+            } else {
+                $this->_propDict["gradingCategory"] = new EducationGradingCategory($this->_propDict["gradingCategory"]);
+                return $this->_propDict["gradingCategory"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the gradingCategory
+    *
+    * @param EducationGradingCategory $val The gradingCategory
+    *
+    * @return EducationAssignment
+    */
+    public function setGradingCategory($val)
+    {
+        $this->_propDict["gradingCategory"] = $val;
         return $this;
     }
 

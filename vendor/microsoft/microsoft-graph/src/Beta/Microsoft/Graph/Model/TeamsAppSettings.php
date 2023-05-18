@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class TeamsAppSettings extends Entity
 {
     /**
+    * Gets the allowUserRequestsForAppAccess
+    * Indicates whether users are allowed to request access to the unavailable Teams apps.
+    *
+    * @return bool|null The allowUserRequestsForAppAccess
+    */
+    public function getAllowUserRequestsForAppAccess()
+    {
+        if (array_key_exists("allowUserRequestsForAppAccess", $this->_propDict)) {
+            return $this->_propDict["allowUserRequestsForAppAccess"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowUserRequestsForAppAccess
+    * Indicates whether users are allowed to request access to the unavailable Teams apps.
+    *
+    * @param bool $val The allowUserRequestsForAppAccess
+    *
+    * @return TeamsAppSettings
+    */
+    public function setAllowUserRequestsForAppAccess($val)
+    {
+        $this->_propDict["allowUserRequestsForAppAccess"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the isChatResourceSpecificConsentEnabled
     * Indicates whether resource-specific consent for chats/meetings has been enabled for the tenant. If true, Teams apps that are allowed in the tenant and require resource-specific permissions can be installed inside chats and meetings. If false, the installation of any Teams app that requires resource-specific permissions in a chat or a meeting will be blocked.
     *

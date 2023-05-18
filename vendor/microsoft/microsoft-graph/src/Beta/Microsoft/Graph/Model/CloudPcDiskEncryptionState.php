@@ -30,7 +30,7 @@ class CloudPcDiskEncryptionState extends Enum
     * The Enum CloudPcDiskEncryptionState
     */
     const NOT_AVAILABLE = "notAvailable";
-    const NOT_ENCRYPED = "notEncryped";
+    const NOT_ENCRYPTED = "notEncrypted";
     const ENCRYPTED_USING_PLATFORM_MANAGED_KEY = "encryptedUsingPlatformManagedKey";
     const ENCRYPTED_USING_CUSTOMER_MANAGED_KEY = "encryptedUsingCustomerManagedKey";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";

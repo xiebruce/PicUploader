@@ -247,7 +247,7 @@ class IosLobAppProvisioningConfiguration extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tags for this iOS LOB app provisioning configuration entity.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -262,7 +262,7 @@ class IosLobAppProvisioningConfiguration extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tags for this iOS LOB app provisioning configuration entity.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return IosLobAppProvisioningConfiguration
     */

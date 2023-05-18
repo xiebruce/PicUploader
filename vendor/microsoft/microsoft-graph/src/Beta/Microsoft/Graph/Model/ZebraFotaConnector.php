@@ -146,7 +146,7 @@ class ZebraFotaConnector extends Entity
 
     /**
     * Gets the state
-    * The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+    * The Zebra connector state.
     *
     * @return ZebraFotaConnectorState|null The state
     */
@@ -165,7 +165,7 @@ class ZebraFotaConnector extends Entity
 
     /**
     * Sets the state
-    * The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+    * The Zebra connector state.
     *
     * @param ZebraFotaConnectorState $val The state
     *

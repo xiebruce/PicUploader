@@ -55,7 +55,7 @@ class AccessPackageResource extends Entity
 
     /**
     * Gets the addedOn
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @return \DateTime|null The addedOn
     */
@@ -74,7 +74,7 @@ class AccessPackageResource extends Entity
 
     /**
     * Sets the addedOn
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
     * @param \DateTime $val The addedOn
     *
@@ -176,7 +176,7 @@ class AccessPackageResource extends Entity
 
     /**
     * Gets the isPendingOnboarding
-    * True if the resource is not yet available for assignment.
+    * True if the resource is not yet available for assignment. Read-only.
     *
     * @return bool|null The isPendingOnboarding
     */
@@ -191,7 +191,7 @@ class AccessPackageResource extends Entity
 
     /**
     * Sets the isPendingOnboarding
-    * True if the resource is not yet available for assignment.
+    * True if the resource is not yet available for assignment. Read-only.
     *
     * @param bool $val The isPendingOnboarding
     *

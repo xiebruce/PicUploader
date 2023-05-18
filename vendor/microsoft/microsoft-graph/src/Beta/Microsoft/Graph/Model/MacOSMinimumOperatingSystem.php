@@ -25,7 +25,7 @@ class MacOSMinimumOperatingSystem extends Entity
 {
     /**
     * Gets the v10_10
-    * Mac OS 10.10 or later.
+    * When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_10
     */
@@ -40,7 +40,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_10
-    * Mac OS 10.10 or later.
+    * When TRUE, indicates OS X 10.10 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_10
     *
@@ -53,7 +53,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_11
-    * Mac OS 10.11 or later.
+    * When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_11
     */
@@ -68,7 +68,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_11
-    * Mac OS 10.11 or later.
+    * When TRUE, indicates OS X 10.11 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_11
     *
@@ -81,7 +81,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_12
-    * Mac OS 10.12 or later.
+    * When TRUE, indicates macOS 10.12 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_12
     */
@@ -96,7 +96,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_12
-    * Mac OS 10.12 or later.
+    * When TRUE, indicates macOS 10.12 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_12
     *
@@ -109,7 +109,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_13
-    * Mac OS 10.13 or later.
+    * When TRUE, indicates macOS 10.13 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_13
     */
@@ -124,7 +124,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_13
-    * Mac OS 10.13 or later.
+    * When TRUE, indicates macOS 10.13 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_13
     *
@@ -137,7 +137,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_14
-    * Mac OS 10.14 or later.
+    * When TRUE, indicates macOS 10.14 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_14
     */
@@ -152,7 +152,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_14
-    * Mac OS 10.14 or later.
+    * When TRUE, indicates macOS 10.14 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_14
     *
@@ -165,7 +165,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_15
-    * Mac OS 10.15 or later.
+    * When TRUE, indicates macOS 10.15 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_15
     */
@@ -180,7 +180,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_15
-    * Mac OS 10.15 or later.
+    * When TRUE, indicates macOS 10.15 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_15
     *
@@ -193,7 +193,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_7
-    * Mac OS 10.7 or later.
+    * When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_7
     */
@@ -208,7 +208,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_7
-    * Mac OS 10.7 or later.
+    * When TRUE, indicates Mac OS X 10.7 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_7
     *
@@ -221,7 +221,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_8
-    * Mac OS 10.8 or later.
+    * When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_8
     */
@@ -236,7 +236,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_8
-    * Mac OS 10.8 or later.
+    * When TRUE, indicates OS X 10.8 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_8
     *
@@ -249,7 +249,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v10_9
-    * Mac OS 10.9 or later.
+    * When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v10_9
     */
@@ -264,7 +264,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_9
-    * Mac OS 10.9 or later.
+    * When TRUE, indicates OS X 10.9 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v10_9
     *
@@ -277,7 +277,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v11_0
-    * Mac OS 11.0 or later.
+    * When TRUE, indicates macOS 11.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v11_0
     */
@@ -292,7 +292,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v11_0
-    * Mac OS 11.0 or later.
+    * When TRUE, indicates macOS 11.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v11_0
     *
@@ -305,7 +305,7 @@ class MacOSMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v12_0
-    * Mac OS 12.0 or later.
+    * When TRUE, indicates macOS 12.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @return bool|null The v12_0
     */
@@ -320,7 +320,7 @@ class MacOSMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v12_0
-    * Mac OS 12.0 or later.
+    * When TRUE, indicates macOS 12.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
     *
     * @param bool $val The value of the v12_0
     *
@@ -329,6 +329,34 @@ class MacOSMinimumOperatingSystem extends Entity
     public function setV12_0($val)
     {
         $this->_propDict["v120"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the v13_0
+    * When TRUE, indicates macOS 13.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+    *
+    * @return bool|null The v13_0
+    */
+    public function getV13_0()
+    {
+        if (array_key_exists("v130", $this->_propDict)) {
+            return $this->_propDict["v130"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v13_0
+    * When TRUE, indicates macOS 13.0 or later is required to install the app. When FALSE, indicates some other OS version is the minimum OS to install the app. Default value is FALSE.
+    *
+    * @param bool $val The value of the v13_0
+    *
+    * @return MacOSMinimumOperatingSystem
+    */
+    public function setV13_0($val)
+    {
+        $this->_propDict["v130"] = $val;
         return $this;
     }
 }

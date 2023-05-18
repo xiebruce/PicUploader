@@ -115,4 +115,37 @@ class Presence extends Entity
         return $this;
     }
 
+    /**
+    * Gets the statusMessage
+    * The presence status message of a user.
+    *
+    * @return PresenceStatusMessage|null The statusMessage
+    */
+    public function getStatusMessage()
+    {
+        if (array_key_exists("statusMessage", $this->_propDict)) {
+            if (is_a($this->_propDict["statusMessage"], "\Beta\Microsoft\Graph\Model\PresenceStatusMessage") || is_null($this->_propDict["statusMessage"])) {
+                return $this->_propDict["statusMessage"];
+            } else {
+                $this->_propDict["statusMessage"] = new PresenceStatusMessage($this->_propDict["statusMessage"]);
+                return $this->_propDict["statusMessage"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the statusMessage
+    * The presence status message of a user.
+    *
+    * @param PresenceStatusMessage $val The statusMessage
+    *
+    * @return Presence
+    */
+    public function setStatusMessage($val)
+    {
+        $this->_propDict["statusMessage"] = $val;
+        return $this;
+    }
+
 }

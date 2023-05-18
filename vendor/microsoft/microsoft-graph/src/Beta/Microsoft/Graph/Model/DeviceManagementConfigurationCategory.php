@@ -26,7 +26,7 @@ class DeviceManagementConfigurationCategory extends Entity
 {
     /**
     * Gets the categoryDescription
-    * Description of the category header
+    * Description of the category header in policy summary.
     *
     * @return string|null The categoryDescription
     */
@@ -41,7 +41,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the categoryDescription
-    * Description of the category header
+    * Description of the category header in policy summary.
     *
     * @param string $val The categoryDescription
     *
@@ -57,7 +57,7 @@ class DeviceManagementConfigurationCategory extends Entity
     * Gets the childCategoryIds
     * List of child ids of the category.
     *
-    * @return string|null The childCategoryIds
+    * @return array|null The childCategoryIds
     */
     public function getChildCategoryIds()
     {
@@ -72,7 +72,7 @@ class DeviceManagementConfigurationCategory extends Entity
     * Sets the childCategoryIds
     * List of child ids of the category.
     *
-    * @param string $val The childCategoryIds
+    * @param string[] $val The childCategoryIds
     *
     * @return DeviceManagementConfigurationCategory
     */
@@ -84,7 +84,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the description
-    * Description of the item
+    * Description of the category. For example: Display
     *
     * @return string|null The description
     */
@@ -99,7 +99,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the description
-    * Description of the item
+    * Description of the category. For example: Display
     *
     * @param string $val The description
     *
@@ -113,7 +113,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the displayName
-    * Display name of the item
+    * Name of the category. For example: Device Lock
     *
     * @return string|null The displayName
     */
@@ -128,7 +128,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the displayName
-    * Display name of the item
+    * Name of the category. For example: Device Lock
     *
     * @param string $val The displayName
     *
@@ -142,7 +142,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the helpText
-    * Help text of the item
+    * Help text of the category. Give more details of the category.
     *
     * @return string|null The helpText
     */
@@ -157,7 +157,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the helpText
-    * Help text of the item
+    * Help text of the category. Give more details of the category.
     *
     * @param string $val The helpText
     *
@@ -200,7 +200,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the parentCategoryId
-    * Parent id of the category.
+    * Direct parent id of the category. If the category is the root, the parent id is same as its id.
     *
     * @return string|null The parentCategoryId
     */
@@ -215,7 +215,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the parentCategoryId
-    * Parent id of the category.
+    * Direct parent id of the category. If the category is the root, the parent id is same as its id.
     *
     * @param string $val The parentCategoryId
     *
@@ -229,7 +229,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the platforms
-    * Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+    * Platforms types, which settings in the category have. Possible values are: none. android, androidEnterprise, iOs, macOs, windows10X, windows10, aosp, and linux. If this property is not set, or set to none, returns categories in all platforms. Supports: $filters, $select. Read-only. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
     *
     * @return DeviceManagementConfigurationPlatforms|null The platforms
     */
@@ -248,7 +248,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the platforms
-    * Platforms types, which settings in the category have. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
+    * Platforms types, which settings in the category have. Possible values are: none. android, androidEnterprise, iOs, macOs, windows10X, windows10, aosp, and linux. If this property is not set, or set to none, returns categories in all platforms. Supports: $filters, $select. Read-only. Possible values are: none, android, iOS, macOS, windows10X, windows10, linux, unknownFutureValue.
     *
     * @param DeviceManagementConfigurationPlatforms $val The platforms
     *
@@ -291,7 +291,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the settingUsage
-    * Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
+    * Indicates that the category contains settings that are used for compliance, configuration, or reusable settings. Possible values are: configuration, compliance, reusableSetting. Each setting usage has separate API end-point to call. Read-only. Possible values are: none, configuration, compliance, unknownFutureValue.
     *
     * @return DeviceManagementConfigurationSettingUsage|null The settingUsage
     */
@@ -310,7 +310,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the settingUsage
-    * Indicates that the category contains settings that are used for Compliance or Configuration. Possible values are: none, configuration, compliance.
+    * Indicates that the category contains settings that are used for compliance, configuration, or reusable settings. Possible values are: configuration, compliance, reusableSetting. Each setting usage has separate API end-point to call. Read-only. Possible values are: none, configuration, compliance, unknownFutureValue.
     *
     * @param DeviceManagementConfigurationSettingUsage $val The settingUsage
     *
@@ -324,7 +324,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Gets the technologies
-    * Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, enrollment, unknownFutureValue.
+    * Technologies types, which settings in the category have. Possible values are: none, mdm, configManager, intuneManagementExtension, thirdParty, documentGateway, appleRemoteManagement, microsoftSense, exchangeOnline, edgeMam, linuxMdm, extensibility, enrollment, endpointPrivilegeManagement. If this property is not set, or set to none, returns categories in all platforms. Supports: $filters, $select. Read-only. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, mobileApplicationManagement, linuxMdm, enrollment, endpointPrivilegeManagement, unknownFutureValue.
     *
     * @return DeviceManagementConfigurationTechnologies|null The technologies
     */
@@ -343,7 +343,7 @@ class DeviceManagementConfigurationCategory extends Entity
 
     /**
     * Sets the technologies
-    * Technologies types, which settings in the category have. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, linuxMdm, enrollment, unknownFutureValue.
+    * Technologies types, which settings in the category have. Possible values are: none, mdm, configManager, intuneManagementExtension, thirdParty, documentGateway, appleRemoteManagement, microsoftSense, exchangeOnline, edgeMam, linuxMdm, extensibility, enrollment, endpointPrivilegeManagement. If this property is not set, or set to none, returns categories in all platforms. Supports: $filters, $select. Read-only. Possible values are: none, mdm, windows10XManagement, configManager, appleRemoteManagement, microsoftSense, exchangeOnline, mobileApplicationManagement, linuxMdm, enrollment, endpointPrivilegeManagement, unknownFutureValue.
     *
     * @param DeviceManagementConfigurationTechnologies $val The technologies
     *

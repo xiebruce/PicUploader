@@ -83,7 +83,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the activationLockBypassCode
-    * Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+    * The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The activationLockBypassCode
     */
@@ -98,7 +98,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the activationLockBypassCode
-    * Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+    * The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The activationLockBypassCode
     *
@@ -320,7 +320,7 @@ class ManagedDevice extends Entity
 
      /**
      * Gets the chromeOSDeviceInfo
-    * List of properties of the ChromeOS Device.
+    * List of properties of the ChromeOS Device. Default is an empty list. To retrieve actual values GET call needs to be made, with device id and included in select parameter.
      *
      * @return array|null The chromeOSDeviceInfo
      */
@@ -335,7 +335,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the chromeOSDeviceInfo
-    * List of properties of the ChromeOS Device.
+    * List of properties of the ChromeOS Device. Default is an empty list. To retrieve actual values GET call needs to be made, with device id and included in select parameter.
     *
     * @param ChromeOSDeviceProperty[] $val The chromeOSDeviceInfo
     *
@@ -382,7 +382,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the complianceState
-    * Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+    * Compliance state of the device. Examples: Compliant, Conflict, Error, etc. Default is unknown. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
     *
     * @return ComplianceState|null The complianceState
     */
@@ -401,7 +401,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the complianceState
-    * Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
+    * Compliance state of the device. Examples: Compliant, Conflict, Error, etc. Default is unknown. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.
     *
     * @param ComplianceState $val The complianceState
     *
@@ -544,7 +544,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the deviceCategoryDisplayName
-    * Device category display name. This property is read-only.
+    * Device category display name. Default is an empty string. Supports $filter operator 'eq' and 'or'. This property is read-only.
     *
     * @return string|null The deviceCategoryDisplayName
     */
@@ -559,7 +559,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the deviceCategoryDisplayName
-    * Device category display name. This property is read-only.
+    * Device category display name. Default is an empty string. Supports $filter operator 'eq' and 'or'. This property is read-only.
     *
     * @param string $val The deviceCategoryDisplayName
     *
@@ -730,7 +730,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the deviceType
-    * Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+    * Platform of the device. Examples: Desktop, WindowsRT, etc. Default is unknown. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
     *
     * @return DeviceType|null The deviceType
     */
@@ -749,7 +749,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the deviceType
-    * Platform of the device. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+    * Platform of the device. Examples: Desktop, WindowsRT, etc. Default is unknown. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
     *
     * @param DeviceType $val The deviceType
     *
@@ -883,7 +883,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the enrolledDateTime
-    * Enrollment time of the device. This property is read-only.
+    * Enrollment time of the device. Supports $filter operator 'lt' and 'gt'. This property is read-only.
     *
     * @return \DateTime|null The enrolledDateTime
     */
@@ -902,7 +902,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the enrolledDateTime
-    * Enrollment time of the device. This property is read-only.
+    * Enrollment time of the device. Supports $filter operator 'lt' and 'gt'. This property is read-only.
     *
     * @param \DateTime $val The enrolledDateTime
     *
@@ -945,7 +945,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the ethernetMacAddress
-    * Ethernet MAC. This property is read-only.
+    * Indicates Ethernet MAC Address of the device. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The ethernetMacAddress
     */
@@ -960,7 +960,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the ethernetMacAddress
-    * Ethernet MAC. This property is read-only.
+    * Indicates Ethernet MAC Address of the device. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The ethernetMacAddress
     *
@@ -1073,7 +1073,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the freeStorageSpaceInBytes
-    * Free Storage in Bytes. This property is read-only.
+    * Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
     *
     * @return int|null The freeStorageSpaceInBytes
     */
@@ -1088,7 +1088,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the freeStorageSpaceInBytes
-    * Free Storage in Bytes. This property is read-only.
+    * Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
     *
     * @param int $val The freeStorageSpaceInBytes
     *
@@ -1102,7 +1102,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the hardwareInformation
-    * The hardward details for the device.  Includes information such as storage space, manufacturer, serial number, etc. This property is read-only.
+    * The hardward details for the device. Includes information such as storage space, manufacturer, serial number, etc. By default most property of this type are set to null/0/false and enum defaults for associated types. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return HardwareInformation|null The hardwareInformation
     */
@@ -1121,7 +1121,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the hardwareInformation
-    * The hardward details for the device.  Includes information such as storage space, manufacturer, serial number, etc. This property is read-only.
+    * The hardward details for the device. Includes information such as storage space, manufacturer, serial number, etc. By default most property of this type are set to null/0/false and enum defaults for associated types. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param HardwareInformation $val The hardwareInformation
     *
@@ -1135,7 +1135,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the iccid
-    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The iccid
     */
@@ -1150,7 +1150,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the iccid
-    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The iccid
     *
@@ -1251,7 +1251,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the jailBroken
-    * whether the device is jail broken or rooted. This property is read-only.
+    * Whether the device is jail broken or rooted. Default is an empty string. Supports $filter operator 'eq' and 'or'. This property is read-only.
     *
     * @return string|null The jailBroken
     */
@@ -1266,7 +1266,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the jailBroken
-    * whether the device is jail broken or rooted. This property is read-only.
+    * Whether the device is jail broken or rooted. Default is an empty string. Supports $filter operator 'eq' and 'or'. This property is read-only.
     *
     * @param string $val The jailBroken
     *
@@ -1313,7 +1313,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the lastSyncDateTime
-    * The date and time that the device last completed a successful sync with Intune. This property is read-only.
+    * The date and time that the device last completed a successful sync with Intune. Supports $filter operator 'lt' and 'gt'. This property is read-only.
     *
     * @return \DateTime|null The lastSyncDateTime
     */
@@ -1332,7 +1332,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the lastSyncDateTime
-    * The date and time that the device last completed a successful sync with Intune. This property is read-only.
+    * The date and time that the device last completed a successful sync with Intune. Supports $filter operator 'lt' and 'gt'. This property is read-only.
     *
     * @param \DateTime $val The lastSyncDateTime
     *
@@ -1441,7 +1441,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the managementAgent
-    * Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+    * Management channel of the device. Examples: Intune, EAS, etc. Default is unknown. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
     *
     * @return ManagementAgentType|null The managementAgent
     */
@@ -1460,7 +1460,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the managementAgent
-    * Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
+    * Management channel of the device. Examples: Intune, EAS, etc. Default is unknown. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
     *
     * @param ManagementAgentType $val The managementAgent
     *
@@ -1540,7 +1540,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the managementState
-    * Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+    * Management state of the device. Examples: Managed, RetirePending, etc. Default is managed. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
     *
     * @return ManagementState|null The managementState
     */
@@ -1559,7 +1559,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the managementState
-    * Management state of the device. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
+    * Management state of the device. Examples: Managed, RetirePending, etc. Default is managed. Supports $filter operator 'eq' and 'or'. This property is read-only. Possible values are: managed, retirePending, retireFailed, wipePending, wipeFailed, unhealthy, deletePending, retireIssued, wipeIssued, wipeCanceled, retireCanceled, discovered.
     *
     * @param ManagementState $val The managementState
     *
@@ -1660,7 +1660,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the notes
-    * Notes on the device created by IT Admin
+    * Notes on the device created by IT Admin. Default is null. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported.
     *
     * @return string|null The notes
     */
@@ -1675,7 +1675,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the notes
-    * Notes on the device created by IT Admin
+    * Notes on the device created by IT Admin. Default is null. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported.
     *
     * @param string $val The notes
     *
@@ -1747,7 +1747,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the ownerType
-    * Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+    * Ownership of the device. Possible values are, 'company' or 'personal'. Default is unknown. Supports $filter operator 'eq' and 'or'. Possible values are: unknown, company, personal.
     *
     * @return OwnerType|null The ownerType
     */
@@ -1766,7 +1766,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the ownerType
-    * Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.
+    * Ownership of the device. Possible values are, 'company' or 'personal'. Default is unknown. Supports $filter operator 'eq' and 'or'. Possible values are: unknown, company, personal.
     *
     * @param OwnerType $val The ownerType
     *
@@ -1842,7 +1842,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the physicalMemoryInBytes
-    * Total Memory in Bytes. This property is read-only.
+    * Total Memory in Bytes. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. Read-only. This property is read-only.
     *
     * @return int|null The physicalMemoryInBytes
     */
@@ -1857,7 +1857,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the physicalMemoryInBytes
-    * Total Memory in Bytes. This property is read-only.
+    * Total Memory in Bytes. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. Read-only. This property is read-only.
     *
     * @param int $val The physicalMemoryInBytes
     *
@@ -1966,7 +1966,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the remoteAssistanceSessionUrl
-    * Url that allows a Remote Assistance session to be established with the device. This property is read-only.
+    * Url that allows a Remote Assistance session to be established with the device. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.
     *
     * @return string|null The remoteAssistanceSessionUrl
     */
@@ -1981,7 +1981,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the remoteAssistanceSessionUrl
-    * Url that allows a Remote Assistance session to be established with the device. This property is read-only.
+    * Url that allows a Remote Assistance session to be established with the device. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.
     *
     * @param string $val The remoteAssistanceSessionUrl
     *
@@ -2059,7 +2059,7 @@ class ManagedDevice extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tag IDs for this Device instance.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -2074,7 +2074,7 @@ class ManagedDevice extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tag IDs for this Device instance.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return ManagedDevice
     */
@@ -2144,7 +2144,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the skuNumber
-    * Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    * Device sku number, see also: https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
     *
     * @return int|null The skuNumber
     */
@@ -2159,7 +2159,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the skuNumber
-    * Device sku number, see also: https://docs.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
+    * Device sku number, see also: https://learn.microsoft.com/windows/win32/api/sysinfoapi/nf-sysinfoapi-getproductinfo. Valid values 0 to 2147483647. This property is read-only.
     *
     * @param int $val The skuNumber
     *
@@ -2260,7 +2260,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the udid
-    * Unique Device Identifier for iOS and macOS devices. This property is read-only.
+    * Unique Device Identifier for iOS and macOS devices. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The udid
     */
@@ -2275,7 +2275,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the udid
-    * Unique Device Identifier for iOS and macOS devices. This property is read-only.
+    * Unique Device Identifier for iOS and macOS devices. Default is an empty string. To retrieve actual values GET call needs to be made, with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The udid
     *
@@ -2435,7 +2435,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the windowsActiveMalwareCount
-    * Count of active malware for this windows device. This property is read-only.
+    * Count of active malware for this windows device. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.
     *
     * @return int|null The windowsActiveMalwareCount
     */
@@ -2450,7 +2450,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the windowsActiveMalwareCount
-    * Count of active malware for this windows device. This property is read-only.
+    * Count of active malware for this windows device. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.
     *
     * @param int $val The windowsActiveMalwareCount
     *
@@ -2464,7 +2464,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the windowsRemediatedMalwareCount
-    * Count of remediated malware for this windows device. This property is read-only.
+    * Count of remediated malware for this windows device. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.
     *
     * @return int|null The windowsRemediatedMalwareCount
     */
@@ -2479,7 +2479,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the windowsRemediatedMalwareCount
-    * Count of remediated malware for this windows device. This property is read-only.
+    * Count of remediated malware for this windows device. Default is 0. To retrieve actual values GET call needs to be made, with device id and included in select parameter. This property is read-only.
     *
     * @param int $val The windowsRemediatedMalwareCount
     *
@@ -2701,6 +2701,36 @@ class ManagedDevice extends Entity
     public function setDeviceCategory($val)
     {
         $this->_propDict["deviceCategory"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the deviceHealthScriptStates
+    * Results of device health scripts that ran for this device. Default is empty list. This property is read-only.
+     *
+     * @return array|null The deviceHealthScriptStates
+     */
+    public function getDeviceHealthScriptStates()
+    {
+        if (array_key_exists("deviceHealthScriptStates", $this->_propDict)) {
+           return $this->_propDict["deviceHealthScriptStates"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceHealthScriptStates
+    * Results of device health scripts that ran for this device. Default is empty list. This property is read-only.
+    *
+    * @param DeviceHealthScriptPolicyState[] $val The deviceHealthScriptStates
+    *
+    * @return ManagedDevice
+    */
+    public function setDeviceHealthScriptStates($val)
+    {
+        $this->_propDict["deviceHealthScriptStates"] = $val;
         return $this;
     }
 

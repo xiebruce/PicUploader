@@ -54,6 +54,35 @@ class RemoteAssistanceSettings extends Entity
     }
 
     /**
+    * Gets the blockChat
+    * Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+    *
+    * @return bool|null The blockChat
+    */
+    public function getBlockChat()
+    {
+        if (array_key_exists("blockChat", $this->_propDict)) {
+            return $this->_propDict["blockChat"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the blockChat
+    * Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+    *
+    * @param bool $val The blockChat
+    *
+    * @return RemoteAssistanceSettings
+    */
+    public function setBlockChat($val)
+    {
+        $this->_propDict["blockChat"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the remoteAssistanceState
     * The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
     *

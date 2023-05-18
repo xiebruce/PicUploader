@@ -55,6 +55,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the deviceSpecification
+    * The specification of the cloud PC device. Required. Read-only.
     *
     * @return string|null The deviceSpecification
     */
@@ -69,6 +70,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the deviceSpecification
+    * The specification of the cloud PC device. Required. Read-only.
     *
     * @param string $val The deviceSpecification
     *
@@ -82,7 +84,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the displayName
-    * The display name for the cloud PC. Required. Read-only.
+    * The display name  of the cloud PC device. Required. Read-only.
     *
     * @return string|null The displayName
     */
@@ -97,7 +99,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
-    * The display name for the cloud PC. Required. Read-only.
+    * The display name  of the cloud PC device. Required. Read-only.
     *
     * @param string $val The displayName
     *
@@ -144,7 +146,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the managedDeviceId
-    * The managed device identifier for the cloud PC. Optional. Read-only.
+    * The managed device identifier of the cloud PC device. Optional. Read-only.
     *
     * @return string|null The managedDeviceId
     */
@@ -159,7 +161,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the managedDeviceId
-    * The managed device identifier for the cloud PC. Optional. Read-only.
+    * The managed device identifier of the cloud PC device. Optional. Read-only.
     *
     * @param string $val The managedDeviceId
     *
@@ -173,7 +175,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the managedDeviceName
-    * The managed device display name for the cloud PC. Optional. Read-only.
+    * The managed device display name of the cloud PC device. Optional. Read-only.
     *
     * @return string|null The managedDeviceName
     */
@@ -188,7 +190,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the managedDeviceName
-    * The managed device display name for the cloud PC. Optional. Read-only.
+    * The managed device display name of the cloud PC device. Optional. Read-only.
     *
     * @param string $val The managedDeviceName
     *
@@ -202,7 +204,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the provisioningPolicyId
-    * The provisioning policy identifier for the cloud PC. Required. Read-only.
+    * The provisioning policy identifier for the cloud PC device. Required. Read-only.
     *
     * @return string|null The provisioningPolicyId
     */
@@ -217,7 +219,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the provisioningPolicyId
-    * The provisioning policy identifier for the cloud PC. Required. Read-only.
+    * The provisioning policy identifier for the cloud PC device. Required. Read-only.
     *
     * @param string $val The provisioningPolicyId
     *
@@ -231,7 +233,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the servicePlanName
-    * The service plan name for the cloud PC. Required. Read-only.
+    * The service plan name of the cloud PC device. Required. Read-only.
     *
     * @return string|null The servicePlanName
     */
@@ -246,7 +248,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the servicePlanName
-    * The service plan name for the cloud PC. Required. Read-only.
+    * The service plan name of the cloud PC device. Required. Read-only.
     *
     * @param string $val The servicePlanName
     *
@@ -260,6 +262,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the servicePlanType
+    * The service plan type of the cloud PC device. Required. Read-only.
     *
     * @return string|null The servicePlanType
     */
@@ -274,6 +277,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the servicePlanType
+    * The service plan type of the cloud PC device. Required. Read-only.
     *
     * @param string $val The servicePlanType
     *
@@ -345,7 +349,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the userPrincipalName
-    * The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only.
+    * The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
     *
     * @return string|null The userPrincipalName
     */
@@ -360,7 +364,7 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the userPrincipalName
-    * The user principal name (UPN) of the user assigned to the cloud PC. Required. Read-only.
+    * The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
     *
     * @param string $val The userPrincipalName
     *

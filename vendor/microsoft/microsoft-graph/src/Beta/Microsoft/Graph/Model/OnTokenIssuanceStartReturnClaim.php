@@ -25,6 +25,7 @@ class OnTokenIssuanceStartReturnClaim extends Entity
 {
     /**
     * Gets the claimIdInApiResponse
+    * The identifier of the claim returned by an API that is to be add to a token being issued.
     *
     * @return string|null The claimIdInApiResponse
     */
@@ -39,6 +40,7 @@ class OnTokenIssuanceStartReturnClaim extends Entity
 
     /**
     * Sets the claimIdInApiResponse
+    * The identifier of the claim returned by an API that is to be add to a token being issued.
     *
     * @param string $val The value of the claimIdInApiResponse
     *

@@ -645,7 +645,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     * Gets the contentCachingParents
     * A list of IP addresses representing parent content caches.
     *
-    * @return string|null The contentCachingParents
+    * @return array|null The contentCachingParents
     */
     public function getContentCachingParents()
     {
@@ -660,7 +660,7 @@ class MacOSDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationB
     * Sets the contentCachingParents
     * A list of IP addresses representing parent content caches.
     *
-    * @param string $val The contentCachingParents
+    * @param string[] $val The contentCachingParents
     *
     * @return MacOSDeviceFeaturesConfiguration
     */

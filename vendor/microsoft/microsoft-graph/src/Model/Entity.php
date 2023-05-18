@@ -57,6 +57,7 @@ class Entity implements \JsonSerializable
 
     /**
     * Gets the id
+    * The unique idenfier for an entity. Read-only.
     *
     * @return string|null The id
     */
@@ -71,6 +72,7 @@ class Entity implements \JsonSerializable
 
     /**
     * Sets the id
+    * The unique idenfier for an entity. Read-only.
     *
     * @param string $val The id
     *
@@ -125,6 +127,8 @@ class Entity implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

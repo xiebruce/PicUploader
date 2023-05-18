@@ -36,4 +36,5 @@ class DeviceManagementConfigurationControlType extends Enum
     const TOGGLE = "toggle";
     const MULTIHEADER_GRID = "multiheaderGrid";
     const CONTEXT_PANE = "contextPane";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

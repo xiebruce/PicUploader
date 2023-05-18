@@ -122,7 +122,7 @@ class TimeCard extends ChangeTrackedEntity
 
     /**
     * Gets the confirmedBy
-    * Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
+    * Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
     *
     * @return ConfirmedBy|null The confirmedBy
     */
@@ -141,7 +141,7 @@ class TimeCard extends ChangeTrackedEntity
 
     /**
     * Sets the confirmedBy
-    * Indicate if this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
+    * Indicates whether this timeCard entry is confirmed. Possible values are none, user, manager, unknownFutureValue.
     *
     * @param ConfirmedBy $val The confirmedBy
     *

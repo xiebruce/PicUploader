@@ -59,7 +59,7 @@ class EducationFeedbackResourceOutcome extends EducationOutcome
 
     /**
     * Gets the resourceStatus
-    * The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, and unknownFutureValue.
+    * The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.
     *
     * @return EducationFeedbackResourceOutcomeStatus|null The resourceStatus
     */
@@ -78,7 +78,7 @@ class EducationFeedbackResourceOutcome extends EducationOutcome
 
     /**
     * Sets the resourceStatus
-    * The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, and unknownFutureValue.
+    * The status of the feedback resource. The possible values are: notPublished, pendingPublish, published, failedPublish, unknownFutureValue.
     *
     * @param EducationFeedbackResourceOutcomeStatus $val The resourceStatus
     *

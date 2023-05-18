@@ -160,7 +160,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     * Gets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @return string|null The scepServerUrls
+    * @return array|null The scepServerUrls
     */
     public function getScepServerUrls()
     {
@@ -175,7 +175,7 @@ class Windows81SCEPCertificateProfile extends Windows81CertificateProfileBase
     * Sets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @param string $val The scepServerUrls
+    * @param string[] $val The scepServerUrls
     *
     * @return Windows81SCEPCertificateProfile
     */

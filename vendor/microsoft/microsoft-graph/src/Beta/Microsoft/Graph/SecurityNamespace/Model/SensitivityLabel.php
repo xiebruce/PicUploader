@@ -57,7 +57,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the contentFormats
     * Returns the supported content formats for the label.
     *
-    * @return string|null The contentFormats
+    * @return array|null The contentFormats
     */
     public function getContentFormats()
     {
@@ -72,7 +72,7 @@ class SensitivityLabel extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the contentFormats
     * Returns the supported content formats for the label.
     *
-    * @param string $val The contentFormats
+    * @param string[] $val The contentFormats
     *
     * @return SensitivityLabel
     */

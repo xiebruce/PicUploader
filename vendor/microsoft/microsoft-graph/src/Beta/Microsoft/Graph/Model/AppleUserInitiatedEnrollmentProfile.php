@@ -89,7 +89,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
 
     /**
     * Gets the defaultEnrollmentType
-    * The default profile enrollment type. Possible values are: unknown, device, user.
+    * The default profile enrollment type. Possible values are: unknown, device, user, accountDrivenUserEnrollment, webDeviceEnrollment, unknownFutureValue.
     *
     * @return AppleUserInitiatedEnrollmentType|null The defaultEnrollmentType
     */
@@ -108,7 +108,7 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
 
     /**
     * Sets the defaultEnrollmentType
-    * The default profile enrollment type. Possible values are: unknown, device, user.
+    * The default profile enrollment type. Possible values are: unknown, device, user, accountDrivenUserEnrollment, webDeviceEnrollment, unknownFutureValue.
     *
     * @param AppleUserInitiatedEnrollmentType $val The defaultEnrollmentType
     *

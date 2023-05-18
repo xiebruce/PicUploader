@@ -37,5 +37,10 @@ class DeviceManagementConfigurationTemplateFamily extends Enum
     const ENDPOINT_SECURITY_ATTACK_SURFACE_REDUCTION = "endpointSecurityAttackSurfaceReduction";
     const ENDPOINT_SECURITY_ACCOUNT_PROTECTION = "endpointSecurityAccountProtection";
     const ENDPOINT_SECURITY_APPLICATION_CONTROL = "endpointSecurityApplicationControl";
+    const ENDPOINT_SECURITY_ENDPOINT_PRIVILEGE_MANAGEMENT = "endpointSecurityEndpointPrivilegeManagement";
+    const ENROLLMENT_CONFIGURATION = "enrollmentConfiguration";
+    const APP_QUIET_TIME = "appQuietTime";
     const BASELINE = "baseline";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const DEVICE_CONFIGURATION_SCRIPTS = "deviceConfigurationScripts";
 }

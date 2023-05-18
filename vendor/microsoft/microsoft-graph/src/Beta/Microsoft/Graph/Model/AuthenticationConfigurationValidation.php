@@ -26,6 +26,7 @@ class AuthenticationConfigurationValidation extends Entity
 
     /**
     * Gets the errors
+    * Errors in the validation result of a customAuthenticationExtension.
     *
     * @return GenericError|null The errors
     */
@@ -44,6 +45,7 @@ class AuthenticationConfigurationValidation extends Entity
 
     /**
     * Sets the errors
+    * Errors in the validation result of a customAuthenticationExtension.
     *
     * @param GenericError $val The value to assign to the errors
     *
@@ -57,6 +59,7 @@ class AuthenticationConfigurationValidation extends Entity
 
     /**
     * Gets the warnings
+    * Warnings in the validation result of a customAuthenticationExtension.
     *
     * @return GenericError|null The warnings
     */
@@ -75,6 +78,7 @@ class AuthenticationConfigurationValidation extends Entity
 
     /**
     * Sets the warnings
+    * Warnings in the validation result of a customAuthenticationExtension.
     *
     * @param GenericError $val The value to assign to the warnings
     *

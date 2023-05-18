@@ -184,6 +184,36 @@ class DeviceManagement extends Entity
 
 
      /**
+     * Gets the auditEvents
+    * The Audit Events
+     *
+     * @return array|null The auditEvents
+     */
+    public function getAuditEvents()
+    {
+        if (array_key_exists("auditEvents", $this->_propDict)) {
+           return $this->_propDict["auditEvents"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the auditEvents
+    * The Audit Events
+    *
+    * @param AuditEvent[] $val The auditEvents
+    *
+    * @return DeviceManagement
+    */
+    public function setAuditEvents($val)
+    {
+        $this->_propDict["auditEvents"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the deviceCompliancePolicies
     * The device compliance policies.
      *

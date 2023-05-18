@@ -28,7 +28,7 @@ class UnifiedRoleManagementPolicyEnablementRule extends UnifiedRoleManagementPol
     * Gets the enabledRules
     * The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification.
     *
-    * @return string|null The enabledRules
+    * @return array|null The enabledRules
     */
     public function getEnabledRules()
     {
@@ -43,7 +43,7 @@ class UnifiedRoleManagementPolicyEnablementRule extends UnifiedRoleManagementPol
     * Sets the enabledRules
     * The collection of rules that are enabled for this policy rule. For example, MultiFactorAuthentication, Ticketing, and Justification.
     *
-    * @param string $val The enabledRules
+    * @param string[] $val The enabledRules
     *
     * @return UnifiedRoleManagementPolicyEnablementRule
     */

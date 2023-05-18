@@ -26,6 +26,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener
 {
     /**
     * Gets the handler
+    * The handler to invoke when conditions are met for this onTokenIssuanceStartListener.
     *
     * @return OnTokenIssuanceStartHandler|null The handler
     */
@@ -44,6 +45,7 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener
 
     /**
     * Sets the handler
+    * The handler to invoke when conditions are met for this onTokenIssuanceStartListener.
     *
     * @param OnTokenIssuanceStartHandler $val The handler
     *

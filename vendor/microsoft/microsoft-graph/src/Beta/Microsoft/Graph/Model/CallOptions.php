@@ -25,6 +25,7 @@ class CallOptions extends Entity
 {
     /**
     * Gets the hideBotAfterEscalation
+    * Indicates whether to hide the app after the call is escalated.
     *
     * @return bool|null The hideBotAfterEscalation
     */
@@ -39,6 +40,7 @@ class CallOptions extends Entity
 
     /**
     * Sets the hideBotAfterEscalation
+    * Indicates whether to hide the app after the call is escalated.
     *
     * @param bool $val The value of the hideBotAfterEscalation
     *

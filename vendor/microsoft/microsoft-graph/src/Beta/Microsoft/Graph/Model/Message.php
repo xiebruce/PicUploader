@@ -796,7 +796,7 @@ class Message extends OutlookItem
     /**
     * Gets the unsubscribeData
     *
-    * @return string|null The unsubscribeData
+    * @return array|null The unsubscribeData
     */
     public function getUnsubscribeData()
     {
@@ -810,7 +810,7 @@ class Message extends OutlookItem
     /**
     * Sets the unsubscribeData
     *
-    * @param string $val The unsubscribeData
+    * @param string[] $val The unsubscribeData
     *
     * @return Message
     */

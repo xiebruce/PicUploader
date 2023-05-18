@@ -28,7 +28,7 @@ class Office365ActiveUserDetail extends Entity
     * Gets the assignedProducts
     * All the products assigned for the user.
     *
-    * @return string|null The assignedProducts
+    * @return array|null The assignedProducts
     */
     public function getAssignedProducts()
     {
@@ -43,7 +43,7 @@ class Office365ActiveUserDetail extends Entity
     * Sets the assignedProducts
     * All the products assigned for the user.
     *
-    * @param string $val The assignedProducts
+    * @param string[] $val The assignedProducts
     *
     * @return Office365ActiveUserDetail
     */

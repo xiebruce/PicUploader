@@ -229,4 +229,31 @@ class JobResponseBase extends Entity
         return $this;
     }
 
+    /**
+    * Gets the userId
+    *
+    * @return string|null The userId
+    */
+    public function getUserId()
+    {
+        if (array_key_exists("userId", $this->_propDict)) {
+            return $this->_propDict["userId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the userId
+    *
+    * @param string $val The userId
+    *
+    * @return JobResponseBase
+    */
+    public function setUserId($val)
+    {
+        $this->_propDict["userId"] = $val;
+        return $this;
+    }
+
 }

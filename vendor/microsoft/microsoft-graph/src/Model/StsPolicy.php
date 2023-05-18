@@ -28,7 +28,7 @@ class StsPolicy extends PolicyBase
     * Gets the definition
     * A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.
     *
-    * @return string|null The definition
+    * @return array|null The definition
     */
     public function getDefinition()
     {
@@ -43,7 +43,7 @@ class StsPolicy extends PolicyBase
     * Sets the definition
     * A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.
     *
-    * @param string $val The definition
+    * @param string[] $val The definition
     *
     * @return StsPolicy
     */

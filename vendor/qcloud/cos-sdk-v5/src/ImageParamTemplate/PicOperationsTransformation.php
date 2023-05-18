@@ -2,6 +2,10 @@
 
 namespace Qcloud\Cos\ImageParamTemplate;
 
+/**
+ * Class PicOperationsTransformation 图片处理参数 Pic-Operations
+ * @package Qcloud\Cos\ImageParamTemplate
+ */
 class PicOperationsTransformation {
     private $isPicInfo;
     private $rules;

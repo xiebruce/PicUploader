@@ -456,36 +456,6 @@ class DeviceAppManagement extends Entity
 
 
      /**
-     * Gets the sideLoadingKeys
-    * Side Loading Keys that are required for the Windows 8 and 8.1 Apps installation.
-     *
-     * @return array|null The sideLoadingKeys
-     */
-    public function getSideLoadingKeys()
-    {
-        if (array_key_exists("sideLoadingKeys", $this->_propDict)) {
-           return $this->_propDict["sideLoadingKeys"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the sideLoadingKeys
-    * Side Loading Keys that are required for the Windows 8 and 8.1 Apps installation.
-    *
-    * @param SideLoadingKey[] $val The sideLoadingKeys
-    *
-    * @return DeviceAppManagement
-    */
-    public function setSideLoadingKeys($val)
-    {
-        $this->_propDict["sideLoadingKeys"] = $val;
-        return $this;
-    }
-
-
-     /**
      * Gets the vppTokens
     * List of Vpp tokens for this organization.
      *

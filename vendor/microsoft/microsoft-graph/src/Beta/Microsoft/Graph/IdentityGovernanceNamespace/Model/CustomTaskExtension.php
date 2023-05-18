@@ -26,7 +26,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 {
     /**
     * Gets the callbackConfiguration
-    * The callback configuration for a custom extension.
+    * The callback configuration for a custom task extension.
     *
     * @return \Beta\Microsoft\Graph\Model\CustomExtensionCallbackConfiguration|null The callbackConfiguration
     */
@@ -45,7 +45,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Sets the callbackConfiguration
-    * The callback configuration for a custom extension.
+    * The callback configuration for a custom task extension.
     *
     * @param \Beta\Microsoft\Graph\Model\CustomExtensionCallbackConfiguration $val The callbackConfiguration
     *
@@ -59,7 +59,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Gets the createdDateTime
-    * When the custom task extension was created.
+    * When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -78,7 +78,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Sets the createdDateTime
-    * When the custom task extension was created.
+    * When the custom task extension was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -92,7 +92,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Gets the lastModifiedDateTime
-    * When the custom extension was last modified.
+    * When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
@@ -111,7 +111,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Sets the lastModifiedDateTime
-    * When the custom extension was last modified.
+    * When the custom extension was last modified.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -125,7 +125,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Gets the createdBy
-    * The unique identifier of the Azure AD user that created the custom task extension.
+    * The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
     *
     * @return \Beta\Microsoft\Graph\Model\User|null The createdBy
     */
@@ -144,7 +144,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Sets the createdBy
-    * The unique identifier of the Azure AD user that created the custom task extension.
+    * The unique identifier of the Azure AD user that created the custom task extension.Supports $filter(eq, ne) and $expand.
     *
     * @param \Beta\Microsoft\Graph\Model\User $val The createdBy
     *
@@ -158,7 +158,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Gets the lastModifiedBy
-    * The unique identifier of the Azure AD user that modified the custom task extension last.
+    * The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
     *
     * @return \Beta\Microsoft\Graph\Model\User|null The lastModifiedBy
     */
@@ -177,7 +177,7 @@ class CustomTaskExtension extends \Beta\Microsoft\Graph\Model\CustomCalloutExten
 
     /**
     * Sets the lastModifiedBy
-    * The unique identifier of the Azure AD user that modified the custom task extension last.
+    * The unique identifier of the Azure AD user that modified the custom task extension last.Supports $filter(eq, ne) and $expand.
     *
     * @param \Beta\Microsoft\Graph\Model\User $val The lastModifiedBy
     *

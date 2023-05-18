@@ -57,7 +57,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     * Gets the allowedAndroidDeviceModels
     * List of device models allowed, as a string, for the managed app to work. (Android Only)
     *
-    * @return string|null The allowedAndroidDeviceModels
+    * @return array|null The allowedAndroidDeviceModels
     */
     public function getAllowedAndroidDeviceModels()
     {
@@ -72,7 +72,7 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     * Sets the allowedAndroidDeviceModels
     * List of device models allowed, as a string, for the managed app to work. (Android Only)
     *
-    * @param string $val The allowedAndroidDeviceModels
+    * @param string[] $val The allowedAndroidDeviceModels
     *
     * @return DefaultManagedAppProtection
     */
@@ -1166,6 +1166,35 @@ class DefaultManagedAppProtection extends ManagedAppProtection
     public function setMinimumWarningPatchVersion($val)
     {
         $this->_propDict["minimumWarningPatchVersion"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the minimumWarningSdkVersion
+    * Versions less than the specified version will result in warning message on the managed app from accessing company data. (iOS only)
+    *
+    * @return string|null The minimumWarningSdkVersion
+    */
+    public function getMinimumWarningSdkVersion()
+    {
+        if (array_key_exists("minimumWarningSdkVersion", $this->_propDict)) {
+            return $this->_propDict["minimumWarningSdkVersion"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the minimumWarningSdkVersion
+    * Versions less than the specified version will result in warning message on the managed app from accessing company data. (iOS only)
+    *
+    * @param string $val The minimumWarningSdkVersion
+    *
+    * @return DefaultManagedAppProtection
+    */
+    public function setMinimumWarningSdkVersion($val)
+    {
+        $this->_propDict["minimumWarningSdkVersion"] = $val;
         return $this;
     }
 

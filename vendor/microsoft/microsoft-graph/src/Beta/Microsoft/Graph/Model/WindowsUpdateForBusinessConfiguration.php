@@ -1132,34 +1132,4 @@ class WindowsUpdateForBusinessConfiguration extends DeviceConfiguration
         return $this;
     }
 
-
-     /**
-     * Gets the deviceUpdateStates
-    * Windows update for business configuration device states. This collection can contain a maximum of 500 elements.
-     *
-     * @return array|null The deviceUpdateStates
-     */
-    public function getDeviceUpdateStates()
-    {
-        if (array_key_exists("deviceUpdateStates", $this->_propDict)) {
-           return $this->_propDict["deviceUpdateStates"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the deviceUpdateStates
-    * Windows update for business configuration device states. This collection can contain a maximum of 500 elements.
-    *
-    * @param WindowsUpdateState[] $val The deviceUpdateStates
-    *
-    * @return WindowsUpdateForBusinessConfiguration
-    */
-    public function setDeviceUpdateStates($val)
-    {
-        $this->_propDict["deviceUpdateStates"] = $val;
-        return $this;
-    }
-
 }

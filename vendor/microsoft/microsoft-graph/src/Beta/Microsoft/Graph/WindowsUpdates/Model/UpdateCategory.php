@@ -32,4 +32,5 @@ class UpdateCategory extends Enum
     const FEATURE = "feature";
     const QUALITY = "quality";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const DRIVER = "driver";
 }

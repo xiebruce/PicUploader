@@ -86,7 +86,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
     * Gets the notificationRecipients
     * The list of recipients of the email notifications.
     *
-    * @return string|null The notificationRecipients
+    * @return array|null The notificationRecipients
     */
     public function getNotificationRecipients()
     {
@@ -101,7 +101,7 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
     * Sets the notificationRecipients
     * The list of recipients of the email notifications.
     *
-    * @param string $val The notificationRecipients
+    * @param string[] $val The notificationRecipients
     *
     * @return UnifiedRoleManagementPolicyNotificationRule
     */

@@ -27,6 +27,7 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension
 
      /**
      * Gets the claimsForTokenConfiguration
+    * Collection of claims to be returned by the API called by this custom authentication extension.
      *
      * @return array|null The claimsForTokenConfiguration
      */
@@ -41,6 +42,7 @@ class OnTokenIssuanceStartCustomExtension extends CustomAuthenticationExtension
 
     /**
     * Sets the claimsForTokenConfiguration
+    * Collection of claims to be returned by the API called by this custom authentication extension.
     *
     * @param OnTokenIssuanceStartReturnClaim[] $val The claimsForTokenConfiguration
     *

@@ -28,7 +28,7 @@ class ProjectParticipation extends ItemFacet
     * Gets the categories
     * Contains categories a user has associated with the project (for example, digital transformation, oil rig).
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -43,7 +43,7 @@ class ProjectParticipation extends ItemFacet
     * Sets the categories
     * Contains categories a user has associated with the project (for example, digital transformation, oil rig).
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return ProjectParticipation
     */
@@ -90,7 +90,7 @@ class ProjectParticipation extends ItemFacet
     * Gets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @return string|null The collaborationTags
+    * @return array|null The collaborationTags
     */
     public function getCollaborationTags()
     {
@@ -105,7 +105,7 @@ class ProjectParticipation extends ItemFacet
     * Sets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @param string $val The collaborationTags
+    * @param string[] $val The collaborationTags
     *
     * @return ProjectParticipation
     */

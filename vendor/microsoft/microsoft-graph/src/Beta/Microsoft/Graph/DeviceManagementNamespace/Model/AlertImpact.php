@@ -26,6 +26,7 @@ class AlertImpact extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the aggregationType
+    * The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
     *
     * @return AggregationType|null The aggregationType
     */
@@ -44,6 +45,7 @@ class AlertImpact extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the aggregationType
+    * The aggregation type of the impact. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
     *
     * @param AggregationType $val The value to assign to the aggregationType
     *
@@ -56,6 +58,7 @@ class AlertImpact extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the value
+    * The number value of the impact. For the aggregation types of count and affectedCloudPcCount, the value indicates the number of affected instances. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. For the aggregation types of percentage and affectedCloudPcPercentage, the value indicates the percent of affected instances. For example, 12 affectedCloudPcPercentage means that 12% of Cloud PCs are affected.
     *
     * @return int|null The value
     */
@@ -70,6 +73,7 @@ class AlertImpact extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the value
+    * The number value of the impact. For the aggregation types of count and affectedCloudPcCount, the value indicates the number of affected instances. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. For the aggregation types of percentage and affectedCloudPcPercentage, the value indicates the percent of affected instances. For example, 12 affectedCloudPcPercentage means that 12% of Cloud PCs are affected.
     *
     * @param int $val The value of the value
     *

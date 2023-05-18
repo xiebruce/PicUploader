@@ -181,7 +181,7 @@ class NdesConnector extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -196,7 +196,7 @@ class NdesConnector extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return NdesConnector
     */

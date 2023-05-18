@@ -88,6 +88,7 @@ class PrinterShare extends PrinterBase
 
     /**
     * Gets the viewPoint
+    * Additional data for a printer share as viewed by the signed-in user.
     *
     * @return PrinterShareViewpoint|null The viewPoint
     */
@@ -106,6 +107,7 @@ class PrinterShare extends PrinterBase
 
     /**
     * Sets the viewPoint
+    * Additional data for a printer share as viewed by the signed-in user.
     *
     * @param PrinterShareViewpoint $val The viewPoint
     *

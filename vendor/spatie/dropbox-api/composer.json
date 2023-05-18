@@ -27,7 +27,7 @@
     "require": {
         "php": "^7.1|^8.0",
         "ext-json": "*",
-        "graham-campbell/guzzle-factory": "^3.0|^4.0|^5.0",
+        "graham-campbell/guzzle-factory": "^3.0|^4.0|^5.0|^6.0",
         "guzzlehttp/guzzle": "^6.2|^7.0"
     },
     "require-dev": {

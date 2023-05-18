@@ -26,6 +26,7 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the aggregation
+    * Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
     *
     * @return AggregationType|null The aggregation
     */
@@ -44,6 +45,7 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the aggregation
+    * Indicates the built-in aggregation methods. The possible values are: count, percentage, affectedCloudPcCount, affectedCloudPcPercentage, unknownFutureValue.
     *
     * @param AggregationType $val The value to assign to the aggregation
     *
@@ -57,6 +59,7 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the operator
+    * Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
     *
     * @return OperatorType|null The operator
     */
@@ -75,6 +78,7 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the operator
+    * Indicates the built-in operator. The possible values are: greaterOrEqual, equal, greater, less, lessOrEqual, notEqual, unknownFutureValue.
     *
     * @param OperatorType $val The value to assign to the operator
     *
@@ -87,6 +91,7 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the target
+    * The target threshold value.
     *
     * @return int|null The target
     */
@@ -101,6 +106,7 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the target
+    * The target threshold value.
     *
     * @param int $val The value of the target
     *

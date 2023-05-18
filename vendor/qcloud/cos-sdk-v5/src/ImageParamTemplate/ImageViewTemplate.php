@@ -12,6 +12,7 @@ class ImageViewTemplate extends ImageTemplate
     private $height;
     private $format;
     private $quality;
+    private $ignoreError;
 
 
     public function __construct() {
@@ -21,6 +22,7 @@ class ImageViewTemplate extends ImageTemplate
         $this->height = "";
         $this->format = "";
         $this->quality = "";
+        $this->ignoreError = "";
     }
 
     public function setMode($value) {
@@ -50,6 +52,10 @@ class ImageViewTemplate extends ImageTemplate
         }else if ($qualityType == 3){
             $this->quality = "/lq/$qualityValue" ;
         }
+    }
+
+    public function ignoreError() {
+        $this->ignoreError = '/ignore-error/1';
     }
 
     public function getMode() {
@@ -89,6 +95,9 @@ class ImageViewTemplate extends ImageTemplate
         }
         if($this->quality) {
             $res .= $this->quality;
+        }
+        if($this->ignoreError) {
+            $res .= $this->ignoreError;
         }
         if($res) {
             $res = $head . $res;

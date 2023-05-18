@@ -59,7 +59,7 @@ class AttackSimulationTrainingUserCoverage extends Entity
 
     /**
     * Gets the userTrainings
-    * List of assigned trainings' and their statuses for the user.
+    * List of assigned trainings and their statuses for the user.
     *
     * @return UserTrainingStatusInfo|null The userTrainings
     */
@@ -78,7 +78,7 @@ class AttackSimulationTrainingUserCoverage extends Entity
 
     /**
     * Sets the userTrainings
-    * List of assigned trainings' and their statuses for the user.
+    * List of assigned trainings and their statuses for the user.
     *
     * @param UserTrainingStatusInfo $val The value to assign to the userTrainings
     *

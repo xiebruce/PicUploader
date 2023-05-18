@@ -152,7 +152,7 @@ class DeviceManagementCachedReportConfiguration extends Entity
     * Gets the orderBy
     * Ordering of columns in the report
     *
-    * @return string|null The orderBy
+    * @return array|null The orderBy
     */
     public function getOrderBy()
     {
@@ -167,7 +167,7 @@ class DeviceManagementCachedReportConfiguration extends Entity
     * Sets the orderBy
     * Ordering of columns in the report
     *
-    * @param string $val The orderBy
+    * @param string[] $val The orderBy
     *
     * @return DeviceManagementCachedReportConfiguration
     */
@@ -210,7 +210,7 @@ class DeviceManagementCachedReportConfiguration extends Entity
     * Gets the select
     * Columns selected from the report
     *
-    * @return string|null The select
+    * @return array|null The select
     */
     public function getSelect()
     {
@@ -225,7 +225,7 @@ class DeviceManagementCachedReportConfiguration extends Entity
     * Sets the select
     * Columns selected from the report
     *
-    * @param string $val The select
+    * @param string[] $val The select
     *
     * @return DeviceManagementCachedReportConfiguration
     */

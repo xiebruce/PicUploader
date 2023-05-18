@@ -214,7 +214,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -229,7 +229,7 @@ class WindowsDefenderApplicationControlSupplementalPolicy extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return WindowsDefenderApplicationControlSupplementalPolicy
     */

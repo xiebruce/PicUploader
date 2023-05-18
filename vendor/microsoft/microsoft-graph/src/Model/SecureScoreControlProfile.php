@@ -114,6 +114,7 @@ class SecureScoreControlProfile extends Entity
 
      /**
      * Gets the complianceInformation
+    * The collection of compliance information associated with secure score control
      *
      * @return array|null The complianceInformation
      */
@@ -128,6 +129,7 @@ class SecureScoreControlProfile extends Entity
 
     /**
     * Sets the complianceInformation
+    * The collection of compliance information associated with secure score control
     *
     * @param ComplianceInformation[] $val The complianceInformation
     *
@@ -171,6 +173,7 @@ class SecureScoreControlProfile extends Entity
 
      /**
      * Gets the controlStateUpdates
+    * Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).
      *
      * @return array|null The controlStateUpdates
      */
@@ -185,6 +188,7 @@ class SecureScoreControlProfile extends Entity
 
     /**
     * Sets the controlStateUpdates
+    * Flag to indicate where the tenant has marked a control (ignored, thirdParty, reviewed) (supports update).
     *
     * @param SecureScoreControlStateUpdate[] $val The controlStateUpdates
     *
@@ -436,7 +440,7 @@ class SecureScoreControlProfile extends Entity
     * Gets the threats
     * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,
     *
-    * @return string|null The threats
+    * @return array|null The threats
     */
     public function getThreats()
     {
@@ -451,7 +455,7 @@ class SecureScoreControlProfile extends Entity
     * Sets the threats
     * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,
     *
-    * @param string $val The threats
+    * @param string[] $val The threats
     *
     * @return SecureScoreControlProfile
     */
@@ -490,7 +494,6 @@ class SecureScoreControlProfile extends Entity
 
     /**
     * Gets the title
-    * Title of the control.
     *
     * @return string|null The title
     */
@@ -505,7 +508,6 @@ class SecureScoreControlProfile extends Entity
 
     /**
     * Sets the title
-    * Title of the control.
     *
     * @param string $val The title
     *

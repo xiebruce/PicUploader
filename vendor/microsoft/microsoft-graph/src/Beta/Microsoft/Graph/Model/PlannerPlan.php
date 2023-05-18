@@ -26,7 +26,7 @@ class PlannerPlan extends PlannerDelta
 {
     /**
     * Gets the container
-    * Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+    * Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required.
     *
     * @return PlannerPlanContainer|null The container
     */
@@ -45,7 +45,7 @@ class PlannerPlan extends PlannerDelta
 
     /**
     * Sets the container
-    * Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+    * Identifies the container of the plan. Specify only the url, the containerId and type, or all properties. After it is set, this property can’t be updated. Required.
     *
     * @param PlannerPlanContainer $val The container
     *
@@ -157,6 +157,39 @@ class PlannerPlan extends PlannerDelta
     }
 
     /**
+    * Gets the creationSource
+    * Contains information about the origin of the plan.
+    *
+    * @return PlannerPlanCreation|null The creationSource
+    */
+    public function getCreationSource()
+    {
+        if (array_key_exists("creationSource", $this->_propDict)) {
+            if (is_a($this->_propDict["creationSource"], "\Beta\Microsoft\Graph\Model\PlannerPlanCreation") || is_null($this->_propDict["creationSource"])) {
+                return $this->_propDict["creationSource"];
+            } else {
+                $this->_propDict["creationSource"] = new PlannerPlanCreation($this->_propDict["creationSource"]);
+                return $this->_propDict["creationSource"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the creationSource
+    * Contains information about the origin of the plan.
+    *
+    * @param PlannerPlanCreation $val The creationSource
+    *
+    * @return PlannerPlan
+    */
+    public function setCreationSource($val)
+    {
+        $this->_propDict["creationSource"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the owner
     *
     * @return string|null The owner
@@ -180,6 +213,34 @@ class PlannerPlan extends PlannerDelta
     public function setOwner($val)
     {
         $this->_propDict["owner"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the sharedWithContainers
+     *
+     * @return array|null The sharedWithContainers
+     */
+    public function getSharedWithContainers()
+    {
+        if (array_key_exists("sharedWithContainers", $this->_propDict)) {
+           return $this->_propDict["sharedWithContainers"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sharedWithContainers
+    *
+    * @param PlannerSharedWithContainer[] $val The sharedWithContainers
+    *
+    * @return PlannerPlan
+    */
+    public function setSharedWithContainers($val)
+    {
+        $this->_propDict["sharedWithContainers"] = $val;
         return $this;
     }
 

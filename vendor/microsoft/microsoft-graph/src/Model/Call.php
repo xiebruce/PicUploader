@@ -84,6 +84,7 @@ class Call extends Entity
 
     /**
     * Gets the callOptions
+    * Contains the optional features for the call.
     *
     * @return CallOptions|null The callOptions
     */
@@ -102,6 +103,7 @@ class Call extends Entity
 
     /**
     * Sets the callOptions
+    * Contains the optional features for the call.
     *
     * @param CallOptions $val The callOptions
     *
@@ -211,6 +213,7 @@ class Call extends Entity
 
     /**
     * Gets the incomingContext
+    * Call context associated with an incoming call.
     *
     * @return IncomingContext|null The incomingContext
     */
@@ -229,6 +232,7 @@ class Call extends Entity
 
     /**
     * Sets the incomingContext
+    * Call context associated with an incoming call.
     *
     * @param IncomingContext $val The incomingContext
     *
@@ -308,7 +312,7 @@ class Call extends Entity
 
     /**
     * Gets the meetingInfo
-    * The meeting information that's required for joining a meeting.
+    * The meeting information. Required information for meeting scenarios.
     *
     * @return MeetingInfo|null The meetingInfo
     */
@@ -327,7 +331,7 @@ class Call extends Entity
 
     /**
     * Sets the meetingInfo
-    * The meeting information that's required for joining a meeting.
+    * The meeting information. Required information for meeting scenarios.
     *
     * @param MeetingInfo $val The meetingInfo
     *
@@ -369,6 +373,7 @@ class Call extends Entity
 
      /**
      * Gets the requestedModalities
+    * The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
      *
      * @return array|null The requestedModalities
      */
@@ -383,6 +388,7 @@ class Call extends Entity
 
     /**
     * Sets the requestedModalities
+    * The list of requested modalities. Possible values are: unknown, audio, video, videoBasedScreenSharing, data.
     *
     * @param Modality[] $val The requestedModalities
     *
@@ -396,6 +402,7 @@ class Call extends Entity
 
     /**
     * Gets the resultInfo
+    * The result information. For example can hold termination reason. Read-only.
     *
     * @return ResultInfo|null The resultInfo
     */
@@ -414,6 +421,7 @@ class Call extends Entity
 
     /**
     * Sets the resultInfo
+    * The result information. For example can hold termination reason. Read-only.
     *
     * @param ResultInfo $val The resultInfo
     *
@@ -427,6 +435,7 @@ class Call extends Entity
 
     /**
     * Gets the source
+    * The originator of the call.
     *
     * @return ParticipantInfo|null The source
     */
@@ -445,6 +454,7 @@ class Call extends Entity
 
     /**
     * Sets the source
+    * The originator of the call.
     *
     * @param ParticipantInfo $val The source
     *
@@ -458,6 +468,7 @@ class Call extends Entity
 
     /**
     * Gets the state
+    * The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
     *
     * @return CallState|null The state
     */
@@ -476,6 +487,7 @@ class Call extends Entity
 
     /**
     * Sets the state
+    * The call state. Possible values are: incoming, establishing, ringing, established, hold, transferring, transferAccepted, redirecting, terminating, terminated. Read-only.
     *
     * @param CallState $val The state
     *
@@ -489,6 +501,7 @@ class Call extends Entity
 
     /**
     * Gets the subject
+    * The subject of the conversation.
     *
     * @return string|null The subject
     */
@@ -503,6 +516,7 @@ class Call extends Entity
 
     /**
     * Sets the subject
+    * The subject of the conversation.
     *
     * @param string $val The subject
     *
@@ -517,6 +531,7 @@ class Call extends Entity
 
      /**
      * Gets the targets
+    * The targets of the call. Required information for creating peer to peer call.
      *
      * @return array|null The targets
      */
@@ -531,6 +546,7 @@ class Call extends Entity
 
     /**
     * Sets the targets
+    * The targets of the call. Required information for creating peer to peer call.
     *
     * @param InvitationParticipantInfo[] $val The targets
     *
@@ -602,6 +618,7 @@ class Call extends Entity
 
     /**
     * Gets the transcription
+    * The transcription information for the call. Read-only.
     *
     * @return CallTranscriptionInfo|null The transcription
     */
@@ -620,6 +637,7 @@ class Call extends Entity
 
     /**
     * Sets the transcription
+    * The transcription information for the call. Read-only.
     *
     * @param CallTranscriptionInfo $val The transcription
     *

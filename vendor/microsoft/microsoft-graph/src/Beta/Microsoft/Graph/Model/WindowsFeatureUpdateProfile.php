@@ -243,7 +243,7 @@ class WindowsFeatureUpdateProfile extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Feature Update entity.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -258,7 +258,7 @@ class WindowsFeatureUpdateProfile extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Feature Update entity.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return WindowsFeatureUpdateProfile
     */

@@ -54,6 +54,93 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     }
 
     /**
+    * Gets the adminAccountFullName
+    * Indicates what the full name for the admin account is
+    *
+    * @return string|null The adminAccountFullName
+    */
+    public function getAdminAccountFullName()
+    {
+        if (array_key_exists("adminAccountFullName", $this->_propDict)) {
+            return $this->_propDict["adminAccountFullName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the adminAccountFullName
+    * Indicates what the full name for the admin account is
+    *
+    * @param string $val The adminAccountFullName
+    *
+    * @return DepMacOSEnrollmentProfile
+    */
+    public function setAdminAccountFullName($val)
+    {
+        $this->_propDict["adminAccountFullName"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the adminAccountPassword
+    * Indicates what the password for the admin account is
+    *
+    * @return string|null The adminAccountPassword
+    */
+    public function getAdminAccountPassword()
+    {
+        if (array_key_exists("adminAccountPassword", $this->_propDict)) {
+            return $this->_propDict["adminAccountPassword"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the adminAccountPassword
+    * Indicates what the password for the admin account is
+    *
+    * @param string $val The adminAccountPassword
+    *
+    * @return DepMacOSEnrollmentProfile
+    */
+    public function setAdminAccountPassword($val)
+    {
+        $this->_propDict["adminAccountPassword"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the adminAccountUserName
+    * Indicates what the user name for the admin account is
+    *
+    * @return string|null The adminAccountUserName
+    */
+    public function getAdminAccountUserName()
+    {
+        if (array_key_exists("adminAccountUserName", $this->_propDict)) {
+            return $this->_propDict["adminAccountUserName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the adminAccountUserName
+    * Indicates what the user name for the admin account is
+    *
+    * @param string $val The adminAccountUserName
+    *
+    * @return DepMacOSEnrollmentProfile
+    */
+    public function setAdminAccountUserName($val)
+    {
+        $this->_propDict["adminAccountUserName"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the autoUnlockWithWatchDisabled
     * Indicates if UnlockWithWatch screen is disabled
     *
@@ -199,6 +286,35 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     }
 
     /**
+    * Gets the hideAdminAccount
+    * Indicates whether the admin account should be hidded or not
+    *
+    * @return bool|null The hideAdminAccount
+    */
+    public function getHideAdminAccount()
+    {
+        if (array_key_exists("hideAdminAccount", $this->_propDict)) {
+            return $this->_propDict["hideAdminAccount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the hideAdminAccount
+    * Indicates whether the admin account should be hidded or not
+    *
+    * @param bool $val The hideAdminAccount
+    *
+    * @return DepMacOSEnrollmentProfile
+    */
+    public function setHideAdminAccount($val)
+    {
+        $this->_propDict["hideAdminAccount"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the iCloudDiagnosticsDisabled
     * Indicates if iCloud Analytics screen is disabled
     *
@@ -257,122 +373,6 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     }
 
     /**
-    * Gets the isLocalPrimaryAccount
-    * Indicates whether the profile is a local account
-    *
-    * @return bool|null The isLocalPrimaryAccount
-    */
-    public function getIsLocalPrimaryAccount()
-    {
-        if (array_key_exists("isLocalPrimaryAccount", $this->_propDict)) {
-            return $this->_propDict["isLocalPrimaryAccount"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the isLocalPrimaryAccount
-    * Indicates whether the profile is a local account
-    *
-    * @param bool $val The isLocalPrimaryAccount
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setIsLocalPrimaryAccount($val)
-    {
-        $this->_propDict["isLocalPrimaryAccount"] = boolval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the isPrimaryUser
-    * Indicates whether the profile is a primary user
-    *
-    * @return bool|null The isPrimaryUser
-    */
-    public function getIsPrimaryUser()
-    {
-        if (array_key_exists("isPrimaryUser", $this->_propDict)) {
-            return $this->_propDict["isPrimaryUser"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the isPrimaryUser
-    * Indicates whether the profile is a primary user
-    *
-    * @param bool $val The isPrimaryUser
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setIsPrimaryUser($val)
-    {
-        $this->_propDict["isPrimaryUser"] = boolval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the lockPrimaryAccountInfo
-    * Indicates whether the primary account information will be locked
-    *
-    * @return bool|null The lockPrimaryAccountInfo
-    */
-    public function getLockPrimaryAccountInfo()
-    {
-        if (array_key_exists("lockPrimaryAccountInfo", $this->_propDict)) {
-            return $this->_propDict["lockPrimaryAccountInfo"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the lockPrimaryAccountInfo
-    * Indicates whether the primary account information will be locked
-    *
-    * @param bool $val The lockPrimaryAccountInfo
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setLockPrimaryAccountInfo($val)
-    {
-        $this->_propDict["lockPrimaryAccountInfo"] = boolval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the managedLocalUserShortName
-    * Indicates whether or not this is the short name of the local account to manage
-    *
-    * @return bool|null The managedLocalUserShortName
-    */
-    public function getManagedLocalUserShortName()
-    {
-        if (array_key_exists("managedLocalUserShortName", $this->_propDict)) {
-            return $this->_propDict["managedLocalUserShortName"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the managedLocalUserShortName
-    * Indicates whether or not this is the short name of the local account to manage
-    *
-    * @param bool $val The managedLocalUserShortName
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setManagedLocalUserShortName($val)
-    {
-        $this->_propDict["managedLocalUserShortName"] = boolval($val);
-        return $this;
-    }
-
-    /**
     * Gets the passCodeDisabled
     * Indicates if Passcode setup pane is disabled
     *
@@ -398,35 +398,6 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     public function setPassCodeDisabled($val)
     {
         $this->_propDict["passCodeDisabled"] = boolval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the prefillAccountInfo
-    * Indicates whether the user will prefill their account info
-    *
-    * @return bool|null The prefillAccountInfo
-    */
-    public function getPrefillAccountInfo()
-    {
-        if (array_key_exists("prefillAccountInfo", $this->_propDict)) {
-            return $this->_propDict["prefillAccountInfo"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the prefillAccountInfo
-    * Indicates whether the user will prefill their account info
-    *
-    * @param bool $val The prefillAccountInfo
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setPrefillAccountInfo($val)
-    {
-        $this->_propDict["prefillAccountInfo"] = boolval($val);
         return $this;
     }
 
@@ -489,64 +460,6 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     }
 
     /**
-    * Gets the primaryUser
-    * Indicates who the primary user of the profile is
-    *
-    * @return string|null The primaryUser
-    */
-    public function getPrimaryUser()
-    {
-        if (array_key_exists("primaryUser", $this->_propDict)) {
-            return $this->_propDict["primaryUser"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the primaryUser
-    * Indicates who the primary user of the profile is
-    *
-    * @param string $val The primaryUser
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setPrimaryUser($val)
-    {
-        $this->_propDict["primaryUser"] = $val;
-        return $this;
-    }
-
-    /**
-    * Gets the primaryUserFullName
-    * Indicates who the primary user of the profile is
-    *
-    * @return string|null The primaryUserFullName
-    */
-    public function getPrimaryUserFullName()
-    {
-        if (array_key_exists("primaryUserFullName", $this->_propDict)) {
-            return $this->_propDict["primaryUserFullName"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the primaryUserFullName
-    * Indicates who the primary user of the profile is
-    *
-    * @param string $val The primaryUserFullName
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setPrimaryUserFullName($val)
-    {
-        $this->_propDict["primaryUserFullName"] = $val;
-        return $this;
-    }
-
-    /**
     * Gets the registrationDisabled
     * Indicates if registration is disabled
     *
@@ -572,35 +485,6 @@ class DepMacOSEnrollmentProfile extends DepEnrollmentBaseProfile
     public function setRegistrationDisabled($val)
     {
         $this->_propDict["registrationDisabled"] = boolval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the requestRequiresNetworkTether
-    * Indicates if the device is network-tethered to run the command
-    *
-    * @return bool|null The requestRequiresNetworkTether
-    */
-    public function getRequestRequiresNetworkTether()
-    {
-        if (array_key_exists("requestRequiresNetworkTether", $this->_propDict)) {
-            return $this->_propDict["requestRequiresNetworkTether"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the requestRequiresNetworkTether
-    * Indicates if the device is network-tethered to run the command
-    *
-    * @param bool $val The requestRequiresNetworkTether
-    *
-    * @return DepMacOSEnrollmentProfile
-    */
-    public function setRequestRequiresNetworkTether($val)
-    {
-        $this->_propDict["requestRequiresNetworkTether"] = boolval($val);
         return $this;
     }
 

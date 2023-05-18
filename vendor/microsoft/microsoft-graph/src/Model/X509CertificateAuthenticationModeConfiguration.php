@@ -26,6 +26,7 @@ class X509CertificateAuthenticationModeConfiguration extends Entity
 
     /**
     * Gets the rules
+    * Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.
     *
     * @return X509CertificateRule|null The rules
     */
@@ -44,6 +45,7 @@ class X509CertificateAuthenticationModeConfiguration extends Entity
 
     /**
     * Sets the rules
+    * Rules are configured in addition to the authentication mode to bind a specific x509CertificateRuleType to an x509CertificateAuthenticationMode. For example, bind the policyOID with identifier 1.32.132.343 to x509CertificateMultiFactor authentication mode.
     *
     * @param X509CertificateRule $val The value to assign to the rules
     *
@@ -57,6 +59,7 @@ class X509CertificateAuthenticationModeConfiguration extends Entity
 
     /**
     * Gets the x509CertificateAuthenticationDefaultMode
+    * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
     *
     * @return X509CertificateAuthenticationMode|null The x509CertificateAuthenticationDefaultMode
     */
@@ -75,6 +78,7 @@ class X509CertificateAuthenticationModeConfiguration extends Entity
 
     /**
     * Sets the x509CertificateAuthenticationDefaultMode
+    * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue.
     *
     * @param X509CertificateAuthenticationMode $val The value to assign to the x509CertificateAuthenticationDefaultMode
     *

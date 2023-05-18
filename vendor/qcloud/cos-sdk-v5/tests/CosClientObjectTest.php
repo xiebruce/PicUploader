@@ -9,6 +9,7 @@ class CosClientObjectTest extends TestCosClientBase {
     private $key;
     private $appendKey;
     private $aclKey;
+    private $uin;
     /**********************************
      * TestObject
      **********************************/
@@ -489,8 +490,8 @@ class CosClientObjectTest extends TestCosClientBase {
                     'Grants' => array(
                         array(
                             'Grantee' => array(
-                                'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                                'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                                'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                                'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                                 'Type' => 'CanonicalUser',
                             ),
                             'Permission' => 'FULL_CONTROL',
@@ -498,8 +499,8 @@ class CosClientObjectTest extends TestCosClientBase {
                         // ... repeated
                     ),
                     'Owner' => array(
-                        'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                        'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                        'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                        'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                     )
                 )
             );
@@ -524,16 +525,16 @@ class CosClientObjectTest extends TestCosClientBase {
                     'Grants' => array(
                         array(
                             'Grantee' => array(
-                                'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                                'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                                'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                                'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                                 'Type' => 'CanonicalUser',
                             ),
                             'Permission' => 'FULL_CONTROL',
                         ),
                     ),
                     'Owner' => array(
-                        'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                        'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                        'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                        'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                     )
                 )
             );
@@ -617,7 +618,7 @@ class CosClientObjectTest extends TestCosClientBase {
                 array(
                     'Bucket' =>  $this->bucket,
                     'Key' => $this->key,
-                    'GrantRead' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantRead' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -639,7 +640,7 @@ class CosClientObjectTest extends TestCosClientBase {
                 array(
                     'Bucket' =>  $this->bucket,
                     'Key' => $this->key,
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -660,7 +661,7 @@ class CosClientObjectTest extends TestCosClientBase {
                 array(
                     'Bucket' =>  $this->bucket,
                     'Key' => $this->key,
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869",id="qcs::cam::uin/100018617869:uin/100018617869",id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '",id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '",id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -681,7 +682,7 @@ class CosClientObjectTest extends TestCosClientBase {
                 array(
                     'Bucket' =>  $this->bucket,
                     'Key' => $this->key,
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -726,8 +727,8 @@ class CosClientObjectTest extends TestCosClientBase {
                     'Grants' => array(
                         array(
                             'Grantee' => array(
-                                'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                                'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                                'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                                'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                                 'Type' => 'CanonicalUser',
                             ),
                             'Permission' => 'FULL_CONTROL',
@@ -735,8 +736,8 @@ class CosClientObjectTest extends TestCosClientBase {
                         // ... repeated
                     ),
                     'Owner' => array(
-                        'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                        'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                        'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                        'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                     )
                 )
             );
@@ -770,8 +771,8 @@ class CosClientObjectTest extends TestCosClientBase {
                         // ... repeated
                     ),
                     'Owner' => array(
-                        'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                        'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                        'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                        'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                     )
                 )
             );
@@ -954,6 +955,7 @@ class CosClientObjectTest extends TestCosClientBase {
     {
         parent::setUp();
         $this->key = Common::FILE_NAME;
+        $this->uin = Common::getUin();
         $this->appendKey = $this->key.'append';
         $this->cosClient->putObject(array('Bucket' => $this->bucket,'Key' => $this->key, 'Body' => '123'));
     }

@@ -149,6 +149,34 @@ class ReportRoot extends Entity
 
 
      /**
+     * Gets the dailyPrintUsage
+     *
+     * @return array|null The dailyPrintUsage
+     */
+    public function getDailyPrintUsage()
+    {
+        if (array_key_exists("dailyPrintUsage", $this->_propDict)) {
+           return $this->_propDict["dailyPrintUsage"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the dailyPrintUsage
+    *
+    * @param PrintUsage[] $val The dailyPrintUsage
+    *
+    * @return ReportRoot
+    */
+    public function setDailyPrintUsage($val)
+    {
+        $this->_propDict["dailyPrintUsage"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the dailyPrintUsageByPrinter
      *
      * @return array|null The dailyPrintUsageByPrinter

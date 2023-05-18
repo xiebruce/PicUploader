@@ -26,6 +26,36 @@ class DeploymentAudience extends \Beta\Microsoft\Graph\Model\Entity
 {
 
      /**
+     * Gets the applicableContent
+    * Content eligible to deploy to devices in the audience. Not nullable. Read-only.
+     *
+     * @return array|null The applicableContent
+     */
+    public function getApplicableContent()
+    {
+        if (array_key_exists("applicableContent", $this->_propDict)) {
+           return $this->_propDict["applicableContent"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the applicableContent
+    * Content eligible to deploy to devices in the audience. Not nullable. Read-only.
+    *
+    * @param ApplicableContent[] $val The applicableContent
+    *
+    * @return DeploymentAudience
+    */
+    public function setApplicableContent($val)
+    {
+        $this->_propDict["applicableContent"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the exclusions
     * Specifies the assets to exclude from the audience.
      *

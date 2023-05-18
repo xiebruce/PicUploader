@@ -28,7 +28,7 @@ class FederatedIdentityCredential extends Entity
     * Gets the audiences
     * The audience that can appear in the external token. This field is mandatory and should be set to api://AzureADTokenExchange for Azure AD. It says what Microsoft identity platform should accept in the aud claim in the incoming token. This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your identity provider to serve as the audience of this token. This field can only accept a single value and has a limit of 600 characters. Required.
     *
-    * @return string|null The audiences
+    * @return array|null The audiences
     */
     public function getAudiences()
     {
@@ -43,7 +43,7 @@ class FederatedIdentityCredential extends Entity
     * Sets the audiences
     * The audience that can appear in the external token. This field is mandatory and should be set to api://AzureADTokenExchange for Azure AD. It says what Microsoft identity platform should accept in the aud claim in the incoming token. This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your identity provider to serve as the audience of this token. This field can only accept a single value and has a limit of 600 characters. Required.
     *
-    * @param string $val The audiences
+    * @param string[] $val The audiences
     *
     * @return FederatedIdentityCredential
     */

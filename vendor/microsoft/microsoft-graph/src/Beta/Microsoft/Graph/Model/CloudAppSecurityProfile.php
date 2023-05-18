@@ -417,7 +417,7 @@ class CloudAppSecurityProfile extends Entity
     /**
     * Gets the tags
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -431,7 +431,7 @@ class CloudAppSecurityProfile extends Entity
     /**
     * Sets the tags
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return CloudAppSecurityProfile
     */

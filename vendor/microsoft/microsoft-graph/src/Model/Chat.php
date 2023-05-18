@@ -215,6 +215,39 @@ class Chat extends Entity
     }
 
     /**
+    * Gets the viewpoint
+    * Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
+    *
+    * @return ChatViewpoint|null The viewpoint
+    */
+    public function getViewpoint()
+    {
+        if (array_key_exists("viewpoint", $this->_propDict)) {
+            if (is_a($this->_propDict["viewpoint"], "\Microsoft\Graph\Model\ChatViewpoint") || is_null($this->_propDict["viewpoint"])) {
+                return $this->_propDict["viewpoint"];
+            } else {
+                $this->_propDict["viewpoint"] = new ChatViewpoint($this->_propDict["viewpoint"]);
+                return $this->_propDict["viewpoint"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the viewpoint
+    * Represents caller-specific information about the chat, such as last message read date and time. This property is populated only when the request is made in a delegated context.
+    *
+    * @param ChatViewpoint $val The viewpoint
+    *
+    * @return Chat
+    */
+    public function setViewpoint($val)
+    {
+        $this->_propDict["viewpoint"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the webUrl
     * The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.
     *
@@ -270,6 +303,39 @@ class Chat extends Entity
     public function setInstalledApps($val)
     {
         $this->_propDict["installedApps"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the lastMessagePreview
+    * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+    *
+    * @return ChatMessageInfo|null The lastMessagePreview
+    */
+    public function getLastMessagePreview()
+    {
+        if (array_key_exists("lastMessagePreview", $this->_propDict)) {
+            if (is_a($this->_propDict["lastMessagePreview"], "\Microsoft\Graph\Model\ChatMessageInfo") || is_null($this->_propDict["lastMessagePreview"])) {
+                return $this->_propDict["lastMessagePreview"];
+            } else {
+                $this->_propDict["lastMessagePreview"] = new ChatMessageInfo($this->_propDict["lastMessagePreview"]);
+                return $this->_propDict["lastMessagePreview"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lastMessagePreview
+    * Preview of the last message sent in the chat. Null if no messages have been sent in the chat. Currently, only the list chats operation supports this property.
+    *
+    * @param ChatMessageInfo $val The lastMessagePreview
+    *
+    * @return Chat
+    */
+    public function setLastMessagePreview($val)
+    {
+        $this->_propDict["lastMessagePreview"] = $val;
         return $this;
     }
 
@@ -336,6 +402,7 @@ class Chat extends Entity
 
      /**
      * Gets the pinnedMessages
+    * A collection of all the pinned messages in the chat. Nullable.
      *
      * @return array|null The pinnedMessages
      */
@@ -350,6 +417,7 @@ class Chat extends Entity
 
     /**
     * Sets the pinnedMessages
+    * A collection of all the pinned messages in the chat. Nullable.
     *
     * @param PinnedChatMessageInfo[] $val The pinnedMessages
     *

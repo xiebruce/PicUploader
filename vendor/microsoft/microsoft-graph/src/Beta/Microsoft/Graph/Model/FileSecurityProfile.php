@@ -27,7 +27,7 @@ class FileSecurityProfile extends Entity
     /**
     * Gets the activityGroupNames
     *
-    * @return string|null The activityGroupNames
+    * @return array|null The activityGroupNames
     */
     public function getActivityGroupNames()
     {
@@ -41,7 +41,7 @@ class FileSecurityProfile extends Entity
     /**
     * Sets the activityGroupNames
     *
-    * @param string $val The activityGroupNames
+    * @param string[] $val The activityGroupNames
     *
     * @return FileSecurityProfile
     */
@@ -135,7 +135,7 @@ class FileSecurityProfile extends Entity
     /**
     * Gets the extensions
     *
-    * @return string|null The extensions
+    * @return array|null The extensions
     */
     public function getExtensions()
     {
@@ -149,7 +149,7 @@ class FileSecurityProfile extends Entity
     /**
     * Sets the extensions
     *
-    * @param string $val The extensions
+    * @param string[] $val The extensions
     *
     * @return FileSecurityProfile
     */
@@ -307,7 +307,7 @@ class FileSecurityProfile extends Entity
     /**
     * Gets the names
     *
-    * @return string|null The names
+    * @return array|null The names
     */
     public function getNames()
     {
@@ -321,7 +321,7 @@ class FileSecurityProfile extends Entity
     /**
     * Sets the names
     *
-    * @param string $val The names
+    * @param string[] $val The names
     *
     * @return FileSecurityProfile
     */
@@ -388,7 +388,7 @@ class FileSecurityProfile extends Entity
     /**
     * Gets the tags
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -402,7 +402,7 @@ class FileSecurityProfile extends Entity
     /**
     * Sets the tags
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return FileSecurityProfile
     */

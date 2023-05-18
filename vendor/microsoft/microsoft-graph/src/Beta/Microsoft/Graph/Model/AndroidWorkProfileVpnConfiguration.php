@@ -450,7 +450,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration
     * Gets the targetedPackageIds
     * Targeted App package IDs.
     *
-    * @return string|null The targetedPackageIds
+    * @return array|null The targetedPackageIds
     */
     public function getTargetedPackageIds()
     {
@@ -465,7 +465,7 @@ class AndroidWorkProfileVpnConfiguration extends DeviceConfiguration
     * Sets the targetedPackageIds
     * Targeted App package IDs.
     *
-    * @param string $val The targetedPackageIds
+    * @param string[] $val The targetedPackageIds
     *
     * @return AndroidWorkProfileVpnConfiguration
     */

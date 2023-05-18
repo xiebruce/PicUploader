@@ -10,6 +10,7 @@ class CosClientBucketTest extends TestCosClientBase {
     private $prBucket;
     private $hyphenBucket;
     private $doubleHyphenBucket;
+    private $uin;
 
     /**********************************
      * TestBucket
@@ -186,7 +187,8 @@ class CosClientBucketTest extends TestCosClientBase {
             $this->cosClient->PutBucketAcl(
                 array(
                     'Bucket' =>  $this->bucket,
-                    'GrantRead' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantRead' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
+//                    'GrantRead' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
                 )
             );
             $this->assertTrue(True);
@@ -205,7 +207,7 @@ class CosClientBucketTest extends TestCosClientBase {
             $this->cosClient->PutBucketAcl(
                 array(
                     'Bucket' =>  $this->bucket,
-                    'GrantWrite' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantWrite' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -224,7 +226,7 @@ class CosClientBucketTest extends TestCosClientBase {
             $this->cosClient->PutBucketAcl(
                 array(
                     'Bucket' =>  $this->bucket,
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -243,7 +245,7 @@ class CosClientBucketTest extends TestCosClientBase {
             $this->cosClient->PutBucketAcl(
                 array(
                     'Bucket' =>  $this->bucket,
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869",id="qcs::cam::uin/100018617869:uin/100018617869",id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '",id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '",id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -262,7 +264,7 @@ class CosClientBucketTest extends TestCosClientBase {
             $this->cosClient->PutBucketAcl(
                 array(
                     'Bucket' =>  $this->bucket,
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -282,8 +284,8 @@ class CosClientBucketTest extends TestCosClientBase {
                 array(
                     'Bucket' =>  $this->bucket,
                     'GrantRead' => 'id="qcs::cam::uin/123:uin/123"',
-                    'GrantWrite' => 'id="qcs::cam::uin/100018617869:uin/100018617869"',
-                    'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'
+                    'GrantWrite' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"',
+                    'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'
                 )
             );
             $this->assertTrue(True);
@@ -325,16 +327,16 @@ class CosClientBucketTest extends TestCosClientBase {
                     'Grants' => array(
                         array(
                             'Grantee' => array(
-                                'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                                'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                                'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                                'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                                 'Type' => 'CanonicalUser',
                             ),
                             'Permission' => 'FULL_CONTROL',
                         ),
                     ),
                     'Owner' => array(
-                        'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                        'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                        'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                        'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                     )
                 )
             );
@@ -365,8 +367,8 @@ class CosClientBucketTest extends TestCosClientBase {
                         ),
                     ),
                     'Owner' => array(
-                        'DisplayName' => 'qcs::cam::uin/100018617869:uin/100018617869',
-                        'ID' => 'qcs::cam::uin/100018617869:uin/100018617869',
+                        'DisplayName' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
+                        'ID' => 'qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin,
                     )
                 )
             );
@@ -405,12 +407,12 @@ class CosClientBucketTest extends TestCosClientBase {
         try {
             $this->cosClient->PutBucketAcl(array(
                 'Bucket' =>  $this->bucket,
-                'GrantFullControl' => 'id="qcs::cam::uin/100018617869:uin/100018617869"',
-                'GrantRead' => 'id="qcs::cam::uin/100018617869:uin/100018617869"',
-                'GrantWrite' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'));
+                'GrantFullControl' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"',
+                'GrantRead' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"',
+                'GrantWrite' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'));
             $this->cosClient->PutBucketAcl(array(
                 'Bucket' =>  $this->bucket,
-                'GrantWrite' => 'id="qcs::cam::uin/100018617869:uin/100018617869"'));
+                'GrantWrite' => 'id="qcs::cam::uin/' . $this->uin . ':uin/' . $this->uin . '"'));
             $this->assertTrue(True);
         } catch (ServiceResponseException $e) {
             $this->assertFalse(True);
@@ -816,6 +818,7 @@ class CosClientBucketTest extends TestCosClientBase {
         $this->prBucket = 'public-read' . $this->bucket2;
         $this->hyphenBucket = '12345-'. $this->bucket;
         $this->doubleHyphenBucket = '12-333-4445' . $this->bucket2;
+        $this->uin = Common::getUin();
     }
 
     protected function tearDown(): void {

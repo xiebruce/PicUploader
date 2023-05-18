@@ -59,7 +59,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the accountEnabled
-    * true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+    * true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
     *
     * @return bool|null The accountEnabled
     */
@@ -74,7 +74,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the accountEnabled
-    * true if the service principal account is enabled; otherwise, false. Supports $filter (eq, ne, not, in).
+    * true if the service principal account is enabled; otherwise, false. If set to false, then no users will be able to sign in to this app, even if they are assigned to it. Supports $filter (eq, ne, not, in).
     *
     * @param bool $val The accountEnabled
     *
@@ -120,7 +120,7 @@ class ServicePrincipal extends DirectoryObject
     * Gets the alternativeNames
     * Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @return string|null The alternativeNames
+    * @return array|null The alternativeNames
     */
     public function getAlternativeNames()
     {
@@ -135,7 +135,7 @@ class ServicePrincipal extends DirectoryObject
     * Sets the alternativeNames
     * Used to retrieve service principals by subscription, identify resource group and full resource ids for managed identities. Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @param string $val The alternativeNames
+    * @param string[] $val The alternativeNames
     *
     * @return ServicePrincipal
     */
@@ -351,7 +351,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the customSecurityAttributes
-    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith).
+    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
     *
     * @return CustomSecurityAttributeValue|null The customSecurityAttributes
     */
@@ -370,7 +370,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the customSecurityAttributes
-    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith).
+    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
     *
     * @param CustomSecurityAttributeValue $val The customSecurityAttributes
     *
@@ -681,7 +681,7 @@ class ServicePrincipal extends DirectoryObject
     * Gets the notificationEmailAddresses
     * Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications.
     *
-    * @return string|null The notificationEmailAddresses
+    * @return array|null The notificationEmailAddresses
     */
     public function getNotificationEmailAddresses()
     {
@@ -696,7 +696,7 @@ class ServicePrincipal extends DirectoryObject
     * Sets the notificationEmailAddresses
     * Specifies the list of email addresses where Azure AD sends a notification when the active certificate is near the expiration date. This is only for the certificates used to sign the SAML token issued for Azure AD Gallery applications.
     *
-    * @param string $val The notificationEmailAddresses
+    * @param string[] $val The notificationEmailAddresses
     *
     * @return ServicePrincipal
     */
@@ -767,7 +767,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the preferredTokenSigningKeyEndDateTime
-    * Specifies the expiration date of the keyCredential used for token signing, marked by preferredTokenSigningKeyThumbprint.
+    * Specifies the expiration date of the keyCredential used for token signing, marked by preferredTokenSigningKeyThumbprint. Updating this attribute is not currentlysupported. For details, see ServicePrincipal property differences.
     *
     * @return \DateTime|null The preferredTokenSigningKeyEndDateTime
     */
@@ -786,7 +786,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the preferredTokenSigningKeyEndDateTime
-    * Specifies the expiration date of the keyCredential used for token signing, marked by preferredTokenSigningKeyThumbprint.
+    * Specifies the expiration date of the keyCredential used for token signing, marked by preferredTokenSigningKeyThumbprint. Updating this attribute is not currentlysupported. For details, see ServicePrincipal property differences.
     *
     * @param \DateTime $val The preferredTokenSigningKeyEndDateTime
     *
@@ -800,7 +800,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the preferredTokenSigningKeyThumbprint
-    * Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.
+    * This property can be used on SAML applications (apps that have preferredSingleSignOnMode set to saml) to control which certificate is used to sign the SAML responses. For applications that are not SAML, do not write or otherwise rely on this property.
     *
     * @return string|null The preferredTokenSigningKeyThumbprint
     */
@@ -815,7 +815,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the preferredTokenSigningKeyThumbprint
-    * Reserved for internal use only. Do not write or otherwise rely on this property. May be removed in future versions.
+    * This property can be used on SAML applications (apps that have preferredSingleSignOnMode set to saml) to control which certificate is used to sign the SAML responses. For applications that are not SAML, do not write or otherwise rely on this property.
     *
     * @param string $val The preferredTokenSigningKeyThumbprint
     *
@@ -859,6 +859,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the publisherName
+    * The name of the Azure AD tenant that published the application.
     *
     * @return string|null The publisherName
     */
@@ -873,6 +874,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the publisherName
+    * The name of the Azure AD tenant that published the application.
     *
     * @param string $val The publisherName
     *
@@ -888,7 +890,7 @@ class ServicePrincipal extends DirectoryObject
     * Gets the replyUrls
     * The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.
     *
-    * @return string|null The replyUrls
+    * @return array|null The replyUrls
     */
     public function getReplyUrls()
     {
@@ -903,7 +905,7 @@ class ServicePrincipal extends DirectoryObject
     * Sets the replyUrls
     * The URLs that user tokens are sent to for sign in with the associated application, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to for the associated application. Not nullable.
     *
-    * @param string $val The replyUrls
+    * @param string[] $val The replyUrls
     *
     * @return ServicePrincipal
     */
@@ -979,7 +981,7 @@ class ServicePrincipal extends DirectoryObject
     * Gets the servicePrincipalNames
     * Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @return string|null The servicePrincipalNames
+    * @return array|null The servicePrincipalNames
     */
     public function getServicePrincipalNames()
     {
@@ -994,7 +996,7 @@ class ServicePrincipal extends DirectoryObject
     * Sets the servicePrincipalNames
     * Contains the list of identifiersUris, copied over from the associated application. Additional values can be added to hybrid applications. These values can be used to identify the permissions exposed by this app within Azure AD. For example,Client apps can specify a resource URI which is based on the values of this property to acquire an access token, which is the URI returned in the 'aud' claim.The any operator is required for filter expressions on multi-valued properties. Not nullable.  Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @param string $val The servicePrincipalNames
+    * @param string[] $val The servicePrincipalNames
     *
     * @return ServicePrincipal
     */
@@ -1035,7 +1037,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the signInAudience
-    * Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.
+    * Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization's Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization's Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.
     *
     * @return string|null The signInAudience
     */
@@ -1050,7 +1052,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the signInAudience
-    * Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.
+    * Specifies the Microsoft accounts that are supported for the current application. Read-only. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization's Azure AD tenant (single-tenant).AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization's Azure AD tenant (multi-tenant).AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization's Azure AD tenant.PersonalMicrosoftAccount: Users with a personal Microsoft account only.
     *
     * @param string $val The signInAudience
     *
@@ -1064,9 +1066,9 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the tags
-    * Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+    * Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity's tags property.Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -1079,9 +1081,9 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the tags
-    * Custom strings that can be used to categorize and identify the service principal. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+    * Custom strings that can be used to categorize and identify the service principal. Not nullable. The value is the union of strings set here and on the associated application entity's tags property.Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return ServicePrincipal
     */
@@ -1512,7 +1514,7 @@ class ServicePrincipal extends DirectoryObject
 
      /**
      * Gets the ownedObjects
-    * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.
+    * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      *
      * @return array|null The ownedObjects
      */
@@ -1527,7 +1529,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the ownedObjects
-    * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand.
+    * Directory objects that are owned by this service principal. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
     *
     * @param DirectoryObject[] $val The ownedObjects
     *
@@ -1542,7 +1544,7 @@ class ServicePrincipal extends DirectoryObject
 
      /**
      * Gets the owners
-    * Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand.
+    * Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      *
      * @return array|null The owners
      */
@@ -1557,7 +1559,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the owners
-    * Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable. Supports $expand.
+    * Directory objects that are owners of this servicePrincipal. The owners are a set of non-admin users or servicePrincipals who are allowed to modify this object. Read-only. Nullable.  Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
     *
     * @param DirectoryObject[] $val The owners
     *
@@ -1659,6 +1661,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Gets the synchronization
+    * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
     *
     * @return Synchronization|null The synchronization
     */
@@ -1677,6 +1680,7 @@ class ServicePrincipal extends DirectoryObject
 
     /**
     * Sets the synchronization
+    * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
     *
     * @param Synchronization $val The synchronization
     *

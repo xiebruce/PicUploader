@@ -27,6 +27,7 @@ class AuthenticationStrengthPolicy extends Entity
 
      /**
      * Gets the allowedCombinations
+    * A collection of authentication method modes that are required be used to satify this authentication strength.
      *
      * @return array|null The allowedCombinations
      */
@@ -41,6 +42,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the allowedCombinations
+    * A collection of authentication method modes that are required be used to satify this authentication strength.
     *
     * @param AuthenticationMethodModes[] $val The allowedCombinations
     *
@@ -54,6 +56,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Gets the createdDateTime
+    * The datetime when this policy was created.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -72,6 +75,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the createdDateTime
+    * The datetime when this policy was created.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -85,6 +89,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Gets the description
+    * The human-readable description of this policy.
     *
     * @return string|null The description
     */
@@ -99,6 +104,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the description
+    * The human-readable description of this policy.
     *
     * @param string $val The description
     *
@@ -112,6 +118,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Gets the displayName
+    * The human-readable display name of this policy. Supports $filter (eq, ne, not , and in).
     *
     * @return string|null The displayName
     */
@@ -126,6 +133,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the displayName
+    * The human-readable display name of this policy. Supports $filter (eq, ne, not , and in).
     *
     * @param string $val The displayName
     *
@@ -139,6 +147,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Gets the modifiedDateTime
+    * The datetime when this policy was last modified.
     *
     * @return \DateTime|null The modifiedDateTime
     */
@@ -157,6 +166,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the modifiedDateTime
+    * The datetime when this policy was last modified.
     *
     * @param \DateTime $val The modifiedDateTime
     *
@@ -170,6 +180,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Gets the policyType
+    * A descriptor of whether this policy is built into Azure AD or created by an admin for the tenant. The possible values are: builtIn, custom, unknownFutureValue. Supports $filter (eq, ne, not , and in).
     *
     * @return AuthenticationStrengthPolicyType|null The policyType
     */
@@ -188,6 +199,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the policyType
+    * A descriptor of whether this policy is built into Azure AD or created by an admin for the tenant. The possible values are: builtIn, custom, unknownFutureValue. Supports $filter (eq, ne, not , and in).
     *
     * @param AuthenticationStrengthPolicyType $val The policyType
     *
@@ -201,6 +213,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Gets the requirementsSatisfied
+    * A descriptor of whether this authentication strength grants the MFA claim upon successful satisfaction. The possible values are: none, mfa, unknownFutureValue.
     *
     * @return AuthenticationStrengthRequirements|null The requirementsSatisfied
     */
@@ -219,6 +232,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the requirementsSatisfied
+    * A descriptor of whether this authentication strength grants the MFA claim upon successful satisfaction. The possible values are: none, mfa, unknownFutureValue.
     *
     * @param AuthenticationStrengthRequirements $val The requirementsSatisfied
     *
@@ -233,6 +247,7 @@ class AuthenticationStrengthPolicy extends Entity
 
      /**
      * Gets the combinationConfigurations
+    * Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
      *
      * @return array|null The combinationConfigurations
      */
@@ -247,6 +262,7 @@ class AuthenticationStrengthPolicy extends Entity
 
     /**
     * Sets the combinationConfigurations
+    * Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
     *
     * @param AuthenticationCombinationConfiguration[] $val The combinationConfigurations
     *

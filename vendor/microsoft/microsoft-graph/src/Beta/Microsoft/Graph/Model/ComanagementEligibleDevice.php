@@ -452,7 +452,7 @@ class ComanagementEligibleDevice extends Entity
 
     /**
     * Gets the status
-    * ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible, scheduledForEnrollment.
+    * ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible, scheduledForEnrollment, unknownFutureValue.
     *
     * @return ComanagementEligibleType|null The status
     */
@@ -471,7 +471,7 @@ class ComanagementEligibleDevice extends Entity
 
     /**
     * Sets the status
-    * ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible, scheduledForEnrollment.
+    * ComanagementEligibleStatus. Possible values are: comanaged, eligible, eligibleButNotAzureAdJoined, needsOsUpdate, ineligible, scheduledForEnrollment, unknownFutureValue.
     *
     * @param ComanagementEligibleType $val The status
     *

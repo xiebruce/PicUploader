@@ -8,10 +8,12 @@
 
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu\Cdn\CdnManager;
 use Qiniu\Http\Client;
 
-class CdnManagerTest extends \PHPUnit_Framework_TestCase
+class CdnManagerTest extends TestCase
 {
     protected $cdnManager;
     protected $encryptKey;
@@ -24,7 +26,10 @@ class CdnManagerTest extends \PHPUnit_Framework_TestCase
     protected $customDomain;
     protected $customDomain2;
 
-    protected function setUp()
+    /**
+     * @before
+     */
+    protected function setUpCdnManager()
     {
         global $testAuth;
         $this->cdnManager = new CdnManager($testAuth);

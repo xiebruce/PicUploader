@@ -25,7 +25,7 @@ class RuleBasedSubjectSet extends \Beta\Microsoft\Graph\Model\SubjectSet
 {
     /**
     * Gets the rule
-    * The rule for the subject set.
+    * The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
     *
     * @return string|null The rule
     */
@@ -40,7 +40,7 @@ class RuleBasedSubjectSet extends \Beta\Microsoft\Graph\Model\SubjectSet
 
     /**
     * Sets the rule
-    * The rule for the subject set.
+    * The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.
     *
     * @param string $val The value of the rule
     *

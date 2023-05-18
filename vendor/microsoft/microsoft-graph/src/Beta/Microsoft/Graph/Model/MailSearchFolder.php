@@ -115,7 +115,7 @@ class MailSearchFolder extends MailFolder
     * Gets the sourceFolderIds
     * The mailbox folders that should be mined.
     *
-    * @return string|null The sourceFolderIds
+    * @return array|null The sourceFolderIds
     */
     public function getSourceFolderIds()
     {
@@ -130,7 +130,7 @@ class MailSearchFolder extends MailFolder
     * Sets the sourceFolderIds
     * The mailbox folders that should be mined.
     *
-    * @param string $val The sourceFolderIds
+    * @param string[] $val The sourceFolderIds
     *
     * @return MailSearchFolder
     */

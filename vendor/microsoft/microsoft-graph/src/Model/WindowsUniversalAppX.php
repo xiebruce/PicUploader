@@ -268,4 +268,34 @@ class WindowsUniversalAppX extends MobileLobApp
         return $this;
     }
 
+
+     /**
+     * Gets the committedContainedApps
+    * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+     *
+     * @return array|null The committedContainedApps
+     */
+    public function getCommittedContainedApps()
+    {
+        if (array_key_exists("committedContainedApps", $this->_propDict)) {
+           return $this->_propDict["committedContainedApps"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the committedContainedApps
+    * The collection of contained apps in the committed mobileAppContent of a windowsUniversalAppX app.
+    *
+    * @param MobileContainedApp[] $val The committedContainedApps
+    *
+    * @return WindowsUniversalAppX
+    */
+    public function setCommittedContainedApps($val)
+    {
+        $this->_propDict["committedContainedApps"] = $val;
+        return $this;
+    }
+
 }

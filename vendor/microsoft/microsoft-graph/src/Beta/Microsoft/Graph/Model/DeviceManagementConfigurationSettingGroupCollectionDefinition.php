@@ -26,7 +26,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
 {
     /**
     * Gets the maximumCount
-    * Maximum number of setting group count in the collection. Valid values 1 to 100
+    * Maximum number of setting group count in the collection
     *
     * @return int|null The maximumCount
     */
@@ -41,7 +41,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
 
     /**
     * Sets the maximumCount
-    * Maximum number of setting group count in the collection. Valid values 1 to 100
+    * Maximum number of setting group count in the collection
     *
     * @param int $val The maximumCount
     *
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
 
     /**
     * Gets the minimumCount
-    * Minimum number of setting group count in the collection. Valid values 1 to 100
+    * Minimum number of setting group count in the collection
     *
     * @return int|null The minimumCount
     */
@@ -70,7 +70,7 @@ class DeviceManagementConfigurationSettingGroupCollectionDefinition extends Devi
 
     /**
     * Sets the minimumCount
-    * Minimum number of setting group count in the collection. Valid values 1 to 100
+    * Minimum number of setting group count in the collection
     *
     * @param int $val The minimumCount
     *

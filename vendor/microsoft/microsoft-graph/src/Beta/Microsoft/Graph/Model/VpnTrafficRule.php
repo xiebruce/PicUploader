@@ -333,4 +333,37 @@ class VpnTrafficRule extends Entity
         $this->_propDict["routingPolicyType"] = $val;
          return $this;
     }
+
+    /**
+    * Gets the vpnTrafficDirection
+    * Specify whether the rule applies to inbound traffic or outbound traffic. Possible values are: outbound, inbound, unknownFutureValue.
+    *
+    * @return VpnTrafficDirection|null The vpnTrafficDirection
+    */
+    public function getVpnTrafficDirection()
+    {
+        if (array_key_exists("vpnTrafficDirection", $this->_propDict)) {
+            if (is_a($this->_propDict["vpnTrafficDirection"], "\Beta\Microsoft\Graph\Model\VpnTrafficDirection") || is_null($this->_propDict["vpnTrafficDirection"])) {
+                return $this->_propDict["vpnTrafficDirection"];
+            } else {
+                $this->_propDict["vpnTrafficDirection"] = new VpnTrafficDirection($this->_propDict["vpnTrafficDirection"]);
+                return $this->_propDict["vpnTrafficDirection"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the vpnTrafficDirection
+    * Specify whether the rule applies to inbound traffic or outbound traffic. Possible values are: outbound, inbound, unknownFutureValue.
+    *
+    * @param VpnTrafficDirection $val The value to assign to the vpnTrafficDirection
+    *
+    * @return VpnTrafficRule The VpnTrafficRule
+    */
+    public function setVpnTrafficDirection($val)
+    {
+        $this->_propDict["vpnTrafficDirection"] = $val;
+         return $this;
+    }
 }

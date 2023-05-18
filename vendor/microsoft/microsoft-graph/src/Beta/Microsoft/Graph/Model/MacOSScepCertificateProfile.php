@@ -249,7 +249,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase
     * Gets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @return string|null The scepServerUrls
+    * @return array|null The scepServerUrls
     */
     public function getScepServerUrls()
     {
@@ -264,7 +264,7 @@ class MacOSScepCertificateProfile extends MacOSCertificateProfileBase
     * Sets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @param string $val The scepServerUrls
+    * @param string[] $val The scepServerUrls
     *
     * @return MacOSScepCertificateProfile
     */

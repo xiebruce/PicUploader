@@ -376,7 +376,7 @@ class Domain extends Entity
     * Gets the supportedServices
     * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
     *
-    * @return string|null The supportedServices
+    * @return array|null The supportedServices
     */
     public function getSupportedServices()
     {
@@ -391,7 +391,7 @@ class Domain extends Entity
     * Sets the supportedServices
     * The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
     *
-    * @param string $val The supportedServices
+    * @param string[] $val The supportedServices
     *
     * @return Domain
     */

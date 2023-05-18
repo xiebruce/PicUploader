@@ -57,7 +57,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration
     * Gets the kioskBrowserBlockedUrlExceptions
     * Specify URLs that the kiosk browser is allowed to navigate to
     *
-    * @return string|null The kioskBrowserBlockedUrlExceptions
+    * @return array|null The kioskBrowserBlockedUrlExceptions
     */
     public function getKioskBrowserBlockedUrlExceptions()
     {
@@ -72,7 +72,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration
     * Sets the kioskBrowserBlockedUrlExceptions
     * Specify URLs that the kiosk browser is allowed to navigate to
     *
-    * @param string $val The kioskBrowserBlockedUrlExceptions
+    * @param string[] $val The kioskBrowserBlockedUrlExceptions
     *
     * @return WindowsKioskConfiguration
     */
@@ -86,7 +86,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration
     * Gets the kioskBrowserBlockedURLs
     * Specify URLs that the kiosk browsers should not navigate to
     *
-    * @return string|null The kioskBrowserBlockedURLs
+    * @return array|null The kioskBrowserBlockedURLs
     */
     public function getKioskBrowserBlockedURLs()
     {
@@ -101,7 +101,7 @@ class WindowsKioskConfiguration extends DeviceConfiguration
     * Sets the kioskBrowserBlockedURLs
     * Specify URLs that the kiosk browsers should not navigate to
     *
-    * @param string $val The kioskBrowserBlockedURLs
+    * @param string[] $val The kioskBrowserBlockedURLs
     *
     * @return WindowsKioskConfiguration
     */

@@ -16,7 +16,7 @@ class Cloudinary
 
     const DEFAULT_UPLOAD_PREFIX = 'https://api.cloudinary.com';
 
-    const VERSION = "1.20.1";
+    const VERSION = "1.20.2";
 
     /**
      * @internal

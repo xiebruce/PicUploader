@@ -57,6 +57,34 @@ class EmployeeExperience implements \JsonSerializable
 
 
      /**
+     * Gets the learningCourseActivities
+     *
+     * @return array|null The learningCourseActivities
+     */
+    public function getLearningCourseActivities()
+    {
+        if (array_key_exists("learningCourseActivities", $this->_propDict)) {
+           return $this->_propDict["learningCourseActivities"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the learningCourseActivities
+    *
+    * @param LearningCourseActivity[] $val The learningCourseActivities
+    *
+    * @return EmployeeExperience
+    */
+    public function setLearningCourseActivities($val)
+    {
+        $this->_propDict["learningCourseActivities"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the learningProviders
     * A collection of learning providers.
      *
@@ -128,6 +156,8 @@ class EmployeeExperience implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

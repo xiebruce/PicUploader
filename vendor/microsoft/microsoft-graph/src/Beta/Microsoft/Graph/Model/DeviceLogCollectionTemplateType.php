@@ -30,4 +30,5 @@ class DeviceLogCollectionTemplateType extends Enum
     * The Enum DeviceLogCollectionTemplateType
     */
     const PREDEFINED = "predefined";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

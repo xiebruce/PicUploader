@@ -25,6 +25,7 @@ class ActionUrl extends Entity
 {
     /**
     * Gets the displayName
+    * Brief title for the page that the links directs to.
     *
     * @return string|null The displayName
     */
@@ -39,6 +40,7 @@ class ActionUrl extends Entity
 
     /**
     * Sets the displayName
+    * Brief title for the page that the links directs to.
     *
     * @param string $val The value of the displayName
     *
@@ -51,6 +53,7 @@ class ActionUrl extends Entity
     }
     /**
     * Gets the url
+    * The URL to the documentation or Azure portal page.
     *
     * @return string|null The url
     */
@@ -65,6 +68,7 @@ class ActionUrl extends Entity
 
     /**
     * Sets the url
+    * The URL to the documentation or Azure portal page.
     *
     * @param string $val The value of the url
     *

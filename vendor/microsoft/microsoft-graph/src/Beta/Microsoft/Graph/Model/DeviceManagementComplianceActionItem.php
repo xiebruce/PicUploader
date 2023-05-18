@@ -90,7 +90,7 @@ class DeviceManagementComplianceActionItem extends Entity
     * Gets the notificationMessageCCList
     * A list of group IDs to speicify who to CC this notification message to. This collection can contain a maximum of 100 elements.
     *
-    * @return string|null The notificationMessageCCList
+    * @return array|null The notificationMessageCCList
     */
     public function getNotificationMessageCCList()
     {
@@ -105,7 +105,7 @@ class DeviceManagementComplianceActionItem extends Entity
     * Sets the notificationMessageCCList
     * A list of group IDs to speicify who to CC this notification message to. This collection can contain a maximum of 100 elements.
     *
-    * @param string $val The notificationMessageCCList
+    * @param string[] $val The notificationMessageCCList
     *
     * @return DeviceManagementComplianceActionItem
     */

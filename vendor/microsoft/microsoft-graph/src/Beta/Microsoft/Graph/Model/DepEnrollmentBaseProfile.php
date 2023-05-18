@@ -199,6 +199,35 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
     }
 
     /**
+    * Gets the enabledSkipKeys
+    * enabledSkipKeys contains all the enabled skip keys as strings
+    *
+    * @return array|null The enabledSkipKeys
+    */
+    public function getEnabledSkipKeys()
+    {
+        if (array_key_exists("enabledSkipKeys", $this->_propDict)) {
+            return $this->_propDict["enabledSkipKeys"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enabledSkipKeys
+    * enabledSkipKeys contains all the enabled skip keys as strings
+    *
+    * @param string[] $val The enabledSkipKeys
+    *
+    * @return DepEnrollmentBaseProfile
+    */
+    public function setEnabledSkipKeys($val)
+    {
+        $this->_propDict["enabledSkipKeys"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the isDefault
     * Indicates if this is the default profile
     *
@@ -432,7 +461,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
 
     /**
     * Gets the supervisedModeEnabled
-    * Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+    * Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
     *
     * @return bool|null The supervisedModeEnabled
     */
@@ -447,7 +476,7 @@ class DepEnrollmentBaseProfile extends EnrollmentProfile
 
     /**
     * Sets the supervisedModeEnabled
-    * Supervised mode, True to enable, false otherwise. See https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
+    * Supervised mode, True to enable, false otherwise. See https://learn.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune for additional information.
     *
     * @param bool $val The supervisedModeEnabled
     *

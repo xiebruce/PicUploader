@@ -26,7 +26,7 @@ class User extends DirectoryObject
 {
     /**
     * Gets the signInActivity
-    * Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but, not with any other filterable properties. Note: Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.Note: There's a known issue with retrieving this property.This property is not returned for a user who has never signed in or last signed in before April 2020.
+    * Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.
     *
     * @return SignInActivity|null The signInActivity
     */
@@ -45,7 +45,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the signInActivity
-    * Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but, not with any other filterable properties. Note: Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.Note: There's a known issue with retrieving this property.This property is not returned for a user who has never signed in or last signed in before April 2020.
+    * Get the last signed-in date and request ID of the sign-in for a given user. Read-only.Returned only on $select. Supports $filter (eq, ne, not, ge, le) but not with any other filterable properties. Note:  Details for this property require an Azure AD Premium P1/P2 license and the AuditLog.Read.All permission.This property is not returned for a user who has never signed in or last signed in before April 2020.
     *
     * @param SignInActivity $val The signInActivity
     *
@@ -118,7 +118,7 @@ class User extends DirectoryObject
 
      /**
      * Gets the assignedLicenses
-    * The licenses that are assigned to the user, including inherited (group-based) licenses. Not nullable. Supports $filter (eq, not, and counting empty collections).
+    * The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses. Not nullable. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
      *
      * @return array|null The assignedLicenses
      */
@@ -133,7 +133,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the assignedLicenses
-    * The licenses that are assigned to the user, including inherited (group-based) licenses. Not nullable. Supports $filter (eq, not, and counting empty collections).
+    * The licenses that are assigned to the user, including inherited (group-based) licenses. This property doesn't differentiate directly-assigned and inherited licenses. Use the licenseAssignmentStates property to identify the directly-assigned and inherited licenses. Not nullable. Supports $filter (eq, not, /$count eq 0, /$count ne 0).
     *
     * @param AssignedLicense[] $val The assignedLicenses
     *
@@ -212,7 +212,7 @@ class User extends DirectoryObject
     * Gets the businessPhones
     * The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @return string|null The businessPhones
+    * @return array|null The businessPhones
     */
     public function getBusinessPhones()
     {
@@ -227,7 +227,7 @@ class User extends DirectoryObject
     * Sets the businessPhones
     * The telephone numbers for the user. Only one number can be set for this property. Read-only for users synced from on-premises directory. Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @param string $val The businessPhones
+    * @param string[] $val The businessPhones
     *
     * @return User
     */
@@ -355,7 +355,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the createdDateTime
-    * The date and time the user was created. The value cannot be modified and is automatically populated when the entity is created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. Property is nullable. A null value indicates that an accurate creation time couldn't be determined for the user. Read-only. Supports $filter (eq, ne, not , ge, le, in).
+    * The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Azure AD. Property is null for some users created before June 2018 and on-premises users that were synced to Azure AD before June 2018. Read-only. Supports $filter (eq, ne, not , ge, le, in).
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -374,7 +374,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the createdDateTime
-    * The date and time the user was created. The value cannot be modified and is automatically populated when the entity is created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. Property is nullable. A null value indicates that an accurate creation time couldn't be determined for the user. Read-only. Supports $filter (eq, ne, not , ge, le, in).
+    * The date and time the user was created, in ISO 8601 format and in UTC time. The value cannot be modified and is automatically populated when the entity is created. Nullable. For on-premises users, the value represents when they were first created in Azure AD. Property is null for some users created before June 2018 and on-premises users that were synced to Azure AD before June 2018. Read-only. Supports $filter (eq, ne, not , ge, le, in).
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -417,7 +417,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the customSecurityAttributes
-    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith).
+    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
     *
     * @return CustomSecurityAttributeValue|null The customSecurityAttributes
     */
@@ -436,7 +436,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the customSecurityAttributes
-    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith).
+    * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
     *
     * @param CustomSecurityAttributeValue $val The customSecurityAttributes
     *
@@ -598,7 +598,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the employeeLeaveDateTime
-    * The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
+    * The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Administrator. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
     *
     * @return \DateTime|null The employeeLeaveDateTime
     */
@@ -617,7 +617,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the employeeLeaveDateTime
-    * The date and time when the user left or will leave the organization. Read: Requires User-LifeCycleInfo.Read.All. For delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Admin.  Write: Requires User-LifeCycleInfo.ReadWrite.All. For delegated scenarios, the admin needs the Global Administrator Azure AD role. Supports $filter (eq, ne, not , ge, le, in).
+    * The date and time when the user left or will leave the organization. To read this property, the calling app must be assigned the User-LifeCycleInfo.Read.All permission. To write this property, the calling app must be assigned the User.Read.All and User-LifeCycleInfo.ReadWrite.All permissions. To read this property in delegated scenarios, the admin needs one of the following Azure AD roles: Lifecycle Workflows Administrator, Global Reader, or Global Administrator. To write this property in delegated scenarios, the admin needs the Global Administrator role. Supports $filter (eq, ne, not , ge, le, in). For more information, see Configure the employeeLeaveDateTime property for a user.
     *
     * @param \DateTime $val The employeeLeaveDateTime
     *
@@ -841,7 +841,7 @@ class User extends DirectoryObject
     * Gets the imAddresses
     * The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @return string|null The imAddresses
+    * @return array|null The imAddresses
     */
     public function getImAddresses()
     {
@@ -856,7 +856,7 @@ class User extends DirectoryObject
     * Sets the imAddresses
     * The instant message voice over IP (VOIP) session initiation protocol (SIP) addresses for the user. Read-only. Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @param string $val The imAddresses
+    * @param string[] $val The imAddresses
     *
     * @return User
     */
@@ -870,7 +870,7 @@ class User extends DirectoryObject
     * Gets the infoCatalogs
     * Identifies the info segments assigned to the user.  Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @return string|null The infoCatalogs
+    * @return array|null The infoCatalogs
     */
     public function getInfoCatalogs()
     {
@@ -885,13 +885,42 @@ class User extends DirectoryObject
     * Sets the infoCatalogs
     * Identifies the info segments assigned to the user.  Supports $filter (eq, not, ge, le, startsWith).
     *
-    * @param string $val The infoCatalogs
+    * @param string[] $val The infoCatalogs
     *
     * @return User
     */
     public function setInfoCatalogs($val)
     {
         $this->_propDict["infoCatalogs"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the isLicenseReconciliationNeeded
+    * Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
+    *
+    * @return bool|null The isLicenseReconciliationNeeded
+    */
+    public function getIsLicenseReconciliationNeeded()
+    {
+        if (array_key_exists("isLicenseReconciliationNeeded", $this->_propDict)) {
+            return $this->_propDict["isLicenseReconciliationNeeded"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isLicenseReconciliationNeeded
+    * Indicates whether the user is pending an exchange mailbox license assignment.  Read-only.  Supports $filter (eq where true only).
+    *
+    * @param bool $val The isLicenseReconciliationNeeded
+    *
+    * @return User
+    */
+    public function setIsLicenseReconciliationNeeded($val)
+    {
+        $this->_propDict["isLicenseReconciliationNeeded"] = boolval($val);
         return $this;
     }
 
@@ -1045,7 +1074,7 @@ class User extends DirectoryObject
 
      /**
      * Gets the licenseAssignmentStates
-    * State of license assignments for this user. Read-only. Returned only on $select.
+    * State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
      *
      * @return array|null The licenseAssignmentStates
      */
@@ -1060,7 +1089,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the licenseAssignmentStates
-    * State of license assignments for this user. Read-only. Returned only on $select.
+    * State of license assignments for this user. Also indicates licenses that are directly-assigned and those that the user has inherited through group memberships. Read-only. Returned only on $select.
     *
     * @param LicenseAssignmentState[] $val The licenseAssignmentStates
     *
@@ -1489,9 +1518,9 @@ class User extends DirectoryObject
 
     /**
     * Gets the otherMails
-    * A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
+    * A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).
     *
-    * @return string|null The otherMails
+    * @return array|null The otherMails
     */
     public function getOtherMails()
     {
@@ -1504,9 +1533,9 @@ class User extends DirectoryObject
 
     /**
     * Sets the otherMails
-    * A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, and counting empty collections).
+    * A list of additional email addresses for the user; for example: ['bob@contoso.com', 'Robert@fabrikam.com'].NOTE: This property cannot contain accent characters.Supports $filter (eq, not, ge, le, in, startsWith, endsWith, /$count eq 0, /$count ne 0).
     *
-    * @param string $val The otherMails
+    * @param string[] $val The otherMails
     *
     * @return User
     */
@@ -1547,7 +1576,7 @@ class User extends DirectoryObject
 
     /**
     * Gets the passwordProfile
-    * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. NOTE: For Azure B2C tenants, the forceChangePasswordNextSignIn property should be set to false and instead use custom policies and user flows to force password reset at first logon. See Force password reset at first logon. Supports $filter (eq, ne, not, in, and eq on null values).
+    * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Supports $filter (eq, ne, not, in, and eq on null values).
     *
     * @return PasswordProfile|null The passwordProfile
     */
@@ -1566,7 +1595,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the passwordProfile
-    * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. NOTE: For Azure B2C tenants, the forceChangePasswordNextSignIn property should be set to false and instead use custom policies and user flows to force password reset at first logon. See Force password reset at first logon. Supports $filter (eq, ne, not, in, and eq on null values).
+    * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Supports $filter (eq, ne, not, in, and eq on null values).
     *
     * @param PasswordProfile $val The passwordProfile
     *
@@ -1697,9 +1726,9 @@ class User extends DirectoryObject
 
     /**
     * Gets the proxyAddresses
-    * For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
+    * For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
     *
-    * @return string|null The proxyAddresses
+    * @return array|null The proxyAddresses
     */
     public function getProxyAddresses()
     {
@@ -1712,9 +1741,9 @@ class User extends DirectoryObject
 
     /**
     * Sets the proxyAddresses
-    * For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, and counting empty collections).
+    * For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. Changes to the mail property will also update this collection to include the value as an SMTP address. For more information, see mail and proxyAddresses properties. The proxy address prefixed with SMTP (capitalized) is the primary proxy address while those prefixed with smtp are the secondary proxy addresses. For Azure AD B2C accounts, this property has a limit of ten unique addresses. Read-only in Microsoft Graph; you can update this property only through the Microsoft 365 admin center. Not nullable. Supports $filter (eq, not, ge, le, startsWith, endsWith, /$count eq 0, /$count ne 0).
     *
-    * @param string $val The proxyAddresses
+    * @param string[] $val The proxyAddresses
     *
     * @return User
     */
@@ -1783,6 +1812,36 @@ class User extends DirectoryObject
     public function setSecurityIdentifier($val)
     {
         $this->_propDict["securityIdentifier"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the serviceProvisioningErrors
+    * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+     *
+     * @return array|null The serviceProvisioningErrors
+     */
+    public function getServiceProvisioningErrors()
+    {
+        if (array_key_exists("serviceProvisioningErrors", $this->_propDict)) {
+           return $this->_propDict["serviceProvisioningErrors"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the serviceProvisioningErrors
+    * Errors published by a federated service describing a non-transient, service-specific error regarding the properties or link from a user object .  Supports $filter (eq, not, for isResolved and serviceInstance).
+    *
+    * @param ServiceProvisioningError[] $val The serviceProvisioningErrors
+    *
+    * @return User
+    */
+    public function setServiceProvisioningErrors($val)
+    {
+        $this->_propDict["serviceProvisioningErrors"] = $val;
         return $this;
     }
 
@@ -2214,7 +2273,7 @@ class User extends DirectoryObject
     * Gets the interests
     * A list for the user to describe their interests. Returned only on $select.
     *
-    * @return string|null The interests
+    * @return array|null The interests
     */
     public function getInterests()
     {
@@ -2229,7 +2288,7 @@ class User extends DirectoryObject
     * Sets the interests
     * A list for the user to describe their interests. Returned only on $select.
     *
-    * @param string $val The interests
+    * @param string[] $val The interests
     *
     * @return User
     */
@@ -2272,7 +2331,7 @@ class User extends DirectoryObject
     * Gets the pastProjects
     * A list for the user to enumerate their past projects. Returned only on $select.
     *
-    * @return string|null The pastProjects
+    * @return array|null The pastProjects
     */
     public function getPastProjects()
     {
@@ -2287,7 +2346,7 @@ class User extends DirectoryObject
     * Sets the pastProjects
     * A list for the user to enumerate their past projects. Returned only on $select.
     *
-    * @param string $val The pastProjects
+    * @param string[] $val The pastProjects
     *
     * @return User
     */
@@ -2330,7 +2389,7 @@ class User extends DirectoryObject
     * Gets the responsibilities
     * A list for the user to enumerate their responsibilities. Returned only on $select.
     *
-    * @return string|null The responsibilities
+    * @return array|null The responsibilities
     */
     public function getResponsibilities()
     {
@@ -2345,7 +2404,7 @@ class User extends DirectoryObject
     * Sets the responsibilities
     * A list for the user to enumerate their responsibilities. Returned only on $select.
     *
-    * @param string $val The responsibilities
+    * @param string[] $val The responsibilities
     *
     * @return User
     */
@@ -2359,7 +2418,7 @@ class User extends DirectoryObject
     * Gets the schools
     * A list for the user to enumerate the schools they have attended. Returned only on $select.
     *
-    * @return string|null The schools
+    * @return array|null The schools
     */
     public function getSchools()
     {
@@ -2374,7 +2433,7 @@ class User extends DirectoryObject
     * Sets the schools
     * A list for the user to enumerate the schools they have attended. Returned only on $select.
     *
-    * @param string $val The schools
+    * @param string[] $val The schools
     *
     * @return User
     */
@@ -2388,7 +2447,7 @@ class User extends DirectoryObject
     * Gets the skills
     * A list for the user to enumerate their skills. Returned only on $select.
     *
-    * @return string|null The skills
+    * @return array|null The skills
     */
     public function getSkills()
     {
@@ -2403,7 +2462,7 @@ class User extends DirectoryObject
     * Sets the skills
     * A list for the user to enumerate their skills. Returned only on $select.
     *
-    * @param string $val The skills
+    * @param string[] $val The skills
     *
     * @return User
     */
@@ -2803,7 +2862,7 @@ class User extends DirectoryObject
 
      /**
      * Gets the ownedObjects
-    * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand.
+    * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      *
      * @return array|null The ownedObjects
      */
@@ -2818,7 +2877,7 @@ class User extends DirectoryObject
 
     /**
     * Sets the ownedObjects
-    * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand.
+    * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
     *
     * @param DirectoryObject[] $val The ownedObjects
     *
@@ -4219,37 +4278,6 @@ class User extends DirectoryObject
         return $this;
     }
 
-    /**
-    * Gets the tasks
-    *
-    * @return Tasks|null The tasks
-    */
-    public function getTasks()
-    {
-        if (array_key_exists("tasks", $this->_propDict)) {
-            if (is_a($this->_propDict["tasks"], "\Beta\Microsoft\Graph\Model\Tasks") || is_null($this->_propDict["tasks"])) {
-                return $this->_propDict["tasks"];
-            } else {
-                $this->_propDict["tasks"] = new Tasks($this->_propDict["tasks"]);
-                return $this->_propDict["tasks"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the tasks
-    *
-    * @param Tasks $val The tasks
-    *
-    * @return User
-    */
-    public function setTasks($val)
-    {
-        $this->_propDict["tasks"] = $val;
-        return $this;
-    }
-
 
      /**
      * Gets the chats
@@ -4371,6 +4399,37 @@ class User extends DirectoryObject
     public function setTodo($val)
     {
         $this->_propDict["todo"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the employeeExperience
+    *
+    * @return EmployeeExperienceUser|null The employeeExperience
+    */
+    public function getEmployeeExperience()
+    {
+        if (array_key_exists("employeeExperience", $this->_propDict)) {
+            if (is_a($this->_propDict["employeeExperience"], "\Beta\Microsoft\Graph\Model\EmployeeExperienceUser") || is_null($this->_propDict["employeeExperience"])) {
+                return $this->_propDict["employeeExperience"];
+            } else {
+                $this->_propDict["employeeExperience"] = new EmployeeExperienceUser($this->_propDict["employeeExperience"]);
+                return $this->_propDict["employeeExperience"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the employeeExperience
+    *
+    * @param EmployeeExperienceUser $val The employeeExperience
+    *
+    * @return User
+    */
+    public function setEmployeeExperience($val)
+    {
+        $this->_propDict["employeeExperience"] = $val;
         return $this;
     }
 

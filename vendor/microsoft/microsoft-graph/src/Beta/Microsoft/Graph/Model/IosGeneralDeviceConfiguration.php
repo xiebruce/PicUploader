@@ -1663,7 +1663,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the emailInDomainSuffixes
     * An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
     *
-    * @return string|null The emailInDomainSuffixes
+    * @return array|null The emailInDomainSuffixes
     */
     public function getEmailInDomainSuffixes()
     {
@@ -1678,7 +1678,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the emailInDomainSuffixes
     * An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
     *
-    * @param string $val The emailInDomainSuffixes
+    * @param string[] $val The emailInDomainSuffixes
     *
     * @return IosGeneralDeviceConfiguration
     */
@@ -4935,7 +4935,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the safariManagedDomains
     * URLs matching the patterns listed here will be considered managed.
     *
-    * @return string|null The safariManagedDomains
+    * @return array|null The safariManagedDomains
     */
     public function getSafariManagedDomains()
     {
@@ -4950,7 +4950,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the safariManagedDomains
     * URLs matching the patterns listed here will be considered managed.
     *
-    * @param string $val The safariManagedDomains
+    * @param string[] $val The safariManagedDomains
     *
     * @return IosGeneralDeviceConfiguration
     */
@@ -4964,7 +4964,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the safariPasswordAutoFillDomains
     * Users can save passwords in Safari only from URLs matching the patterns listed here. Applies to devices in supervised mode (iOS 9.3 and later).
     *
-    * @return string|null The safariPasswordAutoFillDomains
+    * @return array|null The safariPasswordAutoFillDomains
     */
     public function getSafariPasswordAutoFillDomains()
     {
@@ -4979,7 +4979,7 @@ class IosGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the safariPasswordAutoFillDomains
     * Users can save passwords in Safari only from URLs matching the patterns listed here. Applies to devices in supervised mode (iOS 9.3 and later).
     *
-    * @param string $val The safariPasswordAutoFillDomains
+    * @param string[] $val The safariPasswordAutoFillDomains
     *
     * @return IosGeneralDeviceConfiguration
     */

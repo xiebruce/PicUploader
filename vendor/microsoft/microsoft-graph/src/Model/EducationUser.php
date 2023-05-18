@@ -147,7 +147,7 @@ class EducationUser extends Entity
     * Gets the businessPhones
     * The telephone numbers for the user. Note: Although this is a string collection, only one number can be set for this property.
     *
-    * @return string|null The businessPhones
+    * @return array|null The businessPhones
     */
     public function getBusinessPhones()
     {
@@ -162,7 +162,7 @@ class EducationUser extends Entity
     * Sets the businessPhones
     * The telephone numbers for the user. Note: Although this is a string collection, only one number can be set for this property.
     *
-    * @param string $val The businessPhones
+    * @param string[] $val The businessPhones
     *
     * @return EducationUser
     */

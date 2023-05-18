@@ -54,6 +54,33 @@ class UnifiedRbacResourceAction extends Entity
     }
 
     /**
+    * Gets the authenticationContextId
+    *
+    * @return string|null The authenticationContextId
+    */
+    public function getAuthenticationContextId()
+    {
+        if (array_key_exists("authenticationContextId", $this->_propDict)) {
+            return $this->_propDict["authenticationContextId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the authenticationContextId
+    *
+    * @param string $val The authenticationContextId
+    *
+    * @return UnifiedRbacResourceAction
+    */
+    public function setAuthenticationContextId($val)
+    {
+        $this->_propDict["authenticationContextId"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the description
     * Description for the action. Supports $filter (eq).
     *
@@ -79,6 +106,33 @@ class UnifiedRbacResourceAction extends Entity
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the isAuthenticationContextSettable
+    *
+    * @return bool|null The isAuthenticationContextSettable
+    */
+    public function getIsAuthenticationContextSettable()
+    {
+        if (array_key_exists("isAuthenticationContextSettable", $this->_propDict)) {
+            return $this->_propDict["isAuthenticationContextSettable"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isAuthenticationContextSettable
+    *
+    * @param bool $val The isAuthenticationContextSettable
+    *
+    * @return UnifiedRbacResourceAction
+    */
+    public function setIsAuthenticationContextSettable($val)
+    {
+        $this->_propDict["isAuthenticationContextSettable"] = boolval($val);
         return $this;
     }
 
@@ -137,6 +191,37 @@ class UnifiedRbacResourceAction extends Entity
     public function setResourceScopeId($val)
     {
         $this->_propDict["resourceScopeId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the authenticationContext
+    *
+    * @return AuthenticationContextClassReference|null The authenticationContext
+    */
+    public function getAuthenticationContext()
+    {
+        if (array_key_exists("authenticationContext", $this->_propDict)) {
+            if (is_a($this->_propDict["authenticationContext"], "\Beta\Microsoft\Graph\Model\AuthenticationContextClassReference") || is_null($this->_propDict["authenticationContext"])) {
+                return $this->_propDict["authenticationContext"];
+            } else {
+                $this->_propDict["authenticationContext"] = new AuthenticationContextClassReference($this->_propDict["authenticationContext"]);
+                return $this->_propDict["authenticationContext"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authenticationContext
+    *
+    * @param AuthenticationContextClassReference $val The authenticationContext
+    *
+    * @return UnifiedRbacResourceAction
+    */
+    public function setAuthenticationContext($val)
+    {
+        $this->_propDict["authenticationContext"] = $val;
         return $this;
     }
 

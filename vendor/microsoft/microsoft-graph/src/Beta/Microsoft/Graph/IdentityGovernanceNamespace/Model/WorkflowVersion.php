@@ -26,7 +26,7 @@ class WorkflowVersion extends WorkflowBase
 {
     /**
     * Gets the versionNumber
-    * The version of the workflow.
+    * The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return int|null The versionNumber
     */
@@ -41,7 +41,7 @@ class WorkflowVersion extends WorkflowBase
 
     /**
     * Sets the versionNumber
-    * The version of the workflow.
+    * The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param int $val The versionNumber
     *

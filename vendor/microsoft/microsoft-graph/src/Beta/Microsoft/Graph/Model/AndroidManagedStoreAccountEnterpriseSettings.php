@@ -281,7 +281,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     * Gets the managedGooglePlayInitialScopeTagIds
     * Initial scope tags for MGP apps
     *
-    * @return string|null The managedGooglePlayInitialScopeTagIds
+    * @return array|null The managedGooglePlayInitialScopeTagIds
     */
     public function getManagedGooglePlayInitialScopeTagIds()
     {
@@ -296,7 +296,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     * Sets the managedGooglePlayInitialScopeTagIds
     * Initial scope tags for MGP apps
     *
-    * @param string $val The managedGooglePlayInitialScopeTagIds
+    * @param string[] $val The managedGooglePlayInitialScopeTagIds
     *
     * @return AndroidManagedStoreAccountEnterpriseSettings
     */
@@ -368,7 +368,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     * Gets the targetGroupIds
     * Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
     *
-    * @return string|null The targetGroupIds
+    * @return array|null The targetGroupIds
     */
     public function getTargetGroupIds()
     {
@@ -383,7 +383,7 @@ class AndroidManagedStoreAccountEnterpriseSettings extends Entity
     * Sets the targetGroupIds
     * Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
     *
-    * @param string $val The targetGroupIds
+    * @param string[] $val The targetGroupIds
     *
     * @return AndroidManagedStoreAccountEnterpriseSettings
     */

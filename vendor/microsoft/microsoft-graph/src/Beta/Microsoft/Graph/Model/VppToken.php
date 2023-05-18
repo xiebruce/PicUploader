@@ -392,7 +392,7 @@ class VppToken extends Entity
     * Gets the roleScopeTagIds
     * Role Scope Tags IDs assigned to this entity.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -407,7 +407,7 @@ class VppToken extends Entity
     * Sets the roleScopeTagIds
     * Role Scope Tags IDs assigned to this entity.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return VppToken
     */

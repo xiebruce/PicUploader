@@ -127,7 +127,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the advancedThreatProtectionExcludedExtensions
     * A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @return string|null The advancedThreatProtectionExcludedExtensions
+    * @return array|null The advancedThreatProtectionExcludedExtensions
     */
     public function getAdvancedThreatProtectionExcludedExtensions()
     {
@@ -142,7 +142,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the advancedThreatProtectionExcludedExtensions
     * A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @param string $val The advancedThreatProtectionExcludedExtensions
+    * @param string[] $val The advancedThreatProtectionExcludedExtensions
     *
     * @return MacOSEndpointProtectionConfiguration
     */
@@ -156,7 +156,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the advancedThreatProtectionExcludedFiles
     * A list of paths to files to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @return string|null The advancedThreatProtectionExcludedFiles
+    * @return array|null The advancedThreatProtectionExcludedFiles
     */
     public function getAdvancedThreatProtectionExcludedFiles()
     {
@@ -171,7 +171,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the advancedThreatProtectionExcludedFiles
     * A list of paths to files to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @param string $val The advancedThreatProtectionExcludedFiles
+    * @param string[] $val The advancedThreatProtectionExcludedFiles
     *
     * @return MacOSEndpointProtectionConfiguration
     */
@@ -185,7 +185,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the advancedThreatProtectionExcludedFolders
     * A list of paths to folders to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @return string|null The advancedThreatProtectionExcludedFolders
+    * @return array|null The advancedThreatProtectionExcludedFolders
     */
     public function getAdvancedThreatProtectionExcludedFolders()
     {
@@ -200,7 +200,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the advancedThreatProtectionExcludedFolders
     * A list of paths to folders to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @param string $val The advancedThreatProtectionExcludedFolders
+    * @param string[] $val The advancedThreatProtectionExcludedFolders
     *
     * @return MacOSEndpointProtectionConfiguration
     */
@@ -214,7 +214,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the advancedThreatProtectionExcludedProcesses
     * A list of process names to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @return string|null The advancedThreatProtectionExcludedProcesses
+    * @return array|null The advancedThreatProtectionExcludedProcesses
     */
     public function getAdvancedThreatProtectionExcludedProcesses()
     {
@@ -229,7 +229,7 @@ class MacOSEndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the advancedThreatProtectionExcludedProcesses
     * A list of process names to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
     *
-    * @param string $val The advancedThreatProtectionExcludedProcesses
+    * @param string[] $val The advancedThreatProtectionExcludedProcesses
     *
     * @return MacOSEndpointProtectionConfiguration
     */

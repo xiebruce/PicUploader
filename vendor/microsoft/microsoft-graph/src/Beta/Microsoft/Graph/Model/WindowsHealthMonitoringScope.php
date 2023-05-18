@@ -33,4 +33,5 @@ class WindowsHealthMonitoringScope extends Enum
     const HEALTH_MONITORING = "healthMonitoring";
     const BOOT_PERFORMANCE = "bootPerformance";
     const WINDOWS_UPDATES = "windowsUpdates";
+    const PRIVILEGE_MANAGEMENT = "privilegeManagement";
 }

@@ -263,7 +263,7 @@ class File extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Gets the senderOrAuthors
     *
-    * @return string|null The senderOrAuthors
+    * @return array|null The senderOrAuthors
     */
     public function getSenderOrAuthors()
     {
@@ -277,7 +277,7 @@ class File extends \Beta\Microsoft\Graph\Model\Entity
     /**
     * Sets the senderOrAuthors
     *
-    * @param string $val The senderOrAuthors
+    * @param string[] $val The senderOrAuthors
     *
     * @return File
     */

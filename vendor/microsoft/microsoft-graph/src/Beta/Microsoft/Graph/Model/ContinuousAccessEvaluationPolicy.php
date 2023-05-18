@@ -86,7 +86,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     * Gets the groups
     * The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only.
     *
-    * @return string|null The groups
+    * @return array|null The groups
     */
     public function getGroups()
     {
@@ -101,7 +101,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     * Sets the groups
     * The collection of group identifiers in scope for evaluation. All groups are in scope when the collection is empty. Read-only.
     *
-    * @param string $val The groups
+    * @param string[] $val The groups
     *
     * @return ContinuousAccessEvaluationPolicy
     */
@@ -173,7 +173,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     * Gets the users
     * The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
     *
-    * @return string|null The users
+    * @return array|null The users
     */
     public function getUsers()
     {
@@ -188,7 +188,7 @@ class ContinuousAccessEvaluationPolicy extends Entity
     * Sets the users
     * The collection of user identifiers in scope for evaluation. All users are in scope when the collection is empty. Read-only.
     *
-    * @param string $val The users
+    * @param string[] $val The users
     *
     * @return ContinuousAccessEvaluationPolicy
     */

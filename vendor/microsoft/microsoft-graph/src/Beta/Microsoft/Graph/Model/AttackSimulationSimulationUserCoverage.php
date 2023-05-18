@@ -115,7 +115,7 @@ class AttackSimulationSimulationUserCoverage extends Entity
 
     /**
     * Gets the latestSimulationDateTime
-    * Date and time of latest attack simulation and training campaign that the user was included in.
+    * Date and time of the latest attack simulation and training campaign that the user was included in.
     *
     * @return \DateTime|null The latestSimulationDateTime
     */
@@ -134,7 +134,7 @@ class AttackSimulationSimulationUserCoverage extends Entity
 
     /**
     * Sets the latestSimulationDateTime
-    * Date and time of latest attack simulation and training campaign that the user was included in.
+    * Date and time of the latest attack simulation and training campaign that the user was included in.
     *
     * @param \DateTime $val The value to assign to the latestSimulationDateTime
     *

@@ -86,7 +86,7 @@ class RoleAssignment extends Entity
     * Gets the resourceScopes
     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
     *
-    * @return string|null The resourceScopes
+    * @return array|null The resourceScopes
     */
     public function getResourceScopes()
     {
@@ -101,7 +101,7 @@ class RoleAssignment extends Entity
     * Sets the resourceScopes
     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
     *
-    * @param string $val The resourceScopes
+    * @param string[] $val The resourceScopes
     *
     * @return RoleAssignment
     */

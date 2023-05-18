@@ -26,7 +26,7 @@ class PlannerProgressTaskBoardTaskFormat extends Entity
 {
     /**
     * Gets the orderHint
-    * Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
+    * Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.
     *
     * @return string|null The orderHint
     */
@@ -41,7 +41,7 @@ class PlannerProgressTaskBoardTaskFormat extends Entity
 
     /**
     * Sets the orderHint
-    * Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
+    * Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.
     *
     * @param string $val The orderHint
     *

@@ -59,7 +59,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Gets the fileDigest
-    * The file digest prior to encryption.
+    * The file digest prior to encryption. ProfileVersion1 requires a non-null FileDigest.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The fileDigest
     */
@@ -78,7 +78,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Sets the fileDigest
-    * The file digest prior to encryption.
+    * The file digest prior to encryption. ProfileVersion1 requires a non-null FileDigest.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the fileDigest
     *
@@ -91,7 +91,7 @@ class FileEncryptionInfo extends Entity
     }
     /**
     * Gets the fileDigestAlgorithm
-    * The file digest algorithm.
+    * The file digest algorithm. ProfileVersion1 currently only supports SHA256 for the FileDigestAlgorithm.
     *
     * @return string|null The fileDigestAlgorithm
     */
@@ -106,7 +106,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Sets the fileDigestAlgorithm
-    * The file digest algorithm.
+    * The file digest algorithm. ProfileVersion1 currently only supports SHA256 for the FileDigestAlgorithm.
     *
     * @param string $val The value of the fileDigestAlgorithm
     *
@@ -120,7 +120,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Gets the initializationVector
-    * The initialization vector used for the encryption algorithm.
+    * The initialization vector (IV) used for the encryption algorithm. Must be 16 bytes.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The initializationVector
     */
@@ -139,7 +139,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Sets the initializationVector
-    * The initialization vector used for the encryption algorithm.
+    * The initialization vector (IV) used for the encryption algorithm. Must be 16 bytes.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the initializationVector
     *
@@ -153,7 +153,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Gets the mac
-    * The hash of the encrypted file content + IV (content hash).
+    * The hash of the concatenation of the IV and encrypted file content. Must be 32 bytes.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The mac
     */
@@ -172,7 +172,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Sets the mac
-    * The hash of the encrypted file content + IV (content hash).
+    * The hash of the concatenation of the IV and encrypted file content. Must be 32 bytes.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the mac
     *
@@ -186,7 +186,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Gets the macKey
-    * The key used to get mac.
+    * The key used to compute the message authentication code of the concatenation of the IV and encrypted file content. Must be 32 bytes.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The macKey
     */
@@ -205,7 +205,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Sets the macKey
-    * The key used to get mac.
+    * The key used to compute the message authentication code of the concatenation of the IV and encrypted file content. Must be 32 bytes.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the macKey
     *
@@ -218,7 +218,7 @@ class FileEncryptionInfo extends Entity
     }
     /**
     * Gets the profileIdentifier
-    * The the profile identifier.
+    * The profile identifier. Maps to the strategy used to encrypt the file. Currently, only ProfileVersion1 is supported.
     *
     * @return string|null The profileIdentifier
     */
@@ -233,7 +233,7 @@ class FileEncryptionInfo extends Entity
 
     /**
     * Sets the profileIdentifier
-    * The the profile identifier.
+    * The profile identifier. Maps to the strategy used to encrypt the file. Currently, only ProfileVersion1 is supported.
     *
     * @param string $val The value of the profileIdentifier
     *

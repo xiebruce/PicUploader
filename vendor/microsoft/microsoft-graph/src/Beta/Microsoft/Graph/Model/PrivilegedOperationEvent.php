@@ -26,7 +26,6 @@ class PrivilegedOperationEvent extends Entity
 {
     /**
     * Gets the additionalInformation
-    * Detailed human readable information for the event.
     *
     * @return string|null The additionalInformation
     */
@@ -41,7 +40,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the additionalInformation
-    * Detailed human readable information for the event.
     *
     * @param string $val The additionalInformation
     *
@@ -55,7 +53,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the creationDateTime
-    * Indicates the time when the event is created.
     *
     * @return \DateTime|null The creationDateTime
     */
@@ -74,7 +71,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the creationDateTime
-    * Indicates the time when the event is created.
     *
     * @param \DateTime $val The creationDateTime
     *
@@ -88,7 +84,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the expirationDateTime
-    * This is only used when the requestType is Activate, and it indicates the expiration time for the role activation.
     *
     * @return \DateTime|null The expirationDateTime
     */
@@ -107,7 +102,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the expirationDateTime
-    * This is only used when the requestType is Activate, and it indicates the expiration time for the role activation.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -121,7 +115,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the referenceKey
-    * Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation.
     *
     * @return string|null The referenceKey
     */
@@ -136,7 +129,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the referenceKey
-    * Incident/Request ticket number during role activation. The value is presented only if the ticket number is provided during role activation.
     *
     * @param string $val The referenceKey
     *
@@ -150,7 +142,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the referenceSystem
-    * Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation.
     *
     * @return string|null The referenceSystem
     */
@@ -165,7 +156,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the referenceSystem
-    * Incident/Request ticketing system provided during tole activation. The value is presented only if the ticket system is provided during role activation.
     *
     * @param string $val The referenceSystem
     *
@@ -179,7 +169,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the requestorId
-    * The user id of the requestor who initiates the operation.
     *
     * @return string|null The requestorId
     */
@@ -194,7 +183,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the requestorId
-    * The user id of the requestor who initiates the operation.
     *
     * @param string $val The requestorId
     *
@@ -208,7 +196,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the requestorName
-    * The user name of the requestor who initiates the operation.
     *
     * @return string|null The requestorName
     */
@@ -223,7 +210,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the requestorName
-    * The user name of the requestor who initiates the operation.
     *
     * @param string $val The requestorName
     *
@@ -237,7 +223,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the requestType
-    * The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review).
     *
     * @return string|null The requestType
     */
@@ -252,7 +237,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the requestType
-    * The request operation type. The requestType value can be: Assign (role assignment), Activate (role activation), Unassign (remove role assignment), Deactivate (role deactivation), ScanAlertsNow (scan security alerts), DismissAlert (dismiss security alert), FixAlertItem (fix a security alert issue),  AccessReview_Review (review an Access Review), AccessReview_Create (create an Access Review) , AccessReview_Update (update an Access Review), AccessReview_Delete (delete an Access Review).
     *
     * @param string $val The requestType
     *
@@ -266,7 +250,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the roleId
-    * The id of the role that is associated with the operation.
     *
     * @return string|null The roleId
     */
@@ -281,7 +264,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the roleId
-    * The id of the role that is associated with the operation.
     *
     * @param string $val The roleId
     *
@@ -295,7 +277,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the roleName
-    * The name of the role.
     *
     * @return string|null The roleName
     */
@@ -310,7 +291,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the roleName
-    * The name of the role.
     *
     * @param string $val The roleName
     *
@@ -324,7 +304,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the tenantId
-    * The tenant (organization) id.
     *
     * @return string|null The tenantId
     */
@@ -339,7 +318,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the tenantId
-    * The tenant (organization) id.
     *
     * @param string $val The tenantId
     *
@@ -353,7 +331,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the userId
-    * The id of the user that is associated with the operation.
     *
     * @return string|null The userId
     */
@@ -368,7 +345,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the userId
-    * The id of the user that is associated with the operation.
     *
     * @param string $val The userId
     *
@@ -382,7 +358,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the userMail
-    * The user's email.
     *
     * @return string|null The userMail
     */
@@ -397,7 +372,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the userMail
-    * The user's email.
     *
     * @param string $val The userMail
     *
@@ -411,7 +385,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Gets the userName
-    * The user's display name.
     *
     * @return string|null The userName
     */
@@ -426,7 +399,6 @@ class PrivilegedOperationEvent extends Entity
 
     /**
     * Sets the userName
-    * The user's display name.
     *
     * @param string $val The userName
     *

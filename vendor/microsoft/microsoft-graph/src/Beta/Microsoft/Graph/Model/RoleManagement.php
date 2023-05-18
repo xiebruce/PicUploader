@@ -117,6 +117,65 @@ class RoleManagement implements \JsonSerializable
         return $this;
     }
 
+
+     /**
+     * Gets the enterpriseApps
+     *
+     * @return array|null The enterpriseApps
+     */
+    public function getEnterpriseApps()
+    {
+        if (array_key_exists("enterpriseApps", $this->_propDict)) {
+           return $this->_propDict["enterpriseApps"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enterpriseApps
+    *
+    * @param RbacApplication[] $val The enterpriseApps
+    *
+    * @return RoleManagement
+    */
+    public function setEnterpriseApps($val)
+    {
+        $this->_propDict["enterpriseApps"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the exchange
+    *
+    * @return UnifiedRbacApplication|null The exchange
+    */
+    public function getExchange()
+    {
+        if (array_key_exists("exchange", $this->_propDict)) {
+            if (is_a($this->_propDict["exchange"], "\Beta\Microsoft\Graph\Model\UnifiedRbacApplication") || is_null($this->_propDict["exchange"])) {
+                return $this->_propDict["exchange"];
+            } else {
+                $this->_propDict["exchange"] = new UnifiedRbacApplication($this->_propDict["exchange"]);
+                return $this->_propDict["exchange"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the exchange
+    *
+    * @param UnifiedRbacApplication $val The exchange
+    *
+    * @return RoleManagement
+    */
+    public function setExchange($val)
+    {
+        $this->_propDict["exchange"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the entitlementManagement
     * The RbacApplication for Entitlement Management
@@ -226,6 +285,8 @@ class RoleManagement implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

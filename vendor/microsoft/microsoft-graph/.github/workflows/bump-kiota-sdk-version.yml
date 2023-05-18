@@ -1,0 +1,36 @@
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License.
+
+# This action will bump the SDK version constant when a pull request against feat/kiota-preview is created
+# from a branch path spec like kiota/v1.0/pipelinebuild/*.
+
+name: "bump kiota sdk version"
+
+
+on:
+  pull_request:
+    branches:
+      - feat/kiota-preview
+    paths:
+      - 'src/Generated/**'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  bump-sdk-version:
+    if: startsWith(github.head_ref, 'kiota/v1.0/pipelinebuild/')
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Git config user
+      run: |
+        git config --global user.email "GraphTooling@service.microsoft.com"
+        git config --global user.name "Microsoft Graph DevX Tooling"
+    - name: Run increment script
+      run: php scripts/BumpPreviewSdkVersion.php
+
+    - name: Commit and push changes if any
+      run: if git commit -am "Bump SDK version"; then git push origin $GITHUB_HEAD_REF; fi

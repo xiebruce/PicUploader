@@ -83,6 +83,33 @@ class ExtensionProperty extends DirectoryObject
     }
 
     /**
+    * Gets the isMultiValued
+    *
+    * @return bool|null The isMultiValued
+    */
+    public function getIsMultiValued()
+    {
+        if (array_key_exists("isMultiValued", $this->_propDict)) {
+            return $this->_propDict["isMultiValued"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isMultiValued
+    *
+    * @param bool $val The isMultiValued
+    *
+    * @return ExtensionProperty
+    */
+    public function setIsMultiValued($val)
+    {
+        $this->_propDict["isMultiValued"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the isSyncedFromOnPremises
     * Indicates if this extension property was synced from on-premises active directory using Azure AD Connect. Read-only.
     *
@@ -144,7 +171,7 @@ class ExtensionProperty extends DirectoryObject
     * Gets the targetObjects
     * Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
     *
-    * @return string|null The targetObjects
+    * @return array|null The targetObjects
     */
     public function getTargetObjects()
     {
@@ -159,7 +186,7 @@ class ExtensionProperty extends DirectoryObject
     * Sets the targetObjects
     * Following values are supported. Not nullable. UserGroupAdministrativeUnitApplicationDeviceOrganization
     *
-    * @param string $val The targetObjects
+    * @param string[] $val The targetObjects
     *
     * @return ExtensionProperty
     */

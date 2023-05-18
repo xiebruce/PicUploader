@@ -24,6 +24,34 @@ namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
 class IpEvidence extends AlertEvidence
 {
     /**
+    * Gets the countryLetterCode
+    * The two-letter country code according to ISO 3166 format, for example: US, UK, CA, etc..).
+    *
+    * @return string|null The countryLetterCode
+    */
+    public function getCountryLetterCode()
+    {
+        if (array_key_exists("countryLetterCode", $this->_propDict)) {
+            return $this->_propDict["countryLetterCode"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the countryLetterCode
+    * The two-letter country code according to ISO 3166 format, for example: US, UK, CA, etc..).
+    *
+    * @param string $val The value of the countryLetterCode
+    *
+    * @return IpEvidence
+    */
+    public function setCountryLetterCode($val)
+    {
+        $this->_propDict["countryLetterCode"] = $val;
+        return $this;
+    }
+    /**
     * Gets the ipAddress
     * The value of the IP Address, can be either in V4 address or V6 address format.
     *

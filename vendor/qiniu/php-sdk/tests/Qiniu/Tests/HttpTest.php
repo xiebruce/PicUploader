@@ -1,10 +1,12 @@
 <?php
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu\Http\Client;
 use Qiniu\Http\RequestOptions;
 
-class HttpTest extends \PHPUnit_Framework_TestCase
+class HttpTest extends TestCase
 {
     public function testGet()
     {
@@ -30,6 +32,15 @@ class HttpTest extends \PHPUnit_Framework_TestCase
         $reqOpt->timeout = 1;
         $response = Client::get('localhost:9000/timeout.php', array(), $reqOpt);
         $this->assertEquals(-1, $response->statusCode);
+    }
+
+    public function testGetRedirect()
+    {
+        $response = Client::get('localhost:9000/redirect.php');
+        $this->assertEquals(200, $response->statusCode);
+        $this->assertEquals('application/json;charset=UTF-8', $response->normalizedHeaders['Content-Type']);
+        $respData = $response->json();
+        $this->assertEquals('ok', $respData['msg']);
     }
 
     public function testDelete()

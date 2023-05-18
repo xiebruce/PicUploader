@@ -32,4 +32,5 @@ class ActivityType extends Enum
     const SIGNIN = "signin";
     const USER = "user";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const SERVICE_PRINCIPAL = "servicePrincipal";
 }

@@ -26,6 +26,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the alertImpact
+    * The associated alert impact.
     *
     * @return AlertImpact|null The alertImpact
     */
@@ -44,6 +45,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertImpact
+    * The associated alert impact.
     *
     * @param AlertImpact $val The value to assign to the alertImpact
     *
@@ -56,6 +58,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the alertRecordId
+    * The associated alert record ID.
     *
     * @return string|null The alertRecordId
     */
@@ -70,6 +73,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRecordId
+    * The associated alert record ID.
     *
     * @param string $val The value of the alertRecordId
     *
@@ -82,6 +86,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the alertRuleId
+    * The associated alert rule ID.
     *
     * @return string|null The alertRuleId
     */
@@ -96,6 +101,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRuleId
+    * The associated alert rule ID.
     *
     * @param string $val The value of the alertRuleId
     *
@@ -108,6 +114,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the alertRuleName
+    * The associated alert rule name.
     *
     * @return string|null The alertRuleName
     */
@@ -122,6 +129,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRuleName
+    * The associated alert rule name.
     *
     * @param string $val The value of the alertRuleName
     *
@@ -135,6 +143,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the alertRuleTemplate
+    * The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     *
     * @return AlertRuleTemplate|null The alertRuleTemplate
     */
@@ -153,6 +162,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRuleTemplate
+    * The associated alert rule template. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     *
     * @param AlertRuleTemplate $val The value to assign to the alertRuleTemplate
     *
@@ -165,6 +175,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the id
+    * The unique identifier for the portal notification.
     *
     * @return string|null The id
     */
@@ -179,6 +190,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the id
+    * The unique identifier for the portal notification.
     *
     * @param string $val The value of the id
     *
@@ -191,6 +203,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the isPortalNotificationSent
+    * true if the portal notification has already been sent to the user; false otherwise.
     *
     * @return bool|null The isPortalNotificationSent
     */
@@ -205,6 +218,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isPortalNotificationSent
+    * true if the portal notification has already been sent to the user; false otherwise.
     *
     * @param bool $val The value of the isPortalNotificationSent
     *
@@ -218,6 +232,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the severity
+    * The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     *
     * @return RuleSeverityType|null The severity
     */
@@ -236,6 +251,7 @@ class PortalNotification extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the severity
+    * The associated alert rule severity. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     *
     * @param RuleSeverityType $val The value to assign to the severity
     *

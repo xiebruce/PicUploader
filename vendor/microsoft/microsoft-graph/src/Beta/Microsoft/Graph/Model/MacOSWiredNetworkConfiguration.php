@@ -251,7 +251,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration
     * Gets the trustedServerCertificateNames
     * Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.
     *
-    * @return string|null The trustedServerCertificateNames
+    * @return array|null The trustedServerCertificateNames
     */
     public function getTrustedServerCertificateNames()
     {
@@ -266,7 +266,7 @@ class MacOSWiredNetworkConfiguration extends DeviceConfiguration
     * Sets the trustedServerCertificateNames
     * Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.
     *
-    * @param string $val The trustedServerCertificateNames
+    * @param string[] $val The trustedServerCertificateNames
     *
     * @return MacOSWiredNetworkConfiguration
     */

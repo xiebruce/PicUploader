@@ -54,6 +54,8 @@ class GraphResponse
     * @var string
     */
     private $_httpStatusCode;
+    
+    private $_request;
 
     /**
     * Creates a new Graph HTTP response entity

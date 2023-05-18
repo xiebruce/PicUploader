@@ -218,7 +218,7 @@ class DeviceManagementExportJob extends Entity
     * Gets the select
     * Columns selected from the report
     *
-    * @return string|null The select
+    * @return array|null The select
     */
     public function getSelect()
     {
@@ -233,7 +233,7 @@ class DeviceManagementExportJob extends Entity
     * Sets the select
     * Columns selected from the report
     *
-    * @param string $val The select
+    * @param string[] $val The select
     *
     * @return DeviceManagementExportJob
     */

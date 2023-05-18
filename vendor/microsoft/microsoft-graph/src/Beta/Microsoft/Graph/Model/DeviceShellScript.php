@@ -272,7 +272,7 @@ class DeviceShellScript extends Entity
     * Gets the roleScopeTagIds
     * List of Scope Tag IDs for this PowerShellScript instance.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -287,7 +287,7 @@ class DeviceShellScript extends Entity
     * Sets the roleScopeTagIds
     * List of Scope Tag IDs for this PowerShellScript instance.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return DeviceShellScript
     */

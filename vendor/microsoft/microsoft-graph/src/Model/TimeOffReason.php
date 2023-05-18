@@ -55,7 +55,7 @@ class TimeOffReason extends ChangeTrackedEntity
 
     /**
     * Gets the iconType
-    * Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+    * Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
     *
     * @return TimeOffReasonIconType|null The iconType
     */
@@ -74,7 +74,7 @@ class TimeOffReason extends ChangeTrackedEntity
 
     /**
     * Sets the iconType
-    * Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+    * Supported icon types are: none, car, calendar, running, plane, firstAid, doctor, notWorking, clock, juryDuty, globe, cup, phone, weather, umbrella, piggyBank, dog, cake, trafficCone, pin, sunny. Required.
     *
     * @param TimeOffReasonIconType $val The iconType
     *

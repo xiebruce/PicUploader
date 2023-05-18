@@ -216,7 +216,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
 
     /**
     * Gets the status
-    * The status of log collection. Possible values are: pending, completed, failed.
+    * The status of log collection. Possible values are: pending, completed, failed. Possible values are: pending, completed, failed, unknownFutureValue.
     *
     * @return MicrosoftTunnelLogCollectionStatus|null The status
     */
@@ -235,7 +235,7 @@ class MicrosoftTunnelServerLogCollectionResponse extends Entity
 
     /**
     * Sets the status
-    * The status of log collection. Possible values are: pending, completed, failed.
+    * The status of log collection. Possible values are: pending, completed, failed. Possible values are: pending, completed, failed, unknownFutureValue.
     *
     * @param MicrosoftTunnelLogCollectionStatus $val The status
     *

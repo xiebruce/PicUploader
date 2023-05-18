@@ -80,6 +80,34 @@ class DefaultUserRolePermissions extends Entity
         return $this;
     }
     /**
+    * Gets the allowedToCreateTenants
+    * Indicates whether the default user role can create tenants.
+    *
+    * @return bool|null The allowedToCreateTenants
+    */
+    public function getAllowedToCreateTenants()
+    {
+        if (array_key_exists("allowedToCreateTenants", $this->_propDict)) {
+            return $this->_propDict["allowedToCreateTenants"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowedToCreateTenants
+    * Indicates whether the default user role can create tenants.
+    *
+    * @param bool $val The value of the allowedToCreateTenants
+    *
+    * @return DefaultUserRolePermissions
+    */
+    public function setAllowedToCreateTenants($val)
+    {
+        $this->_propDict["allowedToCreateTenants"] = $val;
+        return $this;
+    }
+    /**
     * Gets the allowedToReadBitlockerKeysForOwnedDevice
     * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
     *

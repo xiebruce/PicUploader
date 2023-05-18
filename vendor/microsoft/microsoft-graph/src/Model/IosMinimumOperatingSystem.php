@@ -25,7 +25,7 @@ class IosMinimumOperatingSystem extends Entity
 {
     /**
     * Gets the v10_0
-    * Version 10.0 or later.
+    * When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v10_0
     */
@@ -40,7 +40,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v10_0
-    * Version 10.0 or later.
+    * When TRUE, only Version 10.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v10_0
     *
@@ -53,7 +53,7 @@ class IosMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v11_0
-    * Version 11.0 or later.
+    * When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v11_0
     */
@@ -68,7 +68,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v11_0
-    * Version 11.0 or later.
+    * When TRUE, only Version 11.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v11_0
     *
@@ -81,7 +81,7 @@ class IosMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v12_0
-    * Version 12.0 or later.
+    * When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v12_0
     */
@@ -96,7 +96,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v12_0
-    * Version 12.0 or later.
+    * When TRUE, only Version 12.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v12_0
     *
@@ -109,7 +109,7 @@ class IosMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v13_0
-    * Version 13.0 or later.
+    * When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v13_0
     */
@@ -124,7 +124,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v13_0
-    * Version 13.0 or later.
+    * When TRUE, only Version 13.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v13_0
     *
@@ -137,7 +137,7 @@ class IosMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v14_0
-    * Version 14.0 or later.
+    * When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v14_0
     */
@@ -152,7 +152,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v14_0
-    * Version 14.0 or later.
+    * When TRUE, only Version 14.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v14_0
     *
@@ -164,8 +164,36 @@ class IosMinimumOperatingSystem extends Entity
         return $this;
     }
     /**
+    * Gets the v15_0
+    * When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+    *
+    * @return bool|null The v15_0
+    */
+    public function getV15_0()
+    {
+        if (array_key_exists("v150", $this->_propDict)) {
+            return $this->_propDict["v150"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the v15_0
+    * When TRUE, only Version 15.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
+    *
+    * @param bool $val The value of the v15_0
+    *
+    * @return IosMinimumOperatingSystem
+    */
+    public function setV15_0($val)
+    {
+        $this->_propDict["v150"] = $val;
+        return $this;
+    }
+    /**
     * Gets the v8_0
-    * Version 8.0 or later.
+    * When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v8_0
     */
@@ -180,7 +208,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v8_0
-    * Version 8.0 or later.
+    * When TRUE, only Version 8.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v8_0
     *
@@ -193,7 +221,7 @@ class IosMinimumOperatingSystem extends Entity
     }
     /**
     * Gets the v9_0
-    * Version 9.0 or later.
+    * When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @return bool|null The v9_0
     */
@@ -208,7 +236,7 @@ class IosMinimumOperatingSystem extends Entity
 
     /**
     * Sets the v9_0
-    * Version 9.0 or later.
+    * When TRUE, only Version 9.0 or later is supported. Default value is FALSE. Exactly one of the minimum operating system boolean values will be TRUE.
     *
     * @param bool $val The value of the v9_0
     *

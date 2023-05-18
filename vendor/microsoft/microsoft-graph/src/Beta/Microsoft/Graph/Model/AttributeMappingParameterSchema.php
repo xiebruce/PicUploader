@@ -110,7 +110,7 @@ class AttributeMappingParameterSchema extends Entity
 
     /**
     * Gets the type
-    * Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+    * The possible values are: String, Integer, Reference, Binary, Boolean, DateTime. Default is String.
     *
     * @return AttributeType|null The type
     */
@@ -129,7 +129,7 @@ class AttributeMappingParameterSchema extends Entity
 
     /**
     * Sets the type
-    * Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+    * The possible values are: String, Integer, Reference, Binary, Boolean, DateTime. Default is String.
     *
     * @param AttributeType $val The value to assign to the type
     *

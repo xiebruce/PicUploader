@@ -38,4 +38,5 @@ class TeamworkUserIdentityType extends Enum
     const PHONE_USER = "phoneUser";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     const EMAIL_USER = "emailUser";
+    const AZURE_COMMUNICATION_SERVICES_USER = "azureCommunicationServicesUser";
 }

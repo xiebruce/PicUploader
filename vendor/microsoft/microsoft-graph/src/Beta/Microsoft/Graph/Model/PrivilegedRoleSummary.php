@@ -26,7 +26,6 @@ class PrivilegedRoleSummary extends Entity
 {
     /**
     * Gets the elevatedCount
-    * The number of users that have the role assigned and the role is activated.
     *
     * @return int|null The elevatedCount
     */
@@ -41,7 +40,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Sets the elevatedCount
-    * The number of users that have the role assigned and the role is activated.
     *
     * @param int $val The elevatedCount
     *
@@ -55,7 +53,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Gets the managedCount
-    * The number of users that have the role assigned but the role is deactivated.
     *
     * @return int|null The managedCount
     */
@@ -70,7 +67,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Sets the managedCount
-    * The number of users that have the role assigned but the role is deactivated.
     *
     * @param int $val The managedCount
     *
@@ -84,7 +80,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Gets the mfaEnabled
-    * true if the role activation requires MFA. false if the role activation doesn't require MFA.
     *
     * @return bool|null The mfaEnabled
     */
@@ -99,7 +94,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Sets the mfaEnabled
-    * true if the role activation requires MFA. false if the role activation doesn't require MFA.
     *
     * @param bool $val The mfaEnabled
     *
@@ -113,7 +107,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Gets the status
-    * Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
     *
     * @return RoleSummaryStatus|null The status
     */
@@ -132,7 +125,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Sets the status
-    * Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
     *
     * @param RoleSummaryStatus $val The status
     *
@@ -146,7 +138,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Gets the usersCount
-    * The number of users that are assigned with the role.
     *
     * @return int|null The usersCount
     */
@@ -161,7 +152,6 @@ class PrivilegedRoleSummary extends Entity
 
     /**
     * Sets the usersCount
-    * The number of users that are assigned with the role.
     *
     * @param int $val The usersCount
     *

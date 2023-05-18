@@ -34,4 +34,6 @@ class BookingStaffRole extends Enum
     const VIEWER = "viewer";
     const EXTERNAL_GUEST = "externalGuest";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const SCHEDULER = "scheduler";
+    const TEAM_MEMBER = "teamMember";
 }

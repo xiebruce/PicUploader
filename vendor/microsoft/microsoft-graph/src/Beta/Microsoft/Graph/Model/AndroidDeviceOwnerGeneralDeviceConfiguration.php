@@ -633,7 +633,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the factoryResetDeviceAdministratorEmails
     * List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.
     *
-    * @return string|null The factoryResetDeviceAdministratorEmails
+    * @return array|null The factoryResetDeviceAdministratorEmails
     */
     public function getFactoryResetDeviceAdministratorEmails()
     {
@@ -648,7 +648,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the factoryResetDeviceAdministratorEmails
     * List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.
     *
-    * @param string $val The factoryResetDeviceAdministratorEmails
+    * @param string[] $val The factoryResetDeviceAdministratorEmails
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
@@ -1977,7 +1977,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the kioskModeWifiAllowedSsids
     * The restricted set of WIFI SSIDs available for the user to configure in Kiosk Mode. This collection can contain a maximum of 500 elements.
     *
-    * @return string|null The kioskModeWifiAllowedSsids
+    * @return array|null The kioskModeWifiAllowedSsids
     */
     public function getKioskModeWifiAllowedSsids()
     {
@@ -1992,7 +1992,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the kioskModeWifiAllowedSsids
     * The restricted set of WIFI SSIDs available for the user to configure in Kiosk Mode. This collection can contain a maximum of 500 elements.
     *
-    * @param string $val The kioskModeWifiAllowedSsids
+    * @param string[] $val The kioskModeWifiAllowedSsids
     *
     * @return AndroidDeviceOwnerGeneralDeviceConfiguration
     */
@@ -2028,6 +2028,64 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
     public function setKioskModeWiFiConfigurationEnabled($val)
     {
         $this->_propDict["kioskModeWiFiConfigurationEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the locateDeviceLostModeEnabled
+    * Indicates whether or not LocateDevice for devices with lost mode (COBO, COPE) is enabled.
+    *
+    * @return bool|null The locateDeviceLostModeEnabled
+    */
+    public function getLocateDeviceLostModeEnabled()
+    {
+        if (array_key_exists("locateDeviceLostModeEnabled", $this->_propDict)) {
+            return $this->_propDict["locateDeviceLostModeEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the locateDeviceLostModeEnabled
+    * Indicates whether or not LocateDevice for devices with lost mode (COBO, COPE) is enabled.
+    *
+    * @param bool $val The locateDeviceLostModeEnabled
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setLocateDeviceLostModeEnabled($val)
+    {
+        $this->_propDict["locateDeviceLostModeEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the locateDeviceUserlessDisabled
+    * Indicates whether or not LocateDevice for userless (COSU) devices is disabled.
+    *
+    * @return bool|null The locateDeviceUserlessDisabled
+    */
+    public function getLocateDeviceUserlessDisabled()
+    {
+        if (array_key_exists("locateDeviceUserlessDisabled", $this->_propDict)) {
+            return $this->_propDict["locateDeviceUserlessDisabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the locateDeviceUserlessDisabled
+    * Indicates whether or not LocateDevice for userless (COSU) devices is disabled.
+    *
+    * @param bool $val The locateDeviceUserlessDisabled
+    *
+    * @return AndroidDeviceOwnerGeneralDeviceConfiguration
+    */
+    public function setLocateDeviceUserlessDisabled($val)
+    {
+        $this->_propDict["locateDeviceUserlessDisabled"] = boolval($val);
         return $this;
     }
 
@@ -2419,7 +2477,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
 
      /**
      * Gets the passwordBlockKeyguardFeatures
-    * List of device keyguard features to block. This collection can contain a maximum of 7 elements.
+    * List of device keyguard features to block. This collection can contain a maximum of 11 elements.
      *
      * @return array|null The passwordBlockKeyguardFeatures
      */
@@ -2434,7 +2492,7 @@ class AndroidDeviceOwnerGeneralDeviceConfiguration extends DeviceConfiguration
 
     /**
     * Sets the passwordBlockKeyguardFeatures
-    * List of device keyguard features to block. This collection can contain a maximum of 7 elements.
+    * List of device keyguard features to block. This collection can contain a maximum of 11 elements.
     *
     * @param AndroidKeyguardFeature[] $val The passwordBlockKeyguardFeatures
     *

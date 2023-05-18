@@ -26,6 +26,7 @@ class AttachmentInfo extends Entity
 
     /**
     * Gets the attachmentType
+    * The type of the attachment. The possible values are: file, item, reference. Required.
     *
     * @return AttachmentType|null The attachmentType
     */
@@ -44,6 +45,7 @@ class AttachmentInfo extends Entity
 
     /**
     * Sets the attachmentType
+    * The type of the attachment. The possible values are: file, item, reference. Required.
     *
     * @param AttachmentType $val The value to assign to the attachmentType
     *
@@ -56,6 +58,7 @@ class AttachmentInfo extends Entity
     }
     /**
     * Gets the contentType
+    * The nature of the data in the attachment. Optional.
     *
     * @return string|null The contentType
     */
@@ -70,6 +73,7 @@ class AttachmentInfo extends Entity
 
     /**
     * Sets the contentType
+    * The nature of the data in the attachment. Optional.
     *
     * @param string $val The value of the contentType
     *
@@ -82,6 +86,7 @@ class AttachmentInfo extends Entity
     }
     /**
     * Gets the name
+    * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
     *
     * @return string|null The name
     */
@@ -96,6 +101,7 @@ class AttachmentInfo extends Entity
 
     /**
     * Sets the name
+    * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
     *
     * @param string $val The value of the name
     *
@@ -108,6 +114,7 @@ class AttachmentInfo extends Entity
     }
     /**
     * Gets the size
+    * The length of the attachment in bytes. Required.
     *
     * @return int|null The size
     */
@@ -122,6 +129,7 @@ class AttachmentInfo extends Entity
 
     /**
     * Sets the size
+    * The length of the attachment in bytes. Required.
     *
     * @param int $val The value of the size
     *

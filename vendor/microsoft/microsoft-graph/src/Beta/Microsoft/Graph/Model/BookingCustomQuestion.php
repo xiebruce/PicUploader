@@ -61,7 +61,7 @@ class BookingCustomQuestion extends Entity
     * Gets the answerOptions
     * List of possible answer values.
     *
-    * @return string|null The answerOptions
+    * @return array|null The answerOptions
     */
     public function getAnswerOptions()
     {
@@ -76,7 +76,7 @@ class BookingCustomQuestion extends Entity
     * Sets the answerOptions
     * List of possible answer values.
     *
-    * @param string $val The answerOptions
+    * @param string[] $val The answerOptions
     *
     * @return BookingCustomQuestion
     */

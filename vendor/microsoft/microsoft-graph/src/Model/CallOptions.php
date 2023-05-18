@@ -25,6 +25,7 @@ class CallOptions extends Entity
 {
     /**
     * Gets the hideBotAfterEscalation
+    * Indicates whether to hide the app after the call is escalated.
     *
     * @return bool|null The hideBotAfterEscalation
     */
@@ -39,6 +40,7 @@ class CallOptions extends Entity
 
     /**
     * Sets the hideBotAfterEscalation
+    * Indicates whether to hide the app after the call is escalated.
     *
     * @param bool $val The value of the hideBotAfterEscalation
     *
@@ -51,6 +53,7 @@ class CallOptions extends Entity
     }
     /**
     * Gets the isContentSharingNotificationEnabled
+    * Indicates whether content sharing notifications should be enabled for the call.
     *
     * @return bool|null The isContentSharingNotificationEnabled
     */
@@ -65,6 +68,7 @@ class CallOptions extends Entity
 
     /**
     * Sets the isContentSharingNotificationEnabled
+    * Indicates whether content sharing notifications should be enabled for the call.
     *
     * @param bool $val The value of the isContentSharingNotificationEnabled
     *

@@ -56,6 +56,39 @@ class OrganizationSettings extends Entity
     }
 
     /**
+    * Gets the contactInsights
+    * Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+    *
+    * @return InsightsSettings|null The contactInsights
+    */
+    public function getContactInsights()
+    {
+        if (array_key_exists("contactInsights", $this->_propDict)) {
+            if (is_a($this->_propDict["contactInsights"], "\Beta\Microsoft\Graph\Model\InsightsSettings") || is_null($this->_propDict["contactInsights"])) {
+                return $this->_propDict["contactInsights"];
+            } else {
+                $this->_propDict["contactInsights"] = new InsightsSettings($this->_propDict["contactInsights"]);
+                return $this->_propDict["contactInsights"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the contactInsights
+    * Contains the properties that are configured by an administrator as a tenant-level privacy control whether to identify duplicate contacts among a user's contacts list and suggest the user to merge those contacts to have a cleaner contacts list. List contactInsights returns the settings to display or return contact insights in an organization.
+    *
+    * @param InsightsSettings $val The contactInsights
+    *
+    * @return OrganizationSettings
+    */
+    public function setContactInsights($val)
+    {
+        $this->_propDict["contactInsights"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the itemInsights
     * Contains the properties that are configured by an administrator for the visibility of Microsoft Graph-derived insights, between a user and other items in Microsoft 365, such as documents or sites. List itemInsights returns the settings to display or return item insights in an organization.
     *
@@ -148,6 +181,39 @@ class OrganizationSettings extends Entity
     public function setProfileCardProperties($val)
     {
         $this->_propDict["profileCardProperties"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the pronouns
+    * Represents administrator settings that manage the support of pronouns in an organization.
+    *
+    * @return PronounsSettings|null The pronouns
+    */
+    public function getPronouns()
+    {
+        if (array_key_exists("pronouns", $this->_propDict)) {
+            if (is_a($this->_propDict["pronouns"], "\Beta\Microsoft\Graph\Model\PronounsSettings") || is_null($this->_propDict["pronouns"])) {
+                return $this->_propDict["pronouns"];
+            } else {
+                $this->_propDict["pronouns"] = new PronounsSettings($this->_propDict["pronouns"]);
+                return $this->_propDict["pronouns"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the pronouns
+    * Represents administrator settings that manage the support of pronouns in an organization.
+    *
+    * @param PronounsSettings $val The pronouns
+    *
+    * @return OrganizationSettings
+    */
+    public function setPronouns($val)
+    {
+        $this->_propDict["pronouns"] = $val;
         return $this;
     }
 

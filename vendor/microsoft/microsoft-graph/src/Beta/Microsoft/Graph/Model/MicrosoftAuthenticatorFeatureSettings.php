@@ -25,6 +25,39 @@ class MicrosoftAuthenticatorFeatureSettings extends Entity
 {
 
     /**
+    * Gets the companionAppAllowedState
+    * Determines whether users will be able to approve push notifications on other Microsoft applications such as Outlook Mobile.
+    *
+    * @return AuthenticationMethodFeatureConfiguration|null The companionAppAllowedState
+    */
+    public function getCompanionAppAllowedState()
+    {
+        if (array_key_exists("companionAppAllowedState", $this->_propDict)) {
+            if (is_a($this->_propDict["companionAppAllowedState"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodFeatureConfiguration") || is_null($this->_propDict["companionAppAllowedState"])) {
+                return $this->_propDict["companionAppAllowedState"];
+            } else {
+                $this->_propDict["companionAppAllowedState"] = new AuthenticationMethodFeatureConfiguration($this->_propDict["companionAppAllowedState"]);
+                return $this->_propDict["companionAppAllowedState"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the companionAppAllowedState
+    * Determines whether users will be able to approve push notifications on other Microsoft applications such as Outlook Mobile.
+    *
+    * @param AuthenticationMethodFeatureConfiguration $val The value to assign to the companionAppAllowedState
+    *
+    * @return MicrosoftAuthenticatorFeatureSettings The MicrosoftAuthenticatorFeatureSettings
+    */
+    public function setCompanionAppAllowedState($val)
+    {
+        $this->_propDict["companionAppAllowedState"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the displayAppInformationRequiredState
     * Determines whether the user's Authenticator app will show them the client app they are signing into.
     *

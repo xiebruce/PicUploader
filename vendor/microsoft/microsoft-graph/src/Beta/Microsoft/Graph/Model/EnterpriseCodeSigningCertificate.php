@@ -26,7 +26,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 {
     /**
     * Gets the content
-    * The Windows Enterprise Code-Signing Certificate in the raw data format.
+    * The Windows Enterprise Code-Signing Certificate in the raw data format. Set to null once certificate has been uploaded and other properties have been populated.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The content
     */
@@ -45,7 +45,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the content
-    * The Windows Enterprise Code-Signing Certificate in the raw data format.
+    * The Windows Enterprise Code-Signing Certificate in the raw data format. Set to null once certificate has been uploaded and other properties have been populated.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The content
     *
@@ -59,7 +59,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the expirationDateTime
-    * The Cert Expiration Date.
+    * The cert expiration date and time (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @return \DateTime|null The expirationDateTime
     */
@@ -78,7 +78,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the expirationDateTime
-    * The Cert Expiration Date.
+    * The cert expiration date and time (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -92,7 +92,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the issuer
-    * The Issuer value for the cert.
+    * The issuer value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @return string|null The issuer
     */
@@ -107,7 +107,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the issuer
-    * The Issuer value for the cert.
+    * The issuer value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @param string $val The issuer
     *
@@ -121,7 +121,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the issuerName
-    * The Issuer Name for the cert.
+    * The issuer name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @return string|null The issuerName
     */
@@ -136,7 +136,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the issuerName
-    * The Issuer Name for the cert.
+    * The issuer name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @param string $val The issuerName
     *
@@ -150,7 +150,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the status
-    * The Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
+    * Whether the Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned. Default is notProvisioned. Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported. Possible values are: notProvisioned, provisioned.
     *
     * @return CertificateStatus|null The status
     */
@@ -169,7 +169,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the status
-    * The Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned.
+    * Whether the Certificate Status Provisioned or not Provisioned. Possible values are: notProvisioned, provisioned. Default is notProvisioned. Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported. Possible values are: notProvisioned, provisioned.
     *
     * @param CertificateStatus $val The status
     *
@@ -183,7 +183,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the subject
-    * The Subject Value for the cert.
+    * The subject value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @return string|null The subject
     */
@@ -198,7 +198,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the subject
-    * The Subject Value for the cert.
+    * The subject value for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @param string $val The subject
     *
@@ -212,7 +212,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the subjectName
-    * The Subject Name for the cert.
+    * The subject name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @return string|null The subjectName
     */
@@ -227,7 +227,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the subjectName
-    * The Subject Name for the cert.
+    * The subject name for the cert. This might contain information such as country (C), state or province (S), locality (L), common name of the cert (CN), organization (O), and organizational unit (OU). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @param string $val The subjectName
     *
@@ -241,7 +241,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Gets the uploadDateTime
-    * The date time of CodeSigning Cert when it is uploaded.
+    * The date time of CodeSigning Cert when it is uploaded (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @return \DateTime|null The uploadDateTime
     */
@@ -260,7 +260,7 @@ class EnterpriseCodeSigningCertificate extends Entity
 
     /**
     * Sets the uploadDateTime
-    * The date time of CodeSigning Cert when it is uploaded.
+    * The date time of CodeSigning Cert when it is uploaded (using ISO 8601 format, in UTC time). Uploading a valid cert file through the Intune admin console will automatically populate this value in the HTTP response. Supports: $filter, $select, $top, $OrderBy, $skip. $Search is not supported.
     *
     * @param \DateTime $val The uploadDateTime
     *

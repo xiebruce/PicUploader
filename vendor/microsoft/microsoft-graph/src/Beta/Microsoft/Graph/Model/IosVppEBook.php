@@ -57,7 +57,7 @@ class IosVppEBook extends ManagedEBook
     * Gets the genres
     * Genres.
     *
-    * @return string|null The genres
+    * @return array|null The genres
     */
     public function getGenres()
     {
@@ -72,7 +72,7 @@ class IosVppEBook extends ManagedEBook
     * Sets the genres
     * Genres.
     *
-    * @param string $val The genres
+    * @param string[] $val The genres
     *
     * @return IosVppEBook
     */
@@ -115,7 +115,7 @@ class IosVppEBook extends ManagedEBook
     * Gets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -130,7 +130,7 @@ class IosVppEBook extends ManagedEBook
     * Sets the roleScopeTagIds
     * List of Scope Tags for this Entity instance.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return IosVppEBook
     */

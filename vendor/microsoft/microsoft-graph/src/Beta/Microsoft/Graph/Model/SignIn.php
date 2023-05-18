@@ -115,6 +115,7 @@ class SignIn extends Entity
 
      /**
      * Gets the appliedEventListeners
+    * Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, that were triggered by the corresponding events in the sign-in event.
      *
      * @return array|null The appliedEventListeners
      */
@@ -129,6 +130,7 @@ class SignIn extends Entity
 
     /**
     * Sets the appliedEventListeners
+    * Detailed information about the listeners, such as Azure Logic Apps and Azure Functions, that were triggered by the corresponding events in the sign-in event.
     *
     * @param AppliedAuthenticationEventListener[] $val The appliedEventListeners
     *
@@ -137,6 +139,69 @@ class SignIn extends Entity
     public function setAppliedEventListeners($val)
     {
         $this->_propDict["appliedEventListeners"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the authenticationAppDeviceDetails
+    * Provides details about the app and device used during an Azure AD authentication step.
+    *
+    * @return AuthenticationAppDeviceDetails|null The authenticationAppDeviceDetails
+    */
+    public function getAuthenticationAppDeviceDetails()
+    {
+        if (array_key_exists("authenticationAppDeviceDetails", $this->_propDict)) {
+            if (is_a($this->_propDict["authenticationAppDeviceDetails"], "\Beta\Microsoft\Graph\Model\AuthenticationAppDeviceDetails") || is_null($this->_propDict["authenticationAppDeviceDetails"])) {
+                return $this->_propDict["authenticationAppDeviceDetails"];
+            } else {
+                $this->_propDict["authenticationAppDeviceDetails"] = new AuthenticationAppDeviceDetails($this->_propDict["authenticationAppDeviceDetails"]);
+                return $this->_propDict["authenticationAppDeviceDetails"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authenticationAppDeviceDetails
+    * Provides details about the app and device used during an Azure AD authentication step.
+    *
+    * @param AuthenticationAppDeviceDetails $val The authenticationAppDeviceDetails
+    *
+    * @return SignIn
+    */
+    public function setAuthenticationAppDeviceDetails($val)
+    {
+        $this->_propDict["authenticationAppDeviceDetails"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the authenticationAppPolicyEvaluationDetails
+    * Provides details of the Azure AD policies applied to a user and client authentication app during an authentication step.
+     *
+     * @return array|null The authenticationAppPolicyEvaluationDetails
+     */
+    public function getAuthenticationAppPolicyEvaluationDetails()
+    {
+        if (array_key_exists("authenticationAppPolicyEvaluationDetails", $this->_propDict)) {
+           return $this->_propDict["authenticationAppPolicyEvaluationDetails"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the authenticationAppPolicyEvaluationDetails
+    * Provides details of the Azure AD policies applied to a user and client authentication app during an authentication step.
+    *
+    * @param AuthenticationAppPolicyDetails[] $val The authenticationAppPolicyEvaluationDetails
+    *
+    * @return SignIn
+    */
+    public function setAuthenticationAppPolicyEvaluationDetails($val)
+    {
+        $this->_propDict["authenticationAppPolicyEvaluationDetails"] = $val;
         return $this;
     }
 
@@ -204,7 +269,7 @@ class SignIn extends Entity
     * Gets the authenticationMethodsUsed
     * The authentication methods used. Possible values: SMS, Authenticator App, App Verification code, Password, FIDO, PTA, or PHS.
     *
-    * @return string|null The authenticationMethodsUsed
+    * @return array|null The authenticationMethodsUsed
     */
     public function getAuthenticationMethodsUsed()
     {
@@ -219,7 +284,7 @@ class SignIn extends Entity
     * Sets the authenticationMethodsUsed
     * The authentication methods used. Possible values: SMS, Authenticator App, App Verification code, Password, FIDO, PTA, or PHS.
     *
-    * @param string $val The authenticationMethodsUsed
+    * @param string[] $val The authenticationMethodsUsed
     *
     * @return SignIn
     */
@@ -931,6 +996,39 @@ class SignIn extends Entity
     }
 
     /**
+    * Gets the managedServiceIdentity
+    * Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+    *
+    * @return ManagedIdentity|null The managedServiceIdentity
+    */
+    public function getManagedServiceIdentity()
+    {
+        if (array_key_exists("managedServiceIdentity", $this->_propDict)) {
+            if (is_a($this->_propDict["managedServiceIdentity"], "\Beta\Microsoft\Graph\Model\ManagedIdentity") || is_null($this->_propDict["managedServiceIdentity"])) {
+                return $this->_propDict["managedServiceIdentity"];
+            } else {
+                $this->_propDict["managedServiceIdentity"] = new ManagedIdentity($this->_propDict["managedServiceIdentity"]);
+                return $this->_propDict["managedServiceIdentity"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managedServiceIdentity
+    * Contains information about the managed identity used for the sign in, including its type and associated Azure Resource Manager (ARM) resource ID.
+    *
+    * @param ManagedIdentity $val The managedServiceIdentity
+    *
+    * @return SignIn
+    */
+    public function setManagedServiceIdentity($val)
+    {
+        $this->_propDict["managedServiceIdentity"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the mfaDetail
     *
     * @return MfaDetail|null The mfaDetail
@@ -1235,7 +1333,7 @@ class SignIn extends Entity
     * Gets the riskEventTypesV2
     * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
     *
-    * @return string|null The riskEventTypesV2
+    * @return array|null The riskEventTypesV2
     */
     public function getRiskEventTypesV2()
     {
@@ -1250,7 +1348,7 @@ class SignIn extends Entity
     * Sets the riskEventTypesV2
     * The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue. Supports $filter (eq and startsWith operators only).
     *
-    * @param string $val The riskEventTypesV2
+    * @param string[] $val The riskEventTypesV2
     *
     * @return SignIn
     */
@@ -1509,7 +1607,7 @@ class SignIn extends Entity
     * Gets the signInEventTypes
     * Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue. Supports $filter (eq, ne).
     *
-    * @return string|null The signInEventTypes
+    * @return array|null The signInEventTypes
     */
     public function getSignInEventTypes()
     {
@@ -1524,7 +1622,7 @@ class SignIn extends Entity
     * Sets the signInEventTypes
     * Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue. Supports $filter (eq, ne).
     *
-    * @param string $val The signInEventTypes
+    * @param string[] $val The signInEventTypes
     *
     * @return SignIn
     */

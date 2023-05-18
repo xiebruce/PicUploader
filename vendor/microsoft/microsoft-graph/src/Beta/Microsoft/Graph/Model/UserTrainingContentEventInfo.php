@@ -142,7 +142,7 @@ class UserTrainingContentEventInfo extends Entity
     }
     /**
     * Gets the potentialScoreImpact
-    * Potential improvement in security posture of the tenant after completion of the training by the user.
+    * Potential improvement in the tenant security posture after completion of the training by the user.
     *
     * @return float|null The potentialScoreImpact
     */
@@ -157,7 +157,7 @@ class UserTrainingContentEventInfo extends Entity
 
     /**
     * Sets the potentialScoreImpact
-    * Potential improvement in security posture of the tenant after completion of the training by the user.
+    * Potential improvement in the tenant security posture after completion of the training by the user.
     *
     * @param float $val The value of the potentialScoreImpact
     *

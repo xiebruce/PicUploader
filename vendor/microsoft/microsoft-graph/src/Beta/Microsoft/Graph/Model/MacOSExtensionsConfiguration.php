@@ -28,7 +28,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     * Gets the kernelExtensionAllowedTeamIdentifiers
     * All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
     *
-    * @return string|null The kernelExtensionAllowedTeamIdentifiers
+    * @return array|null The kernelExtensionAllowedTeamIdentifiers
     */
     public function getKernelExtensionAllowedTeamIdentifiers()
     {
@@ -43,7 +43,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     * Sets the kernelExtensionAllowedTeamIdentifiers
     * All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
     *
-    * @param string $val The kernelExtensionAllowedTeamIdentifiers
+    * @param string[] $val The kernelExtensionAllowedTeamIdentifiers
     *
     * @return MacOSExtensionsConfiguration
     */
@@ -146,7 +146,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     * Gets the systemExtensionsAllowedTeamIdentifiers
     * Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
     *
-    * @return string|null The systemExtensionsAllowedTeamIdentifiers
+    * @return array|null The systemExtensionsAllowedTeamIdentifiers
     */
     public function getSystemExtensionsAllowedTeamIdentifiers()
     {
@@ -161,7 +161,7 @@ class MacOSExtensionsConfiguration extends DeviceConfiguration
     * Sets the systemExtensionsAllowedTeamIdentifiers
     * Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
     *
-    * @param string $val The systemExtensionsAllowedTeamIdentifiers
+    * @param string[] $val The systemExtensionsAllowedTeamIdentifiers
     *
     * @return MacOSExtensionsConfiguration
     */

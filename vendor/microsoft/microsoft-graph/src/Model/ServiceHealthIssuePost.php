@@ -59,7 +59,7 @@ class ServiceHealthIssuePost extends Entity
 
     /**
     * Gets the description
-    * The content of the service issue post.
+    * The content of the service issue post. The supported value for the contentType property is html.
     *
     * @return ItemBody|null The description
     */
@@ -78,7 +78,7 @@ class ServiceHealthIssuePost extends Entity
 
     /**
     * Sets the description
-    * The content of the service issue post.
+    * The content of the service issue post. The supported value for the contentType property is html.
     *
     * @param ItemBody $val The value to assign to the description
     *

@@ -144,7 +144,7 @@ class UnifiedRoleDefinition extends Entity
     * Gets the resourceScopes
     * List of the scopes or permissions the role definition applies to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment.
     *
-    * @return string|null The resourceScopes
+    * @return array|null The resourceScopes
     */
     public function getResourceScopes()
     {
@@ -159,7 +159,7 @@ class UnifiedRoleDefinition extends Entity
     * Sets the resourceScopes
     * List of the scopes or permissions the role definition applies to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment.
     *
-    * @param string $val The resourceScopes
+    * @param string[] $val The resourceScopes
     *
     * @return UnifiedRoleDefinition
     */

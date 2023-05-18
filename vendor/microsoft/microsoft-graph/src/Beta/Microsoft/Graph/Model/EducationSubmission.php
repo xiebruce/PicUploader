@@ -383,6 +383,35 @@ class EducationSubmission extends Entity
         return $this;
     }
 
+    /**
+    * Gets the webUrl
+    * The deep link URL for the given submission.
+    *
+    * @return string|null The webUrl
+    */
+    public function getWebUrl()
+    {
+        if (array_key_exists("webUrl", $this->_propDict)) {
+            return $this->_propDict["webUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the webUrl
+    * The deep link URL for the given submission.
+    *
+    * @param string $val The webUrl
+    *
+    * @return EducationSubmission
+    */
+    public function setWebUrl($val)
+    {
+        $this->_propDict["webUrl"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the outcomes

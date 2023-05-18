@@ -116,6 +116,39 @@ class AuthenticationMethodsPolicy extends Entity
     }
 
     /**
+    * Gets the policyMigrationState
+    * The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authenication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+    *
+    * @return AuthenticationMethodsPolicyMigrationState|null The policyMigrationState
+    */
+    public function getPolicyMigrationState()
+    {
+        if (array_key_exists("policyMigrationState", $this->_propDict)) {
+            if (is_a($this->_propDict["policyMigrationState"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodsPolicyMigrationState") || is_null($this->_propDict["policyMigrationState"])) {
+                return $this->_propDict["policyMigrationState"];
+            } else {
+                $this->_propDict["policyMigrationState"] = new AuthenticationMethodsPolicyMigrationState($this->_propDict["policyMigrationState"]);
+                return $this->_propDict["policyMigrationState"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the policyMigrationState
+    * The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authenication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+    *
+    * @param AuthenticationMethodsPolicyMigrationState $val The policyMigrationState
+    *
+    * @return AuthenticationMethodsPolicy
+    */
+    public function setPolicyMigrationState($val)
+    {
+        $this->_propDict["policyMigrationState"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the policyVersion
     * The version of the policy in use.
     *
@@ -146,6 +179,7 @@ class AuthenticationMethodsPolicy extends Entity
 
     /**
     * Gets the reconfirmationInDays
+    * Days before the user will be asked to reconfirm their method.
     *
     * @return int|null The reconfirmationInDays
     */
@@ -160,6 +194,7 @@ class AuthenticationMethodsPolicy extends Entity
 
     /**
     * Sets the reconfirmationInDays
+    * Days before the user will be asked to reconfirm their method.
     *
     * @param int $val The reconfirmationInDays
     *
@@ -201,6 +236,39 @@ class AuthenticationMethodsPolicy extends Entity
     public function setRegistrationEnforcement($val)
     {
         $this->_propDict["registrationEnforcement"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the systemCredentialPreferences
+    * Prompt users with their most-preferred credential for multifactor authentication.
+    *
+    * @return SystemCredentialPreferences|null The systemCredentialPreferences
+    */
+    public function getSystemCredentialPreferences()
+    {
+        if (array_key_exists("systemCredentialPreferences", $this->_propDict)) {
+            if (is_a($this->_propDict["systemCredentialPreferences"], "\Beta\Microsoft\Graph\Model\SystemCredentialPreferences") || is_null($this->_propDict["systemCredentialPreferences"])) {
+                return $this->_propDict["systemCredentialPreferences"];
+            } else {
+                $this->_propDict["systemCredentialPreferences"] = new SystemCredentialPreferences($this->_propDict["systemCredentialPreferences"]);
+                return $this->_propDict["systemCredentialPreferences"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the systemCredentialPreferences
+    * Prompt users with their most-preferred credential for multifactor authentication.
+    *
+    * @param SystemCredentialPreferences $val The systemCredentialPreferences
+    *
+    * @return AuthenticationMethodsPolicy
+    */
+    public function setSystemCredentialPreferences($val)
+    {
+        $this->_propDict["systemCredentialPreferences"] = $val;
         return $this;
     }
 

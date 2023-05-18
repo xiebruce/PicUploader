@@ -138,10 +138,79 @@ use GuzzleHttp\Psr7;
  * @method object CreateMediaExtractDigitalWatermarkJobs(array $args) 提取数字水印任务(提取水印)
  * @method object DetectLiveVideo(array $args) 直播流审核
  * @method object CancelLiveVideoAuditing(array $args) 取消直播流审核
+ * @method object OpticalOcrRecognition(array $args) 通用文字识别
+ * @method object TriggerWorkflow(array $args) 手动触发工作流
+ * @method object GetWorkflowInstances(array $args) 获取工作流实例列表
+ * @method object GetWorkflowInstance(array $args) 获取工作流实例详情
+ * @method object CreateMediaSnapshotTemplate(array $args) 新增截图模板
+ * @method object UpdateMediaSnapshotTemplate(array $args) 更新截图模板
+ * @method object CreateMediaTranscodeTemplate(array $args) 新增转码模板
+ * @method object UpdateMediaTranscodeTemplate(array $args) 更新转码模板
+ * @method object CreateMediaHighSpeedHdTemplate(array $args) 新增极速高清转码模板
+ * @method object UpdateMediaHighSpeedHdTemplate(array $args) 更新极速高清转码模板
+ * @method object CreateMediaAnimationTemplate(array $args) 新增动图模板
+ * @method object UpdateMediaAnimationTemplate(array $args) 更新动图模板
+ * @method object CreateMediaConcatTemplate(array $args) 新增拼接模板
+ * @method object UpdateMediaConcatTemplate(array $args) 更新拼接模板
+ * @method object CreateMediaVideoProcessTemplate(array $args) 新增视频增强模板
+ * @method object UpdateMediaVideoProcessTemplate(array $args) 更新视频增强模板
+ * @method object CreateMediaVideoMontageTemplate(array $args) 新增精彩集锦模板
+ * @method object UpdateMediaVideoMontageTemplate(array $args) 更新精彩集锦模板
+ * @method object CreateMediaVoiceSeparateTemplate(array $args) 新增人声分离模板
+ * @method object UpdateMediaVoiceSeparateTemplate(array $args) 更新人声分离模板
+ * @method object CreateMediaSuperResolutionTemplate(array $args) 新增超分辨率模板
+ * @method object UpdateMediaSuperResolutionTemplate(array $args) 更新超分辨率模板
+ * @method object CreateMediaPicProcessTemplate(array $args) 新增图片处理模板
+ * @method object UpdateMediaPicProcessTemplate(array $args) 更新图片处理模板
+ * @method object CreateMediaWatermarkTemplate(array $args) 新增水印模板
+ * @method object UpdateMediaWatermarkTemplate(array $args) 更新水印模板
+ * @method object DescribeMediaTemplates(array $args) 查询模板列表
+ * @method object DescribeWorkflow(array $args) 搜索工作流
+ * @method object DeleteWorkflow(array $args) 删除工作流
+ * @method object CreateInventoryTriggerJob(array $args) 触发批量存量任务
+ * @method object DescribeInventoryTriggerJobs(array $args) 批量拉取存量任务
+ * @method object DescribeInventoryTriggerJob(array $args) 查询存量任务
+ * @method object CancelInventoryTriggerJob(array $args) 取消存量任务
+ * @method object CreateMediaNoiseReductionJobs(array $args) 提交音频降噪任务
+ * @method object ImageRepairProcess(array $args) 图片水印修复
+ * @method object ImageDetectCarProcess(array $args) 车辆车牌检测
+ * @method object ImageAssessQualityProcess(array $args) 图片质量评估
+ * @method object ImageSearchOpen(array $args) 开通以图搜图
+ * @method object ImageSearchAdd(array $args) 添加图库图片
+ * @method object ImageSearch(array $args) 图片搜索接口
+ * @method object ImageSearchDelete(array $args) 图片搜索接口
+ * @method object BindCiService(array $args) 绑定数据万象服务
+ * @method object GetCiService(array $args) 查询数据万象服务
+ * @method object UnBindCiService(array $args) 解绑数据万象服务
+ * @method object GetHotLink(array $args) 查询防盗链
+ * @method object AddHotLink(array $args) 查询防盗链
+ * @method object OpenOriginProtect(array $args) 开通原图保护
+ * @method object GetOriginProtect(array $args) 查询原图保护状态
+ * @method object CloseOriginProtect(array $args) 关闭原图保护
+ * @method object ImageDetectFace(array $args) 人脸检测
+ * @method object ImageFaceEffect(array $args) 人脸特效
+ * @method object IDCardOCR(array $args) 身份证识别
+ * @method object IDCardOCRByUpload(array $args) 身份证识别-上传时处理
+ * @method object GetLiveCode(array $args) 获取数字验证码
+ * @method object GetActionSequence(array $args) 获取动作顺序
+ * @method object DescribeDocProcessBuckets(array $args) 查询文档预览开通状态
+ * @method object UpdateDocProcessQueue(array $args) 更新文档转码队列
+ * @method object CreateMediaQualityEstimateJobs(array $args) 提交视频质量评分任务
+ * @method object CreateMediaStreamExtractJobs(array $args) 提交音视频流分离任务
+ * @method object FileJobs4Hash(array $args) 哈希值计算同步请求
+ * @method object OpenFileProcessService(array $args) 开通文件处理服务
+ * @method object GetFileProcessQueueList(array $args) 搜索文件处理队列
+ * @method object UpdateFileProcessQueue(array $args) 更新文件处理的队列
+ * @method object CreateFileHashCodeJobs(array $args) 提交哈希值计算任务
+ * @method object GetFileHashCodeResult(array $args) 查询哈希值计算结果
+ * @method object CreateFileUncompressJobs(array $args) 提交文件解压任务
+ * @method object GetFileUncompressResult(array $args) 查询文件解压结果
+ * @method object CreateFileCompressJobs(array $args) 提交多文件打包压缩任务
+ * @method object GetFileCompressResult(array $args) 查询多文件打包压缩结果
  * @see \Qcloud\Cos\Service::getService()
  */
 class Client extends GuzzleClient {
-    const VERSION = '2.5.6';
+    const VERSION = '2.6.2';
 
     public $httpClient;
     
@@ -175,6 +244,7 @@ class Client extends GuzzleClient {
         $this->cosConfig['signHost'] = isset($cosConfig['signHost']) ? $cosConfig['signHost'] : true;
         $this->cosConfig['allow_redirects'] = isset($cosConfig['allow_redirects']) ? $cosConfig['allow_redirects'] : false;
         $this->cosConfig['allow_accelerate'] = isset($cosConfig['allow_accelerate']) ? $cosConfig['allow_accelerate'] : false;
+        $this->cosConfig['timezone'] = isset($cosConfig['timezone']) ? $cosConfig['timezone'] : 'PRC';
 
         // check config
         $this->inputCheck();

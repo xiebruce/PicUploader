@@ -26,6 +26,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
 
     /**
     * Gets the calloutDateTime
+    * When the API transaction was initiated, the date and time information uses ISO 8601 format and is always in UTC time. Example: midnight on Jan 1, 2014, is reported as 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The calloutDateTime
     */
@@ -44,6 +45,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
 
     /**
     * Sets the calloutDateTime
+    * When the API transaction was initiated, the date and time information uses ISO 8601 format and is always in UTC time. Example: midnight on Jan 1, 2014, is reported as 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The value to assign to the calloutDateTime
     *
@@ -56,6 +58,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
     }
     /**
     * Gets the customExtensionId
+    * Identifier of the custom extension that was called.
     *
     * @return string|null The customExtensionId
     */
@@ -70,6 +73,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
 
     /**
     * Sets the customExtensionId
+    * Identifier of the custom extension that was called.
     *
     * @param string $val The value of the customExtensionId
     *
@@ -82,6 +86,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
     }
     /**
     * Gets the errorCode
+    * Error code that was returned when the last API attempt failed.
     *
     * @return int|null The errorCode
     */
@@ -96,6 +101,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
 
     /**
     * Sets the errorCode
+    * Error code that was returned when the last API attempt failed.
     *
     * @param int $val The value of the errorCode
     *
@@ -108,6 +114,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
     }
     /**
     * Gets the httpStatus
+    * The HTTP status code that was returned by the target API endpoint after the last API attempt.
     *
     * @return int|null The httpStatus
     */
@@ -122,6 +129,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
 
     /**
     * Sets the httpStatus
+    * The HTTP status code that was returned by the target API endpoint after the last API attempt.
     *
     * @param int $val The value of the httpStatus
     *
@@ -134,6 +142,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
     }
     /**
     * Gets the numberOfAttempts
+    * The number of API calls to the customer's API.
     *
     * @return int|null The numberOfAttempts
     */
@@ -148,6 +157,7 @@ class CustomExtensionCalloutResult extends AuthenticationEventHandlerResult
 
     /**
     * Sets the numberOfAttempts
+    * The number of API calls to the customer's API.
     *
     * @param int $val The value of the numberOfAttempts
     *

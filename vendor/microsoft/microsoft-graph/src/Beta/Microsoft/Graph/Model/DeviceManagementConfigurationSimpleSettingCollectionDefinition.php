@@ -26,7 +26,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 {
     /**
     * Gets the maximumCount
-    * Maximum number of simple settings in the collection. Valid values 1 to 100
+    * Maximum number of simple settings in the collection
     *
     * @return int|null The maximumCount
     */
@@ -41,7 +41,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 
     /**
     * Sets the maximumCount
-    * Maximum number of simple settings in the collection. Valid values 1 to 100
+    * Maximum number of simple settings in the collection
     *
     * @param int $val The maximumCount
     *
@@ -55,7 +55,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 
     /**
     * Gets the minimumCount
-    * Minimum number of simple settings in the collection. Valid values 1 to 100
+    * Minimum number of simple settings in the collection
     *
     * @return int|null The minimumCount
     */
@@ -70,7 +70,7 @@ class DeviceManagementConfigurationSimpleSettingCollectionDefinition extends Dev
 
     /**
     * Sets the minimumCount
-    * Minimum number of simple settings in the collection. Valid values 1 to 100
+    * Minimum number of simple settings in the collection
     *
     * @param int $val The minimumCount
     *

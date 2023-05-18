@@ -26,6 +26,7 @@ class AuthenticationConditions extends Entity
 
     /**
     * Gets the applications
+    * Applications which will trigger a custom authentication extension.
     *
     * @return AuthenticationConditionsApplications|null The applications
     */
@@ -44,6 +45,7 @@ class AuthenticationConditions extends Entity
 
     /**
     * Sets the applications
+    * Applications which will trigger a custom authentication extension.
     *
     * @param AuthenticationConditionsApplications $val The value to assign to the applications
     *

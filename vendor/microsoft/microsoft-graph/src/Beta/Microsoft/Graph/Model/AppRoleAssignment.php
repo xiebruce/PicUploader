@@ -117,7 +117,7 @@ class AppRoleAssignment extends Entity
 
     /**
     * Gets the principalId
-    * The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
+    * The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create.
     *
     * @return string|null The principalId
     */
@@ -132,7 +132,7 @@ class AppRoleAssignment extends Entity
 
     /**
     * Sets the principalId
-    * The unique identifier (id) for the user, group, or service principal being granted the app role. Required on create.
+    * The unique identifier (id) for the user, security group, or service principal being granted the app role. Security groups with dynamic memberships are supported. Required on create.
     *
     * @param string $val The principalId
     *

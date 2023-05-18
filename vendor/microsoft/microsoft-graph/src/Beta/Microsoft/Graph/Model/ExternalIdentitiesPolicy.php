@@ -26,7 +26,7 @@ class ExternalIdentitiesPolicy extends PolicyBase
 {
     /**
     * Gets the allowDeletedIdentitiesDataRemoval
-    * Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
+    * Reserved for future use.
     *
     * @return bool|null The allowDeletedIdentitiesDataRemoval
     */
@@ -41,7 +41,7 @@ class ExternalIdentitiesPolicy extends PolicyBase
 
     /**
     * Sets the allowDeletedIdentitiesDataRemoval
-    * Notifies Azure AD whether to clean up the user information about the external identity, from the guest tenant, when the user is deleted in their home tenant.
+    * Reserved for future use.
     *
     * @param bool $val The allowDeletedIdentitiesDataRemoval
     *

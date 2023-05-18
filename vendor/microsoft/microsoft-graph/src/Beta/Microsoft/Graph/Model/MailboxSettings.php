@@ -25,7 +25,7 @@ class MailboxSettings extends Entity
 {
     /**
     * Gets the archiveFolder
-    * Folder ID of an archive folder for the user. Read only.
+    * Folder ID of an archive folder for the user. Read-only.
     *
     * @return string|null The archiveFolder
     */
@@ -40,7 +40,7 @@ class MailboxSettings extends Entity
 
     /**
     * Sets the archiveFolder
-    * Folder ID of an archive folder for the user. Read only.
+    * Folder ID of an archive folder for the user. Read-only.
     *
     * @param string $val The value of the archiveFolder
     *
@@ -237,7 +237,7 @@ class MailboxSettings extends Entity
 
     /**
     * Gets the userPurpose
-    * The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+    * The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
     *
     * @return UserPurpose|null The userPurpose
     */
@@ -256,7 +256,7 @@ class MailboxSettings extends Entity
 
     /**
     * Sets the userPurpose
-    * The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.
+    * The purpose of the mailbox. Differentiates a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Possible values are: user, linked, shared, room, equipment, others, unknownFutureValue. Read-only.
     *
     * @param UserPurpose $val The value to assign to the userPurpose
     *

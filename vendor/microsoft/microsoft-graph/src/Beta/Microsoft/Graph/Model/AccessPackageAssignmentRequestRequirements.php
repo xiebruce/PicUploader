@@ -318,4 +318,37 @@ class AccessPackageAssignmentRequestRequirements extends Entity
         $this->_propDict["schedule"] = $val;
          return $this;
     }
+
+    /**
+    * Gets the verifiableCredentialRequirementStatus
+    * The status of the process to process the verifiable credential, if any.
+    *
+    * @return VerifiableCredentialRequirementStatus|null The verifiableCredentialRequirementStatus
+    */
+    public function getVerifiableCredentialRequirementStatus()
+    {
+        if (array_key_exists("verifiableCredentialRequirementStatus", $this->_propDict)) {
+            if (is_a($this->_propDict["verifiableCredentialRequirementStatus"], "\Beta\Microsoft\Graph\Model\VerifiableCredentialRequirementStatus") || is_null($this->_propDict["verifiableCredentialRequirementStatus"])) {
+                return $this->_propDict["verifiableCredentialRequirementStatus"];
+            } else {
+                $this->_propDict["verifiableCredentialRequirementStatus"] = new VerifiableCredentialRequirementStatus($this->_propDict["verifiableCredentialRequirementStatus"]);
+                return $this->_propDict["verifiableCredentialRequirementStatus"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the verifiableCredentialRequirementStatus
+    * The status of the process to process the verifiable credential, if any.
+    *
+    * @param VerifiableCredentialRequirementStatus $val The value to assign to the verifiableCredentialRequirementStatus
+    *
+    * @return AccessPackageAssignmentRequestRequirements The AccessPackageAssignmentRequestRequirements
+    */
+    public function setVerifiableCredentialRequirementStatus($val)
+    {
+        $this->_propDict["verifiableCredentialRequirementStatus"] = $val;
+         return $this;
+    }
 }

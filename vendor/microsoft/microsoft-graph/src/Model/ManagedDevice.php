@@ -26,7 +26,7 @@ class ManagedDevice extends Entity
 {
     /**
     * Gets the activationLockBypassCode
-    * Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+    * The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The activationLockBypassCode
     */
@@ -41,7 +41,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the activationLockBypassCode
-    * Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
+    * The code that allows the Activation Lock on managed device to be bypassed. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity in LIST call. Individual GET call with select query options is needed to retrieve actual values. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The activationLockBypassCode
     *
@@ -581,7 +581,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the ethernetMacAddress
-    * Ethernet MAC. This property is read-only.
+    * Indicates Ethernet MAC Address of the device. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The ethernetMacAddress
     */
@@ -596,7 +596,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the ethernetMacAddress
-    * Ethernet MAC. This property is read-only.
+    * Indicates Ethernet MAC Address of the device. Default, is Null (Non-Default property) for this property when returned as part of managedDevice entity. Individual get call with select query options is needed to retrieve actual values. Example: deviceManagement/managedDevices({managedDeviceId})?$select=ethernetMacAddress Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The ethernetMacAddress
     *
@@ -709,7 +709,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the freeStorageSpaceInBytes
-    * Free Storage in Bytes. This property is read-only.
+    * Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
     *
     * @return int|null The freeStorageSpaceInBytes
     */
@@ -724,7 +724,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the freeStorageSpaceInBytes
-    * Free Storage in Bytes. This property is read-only.
+    * Free Storage in Bytes. Default value is 0. Read-only. This property is read-only.
     *
     * @param int $val The freeStorageSpaceInBytes
     *
@@ -738,7 +738,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the iccid
-    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The iccid
     */
@@ -753,7 +753,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the iccid
-    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.
+    * Integrated Circuit Card Identifier, it is A SIM card's unique identification number. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The iccid
     *
@@ -1010,6 +1010,39 @@ class ManagedDevice extends Entity
     }
 
     /**
+    * Gets the managementCertificateExpirationDate
+    * Reports device management certificate expiration date. This property is read-only.
+    *
+    * @return \DateTime|null The managementCertificateExpirationDate
+    */
+    public function getManagementCertificateExpirationDate()
+    {
+        if (array_key_exists("managementCertificateExpirationDate", $this->_propDict)) {
+            if (is_a($this->_propDict["managementCertificateExpirationDate"], "\DateTime") || is_null($this->_propDict["managementCertificateExpirationDate"])) {
+                return $this->_propDict["managementCertificateExpirationDate"];
+            } else {
+                $this->_propDict["managementCertificateExpirationDate"] = new \DateTime($this->_propDict["managementCertificateExpirationDate"]);
+                return $this->_propDict["managementCertificateExpirationDate"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the managementCertificateExpirationDate
+    * Reports device management certificate expiration date. This property is read-only.
+    *
+    * @param \DateTime $val The managementCertificateExpirationDate
+    *
+    * @return ManagedDevice
+    */
+    public function setManagementCertificateExpirationDate($val)
+    {
+        $this->_propDict["managementCertificateExpirationDate"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the manufacturer
     * Manufacturer of the device. This property is read-only.
     *
@@ -1098,7 +1131,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the notes
-    * Notes on the device created by IT Admin
+    * Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.
     *
     * @return string|null The notes
     */
@@ -1113,7 +1146,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the notes
-    * Notes on the device created by IT Admin
+    * Notes on the device created by IT Admin. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select.  $Search is not supported.
     *
     * @param string $val The notes
     *
@@ -1247,7 +1280,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the physicalMemoryInBytes
-    * Total Memory in Bytes. This property is read-only.
+    * Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only.
     *
     * @return int|null The physicalMemoryInBytes
     */
@@ -1262,7 +1295,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the physicalMemoryInBytes
-    * Total Memory in Bytes. This property is read-only.
+    * Total Memory in Bytes. Return default value 0 in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. Default value is 0. Read-only. This property is read-only.
     *
     * @param int $val The physicalMemoryInBytes
     *
@@ -1329,6 +1362,35 @@ class ManagedDevice extends Entity
     public function setRemoteAssistanceSessionUrl($val)
     {
         $this->_propDict["remoteAssistanceSessionUrl"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the requireUserEnrollmentApproval
+    * Reports if the managed iOS device is user approval enrollment. This property is read-only.
+    *
+    * @return bool|null The requireUserEnrollmentApproval
+    */
+    public function getRequireUserEnrollmentApproval()
+    {
+        if (array_key_exists("requireUserEnrollmentApproval", $this->_propDict)) {
+            return $this->_propDict["requireUserEnrollmentApproval"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the requireUserEnrollmentApproval
+    * Reports if the managed iOS device is user approval enrollment. This property is read-only.
+    *
+    * @param bool $val The requireUserEnrollmentApproval
+    *
+    * @return ManagedDevice
+    */
+    public function setRequireUserEnrollmentApproval($val)
+    {
+        $this->_propDict["requireUserEnrollmentApproval"] = boolval($val);
         return $this;
     }
 
@@ -1421,7 +1483,7 @@ class ManagedDevice extends Entity
 
     /**
     * Gets the udid
-    * Unique Device Identifier for iOS and macOS devices. This property is read-only.
+    * Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @return string|null The udid
     */
@@ -1436,7 +1498,7 @@ class ManagedDevice extends Entity
 
     /**
     * Sets the udid
-    * Unique Device Identifier for iOS and macOS devices. This property is read-only.
+    * Unique Device Identifier for iOS and macOS devices. Return default value null in LIST managedDevices. Real value only returned in singel device GET call with device id and included in select parameter. Supports: $select. $Search is not supported. Read-only. This property is read-only.
     *
     * @param string $val The udid
     *
@@ -1654,6 +1716,36 @@ class ManagedDevice extends Entity
     public function setDeviceCategory($val)
     {
         $this->_propDict["deviceCategory"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the users
+    * The primary users associated with the managed device.
+     *
+     * @return array|null The users
+     */
+    public function getUsers()
+    {
+        if (array_key_exists("users", $this->_propDict)) {
+           return $this->_propDict["users"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the users
+    * The primary users associated with the managed device.
+    *
+    * @param User[] $val The users
+    *
+    * @return ManagedDevice
+    */
+    public function setUsers($val)
+    {
+        $this->_propDict["users"] = $val;
         return $this;
     }
 

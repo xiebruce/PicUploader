@@ -51,6 +51,39 @@ class AuthenticationStrength extends Entity
         $this->_propDict["authenticationStrengthId"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the authenticationStrengthResult
+    * The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
+    *
+    * @return AuthenticationStrengthResult|null The authenticationStrengthResult
+    */
+    public function getAuthenticationStrengthResult()
+    {
+        if (array_key_exists("authenticationStrengthResult", $this->_propDict)) {
+            if (is_a($this->_propDict["authenticationStrengthResult"], "\Beta\Microsoft\Graph\Model\AuthenticationStrengthResult") || is_null($this->_propDict["authenticationStrengthResult"])) {
+                return $this->_propDict["authenticationStrengthResult"];
+            } else {
+                $this->_propDict["authenticationStrengthResult"] = new AuthenticationStrengthResult($this->_propDict["authenticationStrengthResult"]);
+                return $this->_propDict["authenticationStrengthResult"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authenticationStrengthResult
+    * The result of the authentication strength. The possible values are: notSet, skippedForProofUp, satisfied, singleChallengeRequired, multipleChallengesRequired, singleRegistrationRequired, multipleRegistrationsRequired, cannotSatisfyDueToCombinationConfiguration, cannotSatisfy, unknownFutureValue.
+    *
+    * @param AuthenticationStrengthResult $val The value to assign to the authenticationStrengthResult
+    *
+    * @return AuthenticationStrength The AuthenticationStrength
+    */
+    public function setAuthenticationStrengthResult($val)
+    {
+        $this->_propDict["authenticationStrengthResult"] = $val;
+         return $this;
+    }
     /**
     * Gets the displayName
     * The name of the authentication strength.

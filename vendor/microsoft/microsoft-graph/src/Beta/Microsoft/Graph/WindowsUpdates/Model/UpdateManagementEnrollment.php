@@ -37,7 +37,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment
 
     /**
     * Gets the updateCategory
-    * The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: feature, unknownFutureValue.
+    * The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: driver, feature, quality, unknownFutureValue.
     *
     * @return UpdateCategory|null The updateCategory
     */
@@ -56,7 +56,7 @@ class UpdateManagementEnrollment extends UpdatableAssetEnrollment
 
     /**
     * Sets the updateCategory
-    * The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: feature, unknownFutureValue.
+    * The category of updates that the service manages. Supports a subset of the values for updateCategory. Possible values are: driver, feature, quality, unknownFutureValue.
     *
     * @param UpdateCategory $val The value to assign to the updateCategory
     *

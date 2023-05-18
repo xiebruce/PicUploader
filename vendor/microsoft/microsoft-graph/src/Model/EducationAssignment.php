@@ -26,7 +26,7 @@ class EducationAssignment extends Entity
 {
     /**
     * Gets the addedStudentAction
-    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
+    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
     *
     * @return EducationAddedStudentAction|null The addedStudentAction
     */
@@ -45,7 +45,7 @@ class EducationAssignment extends Entity
 
     /**
     * Sets the addedStudentAction
-    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
+    * Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none. Supported values are: none, assignIfOpen. For example, a teacher can use assignIfOpen to indicate that an assignment should be assigned to any new student who joins the class while the assignment is still open, and none to indicate that an assignment should not be assigned to new students.
     *
     * @param EducationAddedStudentAction $val The addedStudentAction
     *
@@ -434,6 +434,35 @@ class EducationAssignment extends Entity
     public function setDueDateTime($val)
     {
         $this->_propDict["dueDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the feedbackResourcesFolderUrl
+    * Folder URL where all the feedback file resources for this assignment are stored.
+    *
+    * @return string|null The feedbackResourcesFolderUrl
+    */
+    public function getFeedbackResourcesFolderUrl()
+    {
+        if (array_key_exists("feedbackResourcesFolderUrl", $this->_propDict)) {
+            return $this->_propDict["feedbackResourcesFolderUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the feedbackResourcesFolderUrl
+    * Folder URL where all the feedback file resources for this assignment are stored.
+    *
+    * @param string $val The feedbackResourcesFolderUrl
+    *
+    * @return EducationAssignment
+    */
+    public function setFeedbackResourcesFolderUrl($val)
+    {
+        $this->_propDict["feedbackResourcesFolderUrl"] = $val;
         return $this;
     }
 

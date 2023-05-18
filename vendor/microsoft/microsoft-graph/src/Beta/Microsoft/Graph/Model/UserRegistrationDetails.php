@@ -261,10 +261,41 @@ class UserRegistrationDetails extends Entity
     }
 
     /**
+    * Gets the lastUpdatedDateTime
+    *
+    * @return \DateTime|null The lastUpdatedDateTime
+    */
+    public function getLastUpdatedDateTime()
+    {
+        if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+                return $this->_propDict["lastUpdatedDateTime"];
+            } else {
+                $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
+                return $this->_propDict["lastUpdatedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lastUpdatedDateTime
+    *
+    * @param \DateTime $val The lastUpdatedDateTime
+    *
+    * @return UserRegistrationDetails
+    */
+    public function setLastUpdatedDateTime($val)
+    {
+        $this->_propDict["lastUpdatedDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the methodsRegistered
     * Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
     *
-    * @return string|null The methodsRegistered
+    * @return array|null The methodsRegistered
     */
     public function getMethodsRegistered()
     {
@@ -279,7 +310,7 @@ class UserRegistrationDetails extends Entity
     * Sets the methodsRegistered
     * Collection of authentication methods registered, such as mobilePhone, email, fido2. Supports $filter (any with eq).
     *
-    * @param string $val The methodsRegistered
+    * @param string[] $val The methodsRegistered
     *
     * @return UserRegistrationDetails
     */

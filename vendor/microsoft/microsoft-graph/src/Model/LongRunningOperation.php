@@ -26,7 +26,7 @@ class LongRunningOperation extends Entity
 {
     /**
     * Gets the createdDateTime
-    * The start time of the operation.
+    * The start time of the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -45,7 +45,7 @@ class LongRunningOperation extends Entity
 
     /**
     * Sets the createdDateTime
-    * The start time of the operation.
+    * The start time of the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -59,7 +59,7 @@ class LongRunningOperation extends Entity
 
     /**
     * Gets the lastActionDateTime
-    * The time of the last action in the operation.
+    * The time of the last action in the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The lastActionDateTime
     */
@@ -78,7 +78,7 @@ class LongRunningOperation extends Entity
 
     /**
     * Sets the lastActionDateTime
-    * The time of the last action in the operation.
+    * The time of the last action in the operation. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The lastActionDateTime
     *

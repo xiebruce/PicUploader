@@ -123,7 +123,7 @@ class ExternalItem extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the activities
-    * Write-only property. Returns results.
+    * Returns a list of activities performed on the item. Write-only.
      *
      * @return array|null The activities
      */
@@ -138,7 +138,7 @@ class ExternalItem extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the activities
-    * Write-only property. Returns results.
+    * Returns a list of activities performed on the item. Write-only.
     *
     * @param ExternalActivity[] $val The activities
     *

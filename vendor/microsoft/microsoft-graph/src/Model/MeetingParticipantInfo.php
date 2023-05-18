@@ -59,7 +59,7 @@ class MeetingParticipantInfo extends Entity
 
     /**
     * Gets the role
-    * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+    * Specifies the participant's role in the meeting.
     *
     * @return OnlineMeetingRole|null The role
     */
@@ -78,7 +78,7 @@ class MeetingParticipantInfo extends Entity
 
     /**
     * Sets the role
-    * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+    * Specifies the participant's role in the meeting.
     *
     * @param OnlineMeetingRole $val The value to assign to the role
     *

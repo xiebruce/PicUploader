@@ -26,7 +26,7 @@ class WorkflowTemplate extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the category
-    * The category of the workflow template. The possible values are: joiner, leaver.
+    * The category of the workflow template. The possible values are: joiner, leaver.Supports $filter(eq, ne) and $orderby.
     *
     * @return LifecycleWorkflowCategory|null The category
     */
@@ -45,7 +45,7 @@ class WorkflowTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the category
-    * The category of the workflow template. The possible values are: joiner, leaver.
+    * The category of the workflow template. The possible values are: joiner, leaver.Supports $filter(eq, ne) and $orderby.
     *
     * @param LifecycleWorkflowCategory $val The category
     *
@@ -88,7 +88,7 @@ class WorkflowTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the displayName
-    * The display name of the workflowTemplate. Supports  orderby.
+    * The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
     *
     * @return string|null The displayName
     */
@@ -103,7 +103,7 @@ class WorkflowTemplate extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
-    * The display name of the workflowTemplate. Supports  orderby.
+    * The display name of the workflowTemplate.Supports $filter(eq, ne) and $orderby.
     *
     * @param string $val The displayName
     *

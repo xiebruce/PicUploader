@@ -23,6 +23,39 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class ConditionalAccessApplications extends Entity
 {
+
+    /**
+    * Gets the applicationFilter
+    * Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
+    *
+    * @return ConditionalAccessFilter|null The applicationFilter
+    */
+    public function getApplicationFilter()
+    {
+        if (array_key_exists("applicationFilter", $this->_propDict)) {
+            if (is_a($this->_propDict["applicationFilter"], "\Beta\Microsoft\Graph\Model\ConditionalAccessFilter") || is_null($this->_propDict["applicationFilter"])) {
+                return $this->_propDict["applicationFilter"];
+            } else {
+                $this->_propDict["applicationFilter"] = new ConditionalAccessFilter($this->_propDict["applicationFilter"]);
+                return $this->_propDict["applicationFilter"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the applicationFilter
+    * Filter that defines the dynamic-application-syntax rule to include/exclude cloud applications. A filter can use custom security attributes to include/exclude applications.
+    *
+    * @param ConditionalAccessFilter $val The value to assign to the applicationFilter
+    *
+    * @return ConditionalAccessApplications The ConditionalAccessApplications
+    */
+    public function setApplicationFilter($val)
+    {
+        $this->_propDict["applicationFilter"] = $val;
+         return $this;
+    }
     /**
     * Gets the excludeApplications
     * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365

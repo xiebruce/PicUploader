@@ -24,6 +24,36 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class AuthenticationMethodConfiguration extends Entity
 {
+
+     /**
+     * Gets the excludeTargets
+    * Groups of users that are excluded from a policy.
+     *
+     * @return array|null The excludeTargets
+     */
+    public function getExcludeTargets()
+    {
+        if (array_key_exists("excludeTargets", $this->_propDict)) {
+           return $this->_propDict["excludeTargets"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the excludeTargets
+    * Groups of users that are excluded from a policy.
+    *
+    * @param ExcludeTarget[] $val The excludeTargets
+    *
+    * @return AuthenticationMethodConfiguration
+    */
+    public function setExcludeTargets($val)
+    {
+        $this->_propDict["excludeTargets"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the state
     * The state of the policy. Possible values are: enabled, disabled.

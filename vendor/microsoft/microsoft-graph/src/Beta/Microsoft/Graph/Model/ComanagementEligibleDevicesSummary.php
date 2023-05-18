@@ -163,4 +163,32 @@ class ComanagementEligibleDevicesSummary extends Entity
         $this->_propDict["needsOsUpdateCount"] = $val;
         return $this;
     }
+    /**
+    * Gets the scheduledForEnrollmentCount
+    * Count of devices scheduled for Co-Management enrollment. Valid values 0 to 9999999
+    *
+    * @return int|null The scheduledForEnrollmentCount
+    */
+    public function getScheduledForEnrollmentCount()
+    {
+        if (array_key_exists("scheduledForEnrollmentCount", $this->_propDict)) {
+            return $this->_propDict["scheduledForEnrollmentCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the scheduledForEnrollmentCount
+    * Count of devices scheduled for Co-Management enrollment. Valid values 0 to 9999999
+    *
+    * @param int $val The value of the scheduledForEnrollmentCount
+    *
+    * @return ComanagementEligibleDevicesSummary
+    */
+    public function setScheduledForEnrollmentCount($val)
+    {
+        $this->_propDict["scheduledForEnrollmentCount"] = $val;
+        return $this;
+    }
 }

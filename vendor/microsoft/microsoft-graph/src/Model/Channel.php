@@ -88,7 +88,7 @@ class Channel extends Entity
 
     /**
     * Gets the displayName
-    * Channel name as it will appear to the user in Microsoft Teams.
+    * Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.
     *
     * @return string|null The displayName
     */
@@ -103,7 +103,7 @@ class Channel extends Entity
 
     /**
     * Sets the displayName
-    * Channel name as it will appear to the user in Microsoft Teams.
+    * Channel name as it will appear to the user in Microsoft Teams. The maximum length is 50 characters.
     *
     * @param string $val The displayName
     *

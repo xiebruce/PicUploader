@@ -80,37 +80,6 @@ class NotifyUserAction extends DlpActionInfo
         $this->_propDict["emailText"] = $val;
         return $this;
     }
-
-    /**
-    * Gets the overrideOption
-    *
-    * @return OverrideOption|null The overrideOption
-    */
-    public function getOverrideOption()
-    {
-        if (array_key_exists("overrideOption", $this->_propDict)) {
-            if (is_a($this->_propDict["overrideOption"], "\Beta\Microsoft\Graph\Model\OverrideOption") || is_null($this->_propDict["overrideOption"])) {
-                return $this->_propDict["overrideOption"];
-            } else {
-                $this->_propDict["overrideOption"] = new OverrideOption($this->_propDict["overrideOption"]);
-                return $this->_propDict["overrideOption"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the overrideOption
-    *
-    * @param OverrideOption $val The value to assign to the overrideOption
-    *
-    * @return NotifyUserAction The NotifyUserAction
-    */
-    public function setOverrideOption($val)
-    {
-        $this->_propDict["overrideOption"] = $val;
-         return $this;
-    }
     /**
     * Gets the policyTip
     *

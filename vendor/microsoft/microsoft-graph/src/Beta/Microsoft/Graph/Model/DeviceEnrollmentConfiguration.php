@@ -214,7 +214,7 @@ class DeviceEnrollmentConfiguration extends Entity
     * Gets the roleScopeTagIds
     * Optional role scope tags for the enrollment restrictions.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -229,7 +229,7 @@ class DeviceEnrollmentConfiguration extends Entity
     * Sets the roleScopeTagIds
     * Optional role scope tags for the enrollment restrictions.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return DeviceEnrollmentConfiguration
     */

@@ -34,5 +34,6 @@ class SingleSignOnMode extends Enum
     const SAML = "saml";
     const PING_HEADER_BASED = "pingHeaderBased";
     const AAD_HEADER_BASED = "aadHeaderBased";
+    const O_AUTH_TOKEN = "oAuthToken";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

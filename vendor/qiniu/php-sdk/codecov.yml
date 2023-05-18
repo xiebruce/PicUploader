@@ -21,7 +21,7 @@ coverage:
       project:                            # project 统计所有代码x
           default:
             # basic
-            target: 89%                  # 总体通过标准
+            target: 85%                  # 总体通过标准
             threshold: 3%                 # 允许单次下降的幅度
             base: auto
             if_not_found: success

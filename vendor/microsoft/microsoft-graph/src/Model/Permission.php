@@ -311,7 +311,7 @@ class Permission extends Entity
     * Gets the roles
     * The type of permission, for example, read. See below for the full list of roles. Read-only.
     *
-    * @return string|null The roles
+    * @return array|null The roles
     */
     public function getRoles()
     {
@@ -326,7 +326,7 @@ class Permission extends Entity
     * Sets the roles
     * The type of permission, for example, read. See below for the full list of roles. Read-only.
     *
-    * @param string $val The roles
+    * @param string[] $val The roles
     *
     * @return Permission
     */

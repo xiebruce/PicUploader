@@ -58,6 +58,39 @@ class TeamsAppDefinition extends Entity
     }
 
     /**
+    * Gets the authorization
+    * Authorization requirements specified in the Teams app manifest.
+    *
+    * @return TeamsAppAuthorization|null The authorization
+    */
+    public function getAuthorization()
+    {
+        if (array_key_exists("authorization", $this->_propDict)) {
+            if (is_a($this->_propDict["authorization"], "\Beta\Microsoft\Graph\Model\TeamsAppAuthorization") || is_null($this->_propDict["authorization"])) {
+                return $this->_propDict["authorization"];
+            } else {
+                $this->_propDict["authorization"] = new TeamsAppAuthorization($this->_propDict["authorization"]);
+                return $this->_propDict["authorization"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authorization
+    * Authorization requirements specified in the Teams app manifest.
+    *
+    * @param TeamsAppAuthorization $val The authorization
+    *
+    * @return TeamsAppDefinition
+    */
+    public function setAuthorization($val)
+    {
+        $this->_propDict["authorization"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the azureADAppId
     * The WebApplicationInfo.Id from the Teams app manifest.
     *

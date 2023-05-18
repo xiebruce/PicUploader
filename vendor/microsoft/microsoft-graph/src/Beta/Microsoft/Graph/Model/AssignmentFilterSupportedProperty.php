@@ -170,7 +170,7 @@ class AssignmentFilterSupportedProperty extends Entity
     }
     /**
     * Gets the supportedValues
-    * List of all supported values for this propery, empty if everything is supported.
+    * List of all supported values for this property, empty if everything is supported.
     *
     * @return string|null The supportedValues
     */
@@ -185,7 +185,7 @@ class AssignmentFilterSupportedProperty extends Entity
 
     /**
     * Sets the supportedValues
-    * List of all supported values for this propery, empty if everything is supported.
+    * List of all supported values for this property, empty if everything is supported.
     *
     * @param string $val The value of the supportedValues
     *

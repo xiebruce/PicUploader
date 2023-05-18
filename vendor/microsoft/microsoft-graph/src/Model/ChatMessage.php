@@ -468,6 +468,34 @@ class ChatMessage extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the messageHistory
+     *
+     * @return array|null The messageHistory
+     */
+    public function getMessageHistory()
+    {
+        if (array_key_exists("messageHistory", $this->_propDict)) {
+           return $this->_propDict["messageHistory"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the messageHistory
+    *
+    * @param ChatMessageHistoryItem[] $val The messageHistory
+    *
+    * @return ChatMessage
+    */
+    public function setMessageHistory($val)
+    {
+        $this->_propDict["messageHistory"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the messageType
     * The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.

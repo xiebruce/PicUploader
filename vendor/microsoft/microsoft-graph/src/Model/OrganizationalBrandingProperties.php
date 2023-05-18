@@ -181,7 +181,7 @@ class OrganizationalBrandingProperties extends Entity
     * Gets the cdnList
     * A list of base URLs for all available CDN providers that are serving the assets of the current resource. Several CDN providers are used at the same time for high availability of read requests. Read-only.
     *
-    * @return string|null The cdnList
+    * @return array|null The cdnList
     */
     public function getCdnList()
     {
@@ -196,7 +196,7 @@ class OrganizationalBrandingProperties extends Entity
     * Sets the cdnList
     * A list of base URLs for all available CDN providers that are serving the assets of the current resource. Several CDN providers are used at the same time for high availability of read requests. Read-only.
     *
-    * @param string $val The cdnList
+    * @param string[] $val The cdnList
     *
     * @return OrganizationalBrandingProperties
     */

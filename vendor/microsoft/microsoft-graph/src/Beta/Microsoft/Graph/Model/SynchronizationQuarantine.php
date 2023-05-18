@@ -125,7 +125,7 @@ class SynchronizationQuarantine extends Entity
 
     /**
     * Gets the reason
-    * A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown.
+    * A code that signifies why the quarantine was imposed. The possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, Unknown, QuarantinedOnDemand, TooManyDeletes, IngestionInterrupted.
     *
     * @return QuarantineReason|null The reason
     */
@@ -144,7 +144,7 @@ class SynchronizationQuarantine extends Entity
 
     /**
     * Sets the reason
-    * A code that signifies why the quarantine was imposed. Possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, QuarantinedOnDemand, TooManyDeletes, Unknown.
+    * A code that signifies why the quarantine was imposed. The possible values are: EncounteredBaseEscrowThreshold, EncounteredTotalEscrowThreshold, EncounteredEscrowProportionThreshold, EncounteredQuarantineException, Unknown, QuarantinedOnDemand, TooManyDeletes, IngestionInterrupted.
     *
     * @param QuarantineReason $val The value to assign to the reason
     *

@@ -30,4 +30,5 @@ class TeamworkTagType extends Enum
     * The Enum TeamworkTagType
     */
     const STANDARD = "standard";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

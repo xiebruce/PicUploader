@@ -58,6 +58,33 @@ class OnPremisesPublishingProfile extends Entity
     }
 
     /**
+    * Gets the isDefaultAccessEnabled
+    *
+    * @return bool|null The isDefaultAccessEnabled
+    */
+    public function getIsDefaultAccessEnabled()
+    {
+        if (array_key_exists("isDefaultAccessEnabled", $this->_propDict)) {
+            return $this->_propDict["isDefaultAccessEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isDefaultAccessEnabled
+    *
+    * @param bool $val The isDefaultAccessEnabled
+    *
+    * @return OnPremisesPublishingProfile
+    */
+    public function setIsDefaultAccessEnabled($val)
+    {
+        $this->_propDict["isDefaultAccessEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the isEnabled
     * Represents if Azure AD Application Proxy is enabled for the tenant.
     *

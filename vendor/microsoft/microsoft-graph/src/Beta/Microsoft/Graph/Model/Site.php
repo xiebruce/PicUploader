@@ -217,6 +217,37 @@ class Site extends BaseItem
     }
 
     /**
+    * Gets the informationProtection
+    *
+    * @return InformationProtection|null The informationProtection
+    */
+    public function getInformationProtection()
+    {
+        if (array_key_exists("informationProtection", $this->_propDict)) {
+            if (is_a($this->_propDict["informationProtection"], "\Beta\Microsoft\Graph\Model\InformationProtection") || is_null($this->_propDict["informationProtection"])) {
+                return $this->_propDict["informationProtection"];
+            } else {
+                $this->_propDict["informationProtection"] = new InformationProtection($this->_propDict["informationProtection"]);
+                return $this->_propDict["informationProtection"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the informationProtection
+    *
+    * @param InformationProtection $val The informationProtection
+    *
+    * @return Site
+    */
+    public function setInformationProtection($val)
+    {
+        $this->_propDict["informationProtection"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the analytics
     * Analytics about the view activities that took place in this site.
     *

@@ -120,7 +120,7 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Gets the trainingStatus
-    * Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
+    * The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
     *
     * @return TrainingStatus|null The trainingStatus
     */
@@ -139,7 +139,7 @@ class UserTrainingStatusInfo extends Entity
 
     /**
     * Sets the trainingStatus
-    * Status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
+    * The status of the training assigned to the user. Possible values are: unknown, assigned, inProgress, completed, overdue, unknownFutureValue.
     *
     * @param TrainingStatus $val The value to assign to the trainingStatus
     *

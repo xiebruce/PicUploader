@@ -56,6 +56,39 @@ class BroadcastMeetingSettings extends Entity
         $this->_propDict["allowedAudience"] = $val;
          return $this;
     }
+
+    /**
+    * Gets the captions
+    * Caption settings of a Teams live event.
+    *
+    * @return BroadcastMeetingCaptionSettings|null The captions
+    */
+    public function getCaptions()
+    {
+        if (array_key_exists("captions", $this->_propDict)) {
+            if (is_a($this->_propDict["captions"], "\Microsoft\Graph\Model\BroadcastMeetingCaptionSettings") || is_null($this->_propDict["captions"])) {
+                return $this->_propDict["captions"];
+            } else {
+                $this->_propDict["captions"] = new BroadcastMeetingCaptionSettings($this->_propDict["captions"]);
+                return $this->_propDict["captions"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the captions
+    * Caption settings of a Teams live event.
+    *
+    * @param BroadcastMeetingCaptionSettings $val The value to assign to the captions
+    *
+    * @return BroadcastMeetingSettings The BroadcastMeetingSettings
+    */
+    public function setCaptions($val)
+    {
+        $this->_propDict["captions"] = $val;
+         return $this;
+    }
     /**
     * Gets the isAttendeeReportEnabled
     * Indicates whether attendee report is enabled for this Teams live event. Default value is false.

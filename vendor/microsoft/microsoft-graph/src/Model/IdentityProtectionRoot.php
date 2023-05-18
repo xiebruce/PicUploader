@@ -87,6 +87,36 @@ class IdentityProtectionRoot implements \JsonSerializable
 
 
      /**
+     * Gets the riskyServicePrincipals
+    * Azure AD service principals that are at risk.
+     *
+     * @return array|null The riskyServicePrincipals
+     */
+    public function getRiskyServicePrincipals()
+    {
+        if (array_key_exists("riskyServicePrincipals", $this->_propDict)) {
+           return $this->_propDict["riskyServicePrincipals"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the riskyServicePrincipals
+    * Azure AD service principals that are at risk.
+    *
+    * @param RiskyServicePrincipal[] $val The riskyServicePrincipals
+    *
+    * @return IdentityProtectionRoot
+    */
+    public function setRiskyServicePrincipals($val)
+    {
+        $this->_propDict["riskyServicePrincipals"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the riskyUsers
     * Users that are flagged as at-risk by Azure AD Identity Protection.
      *
@@ -112,6 +142,36 @@ class IdentityProtectionRoot implements \JsonSerializable
     public function setRiskyUsers($val)
     {
         $this->_propDict["riskyUsers"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the servicePrincipalRiskDetections
+    * Represents information about detected at-risk service principals in an Azure AD tenant.
+     *
+     * @return array|null The servicePrincipalRiskDetections
+     */
+    public function getServicePrincipalRiskDetections()
+    {
+        if (array_key_exists("servicePrincipalRiskDetections", $this->_propDict)) {
+           return $this->_propDict["servicePrincipalRiskDetections"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the servicePrincipalRiskDetections
+    * Represents information about detected at-risk service principals in an Azure AD tenant.
+    *
+    * @param ServicePrincipalRiskDetection[] $val The servicePrincipalRiskDetections
+    *
+    * @return IdentityProtectionRoot
+    */
+    public function setServicePrincipalRiskDetections($val)
+    {
+        $this->_propDict["servicePrincipalRiskDetections"] = $val;
         return $this;
     }
 
@@ -158,6 +218,8 @@ class IdentityProtectionRoot implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

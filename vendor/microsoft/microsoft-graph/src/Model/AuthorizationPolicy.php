@@ -55,7 +55,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Gets the allowedToUseSSPR
-    * Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant.
+    * Indicates whether users can use the Self-Serve Password Reset feature on the tenant.
     *
     * @return bool|null The allowedToUseSSPR
     */
@@ -70,7 +70,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the allowedToUseSSPR
-    * Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant.
+    * Indicates whether users can use the Self-Serve Password Reset feature on the tenant.
     *
     * @param bool $val The allowedToUseSSPR
     *
@@ -113,7 +113,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Gets the allowInvitesFrom
-    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. For more details, see allowInvitesFrom values.
     *
     * @return AllowInvitesFrom|null The allowInvitesFrom
     */
@@ -132,7 +132,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the allowInvitesFrom
-    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. For more details, see allowInvitesFrom values.
     *
     * @param AllowInvitesFrom $val The allowInvitesFrom
     *
@@ -145,8 +145,37 @@ class AuthorizationPolicy extends PolicyBase
     }
 
     /**
+    * Gets the allowUserConsentForRiskyApps
+    * Indicates whether user consent for risky apps is allowed. We recommend to keep this as false. Default value is false.
+    *
+    * @return bool|null The allowUserConsentForRiskyApps
+    */
+    public function getAllowUserConsentForRiskyApps()
+    {
+        if (array_key_exists("allowUserConsentForRiskyApps", $this->_propDict)) {
+            return $this->_propDict["allowUserConsentForRiskyApps"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowUserConsentForRiskyApps
+    * Indicates whether user consent for risky apps is allowed. We recommend to keep this as false. Default value is false.
+    *
+    * @param bool $val The allowUserConsentForRiskyApps
+    *
+    * @return AuthorizationPolicy
+    */
+    public function setAllowUserConsentForRiskyApps($val)
+    {
+        $this->_propDict["allowUserConsentForRiskyApps"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the blockMsolPowerShell
-    * To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+    * To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure Active Directory Connect or Microsoft Graph.
     *
     * @return bool|null The blockMsolPowerShell
     */
@@ -161,7 +190,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the blockMsolPowerShell
-    * To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+    * To disable the use of MSOL PowerShell, set this property to true. This also disables user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure Active Directory Connect or Microsoft Graph.
     *
     * @param bool $val The blockMsolPowerShell
     *

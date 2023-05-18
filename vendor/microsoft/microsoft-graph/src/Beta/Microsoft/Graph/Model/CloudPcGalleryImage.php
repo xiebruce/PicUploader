@@ -55,7 +55,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Gets the endDate
-    * The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
+    * The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
     *
     * @return \DateTime|null The endDate
     */
@@ -74,7 +74,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Sets the endDate
-    * The date in which this image is no longer within long-term support. The Cloud PC will continue to provide short-term support. Read-only.
+    * The date in which this image is no longer within long-term support. The Cloud PC continues to provide short-term support. Read-only.
     *
     * @param \DateTime $val The endDate
     *
@@ -121,7 +121,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Gets the offer
-    * The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    * The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
     *
     * @return string|null The offer
     */
@@ -136,7 +136,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Sets the offer
-    * The offer name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    * The offer name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
     *
     * @param string $val The offer
     *
@@ -179,7 +179,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Gets the publisher
-    * The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    * The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
     *
     * @return string|null The publisher
     */
@@ -194,7 +194,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Sets the publisher
-    * The publisher name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    * The publisher name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
     *
     * @param string $val The publisher
     *
@@ -266,7 +266,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Gets the sku
-    * The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    * The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
     *
     * @return string|null The sku
     */
@@ -281,7 +281,7 @@ class CloudPcGalleryImage extends Entity
 
     /**
     * Sets the sku
-    * The SKU name of the gallery image. This value will be passed to Azure to get the image resource. Read-only.
+    * The SKU name of the gallery image. This value is passed to Azure to get the image resource. Read-only.
     *
     * @param string $val The sku
     *

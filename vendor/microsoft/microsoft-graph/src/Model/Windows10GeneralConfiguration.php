@@ -148,7 +148,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the bluetoothAllowedServices
     * Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
     *
-    * @return string|null The bluetoothAllowedServices
+    * @return array|null The bluetoothAllowedServices
     */
     public function getBluetoothAllowedServices()
     {
@@ -163,7 +163,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the bluetoothAllowedServices
     * Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
     *
-    * @param string $val The bluetoothAllowedServices
+    * @param string[] $val The bluetoothAllowedServices
     *
     * @return Windows10GeneralConfiguration
     */
@@ -649,7 +649,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @return string|null The defenderFileExtensionsToExclude
+    * @return array|null The defenderFileExtensionsToExclude
     */
     public function getDefenderFileExtensionsToExclude()
     {
@@ -664,7 +664,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @param string $val The defenderFileExtensionsToExclude
+    * @param string[] $val The defenderFileExtensionsToExclude
     *
     * @return Windows10GeneralConfiguration
     */
@@ -678,7 +678,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @return string|null The defenderFilesAndFoldersToExclude
+    * @return array|null The defenderFilesAndFoldersToExclude
     */
     public function getDefenderFilesAndFoldersToExclude()
     {
@@ -693,7 +693,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @param string $val The defenderFilesAndFoldersToExclude
+    * @param string[] $val The defenderFilesAndFoldersToExclude
     *
     * @return Windows10GeneralConfiguration
     */
@@ -740,7 +740,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @return string|null The defenderProcessesToExclude
+    * @return array|null The defenderProcessesToExclude
     */
     public function getDefenderProcessesToExclude()
     {
@@ -755,7 +755,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @param string $val The defenderProcessesToExclude
+    * @param string[] $val The defenderProcessesToExclude
     *
     * @return Windows10GeneralConfiguration
     */
@@ -2048,7 +2048,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the edgeHomepageUrls
     * The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
     *
-    * @return string|null The edgeHomepageUrls
+    * @return array|null The edgeHomepageUrls
     */
     public function getEdgeHomepageUrls()
     {
@@ -2063,7 +2063,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the edgeHomepageUrls
     * The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
     *
-    * @param string $val The edgeHomepageUrls
+    * @param string[] $val The edgeHomepageUrls
     *
     * @return Windows10GeneralConfiguration
     */

@@ -26,7 +26,7 @@ class ExternalActivityResult extends ExternalActivity
 {
     /**
     * Gets the error
-    * Error information explaining failure to process external activity.
+    * Error information that explains the failure to process an external activity.
     *
     * @return \Beta\Microsoft\Graph\Model\PublicError|null The error
     */
@@ -45,7 +45,7 @@ class ExternalActivityResult extends ExternalActivity
 
     /**
     * Sets the error
-    * Error information explaining failure to process external activity.
+    * Error information that explains the failure to process an external activity.
     *
     * @param \Beta\Microsoft\Graph\Model\PublicError $val The error
     *

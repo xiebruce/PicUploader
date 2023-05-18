@@ -32,4 +32,5 @@ class DeviceManagementConfigurationSettingUsage extends Enum
     const NONE = "none";
     const CONFIGURATION = "configuration";
     const COMPLIANCE = "compliance";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

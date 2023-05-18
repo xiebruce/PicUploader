@@ -61,11 +61,6 @@
             "GuzzleHttp\\Tests\\Psr7\\": "tests/"
         }
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.9-dev"
-        }
-    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,

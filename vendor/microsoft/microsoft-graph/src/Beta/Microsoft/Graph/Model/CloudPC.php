@@ -55,7 +55,7 @@ class CloudPC extends Entity
 
     /**
     * Gets the connectivityResult
-    * The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+    * The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
     *
     * @return CloudPcConnectivityResult|null The connectivityResult
     */
@@ -74,7 +74,7 @@ class CloudPC extends Entity
 
     /**
     * Sets the connectivityResult
-    * The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC is able to be connected or not.
+    * The connectivity health check result of a Cloud PC, including the updated timestamp and whether the Cloud PC can be connected.
     *
     * @param CloudPcConnectivityResult $val The connectivityResult
     *
@@ -88,6 +88,7 @@ class CloudPC extends Entity
 
     /**
     * Gets the diskEncryptionState
+    * The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
     *
     * @return CloudPcDiskEncryptionState|null The diskEncryptionState
     */
@@ -106,6 +107,7 @@ class CloudPC extends Entity
 
     /**
     * Sets the diskEncryptionState
+    * The disk encryption applied to the Cloud PC. Possible values: notAvailable, notEncrypted, encryptedUsingPlatformManagedKey, encryptedUsingCustomerManagedKey, and unknownFutureValue.
     *
     * @param CloudPcDiskEncryptionState $val The diskEncryptionState
     *
@@ -427,6 +429,67 @@ class CloudPC extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the partnerAgentInstallResults
+    * The results of every partner agent's installation status on Cloud PC.
+     *
+     * @return array|null The partnerAgentInstallResults
+     */
+    public function getPartnerAgentInstallResults()
+    {
+        if (array_key_exists("partnerAgentInstallResults", $this->_propDict)) {
+           return $this->_propDict["partnerAgentInstallResults"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the partnerAgentInstallResults
+    * The results of every partner agent's installation status on Cloud PC.
+    *
+    * @param CloudPcPartnerAgentInstallResult[] $val The partnerAgentInstallResults
+    *
+    * @return CloudPC
+    */
+    public function setPartnerAgentInstallResults($val)
+    {
+        $this->_propDict["partnerAgentInstallResults"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the powerState
+    *
+    * @return CloudPcPowerState|null The powerState
+    */
+    public function getPowerState()
+    {
+        if (array_key_exists("powerState", $this->_propDict)) {
+            if (is_a($this->_propDict["powerState"], "\Beta\Microsoft\Graph\Model\CloudPcPowerState") || is_null($this->_propDict["powerState"])) {
+                return $this->_propDict["powerState"];
+            } else {
+                $this->_propDict["powerState"] = new CloudPcPowerState($this->_propDict["powerState"]);
+                return $this->_propDict["powerState"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the powerState
+    *
+    * @param CloudPcPowerState $val The powerState
+    *
+    * @return CloudPC
+    */
+    public function setPowerState($val)
+    {
+        $this->_propDict["powerState"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the provisioningPolicyId
     * The provisioning policy ID of the Cloud PC.
@@ -482,6 +545,39 @@ class CloudPC extends Entity
     public function setProvisioningPolicyName($val)
     {
         $this->_propDict["provisioningPolicyName"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the provisioningType
+    * The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
+    *
+    * @return CloudPcProvisioningType|null The provisioningType
+    */
+    public function getProvisioningType()
+    {
+        if (array_key_exists("provisioningType", $this->_propDict)) {
+            if (is_a($this->_propDict["provisioningType"], "\Beta\Microsoft\Graph\Model\CloudPcProvisioningType") || is_null($this->_propDict["provisioningType"])) {
+                return $this->_propDict["provisioningType"];
+            } else {
+                $this->_propDict["provisioningType"] = new CloudPcProvisioningType($this->_propDict["provisioningType"]);
+                return $this->_propDict["provisioningType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the provisioningType
+    * The type of licenses to be used when provisioning Cloud PCs using this policy. Possible values are: dedicated, shared, unknownFutureValue. Default value is dedicated.
+    *
+    * @param CloudPcProvisioningType $val The provisioningType
+    *
+    * @return CloudPC
+    */
+    public function setProvisioningType($val)
+    {
+        $this->_propDict["provisioningType"] = $val;
         return $this;
     }
 

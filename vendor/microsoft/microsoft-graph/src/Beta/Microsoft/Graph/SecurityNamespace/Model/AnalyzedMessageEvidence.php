@@ -25,7 +25,7 @@ class AnalyzedMessageEvidence extends AlertEvidence
 {
     /**
     * Gets the antiSpamDirection
-    * Direction of the email relative to your network. The possible values are: Inbound, Outbound or Intraorg.
+    * Direction of the email relative to your network. The possible values are: inbound, outbound or intraorg.
     *
     * @return string|null The antiSpamDirection
     */
@@ -40,7 +40,7 @@ class AnalyzedMessageEvidence extends AlertEvidence
 
     /**
     * Sets the antiSpamDirection
-    * Direction of the email relative to your network. The possible values are: Inbound, Outbound or Intraorg.
+    * Direction of the email relative to your network. The possible values are: inbound, outbound or intraorg.
     *
     * @param string $val The value of the antiSpamDirection
     *
@@ -81,7 +81,7 @@ class AnalyzedMessageEvidence extends AlertEvidence
     }
     /**
     * Gets the deliveryAction
-    * Delivery action of the email. The possible values are: Delivered, DeliveredAsSpam, Junked, Blocked, or Replaced.
+    * Delivery action of the email. The possible values are: delivered, deliveredAsSpam, junked, blocked, or replaced.
     *
     * @return string|null The deliveryAction
     */
@@ -96,7 +96,7 @@ class AnalyzedMessageEvidence extends AlertEvidence
 
     /**
     * Sets the deliveryAction
-    * Delivery action of the email. The possible values are: Delivered, DeliveredAsSpam, Junked, Blocked, or Replaced.
+    * Delivery action of the email. The possible values are: delivered, deliveredAsSpam, junked, blocked, or replaced.
     *
     * @param string $val The value of the deliveryAction
     *
@@ -109,7 +109,7 @@ class AnalyzedMessageEvidence extends AlertEvidence
     }
     /**
     * Gets the deliveryLocation
-    * Location where the email was delivered. The possible values are: Inbox, External, JunkFolder, Quarantine, Failed, Dropped, DeletedFolder or Forwarded.
+    * Location where the email was delivered. The possible values are: inbox, external, junkFolder, quarantine, failed, dropped, deletedFolder or forwarded.
     *
     * @return string|null The deliveryLocation
     */
@@ -124,7 +124,7 @@ class AnalyzedMessageEvidence extends AlertEvidence
 
     /**
     * Sets the deliveryLocation
-    * Location where the email was delivered. The possible values are: Inbox, External, JunkFolder, Quarantine, Failed, Dropped, DeletedFolder or Forwarded.
+    * Location where the email was delivered. The possible values are: inbox, external, junkFolder, quarantine, failed, dropped, deletedFolder or forwarded.
     *
     * @param string $val The value of the deliveryLocation
     *

@@ -28,7 +28,7 @@ class LearningContent extends Entity
     * Gets the additionalTags
     * Keywords, topics, and other tags associated with the learning content. Optional.
     *
-    * @return string|null The additionalTags
+    * @return array|null The additionalTags
     */
     public function getAdditionalTags()
     {
@@ -43,7 +43,7 @@ class LearningContent extends Entity
     * Sets the additionalTags
     * Keywords, topics, and other tags associated with the learning content. Optional.
     *
-    * @param string $val The additionalTags
+    * @param string[] $val The additionalTags
     *
     * @return LearningContent
     */
@@ -83,37 +83,37 @@ class LearningContent extends Entity
     }
 
     /**
-    * Gets the contributor
-    * The author, creator, or contributor of the learning content. Optional.
+    * Gets the contributors
+    * The authors, creators, or contributors of the learning content. Optional.
     *
-    * @return string|null The contributor
+    * @return array|null The contributors
     */
-    public function getContributor()
+    public function getContributors()
     {
-        if (array_key_exists("contributor", $this->_propDict)) {
-            return $this->_propDict["contributor"];
+        if (array_key_exists("contributors", $this->_propDict)) {
+            return $this->_propDict["contributors"];
         } else {
             return null;
         }
     }
 
     /**
-    * Sets the contributor
-    * The author, creator, or contributor of the learning content. Optional.
+    * Sets the contributors
+    * The authors, creators, or contributors of the learning content. Optional.
     *
-    * @param string $val The contributor
+    * @param string[] $val The contributors
     *
     * @return LearningContent
     */
-    public function setContributor($val)
+    public function setContributors($val)
     {
-        $this->_propDict["contributor"] = $val;
+        $this->_propDict["contributors"] = $val;
         return $this;
     }
 
     /**
     * Gets the createdDateTime
-    * The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+    * The date and time when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -132,7 +132,7 @@ class LearningContent extends Entity
 
     /**
     * Sets the createdDateTime
-    * The date when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+    * The date and time when the learning content was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -175,7 +175,7 @@ class LearningContent extends Entity
 
     /**
     * Gets the duration
-    * The duration of the learning content in seconds. Optional.
+    * The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
     *
     * @return \DateInterval|null The duration
     */
@@ -194,7 +194,7 @@ class LearningContent extends Entity
 
     /**
     * Sets the duration
-    * The duration of the learning content in seconds. Optional.
+    * The duration of the learning content in seconds. The value is represented in ISO 8601 format for durations. Optional.
     *
     * @param \DateInterval $val The duration
     *
@@ -266,7 +266,7 @@ class LearningContent extends Entity
 
     /**
     * Gets the isActive
-    * Indicates whether the content is active or not. Inactive content will not show up in the UI. The default value is true. Optional.
+    * Indicates whether the content is active or not. Inactive content doesn't show up in the UI. The default value is true. Optional.
     *
     * @return bool|null The isActive
     */
@@ -281,7 +281,7 @@ class LearningContent extends Entity
 
     /**
     * Sets the isActive
-    * Indicates whether the content is active or not. Inactive content will not show up in the UI. The default value is true. Optional.
+    * Indicates whether the content is active or not. Inactive content doesn't show up in the UI. The default value is true. Optional.
     *
     * @param bool $val The isActive
     *
@@ -382,7 +382,7 @@ class LearningContent extends Entity
 
     /**
     * Gets the lastModifiedDateTime
-    * The date when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+    * The date and time when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
@@ -401,7 +401,7 @@ class LearningContent extends Entity
 
     /**
     * Sets the lastModifiedDateTime
-    * The date when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+    * The date and time when the learning content was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -446,7 +446,7 @@ class LearningContent extends Entity
     * Gets the skillTags
     * The skills tags associated with the learning content. Optional.
     *
-    * @return string|null The skillTags
+    * @return array|null The skillTags
     */
     public function getSkillTags()
     {
@@ -461,7 +461,7 @@ class LearningContent extends Entity
     * Sets the skillTags
     * The skills tags associated with the learning content. Optional.
     *
-    * @param string $val The skillTags
+    * @param string[] $val The skillTags
     *
     * @return LearningContent
     */

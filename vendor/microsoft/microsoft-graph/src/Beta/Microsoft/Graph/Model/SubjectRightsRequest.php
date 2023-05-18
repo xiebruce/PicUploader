@@ -622,7 +622,7 @@ class SubjectRightsRequest extends Entity
     * Gets the regulations
     * List of regulations that this request will fulfill.
     *
-    * @return string|null The regulations
+    * @return array|null The regulations
     */
     public function getRegulations()
     {
@@ -637,7 +637,7 @@ class SubjectRightsRequest extends Entity
     * Sets the regulations
     * List of regulations that this request will fulfill.
     *
-    * @param string $val The regulations
+    * @param string[] $val The regulations
     *
     * @return SubjectRightsRequest
     */
@@ -771,6 +771,62 @@ class SubjectRightsRequest extends Entity
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the approvers
+     *
+     * @return array|null The approvers
+     */
+    public function getApprovers()
+    {
+        if (array_key_exists("approvers", $this->_propDict)) {
+           return $this->_propDict["approvers"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the approvers
+    *
+    * @param User[] $val The approvers
+    *
+    * @return SubjectRightsRequest
+    */
+    public function setApprovers($val)
+    {
+        $this->_propDict["approvers"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the collaborators
+     *
+     * @return array|null The collaborators
+     */
+    public function getCollaborators()
+    {
+        if (array_key_exists("collaborators", $this->_propDict)) {
+           return $this->_propDict["collaborators"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the collaborators
+    *
+    * @param User[] $val The collaborators
+    *
+    * @return SubjectRightsRequest
+    */
+    public function setCollaborators($val)
+    {
+        $this->_propDict["collaborators"] = $val;
         return $this;
     }
 

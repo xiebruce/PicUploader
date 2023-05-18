@@ -118,7 +118,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Gets the category
-    * Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+    * Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
     *
     * @return string|null The category
     */
@@ -133,7 +133,7 @@ class DirectoryAudit extends Entity
 
     /**
     * Sets the category
-    * Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)
+    * Indicates which resource category that's targeted by the activity. For example: UserManagement, GroupManagement, ApplicationManagement, RoleManagement.
     *
     * @param string $val The category
     *

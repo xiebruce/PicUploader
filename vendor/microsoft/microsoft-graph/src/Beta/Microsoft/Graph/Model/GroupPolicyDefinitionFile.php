@@ -115,7 +115,7 @@ class GroupPolicyDefinitionFile extends Entity
     * Gets the languageCodes
     * The supported language codes for the ADMX file.
     *
-    * @return string|null The languageCodes
+    * @return array|null The languageCodes
     */
     public function getLanguageCodes()
     {
@@ -130,7 +130,7 @@ class GroupPolicyDefinitionFile extends Entity
     * Sets the languageCodes
     * The supported language codes for the ADMX file.
     *
-    * @param string $val The languageCodes
+    * @param string[] $val The languageCodes
     *
     * @return GroupPolicyDefinitionFile
     */

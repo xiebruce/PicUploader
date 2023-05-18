@@ -479,7 +479,7 @@ class MobileApp extends Entity
     * Gets the roleScopeTagIds
     * List of scope tag ids for this mobile app.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -494,7 +494,7 @@ class MobileApp extends Entity
     * Sets the roleScopeTagIds
     * List of scope tag ids for this mobile app.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return MobileApp
     */

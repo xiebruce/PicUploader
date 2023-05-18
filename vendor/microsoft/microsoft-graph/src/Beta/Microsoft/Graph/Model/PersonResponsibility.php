@@ -28,7 +28,7 @@ class PersonResponsibility extends ItemFacet
     * Gets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @return string|null The collaborationTags
+    * @return array|null The collaborationTags
     */
     public function getCollaborationTags()
     {
@@ -43,7 +43,7 @@ class PersonResponsibility extends ItemFacet
     * Sets the collaborationTags
     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
     *
-    * @param string $val The collaborationTags
+    * @param string[] $val The collaborationTags
     *
     * @return PersonResponsibility
     */

@@ -26,7 +26,7 @@ class CredentialUserRegistrationCount extends Entity
 {
     /**
     * Gets the totalUserCount
-    * Provides the total user count in the tenant.
+    * Provides the count of users with accountEnabled set to true in the tenant.
     *
     * @return int|null The totalUserCount
     */
@@ -41,7 +41,7 @@ class CredentialUserRegistrationCount extends Entity
 
     /**
     * Sets the totalUserCount
-    * Provides the total user count in the tenant.
+    * Provides the count of users with accountEnabled set to true in the tenant.
     *
     * @param int $val The totalUserCount
     *

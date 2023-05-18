@@ -26,7 +26,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 {
     /**
     * Gets the defaultValue
-    * Default setting value for this setting
+    * Default setting value for this setting.
     *
     * @return DeviceManagementConfigurationSettingValue|null The defaultValue
     */
@@ -45,7 +45,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
     * Sets the defaultValue
-    * Default setting value for this setting
+    * Default setting value for this setting.
     *
     * @param DeviceManagementConfigurationSettingValue $val The defaultValue
     *
@@ -60,7 +60,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
      /**
      * Gets the dependedOnBy
-    * list of child settings that depend on this setting
+    * list of child settings that depend on this setting.
      *
      * @return array|null The dependedOnBy
      */
@@ -75,7 +75,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
     * Sets the dependedOnBy
-    * list of child settings that depend on this setting
+    * list of child settings that depend on this setting.
     *
     * @param DeviceManagementConfigurationSettingDependedOnBy[] $val The dependedOnBy
     *
@@ -90,7 +90,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
      /**
      * Gets the dependentOn
-    * list of parent settings this setting is dependent on
+    * list of parent settings this setting is dependent on.
      *
      * @return array|null The dependentOn
      */
@@ -105,7 +105,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
     * Sets the dependentOn
-    * list of parent settings this setting is dependent on
+    * list of parent settings this setting is dependent on.
     *
     * @param DeviceManagementConfigurationDependentOn[] $val The dependentOn
     *
@@ -119,7 +119,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
     * Gets the valueDefinition
-    * Definition of the value for this setting
+    * Definition of the value for this setting.
     *
     * @return DeviceManagementConfigurationSettingValueDefinition|null The valueDefinition
     */
@@ -138,7 +138,7 @@ class DeviceManagementConfigurationSimpleSettingDefinition extends DeviceManagem
 
     /**
     * Sets the valueDefinition
-    * Definition of the value for this setting
+    * Definition of the value for this setting.
     *
     * @param DeviceManagementConfigurationSettingValueDefinition $val The valueDefinition
     *

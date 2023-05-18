@@ -213,6 +213,64 @@ class WorkflowBase implements \JsonSerializable
     }
 
     /**
+    * Gets the isEnabled
+    * Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+    *
+    * @return bool|null The isEnabled
+    */
+    public function getIsEnabled()
+    {
+        if (array_key_exists("isEnabled", $this->_propDict)) {
+            return $this->_propDict["isEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isEnabled
+    * Whether the workflow is enabled or disabled. If this setting is true, the workflow can be run on demand or on schedule when isSchedulingEnabled is true.
+    *
+    * @param bool $val The isEnabled
+    *
+    * @return WorkflowBase
+    */
+    public function setIsEnabled($val)
+    {
+        $this->_propDict["isEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the isSchedulingEnabled
+    * If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+    *
+    * @return bool|null The isSchedulingEnabled
+    */
+    public function getIsSchedulingEnabled()
+    {
+        if (array_key_exists("isSchedulingEnabled", $this->_propDict)) {
+            return $this->_propDict["isSchedulingEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isSchedulingEnabled
+    * If true, the Lifecycle Workflow engine executes the workflow based on the schedule defined by tenant settings. Cannot be true for a disabled workflow (where isEnabled is false).
+    *
+    * @param bool $val The isSchedulingEnabled
+    *
+    * @return WorkflowBase
+    */
+    public function setIsSchedulingEnabled($val)
+    {
+        $this->_propDict["isSchedulingEnabled"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the lastModifiedDateTime
     * When the workflow was last modified.
     *
@@ -384,6 +442,8 @@ class WorkflowBase implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

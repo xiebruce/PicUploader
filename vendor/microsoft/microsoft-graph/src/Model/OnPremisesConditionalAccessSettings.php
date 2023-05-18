@@ -57,7 +57,7 @@ class OnPremisesConditionalAccessSettings extends Entity
     * Gets the excludedGroups
     * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
     *
-    * @return string|null The excludedGroups
+    * @return array|null The excludedGroups
     */
     public function getExcludedGroups()
     {
@@ -72,7 +72,7 @@ class OnPremisesConditionalAccessSettings extends Entity
     * Sets the excludedGroups
     * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
     *
-    * @param string $val The excludedGroups
+    * @param string[] $val The excludedGroups
     *
     * @return OnPremisesConditionalAccessSettings
     */
@@ -86,7 +86,7 @@ class OnPremisesConditionalAccessSettings extends Entity
     * Gets the includedGroups
     * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
     *
-    * @return string|null The includedGroups
+    * @return array|null The includedGroups
     */
     public function getIncludedGroups()
     {
@@ -101,7 +101,7 @@ class OnPremisesConditionalAccessSettings extends Entity
     * Sets the includedGroups
     * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
     *
-    * @param string $val The includedGroups
+    * @param string[] $val The includedGroups
     *
     * @return OnPremisesConditionalAccessSettings
     */

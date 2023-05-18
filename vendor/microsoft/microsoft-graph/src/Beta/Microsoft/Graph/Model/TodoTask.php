@@ -94,7 +94,7 @@ class TodoTask extends Entity
     * Gets the categories
     * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -109,7 +109,7 @@ class TodoTask extends Entity
     * Sets the categories
     * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return TodoTask
     */

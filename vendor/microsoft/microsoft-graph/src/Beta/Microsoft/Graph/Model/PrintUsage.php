@@ -25,6 +25,60 @@ namespace Beta\Microsoft\Graph\Model;
 class PrintUsage extends Entity
 {
     /**
+    * Gets the blackAndWhitePageCount
+    *
+    * @return int|null The blackAndWhitePageCount
+    */
+    public function getBlackAndWhitePageCount()
+    {
+        if (array_key_exists("blackAndWhitePageCount", $this->_propDict)) {
+            return $this->_propDict["blackAndWhitePageCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the blackAndWhitePageCount
+    *
+    * @param int $val The blackAndWhitePageCount
+    *
+    * @return PrintUsage
+    */
+    public function setBlackAndWhitePageCount($val)
+    {
+        $this->_propDict["blackAndWhitePageCount"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the colorPageCount
+    *
+    * @return int|null The colorPageCount
+    */
+    public function getColorPageCount()
+    {
+        if (array_key_exists("colorPageCount", $this->_propDict)) {
+            return $this->_propDict["colorPageCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the colorPageCount
+    *
+    * @param int $val The colorPageCount
+    *
+    * @return PrintUsage
+    */
+    public function setColorPageCount($val)
+    {
+        $this->_propDict["colorPageCount"] = intval($val);
+        return $this;
+    }
+
+    /**
     * Gets the completedBlackAndWhiteJobCount
     *
     * @return int|null The completedBlackAndWhiteJobCount
@@ -79,6 +133,60 @@ class PrintUsage extends Entity
     }
 
     /**
+    * Gets the completedJobCount
+    *
+    * @return int|null The completedJobCount
+    */
+    public function getCompletedJobCount()
+    {
+        if (array_key_exists("completedJobCount", $this->_propDict)) {
+            return $this->_propDict["completedJobCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the completedJobCount
+    *
+    * @param int $val The completedJobCount
+    *
+    * @return PrintUsage
+    */
+    public function setCompletedJobCount($val)
+    {
+        $this->_propDict["completedJobCount"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the doubleSidedSheetCount
+    *
+    * @return int|null The doubleSidedSheetCount
+    */
+    public function getDoubleSidedSheetCount()
+    {
+        if (array_key_exists("doubleSidedSheetCount", $this->_propDict)) {
+            return $this->_propDict["doubleSidedSheetCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the doubleSidedSheetCount
+    *
+    * @param int $val The doubleSidedSheetCount
+    *
+    * @return PrintUsage
+    */
+    public function setDoubleSidedSheetCount($val)
+    {
+        $this->_propDict["doubleSidedSheetCount"] = intval($val);
+        return $this;
+    }
+
+    /**
     * Gets the incompleteJobCount
     *
     * @return int|null The incompleteJobCount
@@ -102,6 +210,87 @@ class PrintUsage extends Entity
     public function setIncompleteJobCount($val)
     {
         $this->_propDict["incompleteJobCount"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the mediaSheetCount
+    *
+    * @return int|null The mediaSheetCount
+    */
+    public function getMediaSheetCount()
+    {
+        if (array_key_exists("mediaSheetCount", $this->_propDict)) {
+            return $this->_propDict["mediaSheetCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the mediaSheetCount
+    *
+    * @param int $val The mediaSheetCount
+    *
+    * @return PrintUsage
+    */
+    public function setMediaSheetCount($val)
+    {
+        $this->_propDict["mediaSheetCount"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the pageCount
+    *
+    * @return int|null The pageCount
+    */
+    public function getPageCount()
+    {
+        if (array_key_exists("pageCount", $this->_propDict)) {
+            return $this->_propDict["pageCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the pageCount
+    *
+    * @param int $val The pageCount
+    *
+    * @return PrintUsage
+    */
+    public function setPageCount($val)
+    {
+        $this->_propDict["pageCount"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the singleSidedSheetCount
+    *
+    * @return int|null The singleSidedSheetCount
+    */
+    public function getSingleSidedSheetCount()
+    {
+        if (array_key_exists("singleSidedSheetCount", $this->_propDict)) {
+            return $this->_propDict["singleSidedSheetCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the singleSidedSheetCount
+    *
+    * @param int $val The singleSidedSheetCount
+    *
+    * @return PrintUsage
+    */
+    public function setSingleSidedSheetCount($val)
+    {
+        $this->_propDict["singleSidedSheetCount"] = intval($val);
         return $this;
     }
 

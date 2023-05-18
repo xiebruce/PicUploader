@@ -61,7 +61,7 @@ class MeetingRegistrationQuestion extends Entity
     * Gets the answerOptions
     * Answer options when answerInputType is radioButton.
     *
-    * @return string|null The answerOptions
+    * @return array|null The answerOptions
     */
     public function getAnswerOptions()
     {
@@ -76,7 +76,7 @@ class MeetingRegistrationQuestion extends Entity
     * Sets the answerOptions
     * Answer options when answerInputType is radioButton.
     *
-    * @param string $val The answerOptions
+    * @param string[] $val The answerOptions
     *
     * @return MeetingRegistrationQuestion
     */

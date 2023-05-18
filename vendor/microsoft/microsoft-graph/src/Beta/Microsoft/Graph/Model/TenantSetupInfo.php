@@ -54,7 +54,7 @@ class TenantSetupInfo extends Entity
     /**
     * Gets the relevantRolesSettings
     *
-    * @return string|null The relevantRolesSettings
+    * @return array|null The relevantRolesSettings
     */
     public function getRelevantRolesSettings()
     {
@@ -68,7 +68,7 @@ class TenantSetupInfo extends Entity
     /**
     * Sets the relevantRolesSettings
     *
-    * @param string $val The relevantRolesSettings
+    * @param string[] $val The relevantRolesSettings
     *
     * @return TenantSetupInfo
     */

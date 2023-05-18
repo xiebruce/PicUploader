@@ -55,7 +55,7 @@ class EducationSynchronizationProfileStatus extends Entity
 
     /**
     * Gets the lastActivityDateTime
-    * Represents the time when most recent changes were observed in profile.
+    * Date and time when most recent changes were observed in the profile.
     *
     * @return \DateTime|null The lastActivityDateTime
     */
@@ -74,7 +74,7 @@ class EducationSynchronizationProfileStatus extends Entity
 
     /**
     * Sets the lastActivityDateTime
-    * Represents the time when most recent changes were observed in profile.
+    * Date and time when most recent changes were observed in the profile.
     *
     * @param \DateTime $val The lastActivityDateTime
     *
@@ -88,7 +88,7 @@ class EducationSynchronizationProfileStatus extends Entity
 
     /**
     * Gets the lastSynchronizationDateTime
-    * Represents the time of the most recent successful  synchronization.
+    * Date and time of the most recent successful synchronization.
     *
     * @return \DateTime|null The lastSynchronizationDateTime
     */
@@ -107,7 +107,7 @@ class EducationSynchronizationProfileStatus extends Entity
 
     /**
     * Sets the lastSynchronizationDateTime
-    * Represents the time of the most recent successful  synchronization.
+    * Date and time of the most recent successful synchronization.
     *
     * @param \DateTime $val The lastSynchronizationDateTime
     *
@@ -154,7 +154,7 @@ class EducationSynchronizationProfileStatus extends Entity
 
     /**
     * Gets the statusMessage
-    * Status message for the current profile's synchronization stage.
+    * Status message for the synchronization stage of the current profile.
     *
     * @return string|null The statusMessage
     */
@@ -169,7 +169,7 @@ class EducationSynchronizationProfileStatus extends Entity
 
     /**
     * Sets the statusMessage
-    * Status message for the current profile's synchronization stage.
+    * Status message for the synchronization stage of the current profile.
     *
     * @param string $val The statusMessage
     *

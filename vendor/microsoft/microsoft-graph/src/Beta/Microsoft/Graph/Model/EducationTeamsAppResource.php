@@ -36,7 +36,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Gets the appIconWebUrl
-    * URL that points to the app's icon.
+    * URL that points to the icon of the app.
     *
     * @return string|null The appIconWebUrl
     */
@@ -51,7 +51,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Sets the appIconWebUrl
-    * URL that points to the app's icon.
+    * URL that points to the icon of the app.
     *
     * @param string $val The value of the appIconWebUrl
     *
@@ -64,7 +64,7 @@ class EducationTeamsAppResource extends EducationResource
     }
     /**
     * Gets the appId
-    * Teams App ID of the application.
+    * Teams app ID of the application.
     *
     * @return string|null The appId
     */
@@ -79,7 +79,7 @@ class EducationTeamsAppResource extends EducationResource
 
     /**
     * Sets the appId
-    * Teams App ID of the application.
+    * Teams app ID of the application.
     *
     * @param string $val The value of the appId
     *

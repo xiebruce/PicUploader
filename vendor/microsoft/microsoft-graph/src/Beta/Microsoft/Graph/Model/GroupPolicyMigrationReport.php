@@ -277,6 +277,35 @@ class GroupPolicyMigrationReport extends Entity
     }
 
     /**
+    * Gets the roleScopeTagIds
+    * The list of scope tags for the configuration.
+    *
+    * @return array|null The roleScopeTagIds
+    */
+    public function getRoleScopeTagIds()
+    {
+        if (array_key_exists("roleScopeTagIds", $this->_propDict)) {
+            return $this->_propDict["roleScopeTagIds"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the roleScopeTagIds
+    * The list of scope tags for the configuration.
+    *
+    * @param string[] $val The roleScopeTagIds
+    *
+    * @return GroupPolicyMigrationReport
+    */
+    public function setRoleScopeTagIds($val)
+    {
+        $this->_propDict["roleScopeTagIds"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the supportedSettingsCount
     * The number of Group Policy Settings supported by Intune.
     *

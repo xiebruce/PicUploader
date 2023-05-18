@@ -28,7 +28,7 @@ class CartToClassAssociation extends Entity
     * Gets the classroomIds
     * Identifiers of classrooms to be associated with device carts.
     *
-    * @return string|null The classroomIds
+    * @return array|null The classroomIds
     */
     public function getClassroomIds()
     {
@@ -43,7 +43,7 @@ class CartToClassAssociation extends Entity
     * Sets the classroomIds
     * Identifiers of classrooms to be associated with device carts.
     *
-    * @param string $val The classroomIds
+    * @param string[] $val The classroomIds
     *
     * @return CartToClassAssociation
     */
@@ -119,7 +119,7 @@ class CartToClassAssociation extends Entity
     * Gets the deviceCartIds
     * Identifiers of device carts to be associated with classes.
     *
-    * @return string|null The deviceCartIds
+    * @return array|null The deviceCartIds
     */
     public function getDeviceCartIds()
     {
@@ -134,7 +134,7 @@ class CartToClassAssociation extends Entity
     * Sets the deviceCartIds
     * Identifiers of device carts to be associated with classes.
     *
-    * @param string $val The deviceCartIds
+    * @param string[] $val The deviceCartIds
     *
     * @return CartToClassAssociation
     */

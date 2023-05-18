@@ -30,4 +30,5 @@ class AppLogDecryptionAlgorithm extends Enum
     * The Enum AppLogDecryptionAlgorithm
     */
     const AES256 = "aes256";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

@@ -54,35 +54,6 @@ class LearningProvider extends Entity
     }
 
     /**
-    * Gets the isEnabled
-    * The state of the provider. Optional.
-    *
-    * @return bool|null The isEnabled
-    */
-    public function getIsEnabled()
-    {
-        if (array_key_exists("isEnabled", $this->_propDict)) {
-            return $this->_propDict["isEnabled"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the isEnabled
-    * The state of the provider. Optional.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return LearningProvider
-    */
-    public function setIsEnabled($val)
-    {
-        $this->_propDict["isEnabled"] = boolval($val);
-        return $this;
-    }
-
-    /**
     * Gets the loginWebUrl
     * Authentication URL to access the courses for the provider. Optional.
     *
@@ -113,7 +84,7 @@ class LearningProvider extends Entity
 
     /**
     * Gets the longLogoWebUrlForDarkTheme
-    * The long logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+    * The long logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
     *
     * @return string|null The longLogoWebUrlForDarkTheme
     */
@@ -128,7 +99,7 @@ class LearningProvider extends Entity
 
     /**
     * Sets the longLogoWebUrlForDarkTheme
-    * The long logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+    * The long logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
     *
     * @param string $val The longLogoWebUrlForDarkTheme
     *
@@ -142,7 +113,7 @@ class LearningProvider extends Entity
 
     /**
     * Gets the longLogoWebUrlForLightTheme
-    * The long logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
+    * The long logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
     *
     * @return string|null The longLogoWebUrlForLightTheme
     */
@@ -157,7 +128,7 @@ class LearningProvider extends Entity
 
     /**
     * Sets the longLogoWebUrlForLightTheme
-    * The long logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
+    * The long logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering  within the Viva Learning app. Required.
     *
     * @param string $val The longLogoWebUrlForLightTheme
     *
@@ -171,7 +142,7 @@ class LearningProvider extends Entity
 
     /**
     * Gets the squareLogoWebUrlForDarkTheme
-    * The square logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+    * The square logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
     *
     * @return string|null The squareLogoWebUrlForDarkTheme
     */
@@ -186,7 +157,7 @@ class LearningProvider extends Entity
 
     /**
     * Sets the squareLogoWebUrlForDarkTheme
-    * The square logo URL for the dark mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+    * The square logo URL for the dark mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
     *
     * @param string $val The squareLogoWebUrlForDarkTheme
     *
@@ -200,7 +171,7 @@ class LearningProvider extends Entity
 
     /**
     * Gets the squareLogoWebUrlForLightTheme
-    * The square logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+    * The square logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
     *
     * @return string|null The squareLogoWebUrlForLightTheme
     */
@@ -215,7 +186,7 @@ class LearningProvider extends Entity
 
     /**
     * Sets the squareLogoWebUrlForLightTheme
-    * The square logo URL for the light mode, which needs to be a publicly accessible image. This image would be saved to the Blob storage of Viva Learning for rendering within the Viva Learning app. Required.
+    * The square logo URL for the light mode that needs to be a publicly accessible image. This image would be saved to the blob storage of Viva Learning for rendering within the Viva Learning app. Required.
     *
     * @param string $val The squareLogoWebUrlForLightTheme
     *
@@ -254,6 +225,34 @@ class LearningProvider extends Entity
     public function setLearningContents($val)
     {
         $this->_propDict["learningContents"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the learningCourseActivities
+     *
+     * @return array|null The learningCourseActivities
+     */
+    public function getLearningCourseActivities()
+    {
+        if (array_key_exists("learningCourseActivities", $this->_propDict)) {
+           return $this->_propDict["learningCourseActivities"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the learningCourseActivities
+    *
+    * @param LearningCourseActivity[] $val The learningCourseActivities
+    *
+    * @return LearningProvider
+    */
+    public function setLearningCourseActivities($val)
+    {
+        $this->_propDict["learningCourseActivities"] = $val;
         return $this;
     }
 

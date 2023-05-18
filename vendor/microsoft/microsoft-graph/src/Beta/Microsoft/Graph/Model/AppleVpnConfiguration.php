@@ -28,7 +28,7 @@ class AppleVpnConfiguration extends DeviceConfiguration
     * Gets the associatedDomains
     * Associated Domains
     *
-    * @return string|null The associatedDomains
+    * @return array|null The associatedDomains
     */
     public function getAssociatedDomains()
     {
@@ -43,7 +43,7 @@ class AppleVpnConfiguration extends DeviceConfiguration
     * Sets the associatedDomains
     * Associated Domains
     *
-    * @param string $val The associatedDomains
+    * @param string[] $val The associatedDomains
     *
     * @return AppleVpnConfiguration
     */
@@ -357,7 +357,7 @@ class AppleVpnConfiguration extends DeviceConfiguration
     * Gets the excludedDomains
     * Domains that are accessed through the public internet instead of through VPN, even when per-app VPN is activated
     *
-    * @return string|null The excludedDomains
+    * @return array|null The excludedDomains
     */
     public function getExcludedDomains()
     {
@@ -372,7 +372,7 @@ class AppleVpnConfiguration extends DeviceConfiguration
     * Sets the excludedDomains
     * Domains that are accessed through the public internet instead of through VPN, even when per-app VPN is activated
     *
-    * @param string $val The excludedDomains
+    * @param string[] $val The excludedDomains
     *
     * @return AppleVpnConfiguration
     */
@@ -627,7 +627,7 @@ class AppleVpnConfiguration extends DeviceConfiguration
     * Gets the safariDomains
     * Safari domains when this VPN per App setting is enabled. In addition to the apps associated with this VPN, Safari domains specified here will also be able to trigger this VPN connection.
     *
-    * @return string|null The safariDomains
+    * @return array|null The safariDomains
     */
     public function getSafariDomains()
     {
@@ -642,7 +642,7 @@ class AppleVpnConfiguration extends DeviceConfiguration
     * Sets the safariDomains
     * Safari domains when this VPN per App setting is enabled. In addition to the apps associated with this VPN, Safari domains specified here will also be able to trigger this VPN connection.
     *
-    * @param string $val The safariDomains
+    * @param string[] $val The safariDomains
     *
     * @return AppleVpnConfiguration
     */

@@ -26,7 +26,7 @@ class ServicePrincipalRiskDetection extends Entity
 {
     /**
     * Gets the activity
-    * Indicates the activity type the detected risk is linked to.  The possible values are: signin, unknownFutureValue, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.
+    * Indicates the activity type the detected risk is linked to.  The possible values are: signin, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.
     *
     * @return ActivityType|null The activity
     */
@@ -45,7 +45,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Sets the activity
-    * Indicates the activity type the detected risk is linked to.  The possible values are: signin, unknownFutureValue, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.
+    * Indicates the activity type the detected risk is linked to.  The possible values are: signin, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.
     *
     * @param ActivityType $val The activity
     *
@@ -276,7 +276,7 @@ class ServicePrincipalRiskDetection extends Entity
     * Gets the keyIds
     * The unique identifier (GUID) for the key credential associated with the risk detection.
     *
-    * @return string|null The keyIds
+    * @return array|null The keyIds
     */
     public function getKeyIds()
     {
@@ -291,7 +291,7 @@ class ServicePrincipalRiskDetection extends Entity
     * Sets the keyIds
     * The unique identifier (GUID) for the key credential associated with the risk detection.
     *
-    * @param string $val The keyIds
+    * @param string[] $val The keyIds
     *
     * @return ServicePrincipalRiskDetection
     */
@@ -398,7 +398,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Gets the riskDetail
-    * Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, hidden, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
+    * Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: none, hidden, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
     *
     * @return RiskDetail|null The riskDetail
     */
@@ -417,7 +417,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Sets the riskDetail
-    * Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, hidden, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
+    * Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: none, hidden, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
     *
     * @param RiskDetail $val The riskDetail
     *
@@ -431,7 +431,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Gets the riskEventType
-    * The type of risk event detected. The possible values are:  investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, unknownFutureValue. Supports $filter (eq).
+    * The type of risk event detected. The possible values are: investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, anomalousServicePrincipalActivity, maliciousApplication, suspiciousApplication.
     *
     * @return string|null The riskEventType
     */
@@ -446,7 +446,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Sets the riskEventType
-    * The type of risk event detected. The possible values are:  investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, unknownFutureValue. Supports $filter (eq).
+    * The type of risk event detected. The possible values are: investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, anomalousServicePrincipalActivity, maliciousApplication, suspiciousApplication.
     *
     * @param string $val The riskEventType
     *
@@ -460,7 +460,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Gets the riskLevel
-    * Level of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: low, medium, high, hidden, none, unknownFutureValue.
+    * Level of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: low, medium, high, hidden, none.
     *
     * @return RiskLevel|null The riskLevel
     */
@@ -479,7 +479,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Sets the riskLevel
-    * Level of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: low, medium, high, hidden, none, unknownFutureValue.
+    * Level of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: low, medium, high, hidden, none.
     *
     * @param RiskLevel $val The riskLevel
     *
@@ -493,7 +493,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Gets the riskState
-    * The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
+    * The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised.
     *
     * @return RiskState|null The riskState
     */
@@ -512,7 +512,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Sets the riskState
-    * The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised, unknownFutureValue.
+    * The state of a detected risky service principal or sign-in activity. The possible values are: none, dismissed, atRisk, confirmedCompromised.
     *
     * @param RiskState $val The riskState
     *
@@ -613,7 +613,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Gets the tokenIssuerType
-    * Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD, UnknownFutureValue.
+    * Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD.
     *
     * @return TokenIssuerType|null The tokenIssuerType
     */
@@ -632,7 +632,7 @@ class ServicePrincipalRiskDetection extends Entity
 
     /**
     * Sets the tokenIssuerType
-    * Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD, UnknownFutureValue.
+    * Indicates the type of token issuer for the detected sign-in risk. The possible values are: AzureAD.
     *
     * @param TokenIssuerType $val The tokenIssuerType
     *

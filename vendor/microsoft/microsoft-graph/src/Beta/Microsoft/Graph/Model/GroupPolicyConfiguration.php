@@ -185,7 +185,7 @@ class GroupPolicyConfiguration extends Entity
     * Gets the roleScopeTagIds
     * The list of scope tags for the configuration.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -200,7 +200,7 @@ class GroupPolicyConfiguration extends Entity
     * Sets the roleScopeTagIds
     * The list of scope tags for the configuration.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return GroupPolicyConfiguration
     */

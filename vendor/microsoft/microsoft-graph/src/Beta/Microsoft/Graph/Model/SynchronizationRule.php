@@ -23,6 +23,37 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class SynchronizationRule extends Entity
 {
+
+    /**
+    * Gets the containerFilter
+    *
+    * @return ContainerFilter|null The containerFilter
+    */
+    public function getContainerFilter()
+    {
+        if (array_key_exists("containerFilter", $this->_propDict)) {
+            if (is_a($this->_propDict["containerFilter"], "\Beta\Microsoft\Graph\Model\ContainerFilter") || is_null($this->_propDict["containerFilter"])) {
+                return $this->_propDict["containerFilter"];
+            } else {
+                $this->_propDict["containerFilter"] = new ContainerFilter($this->_propDict["containerFilter"]);
+                return $this->_propDict["containerFilter"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the containerFilter
+    *
+    * @param ContainerFilter $val The value to assign to the containerFilter
+    *
+    * @return SynchronizationRule The SynchronizationRule
+    */
+    public function setContainerFilter($val)
+    {
+        $this->_propDict["containerFilter"] = $val;
+         return $this;
+    }
     /**
     * Gets the editable
     * true if the synchronization rule can be customized; false if this rule is read-only and should not be changed.
@@ -50,6 +81,37 @@ class SynchronizationRule extends Entity
     {
         $this->_propDict["editable"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the groupFilter
+    *
+    * @return GroupFilter|null The groupFilter
+    */
+    public function getGroupFilter()
+    {
+        if (array_key_exists("groupFilter", $this->_propDict)) {
+            if (is_a($this->_propDict["groupFilter"], "\Beta\Microsoft\Graph\Model\GroupFilter") || is_null($this->_propDict["groupFilter"])) {
+                return $this->_propDict["groupFilter"];
+            } else {
+                $this->_propDict["groupFilter"] = new GroupFilter($this->_propDict["groupFilter"]);
+                return $this->_propDict["groupFilter"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the groupFilter
+    *
+    * @param GroupFilter $val The value to assign to the groupFilter
+    *
+    * @return SynchronizationRule The SynchronizationRule
+    */
+    public function setGroupFilter($val)
+    {
+        $this->_propDict["groupFilter"] = $val;
+         return $this;
     }
     /**
     * Gets the id

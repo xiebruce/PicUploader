@@ -79,4 +79,37 @@ class ConditionalAccessClientApplications extends Entity
         $this->_propDict["includeServicePrincipals"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the servicePrincipalFilter
+    * Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals.
+    *
+    * @return ConditionalAccessFilter|null The servicePrincipalFilter
+    */
+    public function getServicePrincipalFilter()
+    {
+        if (array_key_exists("servicePrincipalFilter", $this->_propDict)) {
+            if (is_a($this->_propDict["servicePrincipalFilter"], "\Beta\Microsoft\Graph\Model\ConditionalAccessFilter") || is_null($this->_propDict["servicePrincipalFilter"])) {
+                return $this->_propDict["servicePrincipalFilter"];
+            } else {
+                $this->_propDict["servicePrincipalFilter"] = new ConditionalAccessFilter($this->_propDict["servicePrincipalFilter"]);
+                return $this->_propDict["servicePrincipalFilter"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the servicePrincipalFilter
+    * Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals.
+    *
+    * @param ConditionalAccessFilter $val The value to assign to the servicePrincipalFilter
+    *
+    * @return ConditionalAccessClientApplications The ConditionalAccessClientApplications
+    */
+    public function setServicePrincipalFilter($val)
+    {
+        $this->_propDict["servicePrincipalFilter"] = $val;
+         return $this;
+    }
 }

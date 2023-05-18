@@ -32,4 +32,5 @@ class DeviceManagementConfigurationSettingVisibility extends Enum
     const NONE = "none";
     const SETTINGS_CATALOG = "settingsCatalog";
     const TEMPLATE = "template";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

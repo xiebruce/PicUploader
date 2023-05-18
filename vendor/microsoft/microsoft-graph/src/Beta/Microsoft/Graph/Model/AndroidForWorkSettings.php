@@ -280,7 +280,7 @@ class AndroidForWorkSettings extends Entity
     * Gets the targetGroupIds
     * Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
     *
-    * @return string|null The targetGroupIds
+    * @return array|null The targetGroupIds
     */
     public function getTargetGroupIds()
     {
@@ -295,7 +295,7 @@ class AndroidForWorkSettings extends Entity
     * Sets the targetGroupIds
     * Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
     *
-    * @param string $val The targetGroupIds
+    * @param string[] $val The targetGroupIds
     *
     * @return AndroidForWorkSettings
     */

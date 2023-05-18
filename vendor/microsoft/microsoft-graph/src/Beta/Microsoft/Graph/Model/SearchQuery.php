@@ -79,35 +79,4 @@ class SearchQuery extends Entity
         $this->_propDict["queryTemplate"] = $val;
         return $this;
     }
-
-    /**
-    * Gets the query_string
-    *
-    * @return SearchQueryString|null The query_string
-    */
-    public function getQuery_string()
-    {
-        if (array_key_exists("queryString", $this->_propDict)) {
-            if (is_a($this->_propDict["queryString"], "\Beta\Microsoft\Graph\Model\SearchQueryString") || is_null($this->_propDict["queryString"])) {
-                return $this->_propDict["queryString"];
-            } else {
-                $this->_propDict["queryString"] = new SearchQueryString($this->_propDict["queryString"]);
-                return $this->_propDict["queryString"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the query_string
-    *
-    * @param SearchQueryString $val The value to assign to the query_string
-    *
-    * @return SearchQuery The SearchQuery
-    */
-    public function setQuery_string($val)
-    {
-        $this->_propDict["query_string"] = $val;
-         return $this;
-    }
 }

@@ -120,7 +120,7 @@ class WarrantyOffer extends Entity
 
     /**
     * Gets the type
-    * Warranty offer type. Possible values are: unknown, manufacturer, contractual, unknownFutureValue.
+    * Warranty offer type
     *
     * @return WarrantyType|null The type
     */
@@ -139,7 +139,7 @@ class WarrantyOffer extends Entity
 
     /**
     * Sets the type
-    * Warranty offer type. Possible values are: unknown, manufacturer, contractual, unknownFutureValue.
+    * Warranty offer type
     *
     * @param WarrantyType $val The value to assign to the type
     *

@@ -137,6 +137,7 @@ class RunSummary extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the totalTasks
+    * The total number of tasks processed by a workflow.
     *
     * @return int|null The totalTasks
     */
@@ -151,6 +152,7 @@ class RunSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalTasks
+    * The total number of tasks processed by a workflow.
     *
     * @param int $val The value of the totalTasks
     *
@@ -163,6 +165,7 @@ class RunSummary extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the totalUsers
+    * The total number of users processed by a workflow.
     *
     * @return int|null The totalUsers
     */
@@ -177,6 +180,7 @@ class RunSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalUsers
+    * The total number of users processed by a workflow.
     *
     * @param int $val The value of the totalUsers
     *

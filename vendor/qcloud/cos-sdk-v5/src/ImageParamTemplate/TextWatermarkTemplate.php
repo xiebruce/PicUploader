@@ -17,6 +17,7 @@ class TextWatermarkTemplate extends ImageTemplate
     private $dy;
     private $batch;
     private $degree;
+    private $shadow;
 
     public function __construct() {
         parent::__construct();
@@ -30,6 +31,7 @@ class TextWatermarkTemplate extends ImageTemplate
         $this->dy = "";
         $this->batch = "";
         $this->degree = "";
+        $this->shadow = "";
     }
 
     public function setText($value) {
@@ -72,6 +74,10 @@ class TextWatermarkTemplate extends ImageTemplate
         $this->degree = "/degree/" . $value;
     }
 
+    public function setShadow($value) {
+        $this->shadow = "/shadow/" . $value;
+    }
+
     public function getText() {
         return $this->text;
     }
@@ -112,6 +118,10 @@ class TextWatermarkTemplate extends ImageTemplate
         return $this->degree;
     }
 
+    public function getShadow() {
+        return $this->shadow;
+    }
+
     public function queryString() {
         $head = "watermark/2";
         $res = "";
@@ -145,6 +155,9 @@ class TextWatermarkTemplate extends ImageTemplate
         if($this->degree) {
             $res .= $this->degree;
         }
+        if($this->shadow) {
+            $res .= $this->shadow;
+        }
         if($res) {
             $res = $head . $res;
         }
@@ -162,5 +175,6 @@ class TextWatermarkTemplate extends ImageTemplate
         $this->dy = "";
         $this->batch = "";
         $this->degree = "";
+        $this->shadow = "";
     }
 }

@@ -33,4 +33,5 @@ class EligibilityFilteringEnabledEntities extends Enum
     const SWAP_REQUEST = "swapRequest";
     const OFFER_SHIFT_REQUEST = "offerShiftRequest";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const TIME_OFF_REASON = "timeOffReason";
 }

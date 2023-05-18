@@ -55,7 +55,7 @@ class AuthenticationMethodTarget extends Entity
 
     /**
     * Gets the targetType
-    * Possible values are: user, group, and unknownFutureValue.
+    * Possible values are: group, and unknownFutureValue. From December 2022, targeting individual users using user is no longer recommended. Existing targets will remain but we recommend to move the individual users to a targeted group.
     *
     * @return AuthenticationMethodTargetType|null The targetType
     */
@@ -74,7 +74,7 @@ class AuthenticationMethodTarget extends Entity
 
     /**
     * Sets the targetType
-    * Possible values are: user, group, and unknownFutureValue.
+    * Possible values are: group, and unknownFutureValue. From December 2022, targeting individual users using user is no longer recommended. Existing targets will remain but we recommend to move the individual users to a targeted group.
     *
     * @param AuthenticationMethodTargetType $val The targetType
     *

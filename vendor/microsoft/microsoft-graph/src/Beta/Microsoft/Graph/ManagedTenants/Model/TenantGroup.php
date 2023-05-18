@@ -146,7 +146,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the tenantIds
     * The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
     *
-    * @return string|null The tenantIds
+    * @return array|null The tenantIds
     */
     public function getTenantIds()
     {
@@ -161,7 +161,7 @@ class TenantGroup extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the tenantIds
     * The collection of managed tenant identifiers include in the tenant group. Optional. Read-only.
     *
-    * @param string $val The tenantIds
+    * @param string[] $val The tenantIds
     *
     * @return TenantGroup
     */

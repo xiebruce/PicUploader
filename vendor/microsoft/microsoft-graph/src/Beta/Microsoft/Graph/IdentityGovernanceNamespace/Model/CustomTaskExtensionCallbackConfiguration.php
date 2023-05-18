@@ -34,4 +34,35 @@ class CustomTaskExtensionCallbackConfiguration extends \Beta\Microsoft\Graph\Mod
         $this->setODataType("#microsoft.graph.identityGovernance.customTaskExtensionCallbackConfiguration");
     }
 
+
+    /**
+    * Gets the authorizedApps
+    *
+    * @return \Beta\Microsoft\Graph\Model\Application|null The authorizedApps
+    */
+    public function getAuthorizedApps()
+    {
+        if (array_key_exists("authorizedApps", $this->_propDict)) {
+            if (is_a($this->_propDict["authorizedApps"], "\Beta\Microsoft\Graph\Model\Application") || is_null($this->_propDict["authorizedApps"])) {
+                return $this->_propDict["authorizedApps"];
+            } else {
+                $this->_propDict["authorizedApps"] = new \Beta\Microsoft\Graph\Model\Application($this->_propDict["authorizedApps"]);
+                return $this->_propDict["authorizedApps"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the authorizedApps
+    *
+    * @param \Beta\Microsoft\Graph\Model\Application $val The value to assign to the authorizedApps
+    *
+    * @return CustomTaskExtensionCallbackConfiguration The CustomTaskExtensionCallbackConfiguration
+    */
+    public function setAuthorizedApps($val)
+    {
+        $this->_propDict["authorizedApps"] = $val;
+         return $this;
+    }
 }

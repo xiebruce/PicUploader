@@ -340,7 +340,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     * Gets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @return string|null The scepServerUrls
+    * @return array|null The scepServerUrls
     */
     public function getScepServerUrls()
     {
@@ -355,7 +355,7 @@ class Windows10XSCEPCertificateProfile extends Windows10XCertificateProfile
     * Sets the scepServerUrls
     * SCEP Server Url(s).
     *
-    * @param string $val The scepServerUrls
+    * @param string[] $val The scepServerUrls
     *
     * @return Windows10XSCEPCertificateProfile
     */

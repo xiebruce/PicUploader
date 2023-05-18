@@ -26,6 +26,36 @@ class MobileAppContent extends Entity
 {
 
      /**
+     * Gets the containedApps
+    * The collection of contained apps in a MobileLobApp acting as a package.
+     *
+     * @return array|null The containedApps
+     */
+    public function getContainedApps()
+    {
+        if (array_key_exists("containedApps", $this->_propDict)) {
+           return $this->_propDict["containedApps"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the containedApps
+    * The collection of contained apps in a MobileLobApp acting as a package.
+    *
+    * @param MobileContainedApp[] $val The containedApps
+    *
+    * @return MobileAppContent
+    */
+    public function setContainedApps($val)
+    {
+        $this->_propDict["containedApps"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the files
     * The list of files for this app content version.
      *

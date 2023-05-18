@@ -118,7 +118,7 @@ class ConnectedOrganization extends Entity
 
      /**
      * Gets the identitySources
-    * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.
+    * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable.
      *
      * @return array|null The identitySources
      */
@@ -133,7 +133,7 @@ class ConnectedOrganization extends Entity
 
     /**
     * Sets the identitySources
-    * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource or externalDomainFederation. Nullable.
+    * The identity sources in this connected organization, one of azureActiveDirectoryTenant, domainIdentitySource, externalDomainFederation or crossCloudAzureActiveDirectoryTenant. Nullable.
     *
     * @param IdentitySource[] $val The identitySources
     *

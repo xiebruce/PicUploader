@@ -33,4 +33,5 @@ class EducationAssignmentStatus extends Enum
     const PUBLISHED = "published";
     const ASSIGNED = "assigned";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const INACTIVE = "inactive";
 }

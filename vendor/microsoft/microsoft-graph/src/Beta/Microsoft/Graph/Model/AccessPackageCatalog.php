@@ -295,6 +295,36 @@ class AccessPackageCatalog extends Entity
 
 
      /**
+     * Gets the accessPackageCustomWorkflowExtensions
+    * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+     *
+     * @return array|null The accessPackageCustomWorkflowExtensions
+     */
+    public function getAccessPackageCustomWorkflowExtensions()
+    {
+        if (array_key_exists("accessPackageCustomWorkflowExtensions", $this->_propDict)) {
+           return $this->_propDict["accessPackageCustomWorkflowExtensions"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the accessPackageCustomWorkflowExtensions
+    * The attributes of a logic app, which can be called at various stages of an access package request and assignment cycle.
+    *
+    * @param CustomCalloutExtension[] $val The accessPackageCustomWorkflowExtensions
+    *
+    * @return AccessPackageCatalog
+    */
+    public function setAccessPackageCustomWorkflowExtensions($val)
+    {
+        $this->_propDict["accessPackageCustomWorkflowExtensions"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the accessPackageResourceRoles
     * The roles in each resource in a catalog. Read-only.
      *

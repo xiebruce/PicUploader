@@ -26,7 +26,7 @@ class AppleOwnerTypeEnrollmentType extends Entity
 
     /**
     * Gets the enrollmentType
-    * The enrollment type. Possible values are: unknown, device, user.
+    * The enrollment type. Possible values are: unknown, device, user, accountDrivenUserEnrollment, webDeviceEnrollment, unknownFutureValue.
     *
     * @return AppleUserInitiatedEnrollmentType|null The enrollmentType
     */
@@ -45,7 +45,7 @@ class AppleOwnerTypeEnrollmentType extends Entity
 
     /**
     * Sets the enrollmentType
-    * The enrollment type. Possible values are: unknown, device, user.
+    * The enrollment type. Possible values are: unknown, device, user, accountDrivenUserEnrollment, webDeviceEnrollment, unknownFutureValue.
     *
     * @param AppleUserInitiatedEnrollmentType $val The value to assign to the enrollmentType
     *

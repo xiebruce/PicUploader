@@ -26,7 +26,7 @@ class PlannerPlanDetails extends PlannerDelta
 {
     /**
     * Gets the categoryDescriptions
-    * An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
+    * An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.
     *
     * @return PlannerCategoryDescriptions|null The categoryDescriptions
     */
@@ -45,7 +45,7 @@ class PlannerPlanDetails extends PlannerDelta
 
     /**
     * Sets the categoryDescriptions
-    * An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan
+    * An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan.
     *
     * @param PlannerCategoryDescriptions $val The categoryDescriptions
     *
@@ -59,7 +59,7 @@ class PlannerPlanDetails extends PlannerDelta
 
     /**
     * Gets the contextDetails
-    * Read-only. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container.
+    * A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container. Read-only.
     *
     * @return PlannerPlanContextDetailsCollection|null The contextDetails
     */
@@ -78,7 +78,7 @@ class PlannerPlanDetails extends PlannerDelta
 
     /**
     * Sets the contextDetails
-    * Read-only. A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container.
+    * A collection of additional information associated with plannerPlanContext entries that are defined for the plannerPlan container. Read-only.
     *
     * @param PlannerPlanContextDetailsCollection $val The contextDetails
     *

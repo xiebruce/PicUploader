@@ -28,7 +28,7 @@ class PersonWebsite extends ItemFacet
     * Gets the categories
     * Contains categories a user has associated with the website (for example, personal, recipes).
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -43,7 +43,7 @@ class PersonWebsite extends ItemFacet
     * Sets the categories
     * Contains categories a user has associated with the website (for example, personal, recipes).
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return PersonWebsite
     */

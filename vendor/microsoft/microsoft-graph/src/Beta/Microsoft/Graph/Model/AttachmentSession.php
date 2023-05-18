@@ -94,7 +94,7 @@ class AttachmentSession extends Entity
     * Gets the nextExpectedRanges
     * Indicates a single value {start} that represents the location in the file where the next upload should begin.
     *
-    * @return string|null The nextExpectedRanges
+    * @return array|null The nextExpectedRanges
     */
     public function getNextExpectedRanges()
     {
@@ -109,7 +109,7 @@ class AttachmentSession extends Entity
     * Sets the nextExpectedRanges
     * Indicates a single value {start} that represents the location in the file where the next upload should begin.
     *
-    * @param string $val The nextExpectedRanges
+    * @param string[] $val The nextExpectedRanges
     *
     * @return AttachmentSession
     */

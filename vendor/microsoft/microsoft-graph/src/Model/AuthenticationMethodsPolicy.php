@@ -116,6 +116,39 @@ class AuthenticationMethodsPolicy extends Entity
     }
 
     /**
+    * Gets the policyMigrationState
+    * The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+    *
+    * @return AuthenticationMethodsPolicyMigrationState|null The policyMigrationState
+    */
+    public function getPolicyMigrationState()
+    {
+        if (array_key_exists("policyMigrationState", $this->_propDict)) {
+            if (is_a($this->_propDict["policyMigrationState"], "\Microsoft\Graph\Model\AuthenticationMethodsPolicyMigrationState") || is_null($this->_propDict["policyMigrationState"])) {
+                return $this->_propDict["policyMigrationState"];
+            } else {
+                $this->_propDict["policyMigrationState"] = new AuthenticationMethodsPolicyMigrationState($this->_propDict["policyMigrationState"]);
+                return $this->_propDict["policyMigrationState"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the policyMigrationState
+    * The state of migration of the authentication methods policy from the legacy multifactor authentication and self-service password reset (SSPR) policies. The possible values are: premigration - means the authentication methods policy is used for authentication only, legacy policies are respected. migrationInProgress - means the authentication methods policy is used for both authentication and SSPR, legacy policies are respected. migrationComplete - means the authentication methods policy is used for authentication and SSPR, legacy policies are ignored. unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
+    *
+    * @param AuthenticationMethodsPolicyMigrationState $val The policyMigrationState
+    *
+    * @return AuthenticationMethodsPolicy
+    */
+    public function setPolicyMigrationState($val)
+    {
+        $this->_propDict["policyMigrationState"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the policyVersion
     * The version of the policy in use. Read-only.
     *

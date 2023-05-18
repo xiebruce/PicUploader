@@ -27,6 +27,7 @@ class TeamTemplate extends Entity
 
      /**
      * Gets the definitions
+    * A generic representation of a team template definition for a team with a specific structure and configuration.
      *
      * @return array|null The definitions
      */
@@ -41,6 +42,7 @@ class TeamTemplate extends Entity
 
     /**
     * Sets the definitions
+    * A generic representation of a team template definition for a team with a specific structure and configuration.
     *
     * @param TeamTemplateDefinition[] $val The definitions
     *

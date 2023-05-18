@@ -26,7 +26,7 @@ class MeetingParticipantInfo extends Entity
 
     /**
     * Gets the identity
-    * Identity information of the participant.
+    * Identity information of the participant. Only the user property is used for onlineMeeting participants.
     *
     * @return IdentitySet|null The identity
     */
@@ -45,7 +45,7 @@ class MeetingParticipantInfo extends Entity
 
     /**
     * Sets the identity
-    * Identity information of the participant.
+    * Identity information of the participant. Only the user property is used for onlineMeeting participants.
     *
     * @param IdentitySet $val The value to assign to the identity
     *

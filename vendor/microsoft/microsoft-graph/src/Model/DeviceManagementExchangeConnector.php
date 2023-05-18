@@ -84,7 +84,7 @@ class DeviceManagementExchangeConnector extends Entity
 
     /**
     * Gets the exchangeConnectorType
-    * The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.
+    * The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated, unknownFutureValue.
     *
     * @return DeviceManagementExchangeConnectorType|null The exchangeConnectorType
     */
@@ -103,7 +103,7 @@ class DeviceManagementExchangeConnector extends Entity
 
     /**
     * Sets the exchangeConnectorType
-    * The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.
+    * The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated, unknownFutureValue.
     *
     * @param DeviceManagementExchangeConnectorType $val The exchangeConnectorType
     *
@@ -237,7 +237,7 @@ class DeviceManagementExchangeConnector extends Entity
 
     /**
     * Gets the status
-    * Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.
+    * Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected, unknownFutureValue.
     *
     * @return DeviceManagementExchangeConnectorStatus|null The status
     */
@@ -256,7 +256,7 @@ class DeviceManagementExchangeConnector extends Entity
 
     /**
     * Sets the status
-    * Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.
+    * Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected, unknownFutureValue.
     *
     * @param DeviceManagementExchangeConnectorStatus $val The status
     *

@@ -28,7 +28,7 @@ class DeviceHealthScriptDeviceState extends Entity
     * Gets the assignmentFilterIds
     * A list of the assignment filter ids used for health script applicability evaluation
     *
-    * @return string|null The assignmentFilterIds
+    * @return array|null The assignmentFilterIds
     */
     public function getAssignmentFilterIds()
     {
@@ -43,7 +43,7 @@ class DeviceHealthScriptDeviceState extends Entity
     * Sets the assignmentFilterIds
     * A list of the assignment filter ids used for health script applicability evaluation
     *
-    * @param string $val The assignmentFilterIds
+    * @param string[] $val The assignmentFilterIds
     *
     * @return DeviceHealthScriptDeviceState
     */
@@ -332,7 +332,7 @@ class DeviceHealthScriptDeviceState extends Entity
 
     /**
     * Gets the remediationState
-    * Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError.
+    * Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError, unknownFutureValue.
     *
     * @return RemediationState|null The remediationState
     */
@@ -351,7 +351,7 @@ class DeviceHealthScriptDeviceState extends Entity
 
     /**
     * Sets the remediationState
-    * Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError.
+    * Remediation state from the lastest device health script execution. Possible values are: unknown, skipped, success, remediationFailed, scriptError, unknownFutureValue.
     *
     * @param RemediationState $val The remediationState
     *

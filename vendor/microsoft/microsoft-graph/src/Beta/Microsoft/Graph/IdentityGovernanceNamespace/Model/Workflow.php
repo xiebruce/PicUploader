@@ -26,7 +26,7 @@ class Workflow extends WorkflowBase
 {
     /**
     * Gets the deletedDateTime
-    * The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
+    * When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The deletedDateTime
     */
@@ -45,7 +45,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the deletedDateTime
-    * The time and date a workflow is deleted. Supports $filter(lt,gt) and $orderby.
+    * When the workflow was deleted.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The deletedDateTime
     *
@@ -59,7 +59,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Gets the id
-    * Identifier used for individually addressing a specific workflow. Supports $filter(eq).
+    * Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
     *
     * @return string|null The id
     */
@@ -74,7 +74,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the id
-    * Identifier used for individually addressing a specific workflow. Supports $filter(eq).
+    * Identifier used for individually addressing a specific workflow.Supports $filter(eq, ne) and $orderby.
     *
     * @param string $val The id
     *
@@ -87,66 +87,8 @@ class Workflow extends WorkflowBase
     }
 
     /**
-    * Gets the isEnabled
-    * If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
-    *
-    * @return bool|null The isEnabled
-    */
-    public function getIsEnabled()
-    {
-        if (array_key_exists("isEnabled", $this->_propDict)) {
-            return $this->_propDict["isEnabled"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the isEnabled
-    * If true, the workflow engine creates and processes taskProcessingResults on the users scoped to the workflow. Supports $filter(eq,ne) and orderby.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return Workflow
-    */
-    public function setIsEnabled($val)
-    {
-        $this->_propDict["isEnabled"] = boolval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the isSchedulingEnabled
-    * If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
-    *
-    * @return bool|null The isSchedulingEnabled
-    */
-    public function getIsSchedulingEnabled()
-    {
-        if (array_key_exists("isSchedulingEnabled", $this->_propDict)) {
-            return $this->_propDict["isSchedulingEnabled"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the isSchedulingEnabled
-    * If true, the workflow engine executes the workflow on the schedule defined by tenant settings.
-    *
-    * @param bool $val The isSchedulingEnabled
-    *
-    * @return Workflow
-    */
-    public function setIsSchedulingEnabled($val)
-    {
-        $this->_propDict["isSchedulingEnabled"] = boolval($val);
-        return $this;
-    }
-
-    /**
     * Gets the nextScheduleRunDateTime
-    * The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
+    * The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
     *
     * @return \DateTime|null The nextScheduleRunDateTime
     */
@@ -165,7 +107,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the nextScheduleRunDateTime
-    * The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderby.
+    * The date time when the workflow is expected to run next based on the schedule interval, if there are any users matching the execution conditions. Supports $filter(lt,gt) and $orderBy.
     *
     * @param \DateTime $val The nextScheduleRunDateTime
     *
@@ -179,7 +121,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Gets the version
-    * The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
+    * The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return int|null The version
     */
@@ -194,7 +136,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the version
-    * The current version number of the workflow. Value is 1 when the workflow is first created. Supports $filter(eq).
+    * The current version number of the workflow. Value is 1 when the workflow is first created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param int $val The version
     *
@@ -209,7 +151,7 @@ class Workflow extends WorkflowBase
 
      /**
      * Gets the executionScope
-    * The unique identifier of the Azure AD identity that last modified the workflow object..
+    * The unique identifier of the Azure AD identity that last modified the workflow object.
      *
      * @return array|null The executionScope
      */
@@ -224,7 +166,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the executionScope
-    * The unique identifier of the Azure AD identity that last modified the workflow object..
+    * The unique identifier of the Azure AD identity that last modified the workflow object.
     *
     * @param \Beta\Microsoft\Graph\Model\User[] $val The executionScope
     *
@@ -239,6 +181,7 @@ class Workflow extends WorkflowBase
 
      /**
      * Gets the runs
+    * Workflow runs.
      *
      * @return array|null The runs
      */
@@ -253,6 +196,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the runs
+    * Workflow runs.
     *
     * @param Run[] $val The runs
     *
@@ -297,6 +241,7 @@ class Workflow extends WorkflowBase
 
      /**
      * Gets the userProcessingResults
+    * Per-user workflow execution results.
      *
      * @return array|null The userProcessingResults
      */
@@ -311,6 +256,7 @@ class Workflow extends WorkflowBase
 
     /**
     * Sets the userProcessingResults
+    * Per-user workflow execution results.
     *
     * @param UserProcessingResult[] $val The userProcessingResults
     *

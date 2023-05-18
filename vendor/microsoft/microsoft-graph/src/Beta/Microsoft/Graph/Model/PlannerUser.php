@@ -26,7 +26,7 @@ class PlannerUser extends PlannerDelta
 {
     /**
     * Gets the favoritePlanReferences
-    * A collection containing the references to the plans that the user has marked as favorites.
+    * A collection that contains the references to the plans that the user has marked as favorites.
     *
     * @return PlannerFavoritePlanReferenceCollection|null The favoritePlanReferences
     */
@@ -45,7 +45,7 @@ class PlannerUser extends PlannerDelta
 
     /**
     * Sets the favoritePlanReferences
-    * A collection containing the references to the plans that the user has marked as favorites.
+    * A collection that contains the references to the plans that the user has marked as favorites.
     *
     * @param PlannerFavoritePlanReferenceCollection $val The favoritePlanReferences
     *
@@ -59,7 +59,7 @@ class PlannerUser extends PlannerDelta
 
     /**
     * Gets the recentPlanReferences
-    * A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
+    * A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
     *
     * @return PlannerRecentPlanReferenceCollection|null The recentPlanReferences
     */
@@ -78,7 +78,7 @@ class PlannerUser extends PlannerDelta
 
     /**
     * Sets the recentPlanReferences
-    * A collection containing references to the plans that were viewed recently by the user in apps that support recent plans.
+    * A collection that contains references to the plans that were viewed recently by the user in apps that support recent plans.
     *
     * @param PlannerRecentPlanReferenceCollection $val The recentPlanReferences
     *

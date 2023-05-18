@@ -23,6 +23,90 @@ namespace Beta\Microsoft\Graph\CallRecords\Model;
 */
 class ParticipantEndpoint extends Endpoint
 {
+    /**
+    * Gets the cpuCoresCount
+    * CPU number of cores used by the media endpoint.
+    *
+    * @return int|null The cpuCoresCount
+    */
+    public function getCpuCoresCount()
+    {
+        if (array_key_exists("cpuCoresCount", $this->_propDict)) {
+            return $this->_propDict["cpuCoresCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the cpuCoresCount
+    * CPU number of cores used by the media endpoint.
+    *
+    * @param int $val The value of the cpuCoresCount
+    *
+    * @return ParticipantEndpoint
+    */
+    public function setCpuCoresCount($val)
+    {
+        $this->_propDict["cpuCoresCount"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the cpuName
+    * CPU name used by the media endpoint.
+    *
+    * @return string|null The cpuName
+    */
+    public function getCpuName()
+    {
+        if (array_key_exists("cpuName", $this->_propDict)) {
+            return $this->_propDict["cpuName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the cpuName
+    * CPU name used by the media endpoint.
+    *
+    * @param string $val The value of the cpuName
+    *
+    * @return ParticipantEndpoint
+    */
+    public function setCpuName($val)
+    {
+        $this->_propDict["cpuName"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the cpuProcessorSpeedInMhz
+    * CPU processor speed used by the media endpoint.
+    *
+    * @return int|null The cpuProcessorSpeedInMhz
+    */
+    public function getCpuProcessorSpeedInMhz()
+    {
+        if (array_key_exists("cpuProcessorSpeedInMhz", $this->_propDict)) {
+            return $this->_propDict["cpuProcessorSpeedInMhz"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the cpuProcessorSpeedInMhz
+    * CPU processor speed used by the media endpoint.
+    *
+    * @param int $val The value of the cpuProcessorSpeedInMhz
+    *
+    * @return ParticipantEndpoint
+    */
+    public function setCpuProcessorSpeedInMhz($val)
+    {
+        $this->_propDict["cpuProcessorSpeedInMhz"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the feedback
@@ -88,5 +172,33 @@ class ParticipantEndpoint extends Endpoint
     {
         $this->_propDict["identity"] = $val;
          return $this;
+    }
+    /**
+    * Gets the name
+    * Name of the device used by the media endpoint.
+    *
+    * @return string|null The name
+    */
+    public function getName()
+    {
+        if (array_key_exists("name", $this->_propDict)) {
+            return $this->_propDict["name"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the name
+    * Name of the device used by the media endpoint.
+    *
+    * @param string $val The value of the name
+    *
+    * @return ParticipantEndpoint
+    */
+    public function setName($val)
+    {
+        $this->_propDict["name"] = $val;
+        return $this;
     }
 }

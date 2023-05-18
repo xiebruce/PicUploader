@@ -54,4 +54,34 @@ class ManagedAppConfiguration extends ManagedAppPolicy
         return $this;
     }
 
+
+     /**
+     * Gets the settings
+    * List of settings contained in this App Configuration policy
+     *
+     * @return array|null The settings
+     */
+    public function getSettings()
+    {
+        if (array_key_exists("settings", $this->_propDict)) {
+           return $this->_propDict["settings"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the settings
+    * List of settings contained in this App Configuration policy
+    *
+    * @param DeviceManagementConfigurationSetting[] $val The settings
+    *
+    * @return ManagedAppConfiguration
+    */
+    public function setSettings($val)
+    {
+        $this->_propDict["settings"] = $val;
+        return $this;
+    }
+
 }

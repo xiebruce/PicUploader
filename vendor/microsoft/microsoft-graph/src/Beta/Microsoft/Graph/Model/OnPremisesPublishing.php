@@ -423,7 +423,6 @@ class OnPremisesPublishing extends Entity
 
     /**
     * Gets the onPremisesApplicationSegments
-    * Represents the application segment collection for an on-premises wildcard application.
     *
     * @return OnPremisesApplicationSegment|null The onPremisesApplicationSegments
     */
@@ -442,7 +441,6 @@ class OnPremisesPublishing extends Entity
 
     /**
     * Sets the onPremisesApplicationSegments
-    * Represents the application segment collection for an on-premises wildcard application.
     *
     * @param OnPremisesApplicationSegment $val The value to assign to the onPremisesApplicationSegments
     *
@@ -451,6 +449,39 @@ class OnPremisesPublishing extends Entity
     public function setOnPremisesApplicationSegments($val)
     {
         $this->_propDict["onPremisesApplicationSegments"] = $val;
+         return $this;
+    }
+
+    /**
+    * Gets the segmentsConfiguration
+    * Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+    *
+    * @return SegmentConfiguration|null The segmentsConfiguration
+    */
+    public function getSegmentsConfiguration()
+    {
+        if (array_key_exists("segmentsConfiguration", $this->_propDict)) {
+            if (is_a($this->_propDict["segmentsConfiguration"], "\Beta\Microsoft\Graph\Model\SegmentConfiguration") || is_null($this->_propDict["segmentsConfiguration"])) {
+                return $this->_propDict["segmentsConfiguration"];
+            } else {
+                $this->_propDict["segmentsConfiguration"] = new SegmentConfiguration($this->_propDict["segmentsConfiguration"]);
+                return $this->_propDict["segmentsConfiguration"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the segmentsConfiguration
+    * Represents the collection of application segments for an on-premises wildcard application that's published through Azure AD Application Proxy.
+    *
+    * @param SegmentConfiguration $val The value to assign to the segmentsConfiguration
+    *
+    * @return OnPremisesPublishing The OnPremisesPublishing
+    */
+    public function setSegmentsConfiguration($val)
+    {
+        $this->_propDict["segmentsConfiguration"] = $val;
          return $this;
     }
 

@@ -25,7 +25,7 @@ class PlannerPlanContainer extends Entity
 {
     /**
     * Gets the containerId
-    * The identifier of the resource that contains the plan.
+    * The identifier of the resource that contains the plan. Optional.
     *
     * @return string|null The containerId
     */
@@ -40,7 +40,7 @@ class PlannerPlanContainer extends Entity
 
     /**
     * Sets the containerId
-    * The identifier of the resource that contains the plan.
+    * The identifier of the resource that contains the plan. Optional.
     *
     * @param string $val The value of the containerId
     *
@@ -54,7 +54,7 @@ class PlannerPlanContainer extends Entity
 
     /**
     * Gets the type
-    * The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+    * The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional.
     *
     * @return PlannerContainerType|null The type
     */
@@ -73,7 +73,7 @@ class PlannerPlanContainer extends Entity
 
     /**
     * Sets the type
-    * The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+    * The type of the resource that contains the plan. For supported types, see the previous table. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster. Optional.
     *
     * @param PlannerContainerType $val The value to assign to the type
     *
@@ -86,7 +86,7 @@ class PlannerPlanContainer extends Entity
     }
     /**
     * Gets the url
-    * The full canonical URL of the container.
+    * The full canonical URL of the container. Optional.
     *
     * @return string|null The url
     */
@@ -101,7 +101,7 @@ class PlannerPlanContainer extends Entity
 
     /**
     * Sets the url
-    * The full canonical URL of the container.
+    * The full canonical URL of the container. Optional.
     *
     * @param string $val The value of the url
     *

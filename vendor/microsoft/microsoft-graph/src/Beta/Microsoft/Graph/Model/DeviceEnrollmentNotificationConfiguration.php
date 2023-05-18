@@ -119,7 +119,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     * Gets the notificationTemplates
     * The list of notification data -
     *
-    * @return string|null The notificationTemplates
+    * @return array|null The notificationTemplates
     */
     public function getNotificationTemplates()
     {
@@ -134,7 +134,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
     * Sets the notificationTemplates
     * The list of notification data -
     *
-    * @param string $val The notificationTemplates
+    * @param string[] $val The notificationTemplates
     *
     * @return DeviceEnrollmentNotificationConfiguration
     */
@@ -146,7 +146,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
     * Gets the platformType
-    * Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+    * Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac, linux, unknownFutureValue.
     *
     * @return EnrollmentRestrictionPlatformType|null The platformType
     */
@@ -165,7 +165,7 @@ class DeviceEnrollmentNotificationConfiguration extends DeviceEnrollmentConfigur
 
     /**
     * Sets the platformType
-    * Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac.
+    * Platform type of the Enrollment Notification. Possible values are: allPlatforms, ios, windows, windowsPhone, android, androidForWork, mac, linux, unknownFutureValue.
     *
     * @param EnrollmentRestrictionPlatformType $val The platformType
     *

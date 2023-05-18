@@ -118,4 +118,32 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
         $this->_propDict["subscriptionId"] = $val;
         return $this;
     }
+    /**
+    * Gets the url
+    * The URL to the logic app endpoint that will be triggered. Only required for app-only token scenarios where app is creating a customCalloutExtension without a signed-in user.
+    *
+    * @return string|null The url
+    */
+    public function getUrl()
+    {
+        if (array_key_exists("url", $this->_propDict)) {
+            return $this->_propDict["url"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the url
+    * The URL to the logic app endpoint that will be triggered. Only required for app-only token scenarios where app is creating a customCalloutExtension without a signed-in user.
+    *
+    * @param string $val The value of the url
+    *
+    * @return LogicAppTriggerEndpointConfiguration
+    */
+    public function setUrl($val)
+    {
+        $this->_propDict["url"] = $val;
+        return $this;
+    }
 }

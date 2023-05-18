@@ -57,6 +57,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Gets the displayName
+    * The name displayed in the address book for teh user at the time when the sharing record was created. Read-only.
     *
     * @return string|null The displayName
     */
@@ -71,6 +72,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Sets the displayName
+    * The name displayed in the address book for teh user at the time when the sharing record was created. Read-only.
     *
     * @param string $val The displayName
     *
@@ -84,6 +86,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Gets the homeTenantId
+    * The home tenant id of the external user. Read-only.
     *
     * @return string|null The homeTenantId
     */
@@ -98,6 +101,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Sets the homeTenantId
+    * The home tenant id of the external user. Read-only.
     *
     * @param string $val The homeTenantId
     *
@@ -111,6 +115,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Gets the userId
+    * The object id of the external user. Read-only.
     *
     * @return string|null The userId
     */
@@ -125,6 +130,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Sets the userId
+    * The object id of the external user. Read-only.
     *
     * @param string $val The userId
     *
@@ -138,6 +144,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Gets the userPrincipalName
+    * The user principal name (UPN) of the external user. Read-only.
     *
     * @return string|null The userPrincipalName
     */
@@ -152,6 +159,7 @@ class InboundSharedUserProfile implements \JsonSerializable
 
     /**
     * Sets the userPrincipalName
+    * The user principal name (UPN) of the external user. Read-only.
     *
     * @param string $val The userPrincipalName
     *
@@ -206,6 +214,8 @@ class InboundSharedUserProfile implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

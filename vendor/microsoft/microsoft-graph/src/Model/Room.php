@@ -351,7 +351,7 @@ class Room extends Place
     * Gets the tags
     * Specifies additional features of the room, for example, details like the type of view or furniture type.
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -366,7 +366,7 @@ class Room extends Place
     * Sets the tags
     * Specifies additional features of the room, for example, details like the type of view or furniture type.
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return Room
     */

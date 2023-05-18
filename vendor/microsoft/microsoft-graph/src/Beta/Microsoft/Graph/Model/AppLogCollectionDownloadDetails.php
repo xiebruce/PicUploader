@@ -26,7 +26,7 @@ class AppLogCollectionDownloadDetails extends Entity
 
     /**
     * Gets the appLogDecryptionAlgorithm
-    * DecryptionAlgorithm for Content. Possible values are: aes256.
+    * Decryption algorithm for Content. Default is ASE256. Possible values are: aes256, unknownFutureValue.
     *
     * @return AppLogDecryptionAlgorithm|null The appLogDecryptionAlgorithm
     */
@@ -45,7 +45,7 @@ class AppLogCollectionDownloadDetails extends Entity
 
     /**
     * Sets the appLogDecryptionAlgorithm
-    * DecryptionAlgorithm for Content. Possible values are: aes256.
+    * Decryption algorithm for Content. Default is ASE256. Possible values are: aes256, unknownFutureValue.
     *
     * @param AppLogDecryptionAlgorithm $val The value to assign to the appLogDecryptionAlgorithm
     *
@@ -58,7 +58,7 @@ class AppLogCollectionDownloadDetails extends Entity
     }
     /**
     * Gets the decryptionKey
-    * DecryptionKey as string
+    * Decryption key that used to decrypt the log.
     *
     * @return string|null The decryptionKey
     */
@@ -73,7 +73,7 @@ class AppLogCollectionDownloadDetails extends Entity
 
     /**
     * Sets the decryptionKey
-    * DecryptionKey as string
+    * Decryption key that used to decrypt the log.
     *
     * @param string $val The value of the decryptionKey
     *
@@ -86,7 +86,7 @@ class AppLogCollectionDownloadDetails extends Entity
     }
     /**
     * Gets the downloadUrl
-    * Download SAS Url for completed AppLogUploadRequest
+    * Download SAS (Shared Access Signature) Url for completed app log request.
     *
     * @return string|null The downloadUrl
     */
@@ -101,7 +101,7 @@ class AppLogCollectionDownloadDetails extends Entity
 
     /**
     * Sets the downloadUrl
-    * Download SAS Url for completed AppLogUploadRequest
+    * Download SAS (Shared Access Signature) Url for completed app log request.
     *
     * @param string $val The value of the downloadUrl
     *

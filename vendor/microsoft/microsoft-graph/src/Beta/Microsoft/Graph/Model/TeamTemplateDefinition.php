@@ -26,6 +26,7 @@ class TeamTemplateDefinition extends Entity
 {
     /**
     * Gets the audience
+    * Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.
     *
     * @return TeamTemplateAudience|null The audience
     */
@@ -44,6 +45,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the audience
+    * Describes the audience the team template is available to. The possible values are: organization, user, public, unknownFutureValue.
     *
     * @param TeamTemplateAudience $val The audience
     *
@@ -57,8 +59,9 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the categories
+    * The assigned categories for the team template.
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -71,8 +74,9 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the categories
+    * The assigned categories for the team template.
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return TeamTemplateDefinition
     */
@@ -84,6 +88,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the description
+    * A brief description of the team template as it will appear to the users in Microsoft Teams.
     *
     * @return string|null The description
     */
@@ -98,6 +103,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the description
+    * A brief description of the team template as it will appear to the users in Microsoft Teams.
     *
     * @param string $val The description
     *
@@ -111,6 +117,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the displayName
+    * The user defined name of the team template.
     *
     * @return string|null The displayName
     */
@@ -125,6 +132,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the displayName
+    * The user defined name of the team template.
     *
     * @param string $val The displayName
     *
@@ -138,6 +146,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the iconUrl
+    * The icon url for the team template.
     *
     * @return string|null The iconUrl
     */
@@ -152,6 +161,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the iconUrl
+    * The icon url for the team template.
     *
     * @param string $val The iconUrl
     *
@@ -165,6 +175,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the languageTag
+    * Language the template is available in.
     *
     * @return string|null The languageTag
     */
@@ -179,6 +190,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the languageTag
+    * Language the template is available in.
     *
     * @param string $val The languageTag
     *
@@ -192,6 +204,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the lastModifiedBy
+    * The identity of the user who last modified the team template.
     *
     * @return IdentitySet|null The lastModifiedBy
     */
@@ -210,6 +223,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the lastModifiedBy
+    * The identity of the user who last modified the team template.
     *
     * @param IdentitySet $val The lastModifiedBy
     *
@@ -223,6 +237,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the lastModifiedDateTime
+    * The date time of when the team template was last modified.
     *
     * @return \DateTime|null The lastModifiedDateTime
     */
@@ -241,6 +256,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the lastModifiedDateTime
+    * The date time of when the team template was last modified.
     *
     * @param \DateTime $val The lastModifiedDateTime
     *
@@ -254,6 +270,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the parentTemplateId
+    * The templateId for the team template
     *
     * @return string|null The parentTemplateId
     */
@@ -268,6 +285,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the parentTemplateId
+    * The templateId for the team template
     *
     * @param string $val The parentTemplateId
     *
@@ -281,6 +299,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the publisherName
+    * The organization which published the team template.
     *
     * @return string|null The publisherName
     */
@@ -295,6 +314,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the publisherName
+    * The organization which published the team template.
     *
     * @param string $val The publisherName
     *
@@ -308,6 +328,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the shortDescription
+    * A short-description of the team template as it will appear to the users in Microsoft Teams.
     *
     * @return string|null The shortDescription
     */
@@ -322,6 +343,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the shortDescription
+    * A short-description of the team template as it will appear to the users in Microsoft Teams.
     *
     * @param string $val The shortDescription
     *
@@ -335,6 +357,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Gets the teamDefinition
+    * Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
     *
     * @return Team|null The teamDefinition
     */
@@ -353,6 +376,7 @@ class TeamTemplateDefinition extends Entity
 
     /**
     * Sets the teamDefinition
+    * Collection of channel objects. A channel represents a topic, and therefore a logical isolation of discussion, within a team.
     *
     * @param Team $val The teamDefinition
     *

@@ -25,6 +25,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessRev
 {
     /**
     * Gets the appId
+    * The globally unique identifier of the application to which access has been granted.
     *
     * @return string|null The appId
     */
@@ -39,6 +40,7 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessRev
 
     /**
     * Sets the appId
+    * The globally unique identifier of the application to which access has been granted.
     *
     * @param string $val The value of the appId
     *

@@ -55,6 +55,7 @@ class TeamworkTagMember extends Entity
 
     /**
     * Gets the tenantId
+    * The ID of the tenant that the tag member is a part of.
     *
     * @return string|null The tenantId
     */
@@ -69,6 +70,7 @@ class TeamworkTagMember extends Entity
 
     /**
     * Sets the tenantId
+    * The ID of the tenant that the tag member is a part of.
     *
     * @param string $val The tenantId
     *
@@ -82,6 +84,7 @@ class TeamworkTagMember extends Entity
 
     /**
     * Gets the userId
+    * The user ID of the member.
     *
     * @return string|null The userId
     */
@@ -96,6 +99,7 @@ class TeamworkTagMember extends Entity
 
     /**
     * Sets the userId
+    * The user ID of the member.
     *
     * @param string $val The userId
     *

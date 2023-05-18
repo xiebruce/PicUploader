@@ -26,6 +26,7 @@ class AuthenticationMethodModeDetail extends Entity
 {
     /**
     * Gets the authenticationMethod
+    * The authentication method that this mode modifies. The possible values are: password, voice, hardwareOath, softwareOath, sms, fido2, windowsHelloForBusiness, microsoftAuthenticator, temporaryAccessPass, email, x509Certificate, federation, unknownFutureValue.
     *
     * @return BaseAuthenticationMethod|null The authenticationMethod
     */
@@ -44,6 +45,7 @@ class AuthenticationMethodModeDetail extends Entity
 
     /**
     * Sets the authenticationMethod
+    * The authentication method that this mode modifies. The possible values are: password, voice, hardwareOath, softwareOath, sms, fido2, windowsHelloForBusiness, microsoftAuthenticator, temporaryAccessPass, email, x509Certificate, federation, unknownFutureValue.
     *
     * @param BaseAuthenticationMethod $val The authenticationMethod
     *
@@ -57,6 +59,7 @@ class AuthenticationMethodModeDetail extends Entity
 
     /**
     * Gets the displayName
+    * The display name of this mode
     *
     * @return string|null The displayName
     */
@@ -71,6 +74,7 @@ class AuthenticationMethodModeDetail extends Entity
 
     /**
     * Sets the displayName
+    * The display name of this mode
     *
     * @param string $val The displayName
     *

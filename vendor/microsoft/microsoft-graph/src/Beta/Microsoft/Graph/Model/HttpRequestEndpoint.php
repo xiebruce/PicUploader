@@ -36,6 +36,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration
 
     /**
     * Gets the targetUrl
+    * The HTTP endpoint that a custom extension calls.
     *
     * @return string|null The targetUrl
     */
@@ -50,6 +51,7 @@ class HttpRequestEndpoint extends CustomExtensionEndpointConfiguration
 
     /**
     * Sets the targetUrl
+    * The HTTP endpoint that a custom extension calls.
     *
     * @param string $val The value of the targetUrl
     *

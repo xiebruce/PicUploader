@@ -27,7 +27,7 @@ class DomainSecurityProfile extends Entity
     /**
     * Gets the activityGroupNames
     *
-    * @return string|null The activityGroupNames
+    * @return array|null The activityGroupNames
     */
     public function getActivityGroupNames()
     {
@@ -41,7 +41,7 @@ class DomainSecurityProfile extends Entity
     /**
     * Sets the activityGroupNames
     *
-    * @param string $val The activityGroupNames
+    * @param string[] $val The activityGroupNames
     *
     * @return DomainSecurityProfile
     */
@@ -368,7 +368,7 @@ class DomainSecurityProfile extends Entity
     /**
     * Gets the tags
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -382,7 +382,7 @@ class DomainSecurityProfile extends Entity
     /**
     * Sets the tags
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return DomainSecurityProfile
     */

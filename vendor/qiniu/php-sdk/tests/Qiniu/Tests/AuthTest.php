@@ -11,12 +11,14 @@ namespace Qiniu {
 }
 
 namespace Qiniu\Tests {
+    use PHPUnit\Framework\TestCase;
+
     use Qiniu\Auth;
     use Qiniu\Http\Header;
 
     // @codingStandardsIgnoreEnd
 
-    class AuthTest extends \PHPUnit_Framework_TestCase
+    class AuthTest extends TestCase
     {
 
         public function testSign()
@@ -63,10 +65,6 @@ namespace Qiniu\Tests {
             // @codingStandardsIgnoreEnd
             $this->assertEquals($exp, $token);
             unset($_SERVER['override_qiniu_auth_time']);
-        }
-
-        public function testVerifyCallback()
-        {
         }
 
         public function testSignQiniuAuthorization()

@@ -26,7 +26,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget
 {
     /**
     * Gets the isUsableForSignIn
-    * Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
+    * Determines if users can use this authentication method to sign in to Azure AD. true if users can use this method for primary authentication, otherwise false.
     *
     * @return bool|null The isUsableForSignIn
     */
@@ -41,7 +41,7 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget
 
     /**
     * Sets the isUsableForSignIn
-    * Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
+    * Determines if users can use this authentication method to sign in to Azure AD. true if users can use this method for primary authentication, otherwise false.
     *
     * @param bool $val The isUsableForSignIn
     *

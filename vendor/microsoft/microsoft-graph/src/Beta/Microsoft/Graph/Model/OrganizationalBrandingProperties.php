@@ -181,7 +181,7 @@ class OrganizationalBrandingProperties extends Entity
     * Gets the cdnList
     * A list of base URLs for all available CDN providers that are serving the assets of the current resource. Several CDN providers are used at the same time for high availability of read requests. Read-only.
     *
-    * @return string|null The cdnList
+    * @return array|null The cdnList
     */
     public function getCdnList()
     {
@@ -196,7 +196,7 @@ class OrganizationalBrandingProperties extends Entity
     * Sets the cdnList
     * A list of base URLs for all available CDN providers that are serving the assets of the current resource. Several CDN providers are used at the same time for high availability of read requests. Read-only.
     *
-    * @param string $val The cdnList
+    * @param string[] $val The cdnList
     *
     * @return OrganizationalBrandingProperties
     */
@@ -290,6 +290,68 @@ class OrganizationalBrandingProperties extends Entity
     public function setCustomCannotAccessYourAccountUrl($val)
     {
         $this->_propDict["customCannotAccessYourAccountUrl"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the customCSS
+    * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
+    *
+    * @return \GuzzleHttp\Psr7\Stream|null The customCSS
+    */
+    public function getCustomCSS()
+    {
+        if (array_key_exists("customCSS", $this->_propDict)) {
+            if (is_a($this->_propDict["customCSS"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["customCSS"])) {
+                return $this->_propDict["customCSS"];
+            } else {
+                $this->_propDict["customCSS"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customCSS"]);
+                return $this->_propDict["customCSS"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the customCSS
+    * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
+    *
+    * @param \GuzzleHttp\Psr7\Stream $val The customCSS
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setCustomCSS($val)
+    {
+        $this->_propDict["customCSS"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the customCSSRelativeUrl
+    * A relative URL for the customCSS property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+    *
+    * @return string|null The customCSSRelativeUrl
+    */
+    public function getCustomCSSRelativeUrl()
+    {
+        if (array_key_exists("customCSSRelativeUrl", $this->_propDict)) {
+            return $this->_propDict["customCSSRelativeUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the customCSSRelativeUrl
+    * A relative URL for the customCSS property that is combined with a CDN base URL from the cdnList to provide the version served by a CDN. Read-only.
+    *
+    * @param string $val The customCSSRelativeUrl
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setCustomCSSRelativeUrl($val)
+    {
+        $this->_propDict["customCSSRelativeUrl"] = $val;
         return $this;
     }
 
@@ -555,6 +617,101 @@ class OrganizationalBrandingProperties extends Entity
     public function setHeaderBackgroundColor($val)
     {
         $this->_propDict["headerBackgroundColor"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the headerLogo
+    * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
+    *
+    * @return \GuzzleHttp\Psr7\Stream|null The headerLogo
+    */
+    public function getHeaderLogo()
+    {
+        if (array_key_exists("headerLogo", $this->_propDict)) {
+            if (is_a($this->_propDict["headerLogo"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["headerLogo"])) {
+                return $this->_propDict["headerLogo"];
+            } else {
+                $this->_propDict["headerLogo"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["headerLogo"]);
+                return $this->_propDict["headerLogo"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the headerLogo
+    * A company logo that appears in the header of the sign-in page. The allowed types are PNG or JPEG not larger than 36 × 245 pixels. We recommend using a transparent image with no padding around the logo.
+    *
+    * @param \GuzzleHttp\Psr7\Stream $val The headerLogo
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setHeaderLogo($val)
+    {
+        $this->_propDict["headerLogo"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the headerLogoRelativeUrl
+    * A relative URL for the headerLogo property that is combined with a CDN base URL from the cdnList to provide the read-only version served by a CDN. Read-only.
+    *
+    * @return string|null The headerLogoRelativeUrl
+    */
+    public function getHeaderLogoRelativeUrl()
+    {
+        if (array_key_exists("headerLogoRelativeUrl", $this->_propDict)) {
+            return $this->_propDict["headerLogoRelativeUrl"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the headerLogoRelativeUrl
+    * A relative URL for the headerLogo property that is combined with a CDN base URL from the cdnList to provide the read-only version served by a CDN. Read-only.
+    *
+    * @param string $val The headerLogoRelativeUrl
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setHeaderLogoRelativeUrl($val)
+    {
+        $this->_propDict["headerLogoRelativeUrl"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the loginPageLayoutConfiguration
+    * Represents the layout configuration to be displayed on the login page for a tenant.
+    *
+    * @return LoginPageLayoutConfiguration|null The loginPageLayoutConfiguration
+    */
+    public function getLoginPageLayoutConfiguration()
+    {
+        if (array_key_exists("loginPageLayoutConfiguration", $this->_propDict)) {
+            if (is_a($this->_propDict["loginPageLayoutConfiguration"], "\Beta\Microsoft\Graph\Model\LoginPageLayoutConfiguration") || is_null($this->_propDict["loginPageLayoutConfiguration"])) {
+                return $this->_propDict["loginPageLayoutConfiguration"];
+            } else {
+                $this->_propDict["loginPageLayoutConfiguration"] = new LoginPageLayoutConfiguration($this->_propDict["loginPageLayoutConfiguration"]);
+                return $this->_propDict["loginPageLayoutConfiguration"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the loginPageLayoutConfiguration
+    * Represents the layout configuration to be displayed on the login page for a tenant.
+    *
+    * @param LoginPageLayoutConfiguration $val The loginPageLayoutConfiguration
+    *
+    * @return OrganizationalBrandingProperties
+    */
+    public function setLoginPageLayoutConfiguration($val)
+    {
+        $this->_propDict["loginPageLayoutConfiguration"] = $val;
         return $this;
     }
 

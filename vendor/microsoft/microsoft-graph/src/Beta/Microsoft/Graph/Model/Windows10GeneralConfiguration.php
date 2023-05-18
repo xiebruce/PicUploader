@@ -177,7 +177,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the appManagementPackageFamilyNamesToLaunchAfterLogOn
     * List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​
     *
-    * @return string|null The appManagementPackageFamilyNamesToLaunchAfterLogOn
+    * @return array|null The appManagementPackageFamilyNamesToLaunchAfterLogOn
     */
     public function getAppManagementPackageFamilyNamesToLaunchAfterLogOn()
     {
@@ -192,7 +192,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the appManagementPackageFamilyNamesToLaunchAfterLogOn
     * List of semi-colon delimited Package Family Names of Windows apps. Listed Windows apps are to be launched after logon.​
     *
-    * @param string $val The appManagementPackageFamilyNamesToLaunchAfterLogOn
+    * @param string[] $val The appManagementPackageFamilyNamesToLaunchAfterLogOn
     *
     * @return Windows10GeneralConfiguration
     */
@@ -359,7 +359,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the bluetoothAllowedServices
     * Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
     *
-    * @return string|null The bluetoothAllowedServices
+    * @return array|null The bluetoothAllowedServices
     */
     public function getBluetoothAllowedServices()
     {
@@ -374,7 +374,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the bluetoothAllowedServices
     * Specify a list of allowed Bluetooth services and profiles in hex formatted strings.
     *
-    * @param string $val The bluetoothAllowedServices
+    * @param string[] $val The bluetoothAllowedServices
     *
     * @return Windows10GeneralConfiguration
     */
@@ -1154,7 +1154,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @return string|null The defenderFileExtensionsToExclude
+    * @return array|null The defenderFileExtensionsToExclude
     */
     public function getDefenderFileExtensionsToExclude()
     {
@@ -1169,7 +1169,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @param string $val The defenderFileExtensionsToExclude
+    * @param string[] $val The defenderFileExtensionsToExclude
     *
     * @return Windows10GeneralConfiguration
     */
@@ -1183,7 +1183,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @return string|null The defenderFilesAndFoldersToExclude
+    * @return array|null The defenderFilesAndFoldersToExclude
     */
     public function getDefenderFilesAndFoldersToExclude()
     {
@@ -1198,7 +1198,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @param string $val The defenderFilesAndFoldersToExclude
+    * @param string[] $val The defenderFilesAndFoldersToExclude
     *
     * @return Windows10GeneralConfiguration
     */
@@ -1311,7 +1311,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @return string|null The defenderProcessesToExclude
+    * @return array|null The defenderProcessesToExclude
     */
     public function getDefenderProcessesToExclude()
     {
@@ -1326,7 +1326,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @param string $val The defenderProcessesToExclude
+    * @param string[] $val The defenderProcessesToExclude
     *
     * @return Windows10GeneralConfiguration
     */
@@ -2068,7 +2068,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the displayAppListWithGdiDPIScalingTurnedOff
     * List of legacy applications that have GDI DPI Scaling turned off.
     *
-    * @return string|null The displayAppListWithGdiDPIScalingTurnedOff
+    * @return array|null The displayAppListWithGdiDPIScalingTurnedOff
     */
     public function getDisplayAppListWithGdiDPIScalingTurnedOff()
     {
@@ -2083,7 +2083,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the displayAppListWithGdiDPIScalingTurnedOff
     * List of legacy applications that have GDI DPI Scaling turned off.
     *
-    * @param string $val The displayAppListWithGdiDPIScalingTurnedOff
+    * @param string[] $val The displayAppListWithGdiDPIScalingTurnedOff
     *
     * @return Windows10GeneralConfiguration
     */
@@ -2097,7 +2097,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the displayAppListWithGdiDPIScalingTurnedOn
     * List of legacy applications that have GDI DPI Scaling turned on.
     *
-    * @return string|null The displayAppListWithGdiDPIScalingTurnedOn
+    * @return array|null The displayAppListWithGdiDPIScalingTurnedOn
     */
     public function getDisplayAppListWithGdiDPIScalingTurnedOn()
     {
@@ -2112,7 +2112,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the displayAppListWithGdiDPIScalingTurnedOn
     * List of legacy applications that have GDI DPI Scaling turned on.
     *
-    * @param string $val The displayAppListWithGdiDPIScalingTurnedOn
+    * @param string[] $val The displayAppListWithGdiDPIScalingTurnedOn
     *
     * @return Windows10GeneralConfiguration
     */
@@ -3124,7 +3124,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the edgeHomepageUrls
     * The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
     *
-    * @return string|null The edgeHomepageUrls
+    * @return array|null The edgeHomepageUrls
     */
     public function getEdgeHomepageUrls()
     {
@@ -3139,7 +3139,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the edgeHomepageUrls
     * The list of URLs for homepages shodwn on MDM-enrolled devices on Edge browser.
     *
-    * @param string $val The edgeHomepageUrls
+    * @param string[] $val The edgeHomepageUrls
     *
     * @return Windows10GeneralConfiguration
     */
@@ -3306,7 +3306,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the edgeRequiredExtensionPackageFamilyNames
     * Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.
     *
-    * @return string|null The edgeRequiredExtensionPackageFamilyNames
+    * @return array|null The edgeRequiredExtensionPackageFamilyNames
     */
     public function getEdgeRequiredExtensionPackageFamilyNames()
     {
@@ -3321,7 +3321,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the edgeRequiredExtensionPackageFamilyNames
     * Specify the list of package family names of browser extensions that are required and cannot be turned off by the user.
     *
-    * @param string $val The edgeRequiredExtensionPackageFamilyNames
+    * @param string[] $val The edgeRequiredExtensionPackageFamilyNames
     *
     * @return Windows10GeneralConfiguration
     */
@@ -5383,7 +5383,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Gets the printerNames
     * Automatically provision printers based on their names (network host names).
     *
-    * @return string|null The printerNames
+    * @return array|null The printerNames
     */
     public function getPrinterNames()
     {
@@ -5398,7 +5398,7 @@ class Windows10GeneralConfiguration extends DeviceConfiguration
     * Sets the printerNames
     * Automatically provision printers based on their names (network host names).
     *
-    * @param string $val The printerNames
+    * @param string[] $val The printerNames
     *
     * @return Windows10GeneralConfiguration
     */

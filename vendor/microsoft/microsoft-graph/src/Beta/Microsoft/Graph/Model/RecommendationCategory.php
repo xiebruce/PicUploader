@@ -29,10 +29,7 @@ class RecommendationCategory extends Enum
     /**
     * The Enum RecommendationCategory
     */
-    const USAGE_AND_COMPLIANCE = "usageAndCompliance";
-    const SECURITY = "security";
-    const PRODUCTIVITY = "productivity";
-    const HEALTH = "health";
-    const CONFIGURATION = "configuration";
+    const IDENTITY_BEST_PRACTICE = "identityBestPractice";
+    const IDENTITY_SECURE_SCORE = "identitySecureScore";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

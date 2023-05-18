@@ -52,4 +52,15 @@ class ConditionalAccessRule extends Enum
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
     const DEVICE_FILTER_INCLUDE_RULE_NOT_MATCHED = "deviceFilterIncludeRuleNotMatched";
     const ALL_DEVICE_STATES = "allDeviceStates";
+    const ANONYMIZED_IP_ADDRESS = "anonymizedIPAddress";
+    const UNFAMILIAR_FEATURES = "unfamiliarFeatures";
+    const NATION_STATE_IP_ADDRESS = "nationStateIPAddress";
+    const REAL_TIME_THREAT_INTELLIGENCE = "realTimeThreatIntelligence";
+    const INTERNAL_GUEST = "internalGuest";
+    const B2B_COLLABORATION_GUEST = "b2bCollaborationGuest";
+    const B2B_COLLABORATION_MEMBER = "b2bCollaborationMember";
+    const B2B_DIRECT_CONNECT_USER = "b2bDirectConnectUser";
+    const OTHER_EXTERNAL_USER = "otherExternalUser";
+    const SERVICE_PROVIDER = "serviceProvider";
+    const MICROSOFT_ADMIN_PORTALS = "microsoftAdminPortals";
 }

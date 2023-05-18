@@ -14,6 +14,12 @@ class Signature {
     // array: cos config.
     private $options;
 
+    // string: token.
+    private $token;
+
+    // array: sign header.
+    private $signHeader;
+
     public function __construct( $accessKey, $secretKey, $options, $token = null ) {
         $this->accessKey = $accessKey;
         $this->secretKey = $secretKey;
@@ -35,16 +41,9 @@ class Signature {
             'if-unmodified-since',
             'origin',
             'range',
-            'response-cache-control',
-            'response-content-disposition',
-            'response-content-encoding',
-            'response-content-language',
-            'response-content-type',
-            'response-expires',
             'transfer-encoding',
-            'versionid',
         ];
-        date_default_timezone_set( 'PRC' );
+        date_default_timezone_set($this->options['timezone']);
     }
 
     public function __destruct() {

@@ -58,6 +58,35 @@ class WinGetApp extends MobileApp
     }
 
     /**
+    * Gets the manifestHash
+    * Hash of package metadata properties used to validate that the application matches the metadata in the source repository.
+    *
+    * @return string|null The manifestHash
+    */
+    public function getManifestHash()
+    {
+        if (array_key_exists("manifestHash", $this->_propDict)) {
+            return $this->_propDict["manifestHash"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the manifestHash
+    * Hash of package metadata properties used to validate that the application matches the metadata in the source repository.
+    *
+    * @param string $val The manifestHash
+    *
+    * @return WinGetApp
+    */
+    public function setManifestHash($val)
+    {
+        $this->_propDict["manifestHash"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the packageIdentifier
     * The PackageIdentifier from the WinGet source repository REST API. This also maps to the Id when using the WinGet client command line application. Required at creation time, cannot be modified on existing objects.
     *

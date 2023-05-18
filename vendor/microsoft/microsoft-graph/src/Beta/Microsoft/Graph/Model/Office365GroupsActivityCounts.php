@@ -149,6 +149,64 @@ class Office365GroupsActivityCounts extends Entity
     }
 
     /**
+    * Gets the teamsChannelMessages
+    * The number of channel messages in Teams team.
+    *
+    * @return int|null The teamsChannelMessages
+    */
+    public function getTeamsChannelMessages()
+    {
+        if (array_key_exists("teamsChannelMessages", $this->_propDict)) {
+            return $this->_propDict["teamsChannelMessages"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the teamsChannelMessages
+    * The number of channel messages in Teams team.
+    *
+    * @param int $val The teamsChannelMessages
+    *
+    * @return Office365GroupsActivityCounts
+    */
+    public function setTeamsChannelMessages($val)
+    {
+        $this->_propDict["teamsChannelMessages"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the teamsMeetingsOrganized
+    * The number of meetings organized in Teams team.
+    *
+    * @return int|null The teamsMeetingsOrganized
+    */
+    public function getTeamsMeetingsOrganized()
+    {
+        if (array_key_exists("teamsMeetingsOrganized", $this->_propDict)) {
+            return $this->_propDict["teamsMeetingsOrganized"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the teamsMeetingsOrganized
+    * The number of meetings organized in Teams team.
+    *
+    * @param int $val The teamsMeetingsOrganized
+    *
+    * @return Office365GroupsActivityCounts
+    */
+    public function setTeamsMeetingsOrganized($val)
+    {
+        $this->_propDict["teamsMeetingsOrganized"] = intval($val);
+        return $this;
+    }
+
+    /**
     * Gets the yammerMessagesLiked
     * The number of messages liked in Yammer groups.
     *

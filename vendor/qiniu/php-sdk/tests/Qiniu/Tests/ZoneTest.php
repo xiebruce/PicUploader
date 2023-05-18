@@ -1,10 +1,12 @@
 <?php
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu;
 use Qiniu\Zone;
 
-class ZoneTest extends \PHPUnit_Framework_TestCase
+class ZoneTest extends TestCase
 {
     protected $zone;
     protected $zoneHttps;
@@ -17,7 +19,10 @@ class ZoneTest extends \PHPUnit_Framework_TestCase
     protected $bucketNameAS;
 
 
-    protected function setUp()
+    /**
+     * @before
+     */
+    protected function setUpZoneAndBucket()
     {
         global $bucketName;
         $this->bucketName = $bucketName;

@@ -57,6 +57,7 @@ class TenantReference implements \JsonSerializable
 
     /**
     * Gets the tenantId
+    * The identifier of the Azure AD tenant. Read-only. Key.
     *
     * @return string|null The tenantId
     */
@@ -71,6 +72,7 @@ class TenantReference implements \JsonSerializable
 
     /**
     * Sets the tenantId
+    * The identifier of the Azure AD tenant. Read-only. Key.
     *
     * @param string $val The tenantId
     *
@@ -125,6 +127,8 @@ class TenantReference implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__FILE__) . '/../vendor/autoload.php';
+require dirname(__FILE__, 2) . '/vendor/autoload.php';
 
 $secretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 $secretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
@@ -13,6 +13,12 @@ $cosClient = new Qcloud\Cos\Client(
             'secretId' => $secretId,
             'secretKey' => $secretKey)));
 try {
+    // 获取图片base64编码
+//    $localImageFile = '/tmp/test.jpg';
+//    $img = file_get_contents($localImageFile);
+//    $imgInfo = getimagesize($localImageFile);
+//    $imgBase64Content = base64_encode($img);
+
     $result = $cosClient->detectImages(array(
         'Bucket' => 'examplebucket-125000000', //存储桶名称，由BucketName-Appid 组成，可以在COS控制台查看 https://console.cloud.tencent.com/cos5/bucket
         'Inputs' => array(
@@ -28,10 +34,18 @@ try {
 //                'MaxFrames' => 5, // 可选 针对 GIF 动图审核的最大截帧数量，需大于0。
 //                'DataId' => 'bbb', // 可选 图片标识，该字段在结果中返回原始内容，长度限制为512字节
             ),
+//            array(
+//                'Content' => $imgBase64Content, // 图片文件的内容，需要先经过 base64 编码。
+////                'Interval' => 5, // 可选 审核 GIF 时使用 截帧的间隔
+////                'MaxFrames' => 5, // 可选 针对 GIF 动图审核的最大截帧数量，需大于0。
+////                'DataId' => 'bbb', // 可选 图片标识，该字段在结果中返回原始内容，长度限制为512字节
+//            ),
         ),
 //        'Conf' => array(
-//            'BizType' => '' // 可选 定制化策略，不传走默认策略
+//            'BizType' => '', // 可选 定制化策略，不传走默认策略
 //            'DetectType' => 'Porn,Ads', // 可选 不填走默认策略 或 定制化策略，四种参数：Porn,Ads等，可使用多种规则，注意规则间不要加空格
+//            'Async' => 0, // 可选 是否异步进行审核，0：同步返回结果，1：异步进行审核。默认值为 0。
+//            'Callback' => '', // 可选 审核结果（Detail版本）以回调形式发送至您的回调地址
 //        ) // 可选 在DetectType/BizType都不传的情况下，走默认策略及默认审核场景。
     ));
     // 请求成功

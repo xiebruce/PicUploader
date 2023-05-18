@@ -149,6 +149,39 @@ class DeviceRegistrationPolicy extends Entity
     }
 
     /**
+    * Gets the localAdminPassword
+    * Specifies the setting for Local Admin Password Solution (LAPS) within your organization.
+    *
+    * @return LocalAdminPasswordSettings|null The localAdminPassword
+    */
+    public function getLocalAdminPassword()
+    {
+        if (array_key_exists("localAdminPassword", $this->_propDict)) {
+            if (is_a($this->_propDict["localAdminPassword"], "\Beta\Microsoft\Graph\Model\LocalAdminPasswordSettings") || is_null($this->_propDict["localAdminPassword"])) {
+                return $this->_propDict["localAdminPassword"];
+            } else {
+                $this->_propDict["localAdminPassword"] = new LocalAdminPasswordSettings($this->_propDict["localAdminPassword"]);
+                return $this->_propDict["localAdminPassword"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the localAdminPassword
+    * Specifies the setting for Local Admin Password Solution (LAPS) within your organization.
+    *
+    * @param LocalAdminPasswordSettings $val The localAdminPassword
+    *
+    * @return DeviceRegistrationPolicy
+    */
+    public function setLocalAdminPassword($val)
+    {
+        $this->_propDict["localAdminPassword"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the multiFactorAuthConfiguration
     * Specifies the authentication policy for a user to complete registration using Azure AD Join or Azure AD registered within your organization. The possible values are: 0 (meaning notRequired), 1 (meaning required), and 2 (meaning unknownFutureValue). The default value is 0.
     *

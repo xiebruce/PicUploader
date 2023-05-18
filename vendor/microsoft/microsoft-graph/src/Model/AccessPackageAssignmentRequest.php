@@ -24,6 +24,36 @@ namespace Microsoft\Graph\Model;
 */
 class AccessPackageAssignmentRequest extends Entity
 {
+
+     /**
+     * Gets the answers
+    * Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
+     *
+     * @return array|null The answers
+     */
+    public function getAnswers()
+    {
+        if (array_key_exists("answers", $this->_propDict)) {
+           return $this->_propDict["answers"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the answers
+    * Answers provided by the requestor to accessPackageQuestions asked of them at the time of request.
+    *
+    * @param AccessPackageAnswer[] $val The answers
+    *
+    * @return AccessPackageAssignmentRequest
+    */
+    public function setAnswers($val)
+    {
+        $this->_propDict["answers"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the completedDateTime
     * The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
@@ -92,7 +122,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Gets the requestType
-    * The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
+    * The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
     *
     * @return AccessPackageRequestType|null The requestType
     */
@@ -111,7 +141,7 @@ class AccessPackageAssignmentRequest extends Entity
 
     /**
     * Sets the requestType
-    * The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
+    * The type of the request. The possible values are: notSpecified, userAdd, UserExtend, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd (not supported), unknownFutureValue. A request from the user themselves would have requestType of userAdd, userUpdate or userRemove. This property cannot be changed once set.
     *
     * @param AccessPackageRequestType $val The requestType
     *

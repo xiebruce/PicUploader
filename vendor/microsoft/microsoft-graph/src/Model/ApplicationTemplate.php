@@ -28,7 +28,7 @@ class ApplicationTemplate extends Entity
     * Gets the categories
     * The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -43,7 +43,7 @@ class ApplicationTemplate extends Entity
     * Sets the categories
     * The list of categories for the application. Supported values can be: Collaboration, Business Management, Consumer, Content management, CRM, Data services, Developer services, E-commerce, Education, ERP, Finance, Health, Human resources, IT infrastructure, Mail, Management, Marketing, Media, Productivity, Project management, Telecommunications, Tools, Travel, and Web design &amp; hosting.
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return ApplicationTemplate
     */
@@ -202,7 +202,7 @@ class ApplicationTemplate extends Entity
     * Gets the supportedProvisioningTypes
     * The list of provisioning modes supported by this application. The only valid value is sync.
     *
-    * @return string|null The supportedProvisioningTypes
+    * @return array|null The supportedProvisioningTypes
     */
     public function getSupportedProvisioningTypes()
     {
@@ -217,7 +217,7 @@ class ApplicationTemplate extends Entity
     * Sets the supportedProvisioningTypes
     * The list of provisioning modes supported by this application. The only valid value is sync.
     *
-    * @param string $val The supportedProvisioningTypes
+    * @param string[] $val The supportedProvisioningTypes
     *
     * @return ApplicationTemplate
     */
@@ -231,7 +231,7 @@ class ApplicationTemplate extends Entity
     * Gets the supportedSingleSignOnModes
     * The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
     *
-    * @return string|null The supportedSingleSignOnModes
+    * @return array|null The supportedSingleSignOnModes
     */
     public function getSupportedSingleSignOnModes()
     {
@@ -246,7 +246,7 @@ class ApplicationTemplate extends Entity
     * Sets the supportedSingleSignOnModes
     * The list of single sign-on modes supported by this application. The supported values are oidc, password, saml, and notSupported.
     *
-    * @param string $val The supportedSingleSignOnModes
+    * @param string[] $val The supportedSingleSignOnModes
     *
     * @return ApplicationTemplate
     */

@@ -25,7 +25,7 @@ class ItemReference extends Entity
 {
     /**
     * Gets the driveId
-    * Unique identifier of the drive instance that contains the item. Read-only.
+    * Unique identifier of the drive instance that contains the driveItem. Only returned if the item is located in a [drive][]. Read-only.
     *
     * @return string|null The driveId
     */
@@ -40,7 +40,7 @@ class ItemReference extends Entity
 
     /**
     * Sets the driveId
-    * Unique identifier of the drive instance that contains the item. Read-only.
+    * Unique identifier of the drive instance that contains the driveItem. Only returned if the item is located in a [drive][]. Read-only.
     *
     * @param string $val The value of the driveId
     *
@@ -53,7 +53,7 @@ class ItemReference extends Entity
     }
     /**
     * Gets the driveType
-    * Identifies the type of drive. See [drive][] resource for values.
+    * Identifies the type of drive. Only returned if the item is located in a [drive][]. See [drive][] resource for values.
     *
     * @return string|null The driveType
     */
@@ -68,7 +68,7 @@ class ItemReference extends Entity
 
     /**
     * Sets the driveType
-    * Identifies the type of drive. See [drive][] resource for values.
+    * Identifies the type of drive. Only returned if the item is located in a [drive][]. See [drive][] resource for values.
     *
     * @param string $val The value of the driveType
     *
@@ -81,7 +81,7 @@ class ItemReference extends Entity
     }
     /**
     * Gets the id
-    * Unique identifier of the item in the drive. Read-only.
+    * Unique identifier of the driveItem in the drive or a listItem in a list. Read-only.
     *
     * @return string|null The id
     */
@@ -96,7 +96,7 @@ class ItemReference extends Entity
 
     /**
     * Sets the id
-    * Unique identifier of the item in the drive. Read-only.
+    * Unique identifier of the driveItem in the drive or a listItem in a list. Read-only.
     *
     * @param string $val The value of the id
     *
@@ -226,7 +226,7 @@ class ItemReference extends Entity
     }
     /**
     * Gets the siteId
-    * For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
+    * For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
     *
     * @return string|null The siteId
     */
@@ -241,7 +241,7 @@ class ItemReference extends Entity
 
     /**
     * Sets the siteId
-    * For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
+    * For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource or the parent list of the listItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.
     *
     * @param string $val The value of the siteId
     *

@@ -187,7 +187,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     * Gets the dnsSuffixes
     * Specify DNS suffixes to add to the DNS search list to properly route short names.
     *
-    * @return string|null The dnsSuffixes
+    * @return array|null The dnsSuffixes
     */
     public function getDnsSuffixes()
     {
@@ -202,7 +202,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     * Sets the dnsSuffixes
     * Specify DNS suffixes to add to the DNS search list to properly route short names.
     *
-    * @param string $val The dnsSuffixes
+    * @param string[] $val The dnsSuffixes
     *
     * @return Windows10VpnConfiguration
     */
@@ -698,7 +698,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     * Gets the trustedNetworkDomains
     * Trusted Network Domains
     *
-    * @return string|null The trustedNetworkDomains
+    * @return array|null The trustedNetworkDomains
     */
     public function getTrustedNetworkDomains()
     {
@@ -713,7 +713,7 @@ class Windows10VpnConfiguration extends WindowsVpnConfiguration
     * Sets the trustedNetworkDomains
     * Trusted Network Domains
     *
-    * @param string $val The trustedNetworkDomains
+    * @param string[] $val The trustedNetworkDomains
     *
     * @return Windows10VpnConfiguration
     */

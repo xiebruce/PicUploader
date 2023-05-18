@@ -53,6 +53,35 @@ class MobileAppTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
         return $this;
     }
 
+    /**
+    * Gets the deviceId
+    * Device identifier created or collected by Intune.
+    *
+    * @return string|null The deviceId
+    */
+    public function getDeviceId()
+    {
+        if (array_key_exists("deviceId", $this->_propDict)) {
+            return $this->_propDict["deviceId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceId
+    * Device identifier created or collected by Intune.
+    *
+    * @param string $val The deviceId
+    *
+    * @return MobileAppTroubleshootingEvent
+    */
+    public function setDeviceId($val)
+    {
+        $this->_propDict["deviceId"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the history

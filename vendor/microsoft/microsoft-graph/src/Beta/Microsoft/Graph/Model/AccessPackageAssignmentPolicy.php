@@ -452,6 +452,39 @@ class AccessPackageAssignmentPolicy extends Entity
     }
 
     /**
+    * Gets the verifiableCredentialSettings
+    * Settings for verifiable credentials set up through the Azure AD Verified ID service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
+    *
+    * @return VerifiableCredentialSettings|null The verifiableCredentialSettings
+    */
+    public function getVerifiableCredentialSettings()
+    {
+        if (array_key_exists("verifiableCredentialSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["verifiableCredentialSettings"], "\Beta\Microsoft\Graph\Model\VerifiableCredentialSettings") || is_null($this->_propDict["verifiableCredentialSettings"])) {
+                return $this->_propDict["verifiableCredentialSettings"];
+            } else {
+                $this->_propDict["verifiableCredentialSettings"] = new VerifiableCredentialSettings($this->_propDict["verifiableCredentialSettings"]);
+                return $this->_propDict["verifiableCredentialSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the verifiableCredentialSettings
+    * Settings for verifiable credentials set up through the Azure AD Verified ID service. These settings represent the verifiable credentials that a requestor of an access package in this policy can present to be assigned the access package.
+    *
+    * @param VerifiableCredentialSettings $val The verifiableCredentialSettings
+    *
+    * @return AccessPackageAssignmentPolicy
+    */
+    public function setVerifiableCredentialSettings($val)
+    {
+        $this->_propDict["verifiableCredentialSettings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the accessPackage
     * The access package with this policy. Read-only. Nullable. Supports $expand.
     *
@@ -542,6 +575,36 @@ class AccessPackageAssignmentPolicy extends Entity
     public function setCustomExtensionHandlers($val)
     {
         $this->_propDict["customExtensionHandlers"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the customExtensionStageSettings
+    * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
+     *
+     * @return array|null The customExtensionStageSettings
+     */
+    public function getCustomExtensionStageSettings()
+    {
+        if (array_key_exists("customExtensionStageSettings", $this->_propDict)) {
+           return $this->_propDict["customExtensionStageSettings"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the customExtensionStageSettings
+    * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
+    *
+    * @param CustomExtensionStageSetting[] $val The customExtensionStageSettings
+    *
+    * @return AccessPackageAssignmentPolicy
+    */
+    public function setCustomExtensionStageSettings($val)
+    {
+        $this->_propDict["customExtensionStageSettings"] = $val;
         return $this;
     }
 

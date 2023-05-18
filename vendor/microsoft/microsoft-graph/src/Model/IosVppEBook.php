@@ -57,7 +57,7 @@ class IosVppEBook extends ManagedEBook
     * Gets the genres
     * Genres.
     *
-    * @return string|null The genres
+    * @return array|null The genres
     */
     public function getGenres()
     {
@@ -72,7 +72,7 @@ class IosVppEBook extends ManagedEBook
     * Sets the genres
     * Genres.
     *
-    * @param string $val The genres
+    * @param string[] $val The genres
     *
     * @return IosVppEBook
     */

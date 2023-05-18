@@ -55,6 +55,37 @@ class External implements \JsonSerializable
         return $this->_propDict;
     }
 
+    /**
+    * Gets the industryData
+    *
+    * @return \Beta\Microsoft\Graph\IndustryData\Model\IndustryDataRoot|null The industryData
+    */
+    public function getIndustryData()
+    {
+        if (array_key_exists("industryData", $this->_propDict)) {
+            if (is_a($this->_propDict["industryData"], "\Beta\Microsoft\Graph\IndustryData\Model\IndustryDataRoot") || is_null($this->_propDict["industryData"])) {
+                return $this->_propDict["industryData"];
+            } else {
+                $this->_propDict["industryData"] = new \Beta\Microsoft\Graph\IndustryData\Model\IndustryDataRoot($this->_propDict["industryData"]);
+                return $this->_propDict["industryData"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the industryData
+    *
+    * @param \Beta\Microsoft\Graph\IndustryData\Model\IndustryDataRoot $val The industryData
+    *
+    * @return External
+    */
+    public function setIndustryData($val)
+    {
+        $this->_propDict["industryData"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the connections
@@ -126,6 +157,8 @@ class External implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

@@ -58,35 +58,6 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod
     }
 
     /**
-    * Gets the isUsable
-    * The state of the authentication method that indicates whether it's currently usable by the user.
-    *
-    * @return bool|null The isUsable
-    */
-    public function getIsUsable()
-    {
-        if (array_key_exists("isUsable", $this->_propDict)) {
-            return $this->_propDict["isUsable"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the isUsable
-    * The state of the authentication method that indicates whether it's currently usable by the user.
-    *
-    * @param bool $val The isUsable
-    *
-    * @return TemporaryAccessPassAuthenticationMethod
-    */
-    public function setIsUsable($val)
-    {
-        $this->_propDict["isUsable"] = boolval($val);
-        return $this;
-    }
-
-    /**
     * Gets the isUsableOnce
     * Determines whether the pass is limited to a one-time use. If true, the pass can be used once; if false, the pass can be used multiple times within the Temporary Access Pass lifetime.
     *
@@ -141,35 +112,6 @@ class TemporaryAccessPassAuthenticationMethod extends AuthenticationMethod
     public function setLifetimeInMinutes($val)
     {
         $this->_propDict["lifetimeInMinutes"] = intval($val);
-        return $this;
-    }
-
-    /**
-    * Gets the methodUsabilityReason
-    * Details about the usability state (isUsable). Reasons can include: EnabledByPolicy, DisabledByPolicy, Expired, NotYetValid, OneTimeUsed.
-    *
-    * @return string|null The methodUsabilityReason
-    */
-    public function getMethodUsabilityReason()
-    {
-        if (array_key_exists("methodUsabilityReason", $this->_propDict)) {
-            return $this->_propDict["methodUsabilityReason"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the methodUsabilityReason
-    * Details about the usability state (isUsable). Reasons can include: EnabledByPolicy, DisabledByPolicy, Expired, NotYetValid, OneTimeUsed.
-    *
-    * @param string $val The methodUsabilityReason
-    *
-    * @return TemporaryAccessPassAuthenticationMethod
-    */
-    public function setMethodUsabilityReason($val)
-    {
-        $this->_propDict["methodUsabilityReason"] = $val;
         return $this;
     }
 

@@ -381,6 +381,39 @@ class AndroidForWorkCompliancePolicy extends DeviceCompliancePolicy
     }
 
     /**
+    * Gets the requiredPasswordComplexity
+    * Indicates the required device password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is a new API targeted to Android API 12+. Possible values are: none, low, medium, high.
+    *
+    * @return AndroidRequiredPasswordComplexity|null The requiredPasswordComplexity
+    */
+    public function getRequiredPasswordComplexity()
+    {
+        if (array_key_exists("requiredPasswordComplexity", $this->_propDict)) {
+            if (is_a($this->_propDict["requiredPasswordComplexity"], "\Beta\Microsoft\Graph\Model\AndroidRequiredPasswordComplexity") || is_null($this->_propDict["requiredPasswordComplexity"])) {
+                return $this->_propDict["requiredPasswordComplexity"];
+            } else {
+                $this->_propDict["requiredPasswordComplexity"] = new AndroidRequiredPasswordComplexity($this->_propDict["requiredPasswordComplexity"]);
+                return $this->_propDict["requiredPasswordComplexity"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the requiredPasswordComplexity
+    * Indicates the required device password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is a new API targeted to Android API 12+. Possible values are: none, low, medium, high.
+    *
+    * @param AndroidRequiredPasswordComplexity $val The requiredPasswordComplexity
+    *
+    * @return AndroidForWorkCompliancePolicy
+    */
+    public function setRequiredPasswordComplexity($val)
+    {
+        $this->_propDict["requiredPasswordComplexity"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the securityBlockJailbrokenDevices
     * Devices must not be jailbroken or rooted.
     *

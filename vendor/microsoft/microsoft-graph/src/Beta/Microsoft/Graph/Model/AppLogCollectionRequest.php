@@ -26,7 +26,7 @@ class AppLogCollectionRequest extends Entity
 {
     /**
     * Gets the completedDateTime
-    * Time at which the upload log request reached a terminal state
+    * Time at which the upload log request reached a completed state if not completed yet NULL will be returned.
     *
     * @return \DateTime|null The completedDateTime
     */
@@ -45,7 +45,7 @@ class AppLogCollectionRequest extends Entity
 
     /**
     * Sets the completedDateTime
-    * Time at which the upload log request reached a terminal state
+    * Time at which the upload log request reached a completed state if not completed yet NULL will be returned.
     *
     * @param \DateTime $val The completedDateTime
     *
@@ -61,7 +61,7 @@ class AppLogCollectionRequest extends Entity
     * Gets the customLogFolders
     * List of log folders.
     *
-    * @return string|null The customLogFolders
+    * @return array|null The customLogFolders
     */
     public function getCustomLogFolders()
     {
@@ -76,7 +76,7 @@ class AppLogCollectionRequest extends Entity
     * Sets the customLogFolders
     * List of log folders.
     *
-    * @param string $val The customLogFolders
+    * @param string[] $val The customLogFolders
     *
     * @return AppLogCollectionRequest
     */
@@ -88,7 +88,7 @@ class AppLogCollectionRequest extends Entity
 
     /**
     * Gets the errorMessage
-    * Error message if any during the upload process
+    * Indicates error message if any during the upload process.
     *
     * @return string|null The errorMessage
     */
@@ -103,7 +103,7 @@ class AppLogCollectionRequest extends Entity
 
     /**
     * Sets the errorMessage
-    * Error message if any during the upload process
+    * Indicates error message if any during the upload process.
     *
     * @param string $val The errorMessage
     *
@@ -117,7 +117,7 @@ class AppLogCollectionRequest extends Entity
 
     /**
     * Gets the status
-    * Log upload status. Possible values are: pending, completed, failed.
+    * Indicates the status for the app log collection request if it is pending, completed or failed, Default is pending. Possible values are: pending, completed, failed, unknownFutureValue.
     *
     * @return AppLogUploadState|null The status
     */
@@ -136,7 +136,7 @@ class AppLogCollectionRequest extends Entity
 
     /**
     * Sets the status
-    * Log upload status. Possible values are: pending, completed, failed.
+    * Indicates the status for the app log collection request if it is pending, completed or failed, Default is pending. Possible values are: pending, completed, failed, unknownFutureValue.
     *
     * @param AppLogUploadState $val The status
     *

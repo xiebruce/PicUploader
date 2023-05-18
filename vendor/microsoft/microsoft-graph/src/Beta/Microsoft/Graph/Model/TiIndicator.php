@@ -61,7 +61,7 @@ class TiIndicator extends Entity
     * Gets the activityGroupNames
     * The cyber threat intelligence name(s) for the parties responsible for the malicious activity covered by the threat indicator.
     *
-    * @return string|null The activityGroupNames
+    * @return array|null The activityGroupNames
     */
     public function getActivityGroupNames()
     {
@@ -76,7 +76,7 @@ class TiIndicator extends Entity
     * Sets the activityGroupNames
     * The cyber threat intelligence name(s) for the parties responsible for the malicious activity covered by the threat indicator.
     *
-    * @param string $val The activityGroupNames
+    * @param string[] $val The activityGroupNames
     *
     * @return TiIndicator
     */
@@ -915,7 +915,7 @@ class TiIndicator extends Entity
     * Gets the killChain
     * A JSON array of strings that describes which point or points on the Kill Chain this indicator targets. See ‘killChain values’ below for exact values.
     *
-    * @return string|null The killChain
+    * @return array|null The killChain
     */
     public function getKillChain()
     {
@@ -930,7 +930,7 @@ class TiIndicator extends Entity
     * Sets the killChain
     * A JSON array of strings that describes which point or points on the Kill Chain this indicator targets. See ‘killChain values’ below for exact values.
     *
-    * @param string $val The killChain
+    * @param string[] $val The killChain
     *
     * @return TiIndicator
     */
@@ -1006,7 +1006,7 @@ class TiIndicator extends Entity
     * Gets the malwareFamilyNames
     * The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia.
     *
-    * @return string|null The malwareFamilyNames
+    * @return array|null The malwareFamilyNames
     */
     public function getMalwareFamilyNames()
     {
@@ -1021,7 +1021,7 @@ class TiIndicator extends Entity
     * Sets the malwareFamilyNames
     * The malware family name associated with an indicator if it exists. Microsoft prefers the Microsoft malware family name if at all possible which can be found via the Windows Defender Security Intelligence threat encyclopedia.
     *
-    * @param string $val The malwareFamilyNames
+    * @param string[] $val The malwareFamilyNames
     *
     * @return TiIndicator
     */
@@ -1498,7 +1498,7 @@ class TiIndicator extends Entity
     * Gets the tags
     * A JSON array of strings that stores arbitrary tags/keywords.
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -1513,7 +1513,7 @@ class TiIndicator extends Entity
     * Sets the tags
     * A JSON array of strings that stores arbitrary tags/keywords.
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return TiIndicator
     */

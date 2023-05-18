@@ -25,37 +25,6 @@ class DlpEvaluationInput extends Entity
 {
 
     /**
-    * Gets the accessScope
-    *
-    * @return AccessScope|null The accessScope
-    */
-    public function getAccessScope()
-    {
-        if (array_key_exists("accessScope", $this->_propDict)) {
-            if (is_a($this->_propDict["accessScope"], "\Beta\Microsoft\Graph\Model\AccessScope") || is_null($this->_propDict["accessScope"])) {
-                return $this->_propDict["accessScope"];
-            } else {
-                $this->_propDict["accessScope"] = new AccessScope($this->_propDict["accessScope"]);
-                return $this->_propDict["accessScope"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the accessScope
-    *
-    * @param AccessScope $val The value to assign to the accessScope
-    *
-    * @return DlpEvaluationInput The DlpEvaluationInput
-    */
-    public function setAccessScope($val)
-    {
-        $this->_propDict["accessScope"] = $val;
-         return $this;
-    }
-
-    /**
     * Gets the currentLabel
     *
     * @return CurrentLabel|null The currentLabel

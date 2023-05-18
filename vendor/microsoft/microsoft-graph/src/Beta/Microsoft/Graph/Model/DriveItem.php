@@ -1059,6 +1059,37 @@ class DriveItem extends BaseItem
         return $this;
     }
 
+    /**
+    * Gets the retentionLabel
+    *
+    * @return ItemRetentionLabel|null The retentionLabel
+    */
+    public function getRetentionLabel()
+    {
+        if (array_key_exists("retentionLabel", $this->_propDict)) {
+            if (is_a($this->_propDict["retentionLabel"], "\Beta\Microsoft\Graph\Model\ItemRetentionLabel") || is_null($this->_propDict["retentionLabel"])) {
+                return $this->_propDict["retentionLabel"];
+            } else {
+                $this->_propDict["retentionLabel"] = new ItemRetentionLabel($this->_propDict["retentionLabel"]);
+                return $this->_propDict["retentionLabel"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the retentionLabel
+    *
+    * @param ItemRetentionLabel $val The retentionLabel
+    *
+    * @return DriveItem
+    */
+    public function setRetentionLabel($val)
+    {
+        $this->_propDict["retentionLabel"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the subscriptions

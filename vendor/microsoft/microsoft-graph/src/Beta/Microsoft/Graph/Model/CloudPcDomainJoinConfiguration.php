@@ -51,6 +51,39 @@ class CloudPcDomainJoinConfiguration extends Entity
         $this->_propDict["onPremisesConnectionId"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the regionGroup
+    * The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when provisioning a Cloud PC, and the Cloud PC will be put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. Possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, and southKorea. Read-only.
+    *
+    * @return CloudPcRegionGroup|null The regionGroup
+    */
+    public function getRegionGroup()
+    {
+        if (array_key_exists("regionGroup", $this->_propDict)) {
+            if (is_a($this->_propDict["regionGroup"], "\Beta\Microsoft\Graph\Model\CloudPcRegionGroup") || is_null($this->_propDict["regionGroup"])) {
+                return $this->_propDict["regionGroup"];
+            } else {
+                $this->_propDict["regionGroup"] = new CloudPcRegionGroup($this->_propDict["regionGroup"]);
+                return $this->_propDict["regionGroup"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the regionGroup
+    * The logical geographic group this region belongs to. Multiple regions can belong to one region group. A customer can select a regionGroup when provisioning a Cloud PC, and the Cloud PC will be put in one of the regions in the group based on resource status. For example, the Europe region group contains the Northern Europe and Western Europe regions. Possible values are: default, australia, canada, usCentral, usEast, usWest, france, germany, europeUnion, unitedKingdom, japan, asia, india, southAmerica, euap, usGovernment, usGovernmentDOD, unknownFutureValue, norway, switzerland, and southKorea. Read-only.
+    *
+    * @param CloudPcRegionGroup $val The value to assign to the regionGroup
+    *
+    * @return CloudPcDomainJoinConfiguration The CloudPcDomainJoinConfiguration
+    */
+    public function setRegionGroup($val)
+    {
+        $this->_propDict["regionGroup"] = $val;
+         return $this;
+    }
     /**
     * Gets the regionName
     * The supported Azure region where the IT admin wants the provisioning policy to create Cloud PCs. The underlying virtual network will be created and managed by the Windows 365 service. This can only be entered if the IT admin chooses Azure AD joined as the domain join type. If you enter a regionName, leave onPremisesConnectionId as empty.

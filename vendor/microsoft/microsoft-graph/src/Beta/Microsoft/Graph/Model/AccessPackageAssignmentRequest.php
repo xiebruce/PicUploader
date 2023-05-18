@@ -122,6 +122,36 @@ class AccessPackageAssignmentRequest extends Entity
 
 
      /**
+     * Gets the customExtensionCalloutInstances
+    * Information about all the custom extension calls that were made during the access package assignment request workflow.
+     *
+     * @return array|null The customExtensionCalloutInstances
+     */
+    public function getCustomExtensionCalloutInstances()
+    {
+        if (array_key_exists("customExtensionCalloutInstances", $this->_propDict)) {
+           return $this->_propDict["customExtensionCalloutInstances"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the customExtensionCalloutInstances
+    * Information about all the custom extension calls that were made during the access package assignment request workflow.
+    *
+    * @param CustomExtensionCalloutInstance[] $val The customExtensionCalloutInstances
+    *
+    * @return AccessPackageAssignmentRequest
+    */
+    public function setCustomExtensionCalloutInstances($val)
+    {
+        $this->_propDict["customExtensionCalloutInstances"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the customExtensionHandlerInstances
     * A collection of custom workflow extension instances being run on an assignment request. Read-only.
      *
@@ -356,6 +386,36 @@ class AccessPackageAssignmentRequest extends Entity
     public function setSchedule($val)
     {
         $this->_propDict["schedule"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the verifiedCredentialsData
+    * The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.
+     *
+     * @return array|null The verifiedCredentialsData
+     */
+    public function getVerifiedCredentialsData()
+    {
+        if (array_key_exists("verifiedCredentialsData", $this->_propDict)) {
+           return $this->_propDict["verifiedCredentialsData"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the verifiedCredentialsData
+    * The details of the verifiable credential that was presented by the requestor, such as the issuer and claims. Read-only.
+    *
+    * @param VerifiedCredentialData[] $val The verifiedCredentialsData
+    *
+    * @return AccessPackageAssignmentRequest
+    */
+    public function setVerifiedCredentialsData($val)
+    {
+        $this->_propDict["verifiedCredentialsData"] = $val;
         return $this;
     }
 

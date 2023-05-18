@@ -35,8 +35,8 @@ class DeviceLicensingStatus extends Enum
     const DEVICE_IS_NOT_AZURE_ACTIVE_DIRECTORY_JOINED = "deviceIsNotAzureActiveDirectoryJoined";
     const VERIFYING_MICROSOFT_DEVICE_IDENTITY = "verifyingMicrosoftDeviceIdentity";
     const DEVICE_IDENTITY_VERIFICATION_FAILED = "deviceIdentityVerificationFailed";
-    const VERIFYING_MIROSOFT_ACCOUNT_IDENTITY = "verifyingMirosoftAccountIdentity";
-    const MIROSOFT_ACCOUNT_VERIFICATION_FAILED = "mirosoftAccountVerificationFailed";
+    const VERIFYING_MICROSOFT_ACCOUNT_IDENTITY = "verifyingMicrosoftAccountIdentity";
+    const MICROSOFT_ACCOUNT_VERIFICATION_FAILED = "microsoftAccountVerificationFailed";
     const ACQUIRING_DEVICE_LICENSE = "acquiringDeviceLicense";
     const REFRESHING_DEVICE_LICENSE = "refreshingDeviceLicense";
     const DEVICE_LICENSE_REFRESH_SUCCEED = "deviceLicenseRefreshSucceed";

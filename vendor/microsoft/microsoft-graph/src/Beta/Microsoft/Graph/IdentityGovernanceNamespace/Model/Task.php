@@ -27,7 +27,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the arguments
-    * Arguments included within the task.
+    * Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.
      *
      * @return array|null The arguments
      */
@@ -42,7 +42,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the arguments
-    * Arguments included within the task.
+    * Arguments included within the task.  For guidance to configure this property, see Configure the arguments for built-in Lifecycle Workflow tasks. Required.
     *
     * @param \Beta\Microsoft\Graph\Model\KeyValuePair[] $val The arguments
     *
@@ -56,7 +56,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the category
-    * The category of the task. The possible values are: joiner, leaver, unknownFutureValue. This property is multi-valued and the same task can apply to both joiner and leaver categories.
+    * The category of the task. The possible values are: joiner, leaver, unknownFutureValue. This property is multi-valued and the same task can apply to both joiner and leaver categories.Supports $filter(eq, ne).
     *
     * @return LifecycleTaskCategory|null The category
     */
@@ -75,7 +75,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the category
-    * The category of the task. The possible values are: joiner, leaver, unknownFutureValue. This property is multi-valued and the same task can apply to both joiner and leaver categories.
+    * The category of the task. The possible values are: joiner, leaver, unknownFutureValue. This property is multi-valued and the same task can apply to both joiner and leaver categories.Supports $filter(eq, ne).
     *
     * @param LifecycleTaskCategory $val The category
     *
@@ -89,7 +89,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the continueOnError
-    * A boolean value that determines if the failure of this task stops the subsequent workflows from running.
+    * A boolean value that specifies whether, if this task fails, the workflow will stop, and subsequent tasks will not run. Optional.
     *
     * @return bool|null The continueOnError
     */
@@ -104,7 +104,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the continueOnError
-    * A boolean value that determines if the failure of this task stops the subsequent workflows from running.
+    * A boolean value that specifies whether, if this task fails, the workflow will stop, and subsequent tasks will not run. Optional.
     *
     * @param bool $val The continueOnError
     *
@@ -118,7 +118,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the description
-    * A string that describes the purpose of the task for administrative use.
+    * A string that describes the purpose of the task for administrative use. Optional.
     *
     * @return string|null The description
     */
@@ -133,7 +133,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
-    * A string that describes the purpose of the task for administrative use.
+    * A string that describes the purpose of the task for administrative use. Optional.
     *
     * @param string $val The description
     *
@@ -147,7 +147,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the displayName
-    * A unique string that identifies the task. Supports $filter(eq) and orderBy.
+    * A unique string that identifies the task. Required.Supports $filter(eq, ne) and orderBy.
     *
     * @return string|null The displayName
     */
@@ -162,7 +162,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
-    * A unique string that identifies the task. Supports $filter(eq) and orderBy.
+    * A unique string that identifies the task. Required.Supports $filter(eq, ne) and orderBy.
     *
     * @param string $val The displayName
     *
@@ -176,7 +176,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the executionSequence
-    * An integer that states in what order the task will run in a workflow.
+    * An integer that states in what order the task will run in a workflow.Supports $orderby.
     *
     * @return int|null The executionSequence
     */
@@ -191,7 +191,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the executionSequence
-    * An integer that states in what order the task will run in a workflow.
+    * An integer that states in what order the task will run in a workflow.Supports $orderby.
     *
     * @param int $val The executionSequence
     *
@@ -205,7 +205,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the isEnabled
-    * A boolean value that denotes whether the task is set to run or not. Supports $filter(eq, ne) and orderBy.
+    * A boolean value that denotes whether the task is set to run or not. Optional.Supports $filter(eq, ne) and orderBy.
     *
     * @return bool|null The isEnabled
     */
@@ -220,7 +220,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isEnabled
-    * A boolean value that denotes whether the task is set to run or not. Supports $filter(eq, ne) and orderBy.
+    * A boolean value that denotes whether the task is set to run or not. Optional.Supports $filter(eq, ne) and orderBy.
     *
     * @param bool $val The isEnabled
     *
@@ -234,7 +234,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the taskDefinitionId
-    * A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks
+    * A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks. Required.Supports $filter(eq, ne).
     *
     * @return string|null The taskDefinitionId
     */
@@ -249,7 +249,7 @@ class Task extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the taskDefinitionId
-    * A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks
+    * A unique template identifier for the task. For more information about the tasks that Lifecycle Workflows currently supports and their unique identifiers, see supported tasks. Required.Supports $filter(eq, ne).
     *
     * @param string $val The taskDefinitionId
     *

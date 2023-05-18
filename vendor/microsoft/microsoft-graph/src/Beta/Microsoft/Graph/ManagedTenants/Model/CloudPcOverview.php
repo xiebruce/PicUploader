@@ -492,6 +492,7 @@ class CloudPcOverview extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the totalBusinessLicenses
+    * The total number of cloud PC devices that have the Business SKU. Optional. Read-only.
     *
     * @return int|null The totalBusinessLicenses
     */
@@ -506,6 +507,7 @@ class CloudPcOverview extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalBusinessLicenses
+    * The total number of cloud PC devices that have the Business SKU. Optional. Read-only.
     *
     * @param int $val The totalBusinessLicenses
     *
@@ -577,6 +579,7 @@ class CloudPcOverview extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the totalEnterpriseLicenses
+    * The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.
     *
     * @return int|null The totalEnterpriseLicenses
     */
@@ -591,6 +594,7 @@ class CloudPcOverview extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalEnterpriseLicenses
+    * The total number of cloud PC devices that have the Enterprise SKU. Optional. Read-only.
     *
     * @param int $val The totalEnterpriseLicenses
     *

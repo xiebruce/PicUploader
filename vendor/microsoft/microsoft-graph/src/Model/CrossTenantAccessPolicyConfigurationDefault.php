@@ -25,6 +25,39 @@ namespace Microsoft\Graph\Model;
 class CrossTenantAccessPolicyConfigurationDefault extends Entity
 {
     /**
+    * Gets the automaticUserConsentSettings
+    * Determines the default configuration for automatic user consent settings. The inboundAllowed and outboundAllowed properties are always false and cannot be updated in the default configuration. Read-only.
+    *
+    * @return InboundOutboundPolicyConfiguration|null The automaticUserConsentSettings
+    */
+    public function getAutomaticUserConsentSettings()
+    {
+        if (array_key_exists("automaticUserConsentSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["automaticUserConsentSettings"], "\Microsoft\Graph\Model\InboundOutboundPolicyConfiguration") || is_null($this->_propDict["automaticUserConsentSettings"])) {
+                return $this->_propDict["automaticUserConsentSettings"];
+            } else {
+                $this->_propDict["automaticUserConsentSettings"] = new InboundOutboundPolicyConfiguration($this->_propDict["automaticUserConsentSettings"]);
+                return $this->_propDict["automaticUserConsentSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the automaticUserConsentSettings
+    * Determines the default configuration for automatic user consent settings. The inboundAllowed and outboundAllowed properties are always false and cannot be updated in the default configuration. Read-only.
+    *
+    * @param InboundOutboundPolicyConfiguration $val The automaticUserConsentSettings
+    *
+    * @return CrossTenantAccessPolicyConfigurationDefault
+    */
+    public function setAutomaticUserConsentSettings($val)
+    {
+        $this->_propDict["automaticUserConsentSettings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the b2bCollaborationInbound
     * Defines your default configuration for users from other organizations accessing your resources via Azure AD B2B collaboration.
     *

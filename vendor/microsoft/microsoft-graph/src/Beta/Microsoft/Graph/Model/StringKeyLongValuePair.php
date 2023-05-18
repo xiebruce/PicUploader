@@ -25,7 +25,7 @@ class StringKeyLongValuePair extends Entity
 {
     /**
     * Gets the key
-    * Key.
+    * The mapping of the user type from the source system to the target system. For example:User to User - For Azure AD to Azure AD synchronization worker to user - For Workday to Azure AD synchronization.
     *
     * @return string|null The key
     */
@@ -40,7 +40,7 @@ class StringKeyLongValuePair extends Entity
 
     /**
     * Sets the key
-    * Key.
+    * The mapping of the user type from the source system to the target system. For example:User to User - For Azure AD to Azure AD synchronization worker to user - For Workday to Azure AD synchronization.
     *
     * @param string $val The value of the key
     *
@@ -53,7 +53,7 @@ class StringKeyLongValuePair extends Entity
     }
     /**
     * Gets the value
-    * Value.
+    * Total number of synchronized objects.
     *
     * @return int|null The value
     */
@@ -68,7 +68,7 @@ class StringKeyLongValuePair extends Entity
 
     /**
     * Sets the value
-    * Value.
+    * Total number of synchronized objects.
     *
     * @param int $val The value of the value
     *

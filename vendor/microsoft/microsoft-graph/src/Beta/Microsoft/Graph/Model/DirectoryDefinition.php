@@ -26,7 +26,7 @@ class DirectoryDefinition extends Entity
 {
     /**
     * Gets the discoverabilities
-    * Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+    * Read-only value indicating what type of discovery the app supports. The possible values are: None, AttributeNames, AttributeDataTypes, AttributeReadOnly, ReferenceAttributes, UnknownFutureValue. This is a multi-valued object.
     *
     * @return DirectoryDefinitionDiscoverabilities|null The discoverabilities
     */
@@ -45,7 +45,7 @@ class DirectoryDefinition extends Entity
 
     /**
     * Sets the discoverabilities
-    * Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+    * Read-only value indicating what type of discovery the app supports. The possible values are: None, AttributeNames, AttributeDataTypes, AttributeReadOnly, ReferenceAttributes, UnknownFutureValue. This is a multi-valued object.
     *
     * @param DirectoryDefinitionDiscoverabilities $val The discoverabilities
     *
@@ -151,6 +151,7 @@ class DirectoryDefinition extends Entity
 
     /**
     * Gets the readOnly
+    * Whether this object is read-only.
     *
     * @return bool|null The readOnly
     */
@@ -165,6 +166,7 @@ class DirectoryDefinition extends Entity
 
     /**
     * Sets the readOnly
+    * Whether this object is read-only.
     *
     * @param bool $val The readOnly
     *

@@ -114,6 +114,37 @@ class PrintDocument extends Entity
     }
 
     /**
+    * Gets the downloadedDateTime
+    *
+    * @return \DateTime|null The downloadedDateTime
+    */
+    public function getDownloadedDateTime()
+    {
+        if (array_key_exists("downloadedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["downloadedDateTime"], "\DateTime") || is_null($this->_propDict["downloadedDateTime"])) {
+                return $this->_propDict["downloadedDateTime"];
+            } else {
+                $this->_propDict["downloadedDateTime"] = new \DateTime($this->_propDict["downloadedDateTime"]);
+                return $this->_propDict["downloadedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the downloadedDateTime
+    *
+    * @param \DateTime $val The downloadedDateTime
+    *
+    * @return PrintDocument
+    */
+    public function setDownloadedDateTime($val)
+    {
+        $this->_propDict["downloadedDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the size
     * The document's size in bytes. Read-only.
     *
@@ -139,6 +170,37 @@ class PrintDocument extends Entity
     public function setSize($val)
     {
         $this->_propDict["size"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the uploadedDateTime
+    *
+    * @return \DateTime|null The uploadedDateTime
+    */
+    public function getUploadedDateTime()
+    {
+        if (array_key_exists("uploadedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["uploadedDateTime"], "\DateTime") || is_null($this->_propDict["uploadedDateTime"])) {
+                return $this->_propDict["uploadedDateTime"];
+            } else {
+                $this->_propDict["uploadedDateTime"] = new \DateTime($this->_propDict["uploadedDateTime"]);
+                return $this->_propDict["uploadedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the uploadedDateTime
+    *
+    * @param \DateTime $val The uploadedDateTime
+    *
+    * @return PrintDocument
+    */
+    public function setUploadedDateTime($val)
+    {
+        $this->_propDict["uploadedDateTime"] = $val;
         return $this;
     }
 

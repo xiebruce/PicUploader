@@ -53,7 +53,7 @@ class DefaultUserRolePermissions extends Entity
     }
     /**
     * Gets the allowedToCreateSecurityGroups
-    * Indicates whether the default user role can create security groups.
+    * Indicates whether the default user role can create security groups. This setting corresponds to the The Users can create security groups in Azure portals, API or PowerShell setting in the group settings menu in the Azure portal.
     *
     * @return bool|null The allowedToCreateSecurityGroups
     */
@@ -68,7 +68,7 @@ class DefaultUserRolePermissions extends Entity
 
     /**
     * Sets the allowedToCreateSecurityGroups
-    * Indicates whether the default user role can create security groups.
+    * Indicates whether the default user role can create security groups. This setting corresponds to the The Users can create security groups in Azure portals, API or PowerShell setting in the group settings menu in the Azure portal.
     *
     * @param bool $val The value of the allowedToCreateSecurityGroups
     *
@@ -77,6 +77,34 @@ class DefaultUserRolePermissions extends Entity
     public function setAllowedToCreateSecurityGroups($val)
     {
         $this->_propDict["allowedToCreateSecurityGroups"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the allowedToReadBitlockerKeysForOwnedDevice
+    * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+    *
+    * @return bool|null The allowedToReadBitlockerKeysForOwnedDevice
+    */
+    public function getAllowedToReadBitlockerKeysForOwnedDevice()
+    {
+        if (array_key_exists("allowedToReadBitlockerKeysForOwnedDevice", $this->_propDict)) {
+            return $this->_propDict["allowedToReadBitlockerKeysForOwnedDevice"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowedToReadBitlockerKeysForOwnedDevice
+    * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+    *
+    * @param bool $val The value of the allowedToReadBitlockerKeysForOwnedDevice
+    *
+    * @return DefaultUserRolePermissions
+    */
+    public function setAllowedToReadBitlockerKeysForOwnedDevice($val)
+    {
+        $this->_propDict["allowedToReadBitlockerKeysForOwnedDevice"] = $val;
         return $this;
     }
     /**

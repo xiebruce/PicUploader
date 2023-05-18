@@ -25,7 +25,7 @@ class ExcludeTarget extends Entity
 {
     /**
     * Gets the id
-    * The object identifier of an Azure AD user or group.
+    * The object identifier of an Azure AD group.
     *
     * @return string|null The id
     */
@@ -40,7 +40,7 @@ class ExcludeTarget extends Entity
 
     /**
     * Sets the id
-    * The object identifier of an Azure AD user or group.
+    * The object identifier of an Azure AD group.
     *
     * @param string $val The value of the id
     *
@@ -54,7 +54,7 @@ class ExcludeTarget extends Entity
 
     /**
     * Gets the targetType
-    * The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+    * The type of the authentication method target. Possible values are: group and unknownFutureValue.
     *
     * @return AuthenticationMethodTargetType|null The targetType
     */
@@ -73,7 +73,7 @@ class ExcludeTarget extends Entity
 
     /**
     * Sets the targetType
-    * The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+    * The type of the authentication method target. Possible values are: group and unknownFutureValue.
     *
     * @param AuthenticationMethodTargetType $val The value to assign to the targetType
     *

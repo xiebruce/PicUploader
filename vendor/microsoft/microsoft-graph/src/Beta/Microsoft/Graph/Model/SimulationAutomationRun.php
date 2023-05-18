@@ -121,7 +121,7 @@ class SimulationAutomationRun extends Entity
 
     /**
     * Gets the status
-    * Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+    * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
     *
     * @return SimulationAutomationRunStatus|null The status
     */
@@ -140,7 +140,7 @@ class SimulationAutomationRun extends Entity
 
     /**
     * Sets the status
-    * Status of the run of an attack simulation automation. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+    * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
     *
     * @param SimulationAutomationRunStatus $val The status
     *

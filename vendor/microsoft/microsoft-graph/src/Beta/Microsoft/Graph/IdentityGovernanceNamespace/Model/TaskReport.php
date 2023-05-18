@@ -26,7 +26,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the completedDateTime
-    * The date time that the associated run completed. Value is null if the run has not completed.
+    * The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The completedDateTime
     */
@@ -45,7 +45,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the completedDateTime
-    * The date time that the associated run completed. Value is null if the run has not completed.
+    * The date time that the associated run completed. Value is null if the run has not completed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The completedDateTime
     *
@@ -59,7 +59,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the failedUsersCount
-    * The number of users in the run execution for which the associated task failed.
+    * The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return int|null The failedUsersCount
     */
@@ -74,7 +74,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the failedUsersCount
-    * The number of users in the run execution for which the associated task failed.
+    * The number of users in the run execution for which the associated task failed.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param int $val The failedUsersCount
     *
@@ -121,7 +121,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the processingStatus
-    * The processing status of the associated task based on the taskProcessingResults. The possible values are based on the number of queued, inProgress, completed, completedWithErrors, canceled, failed, and unknownFutureValue.
+    * The processing status of the associated task based on the taskProcessingResults. The possible values are based on the number of queued, inProgress, completed, completedWithErrors, canceled, failed, and unknownFutureValue.Supports $filter(eq, ne) and $orderby.
     *
     * @return LifecycleWorkflowProcessingStatus|null The processingStatus
     */
@@ -140,7 +140,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the processingStatus
-    * The processing status of the associated task based on the taskProcessingResults. The possible values are based on the number of queued, inProgress, completed, completedWithErrors, canceled, failed, and unknownFutureValue.
+    * The processing status of the associated task based on the taskProcessingResults. The possible values are based on the number of queued, inProgress, completed, completedWithErrors, canceled, failed, and unknownFutureValue.Supports $filter(eq, ne) and $orderby.
     *
     * @param LifecycleWorkflowProcessingStatus $val The processingStatus
     *
@@ -216,7 +216,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the successfulUsersCount
-    * The number of users in the run execution for which the associated task succeeded.
+    * The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return int|null The successfulUsersCount
     */
@@ -231,7 +231,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the successfulUsersCount
-    * The number of users in the run execution for which the associated task succeeded.
+    * The number of users in the run execution for which the associated task succeeded.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param int $val The successfulUsersCount
     *
@@ -245,7 +245,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the totalUsersCount
-    * The total number of users in the run execution for which the associated task was scheduled to execute.
+    * The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return int|null The totalUsersCount
     */
@@ -260,7 +260,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalUsersCount
-    * The total number of users in the run execution for which the associated task was scheduled to execute.
+    * The total number of users in the run execution for which the associated task was scheduled to execute.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param int $val The totalUsersCount
     *
@@ -274,7 +274,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the unprocessedUsersCount
-    * The number of users in the run execution for which the associated task is queued, in progress, or canceled.
+    * The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return int|null The unprocessedUsersCount
     */
@@ -289,7 +289,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the unprocessedUsersCount
-    * The number of users in the run execution for which the associated task is queued, in progress, or canceled.
+    * The number of users in the run execution for which the associated task is queued, in progress, or canceled.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param int $val The unprocessedUsersCount
     *
@@ -303,7 +303,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the task
-    * The related lifecycle workflow task.
+    * The related lifecycle workflow task.Supports $filter(eq, ne) and $expand.
     *
     * @return Task|null The task
     */
@@ -322,7 +322,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the task
-    * The related lifecycle workflow task.
+    * The related lifecycle workflow task.Supports $filter(eq, ne) and $expand.
     *
     * @param Task $val The task
     *
@@ -336,7 +336,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the taskDefinition
-    * The taskDefinition associated with the related lifecycle workflow task.
+    * The taskDefinition associated with the related lifecycle workflow task.Supports $filter(eq, ne) and $expand.
     *
     * @return TaskDefinition|null The taskDefinition
     */
@@ -355,7 +355,7 @@ class TaskReport extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the taskDefinition
-    * The taskDefinition associated with the related lifecycle workflow task.
+    * The taskDefinition associated with the related lifecycle workflow task.Supports $filter(eq, ne) and $expand.
     *
     * @param TaskDefinition $val The taskDefinition
     *

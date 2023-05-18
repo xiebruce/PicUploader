@@ -26,7 +26,7 @@ class CloudPcOrganizationSettings extends Entity
 {
     /**
     * Gets the enableMEMAutoEnroll
-    * Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+    * Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager (MEM). The default value is false.
     *
     * @return bool|null The enableMEMAutoEnroll
     */
@@ -41,7 +41,7 @@ class CloudPcOrganizationSettings extends Entity
 
     /**
     * Sets the enableMEMAutoEnroll
-    * Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager(MEM). The default value is false.
+    * Specifies whether new Cloud PCs will be automatically enrolled in Microsoft Endpoint Manager (MEM). The default value is false.
     *
     * @param bool $val The enableMEMAutoEnroll
     *
@@ -50,6 +50,35 @@ class CloudPcOrganizationSettings extends Entity
     public function setEnableMEMAutoEnroll($val)
     {
         $this->_propDict["enableMEMAutoEnroll"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the enableSingleSignOn
+    * True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Azure Active Directory (Azure AD) with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
+    *
+    * @return bool|null The enableSingleSignOn
+    */
+    public function getEnableSingleSignOn()
+    {
+        if (array_key_exists("enableSingleSignOn", $this->_propDict)) {
+            return $this->_propDict["enableSingleSignOn"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enableSingleSignOn
+    * True if the provisioned Cloud PC can be accessed by single sign-on. False indicates that the provisioned Cloud PC doesn't support this feature. Default value is false. Windows 365 users can use single sign-on to authenticate to Azure Active Directory (Azure AD) with passwordless options (for example, FIDO keys) to access their Cloud PC. Optional.
+    *
+    * @param bool $val The enableSingleSignOn
+    *
+    * @return CloudPcOrganizationSettings
+    */
+    public function setEnableSingleSignOn($val)
+    {
+        $this->_propDict["enableSingleSignOn"] = boolval($val);
         return $this;
     }
 

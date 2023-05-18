@@ -24,10 +24,70 @@ namespace Microsoft\Graph\Model;
 */
 class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration
 {
+    /**
+    * Gets the featureSettings
+    * A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.
+    *
+    * @return MicrosoftAuthenticatorFeatureSettings|null The featureSettings
+    */
+    public function getFeatureSettings()
+    {
+        if (array_key_exists("featureSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["featureSettings"], "\Microsoft\Graph\Model\MicrosoftAuthenticatorFeatureSettings") || is_null($this->_propDict["featureSettings"])) {
+                return $this->_propDict["featureSettings"];
+            } else {
+                $this->_propDict["featureSettings"] = new MicrosoftAuthenticatorFeatureSettings($this->_propDict["featureSettings"]);
+                return $this->_propDict["featureSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the featureSettings
+    * A collection of Microsoft Authenticator settings such as application context and location context, and whether they are enabled for all users or specific users only.
+    *
+    * @param MicrosoftAuthenticatorFeatureSettings $val The featureSettings
+    *
+    * @return MicrosoftAuthenticatorAuthenticationMethodConfiguration
+    */
+    public function setFeatureSettings($val)
+    {
+        $this->_propDict["featureSettings"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the isSoftwareOathEnabled
+    *
+    * @return bool|null The isSoftwareOathEnabled
+    */
+    public function getIsSoftwareOathEnabled()
+    {
+        if (array_key_exists("isSoftwareOathEnabled", $this->_propDict)) {
+            return $this->_propDict["isSoftwareOathEnabled"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isSoftwareOathEnabled
+    *
+    * @param bool $val The isSoftwareOathEnabled
+    *
+    * @return MicrosoftAuthenticatorAuthenticationMethodConfiguration
+    */
+    public function setIsSoftwareOathEnabled($val)
+    {
+        $this->_propDict["isSoftwareOathEnabled"] = boolval($val);
+        return $this;
+    }
+
 
      /**
      * Gets the includeTargets
-    * A collection of users or groups who are enabled to use the authentication method.
+    * A collection of groups that are enabled to use the authentication method. Expanded by default.
      *
      * @return array|null The includeTargets
      */
@@ -42,7 +102,7 @@ class MicrosoftAuthenticatorAuthenticationMethodConfiguration extends Authentica
 
     /**
     * Sets the includeTargets
-    * A collection of users or groups who are enabled to use the authentication method.
+    * A collection of groups that are enabled to use the authentication method. Expanded by default.
     *
     * @param MicrosoftAuthenticatorAuthenticationMethodTarget[] $val The includeTargets
     *

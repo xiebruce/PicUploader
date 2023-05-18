@@ -25,6 +25,7 @@ class X509CertificateRule extends Entity
 {
     /**
     * Gets the identifier
+    * The identifier of the X.509 certificate. Required.
     *
     * @return string|null The identifier
     */
@@ -39,6 +40,7 @@ class X509CertificateRule extends Entity
 
     /**
     * Sets the identifier
+    * The identifier of the X.509 certificate. Required.
     *
     * @param string $val The value of the identifier
     *
@@ -52,6 +54,7 @@ class X509CertificateRule extends Entity
 
     /**
     * Gets the x509CertificateAuthenticationMode
+    * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
     *
     * @return X509CertificateAuthenticationMode|null The x509CertificateAuthenticationMode
     */
@@ -70,6 +73,7 @@ class X509CertificateRule extends Entity
 
     /**
     * Sets the x509CertificateAuthenticationMode
+    * The type of strong authentication mode. The possible values are: x509CertificateSingleFactor, x509CertificateMultiFactor, unknownFutureValue. Required.
     *
     * @param X509CertificateAuthenticationMode $val The value to assign to the x509CertificateAuthenticationMode
     *
@@ -83,6 +87,7 @@ class X509CertificateRule extends Entity
 
     /**
     * Gets the x509CertificateRuleType
+    * The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
     *
     * @return X509CertificateRuleType|null The x509CertificateRuleType
     */
@@ -101,6 +106,7 @@ class X509CertificateRule extends Entity
 
     /**
     * Sets the x509CertificateRuleType
+    * The type of the X.509 certificate mode configuration rule. The possible values are: issuerSubject, policyOID, unknownFutureValue. Required.
     *
     * @param X509CertificateRuleType $val The value to assign to the x509CertificateRuleType
     *

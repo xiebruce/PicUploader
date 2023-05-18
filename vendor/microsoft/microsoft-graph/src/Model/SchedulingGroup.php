@@ -86,7 +86,7 @@ class SchedulingGroup extends ChangeTrackedEntity
     * Gets the userIds
     * The list of user IDs that are a member of the schedulingGroup. Required.
     *
-    * @return string|null The userIds
+    * @return array|null The userIds
     */
     public function getUserIds()
     {
@@ -101,7 +101,7 @@ class SchedulingGroup extends ChangeTrackedEntity
     * Sets the userIds
     * The list of user IDs that are a member of the schedulingGroup. Required.
     *
-    * @param string $val The userIds
+    * @param string[] $val The userIds
     *
     * @return SchedulingGroup
     */

@@ -44,4 +44,6 @@ class DeviceManagementConfigurationStringFormat extends Enum
     const JSON = "json";
     const DATE_TIME = "dateTime";
     const SURFACE_HUB = "surfaceHub";
+    const BASH_SCRIPT = "bashScript";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

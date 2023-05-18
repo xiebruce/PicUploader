@@ -25,7 +25,7 @@ class CustomExtensionClientConfiguration extends Entity
 {
     /**
     * Gets the timeoutInMilliseconds
-    * The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+    * The max duration in milliseconds that Azure AD will wait for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
     *
     * @return int|null The timeoutInMilliseconds
     */
@@ -40,7 +40,7 @@ class CustomExtensionClientConfiguration extends Entity
 
     /**
     * Sets the timeoutInMilliseconds
-    * The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+    * The max duration in milliseconds that Azure AD will wait for a response from the external app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
     *
     * @param int $val The value of the timeoutInMilliseconds
     *

@@ -53,7 +53,7 @@ class RecommendedAction extends Entity
     }
     /**
     * Gets the potentialScoreImpact
-    * Potential improvement in security score of the tenant from the recommended action.
+    * Potential improvement in the tenant security score from the recommended action.
     *
     * @return float|null The potentialScoreImpact
     */
@@ -68,7 +68,7 @@ class RecommendedAction extends Entity
 
     /**
     * Sets the potentialScoreImpact
-    * Potential improvement in security score of the tenant from the recommended action.
+    * Potential improvement in the tenant security score from the recommended action.
     *
     * @param float $val The value of the potentialScoreImpact
     *

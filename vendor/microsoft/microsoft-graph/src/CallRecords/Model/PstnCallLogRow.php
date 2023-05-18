@@ -264,7 +264,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the currency
-    * Type of currency used to calculate the cost of the call (ISO 4217).
+    * Type of currency used to calculate the cost of the call. For details, see (ISO 4217.
     *
     * @return string|null The currency
     */
@@ -279,7 +279,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the currency
-    * Type of currency used to calculate the cost of the call (ISO 4217).
+    * Type of currency used to calculate the cost of the call. For details, see (ISO 4217.
     *
     * @param string $val The value of the currency
     *
@@ -554,7 +554,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the tenantCountryCode
-    * Country code of the tenant, ISO 3166-1 alpha-2.
+    * Country code of the tenant. For details, see ISO 3166-1 alpha-2.
     *
     * @return string|null The tenantCountryCode
     */
@@ -569,7 +569,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the tenantCountryCode
-    * Country code of the tenant, ISO 3166-1 alpha-2.
+    * Country code of the tenant. For details, see ISO 3166-1 alpha-2.
     *
     * @param string $val The value of the tenantCountryCode
     *
@@ -582,7 +582,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the usageCountryCode
-    * Country code of the user, ISO 3166-1 alpha-2.
+    * Country code of the user. For details, see ISO 3166-1 alpha-2.
     *
     * @return string|null The usageCountryCode
     */
@@ -597,7 +597,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the usageCountryCode
-    * Country code of the user, ISO 3166-1 alpha-2.
+    * Country code of the user. For details, see ISO 3166-1 alpha-2.
     *
     * @param string $val The value of the usageCountryCode
     *
@@ -666,7 +666,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the userPrincipalName
-    * UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+    * The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
     *
     * @return string|null The userPrincipalName
     */
@@ -681,7 +681,7 @@ class PstnCallLogRow extends \Microsoft\Graph\Model\Entity
 
     /**
     * Sets the userPrincipalName
-    * UserPrincipalName (sign-in name) in Azure Active Directory. This is usually the same as user's SIP Address, and can be same as user's e-mail address.
+    * The user principal name (sign-in name) in Azure Active Directory. This is usually the same as the user's SIP address, and can be same as the user's e-mail address.
     *
     * @param string $val The value of the userPrincipalName
     *

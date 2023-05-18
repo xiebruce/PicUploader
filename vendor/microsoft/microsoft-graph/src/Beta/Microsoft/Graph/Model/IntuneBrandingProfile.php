@@ -320,6 +320,35 @@ class IntuneBrandingProfile extends Entity
     }
 
     /**
+    * Gets the disableDeviceCategorySelection
+    * Boolean that indicates if Device Category Selection will be shown in Company Portal
+    *
+    * @return bool|null The disableDeviceCategorySelection
+    */
+    public function getDisableDeviceCategorySelection()
+    {
+        if (array_key_exists("disableDeviceCategorySelection", $this->_propDict)) {
+            return $this->_propDict["disableDeviceCategorySelection"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the disableDeviceCategorySelection
+    * Boolean that indicates if Device Category Selection will be shown in Company Portal
+    *
+    * @param bool $val The disableDeviceCategorySelection
+    *
+    * @return IntuneBrandingProfile
+    */
+    public function setDisableDeviceCategorySelection($val)
+    {
+        $this->_propDict["disableDeviceCategorySelection"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the displayName
     * Company/organization name that is displayed to end users
     *
@@ -716,7 +745,7 @@ class IntuneBrandingProfile extends Entity
     * Gets the roleScopeTagIds
     * List of scope tags assigned to the branding profile
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -731,7 +760,7 @@ class IntuneBrandingProfile extends Entity
     * Sets the roleScopeTagIds
     * List of scope tags assigned to the branding profile
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return IntuneBrandingProfile
     */
@@ -796,6 +825,35 @@ class IntuneBrandingProfile extends Entity
     public function setShowAzureADEnterpriseApps($val)
     {
         $this->_propDict["showAzureADEnterpriseApps"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the showConfigurationManagerApps
+    * Boolean that indicates if Configuration Manager Apps will be shown in Company Portal
+    *
+    * @return bool|null The showConfigurationManagerApps
+    */
+    public function getShowConfigurationManagerApps()
+    {
+        if (array_key_exists("showConfigurationManagerApps", $this->_propDict)) {
+            return $this->_propDict["showConfigurationManagerApps"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the showConfigurationManagerApps
+    * Boolean that indicates if Configuration Manager Apps will be shown in Company Portal
+    *
+    * @param bool $val The showConfigurationManagerApps
+    *
+    * @return IntuneBrandingProfile
+    */
+    public function setShowConfigurationManagerApps($val)
+    {
+        $this->_propDict["showConfigurationManagerApps"] = boolval($val);
         return $this;
     }
 

@@ -26,8 +26,68 @@ class AttackSimulationRoot extends Entity
 {
 
      /**
+     * Gets the operations
+    * Represents an attack simulation training operation.
+     *
+     * @return array|null The operations
+     */
+    public function getOperations()
+    {
+        if (array_key_exists("operations", $this->_propDict)) {
+           return $this->_propDict["operations"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the operations
+    * Represents an attack simulation training operation.
+    *
+    * @param AttackSimulationOperation[] $val The operations
+    *
+    * @return AttackSimulationRoot
+    */
+    public function setOperations($val)
+    {
+        $this->_propDict["operations"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the payloads
+    * Represents an attack simulation training campaign payload in a tenant.
+     *
+     * @return array|null The payloads
+     */
+    public function getPayloads()
+    {
+        if (array_key_exists("payloads", $this->_propDict)) {
+           return $this->_propDict["payloads"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the payloads
+    * Represents an attack simulation training campaign payload in a tenant.
+    *
+    * @param Payload[] $val The payloads
+    *
+    * @return AttackSimulationRoot
+    */
+    public function setPayloads($val)
+    {
+        $this->_propDict["payloads"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the simulationAutomations
-    * Represents simulation automations created to run on a tenant.
+    * Represents simulation automation created to run on a tenant.
      *
      * @return array|null The simulationAutomations
      */
@@ -42,7 +102,7 @@ class AttackSimulationRoot extends Entity
 
     /**
     * Sets the simulationAutomations
-    * Represents simulation automations created to run on a tenant.
+    * Represents simulation automation created to run on a tenant.
     *
     * @param SimulationAutomation[] $val The simulationAutomations
     *

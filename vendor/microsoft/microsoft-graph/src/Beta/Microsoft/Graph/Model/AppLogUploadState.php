@@ -32,4 +32,5 @@ class AppLogUploadState extends Enum
     const PENDING = "pending";
     const COMPLETED = "completed";
     const FAILED = "failed";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

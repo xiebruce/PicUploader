@@ -185,6 +185,37 @@ class ConditionalAccessSessionControls extends Entity
     }
 
     /**
+    * Gets the secureSignInSession
+    *
+    * @return SecureSignInSessionControl|null The secureSignInSession
+    */
+    public function getSecureSignInSession()
+    {
+        if (array_key_exists("secureSignInSession", $this->_propDict)) {
+            if (is_a($this->_propDict["secureSignInSession"], "\Beta\Microsoft\Graph\Model\SecureSignInSessionControl") || is_null($this->_propDict["secureSignInSession"])) {
+                return $this->_propDict["secureSignInSession"];
+            } else {
+                $this->_propDict["secureSignInSession"] = new SecureSignInSessionControl($this->_propDict["secureSignInSession"]);
+                return $this->_propDict["secureSignInSession"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the secureSignInSession
+    *
+    * @param SecureSignInSessionControl $val The value to assign to the secureSignInSession
+    *
+    * @return ConditionalAccessSessionControls The ConditionalAccessSessionControls
+    */
+    public function setSecureSignInSession($val)
+    {
+        $this->_propDict["secureSignInSession"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the signInFrequency
     * Session control to enforce signin frequency.
     *

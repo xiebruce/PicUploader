@@ -87,6 +87,39 @@ class CloudPcSnapshot extends Entity
     }
 
     /**
+    * Gets the expirationDateTime
+    * The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    *
+    * @return \DateTime|null The expirationDateTime
+    */
+    public function getExpirationDateTime()
+    {
+        if (array_key_exists("expirationDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+                return $this->_propDict["expirationDateTime"];
+            } else {
+                $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
+                return $this->_propDict["expirationDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the expirationDateTime
+    * The date and time when the snapshot expires. The time is shown in ISO 8601 format and Coordinated Universal Time (UTC) time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+    *
+    * @param \DateTime $val The expirationDateTime
+    *
+    * @return CloudPcSnapshot
+    */
+    public function setExpirationDateTime($val)
+    {
+        $this->_propDict["expirationDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the lastRestoredDateTime
     * The date and time at which the snapshot was last used to restore the Cloud PC device. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
@@ -116,6 +149,39 @@ class CloudPcSnapshot extends Entity
     public function setLastRestoredDateTime($val)
     {
         $this->_propDict["lastRestoredDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the snapshotType
+    * The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
+    *
+    * @return CloudPcSnapshotType|null The snapshotType
+    */
+    public function getSnapshotType()
+    {
+        if (array_key_exists("snapshotType", $this->_propDict)) {
+            if (is_a($this->_propDict["snapshotType"], "\Beta\Microsoft\Graph\Model\CloudPcSnapshotType") || is_null($this->_propDict["snapshotType"])) {
+                return $this->_propDict["snapshotType"];
+            } else {
+                $this->_propDict["snapshotType"] = new CloudPcSnapshotType($this->_propDict["snapshotType"]);
+                return $this->_propDict["snapshotType"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the snapshotType
+    * The type of snapshot that indicates how to create the snapshot. Possible values are automatic, manual. Default value is automatic.
+    *
+    * @param CloudPcSnapshotType $val The snapshotType
+    *
+    * @return CloudPcSnapshot
+    */
+    public function setSnapshotType($val)
+    {
+        $this->_propDict["snapshotType"] = $val;
         return $this;
     }
 

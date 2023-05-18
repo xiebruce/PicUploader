@@ -80,6 +80,32 @@ class UserAccount extends \Beta\Microsoft\Graph\Model\Entity
         return $this;
     }
     /**
+    * Gets the displayName
+    *
+    * @return string|null The displayName
+    */
+    public function getDisplayName()
+    {
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the displayName
+    *
+    * @param string $val The value of the displayName
+    *
+    * @return UserAccount
+    */
+    public function setDisplayName($val)
+    {
+        $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+    /**
     * Gets the domainName
     * The name of the Active Directory domain of which the user is a member.
     *

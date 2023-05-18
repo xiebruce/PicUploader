@@ -187,6 +187,68 @@ class MacOSSoftwareUpdateConfiguration extends DeviceConfiguration
     }
 
     /**
+    * Gets the maxUserDeferralsCount
+    * The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365
+    *
+    * @return int|null The maxUserDeferralsCount
+    */
+    public function getMaxUserDeferralsCount()
+    {
+        if (array_key_exists("maxUserDeferralsCount", $this->_propDict)) {
+            return $this->_propDict["maxUserDeferralsCount"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the maxUserDeferralsCount
+    * The maximum number of times the system allows the user to postpone an update before it’s installed. Supported values: 0 - 366. Valid values 0 to 365
+    *
+    * @param int $val The maxUserDeferralsCount
+    *
+    * @return MacOSSoftwareUpdateConfiguration
+    */
+    public function setMaxUserDeferralsCount($val)
+    {
+        $this->_propDict["maxUserDeferralsCount"] = intval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the priority
+    * The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
+    *
+    * @return MacOSPriority|null The priority
+    */
+    public function getPriority()
+    {
+        if (array_key_exists("priority", $this->_propDict)) {
+            if (is_a($this->_propDict["priority"], "\Beta\Microsoft\Graph\Model\MacOSPriority") || is_null($this->_propDict["priority"])) {
+                return $this->_propDict["priority"];
+            } else {
+                $this->_propDict["priority"] = new MacOSPriority($this->_propDict["priority"]);
+                return $this->_propDict["priority"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the priority
+    * The scheduling priority for downloading and preparing the requested update. Default: Low. Possible values: Null, Low, High. Possible values are: low, high, unknownFutureValue.
+    *
+    * @param MacOSPriority $val The priority
+    *
+    * @return MacOSSoftwareUpdateConfiguration
+    */
+    public function setPriority($val)
+    {
+        $this->_propDict["priority"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the updateScheduleType
     * Update schedule type. Possible values are: alwaysUpdate, updateDuringTimeWindows, updateOutsideOfTimeWindows.
     *

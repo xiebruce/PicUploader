@@ -28,7 +28,7 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
     * Gets the propertyDefinitionIds
     * The definitions of each property of the complex setting
     *
-    * @return string|null The propertyDefinitionIds
+    * @return array|null The propertyDefinitionIds
     */
     public function getPropertyDefinitionIds()
     {
@@ -43,7 +43,7 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
     * Sets the propertyDefinitionIds
     * The definitions of each property of the complex setting
     *
-    * @param string $val The propertyDefinitionIds
+    * @param string[] $val The propertyDefinitionIds
     *
     * @return DeviceManagementComplexSettingDefinition
     */

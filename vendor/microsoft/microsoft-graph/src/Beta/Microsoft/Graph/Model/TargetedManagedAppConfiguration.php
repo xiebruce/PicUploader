@@ -115,6 +115,39 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
         return $this;
     }
 
+    /**
+    * Gets the targetedAppManagementLevels
+    * The intended app management levels for this policy
+    *
+    * @return AppManagementLevel|null The targetedAppManagementLevels
+    */
+    public function getTargetedAppManagementLevels()
+    {
+        if (array_key_exists("targetedAppManagementLevels", $this->_propDict)) {
+            if (is_a($this->_propDict["targetedAppManagementLevels"], "\Beta\Microsoft\Graph\Model\AppManagementLevel") || is_null($this->_propDict["targetedAppManagementLevels"])) {
+                return $this->_propDict["targetedAppManagementLevels"];
+            } else {
+                $this->_propDict["targetedAppManagementLevels"] = new AppManagementLevel($this->_propDict["targetedAppManagementLevels"]);
+                return $this->_propDict["targetedAppManagementLevels"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the targetedAppManagementLevels
+    * The intended app management levels for this policy
+    *
+    * @param AppManagementLevel $val The targetedAppManagementLevels
+    *
+    * @return TargetedManagedAppConfiguration
+    */
+    public function setTargetedAppManagementLevels($val)
+    {
+        $this->_propDict["targetedAppManagementLevels"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the apps

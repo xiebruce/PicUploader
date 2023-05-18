@@ -53,4 +53,35 @@ class BuiltInIdentityProvider extends IdentityProviderBase
         return $this;
     }
 
+    /**
+    * Gets the state
+    *
+    * @return IdentityProviderState|null The state
+    */
+    public function getState()
+    {
+        if (array_key_exists("state", $this->_propDict)) {
+            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\IdentityProviderState") || is_null($this->_propDict["state"])) {
+                return $this->_propDict["state"];
+            } else {
+                $this->_propDict["state"] = new IdentityProviderState($this->_propDict["state"]);
+                return $this->_propDict["state"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the state
+    *
+    * @param IdentityProviderState $val The state
+    *
+    * @return BuiltInIdentityProvider
+    */
+    public function setState($val)
+    {
+        $this->_propDict["state"] = $val;
+        return $this;
+    }
+
 }

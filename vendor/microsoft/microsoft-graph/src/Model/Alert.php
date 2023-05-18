@@ -264,7 +264,7 @@ class Alert extends Entity
     * Gets the comments
     * Customer-provided comments on alert (for customer alert management) (supports update).
     *
-    * @return string|null The comments
+    * @return array|null The comments
     */
     public function getComments()
     {
@@ -279,7 +279,7 @@ class Alert extends Entity
     * Sets the comments
     * Customer-provided comments on alert (for customer alert management) (supports update).
     *
-    * @param string $val The comments
+    * @param string[] $val The comments
     *
     * @return Alert
     */
@@ -384,7 +384,7 @@ class Alert extends Entity
     * Gets the detectionIds
     * Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).
     *
-    * @return string|null The detectionIds
+    * @return array|null The detectionIds
     */
     public function getDetectionIds()
     {
@@ -399,7 +399,7 @@ class Alert extends Entity
     * Sets the detectionIds
     * Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).
     *
-    * @param string $val The detectionIds
+    * @param string[] $val The detectionIds
     *
     * @return Alert
     */
@@ -567,7 +567,7 @@ class Alert extends Entity
     * Gets the incidentIds
     * IDs of incidents related to current alert.
     *
-    * @return string|null The incidentIds
+    * @return array|null The incidentIds
     */
     public function getIncidentIds()
     {
@@ -582,7 +582,7 @@ class Alert extends Entity
     * Sets the incidentIds
     * IDs of incidents related to current alert.
     *
-    * @param string $val The incidentIds
+    * @param string[] $val The incidentIds
     *
     * @return Alert
     */
@@ -806,7 +806,7 @@ class Alert extends Entity
     * Gets the recommendedActions
     * Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).
     *
-    * @return string|null The recommendedActions
+    * @return array|null The recommendedActions
     */
     public function getRecommendedActions()
     {
@@ -821,7 +821,7 @@ class Alert extends Entity
     * Sets the recommendedActions
     * Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).
     *
-    * @param string $val The recommendedActions
+    * @param string[] $val The recommendedActions
     *
     * @return Alert
     */
@@ -928,7 +928,7 @@ class Alert extends Entity
     * Gets the sourceMaterials
     * Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.
     *
-    * @return string|null The sourceMaterials
+    * @return array|null The sourceMaterials
     */
     public function getSourceMaterials()
     {
@@ -943,7 +943,7 @@ class Alert extends Entity
     * Sets the sourceMaterials
     * Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.
     *
-    * @param string $val The sourceMaterials
+    * @param string[] $val The sourceMaterials
     *
     * @return Alert
     */
@@ -990,7 +990,7 @@ class Alert extends Entity
     * Gets the tags
     * User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -1005,7 +1005,7 @@ class Alert extends Entity
     * Sets the tags
     * User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return Alert
     */

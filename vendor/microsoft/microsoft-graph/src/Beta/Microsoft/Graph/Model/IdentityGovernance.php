@@ -211,6 +211,68 @@ class IdentityGovernance implements \JsonSerializable
     }
 
     /**
+    * Gets the privilegedAccess
+    *
+    * @return PrivilegedAccessRoot|null The privilegedAccess
+    */
+    public function getPrivilegedAccess()
+    {
+        if (array_key_exists("privilegedAccess", $this->_propDict)) {
+            if (is_a($this->_propDict["privilegedAccess"], "\Beta\Microsoft\Graph\Model\PrivilegedAccessRoot") || is_null($this->_propDict["privilegedAccess"])) {
+                return $this->_propDict["privilegedAccess"];
+            } else {
+                $this->_propDict["privilegedAccess"] = new PrivilegedAccessRoot($this->_propDict["privilegedAccess"]);
+                return $this->_propDict["privilegedAccess"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the privilegedAccess
+    *
+    * @param PrivilegedAccessRoot $val The privilegedAccess
+    *
+    * @return IdentityGovernance
+    */
+    public function setPrivilegedAccess($val)
+    {
+        $this->_propDict["privilegedAccess"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the roleManagementAlerts
+    *
+    * @return RoleManagementAlert|null The roleManagementAlerts
+    */
+    public function getRoleManagementAlerts()
+    {
+        if (array_key_exists("roleManagementAlerts", $this->_propDict)) {
+            if (is_a($this->_propDict["roleManagementAlerts"], "\Beta\Microsoft\Graph\Model\RoleManagementAlert") || is_null($this->_propDict["roleManagementAlerts"])) {
+                return $this->_propDict["roleManagementAlerts"];
+            } else {
+                $this->_propDict["roleManagementAlerts"] = new RoleManagementAlert($this->_propDict["roleManagementAlerts"]);
+                return $this->_propDict["roleManagementAlerts"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the roleManagementAlerts
+    *
+    * @param RoleManagementAlert $val The roleManagementAlerts
+    *
+    * @return IdentityGovernance
+    */
+    public function setRoleManagementAlerts($val)
+    {
+        $this->_propDict["roleManagementAlerts"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the ODataType
     *
     * @return string|null The ODataType
@@ -253,6 +315,8 @@ class IdentityGovernance implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

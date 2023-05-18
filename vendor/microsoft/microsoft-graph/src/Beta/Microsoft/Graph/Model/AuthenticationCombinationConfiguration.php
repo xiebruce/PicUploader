@@ -27,6 +27,7 @@ class AuthenticationCombinationConfiguration extends Entity
 
      /**
      * Gets the appliesToCombinations
+    * Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
      *
      * @return array|null The appliesToCombinations
      */
@@ -41,6 +42,7 @@ class AuthenticationCombinationConfiguration extends Entity
 
     /**
     * Sets the appliesToCombinations
+    * Which authentication method combinations this configuration applies to. Must be an allowedCombinations object that's defined for the authenticationStrengthPolicy. The only possible value for fido2combinationConfigurations is 'fido2'.
     *
     * @param AuthenticationMethodModes[] $val The appliesToCombinations
     *

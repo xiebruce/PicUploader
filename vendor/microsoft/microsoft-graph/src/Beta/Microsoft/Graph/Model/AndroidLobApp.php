@@ -26,7 +26,7 @@ class AndroidLobApp extends MobileLobApp
 {
     /**
     * Gets the identityName
-    * The Identity Name.
+    * The Identity Name. This property is being deprecated in 2302(February 2023).
     *
     * @return string|null The identityName
     */
@@ -41,7 +41,7 @@ class AndroidLobApp extends MobileLobApp
 
     /**
     * Sets the identityName
-    * The Identity Name.
+    * The Identity Name. This property is being deprecated in 2302(February 2023).
     *
     * @param string $val The identityName
     *
@@ -55,7 +55,7 @@ class AndroidLobApp extends MobileLobApp
 
     /**
     * Gets the identityVersion
-    * The identity version.
+    * The identity version. This property is being deprecated in 2302(February 2023).
     *
     * @return string|null The identityVersion
     */
@@ -70,7 +70,7 @@ class AndroidLobApp extends MobileLobApp
 
     /**
     * Sets the identityVersion
-    * The identity version.
+    * The identity version. This property is being deprecated in 2302(February 2023).
     *
     * @param string $val The identityVersion
     *

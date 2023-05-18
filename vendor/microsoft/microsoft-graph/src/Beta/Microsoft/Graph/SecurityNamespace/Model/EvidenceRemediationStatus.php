@@ -34,10 +34,5 @@ class EvidenceRemediationStatus extends Enum
     const PREVENTED = "prevented";
     const BLOCKED = "blocked";
     const NOT_FOUND = "notFound";
-    const ACTIVE = "active";
-    const PENDING_APPROVAL = "pendingApproval";
-    const DECLINED = "declined";
-    const NOT_REMEDIATED = "notRemediated";
-    const RUNNING = "running";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

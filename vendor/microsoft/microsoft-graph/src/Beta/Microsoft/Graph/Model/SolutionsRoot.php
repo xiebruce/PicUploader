@@ -55,6 +55,34 @@ class SolutionsRoot implements \JsonSerializable
         return $this->_propDict;
     }
 
+
+     /**
+     * Gets the businessScenarios
+     *
+     * @return array|null The businessScenarios
+     */
+    public function getBusinessScenarios()
+    {
+        if (array_key_exists("businessScenarios", $this->_propDict)) {
+           return $this->_propDict["businessScenarios"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the businessScenarios
+    *
+    * @param BusinessScenario[] $val The businessScenarios
+    *
+    * @return SolutionsRoot
+    */
+    public function setBusinessScenarios($val)
+    {
+        $this->_propDict["businessScenarios"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the ODataType
     *
@@ -98,6 +126,8 @@ class SolutionsRoot implements \JsonSerializable
                 $serializableProperties[$property] = $val->value();
             } else if (is_a($val, "\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
+            } else if (is_a($val, "\GuzzleHttp\Psr7\Stream")) {
+                $serializableProperties[$property] = (string) $val;
             }
         }
         return $serializableProperties;

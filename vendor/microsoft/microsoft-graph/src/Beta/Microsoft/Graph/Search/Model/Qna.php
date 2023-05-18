@@ -94,7 +94,7 @@ class Qna extends SearchAnswer
     * Gets the groupIds
     * List of security groups able to view this qna.
     *
-    * @return string|null The groupIds
+    * @return array|null The groupIds
     */
     public function getGroupIds()
     {
@@ -109,7 +109,7 @@ class Qna extends SearchAnswer
     * Sets the groupIds
     * List of security groups able to view this qna.
     *
-    * @param string $val The groupIds
+    * @param string[] $val The groupIds
     *
     * @return Qna
     */
@@ -183,9 +183,9 @@ class Qna extends SearchAnswer
 
     /**
     * Gets the languageTags
-    * A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+    * A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. For the list of possible values, see supported language tags.
     *
-    * @return string|null The languageTags
+    * @return array|null The languageTags
     */
     public function getLanguageTags()
     {
@@ -198,9 +198,9 @@ class Qna extends SearchAnswer
 
     /**
     * Sets the languageTags
-    * A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
+    * A list of language names that are geographically specific and that this QnA can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. For the list of possible values, see supported language tags.
     *
-    * @param string $val The languageTags
+    * @param string[] $val The languageTags
     *
     * @return Qna
     */

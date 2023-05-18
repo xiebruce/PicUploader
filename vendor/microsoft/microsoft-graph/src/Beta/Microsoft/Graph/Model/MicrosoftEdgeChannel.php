@@ -32,4 +32,5 @@ class MicrosoftEdgeChannel extends Enum
     const DEV = "dev";
     const BETA = "beta";
     const STABLE = "stable";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

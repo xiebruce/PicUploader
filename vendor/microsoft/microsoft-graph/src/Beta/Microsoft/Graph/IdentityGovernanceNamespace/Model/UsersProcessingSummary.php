@@ -25,7 +25,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the failedTasks
-    * Numerical count of failed tasks for users processed by a workflow.
     *
     * @return int|null The failedTasks
     */
@@ -40,7 +39,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the failedTasks
-    * Numerical count of failed tasks for users processed by a workflow.
     *
     * @param int $val The value of the failedTasks
     *
@@ -53,7 +51,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the failedUsers
-    * Numerical count of failed users processed by a workflow.
     *
     * @return int|null The failedUsers
     */
@@ -68,7 +65,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the failedUsers
-    * Numerical count of failed users processed by a workflow.
     *
     * @param int $val The value of the failedUsers
     *
@@ -81,7 +77,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the successfulUsers
-    * Numerical count of successful users processed by a workflow.
     *
     * @return int|null The successfulUsers
     */
@@ -96,7 +91,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the successfulUsers
-    * Numerical count of successful users processed by a workflow.
     *
     * @param int $val The value of the successfulUsers
     *
@@ -109,7 +103,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the totalTasks
-    * Numerical count of total tasks for users processed by a workflow.
     *
     * @return int|null The totalTasks
     */
@@ -124,7 +117,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalTasks
-    * Numerical count of total tasks for users processed by a workflow.
     *
     * @param int $val The value of the totalTasks
     *
@@ -137,7 +129,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the totalUsers
-    * Numerical count of total users processed by a workflow.
     *
     * @return int|null The totalUsers
     */
@@ -152,7 +143,6 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the totalUsers
-    * Numerical count of total users processed by a workflow.
     *
     * @param int $val The value of the totalUsers
     *

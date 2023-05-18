@@ -53,6 +53,36 @@ class DeviceManagementPartner extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the groupsRequiringPartnerEnrollment
+    * User groups that specifies whether enrollment is through partner.
+     *
+     * @return array|null The groupsRequiringPartnerEnrollment
+     */
+    public function getGroupsRequiringPartnerEnrollment()
+    {
+        if (array_key_exists("groupsRequiringPartnerEnrollment", $this->_propDict)) {
+           return $this->_propDict["groupsRequiringPartnerEnrollment"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the groupsRequiringPartnerEnrollment
+    * User groups that specifies whether enrollment is through partner.
+    *
+    * @param DeviceManagementPartnerAssignment[] $val The groupsRequiringPartnerEnrollment
+    *
+    * @return DeviceManagementPartner
+    */
+    public function setGroupsRequiringPartnerEnrollment($val)
+    {
+        $this->_propDict["groupsRequiringPartnerEnrollment"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the isConfigured
     * Whether device management partner is configured or not

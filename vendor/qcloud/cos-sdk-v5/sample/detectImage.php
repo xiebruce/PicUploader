@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__FILE__) . '/../vendor/autoload.php';
+require dirname(__FILE__, 2) . '/vendor/autoload.php';
 
 $secretId = "SECRETID"; //替换为用户的 secretId，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
 $secretKey = "SECRETKEY"; //替换为用户的 secretKey，请登录访问管理控制台进行查看和管理，https://console.cloud.tencent.com/cam/capi
@@ -22,6 +22,10 @@ try {
 //        'DetectType' => 'porn,ads', // 可选 不填走默认策略 或 定制化策略，四种参数：porn,ads等，可使用多种规则，注意规则间不要加空格
 //        'Interval' => 5, // 可选 审核 GIF 时使用 截帧的间隔
 //        'MaxFrames' => 5, // 可选 针对 GIF 动图审核的最大截帧数量，需大于0。
+//        'LargeImageDetect' => '',
+//        'DataId' => '',
+//        'Async' => '',
+//        'Callback' => '',
     ));
     // 请求成功
     print_r($result);
@@ -38,6 +42,10 @@ try {
 //        'DetectType' => 'porn,ads', // 可选 不填走默认策略 或 定制化策略，四种参数：porn,ads等，可使用多种规则，注意规则间不要加空格
 //        'Interval' => 5, // 可选 审核 GIF 时使用 截帧的间隔
 //        'MaxFrames' => 5, // 可选 针对 GIF 动图审核的最大截帧数量，需大于0。
+//        'LargeImageDetect' => '',
+//        'DataId' => '',
+//        'Async' => '',
+//        'Callback' => '',
     ));
     // 请求成功
     print_r($result);

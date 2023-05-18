@@ -26,7 +26,7 @@ class KeyCredential extends Entity
 
     /**
     * Gets the customKeyIdentifier
-    * Custom key identifier
+    * A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The customKeyIdentifier
     */
@@ -45,7 +45,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the customKeyIdentifier
-    * Custom key identifier
+    * A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the customKeyIdentifier
     *

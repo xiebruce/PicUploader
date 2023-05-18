@@ -116,6 +116,95 @@ class OnlineMeeting extends Entity
     }
 
     /**
+    * Gets the allowMeetingChat
+    * Specifies the mode of meeting chat.
+    *
+    * @return MeetingChatMode|null The allowMeetingChat
+    */
+    public function getAllowMeetingChat()
+    {
+        if (array_key_exists("allowMeetingChat", $this->_propDict)) {
+            if (is_a($this->_propDict["allowMeetingChat"], "\Beta\Microsoft\Graph\Model\MeetingChatMode") || is_null($this->_propDict["allowMeetingChat"])) {
+                return $this->_propDict["allowMeetingChat"];
+            } else {
+                $this->_propDict["allowMeetingChat"] = new MeetingChatMode($this->_propDict["allowMeetingChat"]);
+                return $this->_propDict["allowMeetingChat"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the allowMeetingChat
+    * Specifies the mode of meeting chat.
+    *
+    * @param MeetingChatMode $val The allowMeetingChat
+    *
+    * @return OnlineMeeting
+    */
+    public function setAllowMeetingChat($val)
+    {
+        $this->_propDict["allowMeetingChat"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the allowParticipantsToChangeName
+    * Specifies if participants are allowed to rename themselves in an instance of the meeting.
+    *
+    * @return bool|null The allowParticipantsToChangeName
+    */
+    public function getAllowParticipantsToChangeName()
+    {
+        if (array_key_exists("allowParticipantsToChangeName", $this->_propDict)) {
+            return $this->_propDict["allowParticipantsToChangeName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowParticipantsToChangeName
+    * Specifies if participants are allowed to rename themselves in an instance of the meeting.
+    *
+    * @param bool $val The allowParticipantsToChangeName
+    *
+    * @return OnlineMeeting
+    */
+    public function setAllowParticipantsToChangeName($val)
+    {
+        $this->_propDict["allowParticipantsToChangeName"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the allowRecording
+    *
+    * @return bool|null The allowRecording
+    */
+    public function getAllowRecording()
+    {
+        if (array_key_exists("allowRecording", $this->_propDict)) {
+            return $this->_propDict["allowRecording"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowRecording
+    *
+    * @param bool $val The allowRecording
+    *
+    * @return OnlineMeeting
+    */
+    public function setAllowRecording($val)
+    {
+        $this->_propDict["allowRecording"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the allowTeamworkReactions
     * Indicates if Teams reactions are enabled for the meeting.
     *
@@ -141,6 +230,33 @@ class OnlineMeeting extends Entity
     public function setAllowTeamworkReactions($val)
     {
         $this->_propDict["allowTeamworkReactions"] = boolval($val);
+        return $this;
+    }
+
+    /**
+    * Gets the allowTranscription
+    *
+    * @return bool|null The allowTranscription
+    */
+    public function getAllowTranscription()
+    {
+        if (array_key_exists("allowTranscription", $this->_propDict)) {
+            return $this->_propDict["allowTranscription"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the allowTranscription
+    *
+    * @param bool $val The allowTranscription
+    *
+    * @return OnlineMeeting
+    */
+    public function setAllowTranscription($val)
+    {
+        $this->_propDict["allowTranscription"] = boolval($val);
         return $this;
     }
 
@@ -553,7 +669,7 @@ class OnlineMeeting extends Entity
 
     /**
     * Gets the joinMeetingIdSettings
-    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
+    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
     *
     * @return JoinMeetingIdSettings|null The joinMeetingIdSettings
     */
@@ -572,7 +688,7 @@ class OnlineMeeting extends Entity
 
     /**
     * Sets the joinMeetingIdSettings
-    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode.
+    * Specifies the joinMeetingId, the meeting passcode, and the requirement for the passcode. Once an onlineMeeting is created, the joinMeetingIdSettings cannot be modified. To make any changes to this property, the meeting needs to be canceled and a new one needs to be created.
     *
     * @param JoinMeetingIdSettings $val The joinMeetingIdSettings
     *
@@ -769,6 +885,39 @@ class OnlineMeeting extends Entity
     }
 
     /**
+    * Gets the shareMeetingChatHistoryDefault
+    * Specifies whether meeting chat history is shared with participants.  Possible values are: all, none, unknownFutureValue.
+    *
+    * @return MeetingChatHistoryDefaultMode|null The shareMeetingChatHistoryDefault
+    */
+    public function getShareMeetingChatHistoryDefault()
+    {
+        if (array_key_exists("shareMeetingChatHistoryDefault", $this->_propDict)) {
+            if (is_a($this->_propDict["shareMeetingChatHistoryDefault"], "\Beta\Microsoft\Graph\Model\MeetingChatHistoryDefaultMode") || is_null($this->_propDict["shareMeetingChatHistoryDefault"])) {
+                return $this->_propDict["shareMeetingChatHistoryDefault"];
+            } else {
+                $this->_propDict["shareMeetingChatHistoryDefault"] = new MeetingChatHistoryDefaultMode($this->_propDict["shareMeetingChatHistoryDefault"]);
+                return $this->_propDict["shareMeetingChatHistoryDefault"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the shareMeetingChatHistoryDefault
+    * Specifies whether meeting chat history is shared with participants.  Possible values are: all, none, unknownFutureValue.
+    *
+    * @param MeetingChatHistoryDefaultMode $val The shareMeetingChatHistoryDefault
+    *
+    * @return OnlineMeeting
+    */
+    public function setShareMeetingChatHistoryDefault($val)
+    {
+        $this->_propDict["shareMeetingChatHistoryDefault"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the startDateTime
     * The meeting start time in UTC.
     *
@@ -856,6 +1005,39 @@ class OnlineMeeting extends Entity
     public function setVideoTeleconferenceId($val)
     {
         $this->_propDict["videoTeleconferenceId"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the watermarkProtection
+    * Specifies whether a watermark should be applied to a content type by the client application.
+    *
+    * @return WatermarkProtectionValues|null The watermarkProtection
+    */
+    public function getWatermarkProtection()
+    {
+        if (array_key_exists("watermarkProtection", $this->_propDict)) {
+            if (is_a($this->_propDict["watermarkProtection"], "\Beta\Microsoft\Graph\Model\WatermarkProtectionValues") || is_null($this->_propDict["watermarkProtection"])) {
+                return $this->_propDict["watermarkProtection"];
+            } else {
+                $this->_propDict["watermarkProtection"] = new WatermarkProtectionValues($this->_propDict["watermarkProtection"]);
+                return $this->_propDict["watermarkProtection"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the watermarkProtection
+    * Specifies whether a watermark should be applied to a content type by the client application.
+    *
+    * @param WatermarkProtectionValues $val The watermarkProtection
+    *
+    * @return OnlineMeeting
+    */
+    public function setWatermarkProtection($val)
+    {
+        $this->_propDict["watermarkProtection"] = $val;
         return $this;
     }
 

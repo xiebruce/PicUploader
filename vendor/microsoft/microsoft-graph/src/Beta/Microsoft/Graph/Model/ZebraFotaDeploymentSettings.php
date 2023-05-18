@@ -174,6 +174,34 @@ class ZebraFotaDeploymentSettings extends Entity
          return $this;
     }
     /**
+    * Gets the firmwareTargetArtifactDescription
+    * A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+    *
+    * @return string|null The firmwareTargetArtifactDescription
+    */
+    public function getFirmwareTargetArtifactDescription()
+    {
+        if (array_key_exists("firmwareTargetArtifactDescription", $this->_propDict)) {
+            return $this->_propDict["firmwareTargetArtifactDescription"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the firmwareTargetArtifactDescription
+    * A description provided by Zebra for the the firmware artifact to update the device to (e.g.: LifeGuard Update 120 (released 29-June-2022).
+    *
+    * @param string $val The value of the firmwareTargetArtifactDescription
+    *
+    * @return ZebraFotaDeploymentSettings
+    */
+    public function setFirmwareTargetArtifactDescription($val)
+    {
+        $this->_propDict["firmwareTargetArtifactDescription"] = $val;
+        return $this;
+    }
+    /**
     * Gets the firmwareTargetBoardSupportPackageVersion
     * Deployment's Board Support Package (BSP. E.g.: '01.18.02.00'). Required only for custom update type.
     *

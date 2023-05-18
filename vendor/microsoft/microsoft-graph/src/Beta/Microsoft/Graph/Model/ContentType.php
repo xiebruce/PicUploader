@@ -28,7 +28,7 @@ class ContentType extends Entity
     * Gets the associatedHubsUrls
     * List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
     *
-    * @return string|null The associatedHubsUrls
+    * @return array|null The associatedHubsUrls
     */
     public function getAssociatedHubsUrls()
     {
@@ -43,7 +43,7 @@ class ContentType extends Entity
     * Sets the associatedHubsUrls
     * List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
     *
-    * @param string $val The associatedHubsUrls
+    * @param string[] $val The associatedHubsUrls
     *
     * @return ContentType
     */

@@ -112,6 +112,9 @@ class GraphCollectionRequest extends GraphRequest
             $this->apiVersion,
             $this->proxyPort
         );
+
+        $request->addHeaders($this->headers);
+
         $result = $request->execute()->getBody();
 
         if (array_key_exists("@odata.count", $result)) {

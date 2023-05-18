@@ -675,7 +675,7 @@ class ManagedDeviceCertificateState extends Entity
 
     /**
     * Gets the devicePlatform
-    * Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+    * Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
     *
     * @return DevicePlatformType|null The devicePlatform
     */
@@ -694,7 +694,7 @@ class ManagedDeviceCertificateState extends Entity
 
     /**
     * Sets the devicePlatform
-    * Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+    * Device platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP, androidMobileApplicationManagement, iOSMobileApplicationManagement, unknownFutureValue.
     *
     * @param DevicePlatformType $val The devicePlatform
     *

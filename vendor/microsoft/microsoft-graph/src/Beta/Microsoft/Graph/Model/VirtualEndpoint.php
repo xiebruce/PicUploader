@@ -84,6 +84,39 @@ class VirtualEndpoint extends Entity
         return $this;
     }
 
+    /**
+    * Gets the crossCloudGovernmentOrganizationMapping
+    * Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+    *
+    * @return CloudPcCrossCloudGovernmentOrganizationMapping|null The crossCloudGovernmentOrganizationMapping
+    */
+    public function getCrossCloudGovernmentOrganizationMapping()
+    {
+        if (array_key_exists("crossCloudGovernmentOrganizationMapping", $this->_propDict)) {
+            if (is_a($this->_propDict["crossCloudGovernmentOrganizationMapping"], "\Beta\Microsoft\Graph\Model\CloudPcCrossCloudGovernmentOrganizationMapping") || is_null($this->_propDict["crossCloudGovernmentOrganizationMapping"])) {
+                return $this->_propDict["crossCloudGovernmentOrganizationMapping"];
+            } else {
+                $this->_propDict["crossCloudGovernmentOrganizationMapping"] = new CloudPcCrossCloudGovernmentOrganizationMapping($this->_propDict["crossCloudGovernmentOrganizationMapping"]);
+                return $this->_propDict["crossCloudGovernmentOrganizationMapping"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the crossCloudGovernmentOrganizationMapping
+    * Cloud PC organization mapping between public and US Government Community Cloud (GCC) organizations.
+    *
+    * @param CloudPcCrossCloudGovernmentOrganizationMapping $val The crossCloudGovernmentOrganizationMapping
+    *
+    * @return VirtualEndpoint
+    */
+    public function setCrossCloudGovernmentOrganizationMapping($val)
+    {
+        $this->_propDict["crossCloudGovernmentOrganizationMapping"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the deviceImages
@@ -267,6 +300,39 @@ class VirtualEndpoint extends Entity
         return $this;
     }
 
+    /**
+    * Gets the reports
+    * Cloud PC related reports.
+    *
+    * @return CloudPcReports|null The reports
+    */
+    public function getReports()
+    {
+        if (array_key_exists("reports", $this->_propDict)) {
+            if (is_a($this->_propDict["reports"], "\Beta\Microsoft\Graph\Model\CloudPcReports") || is_null($this->_propDict["reports"])) {
+                return $this->_propDict["reports"];
+            } else {
+                $this->_propDict["reports"] = new CloudPcReports($this->_propDict["reports"]);
+                return $this->_propDict["reports"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the reports
+    * Cloud PC related reports.
+    *
+    * @param CloudPcReports $val The reports
+    *
+    * @return VirtualEndpoint
+    */
+    public function setReports($val)
+    {
+        $this->_propDict["reports"] = $val;
+        return $this;
+    }
+
 
      /**
      * Gets the servicePlans
@@ -294,6 +360,36 @@ class VirtualEndpoint extends Entity
     public function setServicePlans($val)
     {
         $this->_propDict["servicePlans"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the sharedUseServicePlans
+    * Cloud PC shared-use service plans.
+     *
+     * @return array|null The sharedUseServicePlans
+     */
+    public function getSharedUseServicePlans()
+    {
+        if (array_key_exists("sharedUseServicePlans", $this->_propDict)) {
+           return $this->_propDict["sharedUseServicePlans"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the sharedUseServicePlans
+    * Cloud PC shared-use service plans.
+    *
+    * @param CloudPcSharedUseServicePlan[] $val The sharedUseServicePlans
+    *
+    * @return VirtualEndpoint
+    */
+    public function setSharedUseServicePlans($val)
+    {
+        $this->_propDict["sharedUseServicePlans"] = $val;
         return $this;
     }
 

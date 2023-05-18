@@ -25,6 +25,7 @@ class AuthenticationConditionsApplications extends Entity
 {
     /**
     * Gets the includeAllApplications
+    * Whether the custom authentication extension should trigger for all applications with appIds specified in the includeApplications relationship. This property must be set to false for listener of type onTokenIssuanceStartListener.
     *
     * @return bool|null The includeAllApplications
     */
@@ -39,6 +40,7 @@ class AuthenticationConditionsApplications extends Entity
 
     /**
     * Sets the includeAllApplications
+    * Whether the custom authentication extension should trigger for all applications with appIds specified in the includeApplications relationship. This property must be set to false for listener of type onTokenIssuanceStartListener.
     *
     * @param bool $val The value of the includeAllApplications
     *

@@ -26,6 +26,7 @@ class Contract extends DirectoryObject
 {
     /**
     * Gets the contractType
+    * Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.
     *
     * @return string|null The contractType
     */
@@ -40,6 +41,7 @@ class Contract extends DirectoryObject
 
     /**
     * Sets the contractType
+    * Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.
     *
     * @param string $val The contractType
     *
@@ -53,6 +55,7 @@ class Contract extends DirectoryObject
 
     /**
     * Gets the customerId
+    * The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
     *
     * @return string|null The customerId
     */
@@ -67,6 +70,7 @@ class Contract extends DirectoryObject
 
     /**
     * Sets the customerId
+    * The unique identifier for the customer tenant referenced by this partnership. Corresponds to the id property of the customer tenant's organization resource.
     *
     * @param string $val The customerId
     *
@@ -80,6 +84,7 @@ class Contract extends DirectoryObject
 
     /**
     * Gets the defaultDomainName
+    * A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
     *
     * @return string|null The defaultDomainName
     */
@@ -94,6 +99,7 @@ class Contract extends DirectoryObject
 
     /**
     * Sets the defaultDomainName
+    * A copy of the customer tenant's default domain name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's default domain name changes.
     *
     * @param string $val The defaultDomainName
     *
@@ -107,6 +113,7 @@ class Contract extends DirectoryObject
 
     /**
     * Gets the displayName
+    * A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
     *
     * @return string|null The displayName
     */
@@ -121,6 +128,7 @@ class Contract extends DirectoryObject
 
     /**
     * Sets the displayName
+    * A copy of the customer tenant's display name. The copy is made when the partnership with the customer is established. It is not automatically updated if the customer tenant's display name changes.
     *
     * @param string $val The displayName
     *

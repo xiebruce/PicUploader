@@ -190,7 +190,7 @@ class AospDeviceOwnerScepCertificateProfile extends AospDeviceOwnerCertificatePr
     * Gets the scepServerUrls
     * SCEP Server Url(s)
     *
-    * @return string|null The scepServerUrls
+    * @return array|null The scepServerUrls
     */
     public function getScepServerUrls()
     {
@@ -205,7 +205,7 @@ class AospDeviceOwnerScepCertificateProfile extends AospDeviceOwnerCertificatePr
     * Sets the scepServerUrls
     * SCEP Server Url(s)
     *
-    * @param string $val The scepServerUrls
+    * @param string[] $val The scepServerUrls
     *
     * @return AospDeviceOwnerScepCertificateProfile
     */

@@ -112,6 +112,64 @@ class ApplePushNotificationCertificate extends Entity
     }
 
     /**
+    * Gets the certificateUploadFailureReason
+    * The reason the certificate upload failed.
+    *
+    * @return string|null The certificateUploadFailureReason
+    */
+    public function getCertificateUploadFailureReason()
+    {
+        if (array_key_exists("certificateUploadFailureReason", $this->_propDict)) {
+            return $this->_propDict["certificateUploadFailureReason"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the certificateUploadFailureReason
+    * The reason the certificate upload failed.
+    *
+    * @param string $val The certificateUploadFailureReason
+    *
+    * @return ApplePushNotificationCertificate
+    */
+    public function setCertificateUploadFailureReason($val)
+    {
+        $this->_propDict["certificateUploadFailureReason"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the certificateUploadStatus
+    * The certificate upload status.
+    *
+    * @return string|null The certificateUploadStatus
+    */
+    public function getCertificateUploadStatus()
+    {
+        if (array_key_exists("certificateUploadStatus", $this->_propDict)) {
+            return $this->_propDict["certificateUploadStatus"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the certificateUploadStatus
+    * The certificate upload status.
+    *
+    * @param string $val The certificateUploadStatus
+    *
+    * @return ApplePushNotificationCertificate
+    */
+    public function setCertificateUploadStatus($val)
+    {
+        $this->_propDict["certificateUploadStatus"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the expirationDateTime
     * The expiration date and time for Apple push notification certificate.
     *

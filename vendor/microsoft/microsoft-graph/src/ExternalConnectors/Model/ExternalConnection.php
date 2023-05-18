@@ -25,6 +25,39 @@ namespace Microsoft\Graph\ExternalConnectors\Model;
 class ExternalConnection extends \Microsoft\Graph\Model\Entity
 {
     /**
+    * Gets the activitySettings
+    * Collects configurable settings related to activities involving connector content.
+    *
+    * @return ActivitySettings|null The activitySettings
+    */
+    public function getActivitySettings()
+    {
+        if (array_key_exists("activitySettings", $this->_propDict)) {
+            if (is_a($this->_propDict["activitySettings"], "\Microsoft\Graph\ExternalConnectors\Model\ActivitySettings") || is_null($this->_propDict["activitySettings"])) {
+                return $this->_propDict["activitySettings"];
+            } else {
+                $this->_propDict["activitySettings"] = new ActivitySettings($this->_propDict["activitySettings"]);
+                return $this->_propDict["activitySettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the activitySettings
+    * Collects configurable settings related to activities involving connector content.
+    *
+    * @param ActivitySettings $val The activitySettings
+    *
+    * @return ExternalConnection
+    */
+    public function setActivitySettings($val)
+    {
+        $this->_propDict["activitySettings"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the configuration
     * Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.
     *
@@ -112,6 +145,39 @@ class ExternalConnection extends \Microsoft\Graph\Model\Entity
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the searchSettings
+    * The settings configuring the search experience for content in this connection, such as the display templates for search results.
+    *
+    * @return SearchSettings|null The searchSettings
+    */
+    public function getSearchSettings()
+    {
+        if (array_key_exists("searchSettings", $this->_propDict)) {
+            if (is_a($this->_propDict["searchSettings"], "\Microsoft\Graph\ExternalConnectors\Model\SearchSettings") || is_null($this->_propDict["searchSettings"])) {
+                return $this->_propDict["searchSettings"];
+            } else {
+                $this->_propDict["searchSettings"] = new SearchSettings($this->_propDict["searchSettings"]);
+                return $this->_propDict["searchSettings"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the searchSettings
+    * The settings configuring the search experience for content in this connection, such as the display templates for search results.
+    *
+    * @param SearchSettings $val The searchSettings
+    *
+    * @return ExternalConnection
+    */
+    public function setSearchSettings($val)
+    {
+        $this->_propDict["searchSettings"] = $val;
         return $this;
     }
 

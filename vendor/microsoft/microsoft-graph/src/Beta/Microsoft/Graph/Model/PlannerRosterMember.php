@@ -28,7 +28,7 @@ class PlannerRosterMember extends Entity
     * Gets the roles
     * Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
     *
-    * @return string|null The roles
+    * @return array|null The roles
     */
     public function getRoles()
     {
@@ -43,7 +43,7 @@ class PlannerRosterMember extends Entity
     * Sets the roles
     * Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
     *
-    * @param string $val The roles
+    * @param string[] $val The roles
     *
     * @return PlannerRosterMember
     */

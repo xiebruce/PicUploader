@@ -57,7 +57,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     * Gets the attestationCertificates
     * The attestation certificate(s) attached to this security key.
     *
-    * @return string|null The attestationCertificates
+    * @return array|null The attestationCertificates
     */
     public function getAttestationCertificates()
     {
@@ -72,7 +72,7 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     * Sets the attestationCertificates
     * The attestation certificate(s) attached to this security key.
     *
-    * @param string $val The attestationCertificates
+    * @param string[] $val The attestationCertificates
     *
     * @return Fido2AuthenticationMethod
     */
@@ -145,37 +145,6 @@ class Fido2AuthenticationMethod extends AuthenticationMethod
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-        return $this;
-    }
-
-    /**
-    * Gets the creationDateTime
-    *
-    * @return \DateTime|null The creationDateTime
-    */
-    public function getCreationDateTime()
-    {
-        if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
-                return $this->_propDict["creationDateTime"];
-            } else {
-                $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
-                return $this->_propDict["creationDateTime"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the creationDateTime
-    *
-    * @param \DateTime $val The creationDateTime
-    *
-    * @return Fido2AuthenticationMethod
-    */
-    public function setCreationDateTime($val)
-    {
-        $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
 

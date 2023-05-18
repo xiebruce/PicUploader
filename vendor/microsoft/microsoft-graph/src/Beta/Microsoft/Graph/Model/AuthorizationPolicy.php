@@ -55,7 +55,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Gets the allowedToUseSSPR
-    * Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant.
+    * Indicates whether the Admin Self-Serve Password Reset feature is enabled on the tenant.
     *
     * @return bool|null The allowedToUseSSPR
     */
@@ -70,7 +70,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the allowedToUseSSPR
-    * Indicates whether the Self-Serve Password Reset feature can be used by users on the tenant.
+    * Indicates whether the Admin Self-Serve Password Reset feature is enabled on the tenant.
     *
     * @param bool $val The allowedToUseSSPR
     *
@@ -113,7 +113,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Gets the allowInvitesFrom
-    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
     *
     * @return AllowInvitesFrom|null The allowInvitesFrom
     */
@@ -132,7 +132,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the allowInvitesFrom
-    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone.  everyone is the default setting for all cloud environments except US Government. See more in the table below.
+    * Indicates who can invite external users to the organization. Possible values are: none, adminsAndGuestInviters, adminsGuestInvitersAndAllMembers, everyone. everyone is the default setting for all cloud environments except US Government. See more in the table below.
     *
     * @param AllowInvitesFrom $val The allowInvitesFrom
     *
@@ -146,6 +146,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Gets the allowUserConsentForRiskyApps
+    * Indicates whether user consent for risky apps is allowed. Default value is false. We recommend that you keep the value set to false.
     *
     * @return bool|null The allowUserConsentForRiskyApps
     */
@@ -160,6 +161,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the allowUserConsentForRiskyApps
+    * Indicates whether user consent for risky apps is allowed. Default value is false. We recommend that you keep the value set to false.
     *
     * @param bool $val The allowUserConsentForRiskyApps
     *
@@ -173,7 +175,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Gets the blockMsolPowerShell
-    * To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+    * To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This does not affect Azure AD Connect or Microsoft Graph.
     *
     * @return bool|null The blockMsolPowerShell
     */
@@ -188,7 +190,7 @@ class AuthorizationPolicy extends PolicyBase
 
     /**
     * Sets the blockMsolPowerShell
-    * To disable the use of MSOL PowerShell set this property to true. This will also disable user-based access to the legacy service endpoint used by MSOL PowerShell. This does not affect Azure AD Connect or Microsoft Graph.
+    * To disable the use of the MSOnline PowerShell module set this property to true. This will also disable user-based access to the legacy service endpoint used by the MSOnline PowerShell module. This does not affect Azure AD Connect or Microsoft Graph.
     *
     * @param bool $val The blockMsolPowerShell
     *
@@ -237,7 +239,7 @@ class AuthorizationPolicy extends PolicyBase
     * Gets the enabledPreviewFeatures
     * List of features enabled for private preview on the tenant.
     *
-    * @return string|null The enabledPreviewFeatures
+    * @return array|null The enabledPreviewFeatures
     */
     public function getEnabledPreviewFeatures()
     {
@@ -252,7 +254,7 @@ class AuthorizationPolicy extends PolicyBase
     * Sets the enabledPreviewFeatures
     * List of features enabled for private preview on the tenant.
     *
-    * @param string $val The enabledPreviewFeatures
+    * @param string[] $val The enabledPreviewFeatures
     *
     * @return AuthorizationPolicy
     */
@@ -295,7 +297,7 @@ class AuthorizationPolicy extends PolicyBase
     * Gets the permissionGrantPolicyIdsAssignedToDefaultUserRole
     * Indicates if user consent to apps is allowed, and if it is, which app consent policy (permissionGrantPolicy) governs the permission for users to grant consent. Values should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.
     *
-    * @return string|null The permissionGrantPolicyIdsAssignedToDefaultUserRole
+    * @return array|null The permissionGrantPolicyIdsAssignedToDefaultUserRole
     */
     public function getPermissionGrantPolicyIdsAssignedToDefaultUserRole()
     {
@@ -310,7 +312,7 @@ class AuthorizationPolicy extends PolicyBase
     * Sets the permissionGrantPolicyIdsAssignedToDefaultUserRole
     * Indicates if user consent to apps is allowed, and if it is, which app consent policy (permissionGrantPolicy) governs the permission for users to grant consent. Values should be in the format managePermissionGrantsForSelf.{id}, where {id} is the id of a built-in or custom app consent policy. An empty list indicates user consent to apps is disabled.
     *
-    * @param string $val The permissionGrantPolicyIdsAssignedToDefaultUserRole
+    * @param string[] $val The permissionGrantPolicyIdsAssignedToDefaultUserRole
     *
     * @return AuthorizationPolicy
     */

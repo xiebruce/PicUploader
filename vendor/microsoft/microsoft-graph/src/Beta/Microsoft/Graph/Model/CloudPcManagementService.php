@@ -32,4 +32,5 @@ class CloudPcManagementService extends Enum
     const WINDOWS365 = "windows365";
     const DEV_BOX = "devBox";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
+    const RPA_BOX = "rpaBox";
 }

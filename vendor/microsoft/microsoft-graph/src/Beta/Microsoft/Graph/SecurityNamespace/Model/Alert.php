@@ -551,7 +551,7 @@ class Alert extends \Beta\Microsoft\Graph\Model\Entity
     * Gets the mitreTechniques
     * The attack techniques, as aligned with the MITRE ATT&amp;CK framework.
     *
-    * @return string|null The mitreTechniques
+    * @return array|null The mitreTechniques
     */
     public function getMitreTechniques()
     {
@@ -566,7 +566,7 @@ class Alert extends \Beta\Microsoft\Graph\Model\Entity
     * Sets the mitreTechniques
     * The attack techniques, as aligned with the MITRE ATT&amp;CK framework.
     *
-    * @param string $val The mitreTechniques
+    * @param string[] $val The mitreTechniques
     *
     * @return Alert
     */
@@ -763,6 +763,33 @@ class Alert extends \Beta\Microsoft\Graph\Model\Entity
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the systemTags
+    *
+    * @return array|null The systemTags
+    */
+    public function getSystemTags()
+    {
+        if (array_key_exists("systemTags", $this->_propDict)) {
+            return $this->_propDict["systemTags"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the systemTags
+    *
+    * @param string[] $val The systemTags
+    *
+    * @return Alert
+    */
+    public function setSystemTags($val)
+    {
+        $this->_propDict["systemTags"] = $val;
         return $this;
     }
 

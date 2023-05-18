@@ -28,7 +28,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     * Gets the childIds
     * Dependent child settings to this group of settings
     *
-    * @return string|null The childIds
+    * @return array|null The childIds
     */
     public function getChildIds()
     {
@@ -43,7 +43,7 @@ class DeviceManagementConfigurationSettingGroupDefinition extends DeviceManageme
     * Sets the childIds
     * Dependent child settings to this group of settings
     *
-    * @param string $val The childIds
+    * @param string[] $val The childIds
     *
     * @return DeviceManagementConfigurationSettingGroupDefinition
     */

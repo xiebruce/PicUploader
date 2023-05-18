@@ -415,7 +415,7 @@ class HostSecurityProfile extends Entity
     /**
     * Gets the relatedHostIds
     *
-    * @return string|null The relatedHostIds
+    * @return array|null The relatedHostIds
     */
     public function getRelatedHostIds()
     {
@@ -429,7 +429,7 @@ class HostSecurityProfile extends Entity
     /**
     * Sets the relatedHostIds
     *
-    * @param string $val The relatedHostIds
+    * @param string[] $val The relatedHostIds
     *
     * @return HostSecurityProfile
     */
@@ -469,7 +469,7 @@ class HostSecurityProfile extends Entity
     /**
     * Gets the tags
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -483,7 +483,7 @@ class HostSecurityProfile extends Entity
     /**
     * Sets the tags
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return HostSecurityProfile
     */

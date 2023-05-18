@@ -184,7 +184,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
 
     /**
     * Gets the managedDeviceCount
-    * The number of vulnerable devices.
+    * The number of vulnerable devices. Valid values 0 to 65536
     *
     * @return int|null The managedDeviceCount
     */
@@ -199,7 +199,7 @@ class SecurityConfigurationTask extends DeviceAppManagementTask
 
     /**
     * Sets the managedDeviceCount
-    * The number of vulnerable devices.
+    * The number of vulnerable devices. Valid values 0 to 65536
     *
     * @param int $val The managedDeviceCount
     *

@@ -91,7 +91,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the emailInDomainSuffixes
     * An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
     *
-    * @return string|null The emailInDomainSuffixes
+    * @return array|null The emailInDomainSuffixes
     */
     public function getEmailInDomainSuffixes()
     {
@@ -106,7 +106,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the emailInDomainSuffixes
     * An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
     *
-    * @param string $val The emailInDomainSuffixes
+    * @param string[] $val The emailInDomainSuffixes
     *
     * @return MacOSGeneralDeviceConfiguration
     */

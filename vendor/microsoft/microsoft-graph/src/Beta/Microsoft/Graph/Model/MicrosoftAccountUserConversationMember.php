@@ -26,7 +26,7 @@ class MicrosoftAccountUserConversationMember extends ConversationMember
 {
     /**
     * Gets the userId
-    * ID of the user.
+    * Microsoft Account ID of the user.
     *
     * @return string|null The userId
     */
@@ -41,7 +41,7 @@ class MicrosoftAccountUserConversationMember extends ConversationMember
 
     /**
     * Sets the userId
-    * ID of the user.
+    * Microsoft Account ID of the user.
     *
     * @param string $val The userId
     *

@@ -26,6 +26,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the alertImpact
+    * The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. 12 affectedCloudPcPercentage means 12% of Cloud PCs are affected.
     *
     * @return AlertImpact|null The alertImpact
     */
@@ -44,6 +45,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertImpact
+    * The impact of the alert event. Consists of a number followed by the aggregation type. For example, 6 affectedCloudPcCount means that 6 Cloud PCs are affected. 12 affectedCloudPcPercentage means 12% of Cloud PCs are affected.
     *
     * @param AlertImpact $val The alertImpact
     *
@@ -57,6 +59,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the alertRuleId
+    * The corresponding ID of the alert rule.
     *
     * @return string|null The alertRuleId
     */
@@ -71,6 +74,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRuleId
+    * The corresponding ID of the alert rule.
     *
     * @param string $val The alertRuleId
     *
@@ -84,6 +88,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the alertRuleTemplate
+    * The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     *
     * @return AlertRuleTemplate|null The alertRuleTemplate
     */
@@ -102,6 +107,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRuleTemplate
+    * The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     *
     * @param AlertRuleTemplate $val The alertRuleTemplate
     *
@@ -115,6 +121,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the detectedDateTime
+    * The date and time when the alert event was detected. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The detectedDateTime
     */
@@ -133,6 +140,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the detectedDateTime
+    * The date and time when the alert event was detected. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The detectedDateTime
     *
@@ -146,6 +154,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the displayName
+    * The display name of the alert record.
     *
     * @return string|null The displayName
     */
@@ -160,6 +169,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name of the alert record.
     *
     * @param string $val The displayName
     *
@@ -173,6 +183,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the lastUpdatedDateTime
+    * The date and time when the alert record was last updated. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The lastUpdatedDateTime
     */
@@ -191,6 +202,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the lastUpdatedDateTime
+    * The date and time when the alert record was last updated. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The lastUpdatedDateTime
     *
@@ -204,6 +216,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the resolvedDateTime
+    * The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The resolvedDateTime
     */
@@ -222,6 +235,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the resolvedDateTime
+    * The date and time when the alert event was resolved. The Timestamp type represents date and time information using ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The resolvedDateTime
     *
@@ -235,6 +249,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the severity
+    * The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     *
     * @return RuleSeverityType|null The severity
     */
@@ -253,6 +268,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the severity
+    * The severity of the alert event. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     *
     * @param RuleSeverityType $val The severity
     *
@@ -266,6 +282,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the status
+    * The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
     *
     * @return AlertStatusType|null The status
     */
@@ -284,6 +301,7 @@ class AlertRecord extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the status
+    * The status of the alert record. The possible values are: active, resolved, unknownFutureValue.
     *
     * @param AlertStatusType $val The status
     *

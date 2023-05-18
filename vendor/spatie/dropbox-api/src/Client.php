@@ -40,6 +40,9 @@ class Client
     protected $teamMemberId;
 
     /** @var string */
+    protected $namespaceId;
+
+    /** @var string */
     protected $appKey;
 
     /** @var string */
@@ -724,6 +727,16 @@ class Client
     }
 
     /**
+     * Set the namespace ID.
+     */
+    public function setNamespaceId(string $namespaceId): self
+    {
+        $this->namespaceId = $namespaceId;
+
+        return $this;
+    }
+
+    /**
      * Get the HTTP headers.
      */
     protected function getHeaders(array $headers = []): array
@@ -740,6 +753,18 @@ class Client
                 $auth,
                 [
                     'Dropbox-API-Select-User' => $this->teamMemberId,
+                ]
+            );
+        }
+
+        if ($this->namespaceId) {
+            $headers = array_merge(
+                $headers,
+                [
+                    'Dropbox-API-Path-Root' => json_encode([
+                        '.tag' => 'namespace_id',
+                        'namespace_id' => $this->namespaceId,
+                    ]),
                 ]
             );
         }

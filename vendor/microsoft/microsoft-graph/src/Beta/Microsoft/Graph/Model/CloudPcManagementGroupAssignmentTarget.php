@@ -36,7 +36,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
 
     /**
     * Gets the groupId
-    * The id of the assignment's target group
+    * The ID of the target group for the assignment.
     *
     * @return string|null The groupId
     */
@@ -51,7 +51,7 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
 
     /**
     * Sets the groupId
-    * The id of the assignment's target group
+    * The ID of the target group for the assignment.
     *
     * @param string $val The value of the groupId
     *
@@ -60,6 +60,34 @@ class CloudPcManagementGroupAssignmentTarget extends CloudPcManagementAssignment
     public function setGroupId($val)
     {
         $this->_propDict["groupId"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the servicePlanId
+    * The unique identifier for the service plan that indicates which size of the Cloud PC to provision for the user. Use a null value, when the provisioningType is dedicated.
+    *
+    * @return string|null The servicePlanId
+    */
+    public function getServicePlanId()
+    {
+        if (array_key_exists("servicePlanId", $this->_propDict)) {
+            return $this->_propDict["servicePlanId"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the servicePlanId
+    * The unique identifier for the service plan that indicates which size of the Cloud PC to provision for the user. Use a null value, when the provisioningType is dedicated.
+    *
+    * @param string $val The value of the servicePlanId
+    *
+    * @return CloudPcManagementGroupAssignmentTarget
+    */
+    public function setServicePlanId($val)
+    {
+        $this->_propDict["servicePlanId"] = $val;
         return $this;
     }
 }

@@ -260,7 +260,7 @@ class Workspace extends Place
     * Gets the tags
     * Specifies additional features of the workspace, for example, details like the type of view or furniture type.
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -275,7 +275,7 @@ class Workspace extends Place
     * Sets the tags
     * Specifies additional features of the workspace, for example, details like the type of view or furniture type.
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return Workspace
     */

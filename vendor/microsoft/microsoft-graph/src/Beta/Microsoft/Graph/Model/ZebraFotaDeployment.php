@@ -178,4 +178,33 @@ class ZebraFotaDeployment extends Entity
         return $this;
     }
 
+    /**
+    * Gets the roleScopeTagIds
+    * List of Scope Tags for this Entity instance
+    *
+    * @return array|null The roleScopeTagIds
+    */
+    public function getRoleScopeTagIds()
+    {
+        if (array_key_exists("roleScopeTagIds", $this->_propDict)) {
+            return $this->_propDict["roleScopeTagIds"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the roleScopeTagIds
+    * List of Scope Tags for this Entity instance
+    *
+    * @param string[] $val The roleScopeTagIds
+    *
+    * @return ZebraFotaDeployment
+    */
+    public function setRoleScopeTagIds($val)
+    {
+        $this->_propDict["roleScopeTagIds"] = $val;
+        return $this;
+    }
+
 }

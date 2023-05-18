@@ -94,7 +94,7 @@ class Bookmark extends SearchAnswer
     * Gets the categories
     * Categories commonly used to describe this bookmark. For example, IT and HR.
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -109,7 +109,7 @@ class Bookmark extends SearchAnswer
     * Sets the categories
     * Categories commonly used to describe this bookmark. For example, IT and HR.
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return Bookmark
     */
@@ -123,7 +123,7 @@ class Bookmark extends SearchAnswer
     * Gets the groupIds
     * List of security groups able to view this bookmark.
     *
-    * @return string|null The groupIds
+    * @return array|null The groupIds
     */
     public function getGroupIds()
     {
@@ -138,7 +138,7 @@ class Bookmark extends SearchAnswer
     * Sets the groupIds
     * List of security groups able to view this bookmark.
     *
-    * @param string $val The groupIds
+    * @param string[] $val The groupIds
     *
     * @return Bookmark
     */
@@ -214,7 +214,7 @@ class Bookmark extends SearchAnswer
     * Gets the languageTags
     * A list of language names that are geographically specific and that this bookmark can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
     *
-    * @return string|null The languageTags
+    * @return array|null The languageTags
     */
     public function getLanguageTags()
     {
@@ -229,7 +229,7 @@ class Bookmark extends SearchAnswer
     * Sets the languageTags
     * A list of language names that are geographically specific and that this bookmark can be viewed in. Each language tag value follows the pattern {language}-{region}. As an example, en-us is English as used in the United States. See supported language tags for the list of possible values.
     *
-    * @param string $val The languageTags
+    * @param string[] $val The languageTags
     *
     * @return Bookmark
     */
@@ -273,7 +273,7 @@ class Bookmark extends SearchAnswer
     * Gets the powerAppIds
     * List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks, such as to enter vacation time or to report expenses on the search results page.
     *
-    * @return string|null The powerAppIds
+    * @return array|null The powerAppIds
     */
     public function getPowerAppIds()
     {
@@ -288,7 +288,7 @@ class Bookmark extends SearchAnswer
     * Sets the powerAppIds
     * List of Power Apps associated with this bookmark. If users add existing Power Apps to a bookmark, they can complete tasks, such as to enter vacation time or to report expenses on the search results page.
     *
-    * @param string $val The powerAppIds
+    * @param string[] $val The powerAppIds
     *
     * @return Bookmark
     */

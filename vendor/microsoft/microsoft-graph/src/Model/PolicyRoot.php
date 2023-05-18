@@ -26,7 +26,7 @@ class PolicyRoot extends Entity
 {
     /**
     * Gets the authenticationMethodsPolicy
-    * The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
+    * The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).
     *
     * @return AuthenticationMethodsPolicy|null The authenticationMethodsPolicy
     */
@@ -45,7 +45,7 @@ class PolicyRoot extends Entity
 
     /**
     * Sets the authenticationMethodsPolicy
-    * The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
+    * The authentication methods and the users that are allowed to use them to sign in and perform multifactor authentication (MFA) in Azure Active Directory (Azure AD).
     *
     * @param AuthenticationMethodsPolicy $val The authenticationMethodsPolicy
     *
@@ -54,6 +54,36 @@ class PolicyRoot extends Entity
     public function setAuthenticationMethodsPolicy($val)
     {
         $this->_propDict["authenticationMethodsPolicy"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the authenticationStrengthPolicies
+    * The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
+     *
+     * @return array|null The authenticationStrengthPolicies
+     */
+    public function getAuthenticationStrengthPolicies()
+    {
+        if (array_key_exists("authenticationStrengthPolicies", $this->_propDict)) {
+           return $this->_propDict["authenticationStrengthPolicies"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the authenticationStrengthPolicies
+    * The authentication method combinations that are to be used in scenarios defined by Azure AD Conditional Access.
+    *
+    * @param AuthenticationStrengthPolicy[] $val The authenticationStrengthPolicies
+    *
+    * @return PolicyRoot
+    */
+    public function setAuthenticationStrengthPolicies($val)
+    {
+        $this->_propDict["authenticationStrengthPolicies"] = $val;
         return $this;
     }
 
@@ -117,6 +147,36 @@ class PolicyRoot extends Entity
     public function setActivityBasedTimeoutPolicies($val)
     {
         $this->_propDict["activityBasedTimeoutPolicies"] = $val;
+        return $this;
+    }
+
+
+     /**
+     * Gets the appManagementPolicies
+    * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+     *
+     * @return array|null The appManagementPolicies
+     */
+    public function getAppManagementPolicies()
+    {
+        if (array_key_exists("appManagementPolicies", $this->_propDict)) {
+           return $this->_propDict["appManagementPolicies"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the appManagementPolicies
+    * The policies that enforce app management restrictions for specific applications and service principals, overriding the defaultAppManagementPolicy.
+    *
+    * @param AppManagementPolicy[] $val The appManagementPolicies
+    *
+    * @return PolicyRoot
+    */
+    public function setAppManagementPolicies($val)
+    {
+        $this->_propDict["appManagementPolicies"] = $val;
         return $this;
     }
 
@@ -213,6 +273,39 @@ class PolicyRoot extends Entity
     public function setCrossTenantAccessPolicy($val)
     {
         $this->_propDict["crossTenantAccessPolicy"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the defaultAppManagementPolicy
+    * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
+    *
+    * @return TenantAppManagementPolicy|null The defaultAppManagementPolicy
+    */
+    public function getDefaultAppManagementPolicy()
+    {
+        if (array_key_exists("defaultAppManagementPolicy", $this->_propDict)) {
+            if (is_a($this->_propDict["defaultAppManagementPolicy"], "\Microsoft\Graph\Model\TenantAppManagementPolicy") || is_null($this->_propDict["defaultAppManagementPolicy"])) {
+                return $this->_propDict["defaultAppManagementPolicy"];
+            } else {
+                $this->_propDict["defaultAppManagementPolicy"] = new TenantAppManagementPolicy($this->_propDict["defaultAppManagementPolicy"]);
+                return $this->_propDict["defaultAppManagementPolicy"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the defaultAppManagementPolicy
+    * The tenant-wide policy that enforces app management restrictions for all applications and service principals.
+    *
+    * @param TenantAppManagementPolicy $val The defaultAppManagementPolicy
+    *
+    * @return PolicyRoot
+    */
+    public function setDefaultAppManagementPolicy($val)
+    {
+        $this->_propDict["defaultAppManagementPolicy"] = $val;
         return $this;
     }
 

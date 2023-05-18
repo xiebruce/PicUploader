@@ -26,7 +26,6 @@ class PrivilegedRoleAssignment extends Entity
 {
     /**
     * Gets the expirationDateTime
-    * The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
     *
     * @return \DateTime|null The expirationDateTime
     */
@@ -45,7 +44,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Sets the expirationDateTime
-    * The UTC DateTime when the temporary privileged role assignment will be expired. For permanent role assignment, the value is null.
     *
     * @param \DateTime $val The expirationDateTime
     *
@@ -59,7 +57,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Gets the isElevated
-    * true if the role assignment is activated. false if the role assignment is deactivated.
     *
     * @return bool|null The isElevated
     */
@@ -74,7 +71,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Sets the isElevated
-    * true if the role assignment is activated. false if the role assignment is deactivated.
     *
     * @param bool $val The isElevated
     *
@@ -88,7 +84,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Gets the resultMessage
-    * Result message set by the service.
     *
     * @return string|null The resultMessage
     */
@@ -103,7 +98,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Sets the resultMessage
-    * Result message set by the service.
     *
     * @param string $val The resultMessage
     *
@@ -117,7 +111,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Gets the roleId
-    * Role identifier. In GUID string format.
     *
     * @return string|null The roleId
     */
@@ -132,7 +125,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Sets the roleId
-    * Role identifier. In GUID string format.
     *
     * @param string $val The roleId
     *
@@ -146,7 +138,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Gets the userId
-    * User identifier. In GUID string format.
     *
     * @return string|null The userId
     */
@@ -161,7 +152,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Sets the userId
-    * User identifier. In GUID string format.
     *
     * @param string $val The userId
     *
@@ -175,7 +165,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Gets the roleInfo
-    * Read-only. Nullable. The associated role information.
     *
     * @return PrivilegedRole|null The roleInfo
     */
@@ -194,7 +183,6 @@ class PrivilegedRoleAssignment extends Entity
 
     /**
     * Sets the roleInfo
-    * Read-only. Nullable. The associated role information.
     *
     * @param PrivilegedRole $val The roleInfo
     *

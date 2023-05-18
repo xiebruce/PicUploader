@@ -148,7 +148,7 @@ class Conversation extends Entity
     * Gets the uniqueSenders
     * All the users that sent a message to this Conversation.
     *
-    * @return string|null The uniqueSenders
+    * @return array|null The uniqueSenders
     */
     public function getUniqueSenders()
     {
@@ -163,7 +163,7 @@ class Conversation extends Entity
     * Sets the uniqueSenders
     * All the users that sent a message to this Conversation.
     *
-    * @param string $val The uniqueSenders
+    * @param string[] $val The uniqueSenders
     *
     * @return Conversation
     */

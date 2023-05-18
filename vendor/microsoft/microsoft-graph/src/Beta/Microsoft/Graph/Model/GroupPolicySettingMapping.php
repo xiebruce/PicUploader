@@ -57,7 +57,7 @@ class GroupPolicySettingMapping extends Entity
     * Gets the childIdList
     * List of Child Ids of the group policy setting.
     *
-    * @return string|null The childIdList
+    * @return array|null The childIdList
     */
     public function getChildIdList()
     {
@@ -72,7 +72,7 @@ class GroupPolicySettingMapping extends Entity
     * Sets the childIdList
     * List of Child Ids of the group policy setting.
     *
-    * @param string $val The childIdList
+    * @param string[] $val The childIdList
     *
     * @return GroupPolicySettingMapping
     */
@@ -115,7 +115,7 @@ class GroupPolicySettingMapping extends Entity
     * Gets the intuneSettingUriList
     * The list of Intune Setting URIs this group policy setting maps to
     *
-    * @return string|null The intuneSettingUriList
+    * @return array|null The intuneSettingUriList
     */
     public function getIntuneSettingUriList()
     {
@@ -130,7 +130,7 @@ class GroupPolicySettingMapping extends Entity
     * Sets the intuneSettingUriList
     * The list of Intune Setting URIs this group policy setting maps to
     *
-    * @param string $val The intuneSettingUriList
+    * @param string[] $val The intuneSettingUriList
     *
     * @return GroupPolicySettingMapping
     */

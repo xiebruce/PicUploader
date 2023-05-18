@@ -25,6 +25,68 @@ namespace Beta\Microsoft\Graph\Model;
 class PrintJob extends Entity
 {
     /**
+    * Gets the acknowledgedDateTime
+    *
+    * @return \DateTime|null The acknowledgedDateTime
+    */
+    public function getAcknowledgedDateTime()
+    {
+        if (array_key_exists("acknowledgedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["acknowledgedDateTime"], "\DateTime") || is_null($this->_propDict["acknowledgedDateTime"])) {
+                return $this->_propDict["acknowledgedDateTime"];
+            } else {
+                $this->_propDict["acknowledgedDateTime"] = new \DateTime($this->_propDict["acknowledgedDateTime"]);
+                return $this->_propDict["acknowledgedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the acknowledgedDateTime
+    *
+    * @param \DateTime $val The acknowledgedDateTime
+    *
+    * @return PrintJob
+    */
+    public function setAcknowledgedDateTime($val)
+    {
+        $this->_propDict["acknowledgedDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the completedDateTime
+    *
+    * @return \DateTime|null The completedDateTime
+    */
+    public function getCompletedDateTime()
+    {
+        if (array_key_exists("completedDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["completedDateTime"], "\DateTime") || is_null($this->_propDict["completedDateTime"])) {
+                return $this->_propDict["completedDateTime"];
+            } else {
+                $this->_propDict["completedDateTime"] = new \DateTime($this->_propDict["completedDateTime"]);
+                return $this->_propDict["completedDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the completedDateTime
+    *
+    * @param \DateTime $val The completedDateTime
+    *
+    * @return PrintJob
+    */
+    public function setCompletedDateTime($val)
+    {
+        $this->_propDict["completedDateTime"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the configuration
     * A group of settings that a printer should use to print a job.
     *
@@ -118,6 +180,62 @@ class PrintJob extends Entity
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the displayName
+    * The name of the print job.
+    *
+    * @return string|null The displayName
+    */
+    public function getDisplayName()
+    {
+        if (array_key_exists("displayName", $this->_propDict)) {
+            return $this->_propDict["displayName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the displayName
+    * The name of the print job.
+    *
+    * @param string $val The displayName
+    *
+    * @return PrintJob
+    */
+    public function setDisplayName($val)
+    {
+        $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the errorCode
+    *
+    * @return int|null The errorCode
+    */
+    public function getErrorCode()
+    {
+        if (array_key_exists("errorCode", $this->_propDict)) {
+            return $this->_propDict["errorCode"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the errorCode
+    *
+    * @param int $val The errorCode
+    *
+    * @return PrintJob
+    */
+    public function setErrorCode($val)
+    {
+        $this->_propDict["errorCode"] = intval($val);
         return $this;
     }
 

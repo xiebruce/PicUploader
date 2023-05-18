@@ -25,6 +25,37 @@ namespace Beta\Microsoft\Graph\Model;
 class UnifiedRoleDefinition extends Entity
 {
     /**
+    * Gets the allowedPrincipalTypes
+    *
+    * @return AllowedRolePrincipalTypes|null The allowedPrincipalTypes
+    */
+    public function getAllowedPrincipalTypes()
+    {
+        if (array_key_exists("allowedPrincipalTypes", $this->_propDict)) {
+            if (is_a($this->_propDict["allowedPrincipalTypes"], "\Beta\Microsoft\Graph\Model\AllowedRolePrincipalTypes") || is_null($this->_propDict["allowedPrincipalTypes"])) {
+                return $this->_propDict["allowedPrincipalTypes"];
+            } else {
+                $this->_propDict["allowedPrincipalTypes"] = new AllowedRolePrincipalTypes($this->_propDict["allowedPrincipalTypes"]);
+                return $this->_propDict["allowedPrincipalTypes"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the allowedPrincipalTypes
+    *
+    * @param AllowedRolePrincipalTypes $val The allowedPrincipalTypes
+    *
+    * @return UnifiedRoleDefinition
+    */
+    public function setAllowedPrincipalTypes($val)
+    {
+        $this->_propDict["allowedPrincipalTypes"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the description
     * The description for the unifiedRoleDefinition. Read-only when isBuiltIn is true.
     *
@@ -144,7 +175,7 @@ class UnifiedRoleDefinition extends Entity
     * Gets the resourceScopes
     * List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment
     *
-    * @return string|null The resourceScopes
+    * @return array|null The resourceScopes
     */
     public function getResourceScopes()
     {
@@ -159,7 +190,7 @@ class UnifiedRoleDefinition extends Entity
     * Sets the resourceScopes
     * List of scopes permissions granted by the role definition apply to. Currently only / is supported. Read-only when isBuiltIn is true. DO NOT USE. This will be deprecated soon. Attach scope to role assignment
     *
-    * @param string $val The resourceScopes
+    * @param string[] $val The resourceScopes
     *
     * @return UnifiedRoleDefinition
     */

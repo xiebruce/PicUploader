@@ -224,4 +224,35 @@ class AccessPackageAssignmentRequestRequirements extends Entity
         $this->_propDict["schedule"] = $val;
          return $this;
     }
+
+    /**
+    * Gets the questions
+    *
+    * @return AccessPackageQuestion|null The questions
+    */
+    public function getQuestions()
+    {
+        if (array_key_exists("questions", $this->_propDict)) {
+            if (is_a($this->_propDict["questions"], "\Microsoft\Graph\Model\AccessPackageQuestion") || is_null($this->_propDict["questions"])) {
+                return $this->_propDict["questions"];
+            } else {
+                $this->_propDict["questions"] = new AccessPackageQuestion($this->_propDict["questions"]);
+                return $this->_propDict["questions"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the questions
+    *
+    * @param AccessPackageQuestion $val The value to assign to the questions
+    *
+    * @return AccessPackageAssignmentRequestRequirements The AccessPackageAssignmentRequestRequirements
+    */
+    public function setQuestions($val)
+    {
+        $this->_propDict["questions"] = $val;
+         return $this;
+    }
 }

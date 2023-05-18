@@ -26,6 +26,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the alertRuleTemplate
+    * The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     *
     * @return AlertRuleTemplate|null The alertRuleTemplate
     */
@@ -44,6 +45,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the alertRuleTemplate
+    * The rule template of the alert event. The possible values are: cloudPcProvisionScenario, cloudPcImageUploadScenario, cloudPcOnPremiseNetworkConnectionCheckScenario, unknownFutureValue.
     *
     * @param AlertRuleTemplate $val The alertRuleTemplate
     *
@@ -57,6 +59,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the description
+    * The rule description.
     *
     * @return string|null The description
     */
@@ -71,6 +74,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the description
+    * The rule description.
     *
     * @param string $val The description
     *
@@ -84,6 +88,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the displayName
+    * The display name of the rule.
     *
     * @return string|null The displayName
     */
@@ -98,6 +103,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the displayName
+    * The display name of the rule.
     *
     * @param string $val The displayName
     *
@@ -111,6 +117,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the enabled
+    * The status of the rule that indicates whether the rule is enabled or disabled. If true, the rule is enabled; otherwise, the rule is disabled.
     *
     * @return bool|null The enabled
     */
@@ -125,6 +132,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the enabled
+    * The status of the rule that indicates whether the rule is enabled or disabled. If true, the rule is enabled; otherwise, the rule is disabled.
     *
     * @param bool $val The enabled
     *
@@ -138,6 +146,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the isSystemRule
+    * Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only a few properties can be edited.
     *
     * @return bool|null The isSystemRule
     */
@@ -152,6 +161,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the isSystemRule
+    * Indicates whether the rule is a system rule. If true, the rule is a system rule; otherwise, the rule is a custom defined rule and can be edited. System rules are built-in and only a few properties can be edited.
     *
     * @param bool $val The isSystemRule
     *
@@ -166,6 +176,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
      /**
      * Gets the notificationChannels
+    * The notification channels of the rule selected by the user.
      *
      * @return array|null The notificationChannels
      */
@@ -180,6 +191,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the notificationChannels
+    * The notification channels of the rule selected by the user.
     *
     * @param NotificationChannel[] $val The notificationChannels
     *
@@ -193,6 +205,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the severity
+    * The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     *
     * @return RuleSeverityType|null The severity
     */
@@ -211,6 +224,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the severity
+    * The severity of the rule. The possible values are: unknown, informational, warning, critical, unknownFutureValue.
     *
     * @param RuleSeverityType $val The severity
     *
@@ -224,6 +238,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the threshold
+    * The conditions to send alerts. For example, send alert when provisioning has failed for greater than or equal to 6 Cloud PCs.
     *
     * @return RuleThreshold|null The threshold
     */
@@ -242,6 +257,7 @@ class AlertRule extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the threshold
+    * The conditions to send alerts. For example, send alert when provisioning has failed for greater than or equal to 6 Cloud PCs.
     *
     * @param RuleThreshold $val The threshold
     *

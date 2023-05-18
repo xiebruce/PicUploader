@@ -28,7 +28,7 @@ class WorkPosition extends ItemFacet
     * Gets the categories
     * Categories that the user has associated with this position.
     *
-    * @return string|null The categories
+    * @return array|null The categories
     */
     public function getCategories()
     {
@@ -43,7 +43,7 @@ class WorkPosition extends ItemFacet
     * Sets the categories
     * Categories that the user has associated with this position.
     *
-    * @param string $val The categories
+    * @param string[] $val The categories
     *
     * @return WorkPosition
     */

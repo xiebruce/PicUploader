@@ -25,7 +25,7 @@ class Property extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the aliases
-    * A set of aliases or a friendly names for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^. Optional.
+    * A set of aliases or a friendly names for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string might not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^. Optional.
     *
     * @return string|null The aliases
     */
@@ -40,7 +40,7 @@ class Property extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the aliases
-    * A set of aliases or a friendly names for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^. Optional.
+    * A set of aliases or a friendly names for the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string might not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^. Optional.
     *
     * @param string $val The value of the aliases
     *
@@ -49,6 +49,34 @@ class Property extends \Beta\Microsoft\Graph\Model\Entity
     public function setAliases($val)
     {
         $this->_propDict["aliases"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the isExactMatchRequired
+    * Specifies if the property will be matched exactly for queries. Exact matching can only be set to true for non-searchable properties of type string or stringCollection. Optional.
+    *
+    * @return bool|null The isExactMatchRequired
+    */
+    public function getIsExactMatchRequired()
+    {
+        if (array_key_exists("isExactMatchRequired", $this->_propDict)) {
+            return $this->_propDict["isExactMatchRequired"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isExactMatchRequired
+    * Specifies if the property will be matched exactly for queries. Exact matching can only be set to true for non-searchable properties of type string or stringCollection. Optional.
+    *
+    * @param bool $val The value of the isExactMatchRequired
+    *
+    * @return Property
+    */
+    public function setIsExactMatchRequired($val)
+    {
+        $this->_propDict["isExactMatchRequired"] = $val;
         return $this;
     }
     /**
@@ -198,7 +226,7 @@ class Property extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the name
-    * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^.  Required.
+    * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, the property name may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^.  Required.
     *
     * @return string|null The name
     */
@@ -213,7 +241,7 @@ class Property extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the name
-    * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, each string may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^.  Required.
+    * The name of the property. Maximum 32 characters. Only alphanumeric characters allowed. For example, the property name may not contain control characters, whitespace, or any of the following: :, ;, ,, (, ), [, ], {, }, %, $, +, !, *, =, &amp;, ?, @, #, /, ~, ', ', &amp;lt;, &amp;gt;, `, ^.  Required.
     *
     * @param string $val The value of the name
     *
@@ -223,6 +251,39 @@ class Property extends \Beta\Microsoft\Graph\Model\Entity
     {
         $this->_propDict["name"] = $val;
         return $this;
+    }
+
+    /**
+    * Gets the rankingHint
+    * Specifies the property ranking hint. Developers can specify which properties are most important, allowing Microsoft Search to determine the search relevance of the content.
+    *
+    * @return RankingHint|null The rankingHint
+    */
+    public function getRankingHint()
+    {
+        if (array_key_exists("rankingHint", $this->_propDict)) {
+            if (is_a($this->_propDict["rankingHint"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\RankingHint") || is_null($this->_propDict["rankingHint"])) {
+                return $this->_propDict["rankingHint"];
+            } else {
+                $this->_propDict["rankingHint"] = new RankingHint($this->_propDict["rankingHint"]);
+                return $this->_propDict["rankingHint"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the rankingHint
+    * Specifies the property ranking hint. Developers can specify which properties are most important, allowing Microsoft Search to determine the search relevance of the content.
+    *
+    * @param RankingHint $val The value to assign to the rankingHint
+    *
+    * @return Property The Property
+    */
+    public function setRankingHint($val)
+    {
+        $this->_propDict["rankingHint"] = $val;
+         return $this;
     }
 
     /**

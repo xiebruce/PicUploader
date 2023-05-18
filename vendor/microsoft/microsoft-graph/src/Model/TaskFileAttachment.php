@@ -26,6 +26,7 @@ class TaskFileAttachment extends AttachmentBase
 {
     /**
     * Gets the contentBytes
+    * The base64-encoded contents of the file.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The contentBytes
     */
@@ -44,6 +45,7 @@ class TaskFileAttachment extends AttachmentBase
 
     /**
     * Sets the contentBytes
+    * The base64-encoded contents of the file.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The contentBytes
     *

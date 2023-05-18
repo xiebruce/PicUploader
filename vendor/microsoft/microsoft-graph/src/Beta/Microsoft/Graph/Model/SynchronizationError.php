@@ -25,6 +25,7 @@ class SynchronizationError extends Entity
 {
     /**
     * Gets the code
+    * The error code. For example, AzureDirectoryB2BManagementPolicyCheckFailure.
     *
     * @return string|null The code
     */
@@ -39,6 +40,7 @@ class SynchronizationError extends Entity
 
     /**
     * Sets the code
+    * The error code. For example, AzureDirectoryB2BManagementPolicyCheckFailure.
     *
     * @param string $val The value of the code
     *
@@ -51,6 +53,7 @@ class SynchronizationError extends Entity
     }
     /**
     * Gets the message
+    * The error message. For example, Policy permitting auto-redemption of invitations not configured.
     *
     * @return string|null The message
     */
@@ -65,6 +68,7 @@ class SynchronizationError extends Entity
 
     /**
     * Sets the message
+    * The error message. For example, Policy permitting auto-redemption of invitations not configured.
     *
     * @param string $val The value of the message
     *
@@ -77,6 +81,7 @@ class SynchronizationError extends Entity
     }
     /**
     * Gets the tenantActionable
+    * The action to take to resolve the error. For example, false.
     *
     * @return bool|null The tenantActionable
     */
@@ -91,6 +96,7 @@ class SynchronizationError extends Entity
 
     /**
     * Sets the tenantActionable
+    * The action to take to resolve the error. For example, false.
     *
     * @param bool $val The value of the tenantActionable
     *

@@ -87,6 +87,39 @@ class PlannerTaskDetails extends PlannerDelta
     }
 
     /**
+    * Gets the notes
+    * Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
+    *
+    * @return ItemBody|null The notes
+    */
+    public function getNotes()
+    {
+        if (array_key_exists("notes", $this->_propDict)) {
+            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["notes"])) {
+                return $this->_propDict["notes"];
+            } else {
+                $this->_propDict["notes"] = new ItemBody($this->_propDict["notes"]);
+                return $this->_propDict["notes"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the notes
+    * Rich text description of the task. To be used by HTML-aware clients. For backwards compatibility, a plain-text version of the HTML description will be synced to the 'description' field. If this field has not previously been set but 'description' has been, the existing description will be synchronized to 'notes' with minimal whitespace-preserving HTML markup. Setting both 'description' and 'notes' is an error and will result in an exception.
+    *
+    * @param ItemBody $val The notes
+    *
+    * @return PlannerTaskDetails
+    */
+    public function setNotes($val)
+    {
+        $this->_propDict["notes"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the previewType
     * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
     *

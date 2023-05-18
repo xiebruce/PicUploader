@@ -60,7 +60,7 @@ class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
 
      /**
      * Gets the includeTargets
-    * A collection of users or groups who are enabled to use the authentication method.
+    * A collection of groups that are enabled to use the authentication method.
      *
      * @return array|null The includeTargets
      */
@@ -75,7 +75,7 @@ class EmailAuthenticationMethodConfiguration extends AuthenticationMethodConfigu
 
     /**
     * Sets the includeTargets
-    * A collection of users or groups who are enabled to use the authentication method.
+    * A collection of groups that are enabled to use the authentication method.
     *
     * @param AuthenticationMethodTarget[] $val The includeTargets
     *

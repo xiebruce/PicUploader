@@ -150,8 +150,37 @@ class Device extends DirectoryObject
     }
 
     /**
+    * Gets the deviceCategory
+    * User-defined property set by Intune to automatically add devices to groups and simplify managing devices.
+    *
+    * @return string|null The deviceCategory
+    */
+    public function getDeviceCategory()
+    {
+        if (array_key_exists("deviceCategory", $this->_propDict)) {
+            return $this->_propDict["deviceCategory"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceCategory
+    * User-defined property set by Intune to automatically add devices to groups and simplify managing devices.
+    *
+    * @param string $val The deviceCategory
+    *
+    * @return Device
+    */
+    public function setDeviceCategory($val)
+    {
+        $this->_propDict["deviceCategory"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the deviceId
-    * Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+    * Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).
     *
     * @return string|null The deviceId
     */
@@ -166,7 +195,7 @@ class Device extends DirectoryObject
 
     /**
     * Sets the deviceId
-    * Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, not, startsWith).
+    * Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).
     *
     * @param string $val The deviceId
     *
@@ -204,6 +233,35 @@ class Device extends DirectoryObject
     public function setDeviceMetadata($val)
     {
         $this->_propDict["deviceMetadata"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the deviceOwnership
+    * Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.
+    *
+    * @return string|null The deviceOwnership
+    */
+    public function getDeviceOwnership()
+    {
+        if (array_key_exists("deviceOwnership", $this->_propDict)) {
+            return $this->_propDict["deviceOwnership"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the deviceOwnership
+    * Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.
+    *
+    * @param string $val The deviceOwnership
+    *
+    * @return Device
+    */
+    public function setDeviceOwnership($val)
+    {
+        $this->_propDict["deviceOwnership"] = $val;
         return $this;
     }
 
@@ -262,6 +320,35 @@ class Device extends DirectoryObject
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the enrollmentProfileName
+    * Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.
+    *
+    * @return string|null The enrollmentProfileName
+    */
+    public function getEnrollmentProfileName()
+    {
+        if (array_key_exists("enrollmentProfileName", $this->_propDict)) {
+            return $this->_propDict["enrollmentProfileName"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the enrollmentProfileName
+    * Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.
+    *
+    * @param string $val The enrollmentProfileName
+    *
+    * @return Device
+    */
+    public function setEnrollmentProfileName($val)
+    {
+        $this->_propDict["enrollmentProfileName"] = $val;
         return $this;
     }
 
@@ -474,9 +561,9 @@ class Device extends DirectoryObject
 
     /**
     * Gets the physicalIds
-    * For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+    * For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0).
     *
-    * @return string|null The physicalIds
+    * @return array|null The physicalIds
     */
     public function getPhysicalIds()
     {
@@ -489,9 +576,9 @@ class Device extends DirectoryObject
 
     /**
     * Sets the physicalIds
-    * For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith, and counting empty collections).
+    * For internal use only. Not nullable. Supports $filter (eq, not, ge, le, startsWith,/$count eq 0, /$count ne 0).
     *
-    * @param string $val The physicalIds
+    * @param string[] $val The physicalIds
     *
     * @return Device
     */
@@ -531,10 +618,43 @@ class Device extends DirectoryObject
     }
 
     /**
-    * Gets the systemLabels
-    * List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+    * Gets the registrationDateTime
+    * Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
     *
-    * @return string|null The systemLabels
+    * @return \DateTime|null The registrationDateTime
+    */
+    public function getRegistrationDateTime()
+    {
+        if (array_key_exists("registrationDateTime", $this->_propDict)) {
+            if (is_a($this->_propDict["registrationDateTime"], "\DateTime") || is_null($this->_propDict["registrationDateTime"])) {
+                return $this->_propDict["registrationDateTime"];
+            } else {
+                $this->_propDict["registrationDateTime"] = new \DateTime($this->_propDict["registrationDateTime"]);
+                return $this->_propDict["registrationDateTime"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the registrationDateTime
+    * Date and time of when the device was registered. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+    *
+    * @param \DateTime $val The registrationDateTime
+    *
+    * @return Device
+    */
+    public function setRegistrationDateTime($val)
+    {
+        $this->_propDict["registrationDateTime"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the systemLabels
+    * List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
+    *
+    * @return array|null The systemLabels
     */
     public function getSystemLabels()
     {
@@ -547,9 +667,9 @@ class Device extends DirectoryObject
 
     /**
     * Sets the systemLabels
-    * List of labels applied to the device by the system. Supports $filter (eq when counting empty collections).
+    * List of labels applied to the device by the system. Supports $filter (/$count eq 0, /$count ne 0).
     *
-    * @param string $val The systemLabels
+    * @param string[] $val The systemLabels
     *
     * @return Device
     */
@@ -621,7 +741,7 @@ class Device extends DirectoryObject
 
      /**
      * Gets the registeredOwners
-    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
      *
      * @return array|null The registeredOwners
      */
@@ -636,7 +756,7 @@ class Device extends DirectoryObject
 
     /**
     * Sets the registeredOwners
-    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Currently, there can be only one owner. Read-only. Nullable. Supports $expand.
+    * The user that cloud joined the device or registered their personal device. The registered owner is set at the time of registration. Read-only. Nullable. Supports $expand.
     *
     * @param DirectoryObject[] $val The registeredOwners
     *

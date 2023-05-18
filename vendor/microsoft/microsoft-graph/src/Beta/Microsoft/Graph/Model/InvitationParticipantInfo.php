@@ -58,6 +58,7 @@ class InvitationParticipantInfo extends Entity
     }
     /**
     * Gets the hidden
+    * Optional. Whether to hide the participant from the roster.
     *
     * @return bool|null The hidden
     */
@@ -72,6 +73,7 @@ class InvitationParticipantInfo extends Entity
 
     /**
     * Sets the hidden
+    * Optional. Whether to hide the participant from the roster.
     *
     * @param bool $val The value of the hidden
     *
@@ -145,6 +147,7 @@ class InvitationParticipantInfo extends Entity
     }
     /**
     * Gets the removeFromDefaultAudioRoutingGroup
+    * Optional. Whether to remove them from the main mixer.
     *
     * @return bool|null The removeFromDefaultAudioRoutingGroup
     */
@@ -159,6 +162,7 @@ class InvitationParticipantInfo extends Entity
 
     /**
     * Sets the removeFromDefaultAudioRoutingGroup
+    * Optional. Whether to remove them from the main mixer.
     *
     * @param bool $val The value of the removeFromDefaultAudioRoutingGroup
     *

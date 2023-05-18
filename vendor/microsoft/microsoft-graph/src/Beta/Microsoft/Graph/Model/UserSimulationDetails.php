@@ -142,7 +142,7 @@ class UserSimulationDetails extends Entity
     }
     /**
     * Gets the isCompromised
-    * Flag representing if user was compromised in an attack simulation and training campaign.
+    * Indicates whether a user was compromised in an attack simulation and training campaign.
     *
     * @return bool|null The isCompromised
     */
@@ -157,7 +157,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the isCompromised
-    * Flag representing if user was compromised in an attack simulation and training campaign.
+    * Indicates whether a user was compromised in an attack simulation and training campaign.
     *
     * @param bool $val The value of the isCompromised
     *
@@ -168,10 +168,38 @@ class UserSimulationDetails extends Entity
         $this->_propDict["isCompromised"] = $val;
         return $this;
     }
+    /**
+    * Gets the latestSimulationActivity
+    * Indicates latest user activity.
+    *
+    * @return string|null The latestSimulationActivity
+    */
+    public function getLatestSimulationActivity()
+    {
+        if (array_key_exists("latestSimulationActivity", $this->_propDict)) {
+            return $this->_propDict["latestSimulationActivity"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the latestSimulationActivity
+    * Indicates latest user activity.
+    *
+    * @param string $val The value of the latestSimulationActivity
+    *
+    * @return UserSimulationDetails
+    */
+    public function setLatestSimulationActivity($val)
+    {
+        $this->_propDict["latestSimulationActivity"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the reportedPhishDateTime
-    * Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
+    * Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.
     *
     * @return \DateTime|null The reportedPhishDateTime
     */
@@ -190,7 +218,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the reportedPhishDateTime
-    * Date and time when user reported delivered payload as phish in the attack simulation and training campaign.
+    * Date and time when a user reported the delivered payload as phishing in the attack simulation and training campaign.
     *
     * @param \DateTime $val The value to assign to the reportedPhishDateTime
     *
@@ -237,7 +265,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Gets the simulationUser
-    * User in an attack simulation and training campaign.
+    * The user in an attack simulation and training campaign.
     *
     * @return AttackSimulationUser|null The simulationUser
     */
@@ -256,7 +284,7 @@ class UserSimulationDetails extends Entity
 
     /**
     * Sets the simulationUser
-    * User in an attack simulation and training campaign.
+    * The user in an attack simulation and training campaign.
     *
     * @param AttackSimulationUser $val The value to assign to the simulationUser
     *

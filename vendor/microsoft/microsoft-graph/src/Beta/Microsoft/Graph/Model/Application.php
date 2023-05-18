@@ -89,7 +89,7 @@ class Application extends DirectoryObject
 
      /**
      * Gets the appRoles
-    * The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
+    * The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
      *
      * @return array|null The appRoles
      */
@@ -104,7 +104,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the appRoles
-    * The collection of roles assigned to the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
+    * The collection of roles defined for the application. With app role assignments, these roles can be assigned to users, groups, or service principals associated with other applications. Not nullable.
     *
     * @param AppRole[] $val The appRoles
     *
@@ -331,7 +331,7 @@ class Application extends DirectoryObject
     * Gets the identifierUris
     * Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://&amp;lt;application-client-id&amp;gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
     *
-    * @return string|null The identifierUris
+    * @return array|null The identifierUris
     */
     public function getIdentifierUris()
     {
@@ -346,7 +346,7 @@ class Application extends DirectoryObject
     * Sets the identifierUris
     * Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://&amp;lt;application-client-id&amp;gt;, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).
     *
-    * @param string $val The identifierUris
+    * @param string[] $val The identifierUris
     *
     * @return Application
     */
@@ -733,7 +733,7 @@ class Application extends DirectoryObject
 
      /**
      * Gets the requiredResourceAccess
-    * Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
+    * Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
      *
      * @return array|null The requiredResourceAccess
      */
@@ -748,7 +748,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the requiredResourceAccess
-    * Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).
+    * Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. For more information, see Limits on requested permissions per app. Not nullable. Supports $filter (eq, not, ge, le).
     *
     * @param RequiredResourceAccess[] $val The requiredResourceAccess
     *
@@ -819,8 +819,41 @@ class Application extends DirectoryObject
     }
 
     /**
+    * Gets the servicePrincipalLockConfiguration
+    * Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
+    *
+    * @return ServicePrincipalLockConfiguration|null The servicePrincipalLockConfiguration
+    */
+    public function getServicePrincipalLockConfiguration()
+    {
+        if (array_key_exists("servicePrincipalLockConfiguration", $this->_propDict)) {
+            if (is_a($this->_propDict["servicePrincipalLockConfiguration"], "\Beta\Microsoft\Graph\Model\ServicePrincipalLockConfiguration") || is_null($this->_propDict["servicePrincipalLockConfiguration"])) {
+                return $this->_propDict["servicePrincipalLockConfiguration"];
+            } else {
+                $this->_propDict["servicePrincipalLockConfiguration"] = new ServicePrincipalLockConfiguration($this->_propDict["servicePrincipalLockConfiguration"]);
+                return $this->_propDict["servicePrincipalLockConfiguration"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the servicePrincipalLockConfiguration
+    * Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
+    *
+    * @param ServicePrincipalLockConfiguration $val The servicePrincipalLockConfiguration
+    *
+    * @return Application
+    */
+    public function setServicePrincipalLockConfiguration($val)
+    {
+        $this->_propDict["servicePrincipalLockConfiguration"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the signInAudience
-    * Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
+    * Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. The value for this property has implications on other app object properties. As a result, if you change this property, you may need to change other properties first. For more information, see Validation differences for signInAudience.Supports $filter (eq, ne, not).
     *
     * @return string|null The signInAudience
     */
@@ -835,7 +868,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the signInAudience
-    * Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
+    * Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. The value for this property has implications on other app object properties. As a result, if you change this property, you may need to change other properties first. For more information, see Validation differences for signInAudience.Supports $filter (eq, ne, not).
     *
     * @param string $val The signInAudience
     *
@@ -882,9 +915,9 @@ class Application extends DirectoryObject
 
     /**
     * Gets the tags
-    * Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
+    * Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.
     *
-    * @return string|null The tags
+    * @return array|null The tags
     */
     public function getTags()
     {
@@ -897,9 +930,9 @@ class Application extends DirectoryObject
 
     /**
     * Sets the tags
-    * Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
+    * Custom strings that can be used to categorize and identify the application. Not nullable. Strings added here will also appear in the tags property of any associated service principals.Supports $filter (eq, not, ge, le, startsWith) and $search.
     *
-    * @param string $val The tags
+    * @param string[] $val The tags
     *
     * @return Application
     */
@@ -1131,7 +1164,7 @@ class Application extends DirectoryObject
 
     /**
     * Gets the createdOnBehalfOf
-    * Supports $filter (eq when counting empty collections). Read-only.
+    * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
     *
     * @return DirectoryObject|null The createdOnBehalfOf
     */
@@ -1150,7 +1183,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the createdOnBehalfOf
-    * Supports $filter (eq when counting empty collections). Read-only.
+    * Supports $filter (/$count eq 0, /$count ne 0). Read-only.
     *
     * @param DirectoryObject $val The createdOnBehalfOf
     *
@@ -1165,7 +1198,7 @@ class Application extends DirectoryObject
 
      /**
      * Gets the extensionProperties
-    * Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
+    * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
      *
      * @return array|null The extensionProperties
      */
@@ -1180,7 +1213,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the extensionProperties
-    * Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections and only with advanced query parameters).
+    * Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0).
     *
     * @param ExtensionProperty[] $val The extensionProperties
     *
@@ -1195,7 +1228,7 @@ class Application extends DirectoryObject
 
      /**
      * Gets the federatedIdentityCredentials
-    * Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
+    * Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
      *
      * @return array|null The federatedIdentityCredentials
      */
@@ -1210,7 +1243,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the federatedIdentityCredentials
-    * Federated identities for applications. Supports $expand and $filter (startsWith, and eq, ne when counting empty collections and only with advanced query parameters).
+    * Federated identities for applications. Supports $expand and $filter (startsWith, /$count eq 0, /$count ne 0).
     *
     * @param FederatedIdentityCredential[] $val The federatedIdentityCredentials
     *
@@ -1253,7 +1286,7 @@ class Application extends DirectoryObject
 
      /**
      * Gets the owners
-    * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
+    * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      *
      * @return array|null The owners
      */
@@ -1268,7 +1301,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the owners
-    * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (eq and ne when counting empty collections).
+    * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
     *
     * @param DirectoryObject[] $val The owners
     *
@@ -1373,6 +1406,7 @@ class Application extends DirectoryObject
 
     /**
     * Gets the synchronization
+    * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
     *
     * @return Synchronization|null The synchronization
     */
@@ -1391,6 +1425,7 @@ class Application extends DirectoryObject
 
     /**
     * Sets the synchronization
+    * Represents the capability for Azure Active Directory (Azure AD) identity synchronization through the Microsoft Graph API.
     *
     * @param Synchronization $val The synchronization
     *

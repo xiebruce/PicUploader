@@ -51,6 +51,39 @@ class ConditionalAccessUsers extends Entity
         $this->_propDict["excludeGroups"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the excludeGuestsOrExternalUsers
+    * Internal guests or external users excluded from the policy scope. Optionally populated.
+    *
+    * @return ConditionalAccessGuestsOrExternalUsers|null The excludeGuestsOrExternalUsers
+    */
+    public function getExcludeGuestsOrExternalUsers()
+    {
+        if (array_key_exists("excludeGuestsOrExternalUsers", $this->_propDict)) {
+            if (is_a($this->_propDict["excludeGuestsOrExternalUsers"], "\Microsoft\Graph\Model\ConditionalAccessGuestsOrExternalUsers") || is_null($this->_propDict["excludeGuestsOrExternalUsers"])) {
+                return $this->_propDict["excludeGuestsOrExternalUsers"];
+            } else {
+                $this->_propDict["excludeGuestsOrExternalUsers"] = new ConditionalAccessGuestsOrExternalUsers($this->_propDict["excludeGuestsOrExternalUsers"]);
+                return $this->_propDict["excludeGuestsOrExternalUsers"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the excludeGuestsOrExternalUsers
+    * Internal guests or external users excluded from the policy scope. Optionally populated.
+    *
+    * @param ConditionalAccessGuestsOrExternalUsers $val The value to assign to the excludeGuestsOrExternalUsers
+    *
+    * @return ConditionalAccessUsers The ConditionalAccessUsers
+    */
+    public function setExcludeGuestsOrExternalUsers($val)
+    {
+        $this->_propDict["excludeGuestsOrExternalUsers"] = $val;
+         return $this;
+    }
     /**
     * Gets the excludeRoles
     * Role IDs excluded from scope of policy.
@@ -109,7 +142,7 @@ class ConditionalAccessUsers extends Entity
     }
     /**
     * Gets the includeGroups
-    * Group IDs in scope of policy unless explicitly excluded, or All.
+    * Group IDs in scope of policy unless explicitly excluded.
     *
     * @return string|null The includeGroups
     */
@@ -124,7 +157,7 @@ class ConditionalAccessUsers extends Entity
 
     /**
     * Sets the includeGroups
-    * Group IDs in scope of policy unless explicitly excluded, or All.
+    * Group IDs in scope of policy unless explicitly excluded.
     *
     * @param string $val The value of the includeGroups
     *
@@ -135,9 +168,42 @@ class ConditionalAccessUsers extends Entity
         $this->_propDict["includeGroups"] = $val;
         return $this;
     }
+
+    /**
+    * Gets the includeGuestsOrExternalUsers
+    * Internal guests or external users included in the policy scope. Optionally populated.
+    *
+    * @return ConditionalAccessGuestsOrExternalUsers|null The includeGuestsOrExternalUsers
+    */
+    public function getIncludeGuestsOrExternalUsers()
+    {
+        if (array_key_exists("includeGuestsOrExternalUsers", $this->_propDict)) {
+            if (is_a($this->_propDict["includeGuestsOrExternalUsers"], "\Microsoft\Graph\Model\ConditionalAccessGuestsOrExternalUsers") || is_null($this->_propDict["includeGuestsOrExternalUsers"])) {
+                return $this->_propDict["includeGuestsOrExternalUsers"];
+            } else {
+                $this->_propDict["includeGuestsOrExternalUsers"] = new ConditionalAccessGuestsOrExternalUsers($this->_propDict["includeGuestsOrExternalUsers"]);
+                return $this->_propDict["includeGuestsOrExternalUsers"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the includeGuestsOrExternalUsers
+    * Internal guests or external users included in the policy scope. Optionally populated.
+    *
+    * @param ConditionalAccessGuestsOrExternalUsers $val The value to assign to the includeGuestsOrExternalUsers
+    *
+    * @return ConditionalAccessUsers The ConditionalAccessUsers
+    */
+    public function setIncludeGuestsOrExternalUsers($val)
+    {
+        $this->_propDict["includeGuestsOrExternalUsers"] = $val;
+         return $this;
+    }
     /**
     * Gets the includeRoles
-    * Role IDs in scope of policy unless explicitly excluded, or All.
+    * Role IDs in scope of policy unless explicitly excluded.
     *
     * @return string|null The includeRoles
     */
@@ -152,7 +218,7 @@ class ConditionalAccessUsers extends Entity
 
     /**
     * Sets the includeRoles
-    * Role IDs in scope of policy unless explicitly excluded, or All.
+    * Role IDs in scope of policy unless explicitly excluded.
     *
     * @param string $val The value of the includeRoles
     *
@@ -165,7 +231,7 @@ class ConditionalAccessUsers extends Entity
     }
     /**
     * Gets the includeUsers
-    * User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
+    * User IDs in scope of policy unless explicitly excluded, None, All, or GuestsOrExternalUsers.
     *
     * @return string|null The includeUsers
     */
@@ -180,7 +246,7 @@ class ConditionalAccessUsers extends Entity
 
     /**
     * Sets the includeUsers
-    * User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.
+    * User IDs in scope of policy unless explicitly excluded, None, All, or GuestsOrExternalUsers.
     *
     * @param string $val The value of the includeUsers
     *

@@ -85,7 +85,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the description
-    * The MicrosoftTunnelConfiguration's description
+    * The configuration's description (optional)
     *
     * @return string|null The description
     */
@@ -100,7 +100,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the description
-    * The MicrosoftTunnelConfiguration's description
+    * The configuration's description (optional)
     *
     * @param string $val The description
     *
@@ -114,7 +114,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the disableUdpConnections
-    * When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
+    * When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.
     *
     * @return bool|null The disableUdpConnections
     */
@@ -129,7 +129,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the disableUdpConnections
-    * When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to tansfer data.
+    * When DisableUdpConnections is set, the clients and VPN server will not use DTLS connections to transfer data.
     *
     * @param bool $val The disableUdpConnections
     *
@@ -143,7 +143,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the displayName
-    * The MicrosoftTunnelConfiguration's display name
+    * The display name for the server configuration. This property is required when a server is created.
     *
     * @return string|null The displayName
     */
@@ -158,7 +158,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the displayName
-    * The MicrosoftTunnelConfiguration's display name
+    * The display name for the server configuration. This property is required when a server is created.
     *
     * @param string $val The displayName
     *
@@ -174,7 +174,7 @@ class MicrosoftTunnelConfiguration extends Entity
     * Gets the dnsServers
     * The DNS servers that will be used by the clients
     *
-    * @return string|null The dnsServers
+    * @return array|null The dnsServers
     */
     public function getDnsServers()
     {
@@ -189,7 +189,7 @@ class MicrosoftTunnelConfiguration extends Entity
     * Sets the dnsServers
     * The DNS servers that will be used by the clients
     *
-    * @param string $val The dnsServers
+    * @param string[] $val The dnsServers
     *
     * @return MicrosoftTunnelConfiguration
     */
@@ -201,7 +201,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the lastUpdateDateTime
-    * When the MicrosoftTunnelConfiguration was last updated
+    * When the configuration was last updated
     *
     * @return \DateTime|null The lastUpdateDateTime
     */
@@ -220,7 +220,7 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the lastUpdateDateTime
-    * When the MicrosoftTunnelConfiguration was last updated
+    * When the configuration was last updated
     *
     * @param \DateTime $val The lastUpdateDateTime
     *
@@ -292,9 +292,9 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the roleScopeTagIds
-    * List of Scope Tags for this Entity instance.
+    * List of Scope Tags for this Entity instance
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -307,9 +307,9 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the roleScopeTagIds
-    * List of Scope Tags for this Entity instance.
+    * List of Scope Tags for this Entity instance
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return MicrosoftTunnelConfiguration
     */
@@ -320,10 +320,68 @@ class MicrosoftTunnelConfiguration extends Entity
     }
 
     /**
-    * Gets the routesExclude
+    * Gets the routeExcludes
     * Subsets of the routes that will not be routed by the server
     *
-    * @return string|null The routesExclude
+    * @return array|null The routeExcludes
+    */
+    public function getRouteExcludes()
+    {
+        if (array_key_exists("routeExcludes", $this->_propDict)) {
+            return $this->_propDict["routeExcludes"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the routeExcludes
+    * Subsets of the routes that will not be routed by the server
+    *
+    * @param string[] $val The routeExcludes
+    *
+    * @return MicrosoftTunnelConfiguration
+    */
+    public function setRouteExcludes($val)
+    {
+        $this->_propDict["routeExcludes"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the routeIncludes
+    * The routes that will be routed by the server
+    *
+    * @return array|null The routeIncludes
+    */
+    public function getRouteIncludes()
+    {
+        if (array_key_exists("routeIncludes", $this->_propDict)) {
+            return $this->_propDict["routeIncludes"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the routeIncludes
+    * The routes that will be routed by the server
+    *
+    * @param string[] $val The routeIncludes
+    *
+    * @return MicrosoftTunnelConfiguration
+    */
+    public function setRouteIncludes($val)
+    {
+        $this->_propDict["routeIncludes"] = $val;
+        return $this;
+    }
+
+    /**
+    * Gets the routesExclude
+    * Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.
+    *
+    * @return array|null The routesExclude
     */
     public function getRoutesExclude()
     {
@@ -336,9 +394,9 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the routesExclude
-    * Subsets of the routes that will not be routed by the server
+    * Subsets of the routes that will not be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteExcludes'.
     *
-    * @param string $val The routesExclude
+    * @param string[] $val The routesExclude
     *
     * @return MicrosoftTunnelConfiguration
     */
@@ -350,9 +408,9 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Gets the routesInclude
-    * The routs that will be routed by the server
+    * The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.
     *
-    * @return string|null The routesInclude
+    * @return array|null The routesInclude
     */
     public function getRoutesInclude()
     {
@@ -365,9 +423,9 @@ class MicrosoftTunnelConfiguration extends Entity
 
     /**
     * Sets the routesInclude
-    * The routs that will be routed by the server
+    * The routes that will be routed by the server. This property is going to be deprecated with the option of using the new property, 'RouteIncludes'.
     *
-    * @param string $val The routesInclude
+    * @param string[] $val The routesInclude
     *
     * @return MicrosoftTunnelConfiguration
     */
@@ -381,7 +439,7 @@ class MicrosoftTunnelConfiguration extends Entity
     * Gets the splitDNS
     * The domains that will be resolved using the provided dns servers
     *
-    * @return string|null The splitDNS
+    * @return array|null The splitDNS
     */
     public function getSplitDNS()
     {
@@ -396,7 +454,7 @@ class MicrosoftTunnelConfiguration extends Entity
     * Sets the splitDNS
     * The domains that will be resolved using the provided dns servers
     *
-    * @param string $val The splitDNS
+    * @param string[] $val The splitDNS
     *
     * @return MicrosoftTunnelConfiguration
     */

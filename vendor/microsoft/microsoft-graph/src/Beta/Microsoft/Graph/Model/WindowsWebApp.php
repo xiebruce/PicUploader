@@ -26,7 +26,7 @@ class WindowsWebApp extends MobileApp
 {
     /**
     * Gets the appUrl
-    * The web app URL.
+    * Indicates the Windows web app URL. Example: 'https://www.contoso.com'
     *
     * @return string|null The appUrl
     */
@@ -41,7 +41,7 @@ class WindowsWebApp extends MobileApp
 
     /**
     * Sets the appUrl
-    * The web app URL.
+    * Indicates the Windows web app URL. Example: 'https://www.contoso.com'
     *
     * @param string $val The appUrl
     *

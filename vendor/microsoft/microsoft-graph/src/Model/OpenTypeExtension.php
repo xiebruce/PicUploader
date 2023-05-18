@@ -26,7 +26,7 @@ class OpenTypeExtension extends Extension
 {
     /**
     * Gets the extensionName
-    * A unique text identifier for an open type data extension. Required.
+    * A unique text identifier for an open type data extension. Optional.
     *
     * @return string|null The extensionName
     */
@@ -41,7 +41,7 @@ class OpenTypeExtension extends Extension
 
     /**
     * Sets the extensionName
-    * A unique text identifier for an open type data extension. Required.
+    * A unique text identifier for an open type data extension. Optional.
     *
     * @param string $val The extensionName
     *

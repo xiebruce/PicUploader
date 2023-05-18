@@ -79,4 +79,60 @@ class CloudPcLaunchInfo extends Entity
         $this->_propDict["cloudPcLaunchUrl"] = $val;
         return $this;
     }
+    /**
+    * Gets the windows365SwitchCompatible
+    * Indicates whether the Cloud PC supports switch functionality. If the value is true, it supports switch functionality; otherwise,  false.
+    *
+    * @return bool|null The windows365SwitchCompatible
+    */
+    public function getWindows365SwitchCompatible()
+    {
+        if (array_key_exists("windows365SwitchCompatible", $this->_propDict)) {
+            return $this->_propDict["windows365SwitchCompatible"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the windows365SwitchCompatible
+    * Indicates whether the Cloud PC supports switch functionality. If the value is true, it supports switch functionality; otherwise,  false.
+    *
+    * @param bool $val The value of the windows365SwitchCompatible
+    *
+    * @return CloudPcLaunchInfo
+    */
+    public function setWindows365SwitchCompatible($val)
+    {
+        $this->_propDict["windows365SwitchCompatible"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the windows365SwitchNotCompatibleReason
+    * Indicates the reason the Cloud PC doesn't support switch. CPCOsVersionNotMeetRequirement indicates that the user needs to update their Cloud PC operation system version. CPCHardwareNotMeetRequirement indicates that the Cloud PC needs more CPU or RAM to support the functionality.
+    *
+    * @return string|null The windows365SwitchNotCompatibleReason
+    */
+    public function getWindows365SwitchNotCompatibleReason()
+    {
+        if (array_key_exists("windows365SwitchNotCompatibleReason", $this->_propDict)) {
+            return $this->_propDict["windows365SwitchNotCompatibleReason"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the windows365SwitchNotCompatibleReason
+    * Indicates the reason the Cloud PC doesn't support switch. CPCOsVersionNotMeetRequirement indicates that the user needs to update their Cloud PC operation system version. CPCHardwareNotMeetRequirement indicates that the Cloud PC needs more CPU or RAM to support the functionality.
+    *
+    * @param string $val The value of the windows365SwitchNotCompatibleReason
+    *
+    * @return CloudPcLaunchInfo
+    */
+    public function setWindows365SwitchNotCompatibleReason($val)
+    {
+        $this->_propDict["windows365SwitchNotCompatibleReason"] = $val;
+        return $this;
+    }
 }

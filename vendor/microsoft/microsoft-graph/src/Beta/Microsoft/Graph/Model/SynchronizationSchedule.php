@@ -92,7 +92,7 @@ class SynchronizationSchedule extends Entity
 
     /**
     * Gets the state
-    * Possible values are: Active, Disabled.
+    * The possible values are: Active, Disabled, Paused.
     *
     * @return SynchronizationScheduleState|null The state
     */
@@ -111,7 +111,7 @@ class SynchronizationSchedule extends Entity
 
     /**
     * Sets the state
-    * Possible values are: Active, Disabled.
+    * The possible values are: Active, Disabled, Paused.
     *
     * @param SynchronizationScheduleState $val The value to assign to the state
     *

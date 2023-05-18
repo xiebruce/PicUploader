@@ -26,7 +26,7 @@ class CustomExtensionCallbackConfiguration extends Entity
 
     /**
     * Gets the timeoutDuration
-    * Callback time out in ISO 8601 time duration. Accepted time durations are between five minutes to three hours. For example, PT5M for five minutes and PT3H for three hours.
+    * The maximum duration in ISO 8601 format that Azure AD will wait for a resume action for the callout it sent to the logic app. The valid range for custom extensions in lifecycle workflows is five minutes to three hours. The valid range for custom extensions in entitlement management is between 5 minutes and 14 days. For example, PT3H refers to three hours, P3D refers to three days, PT10M refers to ten minutes.
     *
     * @return \DateInterval|null The timeoutDuration
     */
@@ -45,7 +45,7 @@ class CustomExtensionCallbackConfiguration extends Entity
 
     /**
     * Sets the timeoutDuration
-    * Callback time out in ISO 8601 time duration. Accepted time durations are between five minutes to three hours. For example, PT5M for five minutes and PT3H for three hours.
+    * The maximum duration in ISO 8601 format that Azure AD will wait for a resume action for the callout it sent to the logic app. The valid range for custom extensions in lifecycle workflows is five minutes to three hours. The valid range for custom extensions in entitlement management is between 5 minutes and 14 days. For example, PT3H refers to three hours, P3D refers to three days, PT10M refers to ten minutes.
     *
     * @param \DateInterval $val The value to assign to the timeoutDuration
     *

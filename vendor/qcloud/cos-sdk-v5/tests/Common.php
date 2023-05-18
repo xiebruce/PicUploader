@@ -119,6 +119,16 @@ class Common
     {
         return getenv('COS_REGION');
     }
+    
+    public static function getUin()
+    {
+        return getenv('COS_UIN');
+    }
+
+    public static function getSubUin()
+    {
+        return getenv('COS_SUB_UIN');
+    }
 
     public static function createBucket()
     {

@@ -26,7 +26,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the completedDateTime
-    * The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
+    * The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The completedDateTime
     */
@@ -45,7 +45,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the completedDateTime
-    * The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.
+    * The date time when taskProcessingResult execution ended. Value is null if task execution is still in progress.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The completedDateTime
     *
@@ -59,7 +59,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the createdDateTime
-    * The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
+    * The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The createdDateTime
     */
@@ -78,7 +78,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the createdDateTime
-    * The date time when the taskProcessingResult was created. Supports $filter(lt, gt) and orderBy.
+    * The date time when the taskProcessingResult was created.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The createdDateTime
     *
@@ -121,7 +121,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the processingStatus
-    * Describes the execution status of the taskProcessingResult. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue. Supports $filter(eq).
+    * Describes the execution status of the taskProcessingResult. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue.Supports $filter(eq, ne) and $orderby.
     *
     * @return LifecycleWorkflowProcessingStatus|null The processingStatus
     */
@@ -140,7 +140,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the processingStatus
-    * Describes the execution status of the taskProcessingResult. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue. Supports $filter(eq).
+    * Describes the execution status of the taskProcessingResult. The possible values are: queued, inProgress, completed, completedWithErrors, canceled, failed, unknownFutureValue.Supports $filter(eq, ne) and $orderby.
     *
     * @param LifecycleWorkflowProcessingStatus $val The processingStatus
     *
@@ -154,7 +154,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the startedDateTime
-    * The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
+    * The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @return \DateTime|null The startedDateTime
     */
@@ -173,7 +173,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the startedDateTime
-    * The date time when taskProcessingResult execution started. Value is null if task execution has not yet started. Supports $filter(lt, gt) and orderBy.
+    * The date time when taskProcessingResult execution started. Value is null if task execution has not yet started.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.
     *
     * @param \DateTime $val The startedDateTime
     *
@@ -187,7 +187,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the subject
-    * The unique identifier of the Azure AD user targeted for the task execution.
+    * The unique identifier of the Azure AD user targeted for the task execution.Supports $filter(eq, ne) and $expand.
     *
     * @return \Beta\Microsoft\Graph\Model\User|null The subject
     */
@@ -206,7 +206,7 @@ class TaskProcessingResult extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the subject
-    * The unique identifier of the Azure AD user targeted for the task execution.
+    * The unique identifier of the Azure AD user targeted for the task execution.Supports $filter(eq, ne) and $expand.
     *
     * @param \Beta\Microsoft\Graph\Model\User $val The subject
     *

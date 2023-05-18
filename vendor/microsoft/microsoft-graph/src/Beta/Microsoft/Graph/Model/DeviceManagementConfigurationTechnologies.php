@@ -38,5 +38,6 @@ class DeviceManagementConfigurationTechnologies extends Enum
     const EXCHANGE_ONLINE = "exchangeOnline";
     const LINUX_MDM = "linuxMdm";
     const ENROLLMENT = "enrollment";
+    const ENDPOINT_PRIVILEGE_MANAGEMENT = "endpointPrivilegeManagement";
     const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

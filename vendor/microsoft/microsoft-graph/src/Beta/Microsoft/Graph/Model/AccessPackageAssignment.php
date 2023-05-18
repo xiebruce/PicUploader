@@ -169,6 +169,36 @@ class AccessPackageAssignment extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the customExtensionCalloutInstances
+    * Information about all the custom extension calls that were made during the access package assignment workflow.
+     *
+     * @return array|null The customExtensionCalloutInstances
+     */
+    public function getCustomExtensionCalloutInstances()
+    {
+        if (array_key_exists("customExtensionCalloutInstances", $this->_propDict)) {
+           return $this->_propDict["customExtensionCalloutInstances"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the customExtensionCalloutInstances
+    * Information about all the custom extension calls that were made during the access package assignment workflow.
+    *
+    * @param CustomExtensionCalloutInstance[] $val The customExtensionCalloutInstances
+    *
+    * @return AccessPackageAssignment
+    */
+    public function setCustomExtensionCalloutInstances($val)
+    {
+        $this->_propDict["customExtensionCalloutInstances"] = $val;
+        return $this;
+    }
+
     /**
     * Gets the expiredDateTime
     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z

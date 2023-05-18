@@ -86,6 +86,39 @@ class ZebraFotaDeploymentStatus extends Entity
     }
 
     /**
+    * Gets the errorCode
+    * An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum. Possible values are: success, noDevicesFoundInSelectedAadGroups, noIntuneDevicesFoundInSelectedAadGroups, noZebraFotaEnrolledDevicesFoundForCurrentTenant, noZebraFotaEnrolledDevicesFoundInSelectedAadGroups, noZebraFotaDevicesFoundForSelectedDeviceModel, zebraFotaCreateDeploymentRequestFailure, unknownFutureValue.
+    *
+    * @return ZebraFotaErrorCode|null The errorCode
+    */
+    public function getErrorCode()
+    {
+        if (array_key_exists("errorCode", $this->_propDict)) {
+            if (is_a($this->_propDict["errorCode"], "\Beta\Microsoft\Graph\Model\ZebraFotaErrorCode") || is_null($this->_propDict["errorCode"])) {
+                return $this->_propDict["errorCode"];
+            } else {
+                $this->_propDict["errorCode"] = new ZebraFotaErrorCode($this->_propDict["errorCode"]);
+                return $this->_propDict["errorCode"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the errorCode
+    * An error code indicating the failure reason, when the deployment state is createFailed. Possible values: See zebraFotaErrorCode enum. Possible values are: success, noDevicesFoundInSelectedAadGroups, noIntuneDevicesFoundInSelectedAadGroups, noZebraFotaEnrolledDevicesFoundForCurrentTenant, noZebraFotaEnrolledDevicesFoundInSelectedAadGroups, noZebraFotaDevicesFoundForSelectedDeviceModel, zebraFotaCreateDeploymentRequestFailure, unknownFutureValue.
+    *
+    * @param ZebraFotaErrorCode $val The value to assign to the errorCode
+    *
+    * @return ZebraFotaDeploymentStatus The ZebraFotaDeploymentStatus
+    */
+    public function setErrorCode($val)
+    {
+        $this->_propDict["errorCode"] = $val;
+         return $this;
+    }
+
+    /**
     * Gets the lastUpdatedDateTime
     * Date and time when the deployment status was updated from Zebra
     *

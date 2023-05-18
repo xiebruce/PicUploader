@@ -27,7 +27,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase
     /**
     * Gets the definition
     *
-    * @return string|null The definition
+    * @return array|null The definition
     */
     public function getDefinition()
     {
@@ -41,7 +41,7 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase
     /**
     * Sets the definition
     *
-    * @param string $val The definition
+    * @param string[] $val The definition
     *
     * @return TenantRelationshipAccessPolicyBase
     */

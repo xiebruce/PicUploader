@@ -40,4 +40,5 @@ class DetectedAppPlatformType extends Enum
     const ANDROID_DEVICE_ADMINISTRATOR = "androidDeviceAdministrator";
     const ANDROID_WORK_PROFILE = "androidWorkProfile";
     const ANDROID_DEDICATED_AND_FULLY_MANAGED = "androidDedicatedAndFullyManaged";
+    const UNKNOWN_FUTURE_VALUE = "unknownFutureValue";
 }

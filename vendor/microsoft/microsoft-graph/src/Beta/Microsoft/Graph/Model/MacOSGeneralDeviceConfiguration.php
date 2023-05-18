@@ -25,6 +25,35 @@ namespace Beta\Microsoft\Graph\Model;
 class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
 {
     /**
+    * Gets the activationLockWhenSupervisedAllowed
+    * When TRUE, activation lock is allowed when the devices is in the supervised mode. When FALSE, activation lock is not allowed. Default is false.
+    *
+    * @return bool|null The activationLockWhenSupervisedAllowed
+    */
+    public function getActivationLockWhenSupervisedAllowed()
+    {
+        if (array_key_exists("activationLockWhenSupervisedAllowed", $this->_propDict)) {
+            return $this->_propDict["activationLockWhenSupervisedAllowed"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the activationLockWhenSupervisedAllowed
+    * When TRUE, activation lock is allowed when the devices is in the supervised mode. When FALSE, activation lock is not allowed. Default is false.
+    *
+    * @param bool $val The activationLockWhenSupervisedAllowed
+    *
+    * @return MacOSGeneralDeviceConfiguration
+    */
+    public function setActivationLockWhenSupervisedAllowed($val)
+    {
+        $this->_propDict["activationLockWhenSupervisedAllowed"] = boolval($val);
+        return $this;
+    }
+
+    /**
     * Gets the addingGameCenterFriendsBlocked
     * Yes prevents users from adding friends to Game Center. Available for devices running macOS versions 10.13 and later.
     *
@@ -410,7 +439,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     * Gets the emailInDomainSuffixes
     * An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
     *
-    * @return string|null The emailInDomainSuffixes
+    * @return array|null The emailInDomainSuffixes
     */
     public function getEmailInDomainSuffixes()
     {
@@ -425,7 +454,7 @@ class MacOSGeneralDeviceConfiguration extends DeviceConfiguration
     * Sets the emailInDomainSuffixes
     * An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
     *
-    * @param string $val The emailInDomainSuffixes
+    * @param string[] $val The emailInDomainSuffixes
     *
     * @return MacOSGeneralDeviceConfiguration
     */

@@ -45,4 +45,6 @@ class ManagedDeviceRemoteAction extends Enum
     const MOVE_DEVICE_TO_ORGANIZATIONAL_UNIT = "moveDeviceToOrganizationalUnit";
     const ACTIVATE_DEVICE_ESIM = "activateDeviceEsim";
     const COLLECT_DIAGNOSTICS = "collectDiagnostics";
+    const INITIATE_MOBILE_DEVICE_MANAGEMENT_KEY_RECOVERY = "initiateMobileDeviceManagementKeyRecovery";
+    const INITIATE_ON_DEMAND_PROACTIVE_REMEDIATION = "initiateOnDemandProactiveRemediation";
 }

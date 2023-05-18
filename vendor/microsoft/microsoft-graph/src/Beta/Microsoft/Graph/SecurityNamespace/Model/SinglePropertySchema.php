@@ -25,6 +25,7 @@ class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
 {
     /**
     * Gets the name
+    * The name of the property.
     *
     * @return string|null The name
     */
@@ -39,6 +40,7 @@ class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the name
+    * The name of the property.
     *
     * @param string $val The value of the name
     *
@@ -51,6 +53,7 @@ class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
     }
     /**
     * Gets the type
+    * The type of the property.
     *
     * @return string|null The type
     */
@@ -65,6 +68,7 @@ class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the type
+    * The type of the property.
     *
     * @param string $val The value of the type
     *

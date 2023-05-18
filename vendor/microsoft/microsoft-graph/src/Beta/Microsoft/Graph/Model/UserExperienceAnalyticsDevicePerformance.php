@@ -26,7 +26,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 {
     /**
     * Gets the averageBlueScreens
-    * Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
+    * Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999
     *
     * @return float|null The averageBlueScreens
     */
@@ -41,7 +41,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Sets the averageBlueScreens
-    * Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
+    * Average (mean) number of Blue Screens per device in the last 30 days. Valid values 0 to 9999999
     *
     * @param float $val The averageBlueScreens
     *
@@ -55,7 +55,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Gets the averageRestarts
-    * Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
+    * Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999
     *
     * @return float|null The averageRestarts
     */
@@ -70,7 +70,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Sets the averageRestarts
-    * Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
+    * Average (mean) number of Restarts per device in the last 30 days. Valid values 0 to 9999999
     *
     * @param float $val The averageRestarts
     *
@@ -84,7 +84,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Gets the blueScreenCount
-    * Number of Blue Screens in the last 14 days. Valid values 0 to 9999999
+    * Number of Blue Screens in the last 30 days. Valid values 0 to 9999999
     *
     * @return int|null The blueScreenCount
     */
@@ -99,7 +99,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Sets the blueScreenCount
-    * Number of Blue Screens in the last 14 days. Valid values 0 to 9999999
+    * Number of Blue Screens in the last 30 days. Valid values 0 to 9999999
     *
     * @param int $val The blueScreenCount
     *
@@ -556,7 +556,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Gets the restartCount
-    * Number of Restarts in the last 14 days. Valid values 0 to 9999999
+    * Number of Restarts in the last 30 days. Valid values 0 to 9999999
     *
     * @return int|null The restartCount
     */
@@ -571,7 +571,7 @@ class UserExperienceAnalyticsDevicePerformance extends Entity
 
     /**
     * Sets the restartCount
-    * Number of Restarts in the last 14 days. Valid values 0 to 9999999
+    * Number of Restarts in the last 30 days. Valid values 0 to 9999999
     *
     * @param int $val The restartCount
     *

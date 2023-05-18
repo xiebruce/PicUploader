@@ -396,7 +396,7 @@ class WindowsAutopilotDeploymentProfile extends Entity
     * Gets the roleScopeTagIds
     * Scope tags for the profile.
     *
-    * @return string|null The roleScopeTagIds
+    * @return array|null The roleScopeTagIds
     */
     public function getRoleScopeTagIds()
     {
@@ -411,7 +411,7 @@ class WindowsAutopilotDeploymentProfile extends Entity
     * Sets the roleScopeTagIds
     * Scope tags for the profile.
     *
-    * @param string $val The roleScopeTagIds
+    * @param string[] $val The roleScopeTagIds
     *
     * @return WindowsAutopilotDeploymentProfile
     */

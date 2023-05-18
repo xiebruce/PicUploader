@@ -23,6 +23,39 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class AndroidFotaDeploymentAssignment extends Entity
 {
+
+    /**
+    * Gets the assignmentTarget
+    * The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.
+    *
+    * @return DeviceAndAppManagementAssignmentTarget|null The assignmentTarget
+    */
+    public function getAssignmentTarget()
+    {
+        if (array_key_exists("assignmentTarget", $this->_propDict)) {
+            if (is_a($this->_propDict["assignmentTarget"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["assignmentTarget"])) {
+                return $this->_propDict["assignmentTarget"];
+            } else {
+                $this->_propDict["assignmentTarget"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["assignmentTarget"]);
+                return $this->_propDict["assignmentTarget"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the assignmentTarget
+    * The Azure Active Directory (Azure AD) we are deploying firmware updates to (e.g.: d93c8f48-bd42-4514-ba40-bc6b84780930). NOTE: Use this property moving forward because the existing property, target, is deprecated.
+    *
+    * @param DeviceAndAppManagementAssignmentTarget $val The value to assign to the assignmentTarget
+    *
+    * @return AndroidFotaDeploymentAssignment The AndroidFotaDeploymentAssignment
+    */
+    public function setAssignmentTarget($val)
+    {
+        $this->_propDict["assignmentTarget"] = $val;
+         return $this;
+    }
     /**
     * Gets the displayName
     * The display name of the Azure AD security group used for the assignment.

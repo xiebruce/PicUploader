@@ -59,7 +59,7 @@ class AlertEvidence extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Gets the remediationStatus
-    * Status of the remediation action taken. The possible values are: none, remediated, prevented, blocked, notFound, active, pendingApproval, declined, notRemediated, running, unknownFutureValue.
+    * Status of the remediation action taken. The possible values are: none, remediated, prevented, blocked, notFound, unknownFutureValue.
     *
     * @return EvidenceRemediationStatus|null The remediationStatus
     */
@@ -78,7 +78,7 @@ class AlertEvidence extends \Beta\Microsoft\Graph\Model\Entity
 
     /**
     * Sets the remediationStatus
-    * Status of the remediation action taken. The possible values are: none, remediated, prevented, blocked, notFound, active, pendingApproval, declined, notRemediated, running, unknownFutureValue.
+    * Status of the remediation action taken. The possible values are: none, remediated, prevented, blocked, notFound, unknownFutureValue.
     *
     * @param EvidenceRemediationStatus $val The value to assign to the remediationStatus
     *

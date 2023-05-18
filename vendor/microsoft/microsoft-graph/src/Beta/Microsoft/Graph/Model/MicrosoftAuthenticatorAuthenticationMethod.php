@@ -25,6 +25,39 @@ namespace Beta\Microsoft\Graph\Model;
 class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
 {
     /**
+    * Gets the clientAppName
+    * The app that the user has registered to use to approve push notifications. The possible values are: microsoftAuthenticator, outlookMobile, unknownFutureValue.
+    *
+    * @return MicrosoftAuthenticatorAuthenticationMethodClientAppName|null The clientAppName
+    */
+    public function getClientAppName()
+    {
+        if (array_key_exists("clientAppName", $this->_propDict)) {
+            if (is_a($this->_propDict["clientAppName"], "\Beta\Microsoft\Graph\Model\MicrosoftAuthenticatorAuthenticationMethodClientAppName") || is_null($this->_propDict["clientAppName"])) {
+                return $this->_propDict["clientAppName"];
+            } else {
+                $this->_propDict["clientAppName"] = new MicrosoftAuthenticatorAuthenticationMethodClientAppName($this->_propDict["clientAppName"]);
+                return $this->_propDict["clientAppName"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the clientAppName
+    * The app that the user has registered to use to approve push notifications. The possible values are: microsoftAuthenticator, outlookMobile, unknownFutureValue.
+    *
+    * @param MicrosoftAuthenticatorAuthenticationMethodClientAppName $val The clientAppName
+    *
+    * @return MicrosoftAuthenticatorAuthenticationMethod
+    */
+    public function setClientAppName($val)
+    {
+        $this->_propDict["clientAppName"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the createdDateTime
     * The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
     *

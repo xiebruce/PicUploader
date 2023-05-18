@@ -25,6 +25,39 @@ namespace Beta\Microsoft\Graph\Model;
 class PlannerBucket extends PlannerDelta
 {
     /**
+    * Gets the creationSource
+    * Contains information about the origin of the bucket.
+    *
+    * @return PlannerBucketCreation|null The creationSource
+    */
+    public function getCreationSource()
+    {
+        if (array_key_exists("creationSource", $this->_propDict)) {
+            if (is_a($this->_propDict["creationSource"], "\Beta\Microsoft\Graph\Model\PlannerBucketCreation") || is_null($this->_propDict["creationSource"])) {
+                return $this->_propDict["creationSource"];
+            } else {
+                $this->_propDict["creationSource"] = new PlannerBucketCreation($this->_propDict["creationSource"]);
+                return $this->_propDict["creationSource"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the creationSource
+    * Contains information about the origin of the bucket.
+    *
+    * @param PlannerBucketCreation $val The creationSource
+    *
+    * @return PlannerBucket
+    */
+    public function setCreationSource($val)
+    {
+        $this->_propDict["creationSource"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the name
     * Name of the bucket.
     *
@@ -55,7 +88,7 @@ class PlannerBucket extends PlannerDelta
 
     /**
     * Gets the orderHint
-    * Hint used to order items of this type in a list view. The format is defined as outlined here.
+    * Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner.
     *
     * @return string|null The orderHint
     */
@@ -70,7 +103,7 @@ class PlannerBucket extends PlannerDelta
 
     /**
     * Sets the orderHint
-    * Hint used to order items of this type in a list view. The format is defined as outlined here.
+    * Hint used to order items of this type in a list view. For details about the supported format, see Using order hints in Planner.
     *
     * @param string $val The orderHint
     *

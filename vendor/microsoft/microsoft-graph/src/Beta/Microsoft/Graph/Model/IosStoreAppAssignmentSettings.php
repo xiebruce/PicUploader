@@ -36,7 +36,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
 
     /**
     * Gets the isRemovable
-    * Whether or not the app can be removed by the user.
+    * When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
     *
     * @return bool|null The isRemovable
     */
@@ -51,7 +51,7 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
 
     /**
     * Sets the isRemovable
-    * Whether or not the app can be removed by the user.
+    * When TRUE, indicates that the app can be uninstalled by the user. When FALSE, indicates that the app cannot be uninstalled by the user. By default, this property is set to null which internally is treated as TRUE.
     *
     * @param bool $val The value of the isRemovable
     *
@@ -60,6 +60,34 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
     public function setIsRemovable($val)
     {
         $this->_propDict["isRemovable"] = $val;
+        return $this;
+    }
+    /**
+    * Gets the preventManagedAppBackup
+    * When TRUE, indicates that the app should not be backed up to iCloud. When FALSE, indicates that the app may be backed up to iCloud. By default, this property is set to null which internally is treated as FALSE.
+    *
+    * @return bool|null The preventManagedAppBackup
+    */
+    public function getPreventManagedAppBackup()
+    {
+        if (array_key_exists("preventManagedAppBackup", $this->_propDict)) {
+            return $this->_propDict["preventManagedAppBackup"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the preventManagedAppBackup
+    * When TRUE, indicates that the app should not be backed up to iCloud. When FALSE, indicates that the app may be backed up to iCloud. By default, this property is set to null which internally is treated as FALSE.
+    *
+    * @param bool $val The value of the preventManagedAppBackup
+    *
+    * @return IosStoreAppAssignmentSettings
+    */
+    public function setPreventManagedAppBackup($val)
+    {
+        $this->_propDict["preventManagedAppBackup"] = $val;
         return $this;
     }
     /**

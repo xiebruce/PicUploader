@@ -241,39 +241,6 @@ class DeviceManagementPartner extends Entity
     }
 
     /**
-    * Gets the whenPartnerDevicesWillBeMarkedAsNonCompliant
-    * DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.
-    *
-    * @return \DateTime|null The whenPartnerDevicesWillBeMarkedAsNonCompliant
-    */
-    public function getWhenPartnerDevicesWillBeMarkedAsNonCompliant()
-    {
-        if (array_key_exists("whenPartnerDevicesWillBeMarkedAsNonCompliant", $this->_propDict)) {
-            if (is_a($this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"], "\DateTime") || is_null($this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"])) {
-                return $this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"];
-            } else {
-                $this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"] = new \DateTime($this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"]);
-                return $this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the whenPartnerDevicesWillBeMarkedAsNonCompliant
-    * DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.
-    *
-    * @param \DateTime $val The whenPartnerDevicesWillBeMarkedAsNonCompliant
-    *
-    * @return DeviceManagementPartner
-    */
-    public function setWhenPartnerDevicesWillBeMarkedAsNonCompliant($val)
-    {
-        $this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliant"] = $val;
-        return $this;
-    }
-
-    /**
     * Gets the whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime
     * DateTime in UTC when PartnerDevices will be marked as NonCompliant
     *
@@ -303,39 +270,6 @@ class DeviceManagementPartner extends Entity
     public function setWhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime($val)
     {
         $this->_propDict["whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime"] = $val;
-        return $this;
-    }
-
-    /**
-    * Gets the whenPartnerDevicesWillBeRemoved
-    * DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.
-    *
-    * @return \DateTime|null The whenPartnerDevicesWillBeRemoved
-    */
-    public function getWhenPartnerDevicesWillBeRemoved()
-    {
-        if (array_key_exists("whenPartnerDevicesWillBeRemoved", $this->_propDict)) {
-            if (is_a($this->_propDict["whenPartnerDevicesWillBeRemoved"], "\DateTime") || is_null($this->_propDict["whenPartnerDevicesWillBeRemoved"])) {
-                return $this->_propDict["whenPartnerDevicesWillBeRemoved"];
-            } else {
-                $this->_propDict["whenPartnerDevicesWillBeRemoved"] = new \DateTime($this->_propDict["whenPartnerDevicesWillBeRemoved"]);
-                return $this->_propDict["whenPartnerDevicesWillBeRemoved"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the whenPartnerDevicesWillBeRemoved
-    * DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.
-    *
-    * @param \DateTime $val The whenPartnerDevicesWillBeRemoved
-    *
-    * @return DeviceManagementPartner
-    */
-    public function setWhenPartnerDevicesWillBeRemoved($val)
-    {
-        $this->_propDict["whenPartnerDevicesWillBeRemoved"] = $val;
         return $this;
     }
 

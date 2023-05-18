@@ -57,4 +57,34 @@ class CloudPcProvisioningPolicyAssignment extends Entity
         return $this;
     }
 
+
+     /**
+     * Gets the assignedUsers
+    * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
+     *
+     * @return array|null The assignedUsers
+     */
+    public function getAssignedUsers()
+    {
+        if (array_key_exists("assignedUsers", $this->_propDict)) {
+           return $this->_propDict["assignedUsers"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the assignedUsers
+    * The assignment targeted users for the provisioning policy. This list of users is computed based on assignments, licenses, group memberships, and policies. This property is read-only. Supports$expand.
+    *
+    * @param User[] $val The assignedUsers
+    *
+    * @return CloudPcProvisioningPolicyAssignment
+    */
+    public function setAssignedUsers($val)
+    {
+        $this->_propDict["assignedUsers"] = $val;
+        return $this;
+    }
+
 }

@@ -27,7 +27,7 @@ class ServicePrincipalCreationConditionSet extends Entity
     /**
     * Gets the applicationIds
     *
-    * @return string|null The applicationIds
+    * @return array|null The applicationIds
     */
     public function getApplicationIds()
     {
@@ -41,7 +41,7 @@ class ServicePrincipalCreationConditionSet extends Entity
     /**
     * Sets the applicationIds
     *
-    * @param string $val The applicationIds
+    * @param string[] $val The applicationIds
     *
     * @return ServicePrincipalCreationConditionSet
     */
@@ -54,7 +54,7 @@ class ServicePrincipalCreationConditionSet extends Entity
     /**
     * Gets the applicationPublisherIds
     *
-    * @return string|null The applicationPublisherIds
+    * @return array|null The applicationPublisherIds
     */
     public function getApplicationPublisherIds()
     {
@@ -68,7 +68,7 @@ class ServicePrincipalCreationConditionSet extends Entity
     /**
     * Sets the applicationPublisherIds
     *
-    * @param string $val The applicationPublisherIds
+    * @param string[] $val The applicationPublisherIds
     *
     * @return ServicePrincipalCreationConditionSet
     */
@@ -108,7 +108,7 @@ class ServicePrincipalCreationConditionSet extends Entity
     /**
     * Gets the applicationTenantIds
     *
-    * @return string|null The applicationTenantIds
+    * @return array|null The applicationTenantIds
     */
     public function getApplicationTenantIds()
     {
@@ -122,7 +122,7 @@ class ServicePrincipalCreationConditionSet extends Entity
     /**
     * Sets the applicationTenantIds
     *
-    * @param string $val The applicationTenantIds
+    * @param string[] $val The applicationTenantIds
     *
     * @return ServicePrincipalCreationConditionSet
     */

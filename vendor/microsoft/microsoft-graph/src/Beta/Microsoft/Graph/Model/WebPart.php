@@ -12,6 +12,7 @@
 * @link      https://graph.microsoft.com
 */
 namespace Beta\Microsoft\Graph\Model;
+
 /**
 * WebPart class
 *
@@ -23,65 +24,4 @@ namespace Beta\Microsoft\Graph\Model;
 */
 class WebPart extends Entity
 {
-
-    /**
-    * Gets the data
-    * The required properties for the webPart (varies by webPart)
-    *
-    * @return SitePageData|null The data
-    */
-    public function getData()
-    {
-        if (array_key_exists("data", $this->_propDict)) {
-            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\SitePageData") || is_null($this->_propDict["data"])) {
-                return $this->_propDict["data"];
-            } else {
-                $this->_propDict["data"] = new SitePageData($this->_propDict["data"]);
-                return $this->_propDict["data"];
-            }
-        }
-        return null;
-    }
-
-    /**
-    * Sets the data
-    * The required properties for the webPart (varies by webPart)
-    *
-    * @param SitePageData $val The value to assign to the data
-    *
-    * @return WebPart The WebPart
-    */
-    public function setData($val)
-    {
-        $this->_propDict["data"] = $val;
-         return $this;
-    }
-    /**
-    * Gets the type
-    * A unique identifier specifying the webPart type. Read-only.
-    *
-    * @return string|null The type
-    */
-    public function getType()
-    {
-        if (array_key_exists("type", $this->_propDict)) {
-            return $this->_propDict["type"];
-        } else {
-            return null;
-        }
-    }
-
-    /**
-    * Sets the type
-    * A unique identifier specifying the webPart type. Read-only.
-    *
-    * @param string $val The value of the type
-    *
-    * @return WebPart
-    */
-    public function setType($val)
-    {
-        $this->_propDict["type"] = $val;
-        return $this;
-    }
 }

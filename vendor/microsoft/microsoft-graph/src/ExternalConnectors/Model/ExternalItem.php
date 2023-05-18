@@ -120,4 +120,34 @@ class ExternalItem extends \Microsoft\Graph\Model\Entity
         return $this;
     }
 
+
+     /**
+     * Gets the activities
+    * Returns a list of activities performed on the item. Write-only.
+     *
+     * @return array|null The activities
+     */
+    public function getActivities()
+    {
+        if (array_key_exists("activities", $this->_propDict)) {
+           return $this->_propDict["activities"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the activities
+    * Returns a list of activities performed on the item. Write-only.
+    *
+    * @param ExternalActivity[] $val The activities
+    *
+    * @return ExternalItem
+    */
+    public function setActivities($val)
+    {
+        $this->_propDict["activities"] = $val;
+        return $this;
+    }
+
 }

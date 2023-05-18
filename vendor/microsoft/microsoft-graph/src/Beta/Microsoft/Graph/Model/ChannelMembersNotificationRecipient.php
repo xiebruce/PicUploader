@@ -25,7 +25,7 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient
 {
     /**
     * Gets the channelId
-    * The channel's identifier.
+    * The unique identifier for the channel whose members should receive the notification.
     *
     * @return string|null The channelId
     */
@@ -40,7 +40,7 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient
 
     /**
     * Sets the channelId
-    * The channel's identifier.
+    * The unique identifier for the channel whose members should receive the notification.
     *
     * @param string $val The value of the channelId
     *
@@ -53,7 +53,7 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient
     }
     /**
     * Gets the teamId
-    * The team's identifier under which the channel resides.
+    * The unique identifier for the team under which the channel resides.
     *
     * @return string|null The teamId
     */
@@ -68,7 +68,7 @@ class ChannelMembersNotificationRecipient extends TeamworkNotificationRecipient
 
     /**
     * Sets the teamId
-    * The team's identifier under which the channel resides.
+    * The unique identifier for the team under which the channel resides.
     *
     * @param string $val The value of the teamId
     *

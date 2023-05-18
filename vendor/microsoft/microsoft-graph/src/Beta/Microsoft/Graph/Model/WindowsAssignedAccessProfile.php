@@ -28,7 +28,7 @@ class WindowsAssignedAccessProfile extends Entity
     * Gets the appUserModelIds
     * These are the only Windows Store Apps that will be available to launch from the Start menu.
     *
-    * @return string|null The appUserModelIds
+    * @return array|null The appUserModelIds
     */
     public function getAppUserModelIds()
     {
@@ -43,7 +43,7 @@ class WindowsAssignedAccessProfile extends Entity
     * Sets the appUserModelIds
     * These are the only Windows Store Apps that will be available to launch from the Start menu.
     *
-    * @param string $val The appUserModelIds
+    * @param string[] $val The appUserModelIds
     *
     * @return WindowsAssignedAccessProfile
     */
@@ -57,7 +57,7 @@ class WindowsAssignedAccessProfile extends Entity
     * Gets the desktopAppPaths
     * These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
     *
-    * @return string|null The desktopAppPaths
+    * @return array|null The desktopAppPaths
     */
     public function getDesktopAppPaths()
     {
@@ -72,7 +72,7 @@ class WindowsAssignedAccessProfile extends Entity
     * Sets the desktopAppPaths
     * These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
     *
-    * @param string $val The desktopAppPaths
+    * @param string[] $val The desktopAppPaths
     *
     * @return WindowsAssignedAccessProfile
     */
@@ -177,7 +177,7 @@ class WindowsAssignedAccessProfile extends Entity
     * Gets the userAccounts
     * The user accounts that will be locked to this kiosk configuration.
     *
-    * @return string|null The userAccounts
+    * @return array|null The userAccounts
     */
     public function getUserAccounts()
     {
@@ -192,7 +192,7 @@ class WindowsAssignedAccessProfile extends Entity
     * Sets the userAccounts
     * The user accounts that will be locked to this kiosk configuration.
     *
-    * @param string $val The userAccounts
+    * @param string[] $val The userAccounts
     *
     * @return WindowsAssignedAccessProfile
     */

@@ -59,7 +59,7 @@ class SubjectRightsRequestStageDetail extends Entity
 
     /**
     * Gets the stage
-    * The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
+    * The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval.
     *
     * @return SubjectRightsRequestStage|null The stage
     */
@@ -78,7 +78,7 @@ class SubjectRightsRequestStageDetail extends Entity
 
     /**
     * Sets the stage
-    * The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
+    * The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue, approval.
     *
     * @param SubjectRightsRequestStage $val The value to assign to the stage
     *

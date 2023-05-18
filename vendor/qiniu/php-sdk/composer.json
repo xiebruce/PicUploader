@@ -19,12 +19,12 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "myclabs/php-enum": "1.6.6"
+        "myclabs/php-enum": "~1.5.2 || ~1.6.6 || ~1.7.7 || ~1.8.4"
     },
     "require-dev": {
         "paragonie/random_compat": ">=2",
-        "phpunit/phpunit": "~4.0",
-        "squizlabs/php_codesniffer": "~3.6"
+        "phpunit/phpunit": "^4.8 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4",
+        "squizlabs/php_codesniffer": "^2.3 || ~3.6"
     },
     "autoload": {
         "psr-4": {

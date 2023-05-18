@@ -182,6 +182,39 @@ class MembershipOutlierInsight extends GovernanceInsight
     }
 
     /**
+    * Gets the lastModifiedBy
+    * Navigation link to a member object who modified the record. For example, to a user.
+    *
+    * @return User|null The lastModifiedBy
+    */
+    public function getLastModifiedBy()
+    {
+        if (array_key_exists("lastModifiedBy", $this->_propDict)) {
+            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\User") || is_null($this->_propDict["lastModifiedBy"])) {
+                return $this->_propDict["lastModifiedBy"];
+            } else {
+                $this->_propDict["lastModifiedBy"] = new User($this->_propDict["lastModifiedBy"]);
+                return $this->_propDict["lastModifiedBy"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the lastModifiedBy
+    * Navigation link to a member object who modified the record. For example, to a user.
+    *
+    * @param User $val The lastModifiedBy
+    *
+    * @return MembershipOutlierInsight
+    */
+    public function setLastModifiedBy($val)
+    {
+        $this->_propDict["lastModifiedBy"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the member
     * Navigation link to a member object. For example, to a user.
     *

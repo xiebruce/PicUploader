@@ -156,6 +156,35 @@ class Session extends \Beta\Microsoft\Graph\Model\Entity
         return $this;
     }
 
+    /**
+    * Gets the isTest
+    * Specifies whether the session is a test.
+    *
+    * @return bool|null The isTest
+    */
+    public function getIsTest()
+    {
+        if (array_key_exists("isTest", $this->_propDict)) {
+            return $this->_propDict["isTest"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the isTest
+    * Specifies whether the session is a test.
+    *
+    * @param bool $val The isTest
+    *
+    * @return Session
+    */
+    public function setIsTest($val)
+    {
+        $this->_propDict["isTest"] = boolval($val);
+        return $this;
+    }
+
 
      /**
      * Gets the modalities

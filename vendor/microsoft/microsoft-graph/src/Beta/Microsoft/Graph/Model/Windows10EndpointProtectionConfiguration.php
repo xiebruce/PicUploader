@@ -355,7 +355,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the applicationGuardCertificateThumbprints
     * Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.
     *
-    * @return string|null The applicationGuardCertificateThumbprints
+    * @return array|null The applicationGuardCertificateThumbprints
     */
     public function getApplicationGuardCertificateThumbprints()
     {
@@ -370,7 +370,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the applicationGuardCertificateThumbprints
     * Allows certain device level Root Certificates to be shared with the Microsoft Defender Application Guard container.
     *
-    * @param string $val The applicationGuardCertificateThumbprints
+    * @param string[] $val The applicationGuardCertificateThumbprints
     *
     * @return Windows10EndpointProtectionConfiguration
     */
@@ -756,7 +756,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the defenderAdditionalGuardedFolders
     * List of folder paths to be added to the list of protected folders
     *
-    * @return string|null The defenderAdditionalGuardedFolders
+    * @return array|null The defenderAdditionalGuardedFolders
     */
     public function getDefenderAdditionalGuardedFolders()
     {
@@ -771,7 +771,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the defenderAdditionalGuardedFolders
     * List of folder paths to be added to the list of protected folders
     *
-    * @param string $val The defenderAdditionalGuardedFolders
+    * @param string[] $val The defenderAdditionalGuardedFolders
     *
     * @return Windows10EndpointProtectionConfiguration
     */
@@ -1170,7 +1170,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the defenderAttackSurfaceReductionExcludedPaths
     * List of exe files and folders to be excluded from attack surface reduction rules
     *
-    * @return string|null The defenderAttackSurfaceReductionExcludedPaths
+    * @return array|null The defenderAttackSurfaceReductionExcludedPaths
     */
     public function getDefenderAttackSurfaceReductionExcludedPaths()
     {
@@ -1185,7 +1185,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the defenderAttackSurfaceReductionExcludedPaths
     * List of exe files and folders to be excluded from attack surface reduction rules
     *
-    * @param string $val The defenderAttackSurfaceReductionExcludedPaths
+    * @param string[] $val The defenderAttackSurfaceReductionExcludedPaths
     *
     * @return Windows10EndpointProtectionConfiguration
     */
@@ -1977,7 +1977,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @return string|null The defenderFileExtensionsToExclude
+    * @return array|null The defenderFileExtensionsToExclude
     */
     public function getDefenderFileExtensionsToExclude()
     {
@@ -1992,7 +1992,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the defenderFileExtensionsToExclude
     * File extensions to exclude from scans and real time protection.
     *
-    * @param string $val The defenderFileExtensionsToExclude
+    * @param string[] $val The defenderFileExtensionsToExclude
     *
     * @return Windows10EndpointProtectionConfiguration
     */
@@ -2006,7 +2006,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @return string|null The defenderFilesAndFoldersToExclude
+    * @return array|null The defenderFilesAndFoldersToExclude
     */
     public function getDefenderFilesAndFoldersToExclude()
     {
@@ -2021,7 +2021,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the defenderFilesAndFoldersToExclude
     * Files and folder to exclude from scans and real time protection.
     *
-    * @param string $val The defenderFilesAndFoldersToExclude
+    * @param string[] $val The defenderFilesAndFoldersToExclude
     *
     * @return Windows10EndpointProtectionConfiguration
     */
@@ -2035,7 +2035,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the defenderGuardedFoldersAllowedAppPaths
     * List of paths to exe that are allowed to access protected folders
     *
-    * @return string|null The defenderGuardedFoldersAllowedAppPaths
+    * @return array|null The defenderGuardedFoldersAllowedAppPaths
     */
     public function getDefenderGuardedFoldersAllowedAppPaths()
     {
@@ -2050,7 +2050,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the defenderGuardedFoldersAllowedAppPaths
     * List of paths to exe that are allowed to access protected folders
     *
-    * @param string $val The defenderGuardedFoldersAllowedAppPaths
+    * @param string[] $val The defenderGuardedFoldersAllowedAppPaths
     *
     * @return Windows10EndpointProtectionConfiguration
     */
@@ -2559,7 +2559,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Gets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @return string|null The defenderProcessesToExclude
+    * @return array|null The defenderProcessesToExclude
     */
     public function getDefenderProcessesToExclude()
     {
@@ -2574,7 +2574,7 @@ class Windows10EndpointProtectionConfiguration extends DeviceConfiguration
     * Sets the defenderProcessesToExclude
     * Processes to exclude from scans and real time protection.
     *
-    * @param string $val The defenderProcessesToExclude
+    * @param string[] $val The defenderProcessesToExclude
     *
     * @return Windows10EndpointProtectionConfiguration
     */

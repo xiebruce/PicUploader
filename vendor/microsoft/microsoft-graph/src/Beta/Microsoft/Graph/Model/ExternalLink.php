@@ -25,7 +25,7 @@ class ExternalLink extends Entity
 {
     /**
     * Gets the href
-    * The url of the link.
+    * The URL of the link.
     *
     * @return string|null The href
     */
@@ -40,7 +40,7 @@ class ExternalLink extends Entity
 
     /**
     * Sets the href
-    * The url of the link.
+    * The URL of the link.
     *
     * @param string $val The value of the href
     *

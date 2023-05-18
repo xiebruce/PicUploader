@@ -26,6 +26,34 @@ class RbacApplication extends Entity
 {
 
      /**
+     * Gets the resourceNamespaces
+     *
+     * @return array|null The resourceNamespaces
+     */
+    public function getResourceNamespaces()
+    {
+        if (array_key_exists("resourceNamespaces", $this->_propDict)) {
+           return $this->_propDict["resourceNamespaces"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the resourceNamespaces
+    *
+    * @param UnifiedRbacResourceNamespace[] $val The resourceNamespaces
+    *
+    * @return RbacApplication
+    */
+    public function setResourceNamespaces($val)
+    {
+        $this->_propDict["resourceNamespaces"] = $val;
+        return $this;
+    }
+
+
+     /**
      * Gets the roleAssignments
     * Resource to grant access to users or groups.
      *

@@ -1,9 +1,11 @@
 <?php
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu\Http\Client;
 
-class DownloadTest extends \PHPUnit_Framework_TestCase
+class DownloadTest extends TestCase
 {
     public function test()
     {

@@ -14,7 +14,10 @@
     "autoload": {
         "psr-4": {
             "MyCLabs\\Enum\\": "src/"
-        }
+        },
+        "classmap": [
+            "stubs/Stringable.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -22,11 +25,12 @@
         }
     },
     "require": {
-        "php": ">=5.4",
+        "php": "^7.3 || ^8.0",
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
-        "squizlabs/php_codesniffer": "1.*"
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "1.*",
+        "vimeo/psalm": "^4.6.2"
     }
 }

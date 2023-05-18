@@ -701,4 +701,35 @@ class Security extends Entity
         return $this;
     }
 
+    /**
+    * Gets the threatIntelligence
+    *
+    * @return \Beta\Microsoft\Graph\SecurityNamespace\Model\ThreatIntelligence|null The threatIntelligence
+    */
+    public function getThreatIntelligence()
+    {
+        if (array_key_exists("threatIntelligence", $this->_propDict)) {
+            if (is_a($this->_propDict["threatIntelligence"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\ThreatIntelligence") || is_null($this->_propDict["threatIntelligence"])) {
+                return $this->_propDict["threatIntelligence"];
+            } else {
+                $this->_propDict["threatIntelligence"] = new \Beta\Microsoft\Graph\SecurityNamespace\Model\ThreatIntelligence($this->_propDict["threatIntelligence"]);
+                return $this->_propDict["threatIntelligence"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the threatIntelligence
+    *
+    * @param \Beta\Microsoft\Graph\SecurityNamespace\Model\ThreatIntelligence $val The threatIntelligence
+    *
+    * @return Security
+    */
+    public function setThreatIntelligence($val)
+    {
+        $this->_propDict["threatIntelligence"] = $val;
+        return $this;
+    }
+
 }

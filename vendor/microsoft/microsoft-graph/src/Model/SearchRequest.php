@@ -277,6 +277,32 @@ class SearchRequest extends Entity
         $this->_propDict["queryAlterationOptions"] = $val;
          return $this;
     }
+    /**
+    * Gets the region
+    *
+    * @return string|null The region
+    */
+    public function getRegion()
+    {
+        if (array_key_exists("region", $this->_propDict)) {
+            return $this->_propDict["region"];
+        } else {
+            return null;
+        }
+    }
+
+    /**
+    * Sets the region
+    *
+    * @param string $val The value of the region
+    *
+    * @return SearchRequest
+    */
+    public function setRegion($val)
+    {
+        $this->_propDict["region"] = $val;
+        return $this;
+    }
 
     /**
     * Gets the resultTemplateOptions
@@ -306,6 +332,37 @@ class SearchRequest extends Entity
     public function setResultTemplateOptions($val)
     {
         $this->_propDict["resultTemplateOptions"] = $val;
+         return $this;
+    }
+
+    /**
+    * Gets the sharePointOneDriveOptions
+    *
+    * @return SharePointOneDriveOptions|null The sharePointOneDriveOptions
+    */
+    public function getSharePointOneDriveOptions()
+    {
+        if (array_key_exists("sharePointOneDriveOptions", $this->_propDict)) {
+            if (is_a($this->_propDict["sharePointOneDriveOptions"], "\Microsoft\Graph\Model\SharePointOneDriveOptions") || is_null($this->_propDict["sharePointOneDriveOptions"])) {
+                return $this->_propDict["sharePointOneDriveOptions"];
+            } else {
+                $this->_propDict["sharePointOneDriveOptions"] = new SharePointOneDriveOptions($this->_propDict["sharePointOneDriveOptions"]);
+                return $this->_propDict["sharePointOneDriveOptions"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the sharePointOneDriveOptions
+    *
+    * @param SharePointOneDriveOptions $val The value to assign to the sharePointOneDriveOptions
+    *
+    * @return SearchRequest The SearchRequest
+    */
+    public function setSharePointOneDriveOptions($val)
+    {
+        $this->_propDict["sharePointOneDriveOptions"] = $val;
          return $this;
     }
     /**

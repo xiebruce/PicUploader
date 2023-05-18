@@ -26,6 +26,7 @@ class PrinterShareViewpoint extends Entity
 
     /**
     * Gets the lastUsedDateTime
+    * Date and time when the printer was last used by the signed-in user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @return \DateTime|null The lastUsedDateTime
     */
@@ -44,6 +45,7 @@ class PrinterShareViewpoint extends Entity
 
     /**
     * Sets the lastUsedDateTime
+    * Date and time when the printer was last used by the signed-in user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
     *
     * @param \DateTime $val The value to assign to the lastUsedDateTime
     *

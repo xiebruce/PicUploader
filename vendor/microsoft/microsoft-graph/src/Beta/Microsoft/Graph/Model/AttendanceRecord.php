@@ -56,7 +56,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Gets the emailAddress
-    * Email address of the user associated with this atttendance record.
+    * Email address of the user associated with this attendance record.
     *
     * @return string|null The emailAddress
     */
@@ -71,7 +71,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Sets the emailAddress
-    * Email address of the user associated with this atttendance record.
+    * Email address of the user associated with this attendance record.
     *
     * @param string $val The emailAddress
     *
@@ -85,7 +85,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Gets the identity
-    * Identity of the user associated with this atttendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
+    * Identity of the user associated with this attendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
     *
     * @return Identity|null The identity
     */
@@ -104,7 +104,7 @@ class AttendanceRecord extends Entity
 
     /**
     * Sets the identity
-    * Identity of the user associated with this atttendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
+    * Identity of the user associated with this attendance record. The specific type will be one of the following derived types of identity, depending on the type of the user: communicationsUserIdentity, azureCommunicationServicesUserIdentity.
     *
     * @param Identity $val The identity
     *

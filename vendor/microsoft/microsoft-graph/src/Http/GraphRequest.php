@@ -545,7 +545,7 @@ class GraphRequest
             $clientSettings['verify'] = $this->proxyVerifySSL;
             $clientSettings['proxy'] = $this->proxyPort;
         }
-        if (extension_loaded('curl') && defined('CURL_VERSION_HTTP2') && (curl_version()["features"] & CURL_VERSION_HTTP2 !== 0)) {
+        if (extension_loaded('curl') && defined('CURL_VERSION_HTTP2') && (curl_version()["features"] & CURL_VERSION_HTTP2) == CURL_VERSION_HTTP2) {
 
             // Enable HTTP/2 if curl lib exists and supports it
             $clientSettings['version'] = '2';

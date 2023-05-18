@@ -966,6 +966,39 @@ class ManagedAppProtection extends ManagedAppPolicy
     }
 
     /**
+    * Gets the mobileThreatDefensePartnerPriority
+    * Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
+    *
+    * @return MobileThreatDefensePartnerPriority|null The mobileThreatDefensePartnerPriority
+    */
+    public function getMobileThreatDefensePartnerPriority()
+    {
+        if (array_key_exists("mobileThreatDefensePartnerPriority", $this->_propDict)) {
+            if (is_a($this->_propDict["mobileThreatDefensePartnerPriority"], "\Beta\Microsoft\Graph\Model\MobileThreatDefensePartnerPriority") || is_null($this->_propDict["mobileThreatDefensePartnerPriority"])) {
+                return $this->_propDict["mobileThreatDefensePartnerPriority"];
+            } else {
+                $this->_propDict["mobileThreatDefensePartnerPriority"] = new MobileThreatDefensePartnerPriority($this->_propDict["mobileThreatDefensePartnerPriority"]);
+                return $this->_propDict["mobileThreatDefensePartnerPriority"];
+            }
+        }
+        return null;
+    }
+
+    /**
+    * Sets the mobileThreatDefensePartnerPriority
+    * Indicates how to prioritize which Mobile Threat Defense (MTD) partner is enabled for a given platform, when more than one is enabled. An app can only be actively using a single Mobile Threat Defense partner. When NULL, Microsoft Defender will be given preference. Otherwise setting the value to defenderOverThirdPartyPartner or thirdPartyPartnerOverDefender will make explicit which partner to prioritize. Possible values are: null, defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender and unknownFutureValue. Default value is null. Possible values are: defenderOverThirdPartyPartner, thirdPartyPartnerOverDefender, unknownFutureValue.
+    *
+    * @param MobileThreatDefensePartnerPriority $val The mobileThreatDefensePartnerPriority
+    *
+    * @return ManagedAppProtection
+    */
+    public function setMobileThreatDefensePartnerPriority($val)
+    {
+        $this->_propDict["mobileThreatDefensePartnerPriority"] = $val;
+        return $this;
+    }
+
+    /**
     * Gets the mobileThreatDefenseRemediationAction
     * Determines what action to take if the mobile threat defense threat threshold isn't met. Warn isn't a supported value for this property. Possible values are: block, wipe, warn.
     *

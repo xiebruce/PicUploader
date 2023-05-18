@@ -1,9 +1,11 @@
 <?php
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu\Http\Header;
 
-class HeaderTest extends \PHPUnit_Framework_TestCase
+class HeaderTest extends TestCase
 {
     protected $heads = array(
         ':status' => array('200'),

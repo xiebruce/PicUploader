@@ -57,7 +57,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Gets the approvalState
-    * Possible values are: pending, approved, denied, aborted, canceled.
     *
     * @return ApprovalState|null The approvalState
     */
@@ -76,7 +75,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Sets the approvalState
-    * Possible values are: pending, approved, denied, aborted, canceled.
     *
     * @param ApprovalState $val The approvalState
     *
@@ -144,7 +142,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Gets the endDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime|null The endDateTime
     */
@@ -163,7 +160,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Sets the endDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The endDateTime
     *
@@ -231,7 +227,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Gets the startDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @return \DateTime|null The startDateTime
     */
@@ -250,7 +245,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Sets the startDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
     *
     * @param \DateTime $val The startDateTime
     *
@@ -291,7 +285,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Gets the request
-    * Read-only. The role assignment request for this approval object
     *
     * @return PrivilegedRoleAssignmentRequest|null The request
     */
@@ -310,7 +303,6 @@ class PrivilegedApproval extends Entity
 
     /**
     * Sets the request
-    * Read-only. The role assignment request for this approval object
     *
     * @param PrivilegedRoleAssignmentRequest $val The request
     *

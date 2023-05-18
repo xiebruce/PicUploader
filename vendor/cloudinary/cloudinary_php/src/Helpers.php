@@ -253,7 +253,7 @@ namespace {
 
         $kbytes_step = (int)ceil($bytes_step / 1024);
 
-        $width_param = "auto:breakpoints_${min_width}_${max_width}_${kbytes_step}_${max_images}:json";
+        $width_param = "auto:breakpoints_{$min_width}_{$max_width}_{$kbytes_step}_{$max_images}:json";
         // We use Cloudinary::cloudinary_scaled_url function, passing special `width` parameter
         $breakpoints_url = Cloudinary::cloudinary_scaled_url($public_id, $width_param, $transformation, $options);
 
@@ -827,11 +827,11 @@ namespace {
         $media_query_conditions = [];
 
         if (!empty($media_options['min_width'])) {
-            array_push($media_query_conditions, "(min-width: ${media_options['min_width']}px)");
+            array_push($media_query_conditions, "(min-width: {$media_options['min_width']}px)");
         }
 
         if (!empty($media_options['max_width'])) {
-            array_push($media_query_conditions, "(max-width: ${media_options['max_width']}px)");
+            array_push($media_query_conditions, "(max-width: {$media_options['max_width']}px)");
         }
 
         if (empty($media_query_conditions)) {

@@ -26,6 +26,7 @@ class ActionStep extends Entity
 
     /**
     * Gets the actionUrl
+    * A link to the documentation or Azure portal page that is associated with the action step.
     *
     * @return ActionUrl|null The actionUrl
     */
@@ -44,6 +45,7 @@ class ActionStep extends Entity
 
     /**
     * Sets the actionUrl
+    * A link to the documentation or Azure portal page that is associated with the action step.
     *
     * @param ActionUrl $val The value to assign to the actionUrl
     *
@@ -56,6 +58,7 @@ class ActionStep extends Entity
     }
     /**
     * Gets the stepNumber
+    * Indicates the position for this action in the order of the collection of actions to be taken.
     *
     * @return int|null The stepNumber
     */
@@ -70,6 +73,7 @@ class ActionStep extends Entity
 
     /**
     * Sets the stepNumber
+    * Indicates the position for this action in the order of the collection of actions to be taken.
     *
     * @param int $val The value of the stepNumber
     *
@@ -82,6 +86,7 @@ class ActionStep extends Entity
     }
     /**
     * Gets the text
+    * Friendly description of the action to take.
     *
     * @return string|null The text
     */
@@ -96,6 +101,7 @@ class ActionStep extends Entity
 
     /**
     * Sets the text
+    * Friendly description of the action to take.
     *
     * @param string $val The value of the text
     *

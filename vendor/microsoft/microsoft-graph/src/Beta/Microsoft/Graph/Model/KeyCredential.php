@@ -26,7 +26,7 @@ class KeyCredential extends Entity
 
     /**
     * Gets the customKeyIdentifier
-    * Custom key identifier
+    * A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
     *
     * @return \GuzzleHttp\Psr7\Stream|null The customKeyIdentifier
     */
@@ -45,7 +45,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the customKeyIdentifier
-    * Custom key identifier
+    * A 40-character binary type that can be used to identify the credential. Optional. When not provided in the payload, defaults to the thumbprint of the certificate.
     *
     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the customKeyIdentifier
     *
@@ -213,7 +213,7 @@ class KeyCredential extends Entity
     }
     /**
     * Gets the type
-    * The type of key credential; for example, Symmetric, AsymmetricX509Cert.
+    * The type of key credential; for example, Symmetric, AsymmetricX509Cert, or X509CertAndPassword.
     *
     * @return string|null The type
     */
@@ -228,7 +228,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the type
-    * The type of key credential; for example, Symmetric, AsymmetricX509Cert.
+    * The type of key credential; for example, Symmetric, AsymmetricX509Cert, or X509CertAndPassword.
     *
     * @param string $val The value of the type
     *
@@ -241,7 +241,7 @@ class KeyCredential extends Entity
     }
     /**
     * Gets the usage
-    * A string that describes the purpose for which the key can be used; for example, Verify.
+    * A string that describes the purpose for which the key can be used; for example, None​, Verify​, PairwiseIdentifier​, Delegation​, Decrypt​, Encrypt​, HashedIdentifier​, SelfSignedTls, or Sign. If usage is Sign​, the type should be X509CertAndPassword​, and the passwordCredentials​ for signing should be defined.
     *
     * @return string|null The usage
     */
@@ -256,7 +256,7 @@ class KeyCredential extends Entity
 
     /**
     * Sets the usage
-    * A string that describes the purpose for which the key can be used; for example, Verify.
+    * A string that describes the purpose for which the key can be used; for example, None​, Verify​, PairwiseIdentifier​, Delegation​, Decrypt​, Encrypt​, HashedIdentifier​, SelfSignedTls, or Sign. If usage is Sign​, the type should be X509CertAndPassword​, and the passwordCredentials​ for signing should be defined.
     *
     * @param string $val The value of the usage
     *

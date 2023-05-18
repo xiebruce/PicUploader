@@ -1,10 +1,12 @@
 <?php
 namespace Qiniu\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 use Qiniu\Processing\Operation;
 use Qiniu\Processing\PersistentFop;
 
-class FopTest extends \PHPUnit_Framework_TestCase
+class FopTest extends TestCase
 {
     public function testExifPub()
     {

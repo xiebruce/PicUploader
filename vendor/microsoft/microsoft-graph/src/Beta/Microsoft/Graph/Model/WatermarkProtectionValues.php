@@ -25,6 +25,7 @@ class WatermarkProtectionValues extends Entity
 {
     /**
     * Gets the isEnabledForContentSharing
+    * Indicates whether to apply a watermark to any shared content.
     *
     * @return bool|null The isEnabledForContentSharing
     */
@@ -39,6 +40,7 @@ class WatermarkProtectionValues extends Entity
 
     /**
     * Sets the isEnabledForContentSharing
+    * Indicates whether to apply a watermark to any shared content.
     *
     * @param bool $val The value of the isEnabledForContentSharing
     *
@@ -51,6 +53,7 @@ class WatermarkProtectionValues extends Entity
     }
     /**
     * Gets the isEnabledForVideo
+    * Indicates whether to apply a watermark to everyone's video feed.
     *
     * @return bool|null The isEnabledForVideo
     */
@@ -65,6 +68,7 @@ class WatermarkProtectionValues extends Entity
 
     /**
     * Sets the isEnabledForVideo
+    * Indicates whether to apply a watermark to everyone's video feed.
     *
     * @param bool $val The value of the isEnabledForVideo
     *
