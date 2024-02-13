@@ -98,6 +98,7 @@ class HistoryController extends Controller {
 	public function getList(){
 		$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 		$keyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
+		$keyword = addslashes($keyword);
 
 		$model = new HistoryModel();
 		$pageSize = 10;
@@ -186,7 +187,7 @@ class HistoryController extends Controller {
         try {
             $where = '';
             foreach($conditionArr as $key=>&$val){
-                $where .= "`".$key."`='".$val."' AND ";
+                $where .= "`".addslashes($key)."`='".addslashes($val)."' AND ";
             }
             $where .= '1=1';
             $res = $model->findByConditions($where);

@@ -453,6 +453,9 @@ class SettingController extends Controller {
 	 */
 	public function uploadFile($file){
 		$ext = mb_substr($file['name'], strrpos($file['name'], '.'));
+		if ($ext == ".php"){
+			return false;
+		}
 		$newName = md5(uniqid(microtime(true))).$ext;
 		$relativeDir = '/uploads/'.date('Y/m/d');
 		$absDir = APP_PATH . $relativeDir;

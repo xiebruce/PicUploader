@@ -27,6 +27,6 @@
 	
 	$className = '\\settings\\'.(!isset($_GET['class']) ? 'SettingController' : $_GET['class']);
 	if($func){
-		$json = call_user_func_array(array((new $className()), $func), [$_REQUEST]);
+		$json = call_user_func_array([(new $className()), $func], [$_REQUEST]);
 		echo $json;
 	}

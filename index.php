@@ -85,6 +85,10 @@
 		//handle receive multi file upload
 		if(is_array($files['tmp_name'])){
 			foreach($files['tmp_name'] as $key=>$tmp_name){
+				$ext = mb_substr($files['name'][$key], strrpos($files['name'][$key], '.'));
+				if (strtolower($ext) == '.php'){
+					continue;
+				}
 				$dest = $tmpDir.'/'.$files['name'][$key];
 				if(move_uploaded_file($tmp_name, $dest)){
 					$argv[] = $dest;
@@ -94,8 +98,11 @@
 			//handle receive single file upload
 			$dest = $tmpDir.'/'.$files['name'];
 			$tmp_name = $files['tmp_name'];
-			if(move_uploaded_file($tmp_name, $dest)){
-				$argv[] = $dest;
+			$ext = mb_substr($files['name'], strrpos($files['name'], '.'));
+			if (strtolower($ext) != '.php'){
+				if(move_uploaded_file($tmp_name, $dest)){
+					$argv[] = $dest;
+				}
 			}
 		}
 		//如果有传参数
